@@ -43,7 +43,7 @@ throughput, which is a non-issue at this scope.
 
 ## 2. Findings and what was done about each
 
-### Fixed today (low-risk, mechanically verified, committed in `d2d841f`)
+### Fixed today (low-risk, mechanically verified)
 
 1. **Dead code** — `aixl/translators/aixl_to_semantic.py` and `semantic_to_aixl.py` were 1-line
    re-export shims into `aixl.serialization.aixl_codec`, with **zero references** anywhere in the
@@ -95,12 +95,18 @@ throughput, which is a non-issue at this scope.
    model is safe, red means keep the two files. Not worth the downside for a maintainability-only change
    without that check.
 
-5. **`to_graph()` size**: ~450 lines, many sequential regex stages, several already delimited by their
-   own comment headers (output format, visibility, "without X" constraint, date ranges). The single
-   highest-friction file to extend safely. Recommended, not executed: extract the clearly-bounded,
-   low-interdependency stages into named private helpers via pure code motion (same locals in, same
-   locals out, same call order) — left as a follow-up given the volume of already-completed work today,
-   since each extraction needs the same translator-accuracy-script re-verification as #3.
+5. **`to_graph()` size** — **done** (commit `70c6e5a`). Extracted the 14 clearly-bounded,
+   low-interdependency post-action-detection stages (output format, visibility, "without X" constraint,
+   date ranges, quantities/selection, aggregate qualifiers, name/numeric references, structured
+   conditions, intent/goal derivation, step order, forbidden/allowed application) into named private
+   helpers via pure code motion — same locals in, same locals out, same call order, nothing reordered.
+   Deliberately left the action-detection block (pos/forbidden/allowed construction, the E-INTEROP
+   tie-break) untouched in place, exactly as flagged above — highest transcription risk, not worth it
+   for a maintainability-only change.
+   **Verification, not just tests**: full suite 154/154; rule-based translator accuracy on all 4 frozen
+   blind sets (`blind_eval` rounds 1-4) — compared via `git stash` against the pre-refactor commit —
+   tp/fp/fn/tn identical, byte-for-byte, in every round; both negotiation benchmarks unchanged (19/21,
+   19/21). Zero behavioral drift on the exact numbers this project reports as evidence.
 
 ## 3. What was checked and found clean
 
@@ -110,9 +116,12 @@ single-responsibility, no duplicated logic beyond what's listed above, no dead c
 
 ## 4. Net result
 
-- 2 dead files removed, 1 mutable-global anti-pattern fixed — both committed, both verified with **zero
-  behavioral drift** (154/154 tests; 19/21 + 19/21 benchmarks identical to pre-refactor).
-- 3 further real, evidenced opportunities documented above with a concrete risk each and a safe
-  verification path — deliberately left untouched today, per the explicit instruction to improve
+- 2 dead files removed, 1 mutable-global anti-pattern fixed, and `to_graph()`'s 14 safely-separable
+  stages extracted into named functions — all committed, all verified with **zero behavioral drift**
+  (154/154 tests; rule-based translator accuracy identical byte-for-byte on all 4 frozen blind sets;
+  19/21 + 19/21 negotiation benchmarks unchanged).
+- 2 further real, evidenced opportunities documented above with a concrete risk each and a safe
+  verification path — deliberately left untouched, per the explicit instruction to improve
   quality/maintainability without changing functionality, where "safe" could not yet be proven to the
-  same standard as the two changes actually made.
+  same standard as the changes actually made: the duplicated verb-vocabulary tables (#3) and the
+  negotiate()/negotiate_autonomous_async() round-loop duplication (#4).
