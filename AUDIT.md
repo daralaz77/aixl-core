@@ -84,23 +84,32 @@ throughput, which is a non-issue at this scope.
    blind sets identical byte-for-byte (tp/fp/fn/tn) to the pre-merge commit; both negotiation benchmarks
    unchanged (19/21, 19/21).
 
-4. **Deliberate duplication**: `negotiation.py`'s `negotiate()` vs `autonomous_negotiation.py`'s
-   `negotiate_autonomous_async()` share a near-identical ~40-line round-loop (REQUEST → loop{compare,
-   CLARIFY, irreversible-action check, fetch sender value, ANSWER} → ACCEPT/REJECT) — one sync+local,
-   one async+remote-MCP.
+4. **Deliberate duplication** — **done** (commit `33497a6`). `negotiation.py`'s `negotiate()` vs
+   `autonomous_negotiation.py`'s `negotiate_autonomous_async()` shared a near-identical ~40-line
+   round-loop (REQUEST → loop{compare, CLARIFY, fetch sender value, empty-check, irreversible-action
+   check, ANSWER} → ACCEPT/REJECT) — one sync+local, one async+remote-MCP.
 
-   I sketched a merge (a shared async core parameterized by a `get_answer` callback, with `negotiate()`
-   wrapping it via `asyncio.run()`) and stopped when I found a concrete risk: the real `aixl_negotiate`
-   MCP tool is a **sync** tool handler that calls `negotiate()` directly from inside the `mcp` SDK's own
-   async dispatch loop. If that SDK calls sync tool handlers directly on its event-loop thread (rather
-   than via a thread/executor — I did not verify which), `negotiate()` internally calling `asyncio.run()`
-   would raise `RuntimeError: cannot be called from a running event loop` and break the tool that all
-   three independent vendor clients (Claude Desktop, ChatGPT/Codex, Antigravity) already validated.
+   The risk flagged above was resolved, not assumed: read the `mcp` SDK's own source
+   (`mcp.server.mcpserver.utilities.func_metadata.FuncMetadata.call_fn`) and confirmed a sync tool
+   handler runs via `anyio.to_thread.run_sync` — a genuine worker thread with no event loop of its own —
+   so `negotiate()` calling `asyncio.run()` internally is safe from `aixl_negotiate`'s sync MCP handler.
+   Extracted the shared control flow into `_negotiate_core()` (async, in `negotiation.py`), parameterized
+   by `get_request()`/`get_answer(dim, belief)` — the only real difference between the two callers is
+   where the sender's data comes from.
 
-   **Safe path, if done**: `test_mcp_integration.py` already has a real-stdio test for `aixl_negotiate`;
-   attempt the merge on a throwaway branch and run exactly that test first — green means the dispatch
-   model is safe, red means keep the two files. Not worth the downside for a maintainability-only change
-   without that check.
+   **A real behavioral difference surfaced during the merge, not shipped blind**: an initial version
+   assumed the empty-sender-value REJECT and the irreversible-action REJECT were mutually exclusive
+   (reasoning that d.source can't be both empty and irreversible) — true, but incomplete: d.target (the
+   *receiver's* own candidate) can independently be irreversible regardless of the sender's value. The
+   existing "Quita el ticket #77." test caught this immediately (wrong REJECT *reason* text, same
+   `converged=False`). Fixed by restoring `negotiate()`'s original check order exactly for both callers,
+   at the cost of the autonomous path no longer saving one round-trip in that specific reject case —
+   correctness over a micro-optimization.
+
+   **Verification**: full suite 154/154, including the real-subprocess MCP integration tests for both
+   tools; translator accuracy unaffected (this change never touches the translator); both negotiation
+   benchmarks unchanged (19/21, 19/21); a real CLI run (`cli.py negotiate "Close ticket #77." "Delete
+   ticket #77."`) still REJECTs with the identical reason.
 
 5. **`to_graph()` size** — **done** (commit `70c6e5a`). Extracted the 14 clearly-bounded,
    low-interdependency post-action-detection stages (output format, visibility, "without X" constraint,
@@ -132,6 +141,12 @@ single-responsibility, no duplicated logic beyond what's listed above, no dead c
   byte-for-byte blind-set accuracy, unchanged negotiation benchmarks). The two tables' *content* stays
   split (0.2 vendored base vs 0.3 extensions) and the action-detection block's asymmetric use of them
   stays untouched — merging the content itself remains a separate, still-open, higher-risk item.
-- 1 further real, evidenced opportunity documented above with a concrete risk and a safe verification
-  path — deliberately left untouched: the negotiate()/negotiate_autonomous_async() round-loop
-  duplication (#4).
+- Finding #4 closed: the negotiate()/negotiate_autonomous_async() round-loop is now one function
+  (`_negotiate_core`), not two — the risk that blocked it was investigated and resolved (not assumed)
+  by reading the `mcp` SDK's own dispatch code, and a real behavioral difference the merge surfaced was
+  caught by the existing test suite and fixed before shipping, not missed.
+
+All 5 original audit findings are now resolved: 2 fixed outright, 2 merged after their flagged risks
+were actually investigated (one turned out safe, one needed a genuine fix), and 1 (the verb tables'
+*content*, as opposed to their concatenation) remains deliberately split, since merging it still needs
+the isolated-session, full-benchmark treatment described in finding #3 above.
