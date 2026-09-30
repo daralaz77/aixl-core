@@ -124,6 +124,24 @@ throughput, which is a non-issue at this scope.
    tp/fp/fn/tn identical, byte-for-byte, in every round; both negotiation benchmarks unchanged (19/21,
    19/21). Zero behavioral drift on the exact numbers this project reports as evidence.
 
+## 2b. Bug found by CI itself (2026-09-30, after this audit shipped)
+
+Adding GitHub Actions CI (`.github/workflows/tests.yml`, matrix Python 3.11/3.12) immediately caught a
+real cross-version bug this audit's own local verification could never have found: local dev always ran
+on Python 3.14, where `f"...{re.match(r'...\\\\...', v)...}"` (a raw regex with backslashes written
+directly inside an f-string expression, `aixl/legacy02/core/encoder.py:29`) silently worked — that
+syntax is only valid from Python 3.12 on (PEP 701). On the project's own declared floor
+(`requires-python >= 3.11`), it's a `SyntaxError` that fails to even import the package. Fixed by
+precompiling the pattern as a module-level constant (`_BARE_SCALAR`) instead of embedding regex syntax
+in the f-string. Confirmed it was the only instance in the repo (grepped, then AST-walked every
+`FormattedValue` node for a literal backslash — zero other hits) and re-verified the full zero-drift
+standard on a REAL Python 3.11.16 (installed via Homebrew, this machine only had 3.14): 154/154 tests,
+translator accuracy identical on all 4 frozen blind sets, both negotiation benchmarks unchanged.
+
+This is the clearest argument for the CI this audit didn't originally include: every "zero behavioral
+drift" verification in this document was run only on whatever Python this machine happened to have —
+CI now runs it against the project's actual declared support range on every push.
+
 ## 3. What was checked and found clean
 
 `aixl/adapters/protocol_adapter.py` (ABC + small adapter classes), `aixl/core/comparator.py`,
