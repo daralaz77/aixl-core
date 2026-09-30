@@ -24,6 +24,14 @@ EXTRA_ACTION_RX = [
     ("UPDATE",  r"\b(actuali[zc](a|ar|e|es|en)|update[sd]?|modific(a|ar|ue|ues)|modify|edit(a|ar|e|es)?|cierra(s)?|close[sd]?|resuelve(s)?|resolve[sd]?|marc(a|ar|as)|mark(s|ed)?|flag(s|ged|ging)?)\b"),
     ("CREATE",  r"\b(program(a|ar|as|e)|schedul(e|es|ed|ing)|agenda(r)?)\b"),
 ]
+
+# Single source of truth for "every action verb the translator knows" (0.2 base + 0.3 extensions),
+# so callers that need the full vocabulary reference this list instead of each re-concatenating
+# `legacy.ACTION_RX + EXTRA_ACTION_RX` by hand (that pattern was duplicated across 5 call sites and
+# is easy to get wrong by silently omitting `EXTRA_ACTION_RX`). Order preserved: legacy first, then
+# extensions, exactly as every prior call site computed it.
+ALL_ACTION_RX = legacy.ACTION_RX + EXTRA_ACTION_RX
+
 FORBID_CUE = re.compile(r"(?:prohib\w*|proib\w*|forbid\w*|forbidden|not allowed|no (?:esta )?permitid\w*|no se permite|veto\w*)\s+(?:\w+\s+){0,2}$")
 ALLOW_CUE = re.compile(r"(?:permit\w*|allow\w*|autoriz\w*|se permite|is allowed to|are allowed to)\s+(?:\w+\s+){0,2}$")
 
@@ -72,7 +80,7 @@ class SemanticNormalizer:
 
     def normalize_action(self, word: str) -> str | None:
         s = strip_accents(word)
-        for act, rx in legacy.ACTION_RX + EXTRA_ACTION_RX:
+        for act, rx in ALL_ACTION_RX:
             if re.search(rx, s):
                 return act
         return None

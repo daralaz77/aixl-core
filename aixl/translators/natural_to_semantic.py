@@ -12,8 +12,8 @@ from aixl.legacy02.translators import natural_to_semantic as legacy
 from aixl.legacy02.core.semantic_frame import SemanticFrame
 from aixl.legacy02.core.normalizer import normalize as _norm_frame
 from aixl.legacy02.protocol.atoms import derive_intent, derive_goal
-from aixl.core.normalizer import (SemanticNormalizer, EXTRA_ACTION_RX, FORBID_CUE, ALLOW_CUE, AGG_MAP, OUTPUT_ALIASES,
-                                  strip_accents, UNIT_MAP, STOP)
+from aixl.core.normalizer import (SemanticNormalizer, EXTRA_ACTION_RX, ALL_ACTION_RX, FORBID_CUE, ALLOW_CUE, AGG_MAP,
+                                  OUTPUT_ALIASES, strip_accents, UNIT_MAP, STOP)
 from aixl.core.ontology import resolve_relative_time_str
 from aixl.core.semantic_graph import SemanticGraph
 
@@ -22,7 +22,7 @@ NORM = SemanticNormalizer()
 
 @functools.lru_cache(maxsize=1)
 def _all_action_rx():
-    return [(a, re.compile(rx.replace(r"\b", ""))) for a, rx in legacy.ACTION_RX + EXTRA_ACTION_RX]
+    return [(a, re.compile(rx.replace(r"\b", ""))) for a, rx in ALL_ACTION_RX]
 
 
 def _action_of_word(w: str):

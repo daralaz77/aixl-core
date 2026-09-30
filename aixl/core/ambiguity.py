@@ -6,7 +6,7 @@ import re
 from dataclasses import dataclass, field
 
 from aixl.legacy02.translators import natural_to_semantic as legacy
-from aixl.core.normalizer import strip_accents, EXTRA_ACTION_RX
+from aixl.core.normalizer import strip_accents, ALL_ACTION_RX
 from aixl.core.semantic_graph import SemanticGraph
 from aixl.translators.natural_to_semantic import to_graph
 
@@ -77,7 +77,7 @@ def _noun_positions(s: str) -> dict:
 
 def _action_positions(s: str) -> dict:
     pos = {}
-    for act, rx in legacy.ACTION_RX + EXTRA_ACTION_RX:
+    for act, rx in ALL_ACTION_RX:
         for m in re.finditer(rx, s):
             pos.setdefault(act, m.start())
     return pos
@@ -97,7 +97,7 @@ def detect_ambiguity_graph(text: str, graph: SemanticGraph | None = None) -> Amb
     pron += [(m.start(), "el") for m in ES_EL_PRONOUN.finditer(s)]
     for word in re.findall(r"[a-z]+", s):                       # enclitic pronouns: "analizalo", "clasificalos"
         m = re.fullmatch(r"([a-z]+?)(lo|la|los|las|le|les|me)", word)
-        if m and any(re.search(rx, m.group(1)) for _a, rx in legacy.ACTION_RX + EXTRA_ACTION_RX):
+        if m and any(re.search(rx, m.group(1)) for _a, rx in ALL_ACTION_RX):
             pron.append((s.find(word), m.group(2)))
     for p, w in pron:
         before = {k for k, v in nouns.items() if v < p and (not k.startswith("#")) and (w in PLURAL_PRON) == _PLURAL.get(k, False)} \
@@ -122,7 +122,7 @@ def detect_ambiguity_graph(text: str, graph: SemanticGraph | None = None) -> Amb
     targets = canon["data"] + canon["entities"] + canon["references"] + canon["quantities"]
     if live:
         content = [w for w in re.findall(r"[a-z]{3,}", s) if w not in STOPWORDS
-                   and not any(re.fullmatch(rx.replace(r"\b", ""), w) for _a, rx in legacy.ACTION_RX + EXTRA_ACTION_RX)]
+                   and not any(re.fullmatch(rx.replace(r"\b", ""), w) for _a, rx in ALL_ACTION_RX)]
         if UNIVERSAL.search(s) and not targets:
             findings.append(Finding("TARGET", "UNSPECIFIED_SCOPE", UNIVERSAL.search(s).group(), 0.8))
         elif not content:
