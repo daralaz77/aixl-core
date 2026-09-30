@@ -353,7 +353,10 @@ def _extra_time_extensions(frame, text_stripped: str) -> None:
             break
 
 
-def to_graph(text: str, today: date | None = None) -> SemanticGraph:
+def _prepare_frame(text: str, today: date | None):
+    """Preprocessing stage: text normalization, structured conditions/assertions/passives extraction
+    (with clause masking), the 0.2 analyzer pass, and time resolution. Returns everything the
+    action-detection stage in to_graph() needs, in the same order it was computed before extraction."""
     pre = _preprocess(text)
     pre = _fold_inflections(pre)
     pre, conds = _cond_clauses(pre)
@@ -372,6 +375,143 @@ def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     s = strip_accents(pre)
     frame.time = _resolve_relative_time(frame.time, today or date.today())
     _extra_time_extensions(frame, s)
+    return frame, pre, s, conds, passives, warns, conf
+
+
+def _apply_forbidden_allowed(frame, forbidden: set, allowed: set) -> None:
+    for a in sorted(forbidden):
+        if a in frame.actions:
+            if "NO_" + a not in frame.negations:
+                frame.negations.append("NO_" + a)
+            if "FORBID_" + a not in frame.constraints:
+                frame.constraints.append("FORBID_" + a)
+    for a in sorted(allowed - forbidden):
+        frame.constraints.append("ALLOW_" + a)
+        frame.conditions = [c for c in frame.conditions if c != "AMBIGUOUS_MODALITY"]
+
+
+def _apply_step_order(frame, s: str) -> bool:
+    """'X antes de Y' / 'X after Y-ing' reorder the actions; returns whether order was stated at all."""
+    ordered = bool(re.search(r"\b(luego|despues|then|afterwards|primero|first|depois|antes de|before|after)\b", s))
+    for m in re.finditer(r"\b(antes de|before|despues de|after|depois de)\s+([a-z]+)", s):
+        act = _action_of_word(m.group(2))
+        if act and act in frame.actions:
+            rest = [a for a in frame.actions if a != act]
+            frame.actions = (rest + [act]) if m.group(1) in ("antes de", "before") else ([act] + rest)
+    return ordered
+
+
+def _apply_quantities_and_selection(frame, pre: str, s: str, conf: dict) -> None:
+    """Quantities (0.2 COUNT replaced), ranking cues -> LIMIT, selection FIRST/LAST."""
+    frame.constraints = [c for c in frame.constraints if not c.startswith("COUNT=")]
+    qs = _quantities(pre, frame)
+    ranking = bool(RANK_CUE.search(s))
+    for num, unit, w1 in qs:
+        if w1 in ("mejores", "best", "principales", "principais", "top", "main", "leading") or (ranking and len(qs) == 1 and not any(c.startswith("LIMIT=") for c in frame.constraints)):
+            frame.constraints.append(f"LIMIT={num}")
+            continue
+        frame.constraints.append(f"QTY={num}" + (f":{unit}" if unit else ""))
+        conf[frame.constraints[-1]] = 0.95
+    for m in SELECT_RX.finditer(s):
+        nxt = re.match(r"\s*(?:de\s+)?([a-z]+)", s[m.end():])
+        if nxt and nxt.group(1) in TIME_UNITS:
+            continue
+        frame.constraints.append("SELECT=" + ("FIRST" if m.group(1).startswith(("primer", "first")) else "LAST"))
+
+
+def _apply_aggregate_qualifiers(frame, s: str) -> None:
+    for rx, code in AGG_MAP:
+        for m in re.finditer(rf"\b{rx}\s+(?:las?\s+|los\s+|the\s+)?(\w+)", s):
+            word = m.group(1)
+            for dcode, drx in legacy.DATA_RX:
+                if re.fullmatch(drx.replace(r"\b", ""), word) and dcode in frame.data:
+                    frame.data[frame.data.index(dcode)] = f"{code}_{dcode}"
+                    break
+
+
+def _detect_output_format(frame, s: str) -> None:
+    """Output formats beyond the 0.2 list."""
+    if not frame.output:
+        m = re.search(r"\b(?:en|como|as|in|into|to|a|para|em)\s+(?:un\s+|una\s+|uma\s+|a\s+)?(?:formato\s+(?:de\s+)?|format\s+|archivo\s+)?(pdf|xlsx|excel|html|xml|docx|word)\b", s)
+        if m:
+            frame.output = [OUTPUT_ALIASES[m.group(1)]]
+        else:
+            m = re.search(r"\b(json|csv|table|tabla|tabela|markdown|pdf)\s+(?:summary|report|resumen|reporte|file|archivo)\b", s)
+            if m:
+                frame.output = [{"tabla": "TABLE", "tabela": "TABLE", "table": "TABLE"}.get(m.group(1), m.group(1).upper())]
+    if not frame.output:
+        m = re.search(r"\b(?:formato\s+de\s+|em\s+forma\s+de\s+|en\s+forma\s+de\s+)(tabla|tabela|json|csv)\b", s)
+        if m:
+            frame.output = [{"tabla": "TABLE", "tabela": "TABLE"}.get(m.group(1), m.group(1).upper())]
+
+
+def _apply_without_constraint(frame, s: str) -> None:
+    """'without X' (noun, not a verb) is an explicit exclusion constraint."""
+    for m in re.finditer(r"\b(?:sin|without|sem)\s+(?:(?:un|una|uma|a|an|el|la|los|las|the|o|os|as)\s+)?([a-z]{3,})\b", s):
+        if not _action_of_word(m.group(1)) and not _action_of_word(re.sub(r"(ando|iendo|ing)$", "", m.group(1))):
+            frame.constraints.append("WITHOUT=" + m.group(1).upper())
+
+
+def _apply_visibility(frame, s: str) -> None:
+    if re.search(r"\b(publico|publica|publicos|publicas|public|publicly)\b", s):
+        frame.constraints.append("VISIBILITY=PUBLIC")
+    if re.search(r"\b(privado|privada|privados|privadas|private|confidencial|restringido|restringida)\b", s):
+        frame.constraints.append("VISIBILITY=PRIVATE")
+
+
+def _apply_date_relation_constraints(frame, s: str) -> None:
+    """before / after a date or period already extracted."""
+    for t in (frame.time.split(",") if frame.time else []):
+        for kw, con in ((r"antes de(?:l| la| el)?|before|prior to", "BEFORE"), (r"despues de(?:l| la| el)?|after|later than", "AFTER")):
+            if re.search(rf"\b(?:{kw})\s+(?:el\s+)?{re.escape(t.lower())}", s):
+                frame.constraints.append(f"{con}={t}")
+
+
+def _collapse_date_range_to_period(frame) -> None:
+    """date ranges equal to a quarter/month/year."""
+    isos = [t for t in frame.time.split(",") if re.fullmatch(r"\d{4}-\d{2}-\d{2}", t)] if frame.time else []
+    per = _range_to_period(isos)
+    if per:
+        frame.time = ",".join([t for t in frame.time.split(",") if t not in isos] + [per])
+
+
+def _apply_name_references(frame, text: str) -> None:
+    """names (recipients, quoted names) as references."""
+    for n in _names(text, frame):
+        if n not in frame.references:
+            frame.references.append(n)
+
+
+def _apply_numeric_references(frame, s: str) -> None:
+    """0.3 extension (E-DATE round 3, 2026-09-27): 'ticket/issue/event/report N' or 'N° 77' / 'number
+    77' without a literal '#' is still a reference, not a quantity (found by set 8 S8-008/030/061/095)."""
+    for m in re.finditer(
+        r"\b(?:ticket|issue|caso|case|reporte|report|evento|event|documento|document|informe|solicitud|request)\s+"
+        r"(?:numero|n[uú]mero|number|no\.?|num\.?)?\s*#?(\d+)\b|"
+        r"\b(?:numero|n[uú]mero|number|no\.?|num\.?)\s+#?(\d+)\b", s):
+        ref = "#" + (m.group(1) or m.group(2))
+        if ref not in frame.references:
+            frame.references.append(ref)
+
+
+def _filter_structured_conditions(frame, conds: list) -> None:
+    """structured conditions replace literal fragments the 0.2 analyzer could not normalize."""
+    if conds:
+        struct = re.compile(r"^(?:[A-Z_]+_EXISTS|COUNT[<>=]+[\w.:]+|H[<>=!]+[\w.]+|(?:NOT_)?CONTAINS:\w+)$")
+        frame.conditions = [c for c in frame.conditions if struct.match(c) or c in ("AMBIGUOUS_YEAR", "AMBIGUOUS_MODALITY")]
+
+
+def _derive_intent_goal(frame, conf: dict) -> None:
+    neg = [n[3:] for n in frame.negations]
+    frame.intent = derive_intent(frame.actions, neg)
+    frame.goal = derive_goal(frame.actions, frame.entities, neg)
+    for c in frame.conditions:
+        if c.startswith('"') or (" " in c and not c.startswith(("COUNT", "H"))):
+            conf[c] = 0.6
+
+
+def to_graph(text: str, today: date | None = None) -> SemanticGraph:
+    frame, pre, s, conds, passives, warns, conf = _prepare_frame(text, today)
     pos: dict = {}
     for act, rx in legacy.ACTION_RX:
         for m in re.finditer(rx, s):
@@ -433,114 +573,20 @@ def to_graph(text: str, today: date | None = None) -> SemanticGraph:
             frame.actions[frame.actions.index(gen_act)] = "SUMMARIZE"
             pos["SUMMARIZE"] = pos.get(gen_act, 0)
 
-    for a in sorted(forbidden):
-        if a in frame.actions:
-            if "NO_" + a not in frame.negations:
-                frame.negations.append("NO_" + a)
-            if "FORBID_" + a not in frame.constraints:
-                frame.constraints.append("FORBID_" + a)
-    for a in sorted(allowed - forbidden):
-        frame.constraints.append("ALLOW_" + a)
-        frame.conditions = [c for c in frame.conditions if c != "AMBIGUOUS_MODALITY"]
-
-    # --- step order: "X antes de Y" / "X after Y-ing" reorder the actions; the graph records that order was stated ---
-    ordered = bool(re.search(r"\b(luego|despues|then|afterwards|primero|first|depois|antes de|before|after)\b", s))
-    for m in re.finditer(r"\b(antes de|before|despues de|after|depois de)\s+([a-z]+)", s):
-        act = _action_of_word(m.group(2))
-        if act and act in frame.actions:
-            rest = [a for a in frame.actions if a != act]
-            frame.actions = (rest + [act]) if m.group(1) in ("antes de", "before") else ([act] + rest)
-
-    # --- quantities (0.2 COUNT replaced), ranking cues -> LIMIT, selection FIRST/LAST ---
-    frame.constraints = [c for c in frame.constraints if not c.startswith("COUNT=")]
-    qs = _quantities(pre, frame)
-    ranking = bool(RANK_CUE.search(s))
-    for num, unit, w1 in qs:
-        if w1 in ("mejores", "best", "principales", "principais", "top", "main", "leading") or (ranking and len(qs) == 1 and not any(c.startswith("LIMIT=") for c in frame.constraints)):
-            frame.constraints.append(f"LIMIT={num}")
-            continue
-        frame.constraints.append(f"QTY={num}" + (f":{unit}" if unit else ""))
-        conf[frame.constraints[-1]] = 0.95
-    for m in SELECT_RX.finditer(s):
-        nxt = re.match(r"\s*(?:de\s+)?([a-z]+)", s[m.end():])
-        if nxt and nxt.group(1) in TIME_UNITS:
-            continue
-        frame.constraints.append("SELECT=" + ("FIRST" if m.group(1).startswith(("primer", "first")) else "LAST"))
-
+    _apply_forbidden_allowed(frame, forbidden, allowed)
+    ordered = _apply_step_order(frame, s)
+    _apply_quantities_and_selection(frame, pre, s, conf)
     frame.conditions += conds
-
-    # --- aggregate qualifiers ---
-    for rx, code in AGG_MAP:
-        for m in re.finditer(rf"\b{rx}\s+(?:las?\s+|los\s+|the\s+)?(\w+)", s):
-            word = m.group(1)
-            for dcode, drx in legacy.DATA_RX:
-                if re.fullmatch(drx.replace(r"\b", ""), word) and dcode in frame.data:
-                    frame.data[frame.data.index(dcode)] = f"{code}_{dcode}"
-                    break
-
-    # --- output formats beyond the 0.2 list ---
-    if not frame.output:
-        m = re.search(r"\b(?:en|como|as|in|into|to|a|para|em)\s+(?:un\s+|una\s+|uma\s+|a\s+)?(?:formato\s+(?:de\s+)?|format\s+|archivo\s+)?(pdf|xlsx|excel|html|xml|docx|word)\b", s)
-        if m:
-            frame.output = [OUTPUT_ALIASES[m.group(1)]]
-        else:
-            m = re.search(r"\b(json|csv|table|tabla|tabela|markdown|pdf)\s+(?:summary|report|resumen|reporte|file|archivo)\b", s)
-            if m:
-                frame.output = [{"tabla": "TABLE", "tabela": "TABLE", "table": "TABLE"}.get(m.group(1), m.group(1).upper())]
-    if not frame.output:
-        m = re.search(r"\b(?:formato\s+de\s+|em\s+forma\s+de\s+|en\s+forma\s+de\s+)(tabla|tabela|json|csv)\b", s)
-        if m:
-            frame.output = [{"tabla": "TABLE", "tabela": "TABLE"}.get(m.group(1), m.group(1).upper())]
-
-    # --- "without X" (noun, not a verb) is an explicit exclusion constraint ---
-    for m in re.finditer(r"\b(?:sin|without|sem)\s+(?:(?:un|una|uma|a|an|el|la|los|las|the|o|os|as)\s+)?([a-z]{3,})\b", s):
-        if not _action_of_word(m.group(1)) and not _action_of_word(re.sub(r"(ando|iendo|ing)$", "", m.group(1))):
-            frame.constraints.append("WITHOUT=" + m.group(1).upper())
-
-    # --- visibility ---
-    if re.search(r"\b(publico|publica|publicos|publicas|public|publicly)\b", s):
-        frame.constraints.append("VISIBILITY=PUBLIC")
-    if re.search(r"\b(privado|privada|privados|privadas|private|confidencial|restringido|restringida)\b", s):
-        frame.constraints.append("VISIBILITY=PRIVATE")
-
-    # --- before / after a date or period already extracted ---
-    for t in (frame.time.split(",") if frame.time else []):
-        for kw, con in ((r"antes de(?:l| la| el)?|before|prior to", "BEFORE"), (r"despues de(?:l| la| el)?|after|later than", "AFTER")):
-            if re.search(rf"\b(?:{kw})\s+(?:el\s+)?{re.escape(t.lower())}", s):
-                frame.constraints.append(f"{con}={t}")
-
-    # --- date ranges equal to a quarter/month/year ---
-    isos = [t for t in frame.time.split(",") if re.fullmatch(r"\d{4}-\d{2}-\d{2}", t)] if frame.time else []
-    per = _range_to_period(isos)
-    if per:
-        frame.time = ",".join([t for t in frame.time.split(",") if t not in isos] + [per])
-
-    # --- names (recipients, quoted names) as references ---
-    for n in _names(text, frame):
-        if n not in frame.references:
-            frame.references.append(n)
-
-    # --- 0.3 extension (E-DATE round 3, 2026-09-27): "ticket/issue/event/report N" or "N° 77" / "number
-    # 77" without a literal '#' is still a reference, not a quantity (found by set 8 S8-008/030/061/095) ---
-    for m in re.finditer(
-        r"\b(?:ticket|issue|caso|case|reporte|report|evento|event|documento|document|informe|solicitud|request)\s+"
-        r"(?:numero|n[uú]mero|number|no\.?|num\.?)?\s*#?(\d+)\b|"
-        r"\b(?:numero|n[uú]mero|number|no\.?|num\.?)\s+#?(\d+)\b", s):
-        ref = "#" + (m.group(1) or m.group(2))
-        if ref not in frame.references:
-            frame.references.append(ref)
-
-    # --- structured conditions replace literal fragments the 0.2 analyzer could not normalize ---
-    if conds:
-        struct = re.compile(r"^(?:[A-Z_]+_EXISTS|COUNT[<>=]+[\w.:]+|H[<>=!]+[\w.]+|(?:NOT_)?CONTAINS:\w+)$")
-        frame.conditions = [c for c in frame.conditions if struct.match(c) or c in ("AMBIGUOUS_YEAR", "AMBIGUOUS_MODALITY")]
-
-    neg = [n[3:] for n in frame.negations]
-    frame.intent = derive_intent(frame.actions, neg)
-    frame.goal = derive_goal(frame.actions, frame.entities, neg)
-    for c in frame.conditions:
-        if c.startswith('"') or (" " in c and not c.startswith(("COUNT", "H"))):
-            conf[c] = 0.6
+    _apply_aggregate_qualifiers(frame, s)
+    _detect_output_format(frame, s)
+    _apply_without_constraint(frame, s)
+    _apply_visibility(frame, s)
+    _apply_date_relation_constraints(frame, s)
+    _collapse_date_range_to_period(frame)
+    _apply_name_references(frame, text)
+    _apply_numeric_references(frame, s)
+    _filter_structured_conditions(frame, conds)
+    _derive_intent_goal(frame, conf)
     frame = _norm_frame(frame)
     frame.raw = text
     g = SemanticGraph.from_frame(frame, conf)
