@@ -5,6 +5,7 @@ from aixl.legacy02.core.normalizer import normalize
 from aixl.legacy02.protocol.atoms import ATOMS, ORDER
 
 _BARE = re.compile(r'^[^\s",\\]+$')
+_BARE_SCALAR = re.compile(r'^[^\s"\\]+$')   # like _BARE but commas are fine (used for a single scalar, never a list)
 
 
 def quote_item(s: str) -> str:
@@ -26,5 +27,5 @@ def encode(frame: SemanticFrame, do_normalize=True) -> str:
         else:
             if not v:
                 continue
-            toks.append(f"{letter}:{v if letter == 'T' and re.match(r'^[^\s\"\\\\]+$', v) else quote_item(v)}")
+            toks.append(f"{letter}:{v if letter == 'T' and _BARE_SCALAR.match(v) else quote_item(v)}")
     return " ".join(toks)
