@@ -37,8 +37,13 @@ def _coerce(receiver_value_before, wire_value):
     return wire_value
 
 
-async def _run(sender_command: list[str], receiver_canonical: dict, config: dict | None,
-                max_rounds: int, msg_prefix: str) -> NegotiationOutcome:
+async def negotiate_autonomous_async(sender_command: list[str], receiver_canonical: dict,
+                                      config: dict | None = None, max_rounds: int = 3,
+                                      msg_prefix: str = "M") -> NegotiationOutcome:
+    """Async core, exported so a caller already running inside an event loop (e.g. an MCP server's
+    own tool handler — see aixl/mcp_server.py's aixl_negotiate_autonomous) can `await` it directly
+    instead of going through the sync `negotiate_autonomous()` wrapper, which cannot be called from
+    a running loop (asyncio.run() would raise)."""
     cfg = config or load_config()
     belief = dict(receiver_canonical)
     transcript: list[NegotiationTurn] = []
@@ -114,4 +119,4 @@ def negotiate_autonomous(sender_command: list[str], receiver_canonical: dict, co
     genuinely separate OS process and drive a full REQUEST -> CLARIFY -> ANSWER -> ACCEPT/REJECT
     exchange with it over real MCP stdio JSON-RPC. No human relays any turn. Mirrors
     `aixl.negotiation.negotiate`'s signature and return type (NegotiationOutcome)."""
-    return asyncio.run(_run(sender_command, receiver_canonical, config, max_rounds, msg_prefix))
+    return asyncio.run(negotiate_autonomous_async(sender_command, receiver_canonical, config, max_rounds, msg_prefix))

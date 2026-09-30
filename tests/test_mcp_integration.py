@@ -29,9 +29,10 @@ async def _call(tool: str, args: dict) -> dict:
                     "text": result.content[0].text if result.content else None}
 
 
-def test_server_lists_the_three_aixl_tools():
+def test_server_lists_the_four_aixl_tools():
     out = asyncio.run(_call("aixl_translate", {"text": "Analiza las ventas de Q1 2026."}))
-    assert set(out["tool_names"]) == {"aixl_translate", "aixl_compare", "aixl_negotiate"}
+    assert set(out["tool_names"]) == {"aixl_translate", "aixl_compare", "aixl_negotiate",
+                                       "aixl_negotiate_autonomous"}
 
 
 def test_aixl_translate_over_real_mcp_stdio_transport():
@@ -54,3 +55,17 @@ def test_aixl_negotiate_over_real_mcp_stdio_transport_converges():
     payload = json.loads(out["text"])
     assert payload["converged"] is True
     assert payload["remaining_differences"] == []
+
+
+def test_aixl_negotiate_autonomous_over_real_mcp_makes_the_server_spawn_a_third_real_process():
+    """E-AUTONOMOUS wired into the real server (2026-09-30): calling this ONE MCP tool over stdio
+    makes aixl_server.py itself spawn a genuinely separate sender-agent subprocess and negotiate with
+    it over real MCP — a real third-party MCP client can now trigger the full autonomous 2-process
+    exchange with a single call, not just this project's own scripts."""
+    out = asyncio.run(_call("aixl_negotiate_autonomous", {
+        "sender_text": "Close ticket #77.", "receiver_text": "Delete ticket #77.", "max_rounds": 3}))
+    payload = json.loads(out["text"])
+    assert payload["converged"] is True
+    assert payload["remaining_differences"] == []
+    assert payload["transcript"][0].startswith("NEGOTIATE X=REQUEST")
+    assert "PAYLOAD=" in payload["transcript"][0]
