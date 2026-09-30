@@ -7,8 +7,9 @@ LANGUAGE   natural text (ES/EN/PT)                     "how it is said"
 SEMANTICS  SemanticGraph + canonical form              "what it means"   aixl/core/*
    │  aixl/serialization/{aixl_codec,json_codec}.py
 ENCODING   AIXL 0.3 (compact)  |  JSON (debug/interchange)
-   │  aixl/adapters/protocol_adapter.py   (interfaces only: MCP/A2A/REST/OpenAPI/GraphQL not implemented)
-PROTOCOL / TRANSPORT / EXECUTION  — out of scope for 0.3 (nothing here executes an action)
+   │  aixl/adapters/protocol_adapter.py   (AixlAdapter/JsonAdapter/MCPAdapter real; A2A/REST/OpenAPI/GraphQL not implemented)
+PROTOCOL / TRANSPORT  aixl/mcp_server.py — a real MCP server (official `mcp` SDK, stdio), tools: aixl_translate/aixl_compare/aixl_negotiate
+EXECUTION  — out of scope for 0.3 (nothing here executes an action)
 ```
 Rule: the **Semantic Core is the graph**. AIXL is only a serialization of it; changing the AIXL syntax must not change meaning.
 
@@ -29,6 +30,7 @@ Rule: the **Semantic Core is the graph**. AIXL is only a serialization of it; ch
 | `api/service.py` | public API: translate, to_semantic, to_aixl, from_aixl, compare, compare_aixl, semantic_diff, detect_drift, detect_ambiguity, detect_contradiction, negotiate, negotiate_aixl (+ `explain` for future semantic-firewall use) |
 | `legacy02/` | vendored AIXL 0.2 analyzer/codec (measured in the aixl-translator skill), patched where documented in CHANGELOG |
 | `negotiation.py` | E-NEGOTIATE (2026-09-30): a bounded clarification exchange between two agents when their independent AIXL encodings of the same instruction disagree — its OWN wire format (`NEGOTIATE X=...`), separate from the semantic ATOMS; carries an AIXL line as payload where relevant, decoded by the unmodified `serialization/aixl_codec`. Measured 21/21 real E-INTEROP disagreements converge; see BENCHMARK.md §11. |
+| `mcp_server.py` | E-MCP (2026-09-30): a REAL running MCP server (official `mcp` SDK, stdio transport) exposing `aixl_translate`/`aixl_compare`/`aixl_negotiate` as thin wrappers over `api/service.py` — the first non-`NotImplementedError` protocol adapter target. `cli.py mcp-serve` starts it; needs the optional `mcp` extra (`pip install .[mcp]`). See BENCHMARK.md §12. |
 
 ## Canonical form (what equivalence compares)
 `intent, actions (ordered), entities, data, time, location, constraints, conditions, negation (FORBID:/ALLOW: per action), references, quantities, goal, output, modifiers`. `intent` and `goal` are derived from actions/negation/entities and are scored but never reported as independent differences.
@@ -48,4 +50,4 @@ Rule: the **Semantic Core is the graph**. AIXL is only a serialization of it; ch
 9. A generic `DATA` mention is dropped when a specific datum is present ("datos de ventas" = SALES).
 
 ## Future integration (not implemented)
-`ProtocolAdapter.encode/decode/validate` with reference `AixlAdapter` and `JsonAdapter`; `MCPAdapter, A2AAdapter, RESTAdapter, OpenAPIAdapter, GraphQLAdapter` raise `NotImplementedError`. `explain(text)` returns what the agent wants, on which object, under which constraints, allowed/forbidden — groundwork for a semantic firewall (no enforcement in 0.3).
+`ProtocolAdapter.encode/decode/validate` with reference `AixlAdapter`, `JsonAdapter` and, since 2026-09-30, a REAL `MCPAdapter` (validated against the official `mcp` SDK's own pydantic models, backed by a real running server in `aixl/mcp_server.py` — see BENCHMARK.md §12). `A2AAdapter, RESTAdapter, OpenAPIAdapter, GraphQLAdapter` still raise `NotImplementedError`. `explain(text)` returns what the agent wants, on which object, under which constraints, allowed/forbidden — groundwork for a semantic firewall (no enforcement in 0.3).

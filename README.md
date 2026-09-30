@@ -7,7 +7,7 @@ AIXL (AI Interoperability eXchange Language) is an **experimental semantic layer
 When an intention moves between models, agents or services, its meaning can change (a negation lost, `100` becoming `1000`, `Q1` becoming `Q2`) without anyone noticing. AIXL 0.3 asks: *can we represent and compare meaning independently of how it was written?* (product hypothesis: organizations chaining several models need to verify that an intent kept its meaning across hops — **not tested with any real organization**).
 
 ## 3. What 0.3 is
-A small, local, dependency-free Python core (no external AI API needed) with: SemanticObject/Relation/Graph, ontology, normalizer, ES/EN/PT rule-based translator, AIXL codec, comparator, semantic diff, drift, ambiguity and contradiction detectors, CLI, Semantic Lab (CLI + web), benchmarks and 99 tests. See `ARCHITECTURE.md`.
+A small, local, dependency-free Python core (no external AI API needed) with: SemanticObject/Relation/Graph, ontology, normalizer, ES/EN/PT rule-based translator, AIXL codec, comparator, semantic diff, drift, ambiguity and contradiction detectors, a live negotiation protocol, a real MCP server/adapter (optional dependency), CLI, Semantic Lab (CLI + web), benchmarks and 139 tests. See `ARCHITECTURE.md`.
 
 ## 4. Architecture (short)
 `text → translator → SemanticGraph (canonical) → { AIXL | JSON | comparator → equivalence / diff / drift }`. AIXL is a serialization, the graph is the core. Language, semantics, protocol, encoding, transport and execution are separate layers; nothing here executes an action.
@@ -39,6 +39,8 @@ python cli.py diff "Analiza las ventas de Q1 2026" "Analiza las ventas de Q2 202
 python cli.py drift "Analiza las ventas de Q1 2026" "Analiza las ventas de Q2 2026"
 python cli.py ambiguity "Analiza los datos recientes."      # also: contradiction, aixl, lab, demo, bench
 python cli.py serve 8765                                     # Semantic Lab web app -> http://localhost:8765
+python cli.py negotiate "Close ticket #77." "Delete ticket #77."   # also: negotiate-aixl [--rounds N] [--json]
+python cli.py mcp-serve                                       # real MCP server over stdio; needs `pip install .[mcp]`
 ```
 
 ## 8. Benchmark
@@ -46,11 +48,11 @@ See `BENCHMARK.md`. Method: pre-registered; independent blind authors; each fres
 
 ## 9. Results (summary; details and caveats in BENCHMARK.md)
 * Rule-based translator on FRESH blind sets: accuracy **72 → 80 → 76 → 76 %** (precision 88–95 %, recall 51–63 %). **S1 (≥ 90 %) not met by the rule-based route.**
-* Same core fed by an LLM translator following the card (Haiku 4.5 / Sonnet 5), fresh set 4: **96.0 % / 96.5 %** accuracy, critical drift 96.8 %. S1 and S2 met on that set; single pass. Cross-vendor E-XV (set 5, pairs written by Gemini and ChatGPT; encoders Haiku, Sonnet, Gemini, ChatGPT): 96.5 / 96.5 / 95.0 / 93.5 %, rule-based 78.5 %; see BENCHMARK.md §7. Codec fixed after E-XV; confirmed on fresh set 6 (E-CODEC, BENCHMARK.md §8): 0/200 parse failures, Sonnet 94.0 % accuracy. Date/time/duration/reference gaps closed over 3 iteration rounds and confirmed on fresh set 9 (E-DATE, BENCHMARK.md §9): Sonnet 95.0 %, 0 parse failures, 39/39 critical drift; rule-based 88.0 %. Cross-vendor ENCODING consistency E-INTEROP (BENCHMARK.md §10): 53 % baseline -> **79 %** after 3 rounds of shared vocabulary + a tie-break rule. Live negotiation protocol E-NEGOTIATE (BENCHMARK.md §11): 21/21 real remaining disagreements converge via a bounded clarification exchange, verified with a real 2-model live demo, and wired into the CLI/API (`cli.py negotiate` / `negotiate-aixl`).
+* Same core fed by an LLM translator following the card (Haiku 4.5 / Sonnet 5), fresh set 4: **96.0 % / 96.5 %** accuracy, critical drift 96.8 %. S1 and S2 met on that set; single pass. Cross-vendor E-XV (set 5, pairs written by Gemini and ChatGPT; encoders Haiku, Sonnet, Gemini, ChatGPT): 96.5 / 96.5 / 95.0 / 93.5 %, rule-based 78.5 %; see BENCHMARK.md §7. Codec fixed after E-XV; confirmed on fresh set 6 (E-CODEC, BENCHMARK.md §8): 0/200 parse failures, Sonnet 94.0 % accuracy. Date/time/duration/reference gaps closed over 3 iteration rounds and confirmed on fresh set 9 (E-DATE, BENCHMARK.md §9): Sonnet 95.0 %, 0 parse failures, 39/39 critical drift; rule-based 88.0 %. Cross-vendor ENCODING consistency E-INTEROP (BENCHMARK.md §10): 53 % baseline -> **79 %** after 3 rounds of shared vocabulary + a tie-break rule. Live negotiation protocol E-NEGOTIATE (BENCHMARK.md §11): 21/21 real remaining disagreements converge via a bounded clarification exchange, verified with a real 2-model live demo, and wired into the CLI/API (`cli.py negotiate` / `negotiate-aixl`). Real protocol adapter E-MCP (BENCHMARK.md §12): `MCPAdapter` + a real running MCP server, validated against the official `mcp` SDK's own models and exercised by a real subprocess + real client round-trip (4/4), not a mock.
 * Critical-drift detection (negation, quantity, time, constraint, condition, reference): 89.6–97.0 % rule-based, 96.8–100 % LLM route.
 * Ambiguity (n = 20, first run) 90 %; contradiction (n = 20, first run) 75 %.
 * AIXL is **longer** than the sentence (≈ +130 % characters, ≈ +246 % cl100k tokens); 64 % fewer tokens than canonical JSON.
-* Tests: 99 passed. Dev 200-case set: 100 % — DEMO only.
+* Tests: 139 passed. Dev 200-case set: 100 % — DEMO only.
 
 ## 10. Limitations
 See `LIMITATIONS.md` (fixed vocabulary, flat frame, no clock for relative dates, single-annotator labels, weak conditions/negation scope, Anthropic-only encoders tested).
@@ -60,7 +62,7 @@ See `LIMITATIONS.md` (fixed vocabulary, flat frame, no clock for relative dates,
 2. Per-action targets in the graph (fix the swap blind spot) and a reference clock for relative dates.
 3. Adjudicated labels (≥ 2 annotators, κ) on a 300-pair set incl. hard real agent handoffs.
 4. Measure the product hypothesis: log real agent-to-agent handoffs and count meaning changes (does the problem occur? how often?).
-5. Only then: ProtocolAdapter implementations (MCP/A2A) and a semantic-firewall prototype (`explain()` is the groundwork).
+5. ProtocolAdapter implementations: MCP done (real SDK, real server, real subprocess round-trip — BENCHMARK.md §12); A2A/REST/OpenAPI/GraphQL still not implemented. A semantic-firewall prototype (`explain()` is the groundwork) remains future work.
 
 ## Audit (master prompt §41–42)
 | Question | Answer, with evidence |
@@ -72,4 +74,4 @@ See `LIMITATIONS.md` (fixed vocabulary, flat frame, no clock for relative dates,
 | Differences explainable? | Yes: field, source, target, kind, severity, drift level, human diff. |
 | Reproducible? | Rule-based route fully deterministic; blind data and first-run results are frozen (read-only) with checksums. The LLM route depends on stored model outputs. |
 | Works without an external API? | Yes (rule-based route); accuracy on unseen phrasing is the price. |
-| DEMO vs EVIDENCE vs REAL VALIDATION | DEMO: 6 demos, dev-200, tests. EVIDENCE: blind first runs (sets 1–4), E-LLM on set 4, cross-vendor E-XV on set 5, codec-fix confirmation E-CODEC on set 6, date/time/duration/reference fixes E-DATE on set 9, and cross-vendor ENCODING-consistency E-INTEROP (53%→79%), and the E-NEGOTIATE live negotiation protocol (21/21 real disagreements resolved, one real 2-model live demo). REAL VALIDATION: none. |
+| DEMO vs EVIDENCE vs REAL VALIDATION | DEMO: 6 demos, dev-200, tests. EVIDENCE: blind first runs (sets 1–4), E-LLM on set 4, cross-vendor E-XV on set 5, codec-fix confirmation E-CODEC on set 6, date/time/duration/reference fixes E-DATE on set 9, cross-vendor ENCODING-consistency E-INTEROP (53%→79%), the E-NEGOTIATE live negotiation protocol (21/21 real disagreements resolved, one real 2-model live demo), and E-MCP (a real MCP server + the official SDK's own client, over a real subprocess/stdio — protocol-conformant, but only this project's own test client has ever talked to it). REAL VALIDATION: none — no unrelated third-party client or agent, and no real organization's handoffs, have touched this yet. |

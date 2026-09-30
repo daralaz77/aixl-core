@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """AIXL 0.3 CLI.   python cli.py translate "Analiza las ventas de Q1 2026"
    compare A B | diff A B | drift A B | ambiguity TEXT | contradiction A B | aixl AIXL | lab A B | demo | serve [port] | bench
-   negotiate SENDER_TEXT RECEIVER_TEXT [--rounds N] | negotiate-aixl SENDER_AIXL RECEIVER_AIXL [--rounds N]"""
+   negotiate SENDER_TEXT RECEIVER_TEXT [--rounds N] | negotiate-aixl SENDER_AIXL RECEIVER_AIXL [--rounds N]
+   mcp-serve   # real MCP server over stdio (needs the optional `mcp` dependency: pip install .[mcp])"""
 import argparse, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import aixl  # noqa: E402
@@ -40,7 +41,7 @@ def main(argv=None):
     for name, n in (("translate", 1), ("ambiguity", 1), ("aixl", 1), ("compare", 2), ("diff", 2), ("drift", 2), ("contradiction", 2), ("lab", 2)):
         p = sub.add_parser(name)
         p.add_argument("a"); n == 2 and p.add_argument("b"); p.add_argument("--json", action="store_true")
-    sub.add_parser("demo"); sub.add_parser("bench")
+    sub.add_parser("demo"); sub.add_parser("bench"); sub.add_parser("mcp-serve")
     for name in ("negotiate", "negotiate-aixl"):
         p = sub.add_parser(name)
         p.add_argument("a"); p.add_argument("b"); p.add_argument("--rounds", type=int, default=3)
@@ -83,6 +84,8 @@ def main(argv=None):
         print(f"AIXL Semantic Lab on http://localhost:{a.port}", flush=True); HTTPServer(("127.0.0.1", a.port), H).serve_forever()
     if a.cmd == "bench":
         from benchmarks import equivalence; s, *_ = equivalence.run(); return dump(s)
+    if a.cmd == "mcp-serve":
+        from aixl.mcp_server import main as mcp_main; return mcp_main()
 
 
 if __name__ == "__main__":
