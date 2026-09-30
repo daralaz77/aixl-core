@@ -60,22 +60,29 @@ throughput, which is a non-issue at this scope.
 
 ### Real, but deliberately NOT touched — reported as strategy, not executed
 
-3. **Duplicated verb vocabulary**: `legacy02/translators/natural_to_semantic.py`'s `ACTION_RX` (0.2 base)
-   and `core/normalizer.py`'s `EXTRA_ACTION_RX` (0.3 extension) are two separate tables, concatenated by
-   hand in `_all_action_rx()` and again in `SemanticNormalizer.normalize_action()`. This is not a
-   hypothetical smell — **this exact session** had to edit both tables to teach the translator a single
-   new verb during the `irreversible_actions` evidence work earlier today.
+3. **Duplicated verb vocabulary** — **partially done** (commit `6831314`). `legacy02/translators/natural_to_semantic.py`'s
+   `ACTION_RX` (0.2 base) and `core/normalizer.py`'s `EXTRA_ACTION_RX` (0.3 extension) were being
+   concatenated by hand, identically, in 5 separate call sites (`_all_action_rx()`, 3 places in
+   `ambiguity.py`, `SemanticNormalizer.normalize_action()`) — silently omitting `+ EXTRA_ACTION_RX` at a
+   new call site would drop the 0.3 verbs with no error. Fixed the part that was safe to fix: added one
+   canonical `ALL_ACTION_RX = legacy.ACTION_RX + EXTRA_ACTION_RX` constant in `core/normalizer.py`
+   (order preserved exactly — legacy first, then extensions, matching every prior call site's behavior
+   bit-for-bit) and pointed all 5 call sites at it instead of recomputing the concatenation.
 
-   Why not merged now: the translator's action-matching is demonstrably **order-dependent** — a
-   "tie-break rule" was a real, separately-shipped fix (E-INTEROP, see `BENCHMARK.md` §10) to a real
-   cross-vendor accuracy regression caused by match order. Merging the two tables risks silently
-   reordering matches and shifting the frozen accuracy numbers this project reports (72–96% across many
-   rounds), which is exactly the kind of drift this project's own methodology exists to catch.
+   **Deliberately NOT done**: actually moving the two tables' *content* into one file/table. The
+   action-detection block in `to_graph()` (`pos`/`forbidden`/`allowed` construction, the E-INTEROP
+   tie-break) uses `legacy.ACTION_RX` and `EXTRA_ACTION_RX` **asymmetrically** — `legacy.ACTION_RX` feeds
+   a plain scan, `EXTRA_ACTION_RX` feeds `_scan()` with an article-exclusion filter — a real behavioral
+   distinction at that one call site, not duplication, and merging the tables themselves (not just the
+   concatenation) would risk touching it. Left exactly as-is, per the original risk assessment: the
+   translator's action-matching is demonstrably **order-dependent** (the E-INTEROP tie-break rule,
+   `BENCHMARK.md` §10, was a real fix for a match-order regression), so any change to the two tables'
+   actual content still needs the same isolated-session, full-benchmark-re-run treatment this finding
+   originally called for.
 
-   **Safe path, if done**: merge into one ordered table in a new `aixl/core/action_vocab.py`, preserving
-   the current concatenation order exactly (legacy first, then extensions — matching today's behavior
-   bit-for-bit), then re-run not just the negotiation benchmarks but the translator accuracy scripts too,
-   in a dedicated session isolated from any other change.
+   **Verification for what WAS done**: full suite 154/154; rule-based translator accuracy on all 4 frozen
+   blind sets identical byte-for-byte (tp/fp/fn/tn) to the pre-merge commit; both negotiation benchmarks
+   unchanged (19/21, 19/21).
 
 4. **Deliberate duplication**: `negotiation.py`'s `negotiate()` vs `autonomous_negotiation.py`'s
    `negotiate_autonomous_async()` share a near-identical ~40-line round-loop (REQUEST → loop{compare,
@@ -120,8 +127,11 @@ single-responsibility, no duplicated logic beyond what's listed above, no dead c
   stages extracted into named functions — all committed, all verified with **zero behavioral drift**
   (154/154 tests; rule-based translator accuracy identical byte-for-byte on all 4 frozen blind sets;
   19/21 + 19/21 negotiation benchmarks unchanged).
-- 2 further real, evidenced opportunities documented above with a concrete risk each and a safe
-  verification path — deliberately left untouched, per the explicit instruction to improve
-  quality/maintainability without changing functionality, where "safe" could not yet be proven to the
-  same standard as the changes actually made: the duplicated verb-vocabulary tables (#3) and the
-  negotiate()/negotiate_autonomous_async() round-loop duplication (#4).
+- Finding #3 partially closed: the duplicated *concatenation* of the two verb tables (5 call sites) is
+  now a single `ALL_ACTION_RX` constant — verified with the same zero-drift standard (154/154 tests,
+  byte-for-byte blind-set accuracy, unchanged negotiation benchmarks). The two tables' *content* stays
+  split (0.2 vendored base vs 0.3 extensions) and the action-detection block's asymmetric use of them
+  stays untouched — merging the content itself remains a separate, still-open, higher-risk item.
+- 1 further real, evidenced opportunity documented above with a concrete risk and a safe verification
+  path — deliberately left untouched: the negotiate()/negotiate_autonomous_async() round-loop
+  duplication (#4).
