@@ -37,6 +37,22 @@ def _coerce(receiver_value_before, wire_value):
     return wire_value
 
 
+def _sender_env_and_cwd() -> tuple[dict, str]:
+    """The nested sender-agent subprocess must NOT rely on the `mcp` SDK's default environment
+    inheritance (mcp.client.stdio.DEFAULT_INHERITED_ENV_VARS = HOME/LOGNAME/PATH/SHELL/TERM/USER —
+    notably NOT PYTHONPATH): when this negotiate_autonomous_async runs inside an MCP server that was
+    ITSELF launched by a host app (Claude Desktop/Codex/Antigravity) with a minimal, replaced `env`
+    (typically just {"PYTHONPATH": ...}), the outer process's own os.environ may already be missing
+    PATH/HOME/etc, so the SDK's "safe" default for the nested child ends up even thinner. Always pass
+    an explicit env (PYTHONPATH + whatever PATH/HOME/etc this process actually has) and an explicit
+    cwd, rather than depending on implicit inheritance across two layers of MCP process spawning."""
+    import os
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    env = {k: v for k, v in os.environ.items() if k in ("PATH", "HOME", "LOGNAME", "SHELL", "TERM", "USER")}
+    env["PYTHONPATH"] = root
+    return env, root
+
+
 async def negotiate_autonomous_async(sender_command: list[str], receiver_canonical: dict,
                                       config: dict | None = None, max_rounds: int = 3,
                                       msg_prefix: str = "M") -> NegotiationOutcome:
@@ -55,7 +71,9 @@ async def negotiate_autonomous_async(sender_command: list[str], receiver_canonic
         mid += 1
         return f"{msg_prefix}{mid}"
 
-    params = StdioServerParameters(command=sender_command[0], args=sender_command[1:])
+    sender_env, sender_cwd = _sender_env_and_cwd()
+    params = StdioServerParameters(command=sender_command[0], args=sender_command[1:],
+                                    env=sender_env, cwd=sender_cwd)
     async with stdio_client(params) as (read, write):
         async with ClientSession(read, write) as session:
             await session.initialize()

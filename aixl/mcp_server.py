@@ -44,10 +44,14 @@ def aixl_negotiate(sender_text: str, receiver_text: str, max_rounds: int = 3) ->
                           "sender-agent subprocess holding sender_text and negotiates with it over "
                           "real MCP stdio JSON-RPC. Returns ACCEPT (converged) or REJECT.")
 async def aixl_negotiate_autonomous(sender_text: str, receiver_text: str, max_rounds: int = 3) -> dict:
-    import sys
+    import sys, traceback
     receiver_canonical = aixl.to_semantic(receiver_text).canonical()
     sender_cmd = [sys.executable, "-m", "aixl.agents.sender_agent", "--text", sender_text]
-    out = await negotiate_autonomous_async(sender_cmd, receiver_canonical, max_rounds=max_rounds)
+    try:
+        out = await negotiate_autonomous_async(sender_cmd, receiver_canonical, max_rounds=max_rounds)
+    except Exception as e:                                        # noqa: BLE001 — surface it, don't swallow it
+        return {"error": f"{type(e).__name__}: {e}", "traceback": traceback.format_exc(),
+                "sender_command": sender_cmd}
     return {"converged": out.converged, "rounds": out.rounds,
             "transcript": [t.encode() for t in out.transcript],
             "remaining_differences": [d.to_dict() for d in out.remaining_differences]}

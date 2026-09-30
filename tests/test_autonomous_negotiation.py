@@ -10,7 +10,7 @@ import pytest
 mcp = pytest.importorskip("mcp")
 
 from aixl import negotiation as neg                       # noqa: E402
-from aixl.autonomous_negotiation import negotiate_autonomous  # noqa: E402
+from aixl.autonomous_negotiation import negotiate_autonomous, _sender_env_and_cwd  # noqa: E402
 from aixl.translators.natural_to_semantic import to_graph  # noqa: E402
 
 
@@ -59,6 +59,22 @@ def test_autonomous_negotiation_request_turn_carries_the_real_transmitted_payloa
     assert out.transcript[0].turn_type == "REQUEST"
     assert out.transcript[0].payload.startswith("V:AIXL-0.3")
     assert "A:UPDATE" in out.transcript[0].payload
+
+
+def test_sender_env_always_includes_pythonpath_even_when_the_current_process_lacks_it(monkeypatch):
+    """Real bug (2026-09-30, found by a real MCP client — Claude Desktop — failing where every one
+    of this project's own manual reproductions succeeded): when negotiate_autonomous_async runs
+    INSIDE an MCP server that a host app itself launched with a minimal, replaced `env` (typically
+    just {"PYTHONPATH": ...}), the `mcp` SDK's default env-inheritance for the NESTED sender-agent
+    spawn (mcp.client.stdio.DEFAULT_INHERITED_ENV_VARS = HOME/LOGNAME/PATH/SHELL/TERM/USER) does NOT
+    include PYTHONPATH — so relying on it silently drops the one variable the nested `import aixl`
+    needs. Fixed by building the nested child's env explicitly rather than depending on inheritance
+    across two layers of MCP process spawning."""
+    monkeypatch.delenv("PYTHONPATH", raising=False)
+    env, cwd = _sender_env_and_cwd()
+    assert "PYTHONPATH" in env
+    assert env["PYTHONPATH"].endswith("aixl-core")
+    assert cwd.endswith("aixl-core")
 
 
 def test_autonomous_negotiation_sender_replay_mode_accepts_a_precomputed_aixl_line():

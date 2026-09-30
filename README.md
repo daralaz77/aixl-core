@@ -7,7 +7,7 @@ AIXL (AI Interoperability eXchange Language) is an **experimental semantic layer
 When an intention moves between models, agents or services, its meaning can change (a negation lost, `100` becoming `1000`, `Q1` becoming `Q2`) without anyone noticing. AIXL 0.3 asks: *can we represent and compare meaning independently of how it was written?* (product hypothesis: organizations chaining several models need to verify that an intent kept its meaning across hops — **not tested with any real organization**).
 
 ## 3. What 0.3 is
-A small, local, dependency-free Python core (no external AI API needed) with: SemanticObject/Relation/Graph, ontology, normalizer, ES/EN/PT rule-based translator, AIXL codec, comparator, semantic diff, drift, ambiguity and contradiction detectors, a live negotiation protocol, a real MCP server/adapter (optional dependency), CLI, Semantic Lab (CLI + web), benchmarks and 147 tests. See `ARCHITECTURE.md`.
+A small, local, dependency-free Python core (no external AI API needed) with: SemanticObject/Relation/Graph, ontology, normalizer, ES/EN/PT rule-based translator, AIXL codec, comparator, semantic diff, drift, ambiguity and contradiction detectors, a live negotiation protocol, a real MCP server/adapter (optional dependency), CLI, Semantic Lab (CLI + web), benchmarks and 148 tests. See `ARCHITECTURE.md`.
 
 ## 4. Architecture (short)
 `text → translator → SemanticGraph (canonical) → { AIXL | JSON | comparator → equivalence / diff / drift }`. AIXL is a serialization, the graph is the core. Language, semantics, protocol, encoding, transport and execution are separate layers; nothing here executes an action.
@@ -52,7 +52,7 @@ See `BENCHMARK.md`. Method: pre-registered; independent blind authors; each fres
 * Critical-drift detection (negation, quantity, time, constraint, condition, reference): 89.6–97.0 % rule-based, 96.8–100 % LLM route.
 * Ambiguity (n = 20, first run) 90 %; contradiction (n = 20, first run) 75 %.
 * AIXL is **longer** than the sentence (≈ +130 % characters, ≈ +246 % cl100k tokens); 64 % fewer tokens than canonical JSON.
-* Tests: 147 passed. Dev 200-case set: 100 % — DEMO only.
+* Tests: 148 passed. Dev 200-case set: 100 % — DEMO only.
 
 ## 10. Limitations
 See `LIMITATIONS.md` (fixed vocabulary, flat frame, no clock for relative dates, single-annotator labels, weak conditions/negation scope, Anthropic-only encoders tested).
