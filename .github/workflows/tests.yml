@@ -1,0 +1,29 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        # aixl itself is never pip-installed, in CI or locally (pyproject.toml has no package-discovery
+        # config for this multi-top-level-dir layout, and `pip install -e .` fails on it) — pytest's own
+        # `pythonpath = ["."]` (pyproject.toml) resolves imports straight from the checkout instead,
+        # exactly like the project's documented dev setup (README.md: `pip install pytest tiktoken`).
+        run: pip install pytest tiktoken mcp
+
+      - name: Run test suite
+        run: pytest -q
