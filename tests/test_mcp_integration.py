@@ -50,8 +50,11 @@ def test_aixl_compare_over_real_mcp_stdio_transport_detects_critical_negation_dr
 
 
 def test_aixl_negotiate_over_real_mcp_stdio_transport_converges():
+    # Archive/Update (DISABLE vs UPDATE), not Close/Delete — DELETE now correctly triggers E-MCP's
+    # irreversible-action REJECT (2026-09-30, found by a real Claude Desktop test), which isn't what
+    # this test is checking (see the dedicated REJECT test below for that real case).
     out = asyncio.run(_call("aixl_negotiate", {
-        "sender_text": "Close ticket #77.", "receiver_text": "Delete ticket #77.", "max_rounds": 3}))
+        "sender_text": "Archive ticket #77.", "receiver_text": "Update ticket #77.", "max_rounds": 3}))
     payload = json.loads(out["text"])
     assert payload["converged"] is True
     assert payload["remaining_differences"] == []
@@ -63,9 +66,20 @@ def test_aixl_negotiate_autonomous_over_real_mcp_makes_the_server_spawn_a_third_
     it over real MCP — a real third-party MCP client can now trigger the full autonomous 2-process
     exchange with a single call, not just this project's own scripts."""
     out = asyncio.run(_call("aixl_negotiate_autonomous", {
-        "sender_text": "Close ticket #77.", "receiver_text": "Delete ticket #77.", "max_rounds": 3}))
+        "sender_text": "Archive ticket #77.", "receiver_text": "Update ticket #77.", "max_rounds": 3}))
     payload = json.loads(out["text"])
     assert payload["converged"] is True
     assert payload["remaining_differences"] == []
     assert payload["transcript"][0].startswith("NEGOTIATE X=REQUEST")
     assert "PAYLOAD=" in payload["transcript"][0]
+
+
+def test_aixl_negotiate_autonomous_over_real_mcp_rejects_an_irreversible_action_disagreement():
+    """The real case a genuine third-party MCP client (Claude Desktop) surfaced (2026-09-30): calling
+    this tool on "Close ticket #77." (UPDATE) vs "Delete ticket #77." (DELETE) must REJECT — DELETE is
+    irreversible, so the protocol must not silently pick a side on the sender's say-so alone."""
+    out = asyncio.run(_call("aixl_negotiate_autonomous", {
+        "sender_text": "Close ticket #77.", "receiver_text": "Delete ticket #77.", "max_rounds": 3}))
+    payload = json.loads(out["text"])
+    assert payload["converged"] is False
+    assert "irreversible action" in payload["transcript"][-1]

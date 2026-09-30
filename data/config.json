@@ -46,6 +46,10 @@
     "DISABLE",
     "UPDATE"
   ],
+  "irreversible_actions": [
+    "DELETE"
+  ],
+  "_irreversible_actions_comment": "E-MCP/E-AUTONOMOUS (2026-09-30): a NARROWER list than destructive_actions, used only by aixl/negotiation.py to decide whether an actions-dimension disagreement must escalate to REJECT instead of being auto-resolved by trusting the sender. destructive_actions (used for compare's own CRITICAL severity display) includes UPDATE/SEND/DISABLE/EXECUTE, which are common and usually reversible — reusing that list here broke the real 'Close ticket' vs 'Delete ticket' case (UPDATE is on both sides of countless ordinary disagreements). Real evidence (3 tested pairs: Close/Delete, Archive/Delete, Send/Delete) only ever involved DELETE as the irreversible side; the other action was always something reversible. Scoped to DELETE alone until further evidence justifies widening it.",
   "drift_levels": [
     "NO_DRIFT",
     "MINOR_DRIFT",

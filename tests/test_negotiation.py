@@ -56,9 +56,12 @@ def test_turn_encode_rejects_unknown_type():
 # ---- negotiation state machine --------------------------------------------------------------------
 
 def test_negotiate_converges_on_single_dimension_disagreement():
-    # "close" (UPDATE, per the E-INTEROP-round-3 card) vs an encoder that still guessed DELETE
-    sender = canon("Close ticket #77.")
-    receiver = canon("Delete ticket #77.")
+    # "archive" (DISABLE) vs an encoder that guessed UPDATE — a reversible actions disagreement, unlike
+    # the Close/Delete pair used before E-MCP's destructive-action escalation fix (2026-09-30): that pair
+    # now correctly REJECTs instead (see test_negotiate_rejects_an_irreversible_action_disagreement below),
+    # so it stopped being a valid example of plain single-dimension convergence.
+    sender = canon("Archive ticket #77.")
+    receiver = canon("Update ticket #77.")
     assert sender["actions"] != receiver["actions"]          # sanity: they really do disagree going in
     out = neg.negotiate(sender, receiver, max_rounds=3)
     assert out.converged is True
@@ -72,8 +75,10 @@ def test_negotiate_converges_on_single_dimension_disagreement():
 
 
 def test_negotiate_resolves_multiple_dimensions_within_rounds():
+    # UPDATE, not DELETE, on the receiver side — DELETE would trigger E-MCP's irreversible-action REJECT
+    # (2026-09-30) before every dimension gets a chance to be negotiated, which isn't what this test checks.
     sender = canon("Send the report to Acme before 15:00.")
-    receiver = canon("Delete the document from Nova after 09:00.")
+    receiver = canon("Update the document from Nova after 09:00.")
     n_diffs_before = len(neg.compare_canonical(sender, receiver).differences)
     assert n_diffs_before >= 2
     out = neg.negotiate(sender, receiver, max_rounds=6)
@@ -85,7 +90,7 @@ def test_negotiate_resolves_multiple_dimensions_within_rounds():
 
 def test_negotiate_rejects_after_max_rounds_instead_of_looping_forever():
     sender = canon("Send the report to Acme before 15:00.")
-    receiver = canon("Delete the document from Nova after 09:00.")
+    receiver = canon("Update the document from Nova after 09:00.")
     n_diffs = len(neg.compare_canonical(sender, receiver).differences)
     assert n_diffs >= 2
     out = neg.negotiate(sender, receiver, max_rounds=1)
@@ -123,8 +128,10 @@ def test_negotiate_accepts_when_last_round_exactly_resolves_at_the_cap():
     # patches the LAST dimension must still be re-checked for equivalence, or a negotiation that
     # resolves everything right at the cap was wrongly reported REJECTED (0/21 real cases "converged"
     # until this was fixed, despite every dimension actually having been resolved).
-    sender = canon("Close ticket #77.")
-    receiver = canon("Delete ticket #77.")
+    # DISABLE vs UPDATE, not DELETE (E-MCP's irreversible-action REJECT, 2026-09-30, would otherwise fire
+    # here instead of testing the round-cap edge case this test is actually about).
+    sender = canon("Archive ticket #77.")
+    receiver = canon("Update ticket #77.")
     n_diffs = len(neg.compare_canonical(sender, receiver).differences)
     out = neg.negotiate(sender, receiver, max_rounds=n_diffs)   # no spare round
     assert out.converged is True
@@ -179,3 +186,33 @@ def test_negotiate_still_adopts_a_legitimately_empty_dimension_other_than_action
     receiver = canon("Do not delete the report for last year.")     # -> FORBID:DELETE
     out = neg.negotiate(sender, receiver, max_rounds=5)
     assert out.converged is True
+
+
+def test_negotiate_rejects_an_irreversible_action_disagreement_instead_of_trusting_the_sender():
+    # found by a REAL third-party MCP client (Claude Desktop, E-MCP, 2026-09-30) testing
+    # aixl_negotiate_autonomous: "Close ticket #77." (UPDATE) vs "Delete ticket #77." (DELETE) used to
+    # ACCEPT/converge on UPDATE after just 1 round, purely because the sender said so — with no signal
+    # that DELETE, the OTHER candidate, is irreversible and the sender could be wrong. Confirmed
+    # systematic across 3 real pairs (Close/Delete, Archive/Delete, Send/Delete) before fixing, per
+    # aixl-core's evidence-before-fix discipline. Now it must REJECT and say why, not silently pick a
+    # side on something a wrong guess can't undo.
+    sender = canon("Close ticket #77.")            # -> UPDATE
+    receiver = canon("Delete ticket #77.")          # -> DELETE
+    out = neg.negotiate(sender, receiver, max_rounds=3)
+    assert out.converged is False
+    assert out.transcript[-1].turn_type == "REJECT"
+    assert "irreversible action" in out.transcript[-1].reason
+    assert any(d.field == "ACTION" for d in out.remaining_differences)
+
+
+def test_negotiate_still_resolves_a_merely_destructive_but_reversible_action_disagreement():
+    # narrowing check: UPDATE and SEND are both on comparator's broader `destructive_actions` list (used
+    # only for CRITICAL severity display) but NEITHER is on the narrower `irreversible_actions` list
+    # (DELETE only) that gates the REJECT above — a first, broader attempt reusing `destructive_actions`
+    # directly broke exactly this kind of case (any UPDATE-involving disagreement), caught by the
+    # existing test suite before it shipped. Reversible actions must still resolve normally.
+    sender = canon("Send the invoice.")             # -> SEND
+    receiver = canon("Update the invoice.")          # -> UPDATE
+    out = neg.negotiate(sender, receiver, max_rounds=3)
+    assert out.converged is True
+    assert out.transcript[-1].turn_type == "ACCEPT"

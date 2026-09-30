@@ -56,6 +56,16 @@ def _is_empty(v) -> bool:
     return v is None or v == "" or (isinstance(v, tuple) and len(v) == 0)
 
 
+def _involves_irreversible_action(d: Difference, cfg: dict) -> bool:
+    """Narrower than comparator's own `destructive_actions` (used only for CRITICAL severity display,
+    and includes common/reversible actions like UPDATE) — see data/config.json's irreversible_actions
+    comment for why: reusing destructive_actions here broke the real 'Close ticket' vs 'Delete ticket'
+    case, since UPDATE sits on both lists' broad end."""
+    irr = set(cfg.get("irreversible_actions", ["DELETE"]))
+    values = set(d.source.split(",")) | set(d.target.split(","))
+    return bool(irr & values)
+
+
 def _quote(s: str) -> str:
     return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
@@ -196,6 +206,21 @@ def negotiate(sender_canonical: dict, receiver_canonical: dict, config: dict | N
             transcript.append(NegotiationTurn(
                 "REJECT", rej_id, ref_id=clarify_id,
                 reason=f"sender's own message does not resolve {d.field} either — cannot confirm which reading is correct"))
+            return NegotiationOutcome(False, n, transcript, belief, result.differences)
+        # E-MCP third-party test (2026-09-30, Claude Desktop): confirmed systematic across 3 real pairs
+        # (Close/Delete, Archive/Delete, Send/Delete) — an actions disagreement involving DELETE was being
+        # silently resolved by trusting the sender, same as any other dimension, with no signal that the
+        # auto-picked reading might be wrong on something irreversible. First attempt reused comparator's
+        # own `destructive_actions` (CRITICAL + "destructive action involved") but that list also includes
+        # UPDATE/SEND/DISABLE/EXECUTE, which broke the real "Close ticket" case (UPDATE is on both sides of
+        # countless ordinary disagreements) — caught immediately by the test suite, not shipped. Narrowed
+        # to the separate, smaller `irreversible_actions` config list (DELETE only, so far).
+        if dim == "actions" and _involves_irreversible_action(d, cfg):
+            rej_id = next_id()
+            transcript.append(NegotiationTurn(
+                "REJECT", rej_id, ref_id=clarify_id,
+                reason=f"{d.field} disagreement involves an irreversible action ('{d.target}' vs '{d.source}') — "
+                       f"requires human confirmation, not auto-resolved by trusting the sender"))
             return NegotiationOutcome(False, n, transcript, belief, result.differences)
         answer_id = next_id()
         transcript.append(NegotiationTurn("ANSWER", answer_id, ref_id=clarify_id, dim=dim, value=_fmt(sender_value)))

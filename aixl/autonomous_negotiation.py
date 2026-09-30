@@ -24,6 +24,7 @@ from aixl.core.ontology import load_config
 from aixl.serialization import aixl_codec
 from aixl.negotiation import (
     NegotiationTurn, NegotiationOutcome, worst_dimension, _dim_of_label, _is_empty, _fmt,
+    _involves_irreversible_action,
 )
 
 
@@ -100,6 +101,21 @@ async def negotiate_autonomous_async(sender_command: list[str], receiver_canonic
                     "CLARIFY", clarify_id, ref_id=last_id, dim=dim, candidates=(d.target, d.source),
                     question=f"{d.field}: receiver read '{d.target}', sender's own message implies "
                              f"'{d.source}' — which is correct?"))
+
+                # E-MCP third-party test (2026-09-30, Claude Desktop): same fix as negotiate() — an
+                # irreversible-action disagreement (DELETE, see data/config.json's irreversible_actions;
+                # narrower than destructive_actions, which also includes reversible ones like UPDATE and
+                # broke the real "Close ticket" case in a first attempt) must not be auto-resolved by
+                # trusting the sender. Checked BEFORE the remote answer() call (unlike negotiate()'s local
+                # dict read, this one costs a real round-trip to a separate process).
+                if dim == "actions" and _involves_irreversible_action(d, cfg):
+                    rej_id = next_id()
+                    transcript.append(NegotiationTurn(
+                        "REJECT", rej_id, ref_id=clarify_id,
+                        reason=f"{d.field} disagreement involves an irreversible action ('{d.target}' vs "
+                               f"'{d.source}') — requires human confirmation, not auto-resolved by "
+                               f"trusting the sender"))
+                    return NegotiationOutcome(False, n, transcript, belief, result.differences)
 
                 ans = await session.call_tool("answer", {"dim": dim})
                 wire_value = json.loads(ans.content[0].text)["value"]

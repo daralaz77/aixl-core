@@ -18,13 +18,27 @@ def _sender_cmd(text: str) -> list[str]:
     return [sys.executable, "-m", "aixl.agents.sender_agent", "--text", text]
 
 
-def test_autonomous_negotiation_converges_close_delete_ticket_case():
-    receiver_canonical = to_graph("Delete ticket #77.").canonical()
-    out = negotiate_autonomous(_sender_cmd("Close ticket #77."), receiver_canonical, max_rounds=3)
+def test_autonomous_negotiation_converges_archive_update_ticket_case():
+    # DISABLE vs UPDATE, not DELETE — see test_autonomous_negotiation_rejects_an_irreversible_action_case
+    # below for why Close/Delete (UPDATE vs DELETE) stopped being a plain-convergence example after
+    # E-MCP's irreversible-action REJECT fix (2026-09-30).
+    receiver_canonical = to_graph("Update ticket #77.").canonical()
+    out = negotiate_autonomous(_sender_cmd("Archive ticket #77."), receiver_canonical, max_rounds=3)
     assert out.converged is True
     assert out.remaining_differences == []
     assert out.transcript[1].dim == "actions"
-    assert out.transcript[2].value == "UPDATE"
+    assert out.transcript[2].value == "DISABLE"
+
+
+def test_autonomous_negotiation_rejects_an_irreversible_action_case():
+    # the real case a genuine third-party MCP client (Claude Desktop, E-MCP, 2026-09-30) surfaced:
+    # "Close ticket #77." (UPDATE) vs "Delete ticket #77." (DELETE) must REJECT, not silently ACCEPT on
+    # the sender's say-so, since DELETE is irreversible and a wrong guess can't be undone.
+    receiver_canonical = to_graph("Delete ticket #77.").canonical()
+    out = negotiate_autonomous(_sender_cmd("Close ticket #77."), receiver_canonical, max_rounds=3)
+    assert out.converged is False
+    assert out.transcript[-1].turn_type == "REJECT"
+    assert "irreversible action" in out.transcript[-1].reason
 
 
 def test_autonomous_negotiation_matches_single_process_negotiate_on_the_same_case():
@@ -81,10 +95,12 @@ def test_autonomous_negotiation_sender_replay_mode_accepts_a_precomputed_aixl_li
     """--aixl mode: the sender agent replays an already-encoded AIXL line instead of a raw text —
     the real mode used to re-run genuine historical E-INTEROP disagreements (see
     benchmarks/autonomous_negotiation_eval.py) without needing a live model call."""
+    # A:UPDATE vs A:SEND, not A:DELETE — DELETE would trigger E-MCP's irreversible-action REJECT
+    # (2026-09-30), which isn't what replay mode itself is testing here.
     from aixl.serialization import aixl_codec
     sender_aixl = "V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE Y:#77"
     cmd = [sys.executable, "-m", "aixl.agents.sender_agent", "--aixl", sender_aixl]
-    receiver_canonical = aixl_codec.decode("V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE Y:#77").canonical()
+    receiver_canonical = aixl_codec.decode("V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND Y:#77").canonical()
     out = negotiate_autonomous(cmd, receiver_canonical, max_rounds=3)
     assert out.converged is True
     assert out.transcript[0].payload == sender_aixl
