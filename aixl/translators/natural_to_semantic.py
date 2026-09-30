@@ -4,6 +4,7 @@ LANGUAGE layer only: it extracts and NORMALIZES what the text says, never what i
 absent time/location/format stay empty (NOT_SPECIFIED = empty), unresolved things are flagged, not filled.
 Base: the 0.2 rule-based analyzer (vendored in aixl.legacy02) + the 0.3 extensions below.
 """
+import functools
 import re
 from datetime import date
 
@@ -17,14 +18,11 @@ from aixl.core.ontology import resolve_relative_time_str
 from aixl.core.semantic_graph import SemanticGraph
 
 NORM = SemanticNormalizer()
-ALL_ACTION_RX = None
 
 
+@functools.lru_cache(maxsize=1)
 def _all_action_rx():
-    global ALL_ACTION_RX
-    if ALL_ACTION_RX is None:
-        ALL_ACTION_RX = [(a, re.compile(rx.replace(r"\b", ""))) for a, rx in legacy.ACTION_RX + EXTRA_ACTION_RX]
-    return ALL_ACTION_RX
+    return [(a, re.compile(rx.replace(r"\b", ""))) for a, rx in legacy.ACTION_RX + EXTRA_ACTION_RX]
 
 
 def _action_of_word(w: str):
