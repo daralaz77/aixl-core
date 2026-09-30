@@ -4,7 +4,9 @@ description: AIXL 0.3 experimental Semantic Core — turns instructions (ES/EN/P
 ---
 
 # AIXL 0.3 — Semantic Core (executable)
-Root `~/.claude/skills/aixl-core/` (Python ≥ 3.11, `.venv` with pytest + tiktoken for dev).
+Root `~/.claude/skills/aixl-core/` (Python ≥ 3.11, `.venv` with pytest + tiktoken for dev). CI (GitHub
+Actions, `.github/workflows/tests.yml`) runs the full suite on every push/PR across Python 3.11 and 3.12:
+https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml
 
 ## Use
 ```bash
@@ -24,6 +26,13 @@ Python: `import aixl; aixl.compare(a, b)`, `to_aixl`, `from_aixl`, `translate`, 
 * AIXL is longer than the sentence (≈ +246 % cl100k tokens); it is not compression.
 * Dev-200 and demos are DEMO (same author). Blind sets are the evidence; first-run files are read-only. Nothing is real-world validated.
 * Ambiguity 90 % / contradiction 75 % on 20 blind items each (first run).
+* **CI added 2026-09-30** and caught a real bug on its very first run: local dev always ran on Python
+  3.14, where an f-string with backslashes in its expression part (`aixl/legacy02/core/encoder.py`)
+  silently worked — that's only valid from Python 3.12 (PEP 701); on the project's declared floor
+  (3.11) it's a hard `SyntaxError` that fails to import the package at all. Fixed (precompiled the
+  regex instead of embedding it in the f-string), reverified on a REAL Python 3.11.16 install (this
+  machine only had 3.14), not just inferred: 154/154, translator accuracy identical on all 4 frozen
+  blind sets, both negotiation benchmarks unchanged. CI now green on 3.11 and 3.12 on every push/PR.
 Never claim AIXL is superior to MCP/A2A/JSON; never quote dev-200 as performance.
 
 ## Working rules (from the master prompt)

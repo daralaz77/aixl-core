@@ -1,5 +1,7 @@
 # AIXL 0.3 — Semantic Core & Semantic Equivalence Engine (MVP)
 
+[![tests](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml/badge.svg)](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml)
+
 ## 1. What AIXL is
 AIXL (AI Interoperability eXchange Language) is an **experimental semantic layer**: it represents what an instruction *means* (actions, targets, time, quantities, constraints, conditions, negations, references) in a canonical graph, serializes it in a compact `ATOM:VALUE` syntax, and compares two meanings. It is not a replacement for MCP, A2A, REST or JSON, and no claim of superiority over them is made or supported.
 
@@ -52,7 +54,7 @@ See `BENCHMARK.md`. Method: pre-registered; independent blind authors; each fres
 * Critical-drift detection (negation, quantity, time, constraint, condition, reference): 89.6–97.0 % rule-based, 96.8–100 % LLM route.
 * Ambiguity (n = 20, first run) 90 %; contradiction (n = 20, first run) 75 %.
 * AIXL is **longer** than the sentence (≈ +130 % characters, ≈ +246 % cl100k tokens); 64 % fewer tokens than canonical JSON.
-* Tests: 154 passed. Dev 200-case set: 100 % — DEMO only.
+* Tests: 154 passed. Dev 200-case set: 100 % — DEMO only. CI (`.github/workflows/tests.yml`) runs the full suite on every push/PR across Python 3.11 and 3.12 — added 2026-09-30 and caught a real bug on its first run: an f-string with backslashes in `aixl/legacy02/core/encoder.py` was only valid from Python 3.12 on (PEP 701), silently working in local dev (always run on 3.14) but a hard `SyntaxError` on the project's declared floor (3.11); fixed and reverified on a real Python 3.11 install.
 
 ## 10. Limitations
 See `LIMITATIONS.md` (fixed vocabulary, flat frame, no clock for relative dates, single-annotator labels, weak conditions/negation scope, Anthropic-only encoders tested).
