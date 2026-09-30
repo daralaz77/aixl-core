@@ -52,3 +52,22 @@ Matches this project's own reproduction of the same call exactly (see `results_m
 Anthropic (Claude Desktop, all 3 tools), OpenAI (ChatGPT/Codex, `aixl_compare`), Google (Antigravity
 CLI, `aixl_compare`). Still n=1 for `aixl_compare` on this client; `aixl_translate`/`aixl_negotiate`
 not yet tried via Antigravity.
+
+## Update: aixl_negotiate confirmed too (same session, same day)
+User asked, in the same `agy` chat session: "Usa la herramienta aixl_negotiate para negociar entre
+el emisor 'Close ticket #77.' y el receptor 'Delete ticket #77.'...". Antigravity's agent called
+`aixl-core/aixl_negotiate` (again behind a real tool-approval gate) and returned:
+```json
+{
+  "converged": true,
+  "rounds": 1,
+  "transcript": [
+    "NEGOTIATE X=REQUEST MSG=M1",
+    "NEGOTIATE X=CLARIFY MSG=M2 REF=M1 DIM=actions CANDIDATES=DELETE;UPDATE Q=\"ACTION: receiver read 'DELETE', sender's own message implies 'UPDATE' — which is correct?\"",
+    "NEGOTIATE X=ANSWER MSG=M3 REF=M2 DIM=actions VALUE=UPDATE",
+    "NEGOTIATE X=ACCEPT MSG=M4 REF=M3"
+  ],
+  "remaining_differences": []
+}
+```
+Matches this project's own reproduction of the identical call exactly (see `results_mcp_desktop_negotiate_FIRST_RUN.md`). `aixl_negotiate` is now confirmed on all 3 independent vendor clients (Claude Desktop, and now Antigravity CLI; not yet on Codex).
