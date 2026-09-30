@@ -1,0 +1,111 @@
+{
+ "dev200_DEMO": {
+  "equivalence": {
+   "tp": 86,
+   "fp": 0,
+   "fn": 0,
+   "tn": 104,
+   "n": 190,
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0,
+   "false_positive_rate": 0.0,
+   "false_negative_rate": 0.0
+  },
+  "drift_detection_critical": {
+   "n": 74,
+   "detected": 74,
+   "rate": 1.0
+  },
+  "ambiguity_accuracy": 1.0,
+  "contradiction_accuracy": 1.0,
+  "semantic_accuracy_overall": 1.0,
+  "accuracy_by_category": {
+   "CONDITION": {
+    "correct": 20,
+    "n": 20
+   },
+   "CONSTRAINT": {
+    "correct": 20,
+    "n": 20
+   },
+   "DATE": {
+    "correct": 20,
+    "n": 20
+   },
+   "DIFFERENCE": {
+    "correct": 30,
+    "n": 30
+   },
+   "EQUIVALENCE": {
+    "correct": 30,
+    "n": 30
+   },
+   "NEGATION": {
+    "correct": 30,
+    "n": 30
+   },
+   "QUANTITY": {
+    "correct": 20,
+    "n": 20
+   },
+   "REFERENCE": {
+    "correct": 20,
+    "n": 20
+   }
+  },
+  "latency_ms_per_compare": 0.641,
+  "n_cases": 220
+ },
+ "blind1_CONTAMINATED_after_fixes": {
+  "tp": 91,
+  "fp": 0,
+  "fn": 9,
+  "tn": 100,
+  "n": 200,
+  "accuracy": 0.955,
+  "precision": 1.0,
+  "recall": 0.91,
+  "f1": 0.9529,
+  "false_positive_rate": 0.0,
+  "false_negative_rate": 0.09
+ },
+ "compression": {
+  "n_texts": 425,
+  "note": "negative reduction = AIXL/JSON is LONGER than the natural text",
+  "chars": {
+   "text": 11307,
+   "aixl": 26008,
+   "canonical_json": 110893,
+   "aixl_reduction_pct_vs_text": -130.0,
+   "json_reduction_pct_vs_text": -880.7,
+   "aixl_reduction_pct_vs_json": 76.5
+  },
+  "bytes": {
+   "text": 11369,
+   "aixl": 26008,
+   "canonical_json": 110893,
+   "aixl_reduction_pct_vs_text": -128.8,
+   "json_reduction_pct_vs_text": -875.4,
+   "aixl_reduction_pct_vs_json": 76.5
+  },
+  "words": {
+   "text": 1927,
+   "aixl": 2085,
+   "canonical_json": 11930,
+   "aixl_reduction_pct_vs_text": -8.2,
+   "json_reduction_pct_vs_text": -519.1,
+   "aixl_reduction_pct_vs_json": 82.5
+  },
+  "tokens": {
+   "text": 3261,
+   "aixl": 11321,
+   "canonical_json": 31288,
+   "aixl_reduction_pct_vs_text": -247.2,
+   "json_reduction_pct_vs_text": -859.5,
+   "aixl_reduction_pct_vs_json": 63.8
+  },
+  "token_tokenizer": "tiktoken cl100k_base (OpenAI; proxy, not Claude's tokenizer)"
+ }
+}

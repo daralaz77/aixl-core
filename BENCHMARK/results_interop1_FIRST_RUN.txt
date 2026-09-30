@@ -1,0 +1,19 @@
+{
+ "n": 100,
+ "consistent": 53,
+ "consistency_rate": 0.53,
+ "parse_failures": {},
+ "disagreement_drift_levels": {
+  "MAJOR_DRIFT": 18,
+  "CRITICAL_DRIFT": 19,
+  "MODERATE_DRIFT": 10
+ },
+ "disagreement_fields": {
+  "ACTION": 30,
+  "ENTITIES": 16,
+  "DATA": 7,
+  "NEGATION": 5,
+  "CONDITIONS": 2,
+  "CONSTRAINTS": 2
+ }
+}

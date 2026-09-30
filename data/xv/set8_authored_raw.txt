@@ -1,0 +1,100 @@
+{"id":"S8-001","a":"Analyze the sales data for Q3 2026.","b":"Examine the Q3 2026 sales data.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"S8-002","a":"Send the report to the client.","b":"Do not send the report to the client.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"S8-003","a":"Genera el informe de hoy.","b":"Genera el informe del 27 de septiembre de 2026.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-004","a":"Traduce el documento al francés.","b":"Traduzca el documento al idioma francés.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"S8-005","a":"Compile last month's customer data.","b":"Compile the customer data for August 2026.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-006","a":"Elimina los primeros 100 registros.","b":"Elimina los primeros 200 registros.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["quantity"]}
+{"id":"S8-007","a":"Flag anomalies with confidence above 0.80.","b":"Flag anomalies with confidence above 0.90.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["threshold"]}
+{"id":"S8-008","a":"Revisa el ticket #77 antes de cerrarlo.","b":"Verifica el ticket número 77 antes de cerrarlo.","label":"EQUIVALENT","category":"REFERENCE","differs_in":[]}
+{"id":"S8-009","a":"Delete customers older than one year.","b":"Exclua clientes com mais de 12 meses.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-010","a":"Send the invoice before 3pm.","b":"Send the invoice before 15:00.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-011","a":"Mark this ticket as urgent.","b":"Mark this ticket as high priority.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["priority"]}
+{"id":"S8-012","a":"Genera el reporte en formato PDF.","b":"Crea el informe como archivo PDF.","label":"EQUIVALENT","category":"OUTPUT","differs_in":[]}
+{"id":"S8-013","a":"Close ticket #77.","b":"Close ticket #78.","label":"NOT_EQUIVALENT","category":"REFERENCE","differs_in":["reference"]}
+{"id":"S8-014","a":"Identify the outlier in the sales data.","b":"Detect the outlier within the sales data.","label":"EQUIVALENT","category":"ACTION","differs_in":[]}
+{"id":"S8-015","a":"Si hay más de 100 registros, genera un resumen.","b":"Cuando existan más de cien registros, crea un resumen.","label":"EQUIVALENT","category":"CONDITION","differs_in":[]}
+{"id":"S8-016","a":"Elimina los clientes con más de un año de antigüedad.","b":"Elimina los clientes con más de dos años de antigüedad.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["quantity"]}
+{"id":"S8-017","a":"Compare the sales figures between the two companies.","b":"Compare as vendas entre as duas empresas.","label":"EQUIVALENT","category":"TARGET","differs_in":[]}
+{"id":"S8-018","a":"Llama al cliente antes de las 10am.","b":"Llama al cliente antes de las 12pm.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["time"]}
+{"id":"S8-019","a":"Analiza los pedidos de ayer.","b":"Analiza los pedidos del 26 de septiembre de 2026.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-020","a":"Export the results as CSV.","b":"Export the results as JSON.","label":"NOT_EQUIVALENT","category":"OUTPUT","differs_in":["output_format"]}
+{"id":"S8-021","a":"First validate the data, then generate the report.","b":"Validate the data before generating the report.","label":"EQUIVALENT","category":"ORDER","differs_in":[]}
+{"id":"S8-022","a":"Delete the duplicate records.","b":"Update the duplicate records.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action"]}
+{"id":"S8-023","a":"If there are more than 100 records, archive them.","b":"If there are more than 100 records, delete them.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["action"]}
+{"id":"S8-024","a":"List the top 10 products by revenue.","b":"Show the ten leading products by revenue.","label":"EQUIVALENT","category":"CONSTRAINT","differs_in":[]}
+{"id":"S8-025","a":"Verifica que los datos de los usuarios sean correctos.","b":"Valida la exactitud de los datos de los usuarios.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"S8-026","a":"Compara las ventas de la empresa A y la empresa B.","b":"Compara las ventas de la empresa A y la empresa C.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["entity"]}
+{"id":"S8-027","a":"Archive products older than 2 years.","b":"Archive products older than 24 months.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-028","a":"Check yesterday's anomalies.","b":"Check the anomalies from September 25, 2026.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["date"]}
+{"id":"S8-029","a":"Schedule the meeting for tomorrow.","b":"Schedule the meeting for September 28, 2026.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-030","a":"Update the status of issue #204.","b":"Update the status of ticket number 204.","label":"EQUIVALENT","category":"REFERENCE","differs_in":[]}
+{"id":"S8-031","a":"Termina la validación antes de las 14:00.","b":"Termina la validación antes de las 2pm.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-032","a":"Primero traduce el documento y luego envíalo por correo.","b":"Primero envía el documento por correo y luego tradúcelo.","label":"NOT_EQUIVALENT","category":"ORDER","differs_in":["order"]}
+{"id":"S8-033","a":"Procesa cien registros de ventas.","b":"Procesa 100 registros de ventas.","label":"EQUIVALENT","category":"QUANTITY","differs_in":[]}
+{"id":"S8-034","a":"Show the top 10 customers by spending.","b":"Show the top 20 customers by spending.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["limit"]}
+{"id":"S8-035","a":"Traduce el resumen al inglés.","b":"Traduce el resumen al portugués.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["target_language"]}
+{"id":"S8-036","a":"Delete inactive accounts older than one year.","b":"Delete inactive accounts older than two years.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["quantity"]}
+{"id":"S8-037","a":"Calcula el ingreso promedio por cliente.","b":"Determina el ingreso promedio por cliente.","label":"EQUIVALENT","category":"ACTION","differs_in":[]}
+{"id":"S8-038","a":"Analise os dados de vendas do último trimestre.","b":"Examine os dados de vendas do trimestre passado.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"S8-039","a":"Envía el reporte del mes pasado.","b":"Envía el reporte de julio de 2026.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["date"]}
+{"id":"S8-040","a":"Only include events with more than 100 attendees.","b":"Include only events that have over 100 attendees.","label":"EQUIVALENT","category":"CONSTRAINT","differs_in":[]}
+{"id":"S8-041","a":"Permite el acceso a usuarios externos.","b":"Prohíbe el acceso a usuarios externos.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"S8-042","a":"Review contracts older than 18 months.","b":"Review contracts older than one and a half years.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-043","a":"Submit the invoice before 4pm.","b":"Submit the invoice before 5pm.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["time"]}
+{"id":"S8-044","a":"Elimina los registros duplicados.","b":"Remova os registros duplicados.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"S8-045","a":"Recupera los últimos 50 pedidos.","b":"Recupera los últimos 500 pedidos.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["quantity"]}
+{"id":"S8-046","a":"Update the dataset for this year.","b":"Update the dataset for the year 2026.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-047","a":"Si la confianza es menor a 0.80, descarta el resultado.","b":"Si la confianza es menor a 0.60, descarta el resultado.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["threshold"]}
+{"id":"S8-048","a":"Genera el resultado en formato Markdown.","b":"Produce el resultado en Markdown.","label":"EQUIVALENT","category":"OUTPUT","differs_in":[]}
+{"id":"S8-049","a":"Analiza el conjunto de datos de clientes.","b":"Analiza el conjunto de datos de ventas.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["target"]}
+{"id":"S8-050","a":"Incluye solo los eventos con más de 100 asistentes.","b":"Excluye los eventos con más de 100 asistentes.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"S8-051","a":"Busca la anomalía en el video.","b":"Detecta la anomalía en el video.","label":"EQUIVALENT","category":"ACTION","differs_in":[]}
+{"id":"S8-052","a":"Generate the report and then send it to the manager.","b":"Send the report to the manager and then generate it.","label":"NOT_EQUIVALENT","category":"ORDER","differs_in":["order"]}
+{"id":"S8-053","a":"Llama al cliente antes del mediodía.","b":"Call the client before 12:00.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-054","a":"Cierra el caso número 15.","b":"Cierra el caso número 51.","label":"NOT_EQUIVALENT","category":"REFERENCE","differs_in":["reference"]}
+{"id":"S8-055","a":"Retrieve the top 20 products.","b":"Obtén los 20 productos principales.","label":"EQUIVALENT","category":"QUANTITY","differs_in":[]}
+{"id":"S8-056","a":"Locate the anomaly in the audio file.","b":"Find the anomaly within the audio file.","label":"EQUIVALENT","category":"ACTION","differs_in":[]}
+{"id":"S8-057","a":"Compara las ventas de este año con el 2025.","b":"Compara las ventas de 2027 con el 2025.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["date"]}
+{"id":"S8-058","a":"Flag accounts inactive for more than 365 days.","b":"Flag accounts inactive for more than one year.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-059","a":"Generate the summary as a table.","b":"Generate the summary as a PDF.","label":"NOT_EQUIVALENT","category":"OUTPUT","differs_in":["output_format"]}
+{"id":"S8-060","a":"Enable notifications for the sales team.","b":"Deshabilita las notificaciones para el equipo de ventas.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"S8-061","a":"Verify the anomaly reported in event #340.","b":"Check the anomaly logged under event 340.","label":"EQUIVALENT","category":"REFERENCE","differs_in":[]}
+{"id":"S8-062","a":"Traduce el documento y después envíalo al cliente.","b":"Primero traduce el documento, luego envíalo al cliente.","label":"EQUIVALENT","category":"ORDER","differs_in":[]}
+{"id":"S8-063","a":"Marca esta solicitud como urgente.","b":"Marca esta solicitud como prioridad alta.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["priority"]}
+{"id":"S8-064","a":"Compress the video to under 100 MB.","b":"Comprime el video a menos de 100 MB.","label":"EQUIVALENT","category":"CONSTRAINT","differs_in":[]}
+{"id":"S8-065","a":"Si la confianza supera 0.80, aprueba el resultado.","b":"Si la confianza supera 0.80, rechaza el resultado.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["action"]}
+{"id":"S8-066","a":"Verify that the customer data is accurate.","b":"Confirm the accuracy of the customer data.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"S8-067","a":"Analiza las imágenes del producto.","b":"Analiza el video del producto.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["target"]}
+{"id":"S8-068","a":"Retrieve last month's invoices.","b":"Retrieve the invoices from August 2026.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-069","a":"Marca como inactivos los usuarios con más de 6 meses sin actividad.","b":"Marca como inactivos los usuarios con más de 12 meses sin actividad.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["quantity"]}
+{"id":"S8-070","a":"Update ticket #12.","b":"Actualiza el ticket número 21.","label":"NOT_EQUIVALENT","category":"REFERENCE","differs_in":["reference"]}
+{"id":"S8-071","a":"Finish the deployment before 5pm.","b":"Finish the deployment before 17:00.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-072","a":"Only allow admins to delete users.","b":"Allow anyone to delete users.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"S8-073","a":"Genera un resumen de 500 palabras.","b":"Genera un resumen de 5000 palabras.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["quantity"]}
+{"id":"S8-074","a":"Crea un nuevo reporte de ventas.","b":"Elimina el reporte de ventas.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action"]}
+{"id":"S8-075","a":"Compare user growth between the two products.","b":"Compara el crecimiento de usuarios entre los dos productos.","label":"EQUIVALENT","category":"TARGET","differs_in":[]}
+{"id":"S8-076","a":"Prepara el reporte de hoy.","b":"Generate the report for September 26, 2026.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["date"]}
+{"id":"S8-077","a":"Termina el despliegue antes de las 9am.","b":"Termina el despliegue antes de las 9:30am.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["time"]}
+{"id":"S8-078","a":"Send the alert only in English.","b":"Envía la alerta solo en portugués.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["target_language"]}
+{"id":"S8-079","a":"Calculate the total revenue for the quarter.","b":"Calcule a receita total do trimestre.","label":"EQUIVALENT","category":"ACTION","differs_in":[]}
+{"id":"S8-080","a":"Elimina los productos con más de dos años.","b":"Exclua os produtos com mais de 24 meses.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-081","a":"Backup the database, then run the migration.","b":"Run the migration, then backup the database.","label":"NOT_EQUIVALENT","category":"ORDER","differs_in":["order"]}
+{"id":"S8-082","a":"Escalate incident #900 to the security team.","b":"Escalate incident #909 to the security team.","label":"NOT_EQUIVALENT","category":"REFERENCE","differs_in":["reference"]}
+{"id":"S8-083","a":"Analyze one hundred product images.","b":"Analyze 100 product images.","label":"EQUIVALENT","category":"QUANTITY","differs_in":[]}
+{"id":"S8-084","a":"Trata esta tarea como urgente.","b":"Treat this task as high priority.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["priority"]}
+{"id":"S8-085","a":"Si hay más de 100 registros, genera un resumen.","b":"If there are fewer than 100 records, generate a summary.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["condition"]}
+{"id":"S8-086","a":"If the dataset has over 100 records, split it into batches.","b":"Should the dataset contain more than 100 records, divide it into batches.","label":"EQUIVALENT","category":"CONDITION","differs_in":[]}
+{"id":"S8-087","a":"Envía el reporte al equipo de ventas.","b":"Envía el reporte al equipo de soporte.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["recipient"]}
+{"id":"S8-088","a":"Entrega el análisis como documento Markdown.","b":"Entrega el análisis como documento PDF.","label":"NOT_EQUIVALENT","category":"OUTPUT","differs_in":["output_format"]}
+{"id":"S8-089","a":"Enable the audit log for this project.","b":"Disable the audit log for this project.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"S8-090","a":"Busca al cliente llamado Empresa Andina S.A.","b":"Localiza al cliente Empresa Andina S.A.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"S8-091","a":"Update the sales figures for this week.","b":"Actualiza las cifras de ventas de esta semana.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"S8-092","a":"List the top 5 anomalies detected.","b":"Lista las 15 anomalías principales detectadas.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["quantity"]}
+{"id":"S8-093","a":"Envía la alerta solo si la confianza supera 0.90.","b":"Envía la alerta solo si la confianza supera 0.70.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["threshold"]}
+{"id":"S8-094","a":"Verifica la validez del contrato antes de aprobarlo.","b":"Valida el contrato antes de aprobarlo.","label":"EQUIVALENT","category":"ACTION","differs_in":[]}
+{"id":"S8-095","a":"Resolve issue number 58 before the release.","b":"Resuelve el problema #58 antes del lanzamiento.","label":"EQUIVALENT","category":"REFERENCE","differs_in":[]}
+{"id":"S8-096","a":"Only send the alert if confidence exceeds 0.90.","b":"Send the alert only when confidence is greater than 0.90.","label":"EQUIVALENT","category":"CONSTRAINT","differs_in":[]}
+{"id":"S8-097","a":"Verifica los datos de los clientes.","b":"Verify the data of the products.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["target"]}
+{"id":"S8-098","a":"Deploy before 09:00.","b":"Realiza el despliegue antes de las 9:15am.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["time"]}
+{"id":"S8-099","a":"Search for the missing document in the archive.","b":"Look for the missing document within the archive.","label":"EQUIVALENT","category":"TARGET","differs_in":[]}
+{"id":"S8-100","a":"Revisa las suscripciones con más de un año de antigüedad.","b":"Revisa las suscripciones con más de doce meses de antigüedad.","label":"EQUIVALENT","category":"TIME","differs_in":[]}

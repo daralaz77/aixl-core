@@ -1,0 +1,100 @@
+{"id": "S9-001", "a": "Compara las ventas de ayer con las de hoy.", "b": "Compara las ventas del 26 de septiembre de 2026 con las del 27 de septiembre de 2026.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "S9-002", "a": "Genera el reporte de ventas de ayer.", "b": "Genera el reporte de ventas del 25 de septiembre de 2026.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["date"]}
+{"id": "S9-003", "a": "Send the report for last month.", "b": "Send the report for August 2026.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "S9-004", "a": "Send the report for last month.", "b": "Send the report for July 2026.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["date"]}
+{"id": "S9-005", "a": "Analiza los datos de este año.", "b": "Analiza los datos de 2026.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "S9-006", "a": "Analiza los datos de este año.", "b": "Analiza los datos de 2025.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["date"]}
+{"id": "S9-007", "a": "Fetch tomorrow's customer list.", "b": "Fetch the customer list for 2026-09-28.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "S9-008", "a": "Fetch tomorrow's customer list.", "b": "Fetch the customer list for 2026-09-29.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["date"]}
+{"id": "S9-009", "a": "Elimina los registros de este mes.", "b": "Elimina los registros de septiembre de 2026.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "S9-010", "a": "Update today's inventory report.", "b": "Actualiza el informe de inventario del 28 de septiembre de 2026.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["date"]}
+{"id": "S9-011", "a": "Verifica que todos los documentos estén firmados.", "b": "Confirma que todos los documentos hayan sido firmados.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "S9-012", "a": "Allow external users to access the report.", "b": "Forbid external users from accessing the report.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["permission"]}
+{"id": "S9-013", "a": "Please locate the anomaly in the dataset.", "b": "Kindly find the anomaly in the dataset.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "S9-014", "a": "Envía el informe a Contoso.", "b": "No envíes el informe a Contoso.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["negation"]}
+{"id": "S9-015", "a": "Traduce el documento al portugués.", "b": "Traduza o documento para o português.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "S9-016", "a": "Enable notifications for anomaly alerts.", "b": "Disable notifications for anomaly alerts.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["action"]}
+{"id": "S9-017", "a": "Calculate the total sales for Acme Corp.", "b": "Compute the total sales for Acme Corp.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "S9-018", "a": "Está permitido eliminar los registros duplicados.", "b": "Está prohibido eliminar los registros duplicados.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["permission"]}
+{"id": "S9-019", "a": "Elimina las imágenes duplicadas del conjunto de datos.", "b": "Borra las imágenes repetidas del dataset.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "S9-020", "a": "Include customers from last month in the report.", "b": "Excluye a los clientes del mes pasado del informe.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["action"]}
+{"id": "S9-021", "a": "The report must be sent to the finance team.", "b": "Send the report to the finance team.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "S9-022", "a": "You may run the script without supervision.", "b": "You may not run the script without supervision.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["permission"]}
+{"id": "S9-023", "a": "Retrieve the customer list for Nova Logistics.", "b": "Obtén la lista de clientes de Nova Logistics.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "S9-024", "a": "Se debe validar el resultado antes de publicarlo.", "b": "No se debe validar el resultado antes de publicarlo.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["negation"]}
+{"id": "S9-025", "a": "Analise os dados de vendas do último trimestre.", "b": "Analyze last quarter's sales data.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "S9-026", "a": "É permitido excluir o evento #40.", "b": "It is forbidden to delete event #40.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["permission"]}
+{"id": "S9-027", "a": "Send the invoice before 3pm.", "b": "Send the invoice before 15:00.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "S9-028", "a": "Send the invoice before 3pm.", "b": "Send the invoice before 5pm.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["time"]}
+{"id": "S9-029", "a": "Envía el recordatorio a las 2:30pm.", "b": "Envía el recordatorio a las 14:30.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "S9-030", "a": "Envía el recordatorio a las 2:30pm.", "b": "Envía el recordatorio a las 12:30.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["time"]}
+{"id": "S9-031", "a": "Schedule the call for 9am.", "b": "Schedule the call for 9pm.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["time"]}
+{"id": "S9-032", "a": "Cierra el reporte antes de las 18:00.", "b": "Close the report before 6pm.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "S9-033", "a": "Genera el resumen antes de las 11:00 a.m.", "b": "Genera el resumen antes de las 11:00 p.m.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["time"]}
+{"id": "S9-034", "a": "Delete customers older than one year.", "b": "Delete customers older than 12 months.", "label": "EQUIVALENT", "category": "QUANTITY", "differs_in": []}
+{"id": "S9-035", "a": "Delete customers older than one year.", "b": "Delete customers older than two years.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["quantity"]}
+{"id": "S9-036", "a": "Elimina los usuarios con más de un año de antigüedad.", "b": "Elimina los usuarios con más de 12 meses de antigüedad.", "label": "EQUIVALENT", "category": "QUANTITY", "differs_in": []}
+{"id": "S9-037", "a": "Remove products older than six months.", "b": "Elimina los productos con más de un año de antigüedad.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["quantity"]}
+{"id": "S9-038", "a": "Archiva los eventos con más de dos semanas de antigüedad.", "b": "Archiva los eventos con más de 14 días de antigüedad.", "label": "EQUIVALENT", "category": "QUANTITY", "differs_in": []}
+{"id": "S9-039", "a": "Archive events older than two weeks.", "b": "Archive events older than two months.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["quantity"]}
+{"id": "S9-040", "a": "Close ticket #77.", "b": "Cierra el ticket número 77.", "label": "EQUIVALENT", "category": "REFERENCE", "differs_in": []}
+{"id": "S9-041", "a": "Close ticket #77.", "b": "Close ticket #78.", "label": "NOT_EQUIVALENT", "category": "REFERENCE", "differs_in": ["reference"]}
+{"id": "S9-042", "a": "Update issue number 58.", "b": "Update issue #58.", "label": "EQUIVALENT", "category": "REFERENCE", "differs_in": []}
+{"id": "S9-043", "a": "Actualiza el caso número 58.", "b": "Actualiza el caso #85.", "label": "NOT_EQUIVALENT", "category": "REFERENCE", "differs_in": ["reference"]}
+{"id": "S9-044", "a": "Revisa el reporte #203 antes de enviarlo.", "b": "Revisa el reporte número 203 antes de enviarlo.", "label": "EQUIVALENT", "category": "REFERENCE", "differs_in": []}
+{"id": "S9-045", "a": "Verify report #12.", "b": "Verify report number 21.", "label": "NOT_EQUIVALENT", "category": "REFERENCE", "differs_in": ["reference"]}
+{"id": "S9-046", "a": "Retrieve the top 10 results.", "b": "Retrieve the top ten results.", "label": "EQUIVALENT", "category": "QUANTITY", "differs_in": []}
+{"id": "S9-047", "a": "Retrieve the top 10 results.", "b": "Retrieve the top 20 results.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["quantity"]}
+{"id": "S9-048", "a": "Analiza 100 registros de ventas.", "b": "Analiza cien registros de ventas.", "label": "EQUIVALENT", "category": "QUANTITY", "differs_in": []}
+{"id": "S9-049", "a": "Analiza 100 registros de ventas.", "b": "Analiza 150 registros de ventas.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["quantity"]}
+{"id": "S9-050", "a": "Generate a report with 50 records.", "b": "Genera un informe con 50 registros.", "label": "EQUIVALENT", "category": "QUANTITY", "differs_in": []}
+{"id": "S9-051", "a": "Limit the output to 5 anomalies.", "b": "Limita la salida a 8 anomalías.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["quantity"]}
+{"id": "S9-052", "a": "Export the results as a CSV file.", "b": "Export the results in CSV format.", "label": "EQUIVALENT", "category": "CONSTRAINT", "differs_in": []}
+{"id": "S9-053", "a": "Export the results as a CSV file.", "b": "Export the results as a PDF file.", "label": "NOT_EQUIVALENT", "category": "CONSTRAINT", "differs_in": ["format"]}
+{"id": "S9-054", "a": "Marca esta tarea con prioridad urgente.", "b": "Marca esta tarea como urgente.", "label": "EQUIVALENT", "category": "CONSTRAINT", "differs_in": []}
+{"id": "S9-055", "a": "Marca esta tarea con prioridad urgente.", "b": "Marca esta tarea con alta prioridad.", "label": "NOT_EQUIVALENT", "category": "CONSTRAINT", "differs_in": ["priority"]}
+{"id": "S9-056", "a": "Flag anomalies with confidence above 0.80.", "b": "Marca las anomalías con una confianza superior a 0.80.", "label": "EQUIVALENT", "category": "CONSTRAINT", "differs_in": []}
+{"id": "S9-057", "a": "Flag anomalies with confidence above 0.80.", "b": "Marca las anomalías con una confianza superior a 0.60.", "label": "NOT_EQUIVALENT", "category": "CONSTRAINT", "differs_in": ["threshold"]}
+{"id": "S9-058", "a": "Translate the document into French.", "b": "Render the document in French.", "label": "EQUIVALENT", "category": "CONSTRAINT", "differs_in": []}
+{"id": "S9-059", "a": "Translate the document into French.", "b": "Translate the document into German.", "label": "NOT_EQUIVALENT", "category": "CONSTRAINT", "differs_in": ["language"]}
+{"id": "S9-060", "a": "If there are more than 100 records, generate a summary.", "b": "Should there be over 100 records, create a summary.", "label": "EQUIVALENT", "category": "CONDITION", "differs_in": []}
+{"id": "S9-061", "a": "If there are more than 100 records, generate a summary.", "b": "If there are more than 200 records, generate a summary.", "label": "NOT_EQUIVALENT", "category": "CONDITION", "differs_in": ["threshold"]}
+{"id": "S9-062", "a": "Si la confianza es menor a 0.80, descarta el resultado.", "b": "En caso de que la confianza sea inferior a 0.80, descarta el resultado.", "label": "EQUIVALENT", "category": "CONDITION", "differs_in": []}
+{"id": "S9-063", "a": "Si la confianza es menor a 0.80, descarta el resultado.", "b": "Descarta el resultado.", "label": "NOT_EQUIVALENT", "category": "CONDITION", "differs_in": ["condition"]}
+{"id": "S9-064", "a": "If the dataset has more than 100 records, notify the team.", "b": "Si el conjunto de datos tiene más de 100 registros, notifica al equipo.", "label": "EQUIVALENT", "category": "CONDITION", "differs_in": []}
+{"id": "S9-065", "a": "If the dataset has more than 100 records, notify the team.", "b": "Notifica al equipo si el conjunto de datos tiene menos de 100 registros.", "label": "NOT_EQUIVALENT", "category": "CONDITION", "differs_in": ["condition"]}
+{"id": "S9-066", "a": "When sales exceed the quarterly target, send an alert.", "b": "Should sales go beyond the quarterly target, send an alert.", "label": "EQUIVALENT", "category": "CONDITION", "differs_in": []}
+{"id": "S9-067", "a": "When sales exceed the quarterly target, send an alert.", "b": "When sales fall short of the quarterly target, send an alert.", "label": "NOT_EQUIVALENT", "category": "CONDITION", "differs_in": ["condition"]}
+{"id": "S9-068", "a": "Examine the audio files for background noise.", "b": "Analyze the audio files for background noise.", "label": "EQUIVALENT", "category": "ACTION", "differs_in": []}
+{"id": "S9-069", "a": "Examine the audio files for background noise.", "b": "Delete the audio files with background noise.", "label": "NOT_EQUIVALENT", "category": "ACTION", "differs_in": ["action"]}
+{"id": "S9-070", "a": "Busca al cliente con el correo repetido.", "b": "Localiza al cliente con el correo repetido.", "label": "EQUIVALENT", "category": "ACTION", "differs_in": []}
+{"id": "S9-071", "a": "Busca al cliente con el correo repetido.", "b": "Elimina al cliente con el correo repetido.", "label": "NOT_EQUIVALENT", "category": "ACTION", "differs_in": ["action"]}
+{"id": "S9-072", "a": "Verify the product data before publishing.", "b": "Valida los datos del producto antes de publicarlos.", "label": "EQUIVALENT", "category": "ACTION", "differs_in": []}
+{"id": "S9-073", "a": "Verify the product data before publishing.", "b": "Actualiza los datos del producto antes de publicarlos.", "label": "NOT_EQUIVALENT", "category": "ACTION", "differs_in": ["action"]}
+{"id": "S9-074", "a": "Compare the sales figures between the two branches.", "b": "Contrast the sales numbers between the two branches.", "label": "EQUIVALENT", "category": "TARGET", "differs_in": []}
+{"id": "S9-075", "a": "Compare the sales figures between the two branches.", "b": "Compare the customer figures between the two branches.", "label": "NOT_EQUIVALENT", "category": "TARGET", "differs_in": ["target"]}
+{"id": "S9-076", "a": "Revisa los datos de los usuarios registrados este mes.", "b": "Revisa la información de los usuarios registrados este mes.", "label": "EQUIVALENT", "category": "TARGET", "differs_in": []}
+{"id": "S9-077", "a": "Revisa los datos de los usuarios registrados este mes.", "b": "Revisa los datos de los productos registrados este mes.", "label": "NOT_EQUIVALENT", "category": "TARGET", "differs_in": ["target"]}
+{"id": "S9-078", "a": "Check the video files for corruption.", "b": "Verifica los archivos de video en busca de corrupción.", "label": "EQUIVALENT", "category": "TARGET", "differs_in": []}
+{"id": "S9-079", "a": "Check the video files for corruption.", "b": "Revisa los archivos de audio en busca de corrupción.", "label": "NOT_EQUIVALENT", "category": "TARGET", "differs_in": ["target"]}
+{"id": "S9-080", "a": "Present the anomaly summary as a table.", "b": "Show the anomaly summary in table format.", "label": "EQUIVALENT", "category": "OUTPUT", "differs_in": []}
+{"id": "S9-081", "a": "Present the anomaly summary as a table.", "b": "Present the anomaly summary as a chart.", "label": "NOT_EQUIVALENT", "category": "OUTPUT", "differs_in": ["format"]}
+{"id": "S9-082", "a": "Genera el resultado en formato Markdown.", "b": "Produce el resultado en Markdown.", "label": "EQUIVALENT", "category": "OUTPUT", "differs_in": []}
+{"id": "S9-083", "a": "Genera el resultado en formato Markdown.", "b": "Genera el resultado en formato PDF.", "label": "NOT_EQUIVALENT", "category": "OUTPUT", "differs_in": ["format"]}
+{"id": "S9-084", "a": "Write the comparison report in JSON.", "b": "Escribe el informe de comparación en formato JSON.", "label": "EQUIVALENT", "category": "OUTPUT", "differs_in": []}
+{"id": "S9-085", "a": "Write the comparison report in JSON.", "b": "Escribe el informe de comparación en formato CSV.", "label": "NOT_EQUIVALENT", "category": "OUTPUT", "differs_in": ["format"]}
+{"id": "S9-086", "a": "First validate the data, then generate the report.", "b": "Validate the data before generating the report.", "label": "EQUIVALENT", "category": "ORDER", "differs_in": []}
+{"id": "S9-087", "a": "First validate the data, then generate the report.", "b": "First generate the report, then validate the data.", "label": "NOT_EQUIVALENT", "category": "ORDER", "differs_in": ["order"]}
+{"id": "S9-088", "a": "Primero calcula las ventas y después envía el resultado a Delta Corp.", "b": "Calcula las ventas antes de enviar el resultado a Delta Corp.", "label": "EQUIVALENT", "category": "ORDER", "differs_in": []}
+{"id": "S9-089", "a": "Primero calcula las ventas y después envía el resultado a Delta Corp.", "b": "Primero envía el resultado a Delta Corp y después calcula las ventas.", "label": "NOT_EQUIVALENT", "category": "ORDER", "differs_in": ["order"]}
+{"id": "S9-090", "a": "Send the invoice to Bright Path Inc.", "b": "Dispatch the invoice to Bright Path Inc.", "label": "EQUIVALENT", "category": "REFERENCE", "differs_in": []}
+{"id": "S9-091", "a": "Send the invoice to Bright Path Inc.", "b": "Send the invoice to Silver Oak Inc.", "label": "NOT_EQUIVALENT", "category": "REFERENCE", "differs_in": ["recipient"]}
+{"id": "S9-092", "a": "Comparte el informe con el equipo de Orbex.", "b": "Distribuye el informe al equipo de Orbex.", "label": "EQUIVALENT", "category": "REFERENCE", "differs_in": []}
+{"id": "S9-093", "a": "Comparte el informe con el equipo de Orbex.", "b": "Comparte el informe con el equipo de Nortek.", "label": "NOT_EQUIVALENT", "category": "REFERENCE", "differs_in": ["recipient"]}
+{"id": "S9-094", "a": "Notify Kaelis Group about the update.", "b": "Notifica al grupo Kaelis sobre la actualización.", "label": "EQUIVALENT", "category": "REFERENCE", "differs_in": []}
+{"id": "S9-095", "a": "Notify Kaelis Group about the update.", "b": "Notifica al grupo Vantor sobre la actualización.", "label": "NOT_EQUIVALENT", "category": "REFERENCE", "differs_in": ["recipient"]}
+{"id": "S9-096", "a": "Generate the sales report for Q3 2026.", "b": "Generate the sales report for the third quarter of 2026.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "S9-097", "a": "Generate the sales report for Q3 2026.", "b": "Generate the sales report for Q4 2026.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["date"]}
+{"id": "S9-098", "a": "Analiza los eventos entre el 1 y el 15 de agosto de 2026.", "b": "Analiza los eventos del 1 al 15 de agosto de 2026.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "S9-099", "a": "Analiza los eventos entre el 1 y el 15 de agosto de 2026.", "b": "Analiza los eventos entre el 1 y el 20 de agosto de 2026.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["date"]}
+{"id": "S9-100", "a": "Compare results from 2024 and 2025.", "b": "Compara los resultados de 2024 y 2025.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}

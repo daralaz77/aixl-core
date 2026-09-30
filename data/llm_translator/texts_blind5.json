@@ -1,0 +1,2402 @@
+[
+{
+"pair": "GEM-018",
+"side": "a",
+"text": "Translate report #12 to Spanish if urgent priority is set.",
+"tid": "t001"
+},
+{
+"pair": "GEM-018",
+"side": "b",
+"text": "Traduce el informe #12 al español si la prioridad es urgente.",
+"tid": "t002"
+},
+{
+"pair": "GPT-019",
+"side": "a",
+"text": "Get the sales data from yesterday.",
+"tid": "t003"
+},
+{
+"pair": "GPT-019",
+"side": "b",
+"text": "Fetch yesterday's sales data.",
+"tid": "t004"
+},
+{
+"pair": "GPT-003",
+"side": "a",
+"text": "No elimines los datos de usuarios.",
+"tid": "t005"
+},
+{
+"pair": "GPT-003",
+"side": "b",
+"text": "Do not delete the user data.",
+"tid": "t006"
+},
+{
+"pair": "GEM-035",
+"side": "a",
+"text": "Si la confianza es menor a 0.80, deshabilita la cuenta del usuario.",
+"tid": "t007"
+},
+{
+"pair": "GEM-035",
+"side": "b",
+"text": "If confidence is below 0.80, disable the user account.",
+"tid": "t008"
+},
+{
+"pair": "GEM-031",
+"side": "a",
+"text": "Por favor, actualiza los datos del producto #33 hoy.",
+"tid": "t009"
+},
+{
+"pair": "GEM-031",
+"side": "b",
+"text": "Update product #33 data today.",
+"tid": "t010"
+},
+{
+"pair": "GPT-064",
+"side": "a",
+"text": "Enable the high-priority alert.",
+"tid": "t011"
+},
+{
+"pair": "GPT-064",
+"side": "b",
+"text": "Enable the urgent-priority alert.",
+"tid": "t012"
+},
+{
+"pair": "GPT-054",
+"side": "a",
+"text": "Find the anomalies in the dataset.",
+"tid": "t013"
+},
+{
+"pair": "GPT-054",
+"side": "b",
+"text": "Find the anomalies in the sales data.",
+"tid": "t014"
+},
+{
+"pair": "GPT-006",
+"side": "a",
+"text": "Fetch report #77 as PDF.",
+"tid": "t015"
+},
+{
+"pair": "GPT-006",
+"side": "b",
+"text": "Retrieve report #77 in PDF format.",
+"tid": "t016"
+},
+{
+"pair": "GPT-086",
+"side": "a",
+"text": "Find the top 5 companies by sales.",
+"tid": "t017"
+},
+{
+"pair": "GPT-086",
+"side": "b",
+"text": "Find the top 10 companies by sales.",
+"tid": "t018"
+},
+{
+"pair": "GPT-027",
+"side": "a",
+"text": "Disable audio retrieval for #88.",
+"tid": "t019"
+},
+{
+"pair": "GPT-027",
+"side": "b",
+"text": "Turn off audio fetching for #88.",
+"tid": "t020"
+},
+{
+"pair": "GEM-089",
+"side": "a",
+"text": "Informa los resultados de la encuesta en formato PDF con prioridad alta.",
+"tid": "t021"
+},
+{
+"pair": "GEM-089",
+"side": "b",
+"text": "Report survey results in PDF format with high priority.",
+"tid": "t022"
+},
+{
+"pair": "GEM-050",
+"side": "a",
+"text": "Exclude customer records where anomalies exceed 5.",
+"tid": "t023"
+},
+{
+"pair": "GEM-050",
+"side": "b",
+"text": "Include customer records where anomalies exceed 5.",
+"tid": "t024"
+},
+{
+"pair": "GEM-067",
+"side": "a",
+"text": "Valida la anomalía del producto #12 e incluye el informe #01.",
+"tid": "t025"
+},
+{
+"pair": "GEM-067",
+"side": "b",
+"text": "Validate product anomaly #12 and include report #01.",
+"tid": "t026"
+},
+{
+"pair": "GPT-032",
+"side": "a",
+"text": "Exclude users with no sales records.",
+"tid": "t027"
+},
+{
+"pair": "GPT-032",
+"side": "b",
+"text": "Leave out users who have no sales records.",
+"tid": "t028"
+},
+{
+"pair": "GPT-045",
+"side": "a",
+"text": "Find the top 5 companies by sales.",
+"tid": "t029"
+},
+{
+"pair": "GPT-045",
+"side": "b",
+"text": "Locate the five companies with the highest sales.",
+"tid": "t030"
+},
+{
+"pair": "GPT-081",
+"side": "a",
+"text": "Send the CSV to the finance team.",
+"tid": "t031"
+},
+{
+"pair": "GPT-081",
+"side": "b",
+"text": "Send the CSV to the sales team.",
+"tid": "t032"
+},
+{
+"pair": "GEM-088",
+"side": "a",
+"text": "Calculate customer product sales for 2024.",
+"tid": "t033"
+},
+{
+"pair": "GEM-088",
+"side": "b",
+"text": "Calculate customer product sales for 2025.",
+"tid": "t034"
+},
+{
+"pair": "GEM-013",
+"side": "a",
+"text": "Valida los resultados de la encuesta de la empresa hoy mismo.",
+"tid": "t035"
+},
+{
+"pair": "GEM-013",
+"side": "b",
+"text": "Verify today the results of the company survey.",
+"tid": "t036"
+},
+{
+"pair": "GEM-061",
+"side": "a",
+"text": "Obtén un máximo de 20 imágenes del evento #05.",
+"tid": "t037"
+},
+{
+"pair": "GEM-061",
+"side": "b",
+"text": "Fetch a maximum of 20 images of event #05.",
+"tid": "t038"
+},
+{
+"pair": "GEM-094",
+"side": "a",
+"text": "Gerar arquivo CSV com os dados de ventas de hoje.",
+"tid": "t039"
+},
+{
+"pair": "GEM-094",
+"side": "b",
+"text": "Gerar arquivo PDF com os dados de ventas de hoje.",
+"tid": "t040"
+},
+{
+"pair": "GEM-082",
+"side": "a",
+"text": "Update company #05 details and set urgent priority.",
+"tid": "t041"
+},
+{
+"pair": "GEM-082",
+"side": "b",
+"text": "Update company #05 details and set normal priority.",
+"tid": "t042"
+},
+{
+"pair": "GEM-025",
+"side": "a",
+"text": "Run anomaly detection on video data for company #15.",
+"tid": "t043"
+},
+{
+"pair": "GEM-025",
+"side": "b",
+"text": "Run anomaly detection on audio data for company #15.",
+"tid": "t044"
+},
+{
+"pair": "GEM-069",
+"side": "a",
+"text": "Crea una tabla con los datos de usuarios de esta semana.",
+"tid": "t045"
+},
+{
+"pair": "GEM-069",
+"side": "b",
+"text": "Generate a table with user data from this week.",
+"tid": "t046"
+},
+{
+"pair": "GEM-059",
+"side": "a",
+"text": "Deshabilita los registros del sistema si la anomalía es detectada.",
+"tid": "t047"
+},
+{
+"pair": "GEM-059",
+"side": "b",
+"text": "Disable system records if anomaly is detected.",
+"tid": "t048"
+},
+{
+"pair": "GEM-095",
+"side": "a",
+"text": "Search customer data for person #09 and include report #01.",
+"tid": "t049"
+},
+{
+"pair": "GEM-095",
+"side": "b",
+"text": "Busca datos de cliente para la persona #09 e incluye el informe #01.",
+"tid": "t050"
+},
+{
+"pair": "GEM-015",
+"side": "a",
+"text": "Retrieve max 50 images of anomalies from #88.",
+"tid": "t051"
+},
+{
+"pair": "GEM-015",
+"side": "b",
+"text": "Get up to 50 images of anomalies from #88.",
+"tid": "t052"
+},
+{
+"pair": "GEM-057",
+"side": "a",
+"text": "Si la confianza es menor a 0.80, excluye el informe #18.",
+"tid": "t053"
+},
+{
+"pair": "GEM-057",
+"side": "b",
+"text": "If confidence is below 0.80, exclude report #18.",
+"tid": "t054"
+},
+{
+"pair": "GPT-046",
+"side": "a",
+"text": "Write a Markdown table for the users.",
+"tid": "t055"
+},
+{
+"pair": "GPT-046",
+"side": "b",
+"text": "Generate a Markdown table containing the users.",
+"tid": "t056"
+},
+{
+"pair": "GPT-079",
+"side": "a",
+"text": "Generate the result in Spanish and PDF format.",
+"tid": "t057"
+},
+{
+"pair": "GPT-079",
+"side": "b",
+"text": "Generate the result in Spanish and CSV format.",
+"tid": "t058"
+},
+{
+"pair": "GPT-049",
+"side": "a",
+"text": "Translate the audio description into English.",
+"tid": "t059"
+},
+{
+"pair": "GPT-049",
+"side": "b",
+"text": "Convert the audio description to English.",
+"tid": "t060"
+},
+{
+"pair": "GPT-012",
+"side": "a",
+"text": "Include images but exclude audio.",
+"tid": "t061"
+},
+{
+"pair": "GPT-012",
+"side": "b",
+"text": "Include the images and leave out the audio.",
+"tid": "t062"
+},
+{
+"pair": "GPT-038",
+"side": "a",
+"text": "Generate the result in Spanish and PDF format.",
+"tid": "t063"
+},
+{
+"pair": "GPT-038",
+"side": "b",
+"text": "Produce the result as a Spanish-language PDF.",
+"tid": "t064"
+},
+{
+"pair": "GPT-082",
+"side": "a",
+"text": "Retrieve event #55 from last month.",
+"tid": "t065"
+},
+{
+"pair": "GPT-082",
+"side": "b",
+"text": "Retrieve event #56 from last month.",
+"tid": "t066"
+},
+{
+"pair": "GPT-004",
+"side": "a",
+"text": "Find the anomalies in the dataset.",
+"tid": "t067"
+},
+{
+"pair": "GPT-004",
+"side": "b",
+"text": "Detect anomalies in the dataset.",
+"tid": "t068"
+},
+{
+"pair": "GEM-055",
+"side": "a",
+"text": "Find video files related to company anomaly #44.",
+"tid": "t069"
+},
+{
+"pair": "GEM-055",
+"side": "b",
+"text": "Locate video files related to company anomaly #44.",
+"tid": "t070"
+},
+{
+"pair": "GPT-078",
+"side": "a",
+"text": "Update the sales report after retrieving the data.",
+"tid": "t071"
+},
+{
+"pair": "GPT-078",
+"side": "b",
+"text": "Update the sales report before retrieving the data.",
+"tid": "t072"
+},
+{
+"pair": "GPT-010",
+"side": "a",
+"text": "Run the analysis if there are more than 100 records.",
+"tid": "t073"
+},
+{
+"pair": "GPT-010",
+"side": "b",
+"text": "Execute the analysis when there are over 100 records.",
+"tid": "t074"
+},
+{
+"pair": "GPT-075",
+"side": "a",
+"text": "Translate #19 into Portuguese.",
+"tid": "t075"
+},
+{
+"pair": "GPT-075",
+"side": "b",
+"text": "Translate #19 into Spanish.",
+"tid": "t076"
+},
+{
+"pair": "GEM-028",
+"side": "a",
+"text": "Send top 5 product reports to user #22 via email.",
+"tid": "t077"
+},
+{
+"pair": "GEM-028",
+"side": "b",
+"text": "Send top 10 product reports to user #22 via email.",
+"tid": "t078"
+},
+{
+"pair": "GEM-065",
+"side": "a",
+"text": "Elimina los archivos de video del cliente #03 inmediatamente.",
+"tid": "t079"
+},
+{
+"pair": "GEM-065",
+"side": "b",
+"text": "Remove video files of client #03 immediately.",
+"tid": "t080"
+},
+{
+"pair": "GEM-083",
+"side": "a",
+"text": "Verifica si existen anomalías en el video del evento #03.",
+"tid": "t081"
+},
+{
+"pair": "GEM-083",
+"side": "b",
+"text": "Check if there are anomalies in the event #03 video.",
+"tid": "t082"
+},
+{
+"pair": "GPT-066",
+"side": "a",
+"text": "Update document #42 and then send it.",
+"tid": "t083"
+},
+{
+"pair": "GPT-066",
+"side": "b",
+"text": "Send document #42 and then update it.",
+"tid": "t084"
+},
+{
+"pair": "GPT-051",
+"side": "a",
+"text": "Analyze the sales data from Q1 2026.",
+"tid": "t085"
+},
+{
+"pair": "GPT-051",
+"side": "b",
+"text": "Analyze the sales data from Q2 2026.",
+"tid": "t086"
+},
+{
+"pair": "GPT-030",
+"side": "a",
+"text": "Validate the result before sending it.",
+"tid": "t087"
+},
+{
+"pair": "GPT-030",
+"side": "b",
+"text": "Check the result first, then send it.",
+"tid": "t088"
+},
+{
+"pair": "GEM-037",
+"side": "a",
+"text": "Remueve los 100 registros de ventas duplicados de la base de datos.",
+"tid": "t089"
+},
+{
+"pair": "GEM-037",
+"side": "b",
+"text": "Delete 100 duplicate sales records from the database.",
+"tid": "t090"
+},
+{
+"pair": "GEM-009",
+"side": "a",
+"text": "Prohíbe el acceso a los datos de clientes si la confianza es menor a 0.80.",
+"tid": "t091"
+},
+{
+"pair": "GEM-009",
+"side": "b",
+"text": "Permite el acceso a los datos de clientes si la confianza es menor a 0.80.",
+"tid": "t092"
+},
+{
+"pair": "GPT-097",
+"side": "a",
+"text": "Search sales data from January 2026 through March 2026.",
+"tid": "t093"
+},
+{
+"pair": "GPT-097",
+"side": "b",
+"text": "Search sales data from January 2026 through April 2026.",
+"tid": "t094"
+},
+{
+"pair": "GEM-022",
+"side": "a",
+"text": "Search audio files for person #30 if confidence > 0.85.",
+"tid": "t095"
+},
+{
+"pair": "GEM-022",
+"side": "b",
+"text": "Search audio files for person #30 if confidence >= 0.85.",
+"tid": "t096"
+},
+{
+"pair": "GPT-072",
+"side": "a",
+"text": "Remove at most 100 records.",
+"tid": "t097"
+},
+{
+"pair": "GPT-072",
+"side": "b",
+"text": "Remove at most 200 records.",
+"tid": "t098"
+},
+{
+"pair": "GEM-063",
+"side": "a",
+"text": "Analisar o conjunto de dados de audio e gerar relatorio em PDF.",
+"tid": "t099"
+},
+{
+"pair": "GEM-063",
+"side": "b",
+"text": "Analyze the audio dataset and generate a PDF report.",
+"tid": "t100"
+},
+{
+"pair": "GEM-074",
+"side": "a",
+"text": "Search top 100 customer records in the sales dataset.",
+"tid": "t101"
+},
+{
+"pair": "GEM-074",
+"side": "b",
+"text": "Search top 500 customer records in the sales dataset.",
+"tid": "t102"
+},
+{
+"pair": "GPT-096",
+"side": "a",
+"text": "Fetch report #77 as PDF.",
+"tid": "t103"
+},
+{
+"pair": "GPT-096",
+"side": "b",
+"text": "Fetch report #77 as JSON.",
+"tid": "t104"
+},
+{
+"pair": "GEM-010",
+"side": "a",
+"text": "Calculate total sales for yesterday in Markdown table.",
+"tid": "t105"
+},
+{
+"pair": "GEM-010",
+"side": "b",
+"text": "Compute total sales for yesterday in Markdown table.",
+"tid": "t106"
+},
+{
+"pair": "GPT-041",
+"side": "a",
+"text": "Retrieve event #55 from last month.",
+"tid": "t107"
+},
+{
+"pair": "GPT-041",
+"side": "b",
+"text": "Fetch event #55 from the previous month.",
+"tid": "t108"
+},
+{
+"pair": "GEM-042",
+"side": "a",
+"text": "Search company anomalies today and filter top 20 records.",
+"tid": "t109"
+},
+{
+"pair": "GEM-042",
+"side": "b",
+"text": "Search company anomalies yesterday and filter top 20 records.",
+"tid": "t110"
+},
+{
+"pair": "GEM-030",
+"side": "a",
+"text": "Check video datasets for person #04; output as table.",
+"tid": "t111"
+},
+{
+"pair": "GEM-030",
+"side": "b",
+"text": "Check video datasets for person #04; output as CSV.",
+"tid": "t112"
+},
+{
+"pair": "GPT-037",
+"side": "a",
+"text": "Update the sales report after retrieving the data.",
+"tid": "t113"
+},
+{
+"pair": "GPT-037",
+"side": "b",
+"text": "Once the data is retrieved, modify the sales report.",
+"tid": "t114"
+},
+{
+"pair": "GPT-053",
+"side": "a",
+"text": "Do not delete the user data.",
+"tid": "t115"
+},
+{
+"pair": "GPT-053",
+"side": "b",
+"text": "Delete the user data.",
+"tid": "t116"
+},
+{
+"pair": "GPT-074",
+"side": "a",
+"text": "Create a PDF report for Acme.",
+"tid": "t117"
+},
+{
+"pair": "GPT-074",
+"side": "b",
+"text": "Create a PDF report for Globex.",
+"tid": "t118"
+},
+{
+"pair": "GEM-039",
+"side": "a",
+"text": "Validate company document #14 and send result to recipient A.",
+"tid": "t119"
+},
+{
+"pair": "GEM-039",
+"side": "b",
+"text": "Validate company document #14 and send result to recipient B.",
+"tid": "t120"
+},
+{
+"pair": "GEM-090",
+"side": "a",
+"text": "Fetch audio records for event #80 and translate to Spanish.",
+"tid": "t121"
+},
+{
+"pair": "GEM-090",
+"side": "b",
+"text": "Fetch video records for event #80 and translate to Spanish.",
+"tid": "t122"
+},
+{
+"pair": "GPT-002",
+"side": "a",
+"text": "Delete the 100 customer records.",
+"tid": "t123"
+},
+{
+"pair": "GPT-002",
+"side": "b",
+"text": "Delete the 100 customer records.",
+"tid": "t124"
+},
+{
+"pair": "GPT-017",
+"side": "a",
+"text": "Permita ejecutar el análisis si la confianza es mayor o igual a 0.80.",
+"tid": "t125"
+},
+{
+"pair": "GPT-017",
+"side": "b",
+"text": "Allow the analysis to run when confidence is at least 0.80.",
+"tid": "t126"
+},
+{
+"pair": "GPT-018",
+"side": "a",
+"text": "Write the result in Markdown.",
+"tid": "t127"
+},
+{
+"pair": "GPT-018",
+"side": "b",
+"text": "Produce the result using Markdown.",
+"tid": "t128"
+},
+{
+"pair": "GPT-016",
+"side": "a",
+"text": "Update document #42 and then send it.",
+"tid": "t129"
+},
+{
+"pair": "GPT-016",
+"side": "b",
+"text": "Modify document #42, then send it.",
+"tid": "t130"
+},
+{
+"pair": "GEM-007",
+"side": "a",
+"text": "Fetch top 10 sales records and generate a JSON file.",
+"tid": "t131"
+},
+{
+"pair": "GEM-007",
+"side": "b",
+"text": "Generate a JSON file and fetch top 10 sales records.",
+"tid": "t132"
+},
+{
+"pair": "GEM-021",
+"side": "a",
+"text": "Compute company product sales for last month in JSON.",
+"tid": "t133"
+},
+{
+"pair": "GEM-021",
+"side": "b",
+"text": "Calculate product sales of the firm for previous month as JSON.",
+"tid": "t134"
+},
+{
+"pair": "GEM-062",
+"side": "a",
+"text": "Translate document #88 to French with high priority.",
+"tid": "t135"
+},
+{
+"pair": "GEM-062",
+"side": "b",
+"text": "Translate document #88 to French with urgent priority.",
+"tid": "t136"
+},
+{
+"pair": "GEM-073",
+"side": "a",
+"text": "Calcula las ventas del producto #08 de ayer en formato CSV.",
+"tid": "t137"
+},
+{
+"pair": "GEM-073",
+"side": "b",
+"text": "Compute yesterday's sales for product #08 in CSV format.",
+"tid": "t138"
+},
+{
+"pair": "GEM-020",
+"side": "a",
+"text": "Excluye las imágenes de clientes en el análisis de hoy.",
+"tid": "t139"
+},
+{
+"pair": "GEM-020",
+"side": "b",
+"text": "Incluye las imágenes de clientes en el análisis de hoy.",
+"tid": "t140"
+},
+{
+"pair": "GEM-011",
+"side": "a",
+"text": "Examine event images for person #12 and output Markdown.",
+"tid": "t141"
+},
+{
+"pair": "GEM-011",
+"side": "b",
+"text": "Examine event images for person #12 and output PDF.",
+"tid": "t142"
+},
+{
+"pair": "GEM-023",
+"side": "a",
+"text": "Estudia los datos de usuarios de esta semana sin incluir #10.",
+"tid": "t143"
+},
+{
+"pair": "GEM-023",
+"side": "b",
+"text": "Estudia los datos de usuarios de esta semana e incluye #10.",
+"tid": "t144"
+},
+{
+"pair": "GPT-011",
+"side": "a",
+"text": "Send the report to María.",
+"tid": "t145"
+},
+{
+"pair": "GPT-011",
+"side": "b",
+"text": "Forward the report to María.",
+"tid": "t146"
+},
+{
+"pair": "GPT-071",
+"side": "a",
+"text": "Analyze the customer data.",
+"tid": "t147"
+},
+{
+"pair": "GPT-071",
+"side": "b",
+"text": "Delete the customer data.",
+"tid": "t148"
+},
+{
+"pair": "GEM-040",
+"side": "a",
+"text": "Is forbidden to modify sales data without high priority.",
+"tid": "t149"
+},
+{
+"pair": "GEM-040",
+"side": "b",
+"text": "It is allowed to modify sales data without high priority.",
+"tid": "t150"
+},
+{
+"pair": "GEM-086",
+"side": "a",
+"text": "Allow downloading image datasets for user #12.",
+"tid": "t151"
+},
+{
+"pair": "GEM-086",
+"side": "b",
+"text": "Forbid downloading image datasets for user #12.",
+"tid": "t152"
+},
+{
+"pair": "GEM-070",
+"side": "a",
+"text": "Send sales results to person #11 if confidence >= 0.80.",
+"tid": "t153"
+},
+{
+"pair": "GEM-070",
+"side": "b",
+"text": "Send sales results to person #11 if confidence >= 0.95.",
+"tid": "t154"
+},
+{
+"pair": "GPT-069",
+"side": "a",
+"text": "Get the sales data from yesterday.",
+"tid": "t155"
+},
+{
+"pair": "GPT-069",
+"side": "b",
+"text": "Get the sales data from today.",
+"tid": "t156"
+},
+{
+"pair": "GEM-084",
+"side": "a",
+"text": "Send customer report to recipient X.",
+"tid": "t157"
+},
+{
+"pair": "GEM-084",
+"side": "b",
+"text": "Send customer report to recipient Y.",
+"tid": "t158"
+},
+{
+"pair": "GPT-070",
+"side": "a",
+"text": "Compare dataset #12 with dataset #13.",
+"tid": "t159"
+},
+{
+"pair": "GPT-070",
+"side": "b",
+"text": "Compare dataset #12 with dataset #14.",
+"tid": "t160"
+},
+{
+"pair": "GPT-013",
+"side": "a",
+"text": "Compute total sales for 2025.",
+"tid": "t161"
+},
+{
+"pair": "GPT-013",
+"side": "b",
+"text": "Calculate the total sales for the year 2025.",
+"tid": "t162"
+},
+{
+"pair": "GPT-034",
+"side": "a",
+"text": "Fetch 100 records from the dataset.",
+"tid": "t163"
+},
+{
+"pair": "GPT-034",
+"side": "b",
+"text": "Get one hundred records from the dataset.",
+"tid": "t164"
+},
+{
+"pair": "GPT-015",
+"side": "a",
+"text": "Search for companies with more than 100 users.",
+"tid": "t165"
+},
+{
+"pair": "GPT-015",
+"side": "b",
+"text": "Locate companies having over 100 users.",
+"tid": "t166"
+},
+{
+"pair": "GEM-044",
+"side": "a",
+"text": "Verify audio datasets for person #01 with urgent priority.",
+"tid": "t167"
+},
+{
+"pair": "GEM-044",
+"side": "b",
+"text": "Verify audio datasets for person #01 with low priority.",
+"tid": "t168"
+},
+{
+"pair": "GPT-080",
+"side": "a",
+"text": "Detect anomalies with confidence greater than 0.90.",
+"tid": "t169"
+},
+{
+"pair": "GPT-080",
+"side": "b",
+"text": "Detect anomalies with confidence greater than 0.80.",
+"tid": "t170"
+},
+{
+"pair": "GEM-012",
+"side": "a",
+"text": "Forbid modifying datasets if the limit exceeds 100 records.",
+"tid": "t171"
+},
+{
+"pair": "GEM-012",
+"side": "b",
+"text": "Allow modifying datasets if the limit exceeds 100 records.",
+"tid": "t172"
+},
+{
+"pair": "GPT-100",
+"side": "a",
+"text": "Detect anomalies with confidence greater than 0.90.",
+"tid": "t173"
+},
+{
+"pair": "GPT-100",
+"side": "b",
+"text": "Detect anomalies with confidence greater than or equal to 0.90.",
+"tid": "t174"
+},
+{
+"pair": "GEM-005",
+"side": "a",
+"text": "Analyze the audio datasets from Q1 2025 with urgent priority.",
+"tid": "t175"
+},
+{
+"pair": "GEM-005",
+"side": "b",
+"text": "Analyze the audio datasets from Q1 2025 with high priority.",
+"tid": "t176"
+},
+{
+"pair": "GPT-044",
+"side": "a",
+"text": "Compute sales totals, then create the report.",
+"tid": "t177"
+},
+{
+"pair": "GPT-044",
+"side": "b",
+"text": "Calculate the sales totals before generating the report.",
+"tid": "t178"
+},
+{
+"pair": "GPT-031",
+"side": "a",
+"text": "Execute the search with high priority.",
+"tid": "t179"
+},
+{
+"pair": "GPT-031",
+"side": "b",
+"text": "Run the search urgently.",
+"tid": "t180"
+},
+{
+"pair": "GEM-076",
+"side": "a",
+"text": "Generate report for user #40 in Spanish.",
+"tid": "t181"
+},
+{
+"pair": "GEM-076",
+"side": "b",
+"text": "Generate report for user #40 in English.",
+"tid": "t182"
+},
+{
+"pair": "GPT-088",
+"side": "a",
+"text": "If there are more than 100 records, run the analysis.",
+"tid": "t183"
+},
+{
+"pair": "GPT-088",
+"side": "b",
+"text": "Run the analysis.",
+"tid": "t184"
+},
+{
+"pair": "GPT-050",
+"side": "a",
+"text": "Search for anomalies in sales data.",
+"tid": "t185"
+},
+{
+"pair": "GPT-050",
+"side": "b",
+"text": "Detect anomalies in the sales data.",
+"tid": "t186"
+},
+{
+"pair": "GPT-026",
+"side": "a",
+"text": "Create a table of the top 10 products.",
+"tid": "t187"
+},
+{
+"pair": "GPT-026",
+"side": "b",
+"text": "Generate a table listing the ten highest-ranked products.",
+"tid": "t188"
+},
+{
+"pair": "GPT-043",
+"side": "a",
+"text": "Forbid deletion of customer data.",
+"tid": "t189"
+},
+{
+"pair": "GPT-043",
+"side": "b",
+"text": "Prohibit removing customer data.",
+"tid": "t190"
+},
+{
+"pair": "GPT-091",
+"side": "a",
+"text": "Search for anomalies in sales data.",
+"tid": "t191"
+},
+{
+"pair": "GPT-091",
+"side": "b",
+"text": "Search for anomalies in customer data.",
+"tid": "t192"
+},
+{
+"pair": "GPT-099",
+"side": "a",
+"text": "Send the PDF to Ana after validation.",
+"tid": "t193"
+},
+{
+"pair": "GPT-099",
+"side": "b",
+"text": "Send the PDF to Ana before validation.",
+"tid": "t194"
+},
+{
+"pair": "GEM-045",
+"side": "a",
+"text": "Executar a analise de dados de clientes se a confianca for maior que 0.80.",
+"tid": "t195"
+},
+{
+"pair": "GEM-045",
+"side": "b",
+"text": "Run client data analysis if confidence exceeds 0.80.",
+"tid": "t196"
+},
+{
+"pair": "GEM-060",
+"side": "a",
+"text": "Check 100 customer audio datasets today.",
+"tid": "t197"
+},
+{
+"pair": "GEM-060",
+"side": "b",
+"text": "Check 100 customer video datasets today.",
+"tid": "t198"
+},
+{
+"pair": "GEM-032",
+"side": "a",
+"text": "Study sales results for Q1 2026 if confidence is over 0.80.",
+"tid": "t199"
+},
+{
+"pair": "GEM-032",
+"side": "b",
+"text": "Study sales results for Q1 2026.",
+"tid": "t200"
+},
+{
+"pair": "GEM-097",
+"side": "a",
+"text": "Si la confianza es mayor o igual a 0.80, genera el informe PDF.",
+"tid": "t201"
+},
+{
+"pair": "GEM-097",
+"side": "b",
+"text": "If confidence is 0.80 or higher, generate the PDF report.",
+"tid": "t202"
+},
+{
+"pair": "GEM-016",
+"side": "a",
+"text": "Run the script to update user document #45.",
+"tid": "t203"
+},
+{
+"pair": "GEM-016",
+"side": "b",
+"text": "Execute the script to update user document #45.",
+"tid": "t204"
+},
+{
+"pair": "GEM-026",
+"side": "a",
+"text": "No elimines los documentos de clientes creados ayer.",
+"tid": "t205"
+},
+{
+"pair": "GEM-026",
+"side": "b",
+"text": "Delete the customer documents created yesterday.",
+"tid": "t206"
+},
+{
+"pair": "GPT-093",
+"side": "a",
+"text": "Find no more than 50 records.",
+"tid": "t207"
+},
+{
+"pair": "GPT-093",
+"side": "b",
+"text": "Find no more than 100 records.",
+"tid": "t208"
+},
+{
+"pair": "GEM-024",
+"side": "a",
+"text": "Generate a PDF report comparing 2023 and 2024 sales.",
+"tid": "t209"
+},
+{
+"pair": "GEM-024",
+"side": "b",
+"text": "Crea un informe PDF comparando las ventas de 2023 y 2024.",
+"tid": "t210"
+},
+{
+"pair": "GPT-035",
+"side": "a",
+"text": "Allow access to the customer data.",
+"tid": "t211"
+},
+{
+"pair": "GPT-035",
+"side": "b",
+"text": "Permit access to the customer data.",
+"tid": "t212"
+},
+{
+"pair": "GPT-048",
+"side": "a",
+"text": "Check report #31 before deleting it.",
+"tid": "t213"
+},
+{
+"pair": "GPT-048",
+"side": "b",
+"text": "Validate report #31 prior to removing it.",
+"tid": "t214"
+},
+{
+"pair": "GEM-058",
+"side": "a",
+"text": "Write a PDF document containing user sales for last month.",
+"tid": "t215"
+},
+{
+"pair": "GEM-058",
+"side": "b",
+"text": "Write a JSON document containing user sales for last month.",
+"tid": "t216"
+},
+{
+"pair": "GPT-062",
+"side": "a",
+"text": "Include images but exclude audio.",
+"tid": "t217"
+},
+{
+"pair": "GPT-062",
+"side": "b",
+"text": "Include images and include audio.",
+"tid": "t218"
+},
+{
+"pair": "GPT-008",
+"side": "a",
+"text": "Generate a CSV containing the top 20 customers.",
+"tid": "t219"
+},
+{
+"pair": "GPT-008",
+"side": "b",
+"text": "Create a CSV with the top twenty customers.",
+"tid": "t220"
+},
+{
+"pair": "GPT-057",
+"side": "a",
+"text": "Translate the document into Spanish.",
+"tid": "t221"
+},
+{
+"pair": "GPT-057",
+"side": "b",
+"text": "Translate the document into English.",
+"tid": "t222"
+},
+{
+"pair": "GEM-049",
+"side": "a",
+"text": "Compara los datos de ventas de la empresa de este mes con el mes pasado.",
+"tid": "t223"
+},
+{
+"pair": "GEM-049",
+"side": "b",
+"text": "Compare this month's company sales data with last month's.",
+"tid": "t224"
+},
+{
+"pair": "GPT-052",
+"side": "a",
+"text": "Delete the 100 customer records.",
+"tid": "t225"
+},
+{
+"pair": "GPT-052",
+"side": "b",
+"text": "Delete the 101 customer records.",
+"tid": "t226"
+},
+{
+"pair": "GPT-061",
+"side": "a",
+"text": "Send the report to María.",
+"tid": "t227"
+},
+{
+"pair": "GPT-061",
+"side": "b",
+"text": "Send the report to Carlos.",
+"tid": "t228"
+},
+{
+"pair": "GPT-001",
+"side": "a",
+"text": "Analyze the sales data from Q1 2026.",
+"tid": "t229"
+},
+{
+"pair": "GPT-001",
+"side": "b",
+"text": "Examine the Q1 2026 sales data.",
+"tid": "t230"
+},
+{
+"pair": "GEM-071",
+"side": "a",
+"text": "Examine all audio records for event #99 and summarize in Markdown.",
+"tid": "t231"
+},
+{
+"pair": "GEM-071",
+"side": "b",
+"text": "Examina todos los registros de audio del evento #99 y resume en Markdown.",
+"tid": "t232"
+},
+{
+"pair": "GPT-023",
+"side": "a",
+"text": "Check whether the company event occurred today.",
+"tid": "t233"
+},
+{
+"pair": "GPT-023",
+"side": "b",
+"text": "Verify if today's event for the company occurred.",
+"tid": "t234"
+},
+{
+"pair": "GEM-052",
+"side": "a",
+"text": "Update event #60 status if records are more than 100.",
+"tid": "t235"
+},
+{
+"pair": "GEM-052",
+"side": "b",
+"text": "Update event #60 status if records are more than 500.",
+"tid": "t236"
+},
+{
+"pair": "GPT-009",
+"side": "a",
+"text": "Verifica los resultados hoy.",
+"tid": "t237"
+},
+{
+"pair": "GPT-009",
+"side": "b",
+"text": "Check the results today.",
+"tid": "t238"
+},
+{
+"pair": "GPT-028",
+"side": "a",
+"text": "Translate #19 into Portuguese.",
+"tid": "t239"
+},
+{
+"pair": "GPT-028",
+"side": "b",
+"text": "Converta #19 para português.",
+"tid": "t240"
+},
+{
+"pair": "GPT-085",
+"side": "a",
+"text": "Compute sales totals, then create the report.",
+"tid": "t241"
+},
+{
+"pair": "GPT-085",
+"side": "b",
+"text": "Create the report, then compute sales totals.",
+"tid": "t242"
+},
+{
+"pair": "GPT-022",
+"side": "a",
+"text": "Remove no more than 100 records.",
+"tid": "t243"
+},
+{
+"pair": "GPT-022",
+"side": "b",
+"text": "Remove at most one hundred records.",
+"tid": "t244"
+},
+{
+"pair": "GEM-003",
+"side": "a",
+"text": "Elimina los registros de la empresa si el total supera 100.",
+"tid": "t245"
+},
+{
+"pair": "GEM-003",
+"side": "b",
+"text": "Remove company records when the total exceeds 100.",
+"tid": "t246"
+},
+{
+"pair": "GPT-029",
+"side": "a",
+"text": "Search the sales records from January through March 2026.",
+"tid": "t247"
+},
+{
+"pair": "GPT-029",
+"side": "b",
+"text": "Look for sales records covering January to March 2026.",
+"tid": "t248"
+},
+{
+"pair": "GPT-025",
+"side": "a",
+"text": "If confidence is below 0.80, do not send the report.",
+"tid": "t249"
+},
+{
+"pair": "GPT-025",
+"side": "b",
+"text": "Do not send the report when confidence is less than 0.80.",
+"tid": "t250"
+},
+{
+"pair": "GPT-065",
+"side": "a",
+"text": "Search for companies with more than 100 users.",
+"tid": "t251"
+},
+{
+"pair": "GPT-065",
+"side": "b",
+"text": "Search for companies with at least 100 users.",
+"tid": "t252"
+},
+{
+"pair": "GPT-092",
+"side": "a",
+"text": "Validate the result if confidence is below 0.80.",
+"tid": "t253"
+},
+{
+"pair": "GPT-092",
+"side": "b",
+"text": "Validate the result if confidence is below 0.70.",
+"tid": "t254"
+},
+{
+"pair": "GEM-046",
+"side": "a",
+"text": "Fetch all documents for product #77 and translate to Spanish.",
+"tid": "t255"
+},
+{
+"pair": "GEM-046",
+"side": "b",
+"text": "Fetch all documents for product #77 and translate to English.",
+"tid": "t256"
+},
+{
+"pair": "GPT-084",
+"side": "a",
+"text": "Forbid deletion of customer data.",
+"tid": "t257"
+},
+{
+"pair": "GPT-084",
+"side": "b",
+"text": "Allow deletion of customer data.",
+"tid": "t258"
+},
+{
+"pair": "GPT-033",
+"side": "a",
+"text": "Create a PDF report for Acme.",
+"tid": "t259"
+},
+{
+"pair": "GPT-033",
+"side": "b",
+"text": "Generate a PDF report for Acme.",
+"tid": "t260"
+},
+{
+"pair": "GEM-048",
+"side": "a",
+"text": "Detect anomalies in product #12 and delete the event document.",
+"tid": "t261"
+},
+{
+"pair": "GEM-048",
+"side": "b",
+"text": "Delete the event document and detect anomalies in product #12.",
+"tid": "t262"
+},
+{
+"pair": "GPT-056",
+"side": "a",
+"text": "Fetch report #77 as PDF.",
+"tid": "t263"
+},
+{
+"pair": "GPT-056",
+"side": "b",
+"text": "Fetch report #78 as PDF.",
+"tid": "t264"
+},
+{
+"pair": "GPT-024",
+"side": "a",
+"text": "Retrieve the result as JSON, please.",
+"tid": "t265"
+},
+{
+"pair": "GPT-024",
+"side": "b",
+"text": "Please fetch the result in JSON.",
+"tid": "t266"
+},
+{
+"pair": "GEM-079",
+"side": "a",
+"text": "No permitas la modificación del documento #31.",
+"tid": "t267"
+},
+{
+"pair": "GEM-079",
+"side": "b",
+"text": "Do not allow modification of document #31.",
+"tid": "t268"
+},
+{
+"pair": "GEM-091",
+"side": "a",
+"text": "Compara las ventas del primer trimestre con el segundo trimestre de 2025.",
+"tid": "t269"
+},
+{
+"pair": "GEM-091",
+"side": "b",
+"text": "Compare sales of Q1 2025 with Q2 2025.",
+"tid": "t270"
+},
+{
+"pair": "GEM-080",
+"side": "a",
+"text": "Check audio dataset #14 for anomalies if confidence is below 0.80.",
+"tid": "t271"
+},
+{
+"pair": "GEM-080",
+"side": "b",
+"text": "Check audio dataset #14 for anomalies.",
+"tid": "t272"
+},
+{
+"pair": "GPT-042",
+"side": "a",
+"text": "Study the video data for this week.",
+"tid": "t273"
+},
+{
+"pair": "GPT-042",
+"side": "b",
+"text": "Examine this week's video data.",
+"tid": "t274"
+},
+{
+"pair": "GEM-087",
+"side": "a",
+"text": "Detecta anomalías en los registros de audio de la empresa hoy.",
+"tid": "t275"
+},
+{
+"pair": "GEM-087",
+"side": "b",
+"text": "Detect anomalies in company audio records today.",
+"tid": "t276"
+},
+{
+"pair": "GPT-063",
+"side": "a",
+"text": "Compute total sales for 2025.",
+"tid": "t277"
+},
+{
+"pair": "GPT-063",
+"side": "b",
+"text": "Compute total sales for 2024.",
+"tid": "t278"
+},
+{
+"pair": "GEM-078",
+"side": "a",
+"text": "Execute analysis on product datasets then delete report #02.",
+"tid": "t279"
+},
+{
+"pair": "GEM-078",
+"side": "b",
+"text": "Delete report #02 then execute analysis on product datasets.",
+"tid": "t280"
+},
+{
+"pair": "GEM-085",
+"side": "a",
+"text": "Export top 50 sales results to a CSV file.",
+"tid": "t281"
+},
+{
+"pair": "GEM-085",
+"side": "b",
+"text": "Exporta los 50 mejores resultados de ventas a un archivo CSV.",
+"tid": "t282"
+},
+{
+"pair": "GEM-017",
+"side": "a",
+"text": "Extrae 100 registros de ventas y genera un archivo CSV.",
+"tid": "t283"
+},
+{
+"pair": "GEM-017",
+"side": "b",
+"text": "Extrae 500 registros de ventas y genera un archivo CSV.",
+"tid": "t284"
+},
+{
+"pair": "GEM-068",
+"side": "a",
+"text": "Compare Q1 2025 sales datasets with Q2 2025 sales datasets.",
+"tid": "t285"
+},
+{
+"pair": "GEM-068",
+"side": "b",
+"text": "Compare Q1 2025 sales datasets with Q2 2024 sales datasets.",
+"tid": "t286"
+},
+{
+"pair": "GEM-038",
+"side": "a",
+"text": "Calculate total video datasets retrieved for customer #90.",
+"tid": "t287"
+},
+{
+"pair": "GEM-038",
+"side": "b",
+"text": "Calculate total image datasets retrieved for customer #90.",
+"tid": "t288"
+},
+{
+"pair": "GPT-058",
+"side": "a",
+"text": "Generate a CSV containing the top 20 customers.",
+"tid": "t289"
+},
+{
+"pair": "GPT-058",
+"side": "b",
+"text": "Generate a CSV containing the top 10 customers.",
+"tid": "t290"
+},
+{
+"pair": "GPT-007",
+"side": "a",
+"text": "Translate the document into Spanish.",
+"tid": "t291"
+},
+{
+"pair": "GPT-007",
+"side": "b",
+"text": "Render the document in Spanish.",
+"tid": "t292"
+},
+{
+"pair": "GEM-093",
+"side": "a",
+"text": "Manda el archivo de anomalías #22 a la empresa hoy.",
+"tid": "t293"
+},
+{
+"pair": "GEM-093",
+"side": "b",
+"text": "Send the anomaly file #22 to the company today.",
+"tid": "t294"
+},
+{
+"pair": "GEM-006",
+"side": "a",
+"text": "Manda el documento sobre la anomalía al cliente mañana.",
+"tid": "t295"
+},
+{
+"pair": "GEM-006",
+"side": "b",
+"text": "Envía el documento sobre la anomalía al cliente hoy.",
+"tid": "t296"
+},
+{
+"pair": "GEM-077",
+"side": "a",
+"text": "Busca los eventos con más de 100 registros hoy.",
+"tid": "t297"
+},
+{
+"pair": "GEM-077",
+"side": "b",
+"text": "Search events with more than 100 records today.",
+"tid": "t298"
+},
+{
+"pair": "GEM-099",
+"side": "a",
+"text": "Obtén los datos de video del evento #66 y exporta en Markdown.",
+"tid": "t299"
+},
+{
+"pair": "GEM-099",
+"side": "b",
+"text": "Get video data for event #66 and export in Markdown.",
+"tid": "t300"
+},
+{
+"pair": "GPT-055",
+"side": "a",
+"text": "Compare the products sold in March 2026.",
+"tid": "t301"
+},
+{
+"pair": "GPT-055",
+"side": "b",
+"text": "Compare the products sold in April 2026.",
+"tid": "t302"
+},
+{
+"pair": "GPT-073",
+"side": "a",
+"text": "Do not run the search tomorrow.",
+"tid": "t303"
+},
+{
+"pair": "GPT-073",
+"side": "b",
+"text": "Run the search tomorrow.",
+"tid": "t304"
+},
+{
+"pair": "GEM-053",
+"side": "a",
+"text": "Compute the average sales per user for yesterday and output CSV.",
+"tid": "t305"
+},
+{
+"pair": "GEM-053",
+"side": "b",
+"text": "Calcula las ventas promedio por usuario de ayer y exporta en CSV.",
+"tid": "t306"
+},
+{
+"pair": "GPT-039",
+"side": "a",
+"text": "Detect anomalies with confidence greater than 0.90.",
+"tid": "t307"
+},
+{
+"pair": "GPT-039",
+"side": "b",
+"text": "Find anomalies where confidence exceeds 0.90.",
+"tid": "t308"
+},
+{
+"pair": "GEM-051",
+"side": "a",
+"text": "Examine customer video data from 2025-01-01 to 2025-01-31.",
+"tid": "t309"
+},
+{
+"pair": "GEM-051",
+"side": "b",
+"text": "Estudia los datos de video de clientes del 01/01/2025 al 31/01/2025.",
+"tid": "t310"
+},
+{
+"pair": "GEM-081",
+"side": "a",
+"text": "Remover os dados de usuarios se a contagem for superior a 100 registros.",
+"tid": "t311"
+},
+{
+"pair": "GEM-081",
+"side": "b",
+"text": "Remove user data if count exceeds 100 records.",
+"tid": "t312"
+},
+{
+"pair": "GEM-075",
+"side": "a",
+"text": "Estudia las imágenes de la empresa y detecta anomalías.",
+"tid": "t313"
+},
+{
+"pair": "GEM-075",
+"side": "b",
+"text": "Study company images and detect anomalies.",
+"tid": "t314"
+},
+{
+"pair": "GPT-089",
+"side": "a",
+"text": "Check report #31 before deleting it.",
+"tid": "t315"
+},
+{
+"pair": "GPT-089",
+"side": "b",
+"text": "Delete report #31 before checking it.",
+"tid": "t316"
+},
+{
+"pair": "GEM-043",
+"side": "a",
+"text": "Genera un archivo JSON con los 100 mejores productos de 2024.",
+"tid": "t317"
+},
+{
+"pair": "GEM-043",
+"side": "b",
+"text": "Create a JSON file with the top 100 products of 2024.",
+"tid": "t318"
+},
+{
+"pair": "GPT-076",
+"side": "a",
+"text": "Retrieve 100 records from the dataset.",
+"tid": "t319"
+},
+{
+"pair": "GPT-076",
+"side": "b",
+"text": "Retrieve 200 records from the dataset.",
+"tid": "t320"
+},
+{
+"pair": "GEM-054",
+"side": "a",
+"text": "Prohibit sending report #09 to recipient Alpha.",
+"tid": "t321"
+},
+{
+"pair": "GEM-054",
+"side": "b",
+"text": "Allow sending report #09 to recipient Alpha.",
+"tid": "t322"
+},
+{
+"pair": "GEM-002",
+"side": "a",
+"text": "Check all customers if confidence is below 0.80.",
+"tid": "t323"
+},
+{
+"pair": "GEM-002",
+"side": "b",
+"text": "Check all customers if confidence is 0.80 or higher.",
+"tid": "t324"
+},
+{
+"pair": "GEM-001",
+"side": "a",
+"text": "Translate the product sales report to CSV format.",
+"tid": "t325"
+},
+{
+"pair": "GEM-001",
+"side": "b",
+"text": "Convert the product sales report into CSV format.",
+"tid": "t326"
+},
+{
+"pair": "GEM-034",
+"side": "a",
+"text": "Examine product #50 reports and exclude anomalies.",
+"tid": "t327"
+},
+{
+"pair": "GEM-034",
+"side": "b",
+"text": "Examine product #50 reports and include anomalies.",
+"tid": "t328"
+},
+{
+"pair": "GEM-033",
+"side": "a",
+"text": "Retrieve customer images with high priority and output JSON.",
+"tid": "t329"
+},
+{
+"pair": "GEM-033",
+"side": "b",
+"text": "Obtén imágenes de clientes con prioridad alta y exporta en JSON.",
+"tid": "t330"
+},
+{
+"pair": "GPT-014",
+"side": "a",
+"text": "Enable the high-priority alert.",
+"tid": "t331"
+},
+{
+"pair": "GPT-014",
+"side": "b",
+"text": "Please turn on the high-priority alert.",
+"tid": "t332"
+},
+{
+"pair": "GPT-068",
+"side": "a",
+"text": "Write the result in Markdown.",
+"tid": "t333"
+},
+{
+"pair": "GPT-068",
+"side": "b",
+"text": "Write the result in JSON.",
+"tid": "t334"
+},
+{
+"pair": "GPT-059",
+"side": "a",
+"text": "Check the results today.",
+"tid": "t335"
+},
+{
+"pair": "GPT-059",
+"side": "b",
+"text": "Check the results tomorrow.",
+"tid": "t336"
+},
+{
+"pair": "GEM-036",
+"side": "a",
+"text": "Find audio recordings of event #11 from 2025-05-01.",
+"tid": "t337"
+},
+{
+"pair": "GEM-036",
+"side": "b",
+"text": "Find audio recordings of event #12 from 2025-05-01.",
+"tid": "t338"
+},
+{
+"pair": "GEM-019",
+"side": "a",
+"text": "Disable user access for product anomaly #99.",
+"tid": "t339"
+},
+{
+"pair": "GEM-019",
+"side": "b",
+"text": "Enable user access for product anomaly #99.",
+"tid": "t340"
+},
+{
+"pair": "GPT-087",
+"side": "a",
+"text": "Write a Markdown table for the users.",
+"tid": "t341"
+},
+{
+"pair": "GPT-087",
+"side": "b",
+"text": "Write a CSV table for the users.",
+"tid": "t342"
+},
+{
+"pair": "GEM-100",
+"side": "a",
+"text": "Analyze sales datasets for product #10 from Q4 2024.",
+"tid": "t343"
+},
+{
+"pair": "GEM-100",
+"side": "b",
+"text": "Analyze sales datasets for product #10 from Q4 2025.",
+"tid": "t344"
+},
+{
+"pair": "GEM-047",
+"side": "a",
+"text": "Se permite la modificación de informes de ventas si la confianza es superior a 0.80.",
+"tid": "t345"
+},
+{
+"pair": "GEM-047",
+"side": "b",
+"text": "It is permitted to modify sales reports if confidence is above 0.80.",
+"tid": "t346"
+},
+{
+"pair": "GEM-072",
+"side": "a",
+"text": "Disable user access for company #07.",
+"tid": "t347"
+},
+{
+"pair": "GEM-072",
+"side": "b",
+"text": "Disable user access for company #08.",
+"tid": "t348"
+},
+{
+"pair": "GPT-005",
+"side": "a",
+"text": "Compare the products sold in March 2026.",
+"tid": "t349"
+},
+{
+"pair": "GPT-005",
+"side": "b",
+"text": "Compare the products sold during March 2026.",
+"tid": "t350"
+},
+{
+"pair": "GEM-056",
+"side": "a",
+"text": "Retrieve audio data of person #02 from Q2 2025.",
+"tid": "t351"
+},
+{
+"pair": "GEM-056",
+"side": "b",
+"text": "Retrieve audio data of person #02 from Q3 2025.",
+"tid": "t352"
+},
+{
+"pair": "GEM-004",
+"side": "a",
+"text": "Gerar um relatório em PDF dos usuários de 2024.",
+"tid": "t353"
+},
+{
+"pair": "GEM-004",
+"side": "b",
+"text": "Generate a PDF report of users from 2024.",
+"tid": "t354"
+},
+{
+"pair": "GPT-083",
+"side": "a",
+"text": "Study the video data for this week.",
+"tid": "t355"
+},
+{
+"pair": "GPT-083",
+"side": "b",
+"text": "Study the video data for last week.",
+"tid": "t356"
+},
+{
+"pair": "GPT-047",
+"side": "a",
+"text": "Se houver mais de 100 registros, execute a análise.",
+"tid": "t357"
+},
+{
+"pair": "GPT-047",
+"side": "b",
+"text": "If there are more than 100 records, run the analysis.",
+"tid": "t358"
+},
+{
+"pair": "GEM-027",
+"side": "a",
+"text": "Analisar os dados de vendas da empresa do último mes.",
+"tid": "t359"
+},
+{
+"pair": "GEM-027",
+"side": "b",
+"text": "Analyze the company's sales data from last month.",
+"tid": "t360"
+},
+{
+"pair": "GPT-040",
+"side": "a",
+"text": "Send the CSV to the finance team.",
+"tid": "t361"
+},
+{
+"pair": "GPT-040",
+"side": "b",
+"text": "Deliver the CSV to the finance team.",
+"tid": "t362"
+},
+{
+"pair": "GEM-098",
+"side": "a",
+"text": "Remove 10 records from the user dataset.",
+"tid": "t363"
+},
+{
+"pair": "GEM-098",
+"side": "b",
+"text": "Remove 10 records from the user dataset if confidence < 0.80.",
+"tid": "t364"
+},
+{
+"pair": "GPT-095",
+"side": "a",
+"text": "Exclude audio from the result.",
+"tid": "t365"
+},
+{
+"pair": "GPT-095",
+"side": "b",
+"text": "Exclude video from the result.",
+"tid": "t366"
+},
+{
+"pair": "GPT-021",
+"side": "a",
+"text": "Analise os dados de clientes de fevereiro de 2026.",
+"tid": "t367"
+},
+{
+"pair": "GPT-021",
+"side": "b",
+"text": "Examine the customer data from February 2026.",
+"tid": "t368"
+},
+{
+"pair": "GEM-096",
+"side": "a",
+"text": "Validate image datasets and delete anomaly report #04.",
+"tid": "t369"
+},
+{
+"pair": "GEM-096",
+"side": "b",
+"text": "Validate image datasets and update anomaly report #04.",
+"tid": "t370"
+},
+{
+"pair": "GEM-029",
+"side": "a",
+"text": "Write a summary of event anomalies if count is greater than 100.",
+"tid": "t371"
+},
+{
+"pair": "GEM-029",
+"side": "b",
+"text": "Genera un resumen de anomalías de eventos si el recuento supera los 100.",
+"tid": "t372"
+},
+{
+"pair": "GEM-041",
+"side": "a",
+"text": "Compare Q3 2025 and Q4 2025 user event results in a Markdown table.",
+"tid": "t373"
+},
+{
+"pair": "GEM-041",
+"side": "b",
+"text": "Compara los resultados de eventos de usuarios de Q3 2025 y Q4 2025 en una tabla Markdown.",
+"tid": "t374"
+},
+{
+"pair": "GEM-014",
+"side": "a",
+"text": "Compare customer audio datasets between Q2 2024 and Q3 2024.",
+"tid": "t375"
+},
+{
+"pair": "GEM-014",
+"side": "b",
+"text": "Compare customer audio datasets between Q2 2024 and Q4 2024.",
+"tid": "t376"
+},
+{
+"pair": "GPT-094",
+"side": "a",
+"text": "Run the search with high priority.",
+"tid": "t377"
+},
+{
+"pair": "GPT-094",
+"side": "b",
+"text": "Run the search with normal priority.",
+"tid": "t378"
+},
+{
+"pair": "GEM-064",
+"side": "a",
+"text": "Run sales calculation for product #10 if total > 100 records.",
+"tid": "t379"
+},
+{
+"pair": "GEM-064",
+"side": "b",
+"text": "Run sales calculation for product #10 if total < 100 records.",
+"tid": "t380"
+},
+{
+"pair": "GPT-020",
+"side": "a",
+"text": "Compare dataset #12 with dataset #13.",
+"tid": "t381"
+},
+{
+"pair": "GPT-020",
+"side": "b",
+"text": "Contrast dataset #12 against dataset #13.",
+"tid": "t382"
+},
+{
+"pair": "GEM-008",
+"side": "a",
+"text": "Detect anomalies in video data and include #77.",
+"tid": "t383"
+},
+{
+"pair": "GEM-008",
+"side": "b",
+"text": "Locate anomalies in video data and include #77.",
+"tid": "t384"
+},
+{
+"pair": "GPT-036",
+"side": "a",
+"text": "No ejecutes la búsqueda mañana.",
+"tid": "t385"
+},
+{
+"pair": "GPT-036",
+"side": "b",
+"text": "Do not run the search tomorrow.",
+"tid": "t386"
+},
+{
+"pair": "GPT-067",
+"side": "a",
+"text": "Allow the analysis to run when confidence is at least 0.80.",
+"tid": "t387"
+},
+{
+"pair": "GPT-067",
+"side": "b",
+"text": "Allow the analysis to run when confidence is at least 0.90.",
+"tid": "t388"
+},
+{
+"pair": "GPT-098",
+"side": "a",
+"text": "Execute the analysis only if there are more than 100 records.",
+"tid": "t389"
+},
+{
+"pair": "GPT-098",
+"side": "b",
+"text": "Execute the analysis even if there are more than 100 records.",
+"tid": "t390"
+},
+{
+"pair": "GPT-077",
+"side": "a",
+"text": "Allow access to the customer data.",
+"tid": "t391"
+},
+{
+"pair": "GPT-077",
+"side": "b",
+"text": "Forbid access to the customer data.",
+"tid": "t392"
+},
+{
+"pair": "GEM-092",
+"side": "a",
+"text": "Examine top 10 customer records if confidence > 0.80.",
+"tid": "t393"
+},
+{
+"pair": "GEM-092",
+"side": "b",
+"text": "Examine top 100 customer records if confidence > 0.80.",
+"tid": "t394"
+},
+{
+"pair": "GPT-090",
+"side": "a",
+"text": "Convert the audio description to English.",
+"tid": "t395"
+},
+{
+"pair": "GPT-090",
+"side": "b",
+"text": "Convert the audio description to Portuguese.",
+"tid": "t396"
+},
+{
+"pair": "GEM-066",
+"side": "a",
+"text": "Include company anomalies in document #50.",
+"tid": "t397"
+},
+{
+"pair": "GEM-066",
+"side": "b",
+"text": "Exclude company anomalies in document #50.",
+"tid": "t398"
+},
+{
+"pair": "GPT-060",
+"side": "a",
+"text": "Run the analysis if there are more than 100 records.",
+"tid": "t399"
+},
+{
+"pair": "GPT-060",
+"side": "b",
+"text": "Run the analysis if there are more than 200 records.",
+"tid": "t400"
+}
+]

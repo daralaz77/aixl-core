@@ -1,0 +1,75 @@
+{
+  "_comment": "Configurable weights and severities (spec: not hard-coded). ASSUMPTION documented in ARCHITECTURE.md: TIME=MAJOR (the two user specs disagree: CRITICAL in one, MODERATE in an example of the other).",
+  "weights": {
+    "negation": 3.0,
+    "actions": 3.0,
+    "quantities": 3.0,
+    "constraints": 3.0,
+    "conditions": 3.0,
+    "intent": 2.0,
+    "time": 2.5,
+    "references": 2.5,
+    "modifiers": 2.5,
+    "entities": 2.0,
+    "data": 2.0,
+    "output": 2.0,
+    "location": 2.0,
+    "goal": 1.0
+  },
+  "severity": {
+    "negation": "CRITICAL",
+    "quantities": "CRITICAL",
+    "time": "MAJOR",
+    "constraints": "MAJOR",
+    "conditions": "MAJOR",
+    "references": "MAJOR",
+    "actions": "MAJOR",
+    "data": "MAJOR",
+    "output": "MAJOR",
+    "modifiers": "MAJOR",
+    "entities": "MODERATE",
+    "location": "MODERATE",
+    "goal": "MINOR",
+    "intent": "MINOR"
+  },
+  "critical_constraint_keys": [
+    "VISIBILITY",
+    "BEFORE",
+    "AFTER",
+    "TIME_AT",
+    "RECIPIENT"
+  ],
+  "destructive_actions": [
+    "DELETE",
+    "EXECUTE",
+    "SEND",
+    "DISABLE",
+    "UPDATE"
+  ],
+  "drift_levels": [
+    "NO_DRIFT",
+    "MINOR_DRIFT",
+    "MODERATE_DRIFT",
+    "MAJOR_DRIFT",
+    "CRITICAL_DRIFT"
+  ],
+  "action_groups": [
+    [
+      "GENERATE",
+      "CREATE"
+    ],
+    [
+      "GET",
+      "RETRIEVE"
+    ],
+    [
+      "SEARCH",
+      "FIND"
+    ],
+    [
+      "CHECK",
+      "VALIDATE"
+    ]
+  ],
+  "_action_groups_comment": "ASSUMPTION (added after blind run 1): actions in the same group are treated as the same task for equivalence; the first item is the representative. Blind authors treated Crea/Escribe, Fetch/Get, Busca/Localiza, Verifica/Valida as the same instruction. Configurable: set to [] for strict lexical actions."
+}

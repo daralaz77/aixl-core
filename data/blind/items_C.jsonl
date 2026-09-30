@@ -1,0 +1,40 @@
+{"id":"C001","text":"Elimínalo.","label":"AMBIGUOUS","reason":"PRONOUN_NO_ANTECEDENT"}
+{"id":"C002","text":"Fix it.","label":"AMBIGUOUS","reason":"PRONOUN_NO_ANTECEDENT"}
+{"id":"C003","text":"Analiza los datos recientes de clientes.","label":"AMBIGUOUS","reason":"VAGUE_TIME"}
+{"id":"C004","text":"Check the sales from the last few days.","label":"AMBIGUOUS","reason":"VAGUE_TIME"}
+{"id":"C005","text":"Calcula las ventas de marzo.","label":"AMBIGUOUS","reason":"MISSING_YEAR"}
+{"id":"C006","text":"Generate a report for Q3 sales.","label":"AMBIGUOUS","reason":"MISSING_YEAR"}
+{"id":"C007","text":"Borra todo.","label":"AMBIGUOUS","reason":"MISSING_TARGET"}
+{"id":"C008","text":"Delete the old ones.","label":"AMBIGUOUS","reason":"MISSING_TARGET"}
+{"id":"C009","text":"Compara ambos.","label":"AMBIGUOUS","reason":"MISSING_COMPARAND"}
+{"id":"C010","text":"Traduce el archivo.","label":"AMBIGUOUS","reason":"UNRESOLVED_REFERENT"}
+{"id":"C011","text":"Analiza las ventas del primer trimestre de 2026 y entrega el resultado en JSON.","label":"NOT_AMBIGUOUS","reason":"NONE"}
+{"id":"C012","text":"Delete report #4 from the reports dataset.","label":"NOT_AMBIGUOUS","reason":"NONE"}
+{"id":"C013","text":"Compara las ventas de enero de 2026 con las ventas de febrero de 2026.","label":"NOT_AMBIGUOUS","reason":"NONE"}
+{"id":"C014","text":"Translate the document 'contract_v2.pdf' from English to Spanish.","label":"NOT_AMBIGUOUS","reason":"NONE"}
+{"id":"C015","text":"Busca anomalías en el dataset de clientes de 2025.","label":"NOT_AMBIGUOUS","reason":"NONE"}
+{"id":"C016","text":"Calculate total sales for the year 2024.","label":"NOT_AMBIGUOUS","reason":"NONE"}
+{"id":"C017","text":"Genera un informe de los usuarios registrados entre el 1 y el 31 de octubre de 2025.","label":"NOT_AMBIGUOUS","reason":"NONE"}
+{"id":"C018","text":"Disable the audio in the video 'intro.mp4'.","label":"NOT_AMBIGUOUS","reason":"NONE"}
+{"id":"C019","text":"Envía el reporte 'ventas_q2_2025' a la empresa Acme.","label":"NOT_AMBIGUOUS","reason":"NONE"}
+{"id":"C020","text":"Find every event of the company Acme dated 2026-03-15 and list them.","label":"NOT_AMBIGUOUS","reason":"NONE"}
+{"id":"C021","a":"Delete the report 'sales_q1'.","b":"Do not delete the report 'sales_q1'.","label":"CONTRADICTION","opposition":"DELETE_VS_FORBID"}
+{"id":"C022","a":"Enable the audio for the video 'demo'.","b":"Disable the audio for the video 'demo'.","label":"CONTRADICTION","opposition":"ENABLE_VS_DISABLE"}
+{"id":"C023","a":"Permite que los usuarios actualicen el documento 'plan'.","b":"Prohíbe que los usuarios actualicen el documento 'plan'.","label":"CONTRADICTION","opposition":"ALLOW_VS_FORBID"}
+{"id":"C024","a":"Include the customers from 2025 in the report.","b":"Exclude the customers from 2025 from the report.","label":"CONTRADICTION","opposition":"INCLUDE_VS_EXCLUDE"}
+{"id":"C025","a":"Ejecuta la traducción antes de generar el informe de ventas.","b":"Ejecuta la traducción después de generar el informe de ventas.","label":"CONTRADICTION","opposition":"BEFORE_VS_AFTER"}
+{"id":"C026","a":"Make the dataset 'clientes' public.","b":"Keep the dataset 'clientes' private.","label":"CONTRADICTION","opposition":"PUBLIC_VS_PRIVATE"}
+{"id":"C027","a":"Envía el informe de anomalías a la empresa Acme.","b":"No envíes el informe de anomalías a la empresa Acme.","label":"CONTRADICTION","opposition":"SEND_VS_NOSEND"}
+{"id":"C028","a":"Elimina el dataset de usuarios.","b":"Prohíbe eliminar el dataset de usuarios.","label":"CONTRADICTION","opposition":"DELETE_VS_FORBID"}
+{"id":"C029","a":"Activa la generación de imágenes.","b":"Desactiva la generación de imágenes.","label":"CONTRADICTION","opposition":"ENABLE_VS_DISABLE"}
+{"id":"C030","a":"Allow retrieving the customers dataset.","b":"Forbid retrieving the customers dataset.","label":"CONTRADICTION","opposition":"ALLOW_VS_FORBID"}
+{"id":"C031","a":"Delete report #4.","b":"Do not delete report #5.","label":"NO_CONTRADICTION","opposition":"NONE"}
+{"id":"C032","a":"Analyze Q1 sales.","b":"Analyze Q2 sales.","label":"NO_CONTRADICTION","opposition":"NONE"}
+{"id":"C033","a":"Envía el informe a la empresa Acme.","b":"No envíes el informe a la empresa Beta.","label":"NO_CONTRADICTION","opposition":"NONE"}
+{"id":"C034","a":"Include customers in the report.","b":"Exclude users from the report.","label":"NO_CONTRADICTION","opposition":"NONE"}
+{"id":"C035","a":"Habilita el audio en el video 'demo'.","b":"Deshabilita las imágenes en el documento 'plan'.","label":"NO_CONTRADICTION","opposition":"NONE"}
+{"id":"C036","a":"Search the sales dataset for anomalies.","b":"Search the sales dataset for anomalies in 2025 only.","label":"NO_CONTRADICTION","opposition":"NONE"}
+{"id":"C037","a":"Compara las ventas de 2024 con las de 2025.","b":"Traduce el documento 'plan' al inglés.","label":"NO_CONTRADICTION","opposition":"NONE"}
+{"id":"C038","a":"Allow users to retrieve the report.","b":"Forbid users to delete the report.","label":"NO_CONTRADICTION","opposition":"NONE"}
+{"id":"C039","a":"Calcula las ventas de enero de 2026.","b":"Calcula las ventas de marzo de 2025.","label":"NO_CONTRADICTION","opposition":"NONE"}
+{"id":"C040","a":"Make report #1 public.","b":"Keep report #2 private.","label":"NO_CONTRADICTION","opposition":"NONE"}

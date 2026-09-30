@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIXL Semantic Lab</title>
+<style>
+:root{--bg:#f7f7f5;--card:#fff;--ink:#1c1c1a;--mut:#6b6b66;--line:#e2e2dc;--ok:#1a7f4b;--bad:#b3261e;--warn:#9a6700;--acc:#2f4bd8}
+@media (prefers-color-scheme:dark){:root{--bg:#141413;--card:#1e1e1c;--ink:#ecece8;--mut:#9a9a93;--line:#333330;--ok:#4cc38a;--bad:#ff8a80;--warn:#e3b341;--acc:#8ea2ff}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:920px;margin:0 auto;padding:24px 16px 48px}h1{font-size:22px;margin:0 0 4px}p.sub{color:var(--mut);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:640px){.grid{grid-template-columns:1fr}}
+label{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.04em}textarea{width:100%;min-height:84px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit;resize:vertical}
+button{font:inherit;padding:9px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}button.primary{background:var(--acc);color:#fff;border-color:var(--acc);font-weight:600}
+.demos{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.demos button{font-size:13px;padding:6px 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:16px}
+.bar{height:14px;border-radius:7px;background:var(--line);overflow:hidden}.bar>i{display:block;height:100%;background:var(--acc)}
+.badge{display:inline-block;padding:2px 10px;border-radius:999px;font-weight:700;font-size:13px}.eq{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}.neq{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+.dims{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.dim{font-size:12px;padding:3px 8px;border:1px solid var(--line);border-radius:6px}.dim.ok{color:var(--ok)}.dim.no{color:var(--bad);border-color:var(--bad)}
+pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;overflow:auto;font-size:12.5px;margin:6px 0}
+.diff{margin:6px 0;padding:8px 10px;border-left:3px solid var(--bad);background:var(--bg)}small{color:var(--mut)}
+</style></head>
+<body><main>
+<h1>AIXL Semantic Lab</h1>
+<p class="sub">¿Dos textos significan lo mismo? Motor local (sin API externa). Experimental: métrica de similitud no es una verdad absoluta.</p>
+<div class="grid"><div><label for="a">TEXT A</label><textarea id="a">Analiza las ventas del primer trimestre de 2026.</textarea></div>
+<div><label for="b">TEXT B</label><textarea id="b">Examina las ventas de Q1 2026.</textarea></div></div>
+<div class="demos" id="demos"></div>
+<button class="primary" id="go">COMPARE</button>
+<div id="out"></div>
+<script>
+const DEMOS=[["1 equivalencia","Analiza las ventas del primer trimestre de 2026.","Examina las ventas de Q1 2026."],["2 periodo","Analiza las ventas de Q1 2026.","Analiza las ventas de Q2 2026."],["3 negación","Elimina el reporte.","No elimines el reporte."],["4 cantidad","Analiza 100 registros.","Analiza 1000 registros."],["5 restricción","Confianza >= 0.90","Confianza >= 0.70"],["6 ambigüedad","Analiza los datos recientes.","Analiza los datos de 2026."]];
+const $=id=>document.getElementById(id);
+DEMOS.forEach(d=>{const b=document.createElement('button');b.textContent='Demo '+d[0];b.onclick=()=>{$('a').value=d[1];$('b').value=d[2];run()};$('demos').appendChild(b)});
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+async function run(){
+  const r=await fetch('/api/compare',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({a:$('a').value,b:$('b').value})});
+  const d=await r.json(); const pct=Math.round(d.similarity*100);
+  const dims=Object.entries(d.per_dimension).filter(([k,v])=>v!==null&&k!=='intent'&&k!=='goal').map(([k,v])=>`<span class="dim ${v===1?'ok':'no'}">${v===1?'✓':'✗'} ${k}</span>`).join('');
+  const diffs=d.differences.map(x=>`<div class="diff"><b>${esc(x.field)}</b> — ${esc(x.kind)} <small>(${esc(x.severity)}${x.detail?', '+esc(x.detail):''})</small><br>${esc(x.source)} → ${esc(x.target)}</div>`).join('')||'<p>No meaningful differences detected.</p>';
+  const amb=(t,x)=>x.ambiguous?`<p><b>AMBIGUOUS</b> (${esc(t)}): ${x.findings.map(f=>esc(f.field+': '+f.reason)).join('; ')}</p>`:'';
+  $('out').innerHTML=`<div class="card"><div><span class="badge ${d.equivalent?'eq':'neq'}">${d.equivalent?'SEMANTICALLY EQUIVALENT':'NOT EQUIVALENT'}</span> &nbsp; <b>Semantic Equivalence ${pct}%</b></div>
+  <div class="bar" style="margin:10px 0"><i style="width:${pct}%"></i></div><div>DRIFT: <b>${d.equivalent?'NONE':esc(d.drift_level.replace('_DRIFT',''))}</b>${d.drift_report.flag?' <span class="badge neq">CRITICAL_SEMANTIC_DRIFT</span>':''}</div>
+  <div class="dims">${dims}</div><h3 style="margin:14px 0 4px;font-size:14px">SEMANTIC DIFF</h3>${diffs}
+  ${amb('A',d.ambiguity_a)}${amb('B',d.ambiguity_b)}${d.contradiction.contradiction?`<p><b>CONTRADICTION</b>: ${d.contradiction.alerts.map(a=>esc(a.type)).join(', ')}</p>`:''}
+  <h3 style="margin:14px 0 4px;font-size:14px">AIXL 0.3 (serialization)</h3><pre>${esc(d.aixl_a)}\n${esc(d.aixl_b)}</pre></div>`;
+}
+$('go').onclick=run;run();
+</script></main></body></html>

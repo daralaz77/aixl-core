@@ -1,0 +1,1202 @@
+[
+{
+"pair": "S8-008",
+"side": "a",
+"text": "Revisa el ticket #77 antes de cerrarlo.",
+"tid": "t001"
+},
+{
+"pair": "S8-008",
+"side": "b",
+"text": "Verifica el ticket número 77 antes de cerrarlo.",
+"tid": "t002"
+},
+{
+"pair": "S8-081",
+"side": "a",
+"text": "Backup the database, then run the migration.",
+"tid": "t003"
+},
+{
+"pair": "S8-081",
+"side": "b",
+"text": "Run the migration, then backup the database.",
+"tid": "t004"
+},
+{
+"pair": "S8-062",
+"side": "a",
+"text": "Traduce el documento y después envíalo al cliente.",
+"tid": "t005"
+},
+{
+"pair": "S8-062",
+"side": "b",
+"text": "Primero traduce el documento, luego envíalo al cliente.",
+"tid": "t006"
+},
+{
+"pair": "S8-036",
+"side": "a",
+"text": "Delete inactive accounts older than one year.",
+"tid": "t007"
+},
+{
+"pair": "S8-036",
+"side": "b",
+"text": "Delete inactive accounts older than two years.",
+"tid": "t008"
+},
+{
+"pair": "S8-001",
+"side": "a",
+"text": "Analyze the sales data for Q3 2026.",
+"tid": "t009"
+},
+{
+"pair": "S8-001",
+"side": "b",
+"text": "Examine the Q3 2026 sales data.",
+"tid": "t010"
+},
+{
+"pair": "S8-057",
+"side": "a",
+"text": "Compara las ventas de este año con el 2025.",
+"tid": "t011"
+},
+{
+"pair": "S8-057",
+"side": "b",
+"text": "Compara las ventas de 2027 con el 2025.",
+"tid": "t012"
+},
+{
+"pair": "S8-044",
+"side": "a",
+"text": "Elimina los registros duplicados.",
+"tid": "t013"
+},
+{
+"pair": "S8-044",
+"side": "b",
+"text": "Remova os registros duplicados.",
+"tid": "t014"
+},
+{
+"pair": "S8-037",
+"side": "a",
+"text": "Calcula el ingreso promedio por cliente.",
+"tid": "t015"
+},
+{
+"pair": "S8-037",
+"side": "b",
+"text": "Determina el ingreso promedio por cliente.",
+"tid": "t016"
+},
+{
+"pair": "S8-051",
+"side": "a",
+"text": "Busca la anomalía en el video.",
+"tid": "t017"
+},
+{
+"pair": "S8-051",
+"side": "b",
+"text": "Detecta la anomalía en el video.",
+"tid": "t018"
+},
+{
+"pair": "S8-078",
+"side": "a",
+"text": "Send the alert only in English.",
+"tid": "t019"
+},
+{
+"pair": "S8-078",
+"side": "b",
+"text": "Envía la alerta solo en portugués.",
+"tid": "t020"
+},
+{
+"pair": "S8-002",
+"side": "a",
+"text": "Send the report to the client.",
+"tid": "t021"
+},
+{
+"pair": "S8-002",
+"side": "b",
+"text": "Do not send the report to the client.",
+"tid": "t022"
+},
+{
+"pair": "S8-026",
+"side": "a",
+"text": "Compara las ventas de la empresa A y la empresa B.",
+"tid": "t023"
+},
+{
+"pair": "S8-026",
+"side": "b",
+"text": "Compara las ventas de la empresa A y la empresa C.",
+"tid": "t024"
+},
+{
+"pair": "S8-068",
+"side": "a",
+"text": "Retrieve last month's invoices.",
+"tid": "t025"
+},
+{
+"pair": "S8-068",
+"side": "b",
+"text": "Retrieve the invoices from August 2026.",
+"tid": "t026"
+},
+{
+"pair": "S8-031",
+"side": "a",
+"text": "Termina la validación antes de las 14:00.",
+"tid": "t027"
+},
+{
+"pair": "S8-031",
+"side": "b",
+"text": "Termina la validación antes de las 2pm.",
+"tid": "t028"
+},
+{
+"pair": "S8-033",
+"side": "a",
+"text": "Procesa cien registros de ventas.",
+"tid": "t029"
+},
+{
+"pair": "S8-033",
+"side": "b",
+"text": "Procesa 100 registros de ventas.",
+"tid": "t030"
+},
+{
+"pair": "S8-024",
+"side": "a",
+"text": "List the top 10 products by revenue.",
+"tid": "t031"
+},
+{
+"pair": "S8-024",
+"side": "b",
+"text": "Show the ten leading products by revenue.",
+"tid": "t032"
+},
+{
+"pair": "S8-046",
+"side": "a",
+"text": "Update the dataset for this year.",
+"tid": "t033"
+},
+{
+"pair": "S8-046",
+"side": "b",
+"text": "Update the dataset for the year 2026.",
+"tid": "t034"
+},
+{
+"pair": "S8-041",
+"side": "a",
+"text": "Permite el acceso a usuarios externos.",
+"tid": "t035"
+},
+{
+"pair": "S8-041",
+"side": "b",
+"text": "Prohíbe el acceso a usuarios externos.",
+"tid": "t036"
+},
+{
+"pair": "S8-060",
+"side": "a",
+"text": "Enable notifications for the sales team.",
+"tid": "t037"
+},
+{
+"pair": "S8-060",
+"side": "b",
+"text": "Deshabilita las notificaciones para el equipo de ventas.",
+"tid": "t038"
+},
+{
+"pair": "S8-047",
+"side": "a",
+"text": "Si la confianza es menor a 0.80, descarta el resultado.",
+"tid": "t039"
+},
+{
+"pair": "S8-047",
+"side": "b",
+"text": "Si la confianza es menor a 0.60, descarta el resultado.",
+"tid": "t040"
+},
+{
+"pair": "S8-097",
+"side": "a",
+"text": "Verifica los datos de los clientes.",
+"tid": "t041"
+},
+{
+"pair": "S8-097",
+"side": "b",
+"text": "Verify the data of the products.",
+"tid": "t042"
+},
+{
+"pair": "S8-056",
+"side": "a",
+"text": "Locate the anomaly in the audio file.",
+"tid": "t043"
+},
+{
+"pair": "S8-056",
+"side": "b",
+"text": "Find the anomaly within the audio file.",
+"tid": "t044"
+},
+{
+"pair": "S8-021",
+"side": "a",
+"text": "First validate the data, then generate the report.",
+"tid": "t045"
+},
+{
+"pair": "S8-021",
+"side": "b",
+"text": "Validate the data before generating the report.",
+"tid": "t046"
+},
+{
+"pair": "S8-077",
+"side": "a",
+"text": "Termina el despliegue antes de las 9am.",
+"tid": "t047"
+},
+{
+"pair": "S8-077",
+"side": "b",
+"text": "Termina el despliegue antes de las 9:30am.",
+"tid": "t048"
+},
+{
+"pair": "S8-089",
+"side": "a",
+"text": "Enable the audit log for this project.",
+"tid": "t049"
+},
+{
+"pair": "S8-089",
+"side": "b",
+"text": "Disable the audit log for this project.",
+"tid": "t050"
+},
+{
+"pair": "S8-087",
+"side": "a",
+"text": "Envía el reporte al equipo de ventas.",
+"tid": "t051"
+},
+{
+"pair": "S8-087",
+"side": "b",
+"text": "Envía el reporte al equipo de soporte.",
+"tid": "t052"
+},
+{
+"pair": "S8-055",
+"side": "a",
+"text": "Retrieve the top 20 products.",
+"tid": "t053"
+},
+{
+"pair": "S8-055",
+"side": "b",
+"text": "Obtén los 20 productos principales.",
+"tid": "t054"
+},
+{
+"pair": "S8-092",
+"side": "a",
+"text": "List the top 5 anomalies detected.",
+"tid": "t055"
+},
+{
+"pair": "S8-092",
+"side": "b",
+"text": "Lista las 15 anomalías principales detectadas.",
+"tid": "t056"
+},
+{
+"pair": "S8-058",
+"side": "a",
+"text": "Flag accounts inactive for more than 365 days.",
+"tid": "t057"
+},
+{
+"pair": "S8-058",
+"side": "b",
+"text": "Flag accounts inactive for more than one year.",
+"tid": "t058"
+},
+{
+"pair": "S8-020",
+"side": "a",
+"text": "Export the results as CSV.",
+"tid": "t059"
+},
+{
+"pair": "S8-020",
+"side": "b",
+"text": "Export the results as JSON.",
+"tid": "t060"
+},
+{
+"pair": "S8-070",
+"side": "a",
+"text": "Update ticket #12.",
+"tid": "t061"
+},
+{
+"pair": "S8-070",
+"side": "b",
+"text": "Actualiza el ticket número 21.",
+"tid": "t062"
+},
+{
+"pair": "S8-093",
+"side": "a",
+"text": "Envía la alerta solo si la confianza supera 0.90.",
+"tid": "t063"
+},
+{
+"pair": "S8-093",
+"side": "b",
+"text": "Envía la alerta solo si la confianza supera 0.70.",
+"tid": "t064"
+},
+{
+"pair": "S8-090",
+"side": "a",
+"text": "Busca al cliente llamado Empresa Andina S.A.",
+"tid": "t065"
+},
+{
+"pair": "S8-090",
+"side": "b",
+"text": "Localiza al cliente Empresa Andina S.A.",
+"tid": "t066"
+},
+{
+"pair": "S8-028",
+"side": "a",
+"text": "Check yesterday's anomalies.",
+"tid": "t067"
+},
+{
+"pair": "S8-028",
+"side": "b",
+"text": "Check the anomalies from September 25, 2026.",
+"tid": "t068"
+},
+{
+"pair": "S8-023",
+"side": "a",
+"text": "If there are more than 100 records, archive them.",
+"tid": "t069"
+},
+{
+"pair": "S8-023",
+"side": "b",
+"text": "If there are more than 100 records, delete them.",
+"tid": "t070"
+},
+{
+"pair": "S8-019",
+"side": "a",
+"text": "Analiza los pedidos de ayer.",
+"tid": "t071"
+},
+{
+"pair": "S8-019",
+"side": "b",
+"text": "Analiza los pedidos del 26 de septiembre de 2026.",
+"tid": "t072"
+},
+{
+"pair": "S8-029",
+"side": "a",
+"text": "Schedule the meeting for tomorrow.",
+"tid": "t073"
+},
+{
+"pair": "S8-029",
+"side": "b",
+"text": "Schedule the meeting for September 28, 2026.",
+"tid": "t074"
+},
+{
+"pair": "S8-076",
+"side": "a",
+"text": "Prepara el reporte de hoy.",
+"tid": "t075"
+},
+{
+"pair": "S8-076",
+"side": "b",
+"text": "Generate the report for September 26, 2026.",
+"tid": "t076"
+},
+{
+"pair": "S8-075",
+"side": "a",
+"text": "Compare user growth between the two products.",
+"tid": "t077"
+},
+{
+"pair": "S8-075",
+"side": "b",
+"text": "Compara el crecimiento de usuarios entre los dos productos.",
+"tid": "t078"
+},
+{
+"pair": "S8-069",
+"side": "a",
+"text": "Marca como inactivos los usuarios con más de 6 meses sin actividad.",
+"tid": "t079"
+},
+{
+"pair": "S8-069",
+"side": "b",
+"text": "Marca como inactivos los usuarios con más de 12 meses sin actividad.",
+"tid": "t080"
+},
+{
+"pair": "S8-099",
+"side": "a",
+"text": "Search for the missing document in the archive.",
+"tid": "t081"
+},
+{
+"pair": "S8-099",
+"side": "b",
+"text": "Look for the missing document within the archive.",
+"tid": "t082"
+},
+{
+"pair": "S8-066",
+"side": "a",
+"text": "Verify that the customer data is accurate.",
+"tid": "t083"
+},
+{
+"pair": "S8-066",
+"side": "b",
+"text": "Confirm the accuracy of the customer data.",
+"tid": "t084"
+},
+{
+"pair": "S8-071",
+"side": "a",
+"text": "Finish the deployment before 5pm.",
+"tid": "t085"
+},
+{
+"pair": "S8-071",
+"side": "b",
+"text": "Finish the deployment before 17:00.",
+"tid": "t086"
+},
+{
+"pair": "S8-080",
+"side": "a",
+"text": "Elimina los productos con más de dos años.",
+"tid": "t087"
+},
+{
+"pair": "S8-080",
+"side": "b",
+"text": "Exclua os produtos com mais de 24 meses.",
+"tid": "t088"
+},
+{
+"pair": "S8-073",
+"side": "a",
+"text": "Genera un resumen de 500 palabras.",
+"tid": "t089"
+},
+{
+"pair": "S8-073",
+"side": "b",
+"text": "Genera un resumen de 5000 palabras.",
+"tid": "t090"
+},
+{
+"pair": "S8-005",
+"side": "a",
+"text": "Compile last month's customer data.",
+"tid": "t091"
+},
+{
+"pair": "S8-005",
+"side": "b",
+"text": "Compile the customer data for August 2026.",
+"tid": "t092"
+},
+{
+"pair": "S8-039",
+"side": "a",
+"text": "Envía el reporte del mes pasado.",
+"tid": "t093"
+},
+{
+"pair": "S8-039",
+"side": "b",
+"text": "Envía el reporte de julio de 2026.",
+"tid": "t094"
+},
+{
+"pair": "S8-010",
+"side": "a",
+"text": "Send the invoice before 3pm.",
+"tid": "t095"
+},
+{
+"pair": "S8-010",
+"side": "b",
+"text": "Send the invoice before 15:00.",
+"tid": "t096"
+},
+{
+"pair": "S8-038",
+"side": "a",
+"text": "Analise os dados de vendas do último trimestre.",
+"tid": "t097"
+},
+{
+"pair": "S8-038",
+"side": "b",
+"text": "Examine os dados de vendas do trimestre passado.",
+"tid": "t098"
+},
+{
+"pair": "S8-014",
+"side": "a",
+"text": "Identify the outlier in the sales data.",
+"tid": "t099"
+},
+{
+"pair": "S8-014",
+"side": "b",
+"text": "Detect the outlier within the sales data.",
+"tid": "t100"
+},
+{
+"pair": "S8-072",
+"side": "a",
+"text": "Only allow admins to delete users.",
+"tid": "t101"
+},
+{
+"pair": "S8-072",
+"side": "b",
+"text": "Allow anyone to delete users.",
+"tid": "t102"
+},
+{
+"pair": "S8-042",
+"side": "a",
+"text": "Review contracts older than 18 months.",
+"tid": "t103"
+},
+{
+"pair": "S8-042",
+"side": "b",
+"text": "Review contracts older than one and a half years.",
+"tid": "t104"
+},
+{
+"pair": "S8-095",
+"side": "a",
+"text": "Resolve issue number 58 before the release.",
+"tid": "t105"
+},
+{
+"pair": "S8-095",
+"side": "b",
+"text": "Resuelve el problema #58 antes del lanzamiento.",
+"tid": "t106"
+},
+{
+"pair": "S8-094",
+"side": "a",
+"text": "Verifica la validez del contrato antes de aprobarlo.",
+"tid": "t107"
+},
+{
+"pair": "S8-094",
+"side": "b",
+"text": "Valida el contrato antes de aprobarlo.",
+"tid": "t108"
+},
+{
+"pair": "S8-045",
+"side": "a",
+"text": "Recupera los últimos 50 pedidos.",
+"tid": "t109"
+},
+{
+"pair": "S8-045",
+"side": "b",
+"text": "Recupera los últimos 500 pedidos.",
+"tid": "t110"
+},
+{
+"pair": "S8-016",
+"side": "a",
+"text": "Elimina los clientes con más de un año de antigüedad.",
+"tid": "t111"
+},
+{
+"pair": "S8-016",
+"side": "b",
+"text": "Elimina los clientes con más de dos años de antigüedad.",
+"tid": "t112"
+},
+{
+"pair": "S8-022",
+"side": "a",
+"text": "Delete the duplicate records.",
+"tid": "t113"
+},
+{
+"pair": "S8-022",
+"side": "b",
+"text": "Update the duplicate records.",
+"tid": "t114"
+},
+{
+"pair": "S8-086",
+"side": "a",
+"text": "If the dataset has over 100 records, split it into batches.",
+"tid": "t115"
+},
+{
+"pair": "S8-086",
+"side": "b",
+"text": "Should the dataset contain more than 100 records, divide it into batches.",
+"tid": "t116"
+},
+{
+"pair": "S8-043",
+"side": "a",
+"text": "Submit the invoice before 4pm.",
+"tid": "t117"
+},
+{
+"pair": "S8-043",
+"side": "b",
+"text": "Submit the invoice before 5pm.",
+"tid": "t118"
+},
+{
+"pair": "S8-007",
+"side": "a",
+"text": "Flag anomalies with confidence above 0.80.",
+"tid": "t119"
+},
+{
+"pair": "S8-007",
+"side": "b",
+"text": "Flag anomalies with confidence above 0.90.",
+"tid": "t120"
+},
+{
+"pair": "S8-079",
+"side": "a",
+"text": "Calculate the total revenue for the quarter.",
+"tid": "t121"
+},
+{
+"pair": "S8-079",
+"side": "b",
+"text": "Calcule a receita total do trimestre.",
+"tid": "t122"
+},
+{
+"pair": "S8-054",
+"side": "a",
+"text": "Cierra el caso número 15.",
+"tid": "t123"
+},
+{
+"pair": "S8-054",
+"side": "b",
+"text": "Cierra el caso número 51.",
+"tid": "t124"
+},
+{
+"pair": "S8-040",
+"side": "a",
+"text": "Only include events with more than 100 attendees.",
+"tid": "t125"
+},
+{
+"pair": "S8-040",
+"side": "b",
+"text": "Include only events that have over 100 attendees.",
+"tid": "t126"
+},
+{
+"pair": "S8-082",
+"side": "a",
+"text": "Escalate incident #900 to the security team.",
+"tid": "t127"
+},
+{
+"pair": "S8-082",
+"side": "b",
+"text": "Escalate incident #909 to the security team.",
+"tid": "t128"
+},
+{
+"pair": "S8-009",
+"side": "a",
+"text": "Delete customers older than one year.",
+"tid": "t129"
+},
+{
+"pair": "S8-009",
+"side": "b",
+"text": "Exclua clientes com mais de 12 meses.",
+"tid": "t130"
+},
+{
+"pair": "S8-013",
+"side": "a",
+"text": "Close ticket #77.",
+"tid": "t131"
+},
+{
+"pair": "S8-013",
+"side": "b",
+"text": "Close ticket #78.",
+"tid": "t132"
+},
+{
+"pair": "S8-034",
+"side": "a",
+"text": "Show the top 10 customers by spending.",
+"tid": "t133"
+},
+{
+"pair": "S8-034",
+"side": "b",
+"text": "Show the top 20 customers by spending.",
+"tid": "t134"
+},
+{
+"pair": "S8-015",
+"side": "a",
+"text": "Si hay más de 100 registros, genera un resumen.",
+"tid": "t135"
+},
+{
+"pair": "S8-015",
+"side": "b",
+"text": "Cuando existan más de cien registros, crea un resumen.",
+"tid": "t136"
+},
+{
+"pair": "S8-098",
+"side": "a",
+"text": "Deploy before 09:00.",
+"tid": "t137"
+},
+{
+"pair": "S8-098",
+"side": "b",
+"text": "Realiza el despliegue antes de las 9:15am.",
+"tid": "t138"
+},
+{
+"pair": "S8-061",
+"side": "a",
+"text": "Verify the anomaly reported in event #340.",
+"tid": "t139"
+},
+{
+"pair": "S8-061",
+"side": "b",
+"text": "Check the anomaly logged under event 340.",
+"tid": "t140"
+},
+{
+"pair": "S8-053",
+"side": "a",
+"text": "Llama al cliente antes del mediodía.",
+"tid": "t141"
+},
+{
+"pair": "S8-053",
+"side": "b",
+"text": "Call the client before 12:00.",
+"tid": "t142"
+},
+{
+"pair": "S8-067",
+"side": "a",
+"text": "Analiza las imágenes del producto.",
+"tid": "t143"
+},
+{
+"pair": "S8-067",
+"side": "b",
+"text": "Analiza el video del producto.",
+"tid": "t144"
+},
+{
+"pair": "S8-035",
+"side": "a",
+"text": "Traduce el resumen al inglés.",
+"tid": "t145"
+},
+{
+"pair": "S8-035",
+"side": "b",
+"text": "Traduce el resumen al portugués.",
+"tid": "t146"
+},
+{
+"pair": "S8-003",
+"side": "a",
+"text": "Genera el informe de hoy.",
+"tid": "t147"
+},
+{
+"pair": "S8-003",
+"side": "b",
+"text": "Genera el informe del 27 de septiembre de 2026.",
+"tid": "t148"
+},
+{
+"pair": "S8-100",
+"side": "a",
+"text": "Revisa las suscripciones con más de un año de antigüedad.",
+"tid": "t149"
+},
+{
+"pair": "S8-100",
+"side": "b",
+"text": "Revisa las suscripciones con más de doce meses de antigüedad.",
+"tid": "t150"
+},
+{
+"pair": "S8-084",
+"side": "a",
+"text": "Trata esta tarea como urgente.",
+"tid": "t151"
+},
+{
+"pair": "S8-084",
+"side": "b",
+"text": "Treat this task as high priority.",
+"tid": "t152"
+},
+{
+"pair": "S8-012",
+"side": "a",
+"text": "Genera el reporte en formato PDF.",
+"tid": "t153"
+},
+{
+"pair": "S8-012",
+"side": "b",
+"text": "Crea el informe como archivo PDF.",
+"tid": "t154"
+},
+{
+"pair": "S8-088",
+"side": "a",
+"text": "Entrega el análisis como documento Markdown.",
+"tid": "t155"
+},
+{
+"pair": "S8-088",
+"side": "b",
+"text": "Entrega el análisis como documento PDF.",
+"tid": "t156"
+},
+{
+"pair": "S8-096",
+"side": "a",
+"text": "Only send the alert if confidence exceeds 0.90.",
+"tid": "t157"
+},
+{
+"pair": "S8-096",
+"side": "b",
+"text": "Send the alert only when confidence is greater than 0.90.",
+"tid": "t158"
+},
+{
+"pair": "S8-074",
+"side": "a",
+"text": "Crea un nuevo reporte de ventas.",
+"tid": "t159"
+},
+{
+"pair": "S8-074",
+"side": "b",
+"text": "Elimina el reporte de ventas.",
+"tid": "t160"
+},
+{
+"pair": "S8-064",
+"side": "a",
+"text": "Compress the video to under 100 MB.",
+"tid": "t161"
+},
+{
+"pair": "S8-064",
+"side": "b",
+"text": "Comprime el video a menos de 100 MB.",
+"tid": "t162"
+},
+{
+"pair": "S8-050",
+"side": "a",
+"text": "Incluye solo los eventos con más de 100 asistentes.",
+"tid": "t163"
+},
+{
+"pair": "S8-050",
+"side": "b",
+"text": "Excluye los eventos con más de 100 asistentes.",
+"tid": "t164"
+},
+{
+"pair": "S8-085",
+"side": "a",
+"text": "Si hay más de 100 registros, genera un resumen.",
+"tid": "t165"
+},
+{
+"pair": "S8-085",
+"side": "b",
+"text": "If there are fewer than 100 records, generate a summary.",
+"tid": "t166"
+},
+{
+"pair": "S8-063",
+"side": "a",
+"text": "Marca esta solicitud como urgente.",
+"tid": "t167"
+},
+{
+"pair": "S8-063",
+"side": "b",
+"text": "Marca esta solicitud como prioridad alta.",
+"tid": "t168"
+},
+{
+"pair": "S8-059",
+"side": "a",
+"text": "Generate the summary as a table.",
+"tid": "t169"
+},
+{
+"pair": "S8-059",
+"side": "b",
+"text": "Generate the summary as a PDF.",
+"tid": "t170"
+},
+{
+"pair": "S8-004",
+"side": "a",
+"text": "Traduce el documento al francés.",
+"tid": "t171"
+},
+{
+"pair": "S8-004",
+"side": "b",
+"text": "Traduzca el documento al idioma francés.",
+"tid": "t172"
+},
+{
+"pair": "S8-083",
+"side": "a",
+"text": "Analyze one hundred product images.",
+"tid": "t173"
+},
+{
+"pair": "S8-083",
+"side": "b",
+"text": "Analyze 100 product images.",
+"tid": "t174"
+},
+{
+"pair": "S8-052",
+"side": "a",
+"text": "Generate the report and then send it to the manager.",
+"tid": "t175"
+},
+{
+"pair": "S8-052",
+"side": "b",
+"text": "Send the report to the manager and then generate it.",
+"tid": "t176"
+},
+{
+"pair": "S8-027",
+"side": "a",
+"text": "Archive products older than 2 years.",
+"tid": "t177"
+},
+{
+"pair": "S8-027",
+"side": "b",
+"text": "Archive products older than 24 months.",
+"tid": "t178"
+},
+{
+"pair": "S8-065",
+"side": "a",
+"text": "Si la confianza supera 0.80, aprueba el resultado.",
+"tid": "t179"
+},
+{
+"pair": "S8-065",
+"side": "b",
+"text": "Si la confianza supera 0.80, rechaza el resultado.",
+"tid": "t180"
+},
+{
+"pair": "S8-032",
+"side": "a",
+"text": "Primero traduce el documento y luego envíalo por correo.",
+"tid": "t181"
+},
+{
+"pair": "S8-032",
+"side": "b",
+"text": "Primero envía el documento por correo y luego tradúcelo.",
+"tid": "t182"
+},
+{
+"pair": "S8-018",
+"side": "a",
+"text": "Llama al cliente antes de las 10am.",
+"tid": "t183"
+},
+{
+"pair": "S8-018",
+"side": "b",
+"text": "Llama al cliente antes de las 12pm.",
+"tid": "t184"
+},
+{
+"pair": "S8-011",
+"side": "a",
+"text": "Mark this ticket as urgent.",
+"tid": "t185"
+},
+{
+"pair": "S8-011",
+"side": "b",
+"text": "Mark this ticket as high priority.",
+"tid": "t186"
+},
+{
+"pair": "S8-006",
+"side": "a",
+"text": "Elimina los primeros 100 registros.",
+"tid": "t187"
+},
+{
+"pair": "S8-006",
+"side": "b",
+"text": "Elimina los primeros 200 registros.",
+"tid": "t188"
+},
+{
+"pair": "S8-091",
+"side": "a",
+"text": "Update the sales figures for this week.",
+"tid": "t189"
+},
+{
+"pair": "S8-091",
+"side": "b",
+"text": "Actualiza las cifras de ventas de esta semana.",
+"tid": "t190"
+},
+{
+"pair": "S8-025",
+"side": "a",
+"text": "Verifica que los datos de los usuarios sean correctos.",
+"tid": "t191"
+},
+{
+"pair": "S8-025",
+"side": "b",
+"text": "Valida la exactitud de los datos de los usuarios.",
+"tid": "t192"
+},
+{
+"pair": "S8-017",
+"side": "a",
+"text": "Compare the sales figures between the two companies.",
+"tid": "t193"
+},
+{
+"pair": "S8-017",
+"side": "b",
+"text": "Compare as vendas entre as duas empresas.",
+"tid": "t194"
+},
+{
+"pair": "S8-049",
+"side": "a",
+"text": "Analiza el conjunto de datos de clientes.",
+"tid": "t195"
+},
+{
+"pair": "S8-049",
+"side": "b",
+"text": "Analiza el conjunto de datos de ventas.",
+"tid": "t196"
+},
+{
+"pair": "S8-048",
+"side": "a",
+"text": "Genera el resultado en formato Markdown.",
+"tid": "t197"
+},
+{
+"pair": "S8-048",
+"side": "b",
+"text": "Produce el resultado en Markdown.",
+"tid": "t198"
+},
+{
+"pair": "S8-030",
+"side": "a",
+"text": "Update the status of issue #204.",
+"tid": "t199"
+},
+{
+"pair": "S8-030",
+"side": "b",
+"text": "Update the status of ticket number 204.",
+"tid": "t200"
+}
+]

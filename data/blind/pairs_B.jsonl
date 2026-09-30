@@ -1,0 +1,100 @@
+{"id":"B001","a":"Analyze the sales data for Q1 2026.","b":"Examine the sales data from the first quarter of 2026.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B002","a":"Send the report to the company.","b":"Do not send the report to the company.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"B003","a":"Include the audio in the result.","b":"Do not include the audio in the result.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"B004","a":"Delete report #77.","b":"Remove report #77.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B005","a":"Retrieve the top 20 customers.","b":"Retrieve the top 200 customers.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["quantity"]}
+{"id":"B006","a":"Translate the document into Spanish.","b":"Traduce el documento al español.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B007","a":"Do not send the report to the customers.","b":"Never send the report to customers.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B008","a":"Analyze sales for Q1 2026.","b":"Analyze sales for Q2 2026.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["period"]}
+{"id":"B009","a":"Find anomalies in the dataset with confidence >= 0.90.","b":"Detect anomalies in the dataset whose confidence is at least 0.90.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B010","a":"Find anomalies with confidence >= 0.90.","b":"Find anomalies with confidence >= 0.70.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["confidence_threshold"]}
+{"id":"B011","a":"Get the top 20 customers by sales.","b":"Fetch the 20 best customers by sales.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B012","a":"Flag events with confidence > 0.80.","b":"Flag events with confidence >= 0.80.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["threshold_operator"]}
+{"id":"B013","a":"Search the customers data, max 20 results.","b":"Search the customers data, max 200 results.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["limit"]}
+{"id":"B014","a":"Generate the sales report as JSON.","b":"Generate the sales report as PDF.","label":"NOT_EQUIVALENT","category":"OUTPUT","differs_in":["output_format"]}
+{"id":"B015","a":"Analise as vendas de março de 2026.","b":"Examine os dados de vendas de 2026-03.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B016","a":"Não exclua os registros dos usuários.","b":"Nunca remova os registros dos usuários.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B017","a":"Generate a CSV with 1,000 records.","b":"Write a CSV file containing 1000 records.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B018","a":"Translate the document into Spanish.","b":"Translate the document into Portuguese.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["target_language"]}
+{"id":"B019","a":"Delete document #77.","b":"Delete document #78.","label":"NOT_EQUIVALENT","category":"REFERENCE","differs_in":["reference"]}
+{"id":"B020","a":"Verifica los datos de ayer.","b":"Check yesterday's data.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B021","a":"Send an urgent report about the anomaly to the company.","b":"Send the company an urgent report about the anomaly.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B022","a":"If there are more than 100 records, run the validation.","b":"Run the validation.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["condition"]}
+{"id":"B023","a":"If confidence is below 0.80, mark the result as urgent.","b":"If confidence is below 0.60, mark the result as urgent.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["condition_threshold"]}
+{"id":"B024","a":"If there are more than 100 records, run the validation.","b":"Run the validation if there are more than 100 records.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B025","a":"Compare as vendas de 2025 com as de 2026.","b":"Compare the sales of 2025 with those of 2026.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B026","a":"Analyze the users data.","b":"Delete the users data.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action"]}
+{"id":"B027","a":"Generate the report in JSON.","b":"The report must be generated as JSON.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B028","a":"Compare the sales of last month with this week.","b":"Compare the customers of last month with this week.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["target"]}
+{"id":"B029","a":"Validate the dataset, then delete it.","b":"Delete the dataset, then validate it.","label":"NOT_EQUIVALENT","category":"ORDER","differs_in":["step_order"]}
+{"id":"B030","a":"Retrieve users created in March 2026.","b":"Retrieve users created in April 2026.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["period"]}
+{"id":"B031","a":"Disable the audio for user #12.","b":"Turn off the audio for user #12.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B032","a":"Study the events of 2024.","b":"Study the events of 2025.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["period"]}
+{"id":"B033","a":"Calcula el total de ventas de enero de 2026.","b":"Compute the total sales for January 2026.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B034","a":"Search for the person in the customers data, max 10 results.","b":"Look up the person in the customers data and return at most 10 results.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B035","a":"Envie o relatório para os clientes.","b":"Não envie o relatório para os clientes.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"B036","a":"Gere 100 registros de vendas.","b":"Gere 1000 registros de vendas.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["quantity"]}
+{"id":"B037","a":"Update the product data today.","b":"Today, modify the product data.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B038","a":"Gere um relatório em PDF com os 50 principais clientes.","b":"Escreva um relatório em formato PDF dos top 50 clientes.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B039","a":"Generate the table in CSV.","b":"Generate the table in Markdown.","label":"NOT_EQUIVALENT","category":"OUTPUT","differs_in":["output_format"]}
+{"id":"B040","a":"No elimines el video #5.","b":"Do not delete video #5.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B041","a":"Validate the images, and only then send them to the company.","b":"Verify the images first; after that, send them to the company.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B042","a":"Elimina el reporte #15.","b":"Delete report #51.","label":"NOT_EQUIVALENT","category":"REFERENCE","differs_in":["reference"]}
+{"id":"B043","a":"Detect events in the video with confidence above 0.85.","b":"In the video, locate events whose confidence is greater than 0.85.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B044","a":"Calcule as vendas do primeiro trimestre de 2026.","b":"Calculate sales for the second quarter of 2026.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["period"]}
+{"id":"B045","a":"Verifica los datos de clientes.","b":"Update the customers data.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action"]}
+{"id":"B046","a":"Send an urgent report about the anomaly.","b":"Send a high-priority report about the anomaly.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["priority"]}
+{"id":"B047","a":"Forbid users from running the dataset update.","b":"Do not allow users to run the dataset update.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B048","a":"The report should include the anomalies.","b":"Include the anomalies in the report.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B049","a":"Enable audio for user #12.","b":"Disable audio for user #12.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action"]}
+{"id":"B050","a":"Include the images in the report.","b":"Exclude the images from the report.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action"]}
+{"id":"B051","a":"Genera un resumen en tabla de las ventas del primer trimestre de 2026.","b":"Generate a table summary of sales for Q1 2026.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B052","a":"Se a confiança for menor que 0,80, marque como urgente.","b":"Marque como urgente se a confiança estiver abaixo de 0,80.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B053","a":"Allow users to run updates.","b":"Forbid users from running updates.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["prohibition"]}
+{"id":"B054","a":"Fetch today's sales.","b":"Fetch yesterday's sales.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["period"]}
+{"id":"B055","a":"Fetch 1.000 users from the dataset.","b":"Get 1,000 users from the dataset.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B056","a":"Translate the report into Portuguese and then send it.","b":"Send it after translating the report into Portuguese.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B057","a":"Get the first 5 products.","b":"Get the first 10 products.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["quantity"]}
+{"id":"B058","a":"Ejecuta la validación de los 100 registros.","b":"Run the validation of the 100 records.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B059","a":"Search for the person in the customers data.","b":"Search for the company in the customers data.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["target"]}
+{"id":"B060","a":"Compare the customers from last month to those from this week.","b":"Contrast last month's customers with this week's customers.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B061","a":"Se houver mais de 100 registros, execute a validação.","b":"Se houver mais de 500 registros, execute a validação.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["condition_threshold"]}
+{"id":"B062","a":"Atualize o produto #21.","b":"Atualize o produto #12.","label":"NOT_EQUIVALENT","category":"REFERENCE","differs_in":["reference"]}
+{"id":"B063","a":"Create a high-priority document about report #40.","b":"Write a document about report #40 with high priority.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B064","a":"Verifique o áudio de ontem.","b":"Cheque o áudio de ontem.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B065","a":"Exclude users with no sales from the analysis.","b":"Do not include users without sales in the analysis.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B066","a":"Verifique o áudio de ontem.","b":"Exclua o áudio de ontem.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action"]}
+{"id":"B067","a":"Analise as imagens de hoje.","b":"Analise os vídeos de hoje.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["target"]}
+{"id":"B068","a":"Busca las anomalías del año 2025.","b":"Search for the 2025 anomalies.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B069","a":"Traduza o relatório para o inglês.","b":"Traduza o relatório para o espanhol.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["target_language"]}
+{"id":"B070","a":"The customers dataset must be deleted tomorrow.","b":"Tomorrow, delete the customers dataset.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B071","a":"Enable JSON output.","b":"Turn on JSON output.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B072","a":"No envíes los datos a la empresa.","b":"Send the data to the company.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"B073","a":"Study the sales from Q3 2025 and generate a Markdown result.","b":"Analyze Q3 2025 sales and write the result in Markdown.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B074","a":"Genera un resumen de los 50 mejores clientes.","b":"Generate a summary of the top 15 customers.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["quantity"]}
+{"id":"B075","a":"Envie o resultado urgente para a pessoa.","b":"Envía el resultado urgente a la persona.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B076","a":"Calculate total sales for last month.","b":"Calculate total sales for this week.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["period"]}
+{"id":"B077","a":"Detect anomalies if confidence is above 0.90.","b":"Detect anomalies if confidence is above 0.95.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["confidence_threshold"]}
+{"id":"B078","a":"Translate the report and then send it.","b":"Send the report and then translate it.","label":"NOT_EQUIVALENT","category":"ORDER","differs_in":["step_order"]}
+{"id":"B079","a":"Fetch a maximum of 5 products.","b":"Get no more than 5 products.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B080","a":"Elimina los duplicados de los datos si hay más de 100 registros.","b":"If there are over 100 records, remove duplicates from the data.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B081","a":"Check whether report #9 has anomalies.","b":"Verify if report #9 contains anomalies.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B082","a":"Export the customers data as CSV.","b":"Export the customers data as JSON.","label":"NOT_EQUIVALENT","category":"OUTPUT","differs_in":["output_format"]}
+{"id":"B083","a":"It is forbidden to send the document.","b":"Send the document.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["prohibition"]}
+{"id":"B084","a":"Traduza o documento #3 para inglês.","b":"O documento #3 deve ser traduzido para o inglês.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B085","a":"Analyze sales in Q1 2026 and output JSON.","b":"Delete the customers dataset today.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action","target","period","output_format"]}
+{"id":"B086","a":"Find the company record in the customers dataset.","b":"Locate, in the customers dataset, the record for the company.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B087","a":"Calculate total sales for 2025-01-01 through 2025-03-31.","b":"Compute total sales for Q1 2025.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B088","a":"Search the images for anomalies, max 10.","b":"Translate the audio into Portuguese.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action","target","limit"]}
+{"id":"B089","a":"Never run the update on the users data.","b":"The update on the users data must never be executed.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B090","a":"Generate a PDF report about report #4.","b":"Compare users in Q2 2025 as a table.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action","output_format","target","reference"]}
+{"id":"B091","a":"Actualiza el producto #21 hoy.","b":"Update product #21 today.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B092","a":"Send the CSV to the company today.","b":"Do not send the CSV to the company tomorrow.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation","period"]}
+{"id":"B093","a":"Verify the dataset if there are more than 100 records.","b":"Delete the dataset if there are more than 10 records.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action","condition_threshold"]}
+{"id":"B094","a":"Busca a la persona en los datos de ventas.","b":"Find the company in the users data.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["target","data"]}
+{"id":"B095","a":"Detecte anomalias nas imagens, com no máximo 30 resultados.","b":"Encontre anomalias nas imagens e retorne até 30 resultados.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B096","a":"Send the CSV to the customers and do not include the audio.","b":"Send customers the CSV; exclude the audio.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B097","a":"Create the report in table format for last month.","b":"For last month, generate a report as a table.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B098","a":"Calculate total sales for Q1 2026 and send it urgently.","b":"Calculate total sales for Q1 2025.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["period","action","priority"]}
+{"id":"B099","a":"Compare o produto #3 com o produto #4.","b":"Compare o produto #3 com o produto #5 em JSON.","label":"NOT_EQUIVALENT","category":"REFERENCE","differs_in":["reference","output_format"]}
+{"id":"B100","a":"Allow users to retrieve video data.","b":"Users are allowed to get video data.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}

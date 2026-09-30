@@ -1,0 +1,1202 @@
+[
+{
+"pair": "S7-034",
+"side": "a",
+"text": "Habilita las notificaciones para el evento #12.",
+"tid": "t001"
+},
+{
+"pair": "S7-034",
+"side": "b",
+"text": "Deshabilita las notificaciones para el evento #12.",
+"tid": "t002"
+},
+{
+"pair": "S7-026",
+"side": "a",
+"text": "Create a document summarizing the audio transcripts in Markdown format.",
+"tid": "t003"
+},
+{
+"pair": "S7-026",
+"side": "b",
+"text": "Write a Markdown document that summarizes the audio transcripts.",
+"tid": "t004"
+},
+{
+"pair": "S7-100",
+"side": "a",
+"text": "Excluye los productos descontinuados del análisis.",
+"tid": "t005"
+},
+{
+"pair": "S7-100",
+"side": "b",
+"text": "Include discontinued products in the analysis.",
+"tid": "t006"
+},
+{
+"pair": "S7-085",
+"side": "a",
+"text": "Envía el informe antes de las 3pm.",
+"tid": "t007"
+},
+{
+"pair": "S7-085",
+"side": "b",
+"text": "Envía el informe antes de las 17:00.",
+"tid": "t008"
+},
+{
+"pair": "S7-079",
+"side": "a",
+"text": "Genera un dataset de imágenes con al menos 100 muestras.",
+"tid": "t009"
+},
+{
+"pair": "S7-079",
+"side": "b",
+"text": "Crea un conjunto de datos de imágenes que contenga como mínimo 100 muestras.",
+"tid": "t010"
+},
+{
+"pair": "S7-082",
+"side": "a",
+"text": "Delete yesterday's audio files.",
+"tid": "t011"
+},
+{
+"pair": "S7-082",
+"side": "b",
+"text": "Elimina los archivos de audio del 25 de septiembre de 2026.",
+"tid": "t012"
+},
+{
+"pair": "S7-022",
+"side": "a",
+"text": "Compara las ventas del mes pasado con las del trimestre anterior.",
+"tid": "t013"
+},
+{
+"pair": "S7-022",
+"side": "b",
+"text": "Compara las ventas de julio de 2026 con las del trimestre anterior.",
+"tid": "t014"
+},
+{
+"pair": "S7-094",
+"side": "a",
+"text": "Retrieve the top 10 products by revenue.",
+"tid": "t015"
+},
+{
+"pair": "S7-094",
+"side": "b",
+"text": "Retrieve the top 20 products by revenue.",
+"tid": "t016"
+},
+{
+"pair": "S7-083",
+"side": "a",
+"text": "Envía el resultado urgente al equipo de soporte.",
+"tid": "t017"
+},
+{
+"pair": "S7-083",
+"side": "b",
+"text": "Manda el resultado con prioridad urgente al equipo de soporte.",
+"tid": "t018"
+},
+{
+"pair": "S7-002",
+"side": "a",
+"text": "Genera hasta 50 resultados en formato tabla.",
+"tid": "t019"
+},
+{
+"pair": "S7-002",
+"side": "b",
+"text": "Genera hasta 100 resultados en formato tabla.",
+"tid": "t020"
+},
+{
+"pair": "S7-023",
+"side": "a",
+"text": "Retrieve the top 10 products by revenue.",
+"tid": "t021"
+},
+{
+"pair": "S7-023",
+"side": "b",
+"text": "Get the 10 best-selling products ranked by revenue.",
+"tid": "t022"
+},
+{
+"pair": "S7-001",
+"side": "a",
+"text": "Delete all images that fail validation.",
+"tid": "t023"
+},
+{
+"pair": "S7-001",
+"side": "b",
+"text": "Remove every image that does not pass validation.",
+"tid": "t024"
+},
+{
+"pair": "S7-062",
+"side": "a",
+"text": "Compute the total revenue for the company Nimbus Corp during Q2 2026.",
+"tid": "t025"
+},
+{
+"pair": "S7-062",
+"side": "b",
+"text": "Compute the total revenue for the company Orbis Corp during Q2 2026.",
+"tid": "t026"
+},
+{
+"pair": "S7-074",
+"side": "a",
+"text": "Genera el resumen de eventos de hoy.",
+"tid": "t027"
+},
+{
+"pair": "S7-074",
+"side": "b",
+"text": "Genera el resumen de eventos del 27 de septiembre de 2026.",
+"tid": "t028"
+},
+{
+"pair": "S7-025",
+"side": "a",
+"text": "Submit the document by 9am.",
+"tid": "t029"
+},
+{
+"pair": "S7-025",
+"side": "b",
+"text": "Submit the document by 9pm.",
+"tid": "t030"
+},
+{
+"pair": "S7-050",
+"side": "a",
+"text": "Verifica que el informe #77 esté completo antes de enviarlo.",
+"tid": "t031"
+},
+{
+"pair": "S7-050",
+"side": "b",
+"text": "Verifica que el informe #78 esté completo antes de enviarlo.",
+"tid": "t032"
+},
+{
+"pair": "S7-027",
+"side": "a",
+"text": "Actualiza los datos del producto solo si la empresa es TechNova.",
+"tid": "t033"
+},
+{
+"pair": "S7-027",
+"side": "b",
+"text": "Actualiza los datos del producto solo si la empresa es TechCorp.",
+"tid": "t034"
+},
+{
+"pair": "S7-045",
+"side": "a",
+"text": "No permitas el acceso de usuarios sin verificar.",
+"tid": "t035"
+},
+{
+"pair": "S7-045",
+"side": "b",
+"text": "Do not allow access for unverified users.",
+"tid": "t036"
+},
+{
+"pair": "S7-077",
+"side": "a",
+"text": "Flag customers older than one year.",
+"tid": "t037"
+},
+{
+"pair": "S7-077",
+"side": "b",
+"text": "Flag customers with more than 12 months of tenure.",
+"tid": "t038"
+},
+{
+"pair": "S7-080",
+"side": "a",
+"text": "Verifica que el informe #77 esté completo antes de enviarlo.",
+"tid": "t039"
+},
+{
+"pair": "S7-080",
+"side": "b",
+"text": "Comprueba que el informe número 77 esté completo antes de enviarlo.",
+"tid": "t040"
+},
+{
+"pair": "S7-048",
+"side": "a",
+"text": "Genera el informe primero y luego envíalo al gerente.",
+"tid": "t041"
+},
+{
+"pair": "S7-048",
+"side": "b",
+"text": "Primero genera el informe y después envíalo al gerente.",
+"tid": "t042"
+},
+{
+"pair": "S7-003",
+"side": "a",
+"text": "Buscar os pedidos de ontem.",
+"tid": "t043"
+},
+{
+"pair": "S7-003",
+"side": "b",
+"text": "Search for orders from September 20, 2026.",
+"tid": "t044"
+},
+{
+"pair": "S7-052",
+"side": "a",
+"text": "Compara las ventas del mes pasado con las del trimestre anterior.",
+"tid": "t045"
+},
+{
+"pair": "S7-052",
+"side": "b",
+"text": "Compara las ventas de agosto de 2026 con las del trimestre anterior.",
+"tid": "t046"
+},
+{
+"pair": "S7-039",
+"side": "a",
+"text": "Traduce el documento al portugués.",
+"tid": "t047"
+},
+{
+"pair": "S7-039",
+"side": "b",
+"text": "Translate the document into Portuguese.",
+"tid": "t048"
+},
+{
+"pair": "S7-015",
+"side": "a",
+"text": "No permitas el acceso de usuarios sin verificar.",
+"tid": "t049"
+},
+{
+"pair": "S7-015",
+"side": "b",
+"text": "Allow access for unverified users.",
+"tid": "t050"
+},
+{
+"pair": "S7-049",
+"side": "a",
+"text": "Genera un dataset de imágenes con al menos 100 muestras.",
+"tid": "t051"
+},
+{
+"pair": "S7-049",
+"side": "b",
+"text": "Genera un dataset de imágenes con como máximo 100 muestras.",
+"tid": "t052"
+},
+{
+"pair": "S7-011",
+"side": "a",
+"text": "Delete yesterday's audio files.",
+"tid": "t053"
+},
+{
+"pair": "S7-011",
+"side": "b",
+"text": "Elimina los archivos de audio del 26 de septiembre de 2026.",
+"tid": "t054"
+},
+{
+"pair": "S7-033",
+"side": "a",
+"text": "Buscar os pedidos de ontem.",
+"tid": "t055"
+},
+{
+"pair": "S7-033",
+"side": "b",
+"text": "Search for orders from September 26, 2026.",
+"tid": "t056"
+},
+{
+"pair": "S7-017",
+"side": "a",
+"text": "Archive products older than 1 year.",
+"tid": "t057"
+},
+{
+"pair": "S7-017",
+"side": "b",
+"text": "Archiva los productos con más de un año de antigüedad.",
+"tid": "t058"
+},
+{
+"pair": "S7-095",
+"side": "a",
+"text": "It is required to validate all datasets before publishing the results.",
+"tid": "t059"
+},
+{
+"pair": "S7-095",
+"side": "b",
+"text": "All datasets must be validated before the results are published.",
+"tid": "t060"
+},
+{
+"pair": "S7-066",
+"side": "a",
+"text": "Schedule the meeting for 2:30pm.",
+"tid": "t061"
+},
+{
+"pair": "S7-066",
+"side": "b",
+"text": "Programa la reunión para las 16:30.",
+"tid": "t062"
+},
+{
+"pair": "S7-070",
+"side": "a",
+"text": "Verifica los datasets de audio antes del viernes.",
+"tid": "t063"
+},
+{
+"pair": "S7-070",
+"side": "b",
+"text": "Valida los conjuntos de datos de audio antes del viernes.",
+"tid": "t064"
+},
+{
+"pair": "S7-043",
+"side": "a",
+"text": "Actualiza el documento #45 con la nueva información del producto.",
+"tid": "t065"
+},
+{
+"pair": "S7-043",
+"side": "b",
+"text": "Atualize o documento #54 com as novas informações do produto.",
+"tid": "t066"
+},
+{
+"pair": "S7-060",
+"side": "a",
+"text": "Verify that the sales report is up to date before sending it to the board.",
+"tid": "t067"
+},
+{
+"pair": "S7-060",
+"side": "b",
+"text": "Check that the sales report is current before submitting it to the board.",
+"tid": "t068"
+},
+{
+"pair": "S7-089",
+"side": "a",
+"text": "Translate the report into French and send it to the Paris office.",
+"tid": "t069"
+},
+{
+"pair": "S7-089",
+"side": "b",
+"text": "Render the report in French and forward it to the Paris office.",
+"tid": "t070"
+},
+{
+"pair": "S7-099",
+"side": "a",
+"text": "Fetch the customer dataset and compute average order value.",
+"tid": "t071"
+},
+{
+"pair": "S7-099",
+"side": "b",
+"text": "Retrieve the customer dataset and calculate the mean order value.",
+"tid": "t072"
+},
+{
+"pair": "S7-067",
+"side": "a",
+"text": "Busca al cliente llamado Rodrigo Fernández en la base de datos.",
+"tid": "t073"
+},
+{
+"pair": "S7-067",
+"side": "b",
+"text": "Localiza en la base de datos al cliente Rodrigo Fernández.",
+"tid": "t074"
+},
+{
+"pair": "S7-092",
+"side": "a",
+"text": "Compute the total revenue for the company Nimbus Corp during Q2 2026.",
+"tid": "t075"
+},
+{
+"pair": "S7-092",
+"side": "b",
+"text": "Calculate Nimbus Corp's total revenue for the second quarter of 2026.",
+"tid": "t076"
+},
+{
+"pair": "S7-058",
+"side": "a",
+"text": "Analiza las ventas del tercer trimestre y detecta anomalías.",
+"tid": "t077"
+},
+{
+"pair": "S7-058",
+"side": "b",
+"text": "Examina las ventas del Q3 y localiza anomalías.",
+"tid": "t078"
+},
+{
+"pair": "S7-030",
+"side": "a",
+"text": "Verify that the sales report is up to date before sending it to the board.",
+"tid": "t079"
+},
+{
+"pair": "S7-030",
+"side": "b",
+"text": "Verify that the sales report is up to date before sending it to the marketing team.",
+"tid": "t080"
+},
+{
+"pair": "S7-021",
+"side": "a",
+"text": "Está prohibido eliminar los registros de auditoría.",
+"tid": "t081"
+},
+{
+"pair": "S7-021",
+"side": "b",
+"text": "Está permitido eliminar los registros de auditoría.",
+"tid": "t082"
+},
+{
+"pair": "S7-088",
+"side": "a",
+"text": "Archive products older than 1 year.",
+"tid": "t083"
+},
+{
+"pair": "S7-088",
+"side": "b",
+"text": "Archiva los productos con más de tres años de antigüedad.",
+"tid": "t084"
+},
+{
+"pair": "S7-035",
+"side": "a",
+"text": "Encuentra a la persona responsable del proyecto y notifícale del retraso.",
+"tid": "t085"
+},
+{
+"pair": "S7-035",
+"side": "b",
+"text": "Find the person responsible for the project and notify them of the delay.",
+"tid": "t086"
+},
+{
+"pair": "S7-061",
+"side": "a",
+"text": "Si hay más de 100 registros, genera un reporte en PDF.",
+"tid": "t087"
+},
+{
+"pair": "S7-061",
+"side": "b",
+"text": "En caso de que existan más de cien registros, crea un reporte en PDF.",
+"tid": "t088"
+},
+{
+"pair": "S7-032",
+"side": "a",
+"text": "Genera hasta 50 resultados en formato tabla.",
+"tid": "t089"
+},
+{
+"pair": "S7-032",
+"side": "b",
+"text": "Produce un máximo de 50 resultados en formato de tabla.",
+"tid": "t090"
+},
+{
+"pair": "S7-014",
+"side": "a",
+"text": "Envía el informe antes de las 3pm.",
+"tid": "t091"
+},
+{
+"pair": "S7-014",
+"side": "b",
+"text": "Envía el informe antes de las 15:00.",
+"tid": "t092"
+},
+{
+"pair": "S7-064",
+"side": "a",
+"text": "Habilita las notificaciones para el evento #12.",
+"tid": "t093"
+},
+{
+"pair": "S7-064",
+"side": "b",
+"text": "Activa las notificaciones para el evento número 12.",
+"tid": "t094"
+},
+{
+"pair": "S7-004",
+"side": "a",
+"text": "Compare this year's sales with last year's.",
+"tid": "t095"
+},
+{
+"pair": "S7-004",
+"side": "b",
+"text": "Compare 2026 sales with 2025 sales.",
+"tid": "t096"
+},
+{
+"pair": "S7-057",
+"side": "a",
+"text": "Actualiza los datos del producto solo si la empresa es TechNova.",
+"tid": "t097"
+},
+{
+"pair": "S7-057",
+"side": "b",
+"text": "Modifica los datos del producto únicamente cuando la empresa sea TechNova.",
+"tid": "t098"
+},
+{
+"pair": "S7-087",
+"side": "a",
+"text": "Generate the customer churn report in PDF and prioritize it as urgent.",
+"tid": "t099"
+},
+{
+"pair": "S7-087",
+"side": "b",
+"text": "Generate the customer churn report in PDF and prioritize it as high.",
+"tid": "t100"
+},
+{
+"pair": "S7-046",
+"side": "a",
+"text": "Diez informes deben entregarse antes del 1 de octubre de 2026.",
+"tid": "t101"
+},
+{
+"pair": "S7-046",
+"side": "b",
+"text": "Quince informes deben entregarse antes del 1 de octubre de 2026.",
+"tid": "t102"
+},
+{
+"pair": "S7-063",
+"side": "a",
+"text": "Generate the annual report for this year.",
+"tid": "t103"
+},
+{
+"pair": "S7-063",
+"side": "b",
+"text": "Generate the annual report for 2025.",
+"tid": "t104"
+},
+{
+"pair": "S7-059",
+"side": "a",
+"text": "Translate the report into French and send it to the Paris office.",
+"tid": "t105"
+},
+{
+"pair": "S7-059",
+"side": "b",
+"text": "Translate the report into German and send it to the Paris office.",
+"tid": "t106"
+},
+{
+"pair": "S7-024",
+"side": "a",
+"text": "Calcula el número de eventos ocurridos entre el 1 y el 15 de septiembre de 2026.",
+"tid": "t107"
+},
+{
+"pair": "S7-024",
+"side": "b",
+"text": "Calcula el número de eventos ocurridos entre el 1 y el 20 de septiembre de 2026.",
+"tid": "t108"
+},
+{
+"pair": "S7-093",
+"side": "a",
+"text": "Generate the annual report for this year.",
+"tid": "t109"
+},
+{
+"pair": "S7-093",
+"side": "b",
+"text": "Generate the annual report for 2026.",
+"tid": "t110"
+},
+{
+"pair": "S7-041",
+"side": "a",
+"text": "Envía el reporte de ventas mañana.",
+"tid": "t111"
+},
+{
+"pair": "S7-041",
+"side": "b",
+"text": "Envía el reporte de ventas el 30 de septiembre de 2026.",
+"tid": "t112"
+},
+{
+"pair": "S7-037",
+"side": "a",
+"text": "Busca al cliente llamado Rodrigo Fernández en la base de datos.",
+"tid": "t113"
+},
+{
+"pair": "S7-037",
+"side": "b",
+"text": "Busca al cliente llamado Alejandro Fernández en la base de datos.",
+"tid": "t114"
+},
+{
+"pair": "S7-068",
+"side": "a",
+"text": "Check the anomaly report #203 and confirm it before Thursday.",
+"tid": "t115"
+},
+{
+"pair": "S7-068",
+"side": "b",
+"text": "Check the anomaly report #230 and confirm it before Thursday.",
+"tid": "t116"
+},
+{
+"pair": "S7-072",
+"side": "a",
+"text": "Delete all images that fail validation.",
+"tid": "t117"
+},
+{
+"pair": "S7-072",
+"side": "b",
+"text": "Delete all images that pass validation.",
+"tid": "t118"
+},
+{
+"pair": "S7-081",
+"side": "a",
+"text": "Search for anomalies in the video feed and report them to the QA team.",
+"tid": "t119"
+},
+{
+"pair": "S7-081",
+"side": "b",
+"text": "Search for anomalies in the video feed and report them to the engineering team.",
+"tid": "t120"
+},
+{
+"pair": "S7-044",
+"side": "a",
+"text": "Genera el resumen de eventos de hoy.",
+"tid": "t121"
+},
+{
+"pair": "S7-044",
+"side": "b",
+"text": "Genera el resumen de eventos del 28 de septiembre de 2026.",
+"tid": "t122"
+},
+{
+"pair": "S7-053",
+"side": "a",
+"text": "Envía el resultado urgente al equipo de soporte.",
+"tid": "t123"
+},
+{
+"pair": "S7-053",
+"side": "b",
+"text": "Envía el resultado con prioridad alta al equipo de soporte.",
+"tid": "t124"
+},
+{
+"pair": "S7-036",
+"side": "a",
+"text": "Elimina los usuarios con más de un año de antigüedad.",
+"tid": "t125"
+},
+{
+"pair": "S7-036",
+"side": "b",
+"text": "Elimina los usuarios que llevan más de 12 meses registrados.",
+"tid": "t126"
+},
+{
+"pair": "S7-040",
+"side": "a",
+"text": "Verifica los datasets de audio antes del viernes.",
+"tid": "t127"
+},
+{
+"pair": "S7-040",
+"side": "b",
+"text": "Elimina los datasets de audio antes del viernes.",
+"tid": "t128"
+},
+{
+"pair": "S7-076",
+"side": "a",
+"text": "Diez informes deben entregarse antes del 1 de octubre de 2026.",
+"tid": "t129"
+},
+{
+"pair": "S7-076",
+"side": "b",
+"text": "Se deben entregar 10 informes antes del primero de octubre de 2026.",
+"tid": "t130"
+},
+{
+"pair": "S7-019",
+"side": "a",
+"text": "Retrieve results with a confidence score greater than or equal to 0.90.",
+"tid": "t131"
+},
+{
+"pair": "S7-019",
+"side": "b",
+"text": "Fetch results whose confidence score is 0.90 or higher.",
+"tid": "t132"
+},
+{
+"pair": "S7-097",
+"side": "a",
+"text": "Create a document summarizing the audio transcripts in Markdown format.",
+"tid": "t133"
+},
+{
+"pair": "S7-097",
+"side": "b",
+"text": "Create a document summarizing the audio transcripts in JSON format.",
+"tid": "t134"
+},
+{
+"pair": "S7-038",
+"side": "a",
+"text": "No incluyas los datos de usuarios menores de edad en el análisis.",
+"tid": "t135"
+},
+{
+"pair": "S7-038",
+"side": "b",
+"text": "Do not include data from underage users in the analysis.",
+"tid": "t136"
+},
+{
+"pair": "S7-018",
+"side": "a",
+"text": "Genera el informe primero y luego envíalo al gerente.",
+"tid": "t137"
+},
+{
+"pair": "S7-018",
+"side": "b",
+"text": "Envía el informe al gerente primero y luego genéralo.",
+"tid": "t138"
+},
+{
+"pair": "S7-006",
+"side": "a",
+"text": "Elimina los usuarios con más de un año de antigüedad.",
+"tid": "t139"
+},
+{
+"pair": "S7-006",
+"side": "b",
+"text": "Elimina los usuarios con más de dos años de antigüedad.",
+"tid": "t140"
+},
+{
+"pair": "S7-091",
+"side": "a",
+"text": "Run the anomaly detector on the video dataset with a confidence threshold above 0.80.",
+"tid": "t141"
+},
+{
+"pair": "S7-091",
+"side": "b",
+"text": "Run the anomaly detector on the video dataset with a confidence threshold above 0.60.",
+"tid": "t142"
+},
+{
+"pair": "S7-096",
+"side": "a",
+"text": "Schedule the meeting for 2:30pm.",
+"tid": "t143"
+},
+{
+"pair": "S7-096",
+"side": "b",
+"text": "Programa la reunión para las 14:30.",
+"tid": "t144"
+},
+{
+"pair": "S7-098",
+"side": "a",
+"text": "Check the anomaly report #203 and confirm it before Thursday.",
+"tid": "t145"
+},
+{
+"pair": "S7-098",
+"side": "b",
+"text": "Review anomaly report number 203 and confirm it prior to Thursday.",
+"tid": "t146"
+},
+{
+"pair": "S7-078",
+"side": "a",
+"text": "If the confidence is below 0.80, flag the result for manual review.",
+"tid": "t147"
+},
+{
+"pair": "S7-078",
+"side": "b",
+"text": "If the confidence is at least 0.80, flag the result for manual review.",
+"tid": "t148"
+},
+{
+"pair": "S7-029",
+"side": "a",
+"text": "Excluye los productos descontinuados del análisis.",
+"tid": "t149"
+},
+{
+"pair": "S7-029",
+"side": "b",
+"text": "Exclude discontinued products from the analysis.",
+"tid": "t150"
+},
+{
+"pair": "S7-016",
+"side": "a",
+"text": "Generate the customer churn report in PDF and prioritize it as urgent.",
+"tid": "t151"
+},
+{
+"pair": "S7-016",
+"side": "b",
+"text": "Produce the customer churn report as a PDF, marking it urgent priority.",
+"tid": "t152"
+},
+{
+"pair": "S7-073",
+"side": "a",
+"text": "Actualiza el documento #45 con la nueva información del producto.",
+"tid": "t153"
+},
+{
+"pair": "S7-073",
+"side": "b",
+"text": "Atualize o documento #45 com as novas informações do produto.",
+"tid": "t154"
+},
+{
+"pair": "S7-090",
+"side": "a",
+"text": "Retrieve results with a confidence score greater than or equal to 0.90.",
+"tid": "t155"
+},
+{
+"pair": "S7-090",
+"side": "b",
+"text": "Retrieve results with a confidence score greater than 0.90.",
+"tid": "t156"
+},
+{
+"pair": "S7-055",
+"side": "a",
+"text": "Submit the document by 9am.",
+"tid": "t157"
+},
+{
+"pair": "S7-055",
+"side": "b",
+"text": "Submit the document by 09:00.",
+"tid": "t158"
+},
+{
+"pair": "S7-071",
+"side": "a",
+"text": "Envía el reporte de ventas mañana.",
+"tid": "t159"
+},
+{
+"pair": "S7-071",
+"side": "b",
+"text": "Envía el reporte de ventas el 28 de septiembre de 2026.",
+"tid": "t160"
+},
+{
+"pair": "S7-086",
+"side": "a",
+"text": "Calcula el promedio de ventas de los últimos tres meses.",
+"tid": "t161"
+},
+{
+"pair": "S7-086",
+"side": "b",
+"text": "Calcula el promedio de ventas de los últimos 3 meses.",
+"tid": "t162"
+},
+{
+"pair": "S7-031",
+"side": "a",
+"text": "Si hay más de 100 registros, genera un reporte en PDF.",
+"tid": "t163"
+},
+{
+"pair": "S7-031",
+"side": "b",
+"text": "Si hay más de 200 registros, genera un reporte en PDF.",
+"tid": "t164"
+},
+{
+"pair": "S7-009",
+"side": "a",
+"text": "Traduce el documento al portugués.",
+"tid": "t165"
+},
+{
+"pair": "S7-009",
+"side": "b",
+"text": "Translate the document into French.",
+"tid": "t166"
+},
+{
+"pair": "S7-054",
+"side": "a",
+"text": "Por favor, calcula el número de eventos ocurridos entre el 1 y el 15 de septiembre de 2026.",
+"tid": "t167"
+},
+{
+"pair": "S7-054",
+"side": "b",
+"text": "Calcula, por favor, cuántos eventos ocurrieron entre el 1 de septiembre de 2026 y el 15 de septiembre de 2026.",
+"tid": "t168"
+},
+{
+"pair": "S7-056",
+"side": "a",
+"text": "Calcula el promedio de ventas de los últimos tres meses.",
+"tid": "t169"
+},
+{
+"pair": "S7-056",
+"side": "b",
+"text": "Calcula el promedio de ventas de los últimos seis meses.",
+"tid": "t170"
+},
+{
+"pair": "S7-012",
+"side": "a",
+"text": "Generate a CSV report for the company Acme Inc.",
+"tid": "t171"
+},
+{
+"pair": "S7-012",
+"side": "b",
+"text": "Generate a PDF report for the company Acme Inc.",
+"tid": "t172"
+},
+{
+"pair": "S7-005",
+"side": "a",
+"text": "Encuentra a la persona responsable del proyecto y notifícale del retraso.",
+"tid": "t173"
+},
+{
+"pair": "S7-005",
+"side": "b",
+"text": "Find the person responsible for the project and replace them due to the delay.",
+"tid": "t174"
+},
+{
+"pair": "S7-028",
+"side": "a",
+"text": "Analiza las ventas del tercer trimestre y detecta anomalías.",
+"tid": "t175"
+},
+{
+"pair": "S7-028",
+"side": "b",
+"text": "Elimina las ventas del tercer trimestre que tengan anomalías.",
+"tid": "t176"
+},
+{
+"pair": "S7-065",
+"side": "a",
+"text": "It is required to validate all datasets before publishing the results.",
+"tid": "t177"
+},
+{
+"pair": "S7-065",
+"side": "b",
+"text": "If time permits, validate all datasets before publishing the results.",
+"tid": "t178"
+},
+{
+"pair": "S7-008",
+"side": "a",
+"text": "No incluyas los datos de usuarios menores de edad en el análisis.",
+"tid": "t179"
+},
+{
+"pair": "S7-008",
+"side": "b",
+"text": "Include data from underage users in the analysis.",
+"tid": "t180"
+},
+{
+"pair": "S7-075",
+"side": "a",
+"text": "Compare this year's sales with last year's.",
+"tid": "t181"
+},
+{
+"pair": "S7-075",
+"side": "b",
+"text": "Compare 2026 sales with 2024 sales.",
+"tid": "t182"
+},
+{
+"pair": "S7-047",
+"side": "a",
+"text": "Flag customers older than one year.",
+"tid": "t183"
+},
+{
+"pair": "S7-047",
+"side": "b",
+"text": "Flag customers older than six months.",
+"tid": "t184"
+},
+{
+"pair": "S7-013",
+"side": "a",
+"text": "Detect duplicate entries in the users dataset and remove them.",
+"tid": "t185"
+},
+{
+"pair": "S7-013",
+"side": "b",
+"text": "Find duplicate entries in the users dataset and delete them.",
+"tid": "t186"
+},
+{
+"pair": "S7-069",
+"side": "a",
+"text": "Fetch the customer dataset and compute average order value.",
+"tid": "t187"
+},
+{
+"pair": "S7-069",
+"side": "b",
+"text": "Fetch the sales dataset and compute average order value.",
+"tid": "t188"
+},
+{
+"pair": "S7-010",
+"side": "a",
+"text": "Search for anomalies in the video feed and report them to the QA team.",
+"tid": "t189"
+},
+{
+"pair": "S7-010",
+"side": "b",
+"text": "Look for anomalies in the video feed and report them to the QA team.",
+"tid": "t190"
+},
+{
+"pair": "S7-007",
+"side": "a",
+"text": "If the confidence is below 0.80, flag the result for manual review.",
+"tid": "t191"
+},
+{
+"pair": "S7-007",
+"side": "b",
+"text": "Flag the result for manual review if confidence is less than 0.80.",
+"tid": "t192"
+},
+{
+"pair": "S7-084",
+"side": "a",
+"text": "Detect duplicate entries in the users dataset and remove them.",
+"tid": "t193"
+},
+{
+"pair": "S7-084",
+"side": "b",
+"text": "Detect duplicate entries in the users dataset and keep them.",
+"tid": "t194"
+},
+{
+"pair": "S7-051",
+"side": "a",
+"text": "Está prohibido eliminar los registros de auditoría.",
+"tid": "t195"
+},
+{
+"pair": "S7-051",
+"side": "b",
+"text": "No se debe borrar los registros de auditoría.",
+"tid": "t196"
+},
+{
+"pair": "S7-020",
+"side": "a",
+"text": "Run the anomaly detector on the video dataset with a confidence threshold above 0.80.",
+"tid": "t197"
+},
+{
+"pair": "S7-020",
+"side": "b",
+"text": "Execute the anomaly detector on the video dataset requiring confidence greater than 0.80.",
+"tid": "t198"
+},
+{
+"pair": "S7-042",
+"side": "a",
+"text": "Generate a CSV report for the company Acme Inc.",
+"tid": "t199"
+},
+{
+"pair": "S7-042",
+"side": "b",
+"text": "Produce a report in CSV format for Acme Inc.",
+"tid": "t200"
+}
+]

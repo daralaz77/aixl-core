@@ -1,0 +1,2402 @@
+[
+{
+"pair": "A3-001",
+"side": "a",
+"text": "Analiza las ventas del tercer trimestre de 2025.",
+"tid": "t001"
+},
+{
+"pair": "A3-001",
+"side": "b",
+"text": "Examina los datos de ventas del Q3 2025.",
+"tid": "t002"
+},
+{
+"pair": "A3-002",
+"side": "a",
+"text": "Envía el reporte a Marta.",
+"tid": "t003"
+},
+{
+"pair": "A3-002",
+"side": "b",
+"text": "Envía el reporte a Marcos.",
+"tid": "t004"
+},
+{
+"pair": "A3-003",
+"side": "a",
+"text": "Elimina los registros duplicados.",
+"tid": "t005"
+},
+{
+"pair": "A3-003",
+"side": "b",
+"text": "No elimines los registros duplicados.",
+"tid": "t006"
+},
+{
+"pair": "A3-004",
+"side": "a",
+"text": "Elimina los usuarios duplicados del conjunto de datos.",
+"tid": "t007"
+},
+{
+"pair": "A3-004",
+"side": "b",
+"text": "Remove duplicate users from the dataset.",
+"tid": "t008"
+},
+{
+"pair": "A3-005",
+"side": "a",
+"text": "Traduce el documento al inglés.",
+"tid": "t009"
+},
+{
+"pair": "A3-005",
+"side": "b",
+"text": "El documento debe ser traducido al inglés.",
+"tid": "t010"
+},
+{
+"pair": "A3-006",
+"side": "a",
+"text": "Analiza las ventas de 2024.",
+"tid": "t011"
+},
+{
+"pair": "A3-006",
+"side": "b",
+"text": "Analiza las ventas de 2025.",
+"tid": "t012"
+},
+{
+"pair": "A3-007",
+"side": "a",
+"text": "Genera un informe en PDF de las ventas de ayer.",
+"tid": "t013"
+},
+{
+"pair": "A3-007",
+"side": "b",
+"text": "Redacta el reporte de ventas del día anterior en formato PDF.",
+"tid": "t014"
+},
+{
+"pair": "A3-008",
+"side": "a",
+"text": "Genera un informe en PDF.",
+"tid": "t015"
+},
+{
+"pair": "A3-008",
+"side": "b",
+"text": "Genera un informe en CSV.",
+"tid": "t016"
+},
+{
+"pair": "A3-009",
+"side": "a",
+"text": "Recupera los 10 clientes principales.",
+"tid": "t017"
+},
+{
+"pair": "A3-009",
+"side": "b",
+"text": "Recupera los 20 clientes principales.",
+"tid": "t018"
+},
+{
+"pair": "A3-010",
+"side": "a",
+"text": "Nunca envíes el reporte al cliente Marta.",
+"tid": "t019"
+},
+{
+"pair": "A3-010",
+"side": "b",
+"text": "Está prohibido enviar el informe a la cliente Marta.",
+"tid": "t020"
+},
+{
+"pair": "A3-011",
+"side": "a",
+"text": "Si hay más de 100 registros, genera los resultados en CSV.",
+"tid": "t021"
+},
+{
+"pair": "A3-011",
+"side": "b",
+"text": "Cuando existan más de cien registros, escribe el resultado como CSV.",
+"tid": "t022"
+},
+{
+"pair": "A3-012",
+"side": "a",
+"text": "Busca las anomalías con confianza menor a 0.80.",
+"tid": "t023"
+},
+{
+"pair": "A3-012",
+"side": "b",
+"text": "Localiza anomalías cuya confianza sea inferior a 0,80.",
+"tid": "t024"
+},
+{
+"pair": "A3-013",
+"side": "a",
+"text": "Si hay más de 100 registros, ejecuta el análisis.",
+"tid": "t025"
+},
+{
+"pair": "A3-013",
+"side": "b",
+"text": "Si hay más de 1000 registros, ejecuta el análisis.",
+"tid": "t026"
+},
+{
+"pair": "A3-014",
+"side": "a",
+"text": "Detecta anomalías con confianza menor a 0.80.",
+"tid": "t027"
+},
+{
+"pair": "A3-014",
+"side": "b",
+"text": "Detecta anomalías con confianza menor o igual a 0.80.",
+"tid": "t028"
+},
+{
+"pair": "A3-015",
+"side": "a",
+"text": "Compara las ventas de este mes con las del mes pasado.",
+"tid": "t029"
+},
+{
+"pair": "A3-015",
+"side": "b",
+"text": "Compare this month's sales against last month's.",
+"tid": "t030"
+},
+{
+"pair": "A3-016",
+"side": "a",
+"text": "Traduce el documento al inglés.",
+"tid": "t031"
+},
+{
+"pair": "A3-016",
+"side": "b",
+"text": "Traduce el documento al portugués.",
+"tid": "t032"
+},
+{
+"pair": "A3-017",
+"side": "a",
+"text": "Recupera los 10 clientes principales por ventas.",
+"tid": "t033"
+},
+{
+"pair": "A3-017",
+"side": "b",
+"text": "Obtén el top diez de clientes según ventas.",
+"tid": "t034"
+},
+{
+"pair": "A3-018",
+"side": "a",
+"text": "Ejecuta el análisis del evento #77.",
+"tid": "t035"
+},
+{
+"pair": "A3-018",
+"side": "b",
+"text": "Ejecuta el análisis del evento #78.",
+"tid": "t036"
+},
+{
+"pair": "A3-019",
+"side": "a",
+"text": "Verifica los datos y luego elimina las anomalías.",
+"tid": "t037"
+},
+{
+"pair": "A3-019",
+"side": "b",
+"text": "Elimina las anomalías y luego verifica los datos.",
+"tid": "t038"
+},
+{
+"pair": "A3-020",
+"side": "a",
+"text": "Habilita el modo de prueba.",
+"tid": "t039"
+},
+{
+"pair": "A3-020",
+"side": "b",
+"text": "Deshabilita el modo de prueba.",
+"tid": "t040"
+},
+{
+"pair": "A3-021",
+"side": "a",
+"text": "Ejecuta el análisis del evento #77 con prioridad urgente.",
+"tid": "t041"
+},
+{
+"pair": "A3-021",
+"side": "b",
+"text": "Corre el análisis del evento #77; prioridad: urgente.",
+"tid": "t042"
+},
+{
+"pair": "A3-022",
+"side": "a",
+"text": "Desative o modo de teste.",
+"tid": "t043"
+},
+{
+"pair": "A3-022",
+"side": "b",
+"text": "Deshabilita el modo de prueba.",
+"tid": "t044"
+},
+{
+"pair": "A3-023",
+"side": "a",
+"text": "Analiza las imágenes de ayer.",
+"tid": "t045"
+},
+{
+"pair": "A3-023",
+"side": "b",
+"text": "Analiza las imágenes de hoy.",
+"tid": "t046"
+},
+{
+"pair": "A3-024",
+"side": "a",
+"text": "Verifica los 100 registros de clientes de hoy.",
+"tid": "t047"
+},
+{
+"pair": "A3-024",
+"side": "b",
+"text": "Valida cien registros de clientes correspondientes a 2026-09-26.",
+"tid": "t048"
+},
+{
+"pair": "A3-025",
+"side": "a",
+"text": "Excluye el audio del análisis.",
+"tid": "t049"
+},
+{
+"pair": "A3-025",
+"side": "b",
+"text": "El análisis debe realizarse sin incluir el audio.",
+"tid": "t050"
+},
+{
+"pair": "A3-026",
+"side": "a",
+"text": "Envía el resultado con prioridad urgente.",
+"tid": "t051"
+},
+{
+"pair": "A3-026",
+"side": "b",
+"text": "Envía el resultado con prioridad alta.",
+"tid": "t052"
+},
+{
+"pair": "A3-027",
+"side": "a",
+"text": "Calcula el total de ventas de 2024 y muéstralo en tabla.",
+"tid": "t053"
+},
+{
+"pair": "A3-027",
+"side": "b",
+"text": "Computa la suma de las ventas del año 2024; formato de salida: tabla.",
+"tid": "t054"
+},
+{
+"pair": "A3-028",
+"side": "a",
+"text": "Busca los clientes de la empresa Norte.",
+"tid": "t055"
+},
+{
+"pair": "A3-028",
+"side": "b",
+"text": "Busca los clientes de la empresa Sur.",
+"tid": "t056"
+},
+{
+"pair": "A3-029",
+"side": "a",
+"text": "Permite que los usuarios vean el reporte.",
+"tid": "t057"
+},
+{
+"pair": "A3-029",
+"side": "b",
+"text": "Prohíbe que los usuarios vean el reporte.",
+"tid": "t058"
+},
+{
+"pair": "A3-030",
+"side": "a",
+"text": "Actualiza el producto #12 y luego envía la notificación.",
+"tid": "t059"
+},
+{
+"pair": "A3-030",
+"side": "b",
+"text": "Después de modificar el producto #12, se debe enviar la notificación.",
+"tid": "t060"
+},
+{
+"pair": "A3-031",
+"side": "a",
+"text": "Detecta anomalías en el video de ayer.",
+"tid": "t061"
+},
+{
+"pair": "A3-031",
+"side": "b",
+"text": "Find anomalies in yesterday's video.",
+"tid": "t062"
+},
+{
+"pair": "A3-032",
+"side": "a",
+"text": "Escribe el resultado en Markdown, máximo 5 líneas.",
+"tid": "t063"
+},
+{
+"pair": "A3-032",
+"side": "b",
+"text": "Genera el resultado en Markdown con un límite de cinco líneas.",
+"tid": "t064"
+},
+{
+"pair": "A3-033",
+"side": "a",
+"text": "Calcula las ventas del Q2 2026.",
+"tid": "t065"
+},
+{
+"pair": "A3-033",
+"side": "b",
+"text": "Calcula las ventas del Q3 2026.",
+"tid": "t066"
+},
+{
+"pair": "A3-034",
+"side": "a",
+"text": "Compara las ventas de este mes con las del mes pasado.",
+"tid": "t067"
+},
+{
+"pair": "A3-034",
+"side": "b",
+"text": "Compara las ventas de este mes con las de este mismo mes del año pasado.",
+"tid": "t068"
+},
+{
+"pair": "A3-035",
+"side": "a",
+"text": "Actualiza el producto #12 sin enviar la notificación.",
+"tid": "t069"
+},
+{
+"pair": "A3-035",
+"side": "b",
+"text": "Actualiza el producto #12 y envía la notificación.",
+"tid": "t070"
+},
+{
+"pair": "A3-036",
+"side": "a",
+"text": "Permite que los usuarios nuevos vean el reporte.",
+"tid": "t071"
+},
+{
+"pair": "A3-036",
+"side": "b",
+"text": "Autoriza a los usuarios nuevos a consultar el reporte.",
+"tid": "t072"
+},
+{
+"pair": "A3-037",
+"side": "a",
+"text": "Analiza los clientes.",
+"tid": "t073"
+},
+{
+"pair": "A3-037",
+"side": "b",
+"text": "Analiza los clientes solo si hay más de 100 registros.",
+"tid": "t074"
+},
+{
+"pair": "A3-038",
+"side": "a",
+"text": "Encuentra al cliente Pedro Gómez en el dataset.",
+"tid": "t075"
+},
+{
+"pair": "A3-038",
+"side": "b",
+"text": "Ubique al cliente Pedro Gómez dentro del conjunto de datos.",
+"tid": "t076"
+},
+{
+"pair": "A3-039",
+"side": "a",
+"text": "Analisar as vendas do primeiro trimestre de 2026.",
+"tid": "t077"
+},
+{
+"pair": "A3-039",
+"side": "b",
+"text": "Analiza las ventas del T1 de 2026.",
+"tid": "t078"
+},
+{
+"pair": "A3-040",
+"side": "a",
+"text": "Generate three reports.",
+"tid": "t079"
+},
+{
+"pair": "A3-040",
+"side": "b",
+"text": "Genera cinco informes.",
+"tid": "t080"
+},
+{
+"pair": "A3-041",
+"side": "a",
+"text": "Crea un resumen de la empresa Andina en JSON.",
+"tid": "t081"
+},
+{
+"pair": "A3-041",
+"side": "b",
+"text": "Please generate a JSON summary of the company Andina.",
+"tid": "t082"
+},
+{
+"pair": "A3-042",
+"side": "a",
+"text": "Busca anomalías en el video.",
+"tid": "t083"
+},
+{
+"pair": "A3-042",
+"side": "b",
+"text": "Busca anomalías en el audio.",
+"tid": "t084"
+},
+{
+"pair": "A3-043",
+"side": "a",
+"text": "Elimina las imágenes de esta semana.",
+"tid": "t085"
+},
+{
+"pair": "A3-043",
+"side": "b",
+"text": "Elimina las imágenes de la semana pasada.",
+"tid": "t086"
+},
+{
+"pair": "A3-044",
+"side": "a",
+"text": "Elimina los videos de esta semana.",
+"tid": "t087"
+},
+{
+"pair": "A3-044",
+"side": "b",
+"text": "Los videos de esta semana han de ser eliminados.",
+"tid": "t088"
+},
+{
+"pair": "A3-045",
+"side": "a",
+"text": "En caso de que la confianza sea menor a 0.80, no envíes el resultado.",
+"tid": "t089"
+},
+{
+"pair": "A3-045",
+"side": "b",
+"text": "No envíes el resultado siempre que la confianza sea inferior a 0.80.",
+"tid": "t090"
+},
+{
+"pair": "A3-046",
+"side": "a",
+"text": "Return at most 20 results.",
+"tid": "t091"
+},
+{
+"pair": "A3-046",
+"side": "b",
+"text": "Devuelve como mínimo 20 resultados.",
+"tid": "t092"
+},
+{
+"pair": "A3-047",
+"side": "a",
+"text": "Nunca envíes el documento a Ana.",
+"tid": "t093"
+},
+{
+"pair": "A3-047",
+"side": "b",
+"text": "Envía el documento a Ana.",
+"tid": "t094"
+},
+{
+"pair": "A3-048",
+"side": "a",
+"text": "Traduce el audio al portugués.",
+"tid": "t095"
+},
+{
+"pair": "A3-048",
+"side": "b",
+"text": "Traduzir o áudio para português.",
+"tid": "t096"
+},
+{
+"pair": "A3-049",
+"side": "a",
+"text": "Genera 3 informes de ventas.",
+"tid": "t097"
+},
+{
+"pair": "A3-049",
+"side": "b",
+"text": "Escribe tres reportes de ventas.",
+"tid": "t098"
+},
+{
+"pair": "A3-050",
+"side": "a",
+"text": "Verifica el documento.",
+"tid": "t099"
+},
+{
+"pair": "A3-050",
+"side": "b",
+"text": "Elimina el documento.",
+"tid": "t100"
+},
+{
+"pair": "A3-051",
+"side": "a",
+"text": "Compara los datos de 2023 con los de 2025.",
+"tid": "t101"
+},
+{
+"pair": "A3-051",
+"side": "b",
+"text": "Confronta los datos del año 2023 y los del año 2025.",
+"tid": "t102"
+},
+{
+"pair": "A3-052",
+"side": "a",
+"text": "Escribe el resultado en Markdown.",
+"tid": "t103"
+},
+{
+"pair": "A3-052",
+"side": "b",
+"text": "Escribe el resultado en JSON.",
+"tid": "t104"
+},
+{
+"pair": "A3-053",
+"side": "a",
+"text": "Recupera los resultados del 2026-08-01 al 2026-08-31.",
+"tid": "t105"
+},
+{
+"pair": "A3-053",
+"side": "b",
+"text": "Obtén los resultados de agosto de 2026.",
+"tid": "t106"
+},
+{
+"pair": "A3-054",
+"side": "a",
+"text": "Analiza solo imágenes con confianza mayor a 0.90.",
+"tid": "t107"
+},
+{
+"pair": "A3-054",
+"side": "b",
+"text": "Analiza solo imágenes con confianza mayor o igual a 0.90.",
+"tid": "t108"
+},
+{
+"pair": "A3-055",
+"side": "a",
+"text": "Envía el reporte a Carlos hoy.",
+"tid": "t109"
+},
+{
+"pair": "A3-055",
+"side": "b",
+"text": "Envía el reporte a Carlos mañana.",
+"tid": "t110"
+},
+{
+"pair": "A3-056",
+"side": "a",
+"text": "Verifica el documento antes de enviarlo a Laura.",
+"tid": "t111"
+},
+{
+"pair": "A3-056",
+"side": "b",
+"text": "Antes de mandar el documento a Laura, revísalo.",
+"tid": "t112"
+},
+{
+"pair": "A3-057",
+"side": "a",
+"text": "Elimina el registro #45.",
+"tid": "t113"
+},
+{
+"pair": "A3-057",
+"side": "b",
+"text": "Remove record #45.",
+"tid": "t114"
+},
+{
+"pair": "A3-058",
+"side": "a",
+"text": "Ejecuta el script con prioridad alta.",
+"tid": "t115"
+},
+{
+"pair": "A3-058",
+"side": "b",
+"text": "Ejecuta el script con prioridad urgente.",
+"tid": "t116"
+},
+{
+"pair": "A3-059",
+"side": "a",
+"text": "Estudia la data de clientes de octubre a diciembre de 2025.",
+"tid": "t117"
+},
+{
+"pair": "A3-059",
+"side": "b",
+"text": "Analyze customer data for Q4 2025.",
+"tid": "t118"
+},
+{
+"pair": "A3-060",
+"side": "a",
+"text": "Crea un resumen de la empresa Andina en JSON.",
+"tid": "t119"
+},
+{
+"pair": "A3-060",
+"side": "b",
+"text": "Crea un resumen del producto Andina en JSON.",
+"tid": "t120"
+},
+{
+"pair": "A3-061",
+"side": "a",
+"text": "Si la confianza es menor a 0.80, no envíes el resultado.",
+"tid": "t121"
+},
+{
+"pair": "A3-061",
+"side": "b",
+"text": "Si la confianza es menor a 0.70, no envíes el resultado.",
+"tid": "t122"
+},
+{
+"pair": "A3-062",
+"side": "a",
+"text": "Devuelve como máximo 20 resultados.",
+"tid": "t123"
+},
+{
+"pair": "A3-062",
+"side": "b",
+"text": "Limita la respuesta a veinte resultados como tope.",
+"tid": "t124"
+},
+{
+"pair": "A3-063",
+"side": "a",
+"text": "No incluyas el producto #9 en el reporte.",
+"tid": "t125"
+},
+{
+"pair": "A3-063",
+"side": "b",
+"text": "El reporte debe quedar sin el producto #9.",
+"tid": "t126"
+},
+{
+"pair": "A3-064",
+"side": "a",
+"text": "Traduce el audio al español.",
+"tid": "t127"
+},
+{
+"pair": "A3-064",
+"side": "b",
+"text": "Traduce el video al español.",
+"tid": "t128"
+},
+{
+"pair": "A3-065",
+"side": "a",
+"text": "Ejecuta el script con prioridad alta.",
+"tid": "t129"
+},
+{
+"pair": "A3-065",
+"side": "b",
+"text": "Lanza el script; su prioridad es alta.",
+"tid": "t130"
+},
+{
+"pair": "A3-066",
+"side": "a",
+"text": "Deshabilita el acceso de usuarios nuevos.",
+"tid": "t131"
+},
+{
+"pair": "A3-066",
+"side": "b",
+"text": "Deshabilita el acceso de clientes nuevos.",
+"tid": "t132"
+},
+{
+"pair": "A3-067",
+"side": "a",
+"text": "Busca el evento #31 en agosto de 2026.",
+"tid": "t133"
+},
+{
+"pair": "A3-067",
+"side": "b",
+"text": "Busca el evento #31 en agosto de 2025.",
+"tid": "t134"
+},
+{
+"pair": "A3-068",
+"side": "a",
+"text": "Include the product #9 in the report.",
+"tid": "t135"
+},
+{
+"pair": "A3-068",
+"side": "b",
+"text": "No incluyas el producto #9 en el reporte.",
+"tid": "t136"
+},
+{
+"pair": "A3-069",
+"side": "a",
+"text": "Busca eventos urgentes de hoy.",
+"tid": "t137"
+},
+{
+"pair": "A3-069",
+"side": "b",
+"text": "Rastrea los eventos de hoy que sean urgentes.",
+"tid": "t138"
+},
+{
+"pair": "A3-070",
+"side": "a",
+"text": "Habilita la traducción automática al inglés.",
+"tid": "t139"
+},
+{
+"pair": "A3-070",
+"side": "b",
+"text": "Activa la traducción automática hacia el inglés.",
+"tid": "t140"
+},
+{
+"pair": "A3-071",
+"side": "a",
+"text": "Obtén 100 registros de ventas.",
+"tid": "t141"
+},
+{
+"pair": "A3-071",
+"side": "b",
+"text": "Obtén 500 registros de ventas.",
+"tid": "t142"
+},
+{
+"pair": "A3-072",
+"side": "a",
+"text": "Genera un dataset de 100 registros de usuarios.",
+"tid": "t143"
+},
+{
+"pair": "A3-072",
+"side": "b",
+"text": "Crea un conjunto de datos con cien registros de usuarios.",
+"tid": "t144"
+},
+{
+"pair": "A3-073",
+"side": "a",
+"text": "Compara los datos de 2023 con los de 2025.",
+"tid": "t145"
+},
+{
+"pair": "A3-073",
+"side": "b",
+"text": "Compara los datos de 2022 con los de 2025.",
+"tid": "t146"
+},
+{
+"pair": "A3-074",
+"side": "a",
+"text": "Envía el reporte a Ana mañana.",
+"tid": "t147"
+},
+{
+"pair": "A3-074",
+"side": "b",
+"text": "Send the report to Ana tomorrow.",
+"tid": "t148"
+},
+{
+"pair": "A3-075",
+"side": "a",
+"text": "Calcula el total de ventas y muéstralo en tabla.",
+"tid": "t149"
+},
+{
+"pair": "A3-075",
+"side": "b",
+"text": "Calcula el promedio de ventas y muéstralo en tabla.",
+"tid": "t150"
+},
+{
+"pair": "A3-076",
+"side": "a",
+"text": "Prohibido borrar datos de clientes.",
+"tid": "t151"
+},
+{
+"pair": "A3-076",
+"side": "b",
+"text": "Nunca elimines los datos de los clientes.",
+"tid": "t152"
+},
+{
+"pair": "A3-077",
+"side": "a",
+"text": "Solo analiza las imágenes con confianza mayor o igual a 0.90.",
+"tid": "t153"
+},
+{
+"pair": "A3-077",
+"side": "b",
+"text": "Examina únicamente imágenes cuya confianza sea ≥ 0.90.",
+"tid": "t154"
+},
+{
+"pair": "A3-078",
+"side": "a",
+"text": "Detecta anomalías y después genera el reporte.",
+"tid": "t155"
+},
+{
+"pair": "A3-078",
+"side": "b",
+"text": "Genera el reporte y después detecta anomalías.",
+"tid": "t156"
+},
+{
+"pair": "A3-079",
+"side": "a",
+"text": "Actualiza el documento siempre que haya errores.",
+"tid": "t157"
+},
+{
+"pair": "A3-079",
+"side": "b",
+"text": "Actualiza el documento.",
+"tid": "t158"
+},
+{
+"pair": "A3-080",
+"side": "a",
+"text": "Calcula las ventas de la persona Juan del mes pasado.",
+"tid": "t159"
+},
+{
+"pair": "A3-080",
+"side": "b",
+"text": "Computa las ventas de la persona Juan correspondientes al mes pasado.",
+"tid": "t160"
+},
+{
+"pair": "A3-081",
+"side": "a",
+"text": "Detecta anomalías y después genera el reporte.",
+"tid": "t161"
+},
+{
+"pair": "A3-081",
+"side": "b",
+"text": "Localiza anomalías; luego escribe el reporte.",
+"tid": "t162"
+},
+{
+"pair": "A3-082",
+"side": "a",
+"text": "Borra los datos de clientes.",
+"tid": "t163"
+},
+{
+"pair": "A3-082",
+"side": "b",
+"text": "Borra los datos de usuarios.",
+"tid": "t164"
+},
+{
+"pair": "A3-083",
+"side": "a",
+"text": "Analisar as vendas do primeiro trimestre de 2026.",
+"tid": "t165"
+},
+{
+"pair": "A3-083",
+"side": "b",
+"text": "Analiza las ventas del segundo trimestre de 2026.",
+"tid": "t166"
+},
+{
+"pair": "A3-084",
+"side": "a",
+"text": "Actualiza el documento en español.",
+"tid": "t167"
+},
+{
+"pair": "A3-084",
+"side": "b",
+"text": "Modifica el documento en idioma español.",
+"tid": "t168"
+},
+{
+"pair": "A3-085",
+"side": "a",
+"text": "Compara las ventas de la empresa Norte y de la empresa Sur.",
+"tid": "t169"
+},
+{
+"pair": "A3-085",
+"side": "b",
+"text": "Compare sales between company Norte and company Sur.",
+"tid": "t170"
+},
+{
+"pair": "A3-086",
+"side": "a",
+"text": "Envía el informe en PDF a Laura.",
+"tid": "t171"
+},
+{
+"pair": "A3-086",
+"side": "b",
+"text": "Envía el informe en PDF a Laura y a Pedro.",
+"tid": "t172"
+},
+{
+"pair": "A3-087",
+"side": "a",
+"text": "Busca 5 anomalías como máximo.",
+"tid": "t173"
+},
+{
+"pair": "A3-087",
+"side": "b",
+"text": "Search for at most five anomalies.",
+"tid": "t174"
+},
+{
+"pair": "A3-088",
+"side": "a",
+"text": "Genera un dataset de 100 registros de usuarios.",
+"tid": "t175"
+},
+{
+"pair": "A3-088",
+"side": "b",
+"text": "Genera un dataset de 100 registros de clientes.",
+"tid": "t176"
+},
+{
+"pair": "A3-089",
+"side": "a",
+"text": "Habilita la traducción automática al inglés.",
+"tid": "t177"
+},
+{
+"pair": "A3-089",
+"side": "b",
+"text": "Habilite a tradução automática para português.",
+"tid": "t178"
+},
+{
+"pair": "A3-090",
+"side": "a",
+"text": "Envía el resultado a Carlos hoy.",
+"tid": "t179"
+},
+{
+"pair": "A3-090",
+"side": "b",
+"text": "Mande hoy el resultado a Carlos.",
+"tid": "t180"
+},
+{
+"pair": "A3-091",
+"side": "a",
+"text": "Valida el dataset y, si hay errores, elimina los registros afectados.",
+"tid": "t181"
+},
+{
+"pair": "A3-091",
+"side": "b",
+"text": "Si se detectan errores tras validar el dataset, borra los registros afectados.",
+"tid": "t182"
+},
+{
+"pair": "A3-092",
+"side": "a",
+"text": "Limit the search to 5 results.",
+"tid": "t183"
+},
+{
+"pair": "A3-092",
+"side": "b",
+"text": "Limita la búsqueda a 15 resultados.",
+"tid": "t184"
+},
+{
+"pair": "A3-093",
+"side": "a",
+"text": "Genera el informe en CSV, no en JSON.",
+"tid": "t185"
+},
+{
+"pair": "A3-093",
+"side": "b",
+"text": "El informe ha de ser CSV; JSON queda descartado.",
+"tid": "t186"
+},
+{
+"pair": "A3-094",
+"side": "a",
+"text": "Ejecuta la validación con prioridad alta hoy.",
+"tid": "t187"
+},
+{
+"pair": "A3-094",
+"side": "b",
+"text": "Ejecuta la actualización con prioridad alta hoy.",
+"tid": "t188"
+},
+{
+"pair": "A3-095",
+"side": "a",
+"text": "Excluye el audio del análisis.",
+"tid": "t189"
+},
+{
+"pair": "A3-095",
+"side": "b",
+"text": "Incluye el audio en el análisis.",
+"tid": "t190"
+},
+{
+"pair": "A3-096",
+"side": "a",
+"text": "Recupera el audio del evento #31.",
+"tid": "t191"
+},
+{
+"pair": "A3-096",
+"side": "b",
+"text": "Fetch the audio of event #31.",
+"tid": "t192"
+},
+{
+"pair": "A3-097",
+"side": "a",
+"text": "Analiza las ventas de ayer y genera un informe en PDF.",
+"tid": "t193"
+},
+{
+"pair": "A3-097",
+"side": "b",
+"text": "Compara las ventas de esta semana y genera un informe en CSV.",
+"tid": "t194"
+},
+{
+"pair": "A3-098",
+"side": "a",
+"text": "Deshabilita el acceso de los usuarios nuevos.",
+"tid": "t195"
+},
+{
+"pair": "A3-098",
+"side": "b",
+"text": "Impide que los usuarios nuevos tengan acceso.",
+"tid": "t196"
+},
+{
+"pair": "A3-099",
+"side": "a",
+"text": "Analiza las ventas del año pasado.",
+"tid": "t197"
+},
+{
+"pair": "A3-099",
+"side": "b",
+"text": "Examina las ventas de 2025.",
+"tid": "t198"
+},
+{
+"pair": "A3-100",
+"side": "a",
+"text": "Recupera el reporte del cliente Pedro en formato CSV.",
+"tid": "t199"
+},
+{
+"pair": "A3-100",
+"side": "b",
+"text": "Envía el reporte del cliente Marta en formato PDF.",
+"tid": "t200"
+},
+{
+"pair": "B3-001",
+"side": "a",
+"text": "Retrieve the top 10 customers by sales.",
+"tid": "t201"
+},
+{
+"pair": "B3-001",
+"side": "b",
+"text": "Retrieve the top 20 customers by sales.",
+"tid": "t202"
+},
+{
+"pair": "B3-002",
+"side": "a",
+"text": "Analyze the sales data for Q3 2025.",
+"tid": "t203"
+},
+{
+"pair": "B3-002",
+"side": "b",
+"text": "Could you please examine the sales figures for the third quarter of 2025?",
+"tid": "t204"
+},
+{
+"pair": "B3-003",
+"side": "a",
+"text": "Traduza o relatório para espanhol.",
+"tid": "t205"
+},
+{
+"pair": "B3-003",
+"side": "b",
+"text": "O relatório deve ser traduzido para o idioma espanhol.",
+"tid": "t206"
+},
+{
+"pair": "B3-004",
+"side": "a",
+"text": "Delete the duplicate records from the dataset.",
+"tid": "t207"
+},
+{
+"pair": "B3-004",
+"side": "b",
+"text": "Do not delete the duplicate records from the dataset.",
+"tid": "t208"
+},
+{
+"pair": "B3-005",
+"side": "a",
+"text": "Send the report to Maria today.",
+"tid": "t209"
+},
+{
+"pair": "B3-005",
+"side": "b",
+"text": "Envía el informe a Maria hoy.",
+"tid": "t210"
+},
+{
+"pair": "B3-006",
+"side": "a",
+"text": "If there are more than 100 records, export them as CSV.",
+"tid": "t211"
+},
+{
+"pair": "B3-006",
+"side": "b",
+"text": "Whenever the count of records exceeds 100, output them in CSV format.",
+"tid": "t212"
+},
+{
+"pair": "B3-007",
+"side": "a",
+"text": "Calcule as vendas de março de 2025.",
+"tid": "t213"
+},
+{
+"pair": "B3-007",
+"side": "b",
+"text": "Calcule as vendas de abril de 2025.",
+"tid": "t214"
+},
+{
+"pair": "B3-008",
+"side": "a",
+"text": "If confidence is below 0.80, flag the result as an anomaly.",
+"tid": "t215"
+},
+{
+"pair": "B3-008",
+"side": "b",
+"text": "If confidence is at most 0.80, flag the result as an anomaly.",
+"tid": "t216"
+},
+{
+"pair": "B3-009",
+"side": "a",
+"text": "Generate the sales report as a PDF.",
+"tid": "t217"
+},
+{
+"pair": "B3-009",
+"side": "b",
+"text": "Generate the sales report as a CSV.",
+"tid": "t218"
+},
+{
+"pair": "B3-010",
+"side": "a",
+"text": "Update the document referenced in #77.",
+"tid": "t219"
+},
+{
+"pair": "B3-010",
+"side": "b",
+"text": "Update the document referenced in #78.",
+"tid": "t220"
+},
+{
+"pair": "B3-011",
+"side": "a",
+"text": "Generate a summary of the customers' feedback in Markdown.",
+"tid": "t221"
+},
+{
+"pair": "B3-011",
+"side": "b",
+"text": "Write a Markdown summary of customer feedback.",
+"tid": "t222"
+},
+{
+"pair": "B3-012",
+"side": "a",
+"text": "Verifica los 100 registros de usuarios.",
+"tid": "t223"
+},
+{
+"pair": "B3-012",
+"side": "b",
+"text": "Validate the one hundred user records.",
+"tid": "t224"
+},
+{
+"pair": "B3-013",
+"side": "a",
+"text": "Analyze the video for anomalies.",
+"tid": "t225"
+},
+{
+"pair": "B3-013",
+"side": "b",
+"text": "Analyze the audio for anomalies.",
+"tid": "t226"
+},
+{
+"pair": "B3-014",
+"side": "a",
+"text": "Never include images in the report.",
+"tid": "t227"
+},
+{
+"pair": "B3-014",
+"side": "b",
+"text": "Images are forbidden in the report.",
+"tid": "t228"
+},
+{
+"pair": "B3-015",
+"side": "a",
+"text": "Validate the dataset, then delete the anomalies.",
+"tid": "t229"
+},
+{
+"pair": "B3-015",
+"side": "b",
+"text": "Delete the anomalies, then validate the dataset.",
+"tid": "t230"
+},
+{
+"pair": "B3-016",
+"side": "a",
+"text": "Compare this week's sales with last week's sales.",
+"tid": "t231"
+},
+{
+"pair": "B3-016",
+"side": "b",
+"text": "Contrast sales of the current week against those of the previous week.",
+"tid": "t232"
+},
+{
+"pair": "B3-017",
+"side": "a",
+"text": "Run the urgent check on the customers dataset.",
+"tid": "t233"
+},
+{
+"pair": "B3-017",
+"side": "b",
+"text": "Run the high-priority check on the customers dataset.",
+"tid": "t234"
+},
+{
+"pair": "B3-018",
+"side": "a",
+"text": "Envie o resultado somente se a confiança for maior que 0,90.",
+"tid": "t235"
+},
+{
+"pair": "B3-018",
+"side": "b",
+"text": "Send the result only if confidence is greater than 0.90.",
+"tid": "t236"
+},
+{
+"pair": "B3-019",
+"side": "a",
+"text": "Disable the notifications for user #12.",
+"tid": "t237"
+},
+{
+"pair": "B3-019",
+"side": "b",
+"text": "Turn off notifications for user #12.",
+"tid": "t238"
+},
+{
+"pair": "B3-020",
+"side": "a",
+"text": "Enable the anomaly detection on the sales data.",
+"tid": "t239"
+},
+{
+"pair": "B3-020",
+"side": "b",
+"text": "Disable the anomaly detection on the sales data.",
+"tid": "t240"
+},
+{
+"pair": "B3-021",
+"side": "a",
+"text": "Fetch the events from 2025-01-01 to 2025-03-31.",
+"tid": "t241"
+},
+{
+"pair": "B3-021",
+"side": "b",
+"text": "Get the events of Q1 2025.",
+"tid": "t242"
+},
+{
+"pair": "B3-022",
+"side": "a",
+"text": "Detecte anomalias nos dados de vendas de hoje.",
+"tid": "t243"
+},
+{
+"pair": "B3-022",
+"side": "b",
+"text": "Locate anomalies in today's sales data.",
+"tid": "t244"
+},
+{
+"pair": "B3-023",
+"side": "a",
+"text": "Fetch events from Q1 2025.",
+"tid": "t245"
+},
+{
+"pair": "B3-023",
+"side": "b",
+"text": "Fetch events from Q2 2025.",
+"tid": "t246"
+},
+{
+"pair": "B3-024",
+"side": "a",
+"text": "Inclua os clientes inativos na lista.",
+"tid": "t247"
+},
+{
+"pair": "B3-024",
+"side": "b",
+"text": "Não inclua os clientes inativos na lista.",
+"tid": "t248"
+},
+{
+"pair": "B3-025",
+"side": "a",
+"text": "Return max 50 records in the output.",
+"tid": "t249"
+},
+{
+"pair": "B3-025",
+"side": "b",
+"text": "Return max 500 records in the output.",
+"tid": "t250"
+},
+{
+"pair": "B3-026",
+"side": "a",
+"text": "Send o relatório para Carlos.",
+"tid": "t251"
+},
+{
+"pair": "B3-026",
+"side": "b",
+"text": "Send o relatório para Ana.",
+"tid": "t252"
+},
+{
+"pair": "B3-027",
+"side": "a",
+"text": "Muestra como máximo cinco resultados.",
+"tid": "t253"
+},
+{
+"pair": "B3-027",
+"side": "b",
+"text": "Return at most 5 results.",
+"tid": "t254"
+},
+{
+"pair": "B3-028",
+"side": "a",
+"text": "Fetch users, capped at 100 records.",
+"tid": "t255"
+},
+{
+"pair": "B3-028",
+"side": "b",
+"text": "Retrieve users, without exceeding one hundred records.",
+"tid": "t256"
+},
+{
+"pair": "B3-029",
+"side": "a",
+"text": "If there are more than 100 records, run the validation.",
+"tid": "t257"
+},
+{
+"pair": "B3-029",
+"side": "b",
+"text": "Run the validation.",
+"tid": "t258"
+},
+{
+"pair": "B3-030",
+"side": "a",
+"text": "The product document must be verified today.",
+"tid": "t259"
+},
+{
+"pair": "B3-030",
+"side": "b",
+"text": "Verify the product document today.",
+"tid": "t260"
+},
+{
+"pair": "B3-031",
+"side": "a",
+"text": "Translate the document into French.",
+"tid": "t261"
+},
+{
+"pair": "B3-031",
+"side": "b",
+"text": "Translate the document into German.",
+"tid": "t262"
+},
+{
+"pair": "B3-032",
+"side": "a",
+"text": "Exclua os usuários de teste da análise.",
+"tid": "t263"
+},
+{
+"pair": "B3-032",
+"side": "b",
+"text": "Exclude test users from the analysis.",
+"tid": "t264"
+},
+{
+"pair": "B3-033",
+"side": "a",
+"text": "Se houver mais de 1000 registros, envie um alerta.",
+"tid": "t265"
+},
+{
+"pair": "B3-033",
+"side": "b",
+"text": "Se houver mais de 100 registros, envie um alerta.",
+"tid": "t266"
+},
+{
+"pair": "B3-034",
+"side": "a",
+"text": "Search for the company in the customers dataset, and then compare it with last year's sales.",
+"tid": "t267"
+},
+{
+"pair": "B3-034",
+"side": "b",
+"text": "After searching the customers dataset for the company, compare it against sales from last year.",
+"tid": "t268"
+},
+{
+"pair": "B3-035",
+"side": "a",
+"text": "Calcula el promedio de ventas del mes pasado.",
+"tid": "t269"
+},
+{
+"pair": "B3-035",
+"side": "b",
+"text": "Compute the average sales for last month.",
+"tid": "t270"
+},
+{
+"pair": "B3-036",
+"side": "a",
+"text": "Calcule a média de vendas do mês passado.",
+"tid": "t271"
+},
+{
+"pair": "B3-036",
+"side": "b",
+"text": "Calcule a média de vendas deste mês.",
+"tid": "t272"
+},
+{
+"pair": "B3-037",
+"side": "a",
+"text": "Please generate a JSON file of the top 10 products.",
+"tid": "t273"
+},
+{
+"pair": "B3-037",
+"side": "b",
+"text": "Write the ten best products out as JSON.",
+"tid": "t274"
+},
+{
+"pair": "B3-038",
+"side": "a",
+"text": "Write the top 10 products as a table.",
+"tid": "t275"
+},
+{
+"pair": "B3-038",
+"side": "b",
+"text": "Write the top 10 products as JSON.",
+"tid": "t276"
+},
+{
+"pair": "B3-039",
+"side": "a",
+"text": "Nunca execute o script em produção.",
+"tid": "t277"
+},
+{
+"pair": "B3-039",
+"side": "b",
+"text": "É proibido executar o script em produção.",
+"tid": "t278"
+},
+{
+"pair": "B3-040",
+"side": "a",
+"text": "Allow the user to modify the report.",
+"tid": "t279"
+},
+{
+"pair": "B3-040",
+"side": "b",
+"text": "Forbid the user to modify the report.",
+"tid": "t280"
+},
+{
+"pair": "B3-041",
+"side": "a",
+"text": "Create a report on the anomaly.",
+"tid": "t281"
+},
+{
+"pair": "B3-041",
+"side": "b",
+"text": "Delete the report on the anomaly.",
+"tid": "t282"
+},
+{
+"pair": "B3-042",
+"side": "a",
+"text": "Procure 100 registros de clientes.",
+"tid": "t283"
+},
+{
+"pair": "B3-042",
+"side": "b",
+"text": "Procure 10 registros de clientes.",
+"tid": "t284"
+},
+{
+"pair": "B3-043",
+"side": "a",
+"text": "Create a report on sales from March 2025.",
+"tid": "t285"
+},
+{
+"pair": "B3-043",
+"side": "b",
+"text": "Produce a sales report for 2025-03.",
+"tid": "t286"
+},
+{
+"pair": "B3-044",
+"side": "a",
+"text": "Si la confianza es inferior a 0,80, elimina el resultado.",
+"tid": "t287"
+},
+{
+"pair": "B3-044",
+"side": "b",
+"text": "Remove the result whenever confidence is under 0.80.",
+"tid": "t288"
+},
+{
+"pair": "B3-045",
+"side": "a",
+"text": "Translate the document to English, then send it to Lucía.",
+"tid": "t289"
+},
+{
+"pair": "B3-045",
+"side": "b",
+"text": "Send the document to Lucía, then translate it to English.",
+"tid": "t290"
+},
+{
+"pair": "B3-046",
+"side": "a",
+"text": "Verifique se as imagens contêm alguma pessoa.",
+"tid": "t291"
+},
+{
+"pair": "B3-046",
+"side": "b",
+"text": "Confirme se há alguma pessoa nas imagens.",
+"tid": "t292"
+},
+{
+"pair": "B3-047",
+"side": "a",
+"text": "Check whether the images contain any person.",
+"tid": "t293"
+},
+{
+"pair": "B3-047",
+"side": "b",
+"text": "Check whether the images contain any product.",
+"tid": "t294"
+},
+{
+"pair": "B3-048",
+"side": "a",
+"text": "Traduce el documento al inglés y envíalo a Lucía.",
+"tid": "t295"
+},
+{
+"pair": "B3-048",
+"side": "b",
+"text": "Translate the document to English, then send it to Lucía.",
+"tid": "t296"
+},
+{
+"pair": "B3-049",
+"side": "a",
+"text": "Do not modify the customer data.",
+"tid": "t297"
+},
+{
+"pair": "B3-049",
+"side": "b",
+"text": "Do not modify the user data.",
+"tid": "t298"
+},
+{
+"pair": "B3-050",
+"side": "a",
+"text": "Don't modify the customer data.",
+"tid": "t299"
+},
+{
+"pair": "B3-050",
+"side": "b",
+"text": "Customer data must not be updated.",
+"tid": "t300"
+},
+{
+"pair": "B3-051",
+"side": "a",
+"text": "Compare sales of 2024 with those of 2025.",
+"tid": "t301"
+},
+{
+"pair": "B3-051",
+"side": "b",
+"text": "Contraste as vendas de 2024 e as de 2025.",
+"tid": "t302"
+},
+{
+"pair": "B3-052",
+"side": "a",
+"text": "Gere um relatório em PDF sobre os clientes.",
+"tid": "t303"
+},
+{
+"pair": "B3-052",
+"side": "b",
+"text": "Gere um relatório em PDF sobre os produtos.",
+"tid": "t304"
+},
+{
+"pair": "B3-053",
+"side": "a",
+"text": "Run the validation in case there are more than 100 records.",
+"tid": "t305"
+},
+{
+"pair": "B3-053",
+"side": "b",
+"text": "Should the records number over 100, execute the validation.",
+"tid": "t306"
+},
+{
+"pair": "B3-054",
+"side": "a",
+"text": "Find anomalies in sales data whose confidence is > 0.90.",
+"tid": "t307"
+},
+{
+"pair": "B3-054",
+"side": "b",
+"text": "Find anomalies in sales data whose confidence is >= 0.90.",
+"tid": "t308"
+},
+{
+"pair": "B3-055",
+"side": "a",
+"text": "Locate every anomaly in the sales data with confidence above 0.9.",
+"tid": "t309"
+},
+{
+"pair": "B3-055",
+"side": "b",
+"text": "Find anomalies in sales data whose confidence is > 0.90.",
+"tid": "t310"
+},
+{
+"pair": "B3-056",
+"side": "a",
+"text": "Run the validation in case there are more than 100 records.",
+"tid": "t311"
+},
+{
+"pair": "B3-056",
+"side": "b",
+"text": "Run the validation in case there are fewer than 100 records.",
+"tid": "t312"
+},
+{
+"pair": "B3-057",
+"side": "a",
+"text": "Update product #45 today.",
+"tid": "t313"
+},
+{
+"pair": "B3-057",
+"side": "b",
+"text": "Update product #45 tomorrow.",
+"tid": "t314"
+},
+{
+"pair": "B3-058",
+"side": "a",
+"text": "Envie os resultados em JSON.",
+"tid": "t315"
+},
+{
+"pair": "B3-058",
+"side": "b",
+"text": "Envie os resultados em Markdown.",
+"tid": "t316"
+},
+{
+"pair": "B3-059",
+"side": "a",
+"text": "Atualize o produto #45 hoje.",
+"tid": "t317"
+},
+{
+"pair": "B3-059",
+"side": "b",
+"text": "Modifique hoje o produto #45.",
+"tid": "t318"
+},
+{
+"pair": "B3-060",
+"side": "a",
+"text": "Envía los resultados en formato JSON.",
+"tid": "t319"
+},
+{
+"pair": "B3-060",
+"side": "b",
+"text": "Envie os resultados em JSON.",
+"tid": "t320"
+},
+{
+"pair": "B3-061",
+"side": "a",
+"text": "Escreva o documento em espanhol.",
+"tid": "t321"
+},
+{
+"pair": "B3-061",
+"side": "b",
+"text": "Escreva o documento em inglês.",
+"tid": "t322"
+},
+{
+"pair": "B3-062",
+"side": "a",
+"text": "Exclude every customer that is not from 2025.",
+"tid": "t323"
+},
+{
+"pair": "B3-062",
+"side": "b",
+"text": "Include only customers from 2025.",
+"tid": "t324"
+},
+{
+"pair": "B3-063",
+"side": "a",
+"text": "Include only customers from 2025.",
+"tid": "t325"
+},
+{
+"pair": "B3-063",
+"side": "b",
+"text": "Exclude customers from 2025.",
+"tid": "t326"
+},
+{
+"pair": "B3-064",
+"side": "a",
+"text": "Crie um documento em espanhol com o resumo dos eventos de ontem.",
+"tid": "t327"
+},
+{
+"pair": "B3-064",
+"side": "b",
+"text": "Escreva, em espanhol, um documento resumindo os eventos de ontem.",
+"tid": "t328"
+},
+{
+"pair": "B3-065",
+"side": "a",
+"text": "Locate the company Nova in the dataset.",
+"tid": "t329"
+},
+{
+"pair": "B3-065",
+"side": "b",
+"text": "Locate the company Acme in the dataset.",
+"tid": "t330"
+},
+{
+"pair": "B3-066",
+"side": "a",
+"text": "Search the dataset for a company named Acme.",
+"tid": "t331"
+},
+{
+"pair": "B3-066",
+"side": "b",
+"text": "Look up, in the dataset, the company called Acme.",
+"tid": "t332"
+},
+{
+"pair": "B3-067",
+"side": "a",
+"text": "Do not send the report without a summary.",
+"tid": "t333"
+},
+{
+"pair": "B3-067",
+"side": "b",
+"text": "Never send the report unless a summary is included.",
+"tid": "t334"
+},
+{
+"pair": "B3-068",
+"side": "a",
+"text": "Do not send the report without a summary.",
+"tid": "t335"
+},
+{
+"pair": "B3-068",
+"side": "b",
+"text": "Do not send the report with a summary.",
+"tid": "t336"
+},
+{
+"pair": "B3-069",
+"side": "a",
+"text": "Cinco clientes como máximo deben aparecer en la lista.",
+"tid": "t337"
+},
+{
+"pair": "B3-069",
+"side": "b",
+"text": "List no more than 5 customers.",
+"tid": "t338"
+},
+{
+"pair": "B3-070",
+"side": "a",
+"text": "Fetch users created last month.",
+"tid": "t339"
+},
+{
+"pair": "B3-070",
+"side": "b",
+"text": "Fetch users created this week.",
+"tid": "t340"
+},
+{
+"pair": "B3-071",
+"side": "a",
+"text": "Fetch users registered last month.",
+"tid": "t341"
+},
+{
+"pair": "B3-071",
+"side": "b",
+"text": "Get users created during the previous month.",
+"tid": "t342"
+},
+{
+"pair": "B3-072",
+"side": "a",
+"text": "Compare the two datasets.",
+"tid": "t343"
+},
+{
+"pair": "B3-072",
+"side": "b",
+"text": "Analyze the two datasets.",
+"tid": "t344"
+},
+{
+"pair": "B3-073",
+"side": "a",
+"text": "Remove event #301.",
+"tid": "t345"
+},
+{
+"pair": "B3-073",
+"side": "b",
+"text": "Remove event #310.",
+"tid": "t346"
+},
+{
+"pair": "B3-074",
+"side": "a",
+"text": "Send Sofia an urgent alert whenever an anomaly is detected.",
+"tid": "t347"
+},
+{
+"pair": "B3-074",
+"side": "b",
+"text": "Send Sofia a high-priority alert whenever an anomaly is detected.",
+"tid": "t348"
+},
+{
+"pair": "B3-075",
+"side": "a",
+"text": "Verify the audio files today.",
+"tid": "t349"
+},
+{
+"pair": "B3-075",
+"side": "b",
+"text": "Verifique os arquivos de áudio hoje.",
+"tid": "t350"
+},
+{
+"pair": "B3-076",
+"side": "a",
+"text": "Whenever an anomaly is detected, send an urgent alert to Sofia.",
+"tid": "t351"
+},
+{
+"pair": "B3-076",
+"side": "b",
+"text": "Send Sofia an urgent alert each time an anomaly is found.",
+"tid": "t352"
+},
+{
+"pair": "B3-077",
+"side": "a",
+"text": "If there are more than 100 records, remove the duplicates.",
+"tid": "t353"
+},
+{
+"pair": "B3-077",
+"side": "b",
+"text": "If there are more than 100 records, detect the duplicates.",
+"tid": "t354"
+},
+{
+"pair": "B3-078",
+"side": "a",
+"text": "Execute the report generation with max 3 retries.",
+"tid": "t355"
+},
+{
+"pair": "B3-078",
+"side": "b",
+"text": "Run the report generation, retrying no more than three times.",
+"tid": "t356"
+},
+{
+"pair": "B3-079",
+"side": "a",
+"text": "Execute the report generation with max 3 retries.",
+"tid": "t357"
+},
+{
+"pair": "B3-079",
+"side": "b",
+"text": "Execute the report generation with max 5 retries.",
+"tid": "t358"
+},
+{
+"pair": "B3-080",
+"side": "a",
+"text": "Se houver mais de 100 registros, exclua os duplicados.",
+"tid": "t359"
+},
+{
+"pair": "B3-080",
+"side": "b",
+"text": "In case there are more than 100 records, remove the duplicates.",
+"tid": "t360"
+},
+{
+"pair": "B3-081",
+"side": "a",
+"text": "Estude o vídeo e reporte qualquer anomalia.",
+"tid": "t361"
+},
+{
+"pair": "B3-081",
+"side": "b",
+"text": "Estude o vídeo e não reporte nenhuma anomalia.",
+"tid": "t362"
+},
+{
+"pair": "B3-082",
+"side": "a",
+"text": "Examine the video and report any anomaly found.",
+"tid": "t363"
+},
+{
+"pair": "B3-082",
+"side": "b",
+"text": "Study the video; any anomaly you find must be reported.",
+"tid": "t364"
+},
+{
+"pair": "B3-083",
+"side": "a",
+"text": "Genera el informe de ventas del T2 de 2025.",
+"tid": "t365"
+},
+{
+"pair": "B3-083",
+"side": "b",
+"text": "Write the sales report for the second quarter of 2025.",
+"tid": "t366"
+},
+{
+"pair": "B3-084",
+"side": "a",
+"text": "Generate the sales report for the second quarter of 2025.",
+"tid": "t367"
+},
+{
+"pair": "B3-084",
+"side": "b",
+"text": "Generate the sales report for the second quarter of 2024.",
+"tid": "t368"
+},
+{
+"pair": "B3-085",
+"side": "a",
+"text": "Disable the product #9 and verify the result.",
+"tid": "t369"
+},
+{
+"pair": "B3-085",
+"side": "b",
+"text": "Verify the result after disabling product #9.",
+"tid": "t370"
+},
+{
+"pair": "B3-086",
+"side": "a",
+"text": "Disable product #9 and then verify the result.",
+"tid": "t371"
+},
+{
+"pair": "B3-086",
+"side": "b",
+"text": "Verify the result and then disable product #9.",
+"tid": "t372"
+},
+{
+"pair": "B3-087",
+"side": "a",
+"text": "Não inclua imagens no documento.",
+"tid": "t373"
+},
+{
+"pair": "B3-087",
+"side": "b",
+"text": "Images must be excluded from the document.",
+"tid": "t374"
+},
+{
+"pair": "B3-088",
+"side": "a",
+"text": "Ejecuta el análisis con prioridad alta.",
+"tid": "t375"
+},
+{
+"pair": "B3-088",
+"side": "b",
+"text": "Ejecuta el análisis con prioridad urgente.",
+"tid": "t376"
+},
+{
+"pair": "B3-089",
+"side": "a",
+"text": "Compute the total sales per customer.",
+"tid": "t377"
+},
+{
+"pair": "B3-089",
+"side": "b",
+"text": "Compute the average sales per customer.",
+"tid": "t378"
+},
+{
+"pair": "B3-090",
+"side": "a",
+"text": "Localiza los eventos ocurridos ayer.",
+"tid": "t379"
+},
+{
+"pair": "B3-090",
+"side": "b",
+"text": "Find the events that occurred yesterday.",
+"tid": "t380"
+},
+{
+"pair": "B3-091",
+"side": "a",
+"text": "Compute the total sales per customer and output a table.",
+"tid": "t381"
+},
+{
+"pair": "B3-091",
+"side": "b",
+"text": "Output a table with sales totalled for each customer.",
+"tid": "t382"
+},
+{
+"pair": "B3-092",
+"side": "a",
+"text": "Localiza los eventos de ayer.",
+"tid": "t383"
+},
+{
+"pair": "B3-092",
+"side": "b",
+"text": "Find the events of tomorrow.",
+"tid": "t384"
+},
+{
+"pair": "B3-093",
+"side": "a",
+"text": "Verifique o documento do cliente.",
+"tid": "t385"
+},
+{
+"pair": "B3-093",
+"side": "b",
+"text": "Verifique o documento da empresa.",
+"tid": "t386"
+},
+{
+"pair": "B3-094",
+"side": "a",
+"text": "Return the result in JSON only if confidence reaches 0.80 or more.",
+"tid": "t387"
+},
+{
+"pair": "B3-094",
+"side": "b",
+"text": "Return JSON when confidence >= 0.80, and not otherwise.",
+"tid": "t388"
+},
+{
+"pair": "B3-095",
+"side": "a",
+"text": "Return the result only if confidence is at least 0.80.",
+"tid": "t389"
+},
+{
+"pair": "B3-095",
+"side": "b",
+"text": "Return the result only if confidence is at least 0.85.",
+"tid": "t390"
+},
+{
+"pair": "B3-096",
+"side": "a",
+"text": "Analise os 100 registros mais recentes de usuários.",
+"tid": "t391"
+},
+{
+"pair": "B3-096",
+"side": "b",
+"text": "Examine the latest one hundred user records.",
+"tid": "t392"
+},
+{
+"pair": "B3-097",
+"side": "a",
+"text": "Do not execute the script when there is an anomaly.",
+"tid": "t393"
+},
+{
+"pair": "B3-097",
+"side": "b",
+"text": "Execute the script only when there is an anomaly.",
+"tid": "t394"
+},
+{
+"pair": "B3-098",
+"side": "a",
+"text": "Do not execute the script when there is an anomaly.",
+"tid": "t395"
+},
+{
+"pair": "B3-098",
+"side": "b",
+"text": "If an anomaly is present, the script must not be run.",
+"tid": "t396"
+},
+{
+"pair": "B3-099",
+"side": "a",
+"text": "Translate the product document into Portuguese and generate it as PDF.",
+"tid": "t397"
+},
+{
+"pair": "B3-099",
+"side": "b",
+"text": "Traduza para português o documento do produto e gere-o em PDF.",
+"tid": "t398"
+},
+{
+"pair": "B3-100",
+"side": "a",
+"text": "Translate the product document into Portuguese and generate it as PDF.",
+"tid": "t399"
+},
+{
+"pair": "B3-100",
+"side": "b",
+"text": "Traduce el documento del producto al español y genéralo en PDF.",
+"tid": "t400"
+}
+]

@@ -1,0 +1,220 @@
+{"id": "EQ001", "input_a": "Analiza las ventas del primer trimestre de 2026.", "input_b": "Examina las ventas de Q1 2026.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ002", "input_a": "Analyze sales.", "input_b": "Analiza las ventas.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ003", "input_a": "Estudia los datos de clientes.", "input_b": "Analiza los datos de los clientes.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ004", "input_a": "Busca los eventos de hoy.", "input_b": "Localiza los eventos de hoy.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ005", "input_a": "Compara las ventas de Q1 2026 con las de Q2 2026.", "input_b": "Compare Q1 2026 sales with Q2 2026 sales.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ006", "input_a": "Traduce el documento al inglés.", "input_b": "Translate the document into English.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ007", "input_a": "Genera un informe en JSON.", "input_b": "Crea un reporte en formato JSON.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ008", "input_a": "Calcula el total de ventas de 2025.", "input_b": "Compute total sales for 2025.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ009", "input_a": "Encuentra anomalías en las ventas.", "input_b": "Detecta anomalías en las ventas.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ010", "input_a": "Verifica los datos de usuarios.", "input_b": "Valida los datos de los usuarios.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ011", "input_a": "Send the report today.", "input_b": "Envía el reporte hoy.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ012", "input_a": "Get the customers dataset.", "input_b": "Retrieve the customers dataset.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ013", "input_a": "Analise as vendas do primeiro trimestre de 2026.", "input_b": "Analiza las ventas de Q1 2026.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ014", "input_a": "Actualiza el producto #5.", "input_b": "Modifica el producto #5.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ015", "input_a": "Executa o modelo #3.", "input_b": "Ejecuta el modelo #3.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ016", "input_a": "Analyze customers from last month.", "input_b": "Analiza los clientes del mes pasado.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ017", "input_a": "Resume el reporte #12.", "input_b": "Summarize report #12.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ018", "input_a": "Search the audio dataset.", "input_b": "Busca en el dataset de audio.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ019", "input_a": "Analyze the images.", "input_b": "Examine the images.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ020", "input_a": "Genera un CSV de los clientes.", "input_b": "Generate a CSV of the customers.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ021", "input_a": "Compara el dataset #77 con el dataset #81.", "input_b": "Compare dataset #77 with dataset #81.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ022", "input_a": "Traduce el reporte al francés.", "input_b": "Traduza o relatório para o francês.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ023", "input_a": "Analiza las ventas de marzo de 2026.", "input_b": "Analyze sales for 2026-03.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ024", "input_a": "Calcula las ventas de 2024.", "input_b": "Calculate the 2024 sales.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ025", "input_a": "Analiza los videos de esta semana.", "input_b": "Analyze this week's videos.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ026", "input_a": "Crea un documento sobre el producto #9.", "input_b": "Write a document about product #9.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ027", "input_a": "Analiza las ventas.", "input_b": "Examina las ventas.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ028", "input_a": "Encuentra los eventos del 2026-03-15.", "input_b": "Find the events of 2026-03-15.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ029", "input_a": "Verifica el resultado.", "input_b": "Check the result.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "EQ030", "input_a": "Envía el resultado a la empresa Acme.", "input_b": "Send the result to the company Acme.", "expected_equivalent": true, "expected_category": "EQUIVALENCE"}
+{"id": "DF001", "input_a": "Analiza las ventas.", "input_b": "Elimina las ventas.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF002", "input_a": "Analiza las ventas.", "input_b": "Analiza los clientes.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF003", "input_a": "Genera un informe en PDF.", "input_b": "Genera un informe en JSON.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF004", "input_a": "Traduce el documento al inglés.", "input_b": "Traduce el documento al francés.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF005", "input_a": "Compara las ventas.", "input_b": "Calcula las ventas.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF006", "input_a": "Busca eventos.", "input_b": "Elimina eventos.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF007", "input_a": "Analiza los usuarios.", "input_b": "Analiza las imágenes.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF008", "input_a": "Genera un CSV.", "input_b": "Genera un PDF.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF009", "input_a": "Envía el reporte.", "input_b": "Elimina el reporte.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF010", "input_a": "Analiza el audio.", "input_b": "Analiza el video.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF011", "input_a": "Translate the report.", "input_b": "Summarize the report.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF012", "input_a": "Get the customers.", "input_b": "Delete the customers.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF013", "input_a": "Check the dataset.", "input_b": "Update the dataset.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF014", "input_a": "Analiza las ventas.", "input_b": "Analiza el total de ventas.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF015", "input_a": "Genera un reporte.", "input_b": "Traduce un reporte.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF016", "input_a": "Ejecuta el modelo #3.", "input_b": "Actualiza el modelo #3.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF017", "input_a": "Find anomalies.", "input_b": "Find events.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF018", "input_a": "Envía el resultado.", "input_b": "Envía el reporte.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF019", "input_a": "Analiza los clientes.", "input_b": "Compara los clientes.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF020", "input_a": "Genera un documento.", "input_b": "Genera un dataset.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF021", "input_a": "Analyze the sales report.", "input_b": "Analyze the customers report.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF022", "input_a": "Habilita la alerta.", "input_b": "Deshabilita la alerta.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF023", "input_a": "Incluye los usuarios.", "input_b": "Excluye los usuarios.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF024", "input_a": "Translate the document to Spanish.", "input_b": "Translate the document to Portuguese.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF025", "input_a": "Retrieve the images.", "input_b": "Retrieve the audio.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF026", "input_a": "Analiza las ventas en tabla.", "input_b": "Analiza las ventas en CSV.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF027", "input_a": "Calcula las ventas.", "input_b": "Calcula los clientes.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF028", "input_a": "Verifica los usuarios.", "input_b": "Elimina los usuarios.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF029", "input_a": "Busca personas.", "input_b": "Busca empresas.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "DF030", "input_a": "Genera un informe de ventas.", "input_b": "Genera un informe de clientes.", "expected_equivalent": false, "expected_category": "DIFFERENCE"}
+{"id": "NG001", "input_a": "Elimina el reporte.", "input_b": "No elimines el reporte.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG002", "input_a": "Delete the report.", "input_b": "Do not delete the report.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG003", "input_a": "Envía el resultado.", "input_b": "No envíes el resultado.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG004", "input_a": "Send the file to Ana.", "input_b": "Never send the file to Ana.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG005", "input_a": "Ejecuta el modelo.", "input_b": "Nunca ejecutes el modelo.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG006", "input_a": "Update the record.", "input_b": "Do not update the record.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG007", "input_a": "Traduce el documento.", "input_b": "No traduzcas el documento.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG008", "input_a": "Analyze the sales.", "input_b": "Don't analyze the sales.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG009", "input_a": "Activa la alerta.", "input_b": "No actives la alerta.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG010", "input_a": "Include the images.", "input_b": "Do not include the images.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG011", "input_a": "Elimina los usuarios.", "input_b": "Prohíbe eliminar los usuarios.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG012", "input_a": "Permite eliminar el reporte.", "input_b": "Prohíbe eliminar el reporte.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG013", "input_a": "Allow deleting the report.", "input_b": "Forbid deleting the report.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG014", "input_a": "Genera el informe.", "input_b": "No generes el informe.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG015", "input_a": "Compara los datasets.", "input_b": "No compares los datasets.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG016", "input_a": "Borra los archivos temporales #4.", "input_b": "No borres los archivos temporales #4.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG017", "input_a": "Run the model.", "input_b": "Never run the model.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG018", "input_a": "Translate the report.", "input_b": "Do not translate the report.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG019", "input_a": "Envía el reporte.", "input_b": "Está prohibido enviar el reporte.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG020", "input_a": "Delete users.", "input_b": "Deleting users is forbidden.", "expected_equivalent": false, "expected_category": "NEGATION", "expected_critical": true}
+{"id": "NG021", "input_a": "No elimines el reporte.", "input_b": "Nunca elimines el reporte.", "expected_equivalent": true, "expected_category": "NEGATION"}
+{"id": "NG022", "input_a": "Do not delete the report.", "input_b": "Never delete the report.", "expected_equivalent": true, "expected_category": "NEGATION"}
+{"id": "NG023", "input_a": "No envíes el resultado.", "input_b": "Prohíbe enviar el resultado.", "expected_equivalent": true, "expected_category": "NEGATION"}
+{"id": "NG024", "input_a": "Don't send the file.", "input_b": "Sending the file is forbidden.", "expected_equivalent": true, "expected_category": "NEGATION"}
+{"id": "NG025", "input_a": "No ejecutes el modelo.", "input_b": "No corras el modelo.", "expected_equivalent": true, "expected_category": "NEGATION"}
+{"id": "NG026", "input_a": "Do not run the model.", "input_b": "Never execute the model.", "expected_equivalent": true, "expected_category": "NEGATION"}
+{"id": "NG027", "input_a": "No traduzcas el documento.", "input_b": "Está prohibido traducir el documento.", "expected_equivalent": true, "expected_category": "NEGATION"}
+{"id": "NG028", "input_a": "Do not include the images.", "input_b": "Exclude the images.", "expected_equivalent": true, "expected_category": "NEGATION"}
+{"id": "NG029", "input_a": "Excluye los usuarios.", "input_b": "No incluyas los usuarios.", "expected_equivalent": true, "expected_category": "NEGATION"}
+{"id": "NG030", "input_a": "Não exclua os registros.", "input_b": "Nunca remova os registros.", "expected_equivalent": true, "expected_category": "NEGATION"}
+{"id": "QT001", "input_a": "Analiza 100 registros.", "input_b": "Analiza 1000 registros.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT002", "input_a": "Analyze 10 records.", "input_b": "Analyze 100 records.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT003", "input_a": "Procesa 50 usuarios.", "input_b": "Procesa 500 usuarios.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT004", "input_a": "Analiza 100 registros.", "input_b": "Analiza 200 registros.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT005", "input_a": "Genera 5 informes.", "input_b": "Genera 6 informes.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT006", "input_a": "Analyze 1,000 users.", "input_b": "Analyze 10,000 users.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT007", "input_a": "Retrieve 20 customers.", "input_b": "Retrieve 25 customers.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT008", "input_a": "Analiza 100 clientes.", "input_b": "Analiza 100 usuarios.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT009", "input_a": "Get 3 documents.", "input_b": "Get 30 documents.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT010", "input_a": "Procesa 1.000 registros.", "input_b": "Procesa 100 registros.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT011", "input_a": "Analyze 100 records.", "input_b": "Analyze 100 users.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT012", "input_a": "Traduce 2 documentos.", "input_b": "Traduce 3 documentos.", "expected_equivalent": false, "expected_category": "QUANTITY", "expected_critical": true}
+{"id": "QT013", "input_a": "Analiza 1.000 registros.", "input_b": "Analiza 1000 registros.", "expected_equivalent": true, "expected_category": "QUANTITY"}
+{"id": "QT014", "input_a": "Analyze 1,000 records.", "input_b": "Analyze 1000 records.", "expected_equivalent": true, "expected_category": "QUANTITY"}
+{"id": "QT015", "input_a": "Analiza 100 registros.", "input_b": "Analyze 100 records.", "expected_equivalent": true, "expected_category": "QUANTITY"}
+{"id": "QT016", "input_a": "Procesa 500 usuarios.", "input_b": "Process 500 users.", "expected_equivalent": true, "expected_category": "QUANTITY"}
+{"id": "QT017", "input_a": "Analiza 100 registros.", "input_b": "Analiza cien registros.", "expected_equivalent": true, "expected_category": "QUANTITY"}
+{"id": "QT018", "input_a": "Analyze 20 customers.", "input_b": "Analiza 20 clientes.", "expected_equivalent": true, "expected_category": "QUANTITY"}
+{"id": "QT019", "input_a": "Get five documents.", "input_b": "Get 5 documents.", "expected_equivalent": true, "expected_category": "QUANTITY"}
+{"id": "QT020", "input_a": "Analiza 1.000 usuarios.", "input_b": "Analyze 1,000 users.", "expected_equivalent": true, "expected_category": "QUANTITY"}
+{"id": "DT001", "input_a": "Analiza las ventas de Q1 2026.", "input_b": "Analiza las ventas del primer trimestre de 2026.", "expected_equivalent": true, "expected_category": "DATE"}
+{"id": "DT002", "input_a": "Analyze Q1 2026 sales.", "input_b": "Analyze first quarter of 2026 sales.", "expected_equivalent": true, "expected_category": "DATE"}
+{"id": "DT003", "input_a": "Ventas del segundo trimestre de 2026.", "input_b": "Ventas de Q2-2026.", "expected_equivalent": true, "expected_category": "DATE"}
+{"id": "DT004", "input_a": "Analiza 2026 Q3.", "input_b": "Analiza Q3 2026.", "expected_equivalent": true, "expected_category": "DATE"}
+{"id": "DT005", "input_a": "Analiza marzo de 2026.", "input_b": "Analiza 2026-03.", "expected_equivalent": true, "expected_category": "DATE"}
+{"id": "DT006", "input_a": "Analyze sales for January 2026.", "input_b": "Analiza las ventas de enero de 2026.", "expected_equivalent": true, "expected_category": "DATE"}
+{"id": "DT007", "input_a": "Analiza las ventas de ayer.", "input_b": "Analyze yesterday's sales.", "expected_equivalent": true, "expected_category": "DATE"}
+{"id": "DT008", "input_a": "Analiza el 2026-03-15.", "input_b": "Analyze 2026-03-15.", "expected_equivalent": true, "expected_category": "DATE"}
+{"id": "DT009", "input_a": "Analyze the year 2025.", "input_b": "Analiza el año 2025.", "expected_equivalent": true, "expected_category": "DATE"}
+{"id": "DT010", "input_a": "Analiza el cuarto trimestre de 2025.", "input_b": "Analyze Q4 2025.", "expected_equivalent": true, "expected_category": "DATE"}
+{"id": "DT011", "input_a": "Analiza las ventas de Q1 2026.", "input_b": "Analiza las ventas de Q2 2026.", "expected_equivalent": false, "expected_category": "DATE", "expected_critical": true}
+{"id": "DT012", "input_a": "Analyze sales for 2025.", "input_b": "Analyze sales for 2026.", "expected_equivalent": false, "expected_category": "DATE", "expected_critical": true}
+{"id": "DT013", "input_a": "Analiza marzo de 2026.", "input_b": "Analiza abril de 2026.", "expected_equivalent": false, "expected_category": "DATE", "expected_critical": true}
+{"id": "DT014", "input_a": "Analiza las ventas de hoy.", "input_b": "Analiza las ventas de ayer.", "expected_equivalent": false, "expected_category": "DATE", "expected_critical": true}
+{"id": "DT015", "input_a": "Analyze Q3 2026.", "input_b": "Analyze Q3 2025.", "expected_equivalent": false, "expected_category": "DATE", "expected_critical": true}
+{"id": "DT016", "input_a": "Analiza el 2026-03-15.", "input_b": "Analiza el 2026-03-16.", "expected_equivalent": false, "expected_category": "DATE", "expected_critical": true}
+{"id": "DT017", "input_a": "Ventas de esta semana.", "input_b": "Ventas de la semana pasada.", "expected_equivalent": false, "expected_category": "DATE", "expected_critical": true}
+{"id": "DT018", "input_a": "Analyze January 2026.", "input_b": "Analyze January 2025.", "expected_equivalent": false, "expected_category": "DATE", "expected_critical": true}
+{"id": "DT019", "input_a": "Analiza Q4 2025.", "input_b": "Analiza Q1 2026.", "expected_equivalent": false, "expected_category": "DATE", "expected_critical": true}
+{"id": "DT020", "input_a": "Analyze last month.", "input_b": "Analyze this month.", "expected_equivalent": false, "expected_category": "DATE", "expected_critical": true}
+{"id": "CS001", "input_a": "Analiza las ventas con confianza >= 0.90.", "input_b": "Analiza las ventas con confianza >= 0.70.", "expected_equivalent": false, "expected_category": "CONSTRAINT", "expected_critical": true}
+{"id": "CS002", "input_a": "Analyze sales with confidence at least 0.9.", "input_b": "Analyze sales with confidence at least 0.7.", "expected_equivalent": false, "expected_category": "CONSTRAINT", "expected_critical": true}
+{"id": "CS003", "input_a": "Genera un informe en PDF.", "input_b": "Genera un informe en JSON.", "expected_equivalent": false, "expected_category": "CONSTRAINT", "expected_critical": true}
+{"id": "CS004", "input_a": "Get the top 10 customers.", "input_b": "Get the top 100 customers.", "expected_equivalent": false, "expected_category": "CONSTRAINT", "expected_critical": true}
+{"id": "CS005", "input_a": "Traduce al inglés.", "input_b": "Traduce al francés.", "expected_equivalent": false, "expected_category": "CONSTRAINT", "expected_critical": true}
+{"id": "CS006", "input_a": "Analiza las ventas, máximo 20.", "input_b": "Analiza las ventas, máximo 200.", "expected_equivalent": false, "expected_category": "CONSTRAINT", "expected_critical": true}
+{"id": "CS007", "input_a": "Analiza las ventas con prioridad alta.", "input_b": "Analiza las ventas con prioridad urgente.", "expected_equivalent": false, "expected_category": "CONSTRAINT", "expected_critical": true}
+{"id": "CS008", "input_a": "Analiza las ventas con confianza > 0.90.", "input_b": "Analiza las ventas con confianza >= 0.90.", "expected_equivalent": false, "expected_category": "CONSTRAINT", "expected_critical": true}
+{"id": "CS009", "input_a": "Get customers as CSV.", "input_b": "Get customers as table.", "expected_equivalent": false, "expected_category": "CONSTRAINT", "expected_critical": true}
+{"id": "CS010", "input_a": "Analiza los últimos 100 registros.", "input_b": "Analiza los primeros 100 registros.", "expected_equivalent": false, "expected_category": "CONSTRAINT", "expected_critical": true}
+{"id": "CS011", "input_a": "Analiza las ventas con confianza >= 0.90.", "input_b": "Analiza las ventas con confianza mayor o igual a 0.90.", "expected_equivalent": true, "expected_category": "CONSTRAINT"}
+{"id": "CS012", "input_a": "Analyze sales with confidence >= 0.9.", "input_b": "Analyze sales with at least 0.90 confidence.", "expected_equivalent": true, "expected_category": "CONSTRAINT"}
+{"id": "CS013", "input_a": "Genera un informe en JSON.", "input_b": "Crea un reporte en formato JSON.", "expected_equivalent": true, "expected_category": "CONSTRAINT"}
+{"id": "CS014", "input_a": "Get the top 10 customers.", "input_b": "Fetch the 10 best customers.", "expected_equivalent": true, "expected_category": "CONSTRAINT"}
+{"id": "CS015", "input_a": "Traduce al inglés.", "input_b": "Translate into English.", "expected_equivalent": true, "expected_category": "CONSTRAINT"}
+{"id": "CS016", "input_a": "Analiza las ventas, máximo 20.", "input_b": "Analyze sales, at most 20.", "expected_equivalent": true, "expected_category": "CONSTRAINT"}
+{"id": "CS017", "input_a": "Genera un reporte en tabla.", "input_b": "Generate a report as a table.", "expected_equivalent": true, "expected_category": "CONSTRAINT"}
+{"id": "CS018", "input_a": "Analiza las ventas con prioridad alta.", "input_b": "Analyze sales with high priority.", "expected_equivalent": true, "expected_category": "CONSTRAINT"}
+{"id": "CS019", "input_a": "Get customers, no more than 5.", "input_b": "Get customers, max 5.", "expected_equivalent": true, "expected_category": "CONSTRAINT"}
+{"id": "CS020", "input_a": "Analiza con confianza >= 0.90.", "input_b": "Analiza con confianza >= 0.9.", "expected_equivalent": true, "expected_category": "CONSTRAINT"}
+{"id": "CD001", "input_a": "Analiza las ventas si existen más de 100 registros.", "input_b": "Analiza las ventas.", "expected_equivalent": false, "expected_category": "CONDITION", "expected_critical": true}
+{"id": "CD002", "input_a": "Analyze sales if there are more than 100 records.", "input_b": "Analyze sales if there are more than 1000 records.", "expected_equivalent": false, "expected_category": "CONDITION", "expected_critical": true}
+{"id": "CD003", "input_a": "Analiza las ventas si hay anomalías.", "input_b": "Analiza las ventas.", "expected_equivalent": false, "expected_category": "CONDITION", "expected_critical": true}
+{"id": "CD004", "input_a": "Si la confianza es menor a 0.80, verifica el resultado.", "input_b": "Si la confianza es menor a 0.50, verifica el resultado.", "expected_equivalent": false, "expected_category": "CONDITION", "expected_critical": true}
+{"id": "CD005", "input_a": "Check the result if confidence is below 0.80.", "input_b": "Check the result.", "expected_equivalent": false, "expected_category": "CONDITION", "expected_critical": true}
+{"id": "CD006", "input_a": "Elimina el reporte si hay más de 10 anomalías.", "input_b": "Elimina el reporte si hay más de 100 anomalías.", "expected_equivalent": false, "expected_category": "CONDITION", "expected_critical": true}
+{"id": "CD007", "input_a": "Send the alert if there are anomalies.", "input_b": "Send the alert.", "expected_equivalent": false, "expected_category": "CONDITION", "expected_critical": true}
+{"id": "CD008", "input_a": "Analiza si existen más de 100 registros.", "input_b": "Analiza si existen menos de 100 registros.", "expected_equivalent": false, "expected_category": "CONDITION", "expected_critical": true}
+{"id": "CD009", "input_a": "Verifica que el documento no contenga anomalías.", "input_b": "Verifica que el documento contenga anomalías.", "expected_equivalent": false, "expected_category": "CONDITION", "expected_critical": true}
+{"id": "CD010", "input_a": "Send the report if there are more than 5 events.", "input_b": "Send the report if there are at least 5 events.", "expected_equivalent": false, "expected_category": "CONDITION", "expected_critical": true}
+{"id": "CD011", "input_a": "Analiza las ventas si existen más de 100 registros.", "input_b": "Analyze sales if there are more than 100 records.", "expected_equivalent": true, "expected_category": "CONDITION"}
+{"id": "CD012", "input_a": "Analiza las ventas si hay anomalías.", "input_b": "Analyze sales if there are anomalies.", "expected_equivalent": true, "expected_category": "CONDITION"}
+{"id": "CD013", "input_a": "Si la confianza es menor a 0.80, verifica el resultado.", "input_b": "Verifica el resultado si la confianza es menor a 0.80.", "expected_equivalent": true, "expected_category": "CONDITION"}
+{"id": "CD014", "input_a": "Check the result if confidence is below 0.80.", "input_b": "If confidence is under 0.80, check the result.", "expected_equivalent": true, "expected_category": "CONDITION"}
+{"id": "CD015", "input_a": "Envía la alerta si existen anomalías.", "input_b": "Envía la alerta cuando haya anomalías.", "expected_equivalent": true, "expected_category": "CONDITION"}
+{"id": "CD016", "input_a": "Send the report if there are more than 5 events.", "input_b": "Send the report whenever there are more than 5 events.", "expected_equivalent": true, "expected_category": "CONDITION"}
+{"id": "CD017", "input_a": "Si hay más de 100 registros, no ejecutes el proceso.", "input_b": "No ejecutes el proceso cuando haya más de 100 registros.", "expected_equivalent": true, "expected_category": "CONDITION"}
+{"id": "CD018", "input_a": "Analiza si existe una anomalía.", "input_b": "Analiza si se detecta una anomalía.", "expected_equivalent": true, "expected_category": "CONDITION"}
+{"id": "CD019", "input_a": "Verify if the report contains anomalies.", "input_b": "Check whether the report has anomalies.", "expected_equivalent": true, "expected_category": "CONDITION"}
+{"id": "CD020", "input_a": "Elimina el reporte si hay más de 10 anomalías.", "input_b": "Delete the report if there are more than 10 anomalies.", "expected_equivalent": true, "expected_category": "CONDITION"}
+{"id": "RF001", "input_a": "Compara el dataset #77 con el dataset #81.", "input_b": "Compara el dataset #77 con el dataset #82.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF002", "input_a": "Actualiza el producto #5.", "input_b": "Actualiza el producto #6.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF003", "input_a": "Delete report #4.", "input_b": "Delete report #5.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF004", "input_a": "Analiza el documento #12.", "input_b": "Analiza el documento #21.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF005", "input_a": "Send report #7 to Ana.", "input_b": "Send report #7 to Beto.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF006", "input_a": "Compare dataset #1 with #2.", "input_b": "Compare dataset #1 with #3.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF007", "input_a": "Traduce el documento #8.", "input_b": "Traduce el documento.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF008", "input_a": "Analiza el reporte #3 y el #4.", "input_b": "Analiza el reporte #3.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF009", "input_a": "Ejecuta el modelo #10.", "input_b": "Ejecuta el modelo #100.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF010", "input_a": "Get user #45.", "input_b": "Get user #46.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF011", "input_a": "Envía el informe a la empresa Acme.", "input_b": "Envía el informe a la empresa Beta.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF012", "input_a": "Check result #9.", "input_b": "Check result #90.", "expected_equivalent": false, "expected_category": "REFERENCE", "expected_critical": true}
+{"id": "RF013", "input_a": "Compara el dataset #77 con el dataset #81.", "input_b": "Compare dataset #77 with dataset #81.", "expected_equivalent": true, "expected_category": "REFERENCE"}
+{"id": "RF014", "input_a": "Actualiza el producto #5.", "input_b": "Update product #5.", "expected_equivalent": true, "expected_category": "REFERENCE"}
+{"id": "RF015", "input_a": "Delete report #4.", "input_b": "Elimina el reporte #4.", "expected_equivalent": true, "expected_category": "REFERENCE"}
+{"id": "RF016", "input_a": "Analiza el documento #12.", "input_b": "Analyze document #12.", "expected_equivalent": true, "expected_category": "REFERENCE"}
+{"id": "RF017", "input_a": "Send report #7 to Ana.", "input_b": "Envía el reporte #7 a Ana.", "expected_equivalent": true, "expected_category": "REFERENCE"}
+{"id": "RF018", "input_a": "Get user #45.", "input_b": "Obtén el usuario #45.", "expected_equivalent": true, "expected_category": "REFERENCE"}
+{"id": "RF019", "input_a": "Ejecuta el modelo #10.", "input_b": "Run model #10.", "expected_equivalent": true, "expected_category": "REFERENCE"}
+{"id": "RF020", "input_a": "Check result #9.", "input_b": "Verifica el resultado #9.", "expected_equivalent": true, "expected_category": "REFERENCE"}
+{"id": "AM001", "input_a": "Analiza los datos recientes.", "input_b": null, "expected_ambiguous": true, "expected_category": "AMBIGUITY"}
+{"id": "AM002", "input_a": "Elimínalo.", "input_b": null, "expected_ambiguous": true, "expected_category": "AMBIGUITY"}
+{"id": "AM003", "input_a": "Fix it.", "input_b": null, "expected_ambiguous": true, "expected_category": "AMBIGUITY"}
+{"id": "AM004", "input_a": "Borra todo.", "input_b": null, "expected_ambiguous": true, "expected_category": "AMBIGUITY"}
+{"id": "AM005", "input_a": "Compara ambos.", "input_b": null, "expected_ambiguous": true, "expected_category": "AMBIGUITY"}
+{"id": "AM006", "input_a": "Elimina el archivo.", "input_b": null, "expected_ambiguous": true, "expected_category": "AMBIGUITY"}
+{"id": "AM007", "input_a": "Analiza el informe de marzo.", "input_b": null, "expected_ambiguous": true, "expected_category": "AMBIGUITY"}
+{"id": "AM008", "input_a": "Delete the old ones.", "input_b": null, "expected_ambiguous": true, "expected_category": "AMBIGUITY"}
+{"id": "AM009", "input_a": "Send her the file.", "input_b": null, "expected_ambiguous": true, "expected_category": "AMBIGUITY"}
+{"id": "AM010", "input_a": "Analiza aquello.", "input_b": null, "expected_ambiguous": true, "expected_category": "AMBIGUITY"}
+{"id": "AM011", "input_a": "Analiza las ventas del primer trimestre de 2026 en JSON.", "input_b": null, "expected_ambiguous": false, "expected_category": "AMBIGUITY"}
+{"id": "AM012", "input_a": "Elimina el reporte #81.", "input_b": null, "expected_ambiguous": false, "expected_category": "AMBIGUITY"}
+{"id": "AM013", "input_a": "Compara el dataset #77 con el dataset #81.", "input_b": null, "expected_ambiguous": false, "expected_category": "AMBIGUITY"}
+{"id": "AM014", "input_a": "Analyze the sales of Q1 2026.", "input_b": null, "expected_ambiguous": false, "expected_category": "AMBIGUITY"}
+{"id": "AM015", "input_a": "No elimines el reporte #4.", "input_b": null, "expected_ambiguous": false, "expected_category": "AMBIGUITY"}
+{"id": "CT001", "input_a": "Elimina el reporte #4.", "input_b": "No elimines el reporte #4.", "expected_contradiction": true, "expected_category": "CONTRADICTION"}
+{"id": "CT002", "input_a": "Activa la alerta.", "input_b": "Desactiva la alerta.", "expected_contradiction": true, "expected_category": "CONTRADICTION"}
+{"id": "CT003", "input_a": "Permite eliminar el reporte.", "input_b": "Prohíbe eliminar el reporte.", "expected_contradiction": true, "expected_category": "CONTRADICTION"}
+{"id": "CT004", "input_a": "Incluye los usuarios en el reporte.", "input_b": "Excluye los usuarios del reporte.", "expected_contradiction": true, "expected_category": "CONTRADICTION"}
+{"id": "CT005", "input_a": "Haz público el reporte #3.", "input_b": "Haz privado el reporte #3.", "expected_contradiction": true, "expected_category": "CONTRADICTION"}
+{"id": "CT006", "input_a": "Analiza los reportes antes de 2026-03-15.", "input_b": "Analiza los reportes después de 2026-03-15.", "expected_contradiction": true, "expected_category": "CONTRADICTION"}
+{"id": "CT007", "input_a": "Send the report.", "input_b": "Do not send the report.", "expected_contradiction": true, "expected_category": "CONTRADICTION"}
+{"id": "CT008", "input_a": "Enable the alert.", "input_b": "Disable the alert.", "expected_contradiction": true, "expected_category": "CONTRADICTION"}
+{"id": "CT009", "input_a": "Allow deleting the report.", "input_b": "Forbid deleting the report.", "expected_contradiction": true, "expected_category": "CONTRADICTION"}
+{"id": "CT010", "input_a": "Analiza las ventas de Q1 2026.", "input_b": "Analiza las ventas de Q2 2026.", "expected_contradiction": false, "expected_category": "CONTRADICTION"}
+{"id": "CT011", "input_a": "Elimina el reporte #4.", "input_b": "No elimines el reporte #5.", "expected_contradiction": false, "expected_category": "CONTRADICTION"}
+{"id": "CT012", "input_a": "Genera un informe en PDF.", "input_b": "Genera un informe en JSON.", "expected_contradiction": false, "expected_category": "CONTRADICTION"}
+{"id": "CT013", "input_a": "Analiza las ventas.", "input_b": "Analiza las ventas de Q1 2026.", "expected_contradiction": false, "expected_category": "CONTRADICTION"}
+{"id": "CT014", "input_a": "Include customers in the report.", "input_b": "Exclude users from the report.", "expected_contradiction": false, "expected_category": "CONTRADICTION"}
+{"id": "CT015", "input_a": "No elimines el reporte.", "input_b": "Prohíbe eliminar el reporte.", "expected_contradiction": false, "expected_category": "CONTRADICTION"}

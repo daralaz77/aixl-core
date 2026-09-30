@@ -1,0 +1,98 @@
+{
+ "set3_haiku": {
+  "equivalence": {
+   "tp": 83,
+   "fp": 1,
+   "fn": 17,
+   "tn": 99,
+   "n": 200,
+   "accuracy": 0.91,
+   "precision": 0.9881,
+   "recall": 0.83,
+   "f1": 0.9022,
+   "false_positive_rate": 0.01,
+   "false_negative_rate": 0.17
+  },
+  "critical_drift": {
+   "n": 61,
+   "detected": 58,
+   "rate": 0.9508
+  },
+  "texts": 400,
+  "answers": 400,
+  "parse_failures": 18,
+  "fallback": false
+ },
+ "set3_sonnet": {
+  "equivalence": {
+   "tp": 91,
+   "fp": 0,
+   "fn": 9,
+   "tn": 100,
+   "n": 200,
+   "accuracy": 0.955,
+   "precision": 1.0,
+   "recall": 0.91,
+   "f1": 0.9529,
+   "false_positive_rate": 0.0,
+   "false_negative_rate": 0.09
+  },
+  "critical_drift": {
+   "n": 61,
+   "detected": 61,
+   "rate": 1.0
+  },
+  "texts": 400,
+  "answers": 400,
+  "parse_failures": 0,
+  "fallback": false
+ },
+ "set4_haiku": {
+  "equivalence": {
+   "tp": 94,
+   "fp": 2,
+   "fn": 6,
+   "tn": 98,
+   "n": 200,
+   "accuracy": 0.96,
+   "precision": 0.9792,
+   "recall": 0.94,
+   "f1": 0.9592,
+   "false_positive_rate": 0.02,
+   "false_negative_rate": 0.06
+  },
+  "critical_drift": {
+   "n": 63,
+   "detected": 61,
+   "rate": 0.9683
+  },
+  "texts": 400,
+  "answers": 400,
+  "parse_failures": 0,
+  "fallback": false
+ },
+ "set4_sonnet": {
+  "equivalence": {
+   "tp": 95,
+   "fp": 2,
+   "fn": 5,
+   "tn": 98,
+   "n": 200,
+   "accuracy": 0.965,
+   "precision": 0.9794,
+   "recall": 0.95,
+   "f1": 0.9645,
+   "false_positive_rate": 0.02,
+   "false_negative_rate": 0.05
+  },
+  "critical_drift": {
+   "n": 63,
+   "detected": 61,
+   "rate": 0.9683
+  },
+  "texts": 400,
+  "answers": 400,
+  "parse_failures": 1,
+  "fallback": false
+ }
+}

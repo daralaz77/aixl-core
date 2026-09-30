@@ -1,0 +1,100 @@
+{"id": "GPT-001", "a": "Analyze the sales data from Q1 2026.", "b": "Examine the Q1 2026 sales data.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "GPT-002", "a": "Delete the 100 customer records.", "b": "Delete the 100 customer records.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "GPT-003", "a": "No elimines los datos de usuarios.", "b": "Do not delete the user data.", "label": "EQUIVALENT", "category": "NEGATION", "differs_in": []}
+{"id": "GPT-004", "a": "Find the anomalies in the dataset.", "b": "Detect anomalies in the dataset.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "GPT-005", "a": "Compare the products sold in March 2026.", "b": "Compare the products sold during March 2026.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "GPT-006", "a": "Fetch report #77 as PDF.", "b": "Retrieve report #77 in PDF format.", "label": "EQUIVALENT", "category": "REFERENCE", "differs_in": []}
+{"id": "GPT-007", "a": "Translate the document into Spanish.", "b": "Render the document in Spanish.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "GPT-008", "a": "Generate a CSV containing the top 20 customers.", "b": "Create a CSV with the top twenty customers.", "label": "EQUIVALENT", "category": "QUANTITY", "differs_in": []}
+{"id": "GPT-009", "a": "Verifica los resultados hoy.", "b": "Check the results today.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "GPT-010", "a": "Run the analysis if there are more than 100 records.", "b": "Execute the analysis when there are over 100 records.", "label": "EQUIVALENT", "category": "CONDITION", "differs_in": []}
+{"id": "GPT-011", "a": "Send the report to María.", "b": "Forward the report to María.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "GPT-012", "a": "Include images but exclude audio.", "b": "Include the images and leave out the audio.", "label": "EQUIVALENT", "category": "CONSTRAINT", "differs_in": []}
+{"id": "GPT-013", "a": "Compute total sales for 2025.", "b": "Calculate the total sales for the year 2025.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "GPT-014", "a": "Enable the high-priority alert.", "b": "Please turn on the high-priority alert.", "label": "EQUIVALENT", "category": "PRIORITY", "differs_in": []}
+{"id": "GPT-015", "a": "Search for companies with more than 100 users.", "b": "Locate companies having over 100 users.", "label": "EQUIVALENT", "category": "CONSTRAINT", "differs_in": []}
+{"id": "GPT-016", "a": "Update document #42 and then send it.", "b": "Modify document #42, then send it.", "label": "EQUIVALENT", "category": "ORDER", "differs_in": []}
+{"id": "GPT-017", "a": "Permita ejecutar el análisis si la confianza es mayor o igual a 0.80.", "b": "Allow the analysis to run when confidence is at least 0.80.", "label": "EQUIVALENT", "category": "CONDITION", "differs_in": []}
+{"id": "GPT-018", "a": "Write the result in Markdown.", "b": "Produce the result using Markdown.", "label": "EQUIVALENT", "category": "OUTPUT", "differs_in": []}
+{"id": "GPT-019", "a": "Get the sales data from yesterday.", "b": "Fetch yesterday's sales data.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "GPT-020", "a": "Compare dataset #12 with dataset #13.", "b": "Contrast dataset #12 against dataset #13.", "label": "EQUIVALENT", "category": "REFERENCE", "differs_in": []}
+{"id": "GPT-021", "a": "Analise os dados de clientes de fevereiro de 2026.", "b": "Examine the customer data from February 2026.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "GPT-022", "a": "Remove no more than 100 records.", "b": "Remove at most one hundred records.", "label": "EQUIVALENT", "category": "QUANTITY", "differs_in": []}
+{"id": "GPT-023", "a": "Check whether the company event occurred today.", "b": "Verify if today's event for the company occurred.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "GPT-024", "a": "Retrieve the result as JSON, please.", "b": "Please fetch the result in JSON.", "label": "EQUIVALENT", "category": "OUTPUT", "differs_in": []}
+{"id": "GPT-025", "a": "If confidence is below 0.80, do not send the report.", "b": "Do not send the report when confidence is less than 0.80.", "label": "EQUIVALENT", "category": "CONDITION", "differs_in": []}
+{"id": "GPT-026", "a": "Create a table of the top 10 products.", "b": "Generate a table listing the ten highest-ranked products.", "label": "EQUIVALENT", "category": "QUANTITY", "differs_in": []}
+{"id": "GPT-027", "a": "Disable audio retrieval for #88.", "b": "Turn off audio fetching for #88.", "label": "EQUIVALENT", "category": "ACTION", "differs_in": []}
+{"id": "GPT-028", "a": "Translate #19 into Portuguese.", "b": "Converta #19 para português.", "label": "EQUIVALENT", "category": "REFERENCE", "differs_in": []}
+{"id": "GPT-029", "a": "Search the sales records from January through March 2026.", "b": "Look for sales records covering January to March 2026.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "GPT-030", "a": "Validate the result before sending it.", "b": "Check the result first, then send it.", "label": "EQUIVALENT", "category": "ORDER", "differs_in": []}
+{"id": "GPT-031", "a": "Execute the search with high priority.", "b": "Run the search urgently.", "label": "EQUIVALENT", "category": "PRIORITY", "differs_in": []}
+{"id": "GPT-032", "a": "Exclude users with no sales records.", "b": "Leave out users who have no sales records.", "label": "EQUIVALENT", "category": "CONSTRAINT", "differs_in": []}
+{"id": "GPT-033", "a": "Create a PDF report for Acme.", "b": "Generate a PDF report for Acme.", "label": "EQUIVALENT", "category": "TARGET", "differs_in": []}
+{"id": "GPT-034", "a": "Fetch 100 records from the dataset.", "b": "Get one hundred records from the dataset.", "label": "EQUIVALENT", "category": "QUANTITY", "differs_in": []}
+{"id": "GPT-035", "a": "Allow access to the customer data.", "b": "Permit access to the customer data.", "label": "EQUIVALENT", "category": "ACTION", "differs_in": []}
+{"id": "GPT-036", "a": "No ejecutes la búsqueda mañana.", "b": "Do not run the search tomorrow.", "label": "EQUIVALENT", "category": "NEGATION", "differs_in": []}
+{"id": "GPT-037", "a": "Update the sales report after retrieving the data.", "b": "Once the data is retrieved, modify the sales report.", "label": "EQUIVALENT", "category": "ORDER", "differs_in": []}
+{"id": "GPT-038", "a": "Generate the result in Spanish and PDF format.", "b": "Produce the result as a Spanish-language PDF.", "label": "EQUIVALENT", "category": "OUTPUT", "differs_in": []}
+{"id": "GPT-039", "a": "Detect anomalies with confidence greater than 0.90.", "b": "Find anomalies where confidence exceeds 0.90.", "label": "EQUIVALENT", "category": "CONSTRAINT", "differs_in": []}
+{"id": "GPT-040", "a": "Send the CSV to the finance team.", "b": "Deliver the CSV to the finance team.", "label": "EQUIVALENT", "category": "TARGET", "differs_in": []}
+{"id": "GPT-041", "a": "Retrieve event #55 from last month.", "b": "Fetch event #55 from the previous month.", "label": "EQUIVALENT", "category": "REFERENCE", "differs_in": []}
+{"id": "GPT-042", "a": "Study the video data for this week.", "b": "Examine this week's video data.", "label": "EQUIVALENT", "category": "TIME", "differs_in": []}
+{"id": "GPT-043", "a": "Forbid deletion of customer data.", "b": "Prohibit removing customer data.", "label": "EQUIVALENT", "category": "NEGATION", "differs_in": []}
+{"id": "GPT-044", "a": "Compute sales totals, then create the report.", "b": "Calculate the sales totals before generating the report.", "label": "EQUIVALENT", "category": "ORDER", "differs_in": []}
+{"id": "GPT-045", "a": "Find the top 5 companies by sales.", "b": "Locate the five companies with the highest sales.", "label": "EQUIVALENT", "category": "QUANTITY", "differs_in": []}
+{"id": "GPT-046", "a": "Write a Markdown table for the users.", "b": "Generate a Markdown table containing the users.", "label": "EQUIVALENT", "category": "OUTPUT", "differs_in": []}
+{"id": "GPT-047", "a": "Se houver mais de 100 registros, execute a análise.", "b": "If there are more than 100 records, run the analysis.", "label": "EQUIVALENT", "category": "CONDITION", "differs_in": []}
+{"id": "GPT-048", "a": "Check report #31 before deleting it.", "b": "Validate report #31 prior to removing it.", "label": "EQUIVALENT", "category": "ORDER", "differs_in": []}
+{"id": "GPT-049", "a": "Translate the audio description into English.", "b": "Convert the audio description to English.", "label": "EQUIVALENT", "category": "PARAPHRASE", "differs_in": []}
+{"id": "GPT-050", "a": "Search for anomalies in sales data.", "b": "Detect anomalies in the sales data.", "label": "EQUIVALENT", "category": "ACTION", "differs_in": []}
+{"id": "GPT-051", "a": "Analyze the sales data from Q1 2026.", "b": "Analyze the sales data from Q2 2026.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["time period"]}
+{"id": "GPT-052", "a": "Delete the 100 customer records.", "b": "Delete the 101 customer records.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["quantity"]}
+{"id": "GPT-053", "a": "Do not delete the user data.", "b": "Delete the user data.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["negation"]}
+{"id": "GPT-054", "a": "Find the anomalies in the dataset.", "b": "Find the anomalies in the sales data.", "label": "NOT_EQUIVALENT", "category": "TARGET", "differs_in": ["target data"]}
+{"id": "GPT-055", "a": "Compare the products sold in March 2026.", "b": "Compare the products sold in April 2026.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["time period"]}
+{"id": "GPT-056", "a": "Fetch report #77 as PDF.", "b": "Fetch report #78 as PDF.", "label": "NOT_EQUIVALENT", "category": "REFERENCE", "differs_in": ["reference number"]}
+{"id": "GPT-057", "a": "Translate the document into Spanish.", "b": "Translate the document into English.", "label": "NOT_EQUIVALENT", "category": "OUTPUT", "differs_in": ["target language"]}
+{"id": "GPT-058", "a": "Generate a CSV containing the top 20 customers.", "b": "Generate a CSV containing the top 10 customers.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["limit"]}
+{"id": "GPT-059", "a": "Check the results today.", "b": "Check the results tomorrow.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["time period"]}
+{"id": "GPT-060", "a": "Run the analysis if there are more than 100 records.", "b": "Run the analysis if there are more than 200 records.", "label": "NOT_EQUIVALENT", "category": "CONDITION", "differs_in": ["condition threshold"]}
+{"id": "GPT-061", "a": "Send the report to María.", "b": "Send the report to Carlos.", "label": "NOT_EQUIVALENT", "category": "TARGET", "differs_in": ["recipient"]}
+{"id": "GPT-062", "a": "Include images but exclude audio.", "b": "Include images and include audio.", "label": "NOT_EQUIVALENT", "category": "CONSTRAINT", "differs_in": ["inclusion constraint"]}
+{"id": "GPT-063", "a": "Compute total sales for 2025.", "b": "Compute total sales for 2024.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["year"]}
+{"id": "GPT-064", "a": "Enable the high-priority alert.", "b": "Enable the urgent-priority alert.", "label": "NOT_EQUIVALENT", "category": "CONSTRAINT", "differs_in": ["priority level"]}
+{"id": "GPT-065", "a": "Search for companies with more than 100 users.", "b": "Search for companies with at least 100 users.", "label": "NOT_EQUIVALENT", "category": "CONSTRAINT", "differs_in": ["threshold operator"]}
+{"id": "GPT-066", "a": "Update document #42 and then send it.", "b": "Send document #42 and then update it.", "label": "NOT_EQUIVALENT", "category": "ORDER", "differs_in": ["step order"]}
+{"id": "GPT-067", "a": "Allow the analysis to run when confidence is at least 0.80.", "b": "Allow the analysis to run when confidence is at least 0.90.", "label": "NOT_EQUIVALENT", "category": "CONDITION", "differs_in": ["confidence threshold"]}
+{"id": "GPT-068", "a": "Write the result in Markdown.", "b": "Write the result in JSON.", "label": "NOT_EQUIVALENT", "category": "OUTPUT", "differs_in": ["output format"]}
+{"id": "GPT-069", "a": "Get the sales data from yesterday.", "b": "Get the sales data from today.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["time period"]}
+{"id": "GPT-070", "a": "Compare dataset #12 with dataset #13.", "b": "Compare dataset #12 with dataset #14.", "label": "NOT_EQUIVALENT", "category": "REFERENCE", "differs_in": ["reference number"]}
+{"id": "GPT-071", "a": "Analyze the customer data.", "b": "Delete the customer data.", "label": "NOT_EQUIVALENT", "category": "ACTION", "differs_in": ["action"]}
+{"id": "GPT-072", "a": "Remove at most 100 records.", "b": "Remove at most 200 records.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["limit"]}
+{"id": "GPT-073", "a": "Do not run the search tomorrow.", "b": "Run the search tomorrow.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["negation"]}
+{"id": "GPT-074", "a": "Create a PDF report for Acme.", "b": "Create a PDF report for Globex.", "label": "NOT_EQUIVALENT", "category": "TARGET", "differs_in": ["company name"]}
+{"id": "GPT-075", "a": "Translate #19 into Portuguese.", "b": "Translate #19 into Spanish.", "label": "NOT_EQUIVALENT", "category": "OUTPUT", "differs_in": ["target language"]}
+{"id": "GPT-076", "a": "Retrieve 100 records from the dataset.", "b": "Retrieve 200 records from the dataset.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["quantity"]}
+{"id": "GPT-077", "a": "Allow access to the customer data.", "b": "Forbid access to the customer data.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["permission"]}
+{"id": "GPT-078", "a": "Update the sales report after retrieving the data.", "b": "Update the sales report before retrieving the data.", "label": "NOT_EQUIVALENT", "category": "ORDER", "differs_in": ["step order"]}
+{"id": "GPT-079", "a": "Generate the result in Spanish and PDF format.", "b": "Generate the result in Spanish and CSV format.", "label": "NOT_EQUIVALENT", "category": "OUTPUT", "differs_in": ["output format"]}
+{"id": "GPT-080", "a": "Detect anomalies with confidence greater than 0.90.", "b": "Detect anomalies with confidence greater than 0.80.", "label": "NOT_EQUIVALENT", "category": "CONSTRAINT", "differs_in": ["confidence threshold"]}
+{"id": "GPT-081", "a": "Send the CSV to the finance team.", "b": "Send the CSV to the sales team.", "label": "NOT_EQUIVALENT", "category": "TARGET", "differs_in": ["recipient"]}
+{"id": "GPT-082", "a": "Retrieve event #55 from last month.", "b": "Retrieve event #56 from last month.", "label": "NOT_EQUIVALENT", "category": "REFERENCE", "differs_in": ["reference number"]}
+{"id": "GPT-083", "a": "Study the video data for this week.", "b": "Study the video data for last week.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["time period"]}
+{"id": "GPT-084", "a": "Forbid deletion of customer data.", "b": "Allow deletion of customer data.", "label": "NOT_EQUIVALENT", "category": "NEGATION", "differs_in": ["permission"]}
+{"id": "GPT-085", "a": "Compute sales totals, then create the report.", "b": "Create the report, then compute sales totals.", "label": "NOT_EQUIVALENT", "category": "ORDER", "differs_in": ["step order"]}
+{"id": "GPT-086", "a": "Find the top 5 companies by sales.", "b": "Find the top 10 companies by sales.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["limit"]}
+{"id": "GPT-087", "a": "Write a Markdown table for the users.", "b": "Write a CSV table for the users.", "label": "NOT_EQUIVALENT", "category": "OUTPUT", "differs_in": ["output format"]}
+{"id": "GPT-088", "a": "If there are more than 100 records, run the analysis.", "b": "Run the analysis.", "label": "NOT_EQUIVALENT", "category": "CONDITION", "differs_in": ["condition present vs absent"]}
+{"id": "GPT-089", "a": "Check report #31 before deleting it.", "b": "Delete report #31 before checking it.", "label": "NOT_EQUIVALENT", "category": "ORDER", "differs_in": ["step order"]}
+{"id": "GPT-090", "a": "Convert the audio description to English.", "b": "Convert the audio description to Portuguese.", "label": "NOT_EQUIVALENT", "category": "OUTPUT", "differs_in": ["target language"]}
+{"id": "GPT-091", "a": "Search for anomalies in sales data.", "b": "Search for anomalies in customer data.", "label": "NOT_EQUIVALENT", "category": "TARGET", "differs_in": ["target data"]}
+{"id": "GPT-092", "a": "Validate the result if confidence is below 0.80.", "b": "Validate the result if confidence is below 0.70.", "label": "NOT_EQUIVALENT", "category": "CONDITION", "differs_in": ["condition threshold"]}
+{"id": "GPT-093", "a": "Find no more than 50 records.", "b": "Find no more than 100 records.", "label": "NOT_EQUIVALENT", "category": "QUANTITY", "differs_in": ["limit"]}
+{"id": "GPT-094", "a": "Run the search with high priority.", "b": "Run the search with normal priority.", "label": "NOT_EQUIVALENT", "category": "CONSTRAINT", "differs_in": ["priority level"]}
+{"id": "GPT-095", "a": "Exclude audio from the result.", "b": "Exclude video from the result.", "label": "NOT_EQUIVALENT", "category": "TARGET", "differs_in": ["target data"]}
+{"id": "GPT-096", "a": "Fetch report #77 as PDF.", "b": "Fetch report #77 as JSON.", "label": "NOT_EQUIVALENT", "category": "OUTPUT", "differs_in": ["output format"]}
+{"id": "GPT-097", "a": "Search sales data from January 2026 through March 2026.", "b": "Search sales data from January 2026 through April 2026.", "label": "NOT_EQUIVALENT", "category": "TIME", "differs_in": ["date range"]}
+{"id": "GPT-098", "a": "Execute the analysis only if there are more than 100 records.", "b": "Execute the analysis even if there are more than 100 records.", "label": "NOT_EQUIVALENT", "category": "CONDITION", "differs_in": ["condition semantics"]}
+{"id": "GPT-099", "a": "Send the PDF to Ana after validation.", "b": "Send the PDF to Ana before validation.", "label": "NOT_EQUIVALENT", "category": "ORDER", "differs_in": ["step order"]}
+{"id": "GPT-100", "a": "Detect anomalies with confidence greater than 0.90.", "b": "Detect anomalies with confidence greater than or equal to 0.90.", "label": "NOT_EQUIVALENT", "category": "CONSTRAINT", "differs_in": ["threshold operator"]}

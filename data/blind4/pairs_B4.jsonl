@@ -1,0 +1,100 @@
+{"id":"B4-001","a":"Examine the sales figures for Q3 2025 and send the outcome to Marta.","b":"Marta must receive the outcome of an analysis of the Q3 2025 sales figures.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-002","a":"Delete the inactive users provided that there are more than 100 records.","b":"Delete the inactive users provided that there are at least 100 records.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["condition_operator"]}
+{"id":"B4-003","a":"Generate the report in CSV.","b":"Generate the report in JSON.","label":"NOT_EQUIVALENT","category":"OUTPUT","differs_in":["output_format"]}
+{"id":"B4-004","a":"Traduce el documento #12 al portugués antes de enviarlo a Lucía.","b":"Antes de enviárselo a Lucía, traduce el documento #12 a portugués.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-005","a":"Valide os dados de vendas de ontem e gere um relatório em PDF.","b":"Verifique os dados de vendas de ontem e escreva um relatório no formato PDF.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-006","a":"Do not send the report to customers.","b":"Send the report to customers.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"B4-007","a":"Retrieve the top 10 customers by sales.","b":"Obtén los 10 principales clientes según sus ventas.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-008","a":"Flag anomalies with confidence above 0.80.","b":"Flag anomalies with confidence of 0.80 or above.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["threshold_operator"]}
+{"id":"B4-009","a":"Users may not disable the audit log.","b":"Users may disable the audit log.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["permission"]}
+{"id":"B4-010","a":"Users may not disable the audit log.","b":"Disabling the audit log is forbidden for users.","label":"EQUIVALENT","category":"NEGATION","differs_in":[]}
+{"id":"B4-011","a":"Retrieve events from 2025-01-01 to 2025-03-31.","b":"Retrieve events from 2025-01-01 to 2025-03-30.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["date_range"]}
+{"id":"B4-012","a":"Get the events between January 1, 2025 and March 31, 2025.","b":"Retrieve events from 2025-01-01 to 2025-03-31.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"B4-013","a":"Si la confianza es inferior a 0.80, marca el resultado como urgente.","b":"Marca el resultado como urgente siempre que la confianza sea menor que 0.80.","label":"EQUIVALENT","category":"CONDITION","differs_in":[]}
+{"id":"B4-014","a":"If confidence is below 0.80, mark the result as urgent.","b":"If confidence is below 0.80, mark the result as high priority.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["priority"]}
+{"id":"B4-015","a":"Compare sales of 2024 with sales of 2025 and output a table.","b":"Output a table that compares 2025 sales against 2024 sales.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-016","a":"Return the top 5 products by sales.","b":"Return the top 15 products by sales.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["limit"]}
+{"id":"B4-017","a":"Update the document #77 today.","b":"Update the document #78 today.","label":"NOT_EQUIVALENT","category":"REFERENCE","differs_in":["reference_id"]}
+{"id":"B4-018","a":"Traduza o documento #77 para espanhol e envie para a empresa Acme.","b":"Envie para a empresa Acme o documento #77 traduzido para o espanhol.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-019","a":"Verify the dataset and then delete duplicates.","b":"Delete duplicates and then verify the dataset.","label":"NOT_EQUIVALENT","category":"ORDER","differs_in":["step_order"]}
+{"id":"B4-020","a":"Run the check on the images, then delete those that fail.","b":"After running the check on the images, remove the ones that fail.","label":"EQUIVALENT","category":"ORDER","differs_in":[]}
+{"id":"B4-021","a":"Desative a conta do usuário se houver mais de 100 registros.","b":"Disable the user account if there are more than 100 records.","label":"EQUIVALENT","category":"CONDITION","differs_in":[]}
+{"id":"B4-022","a":"Limit the output to a maximum of twenty records.","b":"Output at most 20 records.","label":"EQUIVALENT","category":"QUANTITY","differs_in":[]}
+{"id":"B4-023","a":"Send the summary to Carlos.","b":"Send the summary to Carla.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["recipient"]}
+{"id":"B4-024","a":"Output at most 20 records.","b":"Output at most 200 records.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["limit"]}
+{"id":"B4-025","a":"Está prohibido eliminar los datos de clientes.","b":"No se permite borrar los datos de clientes.","label":"EQUIVALENT","category":"NEGATION","differs_in":[]}
+{"id":"B4-026","a":"Elimina los datos de clientes.","b":"Actualiza los datos de clientes.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action"]}
+{"id":"B4-027","a":"Urgent: translate the report to Spanish.","b":"This is an urgent task: translate the report into Spanish.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-028","a":"Detect anomalies in yesterday's video.","b":"Locate any anomaly found in the video from yesterday.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-029","a":"Translate the report into Spanish.","b":"Translate the report into Portuguese.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["target_language"]}
+{"id":"B4-030","a":"Detect anomalies in yesterday's video.","b":"Detect anomalies in yesterday's audio.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["data_type"]}
+{"id":"B4-031","a":"Include the top 3 events in the report.","b":"Exclude the top 3 events from the report.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["include_exclude"]}
+{"id":"B4-032","a":"Exclude the company Norte from the results.","b":"Include the company Norte in the results.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["include_exclude"]}
+{"id":"B4-033","a":"Write a Markdown report on the product, including the top three events.","b":"Generate a report about the product in Markdown that includes the top 3 events.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-034","a":"Ejecuta la validación hoy y envía los resultados a la empresa.","b":"Run the validation today and send the results to the company.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-035","a":"Analyze sales from last month.","b":"Analyze sales from this week.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["period"]}
+{"id":"B4-036","a":"In case there are more than 100 records, create a CSV export.","b":"Create a CSV export whenever the dataset holds over 100 records.","label":"EQUIVALENT","category":"CONDITION","differs_in":[]}
+{"id":"B4-037","a":"Create a CSV export if there are more than 100 records.","b":"Create a CSV export.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["condition_present"]}
+{"id":"B4-038","a":"Envie o relatório amanhã.","b":"Envie o relatório hoje.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["date"]}
+{"id":"B4-039","a":"É proibido enviar o relatório antes de amanhã.","b":"Não é permitido enviar o relatório antes de amanhã.","label":"EQUIVALENT","category":"NEGATION","differs_in":[]}
+{"id":"B4-040","a":"Enable the audio filter, then update the document #5.","b":"Once the audio filter is enabled, update document #5.","label":"EQUIVALENT","category":"ORDER","differs_in":[]}
+{"id":"B4-041","a":"Calcula el total de ventas del año 2024.","b":"Computa las ventas totales correspondientes a 2024.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-042","a":"Enable the audio filter, then update the document #5.","b":"Update the document #5, then enable the audio filter.","label":"NOT_EQUIVALENT","category":"ORDER","differs_in":["step_order"]}
+{"id":"B4-043","a":"Search customers that bought the product in March 2025.","b":"Find customers who purchased the product during 2025-03.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"B4-044","a":"Search customers that bought the product in March 2025.","b":"Search customers that bought the product in March 2024.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["year"]}
+{"id":"B4-045","a":"Generate a PDF summary of report #40.","b":"Generate a PDF summary of report #4.","label":"NOT_EQUIVALENT","category":"REFERENCE","differs_in":["reference_id"]}
+{"id":"B4-046","a":"Genera un resumen en PDF del informe #40.","b":"Gere um resumo em PDF do relatório #40.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-047","a":"The results must always include the person named Ana.","b":"Never exclude the person named Ana from the results.","label":"EQUIVALENT","category":"NEGATION","differs_in":[]}
+{"id":"B4-048","a":"Compute the average sales of the company last month.","b":"Compute the total sales of the company last month.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["calculation"]}
+{"id":"B4-049","a":"When confidence is at least 0.90, execute the update automatically.","b":"Automatically run the update if confidence is 0.90 or higher.","label":"EQUIVALENT","category":"CONDITION","differs_in":[]}
+{"id":"B4-050","a":"When confidence is at least 0.90, execute the update automatically.","b":"When confidence is above 0.90, execute the update automatically.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["threshold_operator"]}
+{"id":"B4-051","a":"Check the dataset for duplicates, then remove them, max 50 per run.","b":"Check the dataset for duplicates, then remove them, max 500 per run.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["limit"]}
+{"id":"B4-052","a":"Check the dataset for duplicates, then remove them, max 50 per run.","b":"Verify the dataset for duplicates and afterwards delete them, no more than 50 per run.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-053","a":"Send Pedro the report for this week as a table.","b":"Send Pedro the report for this week as Markdown.","label":"NOT_EQUIVALENT","category":"OUTPUT","differs_in":["output_format"]}
+{"id":"B4-054","a":"Envíale a Pedro el reporte de esta semana como tabla.","b":"Envía a Pedro, en formato de tabla, el reporte de esta semana.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-055","a":"Encontre todas as anomalias com confiança acima de 0,80 nas imagens.","b":"Localize as anomalias das imagens cuja confiança seja superior a 0,80.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-056","a":"Encontre anomalias com confiança acima de 0,80 nas imagens.","b":"Encontre anomalias com confiança acima de 0,80 nos vídeos.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["data_type"]}
+{"id":"B4-057","a":"Compare the customers of 2023 with those of 2024.","b":"Compare the customers of 2023 with those of 2025.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["year"]}
+{"id":"B4-058","a":"Compare the customers of 2023 with the customers of 2024.","b":"Compare os clientes de 2023 com os clientes de 2024.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-059","a":"Nobody may modify result #9.","b":"Anyone may modify result #9.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["permission"]}
+{"id":"B4-060","a":"Nobody is allowed to modify the result #9.","b":"Result #9 must not be modified by anyone.","label":"EQUIVALENT","category":"NEGATION","differs_in":[]}
+{"id":"B4-061","a":"Retrieve at most ten customers with priority high.","b":"Retrieve up to 10 customers marked high priority.","label":"EQUIVALENT","category":"QUANTITY","differs_in":[]}
+{"id":"B4-062","a":"Si hay más de cien registros, valida el dataset.","b":"Valida el dataset en caso de que existan más de 100 registros.","label":"EQUIVALENT","category":"CONDITION","differs_in":[]}
+{"id":"B4-063","a":"Retrieve up to 10 customers with high priority.","b":"Retrieve up to 10 customers with urgent priority.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["priority"]}
+{"id":"B4-064","a":"Generate the document in JSON, then send it tomorrow.","b":"Send tomorrow the document generated in JSON.","label":"EQUIVALENT","category":"ORDER","differs_in":[]}
+{"id":"B4-065","a":"Valida el dataset si hay más de cien registros.","b":"Valida el dataset si hay menos de cien registros.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["condition_operator"]}
+{"id":"B4-066","a":"Generate the document in JSON, then send it tomorrow.","b":"Generate the document in JSON, then send it today.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["date"]}
+{"id":"B4-067","a":"No incluyas al cliente #31 en el informe.","b":"Do not include customer #31 in the report.","label":"EQUIVALENT","category":"NEGATION","differs_in":[]}
+{"id":"B4-068","a":"No incluyas al cliente #31 en el informe.","b":"Incluye al cliente #31 en el informe.","label":"NOT_EQUIVALENT","category":"NEGATION","differs_in":["negation"]}
+{"id":"B4-069","a":"Disable the video export starting 2025-06-01.","b":"Enable the video export starting 2025-06-01.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["enable_disable"]}
+{"id":"B4-070","a":"Disable the video export from 2025-06-01.","b":"As of June 1, 2025, turn off the video export.","label":"EQUIVALENT","category":"TIME","differs_in":[]}
+{"id":"B4-071","a":"Calcule a média de vendas do último mês.","b":"Calcule a soma de vendas do último mês.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["calculation"]}
+{"id":"B4-072","a":"Report only anomalies with confidence of at least 0.95.","b":"Report only anomalies with confidence of at least 0.59.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["threshold"]}
+{"id":"B4-073","a":"Calcule a média de vendas do último mês.","b":"Compute a média das vendas do mês passado.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-074","a":"Traduce todos los documentos al inglés.","b":"Traduce todos los documentos al portugués.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["target_language"]}
+{"id":"B4-075","a":"Examine the audio dataset and report only anomalies with confidence of 0.95 or more.","b":"Only anomalies whose confidence reaches at least 0.95 should be reported after examining the audio dataset.","label":"EQUIVALENT","category":"CONSTRAINT","differs_in":[]}
+{"id":"B4-076","a":"Traduce todos los documentos al inglés; el resultado debe ser Markdown.","b":"El resultado debe estar en Markdown: traduce todos los documentos a inglés.","label":"EQUIVALENT","category":"OUTPUT","differs_in":[]}
+{"id":"B4-077","a":"Send the urgent report to the company before running the update.","b":"Send the urgent report to the company after running the update.","label":"NOT_EQUIVALENT","category":"ORDER","differs_in":["step_order"]}
+{"id":"B4-078","a":"Send the urgent report to the company before running the update.","b":"Before running the update, send the company the urgent report.","label":"EQUIVALENT","category":"ORDER","differs_in":[]}
+{"id":"B4-079","a":"Users may export data in CSV only.","b":"CSV is the only format users are permitted to export data in.","label":"EQUIVALENT","category":"OUTPUT","differs_in":[]}
+{"id":"B4-080","a":"Users may export data in CSV only.","b":"Users may export data in CSV or JSON.","label":"NOT_EQUIVALENT","category":"OUTPUT","differs_in":["output_format"]}
+{"id":"B4-081","a":"Remova as imagens duplicadas de ontem.","b":"Elimina las imágenes duplicadas de ayer.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-082","a":"Remova as imagens duplicadas de ontem.","b":"Elimina las imágenes duplicadas de mañana.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["date"]}
+{"id":"B4-083","a":"Locate person #88 and fetch the person's 2024 events.","b":"Find person #88, and retrieve that person's events from 2024.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-084","a":"Actualiza el documento #20 solo si la confianza es superior a 0.7.","b":"Solo si la confianza supera 0.7, modifica el documento #20.","label":"EQUIVALENT","category":"CONDITION","differs_in":[]}
+{"id":"B4-085","a":"Locate person #88 and fetch the person's events.","b":"Locate person #98 and fetch the person's events.","label":"NOT_EQUIVALENT","category":"REFERENCE","differs_in":["reference_id"]}
+{"id":"B4-086","a":"Actualiza el documento #20 solo si la confianza es superior a 0.7.","b":"Actualiza el documento #20 solo si la confianza es superior a 0.8.","label":"NOT_EQUIVALENT","category":"CONDITION","differs_in":["condition_threshold"]}
+{"id":"B4-087","a":"Create a table of sales per quarter for 2025.","b":"Generate a table with 2025's sales broken down by quarter.","label":"EQUIVALENT","category":"OUTPUT","differs_in":[]}
+{"id":"B4-088","a":"Generate a table of sales per quarter for 2025.","b":"Generate a table of sales per month for 2025.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["period_granularity"]}
+{"id":"B4-089","a":"The top 3 anomalies must be flagged as high priority.","b":"Flag the three main anomalies with high priority.","label":"EQUIVALENT","category":"CONSTRAINT","differs_in":[]}
+{"id":"B4-090","a":"Flag the top 3 anomalies as high priority.","b":"Flag the top 3 events as high priority.","label":"NOT_EQUIVALENT","category":"TARGET","differs_in":["entity"]}
+{"id":"B4-091","a":"Check that there are exactly 100 records.","b":"Check that there are at least 100 records.","label":"NOT_EQUIVALENT","category":"QUANTITY","differs_in":["quantity_operator"]}
+{"id":"B4-092","a":"Check that there are exactly 100 records.","b":"Verify that the dataset holds one hundred records exactly.","label":"EQUIVALENT","category":"QUANTITY","differs_in":[]}
+{"id":"B4-093","a":"Não exclua clientes; apenas desative-os.","b":"Não desative clientes; apenas exclua-os.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["action"]}
+{"id":"B4-094","a":"Translate the document into Portuguese whenever it is written in Spanish.","b":"Translate the document into Spanish whenever it is written in Portuguese.","label":"NOT_EQUIVALENT","category":"CONSTRAINT","differs_in":["language_direction"]}
+{"id":"B4-095","a":"Não exclua clientes; apenas desative-os.","b":"Clientes não devem ser excluídos, somente desativados.","label":"EQUIVALENT","category":"NEGATION","differs_in":[]}
+{"id":"B4-096","a":"Translate the document into Portuguese whenever it is written in Spanish.","b":"If a document is in Spanish, translate it to Portuguese.","label":"EQUIVALENT","category":"CONDITION","differs_in":[]}
+{"id":"B4-097","a":"Analyze Q2 2025 sales.","b":"Analiza las ventas del tercer trimestre de 2025.","label":"NOT_EQUIVALENT","category":"TIME","differs_in":["quarter"]}
+{"id":"B4-098","a":"Analyze Q2 2025 sales.","b":"Analiza las ventas del segundo trimestre de 2025.","label":"EQUIVALENT","category":"PARAPHRASE","differs_in":[]}
+{"id":"B4-099","a":"Include only customers with priority urgent.","b":"Exclude customers with priority urgent.","label":"NOT_EQUIVALENT","category":"ACTION","differs_in":["include_exclude"]}
+{"id":"B4-100","a":"Include only customers with priority urgent.","b":"Only customers marked urgent are to be included.","label":"EQUIVALENT","category":"CONSTRAINT","differs_in":[]}

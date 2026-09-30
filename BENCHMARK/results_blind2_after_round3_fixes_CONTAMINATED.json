@@ -1,0 +1,2974 @@
+{
+ "summary": {
+  "equivalence": {
+   "tp": 82,
+   "fp": 2,
+   "fn": 18,
+   "tn": 98,
+   "n": 200,
+   "accuracy": 0.9,
+   "precision": 0.9762,
+   "recall": 0.82,
+   "f1": 0.8913,
+   "false_positive_rate": 0.02,
+   "false_negative_rate": 0.18
+  },
+  "drift_critical": {
+   "critical_pairs": 67,
+   "detected": 66,
+   "rate": 0.9851
+  },
+  "preservation": {
+   "negation": {
+    "preserved": 40,
+    "with_element": 40,
+    "rate": 1.0
+   },
+   "quantities": {
+    "preserved": 21,
+    "with_element": 21,
+    "rate": 1.0
+   },
+   "time": {
+    "preserved": 120,
+    "with_element": 120,
+    "rate": 1.0
+   },
+   "constraints": {
+    "preserved": 57,
+    "with_element": 57,
+    "rate": 1.0
+   },
+   "conditions": {
+    "preserved": 37,
+    "with_element": 37,
+    "rate": 1.0
+   },
+   "references": {
+    "preserved": 60,
+    "with_element": 60,
+    "rate": 1.0
+   },
+   "overall": 1.0,
+   "full_canonical_roundtrip": 1.0
+  },
+  "ambiguity": null,
+  "contradiction": null,
+  "accuracy_by_category": {
+   "ACTION": {
+    "correct": 10,
+    "n": 10,
+    "acc": 1.0
+   },
+   "CONDITION": {
+    "correct": 14,
+    "n": 15,
+    "acc": 0.933
+   },
+   "CONSTRAINT": {
+    "correct": 18,
+    "n": 18,
+    "acc": 1.0
+   },
+   "NEGATION": {
+    "correct": 15,
+    "n": 15,
+    "acc": 1.0
+   },
+   "ORDER": {
+    "correct": 8,
+    "n": 9,
+    "acc": 0.889
+   },
+   "OUTPUT": {
+    "correct": 9,
+    "n": 9,
+    "acc": 1.0
+   },
+   "PARAPHRASE": {
+    "correct": 57,
+    "n": 70,
+    "acc": 0.814
+   },
+   "QUANTITY": {
+    "correct": 9,
+    "n": 9,
+    "acc": 1.0
+   },
+   "REFERENCE": {
+    "correct": 8,
+    "n": 9,
+    "acc": 0.889
+   },
+   "TARGET": {
+    "correct": 9,
+    "n": 9,
+    "acc": 1.0
+   },
+   "TIME": {
+    "correct": 23,
+    "n": 27,
+    "acc": 0.852
+   }
+  },
+  "latency_ms_per_compare": 0.747
+ },
+ "pairs": [
+  {
+   "id": "A2-001",
+   "a": "Analiza las ventas del primer trimestre de 2026 y devuelve el resultado en JSON.",
+   "b": "Please examine sales data for Q1 2026 and output the result as JSON.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-002",
+   "a": "Elimina los registros duplicados de clientes.",
+   "b": "Elimina los registros duplicados de usuarios.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TARGET",
+   "differs_in": [
+    "target"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "DATA"
+   ],
+   "similarity": 0.714
+  },
+  {
+   "id": "A2-003",
+   "a": "Por favor, traduce el documento al portugués.",
+   "b": "El documento debe ser traducido al portugués.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-004",
+   "a": "Detecta anomalías cuya confianza sea >= 0.90.",
+   "b": "Detecta anomalías cuya confianza sea >= 0.70.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "confidence_threshold"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "MODIFIERS"
+   ],
+   "similarity": 0.762
+  },
+  {
+   "id": "A2-005",
+   "a": "Genera un informe en CSV con las ventas de marzo de 2026.",
+   "b": "Escribe un reporte CSV de las ventas de 2026-03.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-006",
+   "a": "No elimines el dataset #77.",
+   "b": "Elimina el dataset #77.",
+   "label": "NOT_EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [
+    "negation"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "NEGATION"
+   ],
+   "similarity": 0.76
+  },
+  {
+   "id": "A2-007",
+   "a": "Compara las ventas de esta semana con las de la semana pasada.",
+   "b": "Compare this week's sales with last week's sales.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-008",
+   "a": "Busca los 20 usuarios principales por ventas.",
+   "b": "Busca los 200 usuarios principales por ventas.",
+   "label": "NOT_EQUIVALENT",
+   "category": "QUANTITY",
+   "differs_in": [
+    "limit"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONSTRAINTS"
+   ],
+   "similarity": 0.727
+  },
+  {
+   "id": "A2-009",
+   "a": "Verifica si hay más de 100 registros y, en ese caso, envía una alerta.",
+   "b": "Si existen más de 100 registros, envía una alerta.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.562
+  },
+  {
+   "id": "A2-010",
+   "a": "Envía una alerta si hay más de 100 registros.",
+   "b": "Envía una alerta si hay más de 1000 registros.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [
+    "condition_threshold"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS"
+   ],
+   "similarity": 0.625
+  },
+  {
+   "id": "A2-011",
+   "a": "Calcula el total de ventas de 2025.",
+   "b": "Computar las ventas totales del año 2025.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "DATA"
+   ],
+   "similarity": 0.789
+  },
+  {
+   "id": "A2-012",
+   "a": "Genera el informe en formato PDF.",
+   "b": "Genera el informe en formato JSON.",
+   "label": "NOT_EQUIVALENT",
+   "category": "OUTPUT",
+   "differs_in": [
+    "output_format"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "OUTPUT"
+   ],
+   "similarity": 0.8
+  },
+  {
+   "id": "A2-013",
+   "a": "Recupera el audio del evento #45.",
+   "b": "Obtén el audio del evento #45.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-014",
+   "a": "Analiza las ventas del segundo trimestre de 2026.",
+   "b": "Analiza las ventas del primer trimestre de 2026.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "A2-015",
+   "a": "Traduce el reporte al inglés.",
+   "b": "Traduce el reporte al portugués.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "target_language"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONSTRAINTS"
+   ],
+   "similarity": 0.727
+  },
+  {
+   "id": "A2-016",
+   "a": "Deshabilita la cuenta del usuario #12 hoy.",
+   "b": "Disable the account of user #12 today.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-017",
+   "a": "Actualiza el producto #77 con la nueva información.",
+   "b": "Actualiza el producto #78 con la nueva información.",
+   "label": "NOT_EQUIVALENT",
+   "category": "REFERENCE",
+   "differs_in": [
+    "reference_id"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "REFERENCES"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "A2-018",
+   "a": "Ejecuta el análisis de anomalías sobre los datos de ayer.",
+   "b": "Los datos de ayer deben ser examinados en busca de anomalías.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.88
+  },
+  {
+   "id": "A2-019",
+   "a": "Detectar los eventos urgentes y enviarlos por correo.",
+   "b": "Detecta los eventos de prioridad alta y envíalos por correo.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "priority"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "MODIFIERS"
+   ],
+   "similarity": 0.762
+  },
+  {
+   "id": "A2-020",
+   "a": "Exclui os clientes inativos do relatório de vendas.",
+   "b": "Excluye a los clientes inactivos del informe de ventas.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-021",
+   "a": "Incluye los clientes inactivos en el informe de ventas.",
+   "b": "Excluye los clientes inactivos del informe de ventas.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ACTION",
+   "differs_in": [
+    "action"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ENTITIES",
+    "NEGATION",
+    "OUTPUT"
+   ],
+   "similarity": 0.5
+  },
+  {
+   "id": "A2-022",
+   "a": "Muestra los 10 mejores productos en una tabla.",
+   "b": "Show the top 10 products as a table.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-023",
+   "a": "Muestra los 10 mejores productos en una tabla.",
+   "b": "Muestra los 10 mejores productos en Markdown.",
+   "label": "NOT_EQUIVALENT",
+   "category": "OUTPUT",
+   "differs_in": [
+    "output_format"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "OUTPUT"
+   ],
+   "similarity": 0.846
+  },
+  {
+   "id": "A2-024",
+   "a": "Nunca envíes el resultado al cliente.",
+   "b": "Envía el resultado al cliente.",
+   "label": "NOT_EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [
+    "prohibition"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "NEGATION"
+   ],
+   "similarity": 0.75
+  },
+  {
+   "id": "A2-025",
+   "a": "Prohibido borrar el documento #9.",
+   "b": "No borres el documento #9.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-026",
+   "a": "Busca anomalías en las ventas de enero de 2026.",
+   "b": "Busca anomalías en las ventas de febrero de 2026.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "month"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.8
+  },
+  {
+   "id": "A2-027",
+   "a": "Podrías generar un reporte de clientes con más de 1.000 registros.",
+   "b": "Generate a report on customers with more than 1000 records.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-028",
+   "a": "Valida los datos y luego elimina los duplicados.",
+   "b": "Elimina los duplicados y luego valida los datos.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ORDER",
+   "differs_in": [
+    "step_order"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MODERATE_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.5
+  },
+  {
+   "id": "A2-029",
+   "a": "Primero respalda el dataset #5; después elimínalo.",
+   "b": "Back up dataset #5 first, then delete it.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-030",
+   "a": "Habilita las alertas para los usuarios.",
+   "b": "Deshabilita las alertas para los usuarios.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ACTION",
+   "differs_in": [
+    "action"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.571
+  },
+  {
+   "id": "A2-031",
+   "a": "Calcula las ventas del año 2024.",
+   "b": "Calcula las ventas del año 2025.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "year"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "A2-032",
+   "a": "Estudia el video de ayer y reporta cualquier anomalía.",
+   "b": "Examina el video de ayer y notifica toda anomalía.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-033",
+   "a": "Si la confianza es menor a 0.80, marca el resultado como urgente.",
+   "b": "Marca el resultado como urgente si la confianza es menor a 0.85.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [
+    "condition_threshold"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS"
+   ],
+   "similarity": 0.684
+  },
+  {
+   "id": "A2-034",
+   "a": "Si la confianza es menor a 0.80, marca el resultado como urgente.",
+   "b": "Cuando la confianza sea inferior a 0.80, el resultado se marca como urgente.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-035",
+   "a": "Compara las ventas con las de los clientes.",
+   "b": "Contrasta las ventas frente a las de los clientes.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-036",
+   "a": "Analisa os dados de vendas do último mês e gera um relatório em PDF.",
+   "b": "Analiza los datos de ventas del mes pasado y genera un informe en PDF.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.889
+  },
+  {
+   "id": "A2-037",
+   "a": "Analiza los datos de ventas de mañana.",
+   "b": "Analiza los datos de ventas de hoy.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "A2-038",
+   "a": "Ejecuta el script solo si no hay errores.",
+   "b": "Ejecuta el script si hay errores.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [
+    "condition_negation"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS"
+   ],
+   "similarity": 0.625
+  },
+  {
+   "id": "A2-039",
+   "a": "Ubicar a la persona con el mayor número de ventas.",
+   "b": "Encuentra a la persona que tiene más ventas.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "DATA"
+   ],
+   "similarity": 0.8
+  },
+  {
+   "id": "A2-040",
+   "a": "Encuentra a la persona con más ventas.",
+   "b": "Encuentra a la empresa con más ventas.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TARGET",
+   "differs_in": [
+    "target_entity"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MODERATE_DRIFT",
+   "fields": [
+    "ENTITIES"
+   ],
+   "similarity": 0.8
+  },
+  {
+   "id": "A2-041",
+   "a": "Devuelve como máximo 50 resultados.",
+   "b": "Return at most 50 results.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-042",
+   "a": "Devuelve como máximo 50 resultados.",
+   "b": "Devuelve como mínimo 50 resultados.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "limit_direction"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "CONSTRAINTS",
+    "ENTITIES",
+    "QUANTITY"
+   ],
+   "similarity": 0.2
+  },
+  {
+   "id": "A2-043",
+   "a": "Detecta anomalías con confianza mayor a 0.90.",
+   "b": "Detecta anomalías con confianza mayor o igual a 0.90.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "threshold_inclusivity"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "MODIFIERS"
+   ],
+   "similarity": 0.762
+  },
+  {
+   "id": "A2-044",
+   "a": "Exporta los usuarios a CSV y no incluyas los inactivos.",
+   "b": "Exportar los usuarios en formato CSV, excluyendo a los inactivos.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION",
+    "NEGATION"
+   ],
+   "similarity": 0.654
+  },
+  {
+   "id": "A2-045",
+   "a": "Busca los resultados del evento #101.",
+   "b": "Busca los resultados del evento #110.",
+   "label": "NOT_EQUIVALENT",
+   "category": "REFERENCE",
+   "differs_in": [
+    "reference_id"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "REFERENCES"
+   ],
+   "similarity": 0.762
+  },
+  {
+   "id": "A2-046",
+   "a": "Verifica el documento #3 y envía el resultado.",
+   "b": "Verify document #3 and send the result.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-047",
+   "a": "Envía el reporte de hoy a la empresa.",
+   "b": "Remite el informe de hoy a la empresa.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-048",
+   "a": "Obtén las 100 filas más recientes de los datos de usuarios.",
+   "b": "Fetch the 100 most recent user data records.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "QUANTITY"
+   ],
+   "similarity": 0.727
+  },
+  {
+   "id": "A2-049",
+   "a": "Obtén las 100 filas más recientes de los datos de usuarios.",
+   "b": "Obtén las 1000 filas más recientes de los datos de usuarios.",
+   "label": "NOT_EQUIVALENT",
+   "category": "QUANTITY",
+   "differs_in": [
+    "quantity"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "QUANTITY"
+   ],
+   "similarity": 0.727
+  },
+  {
+   "id": "A2-050",
+   "a": "Actualiza el producto #20 con prioridad alta.",
+   "b": "Modifica el producto #20; la prioridad es alta.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-051",
+   "a": "Analiza las imágenes de ayer.",
+   "b": "Analiza el audio de ayer.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TARGET",
+   "differs_in": [
+    "target"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "DATA"
+   ],
+   "similarity": 0.789
+  },
+  {
+   "id": "A2-052",
+   "a": "Genera un informe del 1T 2026.",
+   "b": "Escribe un reporte del primer trimestre de 2026.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-053",
+   "a": "Traduce el video del evento al inglés y envíalo.",
+   "b": "Envía el video del evento y tradúcelo al inglés.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ORDER",
+   "differs_in": [
+    "step_order"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MODERATE_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.731
+  },
+  {
+   "id": "A2-054",
+   "a": "Genera o relatório de vendas de 2026-01 em formato CSV.",
+   "b": "Genera el reporte de ventas de enero de 2026 en CSV.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-055",
+   "a": "Elimina el resultado antiguo.",
+   "b": "Analiza el resultado antiguo.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ACTION",
+   "differs_in": [
+    "action"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.286
+  },
+  {
+   "id": "A2-056",
+   "a": "Se prohíbe enviar datos de clientes a terceros.",
+   "b": "Never send customer data to third parties.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-057",
+   "a": "Envía datos de clientes solo a terceros autorizados.",
+   "b": "Nunca envíes datos de clientes a terceros.",
+   "label": "NOT_EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [
+    "prohibition"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION",
+    "NEGATION"
+   ],
+   "similarity": 0.55
+  },
+  {
+   "id": "A2-058",
+   "a": "Localiza los eventos con prioridad urgente.",
+   "b": "Localiza los eventos con prioridad alta.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "priority"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "MODIFIERS"
+   ],
+   "similarity": 0.762
+  },
+  {
+   "id": "A2-059",
+   "a": "Ejecutar la validación de los datasets cada vez que haya más de 100 registros nuevos.",
+   "b": "Corre la validación de los datasets siempre que existan más de 100 registros nuevos.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-060",
+   "a": "Compara los clientes de 2025 con los de 2026.",
+   "b": "Compara los clientes de 2024 con los de 2026.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "year"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.841
+  },
+  {
+   "id": "A2-061",
+   "a": "Crea un documento con los 5 productos más vendidos.",
+   "b": "Crea un documento con los cinco productos más vendidos.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-062",
+   "a": "Podrías buscar por favor los usuarios registrados esta semana.",
+   "b": "Busca a los usuarios registrados esta semana.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-063",
+   "a": "Traduce el audio a español.",
+   "b": "Translate the audio into English.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "target_language"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONSTRAINTS"
+   ],
+   "similarity": 0.727
+  },
+  {
+   "id": "A2-064",
+   "a": "Verifica los datos del dataset #200; si hay anomalías, elimina el evento asociado.",
+   "b": "Comprueba los datos del dataset #200 y, de haber anomalías, borra el evento asociado.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS",
+    "ENTITIES"
+   ],
+   "similarity": 0.724
+  },
+  {
+   "id": "A2-065",
+   "a": "Verifica los datos del dataset #200; si hay anomalías, elimina el evento asociado.",
+   "b": "Verifica los datos del dataset #200; elimina el evento asociado.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [
+    "condition_absent"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS"
+   ],
+   "similarity": 0.793
+  },
+  {
+   "id": "A2-066",
+   "a": "Deshabilita el acceso de los usuarios de la empresa hoy.",
+   "b": "Deshabilita el acceso de los usuarios de la empresa mañana.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "date"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.783
+  },
+  {
+   "id": "A2-067",
+   "a": "Calcula el promedio de ventas por cliente y preséntalo en tabla.",
+   "b": "Compute average sales per customer and present it in a table.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.833
+  },
+  {
+   "id": "A2-068",
+   "a": "Calcula el promedio de ventas por cliente.",
+   "b": "Calcula el total de ventas por cliente.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ACTION",
+   "differs_in": [
+    "computation"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "DATA"
+   ],
+   "similarity": 0.81
+  },
+  {
+   "id": "A2-069",
+   "a": "Escribe un reporte en Markdown sobre el evento del 2026-03-15.",
+   "b": "Redacta un reporte Markdown acerca del evento del 15 de marzo de 2026.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-070",
+   "a": "Escribe un reporte en Markdown sobre el evento del 2026-03-15.",
+   "b": "Escribe un reporte en Markdown sobre el evento del 2026-03-16.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "date"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.8
+  },
+  {
+   "id": "A2-071",
+   "a": "Busca las anomalías del dataset #14 y envía solo las de confianza >= 0.95.",
+   "b": "Find anomalies in dataset #14 and send only those with confidence >= 0.95.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-072",
+   "a": "Elimina los usuarios inactivos.",
+   "b": "No elimines los usuarios inactivos.",
+   "label": "NOT_EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [
+    "negation"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "NEGATION"
+   ],
+   "similarity": 0.7
+  },
+  {
+   "id": "A2-073",
+   "a": "Actualizar el documento #6 y luego notificar a la persona.",
+   "b": "Modifica el documento #6; después avisa a la persona.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-074",
+   "a": "Genera el reporte de ventas en PDF y en CSV.",
+   "b": "Genera el reporte de ventas en PDF.",
+   "label": "NOT_EQUIVALENT",
+   "category": "OUTPUT",
+   "differs_in": [
+    "output_format"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "OUTPUT"
+   ],
+   "similarity": 0.833
+  },
+  {
+   "id": "A2-075",
+   "a": "Habilita el modo urgente para el evento #33.",
+   "b": "Enable urgent mode for event #33.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-076",
+   "a": "Recupera los documentos de la empresa del mes pasado.",
+   "b": "Recupera los documentos de la empresa de este año.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.762
+  },
+  {
+   "id": "A2-077",
+   "a": "Investiga en los datos si hay más de 100 anomalías y avísame.",
+   "b": "Revisa los datos; si hay más de 100 anomalías, avísame.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.5
+  },
+  {
+   "id": "A2-078",
+   "a": "Ejecuta la tarea #8 y luego #9.",
+   "b": "Ejecuta la tarea #9 y luego #8.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ORDER",
+   "differs_in": [
+    "step_order"
+   ],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-079",
+   "a": "Excluye del análisis las imágenes con confianza menor a 0.50.",
+   "b": "Descarta del análisis las imágenes cuya confianza sea inferior a 0.50.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-080",
+   "a": "Permite que los usuarios exporten los datos.",
+   "b": "Prohíbe que los usuarios exporten los datos.",
+   "label": "NOT_EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [
+    "allow_vs_forbid"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "NEGATION"
+   ],
+   "similarity": 0.455
+  },
+  {
+   "id": "A2-081",
+   "a": "Ejecuta un cálculo del número de clientes nuevos de abril de 2026.",
+   "b": "Calcula cuántos clientes nuevos hubo en 2026-04.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-082",
+   "a": "Calcula cuántos clientes nuevos hubo en abril de 2026.",
+   "b": "Calcula cuántos clientes nuevos hubo en abril de 2025.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "year"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "A2-083",
+   "a": "Estudia los datos de ventas y compáralos con los del trimestre anterior, con salida en Markdown.",
+   "b": "Salida en Markdown: analiza los datos de ventas y contrástalos con los del trimestre anterior.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-084",
+   "a": "Traduce el informe a inglés y guárdalo como PDF.",
+   "b": "Traduce el informe a inglés y guárdalo como JSON.",
+   "label": "NOT_EQUIVALENT",
+   "category": "OUTPUT",
+   "differs_in": [
+    "output_format"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "OUTPUT"
+   ],
+   "similarity": 0.846
+  },
+  {
+   "id": "A2-085",
+   "a": "Ubica los 3 clientes con más ventas.",
+   "b": "Encontre os 3 clientes com mais vendas.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-086",
+   "a": "Envía el resultado a la persona si la confianza es >= 0.90.",
+   "b": "Envía el resultado a la persona si la confianza es > 0.90.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [
+    "threshold_inclusivity"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS"
+   ],
+   "similarity": 0.7
+  },
+  {
+   "id": "A2-087",
+   "a": "Borra los datos del producto #4.",
+   "b": "Delete the data of product #4.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-088",
+   "a": "Crea un evento para el 2026-05-01.",
+   "b": "Crea un evento para el 1 de mayo de 2026.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-089",
+   "a": "Buscar en el dataset #2 los registros de la empresa y devolverlos en JSON.",
+   "b": "En el dataset #2, busca los registros de la empresa; formato de salida: JSON.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-090",
+   "a": "Verifica los datos de la empresa antes de enviarlos.",
+   "b": "Verifica los datos de la empresa después de enviarlos.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ORDER",
+   "differs_in": [
+    "step_order"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MODERATE_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.611
+  },
+  {
+   "id": "A2-091",
+   "a": "Analiza la imagen #40 con prioridad urgente.",
+   "b": "Analiza la imagen #40 con prioridad alta.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "priority"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "MODIFIERS"
+   ],
+   "similarity": 0.792
+  },
+  {
+   "id": "A2-092",
+   "a": "Genera un resumen de 2.500 registros de ventas.",
+   "b": "Genera un resumen de 2500 registros de ventas.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-093",
+   "a": "Detecta anomalías en el video, pero no las elimines.",
+   "b": "Detecta anomalías en el video y elimínalas.",
+   "label": "NOT_EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [
+    "prohibition"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "NEGATION"
+   ],
+   "similarity": 0.769
+  },
+  {
+   "id": "A2-094",
+   "a": "Ejecuta el reporte a las ventas del último mes con máximo 20 filas.",
+   "b": "Run the report on last month's sales with a maximum of 20 rows.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-095",
+   "a": "Trae los datos de los usuarios de la empresa #7.",
+   "b": "Trae los datos de los usuarios de la empresa #17.",
+   "label": "NOT_EQUIVALENT",
+   "category": "REFERENCE",
+   "differs_in": [
+    "reference_id"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "REFERENCES"
+   ],
+   "similarity": 0.706
+  },
+  {
+   "id": "A2-096",
+   "a": "Compara el producto #1 con el producto #2 y muestra la diferencia en una tabla.",
+   "b": "Contrasta el producto #1 y el producto #2; presenta la diferencia en tabla.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-097",
+   "a": "Traduce el documento al inglés.",
+   "b": "Traducir el documento al idioma inglés.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-098",
+   "a": "Actualiza los datos de clientes solo si hay más de 100 registros.",
+   "b": "Actualiza los datos de clientes solo si hay menos de 100 registros.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [
+    "condition_direction"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS"
+   ],
+   "similarity": 0.7
+  },
+  {
+   "id": "A2-099",
+   "a": "Envie o resultado da anomalia para a empresa hoje.",
+   "b": "Envía el resultado de la anomalía a la empresa hoy.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "A2-100",
+   "a": "Busca los 10 eventos más recientes de la semana.",
+   "b": "Busca los 10 eventos más recientes del mes.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-001",
+   "a": "Please analyze the sales data for Q1 2026.",
+   "b": "Examine the sales data from the first quarter of 2026.",
+   "label": "EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-002",
+   "a": "Analyze sales for Q1 2026.",
+   "b": "Analyze sales for Q2 2026.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "B2-003",
+   "a": "Generate the sales report as JSON.",
+   "b": "Generate the sales report as PDF.",
+   "label": "NOT_EQUIVALENT",
+   "category": "OUTPUT",
+   "differs_in": [
+    "output_format"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "OUTPUT"
+   ],
+   "similarity": 0.833
+  },
+  {
+   "id": "B2-004",
+   "a": "Gere um relatório de vendas de março de 2026 em PDF.",
+   "b": "O relatório de vendas de 2026-03 deve ser gerado no formato PDF.",
+   "label": "EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "OUTPUT"
+   ],
+   "similarity": 0.862
+  },
+  {
+   "id": "B2-005",
+   "a": "Delete the duplicate customers, but never delete users.",
+   "b": "Elimina los clientes duplicados, pero nunca elimines a los usuarios.",
+   "label": "EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-006",
+   "a": "Send the report to the customer today.",
+   "b": "Do not send the report to the customer today.",
+   "label": "NOT_EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [
+    "negation"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "NEGATION"
+   ],
+   "similarity": 0.793
+  },
+  {
+   "id": "B2-007",
+   "a": "Return at most 20 results.",
+   "b": "Limit the output to a maximum of 20 results.",
+   "label": "EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-008",
+   "a": "Return at most 20 results.",
+   "b": "Return at most 200 results.",
+   "label": "NOT_EQUIVALENT",
+   "category": "QUANTITY",
+   "differs_in": [
+    "limit"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONSTRAINTS"
+   ],
+   "similarity": 0.4
+  },
+  {
+   "id": "B2-009",
+   "a": "Find anomalies with confidence >= 0.90.",
+   "b": "Find anomalies with confidence >= 0.70.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "confidence_threshold"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "MODIFIERS"
+   ],
+   "similarity": 0.762
+  },
+  {
+   "id": "B2-010",
+   "a": "Could you translate the document into Spanish?",
+   "b": "Translate the document to Spanish.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-011",
+   "a": "The report must be generated in CSV format by tomorrow.",
+   "b": "Generate the report as CSV by tomorrow.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-012",
+   "a": "Flag results with confidence > 0.85.",
+   "b": "Flag results with confidence >= 0.85.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "threshold_operator"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "MODIFIERS"
+   ],
+   "similarity": 0.615
+  },
+  {
+   "id": "B2-013",
+   "a": "Translate document #77 into Spanish.",
+   "b": "Translate document #78 into Spanish.",
+   "label": "NOT_EQUIVALENT",
+   "category": "REFERENCE",
+   "differs_in": [
+    "reference"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "REFERENCES"
+   ],
+   "similarity": 0.815
+  },
+  {
+   "id": "B2-014",
+   "a": "Se houver mais de 100 registros, envie um alerta urgente.",
+   "b": "Envie um alerta urgente caso existam mais de 100 registros.",
+   "label": "EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "CONDITIONS",
+    "QUANTITY"
+   ],
+   "similarity": 0.556
+  },
+  {
+   "id": "B2-015",
+   "a": "Find anomalies with confidence >= 0.90 in the sales data.",
+   "b": "Detect anomalies in the sales data whose confidence is at least 0.90.",
+   "label": "EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-016",
+   "a": "Send an alert if there are more than 100 records.",
+   "b": "Send an alert.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [
+    "condition_presence"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS"
+   ],
+   "similarity": 0.625
+  },
+  {
+   "id": "B2-017",
+   "a": "Compara las ventas de 2025 con las de 2026.",
+   "b": "Compare as vendas de 2025 com as de 2026.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-018",
+   "a": "Send an alert if there are more than 100 records.",
+   "b": "Send an alert if there are more than 1000 records.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [
+    "condition_threshold"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS"
+   ],
+   "similarity": 0.625
+  },
+  {
+   "id": "B2-019",
+   "a": "Analyze the users dataset.",
+   "b": "Delete the users dataset.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ACTION",
+   "differs_in": [
+    "action"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.286
+  },
+  {
+   "id": "B2-020",
+   "a": "Fetch the top 10 customers by sales.",
+   "b": "Retrieve the 10 best customers ranked by sales.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-021",
+   "a": "Do not delete any users.",
+   "b": "Deleting users is forbidden.",
+   "label": "EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-022",
+   "a": "Calculate total sales for last month.",
+   "b": "Calculate total customers for last month.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TARGET",
+   "differs_in": [
+    "target"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "DATA"
+   ],
+   "similarity": 0.789
+  },
+  {
+   "id": "B2-023",
+   "a": "Validate the data, then delete the duplicates.",
+   "b": "Delete the duplicates, then validate the data.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ORDER",
+   "differs_in": [
+    "step_order"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MODERATE_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.5
+  },
+  {
+   "id": "B2-024",
+   "a": "Traduza o documento #77 para o inglês.",
+   "b": "Traduzir para inglês o documento #77.",
+   "label": "EQUIVALENT",
+   "category": "REFERENCE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.556
+  },
+  {
+   "id": "B2-025",
+   "a": "Execute a validação de 1.000 registros.",
+   "b": "Rode a validação de 1000 registros.",
+   "label": "EQUIVALENT",
+   "category": "QUANTITY",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-026",
+   "a": "Envie o relatório aos usuários.",
+   "b": "Não envie o relatório aos usuários.",
+   "label": "NOT_EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [
+    "negation"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "NEGATION"
+   ],
+   "similarity": 0.75
+  },
+  {
+   "id": "B2-027",
+   "a": "Check the data from last month and write the result as a table.",
+   "b": "Verify last month's data, then write the result in table format.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-028",
+   "a": "Gere o relatório de vendas de janeiro de 2026.",
+   "b": "Gere o relatório de vendas de fevereiro de 2026.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.8
+  },
+  {
+   "id": "B2-029",
+   "a": "Busque os 10 principais clientes.",
+   "b": "Busque os 100 principais clientes.",
+   "label": "NOT_EQUIVALENT",
+   "category": "QUANTITY",
+   "differs_in": [
+    "limit"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONSTRAINTS"
+   ],
+   "similarity": 0.727
+  },
+  {
+   "id": "B2-030",
+   "a": "Genera un informe en Markdown con los resultados del primer trimestre de 2026.",
+   "b": "Write a Markdown report with the results of Q1 2026.",
+   "label": "EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-031",
+   "a": "Disable the audio for product #12.",
+   "b": "Product #12: audio must be disabled.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-032",
+   "a": "Retorne o resultado em formato CSV.",
+   "b": "Retorne o resultado em formato JSON.",
+   "label": "NOT_EQUIVALENT",
+   "category": "OUTPUT",
+   "differs_in": [
+    "output_format"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "OUTPUT"
+   ],
+   "similarity": 0.667
+  },
+  {
+   "id": "B2-033",
+   "a": "Execute a verificação do evento #45.",
+   "b": "Execute a verificação do evento #54.",
+   "label": "NOT_EQUIVALENT",
+   "category": "REFERENCE",
+   "differs_in": [
+    "reference"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "REFERENCES"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "B2-034",
+   "a": "Não envie o vídeo a nenhum usuário.",
+   "b": "É proibido enviar o vídeo a qualquer usuário.",
+   "label": "EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-035",
+   "a": "Search the images dataset for events from 2026-03-15.",
+   "b": "Look up events on March 15, 2026 in the images dataset.",
+   "label": "EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-036",
+   "a": "Compara las ventas de 2025 con las de 2026.",
+   "b": "Compara las ventas de 2024 con las de 2026.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.841
+  },
+  {
+   "id": "B2-037",
+   "a": "Turn on urgent priority for anomaly #5.",
+   "b": "Enable the urgent priority for anomaly #5.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-038",
+   "a": "Habilita el envío de correos.",
+   "b": "Deshabilita el envío de correos.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ACTION",
+   "differs_in": [
+    "action"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.4
+  },
+  {
+   "id": "B2-039",
+   "a": "Elimina el resultado si la confianza es menor a 0.80.",
+   "b": "Elimina el resultado si la confianza es menor a 0.50.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [
+    "condition_threshold"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS"
+   ],
+   "similarity": 0.7
+  },
+  {
+   "id": "B2-040",
+   "a": "Calcule o total de vendas desta semana.",
+   "b": "Compute the total sales for this week.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-041",
+   "a": "Si la confianza es menor a 0.80, elimina el resultado.",
+   "b": "Elimina el resultado si la confianza está por debajo de 0.80.",
+   "label": "EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-042",
+   "a": "Translate the report into Spanish.",
+   "b": "Traduce el informe al portugués.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "target_language"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONSTRAINTS"
+   ],
+   "similarity": 0.727
+  },
+  {
+   "id": "B2-043",
+   "a": "Genera un reporte de ventas del primer trimestre de 2026.",
+   "b": "Generate a sales report for Q3 2026.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.8
+  },
+  {
+   "id": "B2-044",
+   "a": "Update the company record and then send a notification.",
+   "b": "Send a notification after updating the company record.",
+   "label": "EQUIVALENT",
+   "category": "ORDER",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-045",
+   "a": "Exclude test data when you compare customers with users.",
+   "b": "Compare customers with users, excluding test data.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "ACTION",
+    "CONDITIONS"
+   ],
+   "similarity": 0.679
+  },
+  {
+   "id": "B2-046",
+   "a": "Nunca exclua clientes do relatório.",
+   "b": "Exclude customers from the report.",
+   "label": "NOT_EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [
+    "negation"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "NEGATION"
+   ],
+   "similarity": 0.75
+  },
+  {
+   "id": "B2-047",
+   "a": "Busque anomalias nos dados de ontem.",
+   "b": "Localize as anomalias presentes nos dados de ontem.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-048",
+   "a": "Fetch 500 records from the dataset.",
+   "b": "Busque 5000 registros do conjunto de dados.",
+   "label": "NOT_EQUIVALENT",
+   "category": "QUANTITY",
+   "differs_in": [
+    "quantity"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION",
+    "DATA",
+    "QUANTITY"
+   ],
+   "similarity": 0.091
+  },
+  {
+   "id": "B2-049",
+   "a": "Escribe el resultado en una tabla.",
+   "b": "Escreva o resultado em Markdown.",
+   "label": "NOT_EQUIVALENT",
+   "category": "OUTPUT",
+   "differs_in": [
+    "output_format"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "OUTPUT"
+   ],
+   "similarity": 0.8
+  },
+  {
+   "id": "B2-050",
+   "a": "Write the summary in Portuguese, max 100 words.",
+   "b": "Produce a summary in Portuguese of no more than 100 words.",
+   "label": "EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-051",
+   "a": "Send the CSV to the person today.",
+   "b": "Envie o CSV para a pessoa hoje.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-052",
+   "a": "Analise as vendas de hoje.",
+   "b": "Analiza los clientes de hoy.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TARGET",
+   "differs_in": [
+    "target"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "DATA"
+   ],
+   "similarity": 0.789
+  },
+  {
+   "id": "B2-053",
+   "a": "Check anomaly #12.",
+   "b": "Verifica la anomalía #21.",
+   "label": "NOT_EQUIVALENT",
+   "category": "REFERENCE",
+   "differs_in": [
+    "reference"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "REFERENCES"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "B2-054",
+   "a": "Retrieve all sales from 2025.",
+   "b": "Get every sale record for the year 2025.",
+   "label": "EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-055",
+   "a": "Crea un reporte en JSON con 500 registros.",
+   "b": "Se debe crear un reporte JSON de 500 registros.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-056",
+   "a": "Compara los datos de ayer.",
+   "b": "Delete yesterday's data.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ACTION",
+   "differs_in": [
+    "action"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.429
+  },
+  {
+   "id": "B2-057",
+   "a": "Verify the audio files, then translate them into Spanish.",
+   "b": "First check the audio files; afterwards translate them to Spanish.",
+   "label": "EQUIVALENT",
+   "category": "ORDER",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-058",
+   "a": "Run the check with urgent priority.",
+   "b": "Execute a verificação com prioridade alta.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "priority"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION",
+    "MODIFIERS"
+   ],
+   "similarity": 0.2
+  },
+  {
+   "id": "B2-059",
+   "a": "Se houver mais de 100 registros, envie um alerta.",
+   "b": "Send an alert if there are fewer than 100 records.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [
+    "condition_threshold"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS"
+   ],
+   "similarity": 0.625
+  },
+  {
+   "id": "B2-060",
+   "a": "Execute a análise dos clientes do segundo trimestre de 2026.",
+   "b": "Analise os clientes do 2º trimestre de 2026.",
+   "label": "EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "QUANTITY"
+   ],
+   "similarity": 0.76
+  },
+  {
+   "id": "B2-061",
+   "a": "Allow users to modify the document.",
+   "b": "Users are permitted to modify the document.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-062",
+   "a": "Send the report with high priority.",
+   "b": "Send the report with urgent priority.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "priority"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "MODIFIERS"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "B2-063",
+   "a": "Compute sales for March 2026.",
+   "b": "Compute sales for April 2026.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "B2-064",
+   "a": "Find the top 5 anomalies marked high priority.",
+   "b": "Locate the top five anomalies that are high priority.",
+   "label": "EQUIVALENT",
+   "category": "QUANTITY",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-065",
+   "a": "No generes el reporte si hay menos de 100 registros.",
+   "b": "Do not generate the report if there are fewer than 100 records.",
+   "label": "EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-066",
+   "a": "Get the customers registered in 2025.",
+   "b": "Get the customers registered in 2026.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.762
+  },
+  {
+   "id": "B2-067",
+   "a": "Calculate the 2026-01 sales total.",
+   "b": "Compute total sales for January 2026.",
+   "label": "EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "DATA"
+   ],
+   "similarity": 0.789
+  },
+  {
+   "id": "B2-068",
+   "a": "Forbid users from modifying the document.",
+   "b": "Allow users to modify the document.",
+   "label": "NOT_EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [
+    "prohibition_vs_permission"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "NEGATION"
+   ],
+   "similarity": 0.75
+  },
+  {
+   "id": "B2-069",
+   "a": "Search the audio data for anomalies.",
+   "b": "Search the video data for anomalies.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TARGET",
+   "differs_in": [
+    "target"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "DATA"
+   ],
+   "similarity": 0.8
+  },
+  {
+   "id": "B2-070",
+   "a": "O envio de relatórios deve ser desativado.",
+   "b": "Desative o envio de relatórios.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.286
+  },
+  {
+   "id": "B2-071",
+   "a": "Compare dataset A with dataset B.",
+   "b": "Dataset A should be compared against dataset B.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-072",
+   "a": "Enable the alerts for company #4.",
+   "b": "Disable the alerts for company #4.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ACTION",
+   "differs_in": [
+    "action"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.684
+  },
+  {
+   "id": "B2-073",
+   "a": "Check the report.",
+   "b": "Send the report.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ACTION",
+   "differs_in": [
+    "action"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.286
+  },
+  {
+   "id": "B2-074",
+   "a": "Include the images when creating a product record.",
+   "b": "Create a product record, including the images.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "ACTION",
+    "CONDITIONS"
+   ],
+   "similarity": 0.423
+  },
+  {
+   "id": "B2-075",
+   "a": "Verifique os usuários com confiança abaixo de 0,80.",
+   "b": "Valide os usuários cuja confiança seja inferior a 0.80.",
+   "label": "EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-076",
+   "a": "Write the result as a table.",
+   "b": "Write the result as Markdown.",
+   "label": "NOT_EQUIVALENT",
+   "category": "OUTPUT",
+   "differs_in": [
+    "output_format"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "OUTPUT"
+   ],
+   "similarity": 0.8
+  },
+  {
+   "id": "B2-077",
+   "a": "Run the check today at high priority.",
+   "b": "Today, execute the check with high priority.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-078",
+   "a": "Show the top 5 products.",
+   "b": "Show the top 15 products.",
+   "label": "NOT_EQUIVALENT",
+   "category": "QUANTITY",
+   "differs_in": [
+    "limit"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONSTRAINTS"
+   ],
+   "similarity": 0.727
+  },
+  {
+   "id": "B2-079",
+   "a": "Analyze events from 2026-03-15.",
+   "b": "Analyze events from 2026-03-16.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "B2-080",
+   "a": "Traduza os relatórios para espanhol.",
+   "b": "Traduce los informes al español.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-081",
+   "a": "Obtenha o resultado do evento #300.",
+   "b": "Get event #300's result.",
+   "label": "EQUIVALENT",
+   "category": "REFERENCE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-082",
+   "a": "Translate the document into Portuguese.",
+   "b": "Translate the document into Spanish.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONSTRAINT",
+   "differs_in": [
+    "target_language"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONSTRAINTS"
+   ],
+   "similarity": 0.727
+  },
+  {
+   "id": "B2-083",
+   "a": "If confidence is below 0.80, delete the result.",
+   "b": "Delete the result.",
+   "label": "NOT_EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [
+    "condition_presence"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONDITIONS"
+   ],
+   "similarity": 0.7
+  },
+  {
+   "id": "B2-084",
+   "a": "Exclude customers from the report.",
+   "b": "The report must not include customers.",
+   "label": "EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-085",
+   "a": "Analiza las ventas de marzo de 2026.",
+   "b": "Examina las ventas de 2026-03.",
+   "label": "EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-086",
+   "a": "Update the customer record, then send a notification.",
+   "b": "Send a notification, then update the customer record.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ORDER",
+   "differs_in": [
+    "step_order"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MODERATE_DRIFT",
+   "fields": [
+    "ACTION"
+   ],
+   "similarity": 0.786
+  },
+  {
+   "id": "B2-087",
+   "a": "Study the audio data and write the results in Markdown.",
+   "b": "Write the results in Markdown after studying the audio data.",
+   "label": "EQUIVALENT",
+   "category": "ORDER",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-088",
+   "a": "Analyze sales for Q1 2026 and return JSON.",
+   "b": "Analyze customers for Q1 2026 and return CSV.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TARGET",
+   "differs_in": [
+    "target",
+    "output_format"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "DATA",
+    "OUTPUT"
+   ],
+   "similarity": 0.652
+  },
+  {
+   "id": "B2-089",
+   "a": "Delete users with confidence below 0.50.",
+   "b": "Verify users with confidence below 0.90.",
+   "label": "NOT_EQUIVALENT",
+   "category": "ACTION",
+   "differs_in": [
+    "action",
+    "confidence_threshold"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "ACTION",
+    "MODIFIERS"
+   ],
+   "similarity": 0.211
+  },
+  {
+   "id": "B2-090",
+   "a": "Encontre no máximo 50 clientes.",
+   "b": "Localize até 50 clientes, no máximo.",
+   "label": "EQUIVALENT",
+   "category": "QUANTITY",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-091",
+   "a": "Remove anomaly #9 from the report.",
+   "b": "Delete anomaly #9 from the report.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-092",
+   "a": "Envie o relatório #12 hoje.",
+   "b": "Envie o relatório #13 amanhã.",
+   "label": "NOT_EQUIVALENT",
+   "category": "REFERENCE",
+   "differs_in": [
+    "reference",
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "REFERENCES",
+    "TIME"
+   ],
+   "similarity": 0.583
+  },
+  {
+   "id": "B2-093",
+   "a": "Translate the video data into Spanish, max 20 records.",
+   "b": "Translate the audio data into Portuguese, max 200 records.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TARGET",
+   "differs_in": [
+    "target",
+    "target_language",
+    "limit"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "CONSTRAINTS",
+    "DATA"
+   ],
+   "similarity": 0.545
+  },
+  {
+   "id": "B2-094",
+   "a": "Get the users list as a CSV file.",
+   "b": "Retrieve the list of users in CSV format.",
+   "label": "EQUIVALENT",
+   "category": "OUTPUT",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-095",
+   "a": "If confidence is below 0.80, do not send the result.",
+   "b": "Never send the result when confidence is under 0.80.",
+   "label": "EQUIVALENT",
+   "category": "CONDITION",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-096",
+   "a": "Compute total sales for this week.",
+   "b": "Compute total sales for last month.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [
+    "period"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "TIME"
+   ],
+   "similarity": 0.737
+  },
+  {
+   "id": "B2-097",
+   "a": "Update the dataset with yesterday's sales.",
+   "b": "Actualiza el conjunto de datos con las ventas de ayer.",
+   "label": "EQUIVALENT",
+   "category": "PARAPHRASE",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  },
+  {
+   "id": "B2-098",
+   "a": "Never run the check on yesterday's data.",
+   "b": "Run the check on yesterday's data.",
+   "label": "NOT_EQUIVALENT",
+   "category": "NEGATION",
+   "differs_in": [
+    "negation"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "CRITICAL_DRIFT",
+   "fields": [
+    "NEGATION"
+   ],
+   "similarity": 0.6
+  },
+  {
+   "id": "B2-099",
+   "a": "Compare os clientes de 2025 com os usuários de 2026.",
+   "b": "Compare os clientes de 2025 com os clientes de 2026.",
+   "label": "NOT_EQUIVALENT",
+   "category": "TARGET",
+   "differs_in": [
+    "target"
+   ],
+   "pred_equivalent": false,
+   "drift_level": "MAJOR_DRIFT",
+   "fields": [
+    "DATA"
+   ],
+   "similarity": 0.905
+  },
+  {
+   "id": "B2-100",
+   "a": "Verifique os dados de 31 de março de 2026.",
+   "b": "Verify the data for March 31, 2026.",
+   "label": "EQUIVALENT",
+   "category": "TIME",
+   "differs_in": [],
+   "pred_equivalent": true,
+   "drift_level": "NO_DRIFT",
+   "fields": [],
+   "similarity": 1.0
+  }
+ ],
+ "ambiguity": [],
+ "contradiction": []
+}

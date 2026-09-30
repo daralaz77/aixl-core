@@ -1,0 +1,1 @@
+rule {"n": 100, "tp": 33, "fp": 4, "fn": 17, "tn": 46, "accuracy": 0.79, "precision": 0.8919, "recall": 0.66, "f1": 0.7586, "false_positive_rate": 0.08, "false_negative_rate": 0.34, "critical": "35/36", "parse_failures": 0, "parse_failure_ids": []}

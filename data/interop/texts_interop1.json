@@ -1,0 +1,602 @@
+[
+ {
+  "pair": "S9-053",
+  "text": "Export the results as a CSV file.",
+  "tid": "t001",
+  "orig_tid": "t001"
+ },
+ {
+  "pair": "S9-073",
+  "text": "Verify the product data before publishing.",
+  "tid": "t002",
+  "orig_tid": "t003"
+ },
+ {
+  "pair": "S9-075",
+  "text": "Compare the sales figures between the two branches.",
+  "tid": "t003",
+  "orig_tid": "t005"
+ },
+ {
+  "pair": "S9-042",
+  "text": "Update issue number 58.",
+  "tid": "t004",
+  "orig_tid": "t007"
+ },
+ {
+  "pair": "S9-081",
+  "text": "Present the anomaly summary as a table.",
+  "tid": "t005",
+  "orig_tid": "t009"
+ },
+ {
+  "pair": "S9-023",
+  "text": "Retrieve the customer list for Nova Logistics.",
+  "tid": "t006",
+  "orig_tid": "t011"
+ },
+ {
+  "pair": "S9-095",
+  "text": "Notify Kaelis Group about the update.",
+  "tid": "t007",
+  "orig_tid": "t013"
+ },
+ {
+  "pair": "S9-074",
+  "text": "Compare the sales figures between the two branches.",
+  "tid": "t008",
+  "orig_tid": "t015"
+ },
+ {
+  "pair": "S9-037",
+  "text": "Remove products older than six months.",
+  "tid": "t009",
+  "orig_tid": "t017"
+ },
+ {
+  "pair": "S9-051",
+  "text": "Limit the output to 5 anomalies.",
+  "tid": "t010",
+  "orig_tid": "t019"
+ },
+ {
+  "pair": "S9-020",
+  "text": "Include customers from last month in the report.",
+  "tid": "t011",
+  "orig_tid": "t021"
+ },
+ {
+  "pair": "S9-041",
+  "text": "Close ticket #77.",
+  "tid": "t012",
+  "orig_tid": "t023"
+ },
+ {
+  "pair": "S9-010",
+  "text": "Update today's inventory report.",
+  "tid": "t013",
+  "orig_tid": "t025"
+ },
+ {
+  "pair": "S9-088",
+  "text": "Primero calcula las ventas y después envía el resultado a Delta Corp.",
+  "tid": "t014",
+  "orig_tid": "t027"
+ },
+ {
+  "pair": "S9-030",
+  "text": "Envía el recordatorio a las 2:30pm.",
+  "tid": "t015",
+  "orig_tid": "t029"
+ },
+ {
+  "pair": "S9-064",
+  "text": "If the dataset has more than 100 records, notify the team.",
+  "tid": "t016",
+  "orig_tid": "t031"
+ },
+ {
+  "pair": "S9-067",
+  "text": "When sales exceed the quarterly target, send an alert.",
+  "tid": "t017",
+  "orig_tid": "t033"
+ },
+ {
+  "pair": "S9-034",
+  "text": "Delete customers older than one year.",
+  "tid": "t018",
+  "orig_tid": "t035"
+ },
+ {
+  "pair": "S9-086",
+  "text": "First validate the data, then generate the report.",
+  "tid": "t019",
+  "orig_tid": "t037"
+ },
+ {
+  "pair": "S9-005",
+  "text": "Analiza los datos de este año.",
+  "tid": "t020",
+  "orig_tid": "t039"
+ },
+ {
+  "pair": "S9-077",
+  "text": "Revisa los datos de los usuarios registrados este mes.",
+  "tid": "t021",
+  "orig_tid": "t041"
+ },
+ {
+  "pair": "S9-061",
+  "text": "If there are more than 100 records, generate a summary.",
+  "tid": "t022",
+  "orig_tid": "t043"
+ },
+ {
+  "pair": "S9-085",
+  "text": "Write the comparison report in JSON.",
+  "tid": "t023",
+  "orig_tid": "t045"
+ },
+ {
+  "pair": "S9-080",
+  "text": "Present the anomaly summary as a table.",
+  "tid": "t024",
+  "orig_tid": "t047"
+ },
+ {
+  "pair": "S9-092",
+  "text": "Comparte el informe con el equipo de Orbex.",
+  "tid": "t025",
+  "orig_tid": "t049"
+ },
+ {
+  "pair": "S9-057",
+  "text": "Flag anomalies with confidence above 0.80.",
+  "tid": "t026",
+  "orig_tid": "t051"
+ },
+ {
+  "pair": "S9-062",
+  "text": "Si la confianza es menor a 0.80, descarta el resultado.",
+  "tid": "t027",
+  "orig_tid": "t053"
+ },
+ {
+  "pair": "S9-076",
+  "text": "Revisa los datos de los usuarios registrados este mes.",
+  "tid": "t028",
+  "orig_tid": "t055"
+ },
+ {
+  "pair": "S9-090",
+  "text": "Send the invoice to Bright Path Inc.",
+  "tid": "t029",
+  "orig_tid": "t057"
+ },
+ {
+  "pair": "S9-047",
+  "text": "Retrieve the top 10 results.",
+  "tid": "t030",
+  "orig_tid": "t059"
+ },
+ {
+  "pair": "S9-019",
+  "text": "Elimina las imágenes duplicadas del conjunto de datos.",
+  "tid": "t031",
+  "orig_tid": "t061"
+ },
+ {
+  "pair": "S9-036",
+  "text": "Elimina los usuarios con más de un año de antigüedad.",
+  "tid": "t032",
+  "orig_tid": "t063"
+ },
+ {
+  "pair": "S9-033",
+  "text": "Genera el resumen antes de las 11:00 a.m.",
+  "tid": "t033",
+  "orig_tid": "t065"
+ },
+ {
+  "pair": "S9-098",
+  "text": "Analiza los eventos entre el 1 y el 15 de agosto de 2026.",
+  "tid": "t034",
+  "orig_tid": "t067"
+ },
+ {
+  "pair": "S9-083",
+  "text": "Genera el resultado en formato Markdown.",
+  "tid": "t035",
+  "orig_tid": "t069"
+ },
+ {
+  "pair": "S9-084",
+  "text": "Write the comparison report in JSON.",
+  "tid": "t036",
+  "orig_tid": "t071"
+ },
+ {
+  "pair": "S9-094",
+  "text": "Notify Kaelis Group about the update.",
+  "tid": "t037",
+  "orig_tid": "t073"
+ },
+ {
+  "pair": "S9-063",
+  "text": "Si la confianza es menor a 0.80, descarta el resultado.",
+  "tid": "t038",
+  "orig_tid": "t075"
+ },
+ {
+  "pair": "S9-040",
+  "text": "Close ticket #77.",
+  "tid": "t039",
+  "orig_tid": "t077"
+ },
+ {
+  "pair": "S9-056",
+  "text": "Flag anomalies with confidence above 0.80.",
+  "tid": "t040",
+  "orig_tid": "t079"
+ },
+ {
+  "pair": "S9-069",
+  "text": "Examine the audio files for background noise.",
+  "tid": "t041",
+  "orig_tid": "t081"
+ },
+ {
+  "pair": "S9-045",
+  "text": "Verify report #12.",
+  "tid": "t042",
+  "orig_tid": "t083"
+ },
+ {
+  "pair": "S9-066",
+  "text": "When sales exceed the quarterly target, send an alert.",
+  "tid": "t043",
+  "orig_tid": "t085"
+ },
+ {
+  "pair": "S9-039",
+  "text": "Archive events older than two weeks.",
+  "tid": "t044",
+  "orig_tid": "t087"
+ },
+ {
+  "pair": "S9-008",
+  "text": "Fetch tomorrow's customer list.",
+  "tid": "t045",
+  "orig_tid": "t089"
+ },
+ {
+  "pair": "S9-028",
+  "text": "Send the invoice before 3pm.",
+  "tid": "t046",
+  "orig_tid": "t091"
+ },
+ {
+  "pair": "S9-016",
+  "text": "Enable notifications for anomaly alerts.",
+  "tid": "t047",
+  "orig_tid": "t093"
+ },
+ {
+  "pair": "S9-002",
+  "text": "Genera el reporte de ventas de ayer.",
+  "tid": "t048",
+  "orig_tid": "t095"
+ },
+ {
+  "pair": "S9-072",
+  "text": "Verify the product data before publishing.",
+  "tid": "t049",
+  "orig_tid": "t097"
+ },
+ {
+  "pair": "S9-032",
+  "text": "Cierra el reporte antes de las 18:00.",
+  "tid": "t050",
+  "orig_tid": "t099"
+ },
+ {
+  "pair": "S9-025",
+  "text": "Analise os dados de vendas do último trimestre.",
+  "tid": "t051",
+  "orig_tid": "t101"
+ },
+ {
+  "pair": "S9-004",
+  "text": "Send the report for last month.",
+  "tid": "t052",
+  "orig_tid": "t103"
+ },
+ {
+  "pair": "S9-068",
+  "text": "Examine the audio files for background noise.",
+  "tid": "t053",
+  "orig_tid": "t105"
+ },
+ {
+  "pair": "S9-093",
+  "text": "Comparte el informe con el equipo de Orbex.",
+  "tid": "t054",
+  "orig_tid": "t107"
+ },
+ {
+  "pair": "S9-046",
+  "text": "Retrieve the top 10 results.",
+  "tid": "t055",
+  "orig_tid": "t109"
+ },
+ {
+  "pair": "S9-013",
+  "text": "Please locate the anomaly in the dataset.",
+  "tid": "t056",
+  "orig_tid": "t111"
+ },
+ {
+  "pair": "S9-003",
+  "text": "Send the report for last month.",
+  "tid": "t057",
+  "orig_tid": "t113"
+ },
+ {
+  "pair": "S9-052",
+  "text": "Export the results as a CSV file.",
+  "tid": "t058",
+  "orig_tid": "t115"
+ },
+ {
+  "pair": "S9-089",
+  "text": "Primero calcula las ventas y después envía el resultado a Delta Corp.",
+  "tid": "t059",
+  "orig_tid": "t117"
+ },
+ {
+  "pair": "S9-096",
+  "text": "Generate the sales report for Q3 2026.",
+  "tid": "t060",
+  "orig_tid": "t119"
+ },
+ {
+  "pair": "S9-026",
+  "text": "É permitido excluir o evento #40.",
+  "tid": "t061",
+  "orig_tid": "t121"
+ },
+ {
+  "pair": "S9-070",
+  "text": "Busca al cliente con el correo repetido.",
+  "tid": "t062",
+  "orig_tid": "t123"
+ },
+ {
+  "pair": "S9-059",
+  "text": "Translate the document into French.",
+  "tid": "t063",
+  "orig_tid": "t125"
+ },
+ {
+  "pair": "S9-097",
+  "text": "Generate the sales report for Q3 2026.",
+  "tid": "t064",
+  "orig_tid": "t127"
+ },
+ {
+  "pair": "S9-012",
+  "text": "Allow external users to access the report.",
+  "tid": "t065",
+  "orig_tid": "t129"
+ },
+ {
+  "pair": "S9-054",
+  "text": "Marca esta tarea con prioridad urgente.",
+  "tid": "t066",
+  "orig_tid": "t131"
+ },
+ {
+  "pair": "S9-029",
+  "text": "Envía el recordatorio a las 2:30pm.",
+  "tid": "t067",
+  "orig_tid": "t133"
+ },
+ {
+  "pair": "S9-027",
+  "text": "Send the invoice before 3pm.",
+  "tid": "t068",
+  "orig_tid": "t135"
+ },
+ {
+  "pair": "S9-038",
+  "text": "Archiva los eventos con más de dos semanas de antigüedad.",
+  "tid": "t069",
+  "orig_tid": "t137"
+ },
+ {
+  "pair": "S9-014",
+  "text": "Envía el informe a Contoso.",
+  "tid": "t070",
+  "orig_tid": "t139"
+ },
+ {
+  "pair": "S9-050",
+  "text": "Generate a report with 50 records.",
+  "tid": "t071",
+  "orig_tid": "t141"
+ },
+ {
+  "pair": "S9-009",
+  "text": "Elimina los registros de este mes.",
+  "tid": "t072",
+  "orig_tid": "t143"
+ },
+ {
+  "pair": "S9-091",
+  "text": "Send the invoice to Bright Path Inc.",
+  "tid": "t073",
+  "orig_tid": "t145"
+ },
+ {
+  "pair": "S9-017",
+  "text": "Calculate the total sales for Acme Corp.",
+  "tid": "t074",
+  "orig_tid": "t147"
+ },
+ {
+  "pair": "S9-015",
+  "text": "Traduce el documento al portugués.",
+  "tid": "t075",
+  "orig_tid": "t149"
+ },
+ {
+  "pair": "S9-007",
+  "text": "Fetch tomorrow's customer list.",
+  "tid": "t076",
+  "orig_tid": "t151"
+ },
+ {
+  "pair": "S9-031",
+  "text": "Schedule the call for 9am.",
+  "tid": "t077",
+  "orig_tid": "t153"
+ },
+ {
+  "pair": "S9-082",
+  "text": "Genera el resultado en formato Markdown.",
+  "tid": "t078",
+  "orig_tid": "t155"
+ },
+ {
+  "pair": "S9-021",
+  "text": "The report must be sent to the finance team.",
+  "tid": "t079",
+  "orig_tid": "t157"
+ },
+ {
+  "pair": "S9-055",
+  "text": "Marca esta tarea con prioridad urgente.",
+  "tid": "t080",
+  "orig_tid": "t159"
+ },
+ {
+  "pair": "S9-058",
+  "text": "Translate the document into French.",
+  "tid": "t081",
+  "orig_tid": "t161"
+ },
+ {
+  "pair": "S9-022",
+  "text": "You may run the script without supervision.",
+  "tid": "t082",
+  "orig_tid": "t163"
+ },
+ {
+  "pair": "S9-049",
+  "text": "Analiza 100 registros de ventas.",
+  "tid": "t083",
+  "orig_tid": "t165"
+ },
+ {
+  "pair": "S9-006",
+  "text": "Analiza los datos de este año.",
+  "tid": "t084",
+  "orig_tid": "t167"
+ },
+ {
+  "pair": "S9-099",
+  "text": "Analiza los eventos entre el 1 y el 15 de agosto de 2026.",
+  "tid": "t085",
+  "orig_tid": "t169"
+ },
+ {
+  "pair": "S9-071",
+  "text": "Busca al cliente con el correo repetido.",
+  "tid": "t086",
+  "orig_tid": "t171"
+ },
+ {
+  "pair": "S9-043",
+  "text": "Actualiza el caso número 58.",
+  "tid": "t087",
+  "orig_tid": "t173"
+ },
+ {
+  "pair": "S9-011",
+  "text": "Verifica que todos los documentos estén firmados.",
+  "tid": "t088",
+  "orig_tid": "t175"
+ },
+ {
+  "pair": "S9-078",
+  "text": "Check the video files for corruption.",
+  "tid": "t089",
+  "orig_tid": "t177"
+ },
+ {
+  "pair": "S9-100",
+  "text": "Compare results from 2024 and 2025.",
+  "tid": "t090",
+  "orig_tid": "t179"
+ },
+ {
+  "pair": "S9-065",
+  "text": "If the dataset has more than 100 records, notify the team.",
+  "tid": "t091",
+  "orig_tid": "t181"
+ },
+ {
+  "pair": "S9-044",
+  "text": "Revisa el reporte #203 antes de enviarlo.",
+  "tid": "t092",
+  "orig_tid": "t183"
+ },
+ {
+  "pair": "S9-001",
+  "text": "Compara las ventas de ayer con las de hoy.",
+  "tid": "t093",
+  "orig_tid": "t185"
+ },
+ {
+  "pair": "S9-087",
+  "text": "First validate the data, then generate the report.",
+  "tid": "t094",
+  "orig_tid": "t187"
+ },
+ {
+  "pair": "S9-024",
+  "text": "Se debe validar el resultado antes de publicarlo.",
+  "tid": "t095",
+  "orig_tid": "t189"
+ },
+ {
+  "pair": "S9-018",
+  "text": "Está permitido eliminar los registros duplicados.",
+  "tid": "t096",
+  "orig_tid": "t191"
+ },
+ {
+  "pair": "S9-035",
+  "text": "Delete customers older than one year.",
+  "tid": "t097",
+  "orig_tid": "t193"
+ },
+ {
+  "pair": "S9-048",
+  "text": "Analiza 100 registros de ventas.",
+  "tid": "t098",
+  "orig_tid": "t195"
+ },
+ {
+  "pair": "S9-079",
+  "text": "Check the video files for corruption.",
+  "tid": "t099",
+  "orig_tid": "t197"
+ },
+ {
+  "pair": "S9-060",
+  "text": "If there are more than 100 records, generate a summary.",
+  "tid": "t100",
+  "orig_tid": "t199"
+ }
+]

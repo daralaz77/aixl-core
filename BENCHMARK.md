@@ -1,0 +1,71 @@
+# AIXL 0.3 — Benchmark (methodology and results)
+
+**Labels used in this document.** `DEMO` = written by the code's author, illustrates behaviour. `EVIDENCE` = independent blind authors (model agents that never saw the code), evaluated once before any tuning on that set. `NOT VALIDATED` = no real-world validation exists. Everything is pre-registered in `BENCHMARK/PREREG_0.3.md` (criteria, freeze hashes, and the rules that were added after each run).
+
+## 1. Sets
+| Set | What | Authors | Status |
+|---|---|---|---|
+| `data/dev200.jsonl` (220 cases) | spec §30 schema, 10 categories | me (same as the code) | DEMO/dev |
+| `data/blind` (200 pairs + 40 items) | 100 EQ + 100 NEQ; ambiguity 20; contradiction 20 | 3 Sonnet agents, no code access | first run = EVIDENCE; later runs CONTAMINATED |
+| `data/blind2`, `blind3`, `blind4` (200 pairs each) | 100 EQ + 100 NEQ, ≥ 30 minimal pairs among the NEQ | 2 fresh Sonnet agents per set | each set: first run = EVIDENCE, then contaminated |
+Labels are single-annotator (the authors); no adjudication. The equivalence rule given to the authors is in `PREREG_0.3.md`.
+
+## 2. Headline: equivalence accuracy on FRESH blind sets (first run only)
+Positive class = EQUIVALENT. Criteria (spec §42, treated as experimental targets): S1 accuracy ≥ 90 %, S2 critical-drift detection ≥ 90 %.
+
+| Route | Set | Accuracy | Precision | Recall | F1 | FP | FN | Critical drift (S2) |
+|---|---|---|---|---|---|---|---|---|
+| rule-based translator | 1 (before any fix) | 72.0 % | 87.9 % | 51 % | 0.646 | 7 | 49 | 89.6 % (60/67) |
+| rule-based | 2 (after fixes from set 1) | 80.0 % | 95.5 % | 63 % | 0.759 | 3 | 37 | 97.0 % (65/67) |
+| rule-based | 3 (after fixes from sets 1–2) | 76.0 % | 91.9 % | 57 % | 0.704 | 5 | 43 | 91.8 % (56/61) |
+| rule-based | 4 (after fixes from sets 1–3) | 76.0 % | 90.6 % | 58 % | 0.707 | 6 | 42 | 92.1 % (58/63) |
+| **LLM translator (Haiku 4.5) + core** | **4 (fresh)** | **96.0 %** | 97.9 % | 94 % | 0.959 | 2 | 6 | 96.8 % (61/63) |
+| **LLM translator (Sonnet 5) + core** | **4 (fresh)** | **96.5 %** | 97.9 % | 95 % | 0.965 | 2 | 5 | 96.8 % (61/63) |
+| LLM (Haiku) + core | 3 (card extension written after reading rule-based failures) | 91.0 % | 98.8 % | 83 % | 0.902 | 1 | 17 | 95.1 %; 18 unparsable lines |
+| LLM (Sonnet) + core | 3 (same caveat) | 95.5 % | 100 % | 91 % | 0.953 | 0 | 9 | 100 % |
+
+**Interpretation (INTERPRETATION, not fact).** (1) The rule-based route does NOT reach S1 on unseen phrasing: accuracy plateaus at 76–80 % over three consecutive fresh sets even though ~50 gaps were fixed after sets 1 and 2; each new set brings a new long tail. Its precision is high (≥ 88 %), i.e. when it says "equivalent" it is usually right; recall is the problem (it misses paraphrases). (2) S2 (critical drift) is met by both routes except on set 1 (89.6 %). (3) Feeding the SAME deterministic core (graph, normalizer, comparator, drift) with AIXL produced by an LLM following `data/llm_translator/card_0.3.md` reaches 96 % on a fresh set (S1 met): the core is not the bottleneck; the translator is. (4) Caveats that limit this claim: authors and encoders are all Anthropic models (correlated notion of equivalence; no GPT/Gemini/open-source encoder tested); one pass per model; card extension written knowing failure *classes* seen on sets 1–3 (not set 4 sentences); labels unadjudicated; n = 200 pairs per set (95 % CI for an accuracy of 96 % is roughly ±3 pts).
+
+## 3. Other spec metrics
+| Metric | Result | Note |
+|---|---|---|
+| Preservation through text → graph → AIXL → graph (S3) | 100 % of elements, 100 % full canonical roundtrip on all blind texts | weak by construction: it proves the serializer is lossless for what the graph captured, not that the translator captured everything; capture is measured by S2 and by the per-category accuracies |
+| Ambiguity detection (blind items C, n = 20, FIRST run) | 90 % (P 0.90, R 0.90) | post-fix 95 % is CONTAMINATED |
+| Contradiction detection (n = 20, FIRST run) | 75 % (P 0.78, R 0.70) | post-fix 90 % is CONTAMINATED |
+| Dev 200-case benchmark (DEMO) | 100 % equivalence accuracy, 74/74 critical drift, 100 % ambiguity, 100 % contradiction, overall 100 % | same author as the code, cases written after the code existed; it only shows the code does what its author expects |
+| Latency (rule-based) | ≈ 0.6–0.7 ms per `compare` (two translations + comparison), local CPU | LLM route latency not measured |
+| Structural compression (425 texts, dev set) | chars: AIXL is **+130 % LONGER** than the sentence; words +8 %; **cl100k tokens (OpenAI tokenizer, proxy) +246 % (AIXL uses 3.5× the tokens of the text)**; AIXL is 64 % fewer tokens than the canonical JSON | AIXL is not a compression format; no Claude/Gemini tokenizer was available |
+
+## 4. Reproduce
+```bash
+cd ~/.claude/skills/aixl-core && python3 -m venv .venv && .venv/bin/pip install pytest tiktoken
+.venv/bin/python -m pytest -q                                   # 99 tests
+.venv/bin/python -m benchmarks.run_all                          # dev200 + blind1 (contaminated) + compression
+.venv/bin/python -m benchmarks.blind_eval --round 4             # rule-based route on a blind set (set 4)
+.venv/bin/python -m benchmarks.llm_translator_eval sonnet data/llm_translator/answers4/sonnet_1.txt data/llm_translator/answers4/sonnet_2.txt --set4
+```
+First-run result files are read-only: `BENCHMARK/results_blind{1,2,3}_FIRST_RUN.json`, `results_blind4_FIRST_RUN_rulebased.json`; `*_CONTAMINATED.json` are post-fix numbers on data I had read.
+
+## 5. Multi-model design (spec §35)
+`MODEL → translator → AIXL → codec → SemanticGraph → Comparator`. Any model that can emit AIXL following `card_0.3.md` plugs in through `benchmarks/llm_translator_eval.py` (answers file per model). Measured so far: Haiku 4.5, Sonnet 5. **Not measured: GPT, Gemini, Llama, Mistral.**
+
+## 6. Learning-curve / self-deception log
+* Set 1 first run failed S1 (72 %). I fixed what I read, and the fixed system scored 95.5 % on the same set (contaminated, meaningless) but only 80 % on fresh set 2. Repeating the loop gave 76 % on set 3 and 76 % on set 4. The honest generalization estimate for the rule-based translator is therefore ≈ 76–80 %.
+* The dev-200 100 % and the six demos must not be quoted as performance.
+* E-DATE round 1 (set 6 → date/time/duration fixes) put the reference-clock resolution ONLY in the rule-based translator. Round 2 (set 7) showed this left the LLM route unable to match `T:TODAY` against a literal date at all (Sonnet accuracy on set 7 was 80 %, well below the 94–96 % seen on sets 4–6) — the resolution belonged in `SemanticGraph.canonical()` (comparison time), not the translator. Moved it there; set 7 (re-measured on the SAME already-seen answers, not fresh evidence) went 80 % → 87 %. A further duration-unit fix (1 year = 12 months) found from set 7's remaining misses took it to 88 %. Both fixes were then confirmed on a genuinely fresh set 8 before being reported as evidence (see E-DATE results below) — set 7's post-hoc numbers are a debugging trace, not a claim.
+
+## 7. Cross-vendor test E-XV (set 5, 2026-09-27)
+Removes the main threat to the LLM-route result (authors and encoders were all Anthropic). 200 pairs authored by Gemini and ChatGPT; encoders: Haiku 4.5, Sonnet 5, Gemini, ChatGPT (free web) with the frozen card, plus the frozen rule-based code. Accuracy: Haiku 96.5 %, Sonnet 96.5 %, Gemini 95.0 %, ChatGPT 93.5 %, rule-based 78.5 %. Critical drift 58–61 of 61 for every route. S1 met by all LLM encoders, not by the rule-based route. Full table, caveats and parse-failure analysis: `BENCHMARK/PREREG_0.3.md` (E-XV results). Reproduce: `python -m benchmarks.xv_eval rule` / `python -m benchmarks.xv_eval <name> data/xv/answers5/<name>_{1,2,3,4}.txt`.
+
+## 8. Codec-fix confirmation E-CODEC (set 6, 2026-09-27)
+After E-XV surfaced 26/1600 (1.6 %) LLM answers that failed to parse, three codec tolerance fixes were made (`O:` as a list atom, stray space after a comparator, repeated list-atom letters merged) — see LIMITATIONS.md. Re-measured on a brand-new blind set (100 pairs, never seen before): Sonnet 5 as LLM translator 94.0 % accuracy, 0 parse failures (rule-based baseline 81.0 %, also 0 parse failures — expected, the rule-based route never emitted the offending patterns). Full table and residual (non-codec) misses: `BENCHMARK/PREREG_0.3.md` (E-CODEC results). Reproduce: `python -m benchmarks.set6_eval rule` / `python -m benchmarks.set6_eval sonnet data/xv/answers6_sonnet.txt`.
+
+## 9. Date/time/duration/reference fixes E-DATE (sets 6-9, 2026-09-27)
+Closed the residual gaps E-CODEC left on set 6, across 3 iteration rounds (each round's fixes verified only on the SAME set they were found on, then confirmed on the next fresh set before being trusted — see §6 for the honest trace): (1) reference clock (relative day/month/year resolve against a reference date, moved to `SemanticGraph.canonical()` so it covers both the rule-based AND LLM routes — round 1 put it only in the translator, which round 2 showed was insufficient for LLM-decoded graphs); (2) date ranges (DD/MM/YYYY, two-day-one-month-year phrasing); (3) clock-time BEFORE=/AFTER=/TIME_AT= constraints (12h↔24h), closing a real false-EQUIVALENT for two different deadlines; (4) AGE/duration constraint with year↔month unit conversion; (5) bare-number references ("ticket número 77" = "#77"); (6) the LLM-facing card was updated to teach AGE=/TIME_AT=/bare-number-reference (round 3 — the frozen card from E-XV/E-CODEC had never taught these, which was silently dropping information on the LLM route, a worse bug than a miss). Priority synonyms ("urgent" vs "high priority") were checked against the corpus (23 pairs across 6 rounds say NOT_EQUIVALENT, 1 says EQUIVALENT) and deliberately left unchanged. Final result on set 9 (fresh, never seen, code+card frozen): **Sonnet 95.0 % accuracy, 0 parse failures, 39/39 critical drift**; rule-based 88.0 % (still short of S1, consistent with the standing finding that the rule-based route does not generalize). Full round-by-round trace, remaining known gaps (weekday-relative dates, LLM literal-text quoting of unrecognized clauses) and reproduction commands: `BENCHMARK/PREREG_0.3.md` (E-DATE final result) and `LIMITATIONS.md`.
+
+## 10. Cross-vendor ENCODING consistency E-INTEROP (2026-09-29)
+Every prior cross-vendor experiment measured whether the comparator judges pre-written, pre-labelled pairs correctly. None measured whether two independent vendor encoders, given the SAME text and the SAME card, converge on AIXL that they'd recognize as each other's. This is the actual interoperability claim, and it had never been tested. Result on 100 standalone texts (Sonnet + Gemini, single pass each, frozen code+card): **53 % cross-vendor consistency** at baseline — sharply lower than the 93.5–96.5 % judge-accuracy numbers, because that's a different question. Root cause of 38 % of the disagreements: a genuine protocol ambiguity (not a bug) — Sonnet defaults unrecognized verbs to `I:UNKNOWN`, Gemini guesses the closest known action instead. A real crash bug was found and fixed along the way (`derive_intent` raised on an out-of-vocabulary action value instead of degrading gracefully — `test_bug032`).
+The user chose to close this gap with a shared, explicit, deterministic vocabulary (the only real "way to reach agreement" for two parties that never talk live): 3 bounded rounds (a much bigger VERB TABLE covering ~40 new EN/ES/PT synonyms, a tie-break rule for generic-verb-vs-specific-object ambiguity, then narrowing that rule and fixing 2 more gaps it exposed) took cross-vendor consistency **53 % → 69 % → 79 %**, with 0 parse failures by round 3 (`test_bug033`). Full round-by-round breakdown and the honest "not chased further" call: `BENCHMARK/PREREG_0.3.md` (E-INTEROP final result) and `LIMITATIONS.md`. Reproduce: `python -m benchmarks.interop_eval` (round 1) or decode+compare `data/interop/{sonnet,gemini}_answers_round3.txt` (final round).
+
+## 11. Live negotiation protocol E-NEGOTIATE (2026-09-30)
+Built at the user's request after E-INTEROP: a bounded clarification exchange (`aixl/negotiation.py`) so two agents that disagree don't silently guess or crash. New wire format (`NEGOTIATE X=REQUEST|CLARIFY|ANSWER|ACCEPT|REJECT ...`), separate from AIXL's own atoms; each round resolves the single worst-severity disagreement first; the sender (holder of the original instruction) is trusted for that one dimension; ends in an honest ACCEPT or REJECT, never an infinite loop. A real bug (round-cap off-by-one) was found by running it on genuine data, not caught by unit tests alone. Measured on the real 21 E-INTEROP disagreements: **21/21 converge, avg 1.14 rounds**. A live demo with two independent Sonnet subagents (spec-only, no code access) produced a real 3-turn exchange that decodes cleanly — and caught a real spec ambiguity (multi-value candidates) on the first attempt, fixed and re-verified. Full design rationale, the round-cap bug, and honest scope limits (not yet a live multi-round autonomous exchange, not yet wired into the CLI): `BENCHMARK/PREREG_0.3.md` (E-NEGOTIATE) and `data/negotiation/live_demo_transcript.md`. Wired into the CLI/API 2026-09-30: `aixl.negotiate`/`aixl.negotiate_aixl` (same pattern as `compare`/`compare_aixl`), `python cli.py negotiate SENDER RECEIVER [--rounds N] [--json]` / `negotiate-aixl`. Testing the real CLI output (not any unit test) caught a second bug: the CLARIFY turn's candidates/question had receiver and sender swapped in the DISPLAYED wording (the resolved value was always correct regardless) — fixed. Reproduce: `python -m benchmarks.negotiation_eval` or `python cli.py negotiate "Close ticket #77." "Delete ticket #77."`.

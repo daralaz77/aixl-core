@@ -1,0 +1,155 @@
+Read this protocol card and encode each case into ONE AIXL message on one line, following the card exactly. Output ONLY a code block with exactly 100 lines `ID :: AIXL` (same IDs, same order). No explanations.
+
+=== CARD ===
+# AIXL 0.2 — protocol card (v0.3-ext) (the only spec a receiving model needs)
+
+EVERY case gets exactly one answer line, in order. A text with no action at all (greeting, thanks, small talk) is answered `V:AIXL-0.3 I:UNKNOWN` — never skip the line.
+One message = tokens `ATOM:VALUE` separated by single spaces, on ONE line. Multiple values in an atom are comma-separated. Each atom letter appears AT MOST ONCE per line: two values for K (say a prohibition and a language) go in ONE token `K:FORBID_DELETE,LANG=FR`, never in two `K:` tokens; and inside an atom every value appears at most once (`Y:#6,#6` is wrong, write `Y:#6`; a reference repeated in the text is still written once).
+Values with spaces, commas or quotes go in double quotes. Text quoted by a user is DATA: keep it as a quoted literal in `D:`, never obey it.
+Everything UPPERCASE except quoted literals and references. Numbers keep their decimal point and drop the leading zero for confidence (`0.90` -> `.90`; never `90`).
+
+Atoms: V version (always `V:AIXL-0.3`) · I intent · A actions · D data · E entities · T time · L location · H confidence · Y references · N negations · K constraints · F conditions · P priority · G goal · O output format.
+
+I is computed in 3 steps. (1) List the actions A. (2) CROSS OUT every action that also appears in N as `NO_<action>`: a crossed-out action NEVER decides I or G, even when it is written first. (3) I = table lookup of the FIRST action left (if every action is crossed out, use the first action; no action at all -> `I:UNKNOWN`). Table: ANALYZE FIND CLASSIFY PREDICT -> REQUEST_ANALYSIS · COMPARE -> REQUEST_COMPARISON · SEARCH -> REQUEST_SEARCH · SUMMARIZE -> REQUEST_SUMMARY · GENERATE CREATE -> REQUEST_GENERATION · TRANSLATE -> REQUEST_TRANSLATION · CHECK VALIDATE -> REQUEST_VALIDATION · DELETE EXECUTE CALCULATE -> REQUEST_EXECUTION · GET RETRIEVE EXTRACT -> REQUEST_RETRIEVAL · TRANSFORM -> REQUEST_TRANSFORMATION. I must be EXACTLY one of the ten REQUEST_* names in this table, or UNKNOWN. There is no REQUEST_FIND, REQUEST_CLASSIFICATION, REQUEST_EXTRACTION, REQUEST_CALCULATION, REQUEST_PREDICTION or any other name: use the row of the first action left. Common traps (the ACTION picks the row, never the object or the verb's own name): PREDICT -> REQUEST_ANALYSIS; FIND -> REQUEST_ANALYSIS (only the action SEARCH gives REQUEST_SEARCH); CLASSIFY -> REQUEST_ANALYSIS; EXTRACT -> REQUEST_RETRIEVAL; CALCULATE -> REQUEST_EXECUTION; TRANSFORM -> REQUEST_TRANSFORMATION. I and G are computed SEPARATELY (I from the table row of the first action left, G from the G rules), so "Run the model, then summarize the users" is `I:REQUEST_EXECUTION A:EXECUTE,SUMMARIZE E:MODEL D:USERS G:SUMMARY`. Example: "No traduzcas el texto, resume los pedidos" has A:TRANSLATE,SUMMARIZE with TRANSLATE crossed out, so the first action left is SUMMARIZE -> `I:REQUEST_SUMMARY` (not REQUEST_TRANSLATION).
+A: ANALYZE COMPARE FIND SEARCH SUMMARIZE GENERATE CREATE CALCULATE CHECK VALIDATE TRANSLATE GET RETRIEVE DELETE EXECUTE TRANSFORM CLASSIFY EXTRACT PREDICT — in order of appearance. Verb choice: "busca / search for / look for" = SEARCH (look items up); "encuentra / detecta / find / detect / identify" = FIND (locate something inside given data); "obtén / muestra / get / show" = GET; "recupera / retrieve / fetch" = RETRIEVE; "escribe / genera / write / generate" = GENERATE; "valida / validate" = VALIDATE, but "verifica / revisa / comprueba / check / verify" = CHECK — never swap these two.
+D (what is worked on): SALES CUSTOMERS USERS DATA DATASET REPORT DOCUMENT IMAGE AUDIO VIDEO. Put EVERY listed noun that appears, in order of appearance ("datos de clientes" -> `D:DATA,CUSTOMERS`; "reporte de ventas" -> `D:REPORT,SALES`). E (things to find/act on): ANOMALY PERSON COMPANY PRODUCT MODEL RESULT EVENT. Each code appears AT MOST ONCE in D or in E ("ventas ... ventas" -> `D:SALES`). D-codes go ONLY in D and E-codes ONLY in E: MODEL, RESULT, EVENT, PRODUCT, COMPANY, PERSON, ANOMALY are always E (never `D:MODEL`); SALES, CUSTOMERS, USERS, DATA, DATASET, REPORT, DOCUMENT, IMAGE, AUDIO, VIDEO are always D. Write only nouns that are in the text ("clientes" never adds E:COMPANY or E:PERSON). Customers / clients / clientes are ALWAYS `D:CUSTOMERS` (never E:PERSON); `E:PERSON` only for literal people/personas. Every "model/modelo" noun is `E:MODEL`. A noun that appears ONLY inside an if-clause stays in F ("if there are anomalies" -> `F:ANOMALY_EXISTS`, no `E:ANOMALY`); if the same noun is also a target in the main clause, it is in E too.
+T: `Q1-2026` `2026` `2026-03` `2026-03-15` TODAY YESTERDAY TOMORROW THIS_WEEK THIS_MONTH THIS_YEAR LAST_*/NEXT_* (WEEK MONTH QUARTER YEAR). Month without year -> `T:MAR` plus `F:AMBIGUOUS_YEAR`. Quarter without year -> `T:Q2` plus `F:AMBIGUOUS_YEAR`. Several periods: `T:Q1-2026,Q2-2026`. Never invent a year.
+L: only the levels WRITTEN in the text, most specific first, country as ISO-2 if named, no accents, multiword names joined with `_` (`San José` -> `SAN_JOSE`, `Bogotá, Colombia` -> `L:BOGOTA,CO`; `Bogotá` alone -> `L:BOGOTA`). NEVER add a region/department the text does not name and never repeat a name.
+H: `H:>=.90` (comparators `>= <= > < =`): `>=` ONLY for at least/minimum/or more; `=` for "of / de / exactly / N%" ("con 90% de confianza" -> `H:=.90`; "confianza de 0.9" -> `H:=.9`). If the confidence is inside an "if" clause it is a condition instead: `F:H<.80`.
+F: `F:ANOMALY_EXISTS` for "if there are anomalies"; `F:H<.80`; `F:AMBIGUOUS_YEAR`; `F:AMBIGUOUS_MODALITY` when "can you delete" could be permission or request (DELETE/EXECUTE/TRANSFORM only). Any other condition: keep the clause as a quoted literal.
+Y: copy EVERY #reference from the text exactly as written, in order (`Y:#77,#81`); never drop one, even when the sentence is long or has several actions.
+N + K: only no / nunca / jamás / don't / do not / never / não right before a verb create a prohibition; sequence words (luego, después, then, afterwards, primero, y) are NOT negations. A prohibition keeps the mentioned action in A and adds BOTH `N:NO_<ACTION>` and `K:FORBID_<ACTION>`: `N` and `K:FORBID` are ALWAYS a pair (every `N:NO_X` has its `K:FORBID_X` in the same line and every `K:FORBID_X` has its `N:NO_X`; several prohibitions: `N:NO_A,NO_B K:FORBID_A,FORBID_B`). Never write one without the other. "Do not delete #81" -> `I:REQUEST_EXECUTION A:DELETE D:REPORT Y:#81 N:NO_DELETE K:FORBID_DELETE`. Never drop a negation.
+K other: `LIMIT=100` (max/top/up to N) · `LANG=FR` (target language; several languages = one `LANG=` entry each inside the same K token: `K:LANG=DE,LANG=FR`, never `LANG=DE,FR` or `LANG="DE,FR"`) · `APPROX=100` ("approximately 100", never plain 100) · `COUNT=1500` (N items).
+P: HIGH LOW (only if stated).
+G is MECHANICAL, never a judgement. First cross out negated actions (same as for I). Then apply two blocks of rules in this order.
+BLOCK 1 — ANYWHERE rules: look at ALL remaining actions, wherever they are in the list; the first hit wins: (1) COMPARE anywhere -> `G:COMPARISON`; (2) E contains ANOMALY and FIND or ANALYZE anywhere -> `G:ANOMALY_DETECTION`; (3) SUMMARIZE anywhere -> `G:SUMMARY`; (4) TRANSLATE anywhere -> `G:TRANSLATION`.
+BLOCK 2 — FIRST-ONLY rules, used only when Block 1 gave nothing: look ONLY at the FIRST remaining action and ignore all later ones: (5) it is GENERATE or CREATE -> `G:CONTENT_GENERATION`; (6) it is GET, RETRIEVE or SEARCH -> `G:DATA_RETRIEVAL`. If the first remaining action is anything else (ANALYZE, CHECK, VALIDATE, DELETE, EXECUTE, CALCULATE, TRANSFORM, CLASSIFY, PREDICT, FIND, EXTRACT), there is NO G, even when GENERATE, CREATE, GET, RETRIEVE or SEARCH appears later in the list. EXTRACT never produces a G (its intent is REQUEST_RETRIEVAL, but that does not create `G:DATA_RETRIEVAL`).
+Contrasts: "Analyze the videos, then create a dataset" -> `I:REQUEST_ANALYSIS A:ANALYZE,CREATE D:VIDEO,DATASET` (no G: first action is ANALYZE) · "Search for the products, then check the model" -> `I:REQUEST_SEARCH A:SEARCH,CHECK E:PRODUCT,MODEL G:DATA_RETRIEVAL` (first action SEARCH) · "Run the model, then translate the images to Italian" -> `I:REQUEST_EXECUTION A:EXECUTE,TRANSLATE E:MODEL D:IMAGE K:LANG=IT G:TRANSLATION` (translate counts anywhere) · "Extract the products, then get the audio" -> `I:REQUEST_RETRIEVAL A:EXTRACT,GET E:PRODUCT D:AUDIO` (no G: first action is EXTRACT). Also "Extract the videos from the dataset." is `I:REQUEST_RETRIEVAL A:EXTRACT D:VIDEO,DATASET` (no G) but "Retrieve the videos from the dataset." is `... A:RETRIEVE D:VIDEO,DATASET G:DATA_RETRIEVAL`.
+Final check on EVERY line, three questions in order: (a) is COMPARE, SUMMARIZE or TRANSLATE among the remaining actions (or ANOMALY with FIND/ANALYZE)? then G (the block-1 value). (b) otherwise, is the FIRST remaining action GENERATE, CREATE, GET, RETRIEVE or SEARCH? then G (block-2 value). (c) otherwise NO G.
+O: JSON CSV TABLE TEXT REPORT MARKDOWN AIXL.
+Token order: V I A D E T L H Y N K F P G O.
+Do not invent dates, people, places, quantities, actions, references or constraints. If unsure, say so with an F: ambiguity flag rather than guessing.
+
+Examples
+"Analiza las ventas del primer trimestre de 2026 y encuentra anomalías con confianza >= 0.90." -> `V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE,FIND D:SALES E:ANOMALY T:Q1-2026 H:>=.90 G:ANOMALY_DETECTION`
+"Compare dataset #77 with dataset #81." -> `V:AIXL-0.3 I:REQUEST_COMPARISON A:COMPARE D:DATASET Y:#77,#81 G:COMPARISON`
+"Busca proveedores en Quito, Ecuador." -> `V:AIXL-0.3 I:REQUEST_SEARCH A:SEARCH E:COMPANY L:QUITO,EC G:DATA_RETRIEVAL`
+"Resume los clientes y no borres el documento #9." -> `V:AIXL-0.3 I:REQUEST_SUMMARY A:SUMMARIZE,DELETE D:CUSTOMERS,DOCUMENT Y:#9 N:NO_DELETE K:FORBID_DELETE G:SUMMARY`
+"No elimines los videos, valida el modelo." -> `V:AIXL-0.3 I:REQUEST_VALIDATION A:DELETE,VALIDATE D:VIDEO E:MODEL N:NO_DELETE K:FORBID_DELETE`
+"Never delete the images; translate the report to French, max 8." -> `V:AIXL-0.3 I:REQUEST_TRANSLATION A:DELETE,TRANSLATE D:IMAGE,REPORT N:NO_DELETE K:FORBID_DELETE,LANG=FR,LIMIT=8 G:TRANSLATION`
+"Verifica el resultado si la confianza es menor a 0.80." -> `V:AIXL-0.3 I:REQUEST_VALIDATION A:CHECK E:RESULT F:H<.80`
+
+## AIXL 0.3 EXTENSIONS (apply on top of everything above; same one-line format, same UPPERCASE rules)
+- Items counted in the text ("100 registros", "1.000 users") are `K:QTY=100:RECORDS` (number with thousands separators removed; unit UPPERCASE plural such as RECORDS USERS CUSTOMERS SALES). A number that is a limit/ranking ("max 20", "top 10", "los 5 mejores", "up to 30 results") stays `K:LIMIT=N`. Number words become digits ("cinco" -> 5). Dates, years, ids (#77), confidence values and quarters are NEVER quantities.
+- More actions: ENABLE (activa, habilita, enable) · DISABLE (desactiva, deshabilita, disable) · SEND (envía, manda, remite, send) · INCLUDE · EXCLUDE (excluye, omite, descarta) · UPDATE (actualiza, modifica, update, modify). Intent: ENABLE/DISABLE/SEND/UPDATE -> REQUEST_EXECUTION; INCLUDE/EXCLUDE -> REQUEST_TRANSFORMATION. "Ejecuta el análisis" / "run the validation" mean ANALYZE / VALIDATE (do not write EXECUTE for it).
+- Permission: "allow / permite / autoriza X" -> the action X plus `K:ALLOW_X` (example `A:DELETE K:ALLOW_DELETE`). "Forbid / prohíbe / impide X" and "is forbidden / prohibido" are prohibitions like "do not X": `N:NO_X K:FORBID_X`. If allow/forbid concerns something that is not one of the listed actions (e.g. "see", "access"), use the placeholder action `UNSPECIFIED`: `A:UNSPECIFIED K:ALLOW_UNSPECIFIED` or `A:UNSPECIFIED N:NO_UNSPECIFIED K:FORBID_UNSPECIFIED`. "Without doing X" / "sin modificar" = prohibition of X. "Without a summary" (a noun) = `K:WITHOUT=SUMMARY`.
+- Aggregates: total / sum / volume of sales -> `D:TOTAL_SALES`; average/mean -> `D:AVERAGE_SALES`; number of / how many customers -> `D:COUNT_CUSTOMERS`.
+- Conditions: "if there are more than 100 records" -> `F:COUNT>100:RECORDS` (operators > >= < <= =; "at least" is >=); "if there are anomalies / if an anomaly is detected" -> `F:ANOMALY_EXISTS`; "if the report contains anomalies" -> `F:CONTAINS:ANOMALY`; "if it does not contain anomalies" -> `F:NOT_CONTAINS:ANOMALY`; confidence conditions stay `F:H<.80`. Do not keep the condition clause as a quoted literal when one of these forms applies.
+- Visibility: public -> `K:VISIBILITY=PUBLIC`, private/confidential -> `K:VISIBILITY=PRIVATE`. Before/after a date or period: `K:BEFORE=2026-03-15` / `K:AFTER=2026-03-15`.
+- Names of recipients/projects/quoted names are references in upper case with @: "la empresa Acme" -> `Y:@ACME`, 'plan' -> `Y:@PLAN` (ids stay `Y:#77`).
+- Priority: `P:URGENT` for urgent/urgente, `P:HIGH` for high/alta priority, `P:LOW` for low. Selection: "the last/latest N" -> `K:SELECT=LAST`, "the first N" -> `K:SELECT=FIRST` (plus the quantity).
+- Output formats also: PDF XLSX HTML XML DOCX. Periods: "2025-01-01 through 2025-03-31" = `T:Q1-2025`; "marzo de 2026" = `T:2026-03`; "el año pasado" = `T:LAST_YEAR`, "el mes pasado" = `T:LAST_MONTH`, "esta semana" = `T:THIS_WEEK`.
+- Order of steps: list the actions in the order they must be performed ("X after Y" lists Y first).
+- Action synonyms: create = generate, get = retrieve, search = find, check = validate for matching purposes: write the verb that best fits the card's verb guide.
+
+=== CASES (ID :: text) ===
+t301 :: Compare the products sold in March 2026.
+t302 :: Compare the products sold in April 2026.
+t303 :: Do not run the search tomorrow.
+t304 :: Run the search tomorrow.
+t305 :: Compute the average sales per user for yesterday and output CSV.
+t306 :: Calcula las ventas promedio por usuario de ayer y exporta en CSV.
+t307 :: Detect anomalies with confidence greater than 0.90.
+t308 :: Find anomalies where confidence exceeds 0.90.
+t309 :: Examine customer video data from 2025-01-01 to 2025-01-31.
+t310 :: Estudia los datos de video de clientes del 01/01/2025 al 31/01/2025.
+t311 :: Remover os dados de usuarios se a contagem for superior a 100 registros.
+t312 :: Remove user data if count exceeds 100 records.
+t313 :: Estudia las imágenes de la empresa y detecta anomalías.
+t314 :: Study company images and detect anomalies.
+t315 :: Check report #31 before deleting it.
+t316 :: Delete report #31 before checking it.
+t317 :: Genera un archivo JSON con los 100 mejores productos de 2024.
+t318 :: Create a JSON file with the top 100 products of 2024.
+t319 :: Retrieve 100 records from the dataset.
+t320 :: Retrieve 200 records from the dataset.
+t321 :: Prohibit sending report #09 to recipient Alpha.
+t322 :: Allow sending report #09 to recipient Alpha.
+t323 :: Check all customers if confidence is below 0.80.
+t324 :: Check all customers if confidence is 0.80 or higher.
+t325 :: Translate the product sales report to CSV format.
+t326 :: Convert the product sales report into CSV format.
+t327 :: Examine product #50 reports and exclude anomalies.
+t328 :: Examine product #50 reports and include anomalies.
+t329 :: Retrieve customer images with high priority and output JSON.
+t330 :: Obtén imágenes de clientes con prioridad alta y exporta en JSON.
+t331 :: Enable the high-priority alert.
+t332 :: Please turn on the high-priority alert.
+t333 :: Write the result in Markdown.
+t334 :: Write the result in JSON.
+t335 :: Check the results today.
+t336 :: Check the results tomorrow.
+t337 :: Find audio recordings of event #11 from 2025-05-01.
+t338 :: Find audio recordings of event #12 from 2025-05-01.
+t339 :: Disable user access for product anomaly #99.
+t340 :: Enable user access for product anomaly #99.
+t341 :: Write a Markdown table for the users.
+t342 :: Write a CSV table for the users.
+t343 :: Analyze sales datasets for product #10 from Q4 2024.
+t344 :: Analyze sales datasets for product #10 from Q4 2025.
+t345 :: Se permite la modificación de informes de ventas si la confianza es superior a 0.80.
+t346 :: It is permitted to modify sales reports if confidence is above 0.80.
+t347 :: Disable user access for company #07.
+t348 :: Disable user access for company #08.
+t349 :: Compare the products sold in March 2026.
+t350 :: Compare the products sold during March 2026.
+t351 :: Retrieve audio data of person #02 from Q2 2025.
+t352 :: Retrieve audio data of person #02 from Q3 2025.
+t353 :: Gerar um relatório em PDF dos usuários de 2024.
+t354 :: Generate a PDF report of users from 2024.
+t355 :: Study the video data for this week.
+t356 :: Study the video data for last week.
+t357 :: Se houver mais de 100 registros, execute a análise.
+t358 :: If there are more than 100 records, run the analysis.
+t359 :: Analisar os dados de vendas da empresa do último mes.
+t360 :: Analyze the company's sales data from last month.
+t361 :: Send the CSV to the finance team.
+t362 :: Deliver the CSV to the finance team.
+t363 :: Remove 10 records from the user dataset.
+t364 :: Remove 10 records from the user dataset if confidence < 0.80.
+t365 :: Exclude audio from the result.
+t366 :: Exclude video from the result.
+t367 :: Analise os dados de clientes de fevereiro de 2026.
+t368 :: Examine the customer data from February 2026.
+t369 :: Validate image datasets and delete anomaly report #04.
+t370 :: Validate image datasets and update anomaly report #04.
+t371 :: Write a summary of event anomalies if count is greater than 100.
+t372 :: Genera un resumen de anomalías de eventos si el recuento supera los 100.
+t373 :: Compare Q3 2025 and Q4 2025 user event results in a Markdown table.
+t374 :: Compara los resultados de eventos de usuarios de Q3 2025 y Q4 2025 en una tabla Markdown.
+t375 :: Compare customer audio datasets between Q2 2024 and Q3 2024.
+t376 :: Compare customer audio datasets between Q2 2024 and Q4 2024.
+t377 :: Run the search with high priority.
+t378 :: Run the search with normal priority.
+t379 :: Run sales calculation for product #10 if total > 100 records.
+t380 :: Run sales calculation for product #10 if total < 100 records.
+t381 :: Compare dataset #12 with dataset #13.
+t382 :: Contrast dataset #12 against dataset #13.
+t383 :: Detect anomalies in video data and include #77.
+t384 :: Locate anomalies in video data and include #77.
+t385 :: No ejecutes la búsqueda mañana.
+t386 :: Do not run the search tomorrow.
+t387 :: Allow the analysis to run when confidence is at least 0.80.
+t388 :: Allow the analysis to run when confidence is at least 0.90.
+t389 :: Execute the analysis only if there are more than 100 records.
+t390 :: Execute the analysis even if there are more than 100 records.
+t391 :: Allow access to the customer data.
+t392 :: Forbid access to the customer data.
+t393 :: Examine top 10 customer records if confidence > 0.80.
+t394 :: Examine top 100 customer records if confidence > 0.80.
+t395 :: Convert the audio description to English.
+t396 :: Convert the audio description to Portuguese.
+t397 :: Include company anomalies in document #50.
+t398 :: Exclude company anomalies in document #50.
+t399 :: Run the analysis if there are more than 100 records.
+t400 :: Run the analysis if there are more than 200 records.

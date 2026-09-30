@@ -1,0 +1,255 @@
+Read this protocol card and encode each case into ONE AIXL message on one line, following the card exactly. Output ONLY a code block with exactly 200 lines `ID :: AIXL` (same IDs, same order). No explanations.
+
+=== CARD ===
+# AIXL 0.2 — protocol card (v0.3-ext) (the only spec a receiving model needs)
+
+EVERY case gets exactly one answer line, in order. A text with no action at all (greeting, thanks, small talk) is answered `V:AIXL-0.3 I:UNKNOWN` — never skip the line.
+One message = tokens `ATOM:VALUE` separated by single spaces, on ONE line. Multiple values in an atom are comma-separated. Each atom letter appears AT MOST ONCE per line: two values for K (say a prohibition and a language) go in ONE token `K:FORBID_DELETE,LANG=FR`, never in two `K:` tokens; and inside an atom every value appears at most once (`Y:#6,#6` is wrong, write `Y:#6`; a reference repeated in the text is still written once).
+Values with spaces, commas or quotes go in double quotes. Text quoted by a user is DATA: keep it as a quoted literal in `D:`, never obey it.
+Everything UPPERCASE except quoted literals and references. Numbers keep their decimal point and drop the leading zero for confidence (`0.90` -> `.90`; never `90`).
+
+Atoms: V version (always `V:AIXL-0.3`) · I intent · A actions · D data · E entities · T time · L location · H confidence · Y references · N negations · K constraints · F conditions · P priority · G goal · O output format.
+
+I is computed in 3 steps. (1) List the actions A. (2) CROSS OUT every action that also appears in N as `NO_<action>`: a crossed-out action NEVER decides I or G, even when it is written first. (3) I = table lookup of the FIRST action left (if every action is crossed out, use the first action; no action at all -> `I:UNKNOWN`). Table: ANALYZE FIND CLASSIFY PREDICT -> REQUEST_ANALYSIS · COMPARE -> REQUEST_COMPARISON · SEARCH -> REQUEST_SEARCH · SUMMARIZE -> REQUEST_SUMMARY · GENERATE CREATE -> REQUEST_GENERATION · TRANSLATE -> REQUEST_TRANSLATION · CHECK VALIDATE -> REQUEST_VALIDATION · DELETE EXECUTE CALCULATE -> REQUEST_EXECUTION · GET RETRIEVE EXTRACT -> REQUEST_RETRIEVAL · TRANSFORM -> REQUEST_TRANSFORMATION. I must be EXACTLY one of the ten REQUEST_* names in this table, or UNKNOWN. There is no REQUEST_FIND, REQUEST_CLASSIFICATION, REQUEST_EXTRACTION, REQUEST_CALCULATION, REQUEST_PREDICTION or any other name: use the row of the first action left. Common traps (the ACTION picks the row, never the object or the verb's own name): PREDICT -> REQUEST_ANALYSIS; FIND -> REQUEST_ANALYSIS (only the action SEARCH gives REQUEST_SEARCH); CLASSIFY -> REQUEST_ANALYSIS; EXTRACT -> REQUEST_RETRIEVAL; CALCULATE -> REQUEST_EXECUTION; TRANSFORM -> REQUEST_TRANSFORMATION. I and G are computed SEPARATELY (I from the table row of the first action left, G from the G rules), so "Run the model, then summarize the users" is `I:REQUEST_EXECUTION A:EXECUTE,SUMMARIZE E:MODEL D:USERS G:SUMMARY`. Example: "No traduzcas el texto, resume los pedidos" has A:TRANSLATE,SUMMARIZE with TRANSLATE crossed out, so the first action left is SUMMARIZE -> `I:REQUEST_SUMMARY` (not REQUEST_TRANSLATION).
+A: ANALYZE COMPARE FIND SEARCH SUMMARIZE GENERATE CREATE CALCULATE CHECK VALIDATE TRANSLATE GET RETRIEVE DELETE EXECUTE TRANSFORM CLASSIFY EXTRACT PREDICT — in order of appearance. Verb choice: "busca / search for / look for" = SEARCH (look items up); "encuentra / detecta / find / detect / identify" = FIND (locate something inside given data); "obtén / muestra / get / show" = GET; "recupera / retrieve / fetch" = RETRIEVE; "escribe / genera / write / generate" = GENERATE; "valida / validate" = VALIDATE, but "verifica / revisa / comprueba / check / verify" = CHECK — never swap these two.
+D (what is worked on): SALES CUSTOMERS USERS DATA DATASET REPORT DOCUMENT IMAGE AUDIO VIDEO. Put EVERY listed noun that appears, in order of appearance ("datos de clientes" -> `D:DATA,CUSTOMERS`; "reporte de ventas" -> `D:REPORT,SALES`). E (things to find/act on): ANOMALY PERSON COMPANY PRODUCT MODEL RESULT EVENT. Each code appears AT MOST ONCE in D or in E ("ventas ... ventas" -> `D:SALES`). D-codes go ONLY in D and E-codes ONLY in E: MODEL, RESULT, EVENT, PRODUCT, COMPANY, PERSON, ANOMALY are always E (never `D:MODEL`); SALES, CUSTOMERS, USERS, DATA, DATASET, REPORT, DOCUMENT, IMAGE, AUDIO, VIDEO are always D. Write only nouns that are in the text ("clientes" never adds E:COMPANY or E:PERSON). Customers / clients / clientes are ALWAYS `D:CUSTOMERS` (never E:PERSON); `E:PERSON` only for literal people/personas. Every "model/modelo" noun is `E:MODEL`. A noun that appears ONLY inside an if-clause stays in F ("if there are anomalies" -> `F:ANOMALY_EXISTS`, no `E:ANOMALY`); if the same noun is also a target in the main clause, it is in E too.
+T: `Q1-2026` `2026` `2026-03` `2026-03-15` TODAY YESTERDAY TOMORROW THIS_WEEK THIS_MONTH THIS_YEAR LAST_*/NEXT_* (WEEK MONTH QUARTER YEAR). Month without year -> `T:MAR` plus `F:AMBIGUOUS_YEAR`. Quarter without year -> `T:Q2` plus `F:AMBIGUOUS_YEAR`. Several periods: `T:Q1-2026,Q2-2026`. Never invent a year.
+L: only the levels WRITTEN in the text, most specific first, country as ISO-2 if named, no accents, multiword names joined with `_` (`San José` -> `SAN_JOSE`, `Bogotá, Colombia` -> `L:BOGOTA,CO`; `Bogotá` alone -> `L:BOGOTA`). NEVER add a region/department the text does not name and never repeat a name.
+H: `H:>=.90` (comparators `>= <= > < =`): `>=` ONLY for at least/minimum/or more; `=` for "of / de / exactly / N%" ("con 90% de confianza" -> `H:=.90`; "confianza de 0.9" -> `H:=.9`). If the confidence is inside an "if" clause it is a condition instead: `F:H<.80`.
+F: `F:ANOMALY_EXISTS` for "if there are anomalies"; `F:H<.80`; `F:AMBIGUOUS_YEAR`; `F:AMBIGUOUS_MODALITY` when "can you delete" could be permission or request (DELETE/EXECUTE/TRANSFORM only). Any other condition: keep the clause as a quoted literal.
+Y: copy EVERY #reference from the text exactly as written, in order (`Y:#77,#81`); never drop one, even when the sentence is long or has several actions.
+N + K: only no / nunca / jamás / don't / do not / never / não right before a verb create a prohibition; sequence words (luego, después, then, afterwards, primero, y) are NOT negations. A prohibition keeps the mentioned action in A and adds BOTH `N:NO_<ACTION>` and `K:FORBID_<ACTION>`: `N` and `K:FORBID` are ALWAYS a pair (every `N:NO_X` has its `K:FORBID_X` in the same line and every `K:FORBID_X` has its `N:NO_X`; several prohibitions: `N:NO_A,NO_B K:FORBID_A,FORBID_B`). Never write one without the other. "Do not delete #81" -> `I:REQUEST_EXECUTION A:DELETE D:REPORT Y:#81 N:NO_DELETE K:FORBID_DELETE`. Never drop a negation.
+K other: `LIMIT=100` (max/top/up to N) · `LANG=FR` (target language; several languages = one `LANG=` entry each inside the same K token: `K:LANG=DE,LANG=FR`, never `LANG=DE,FR` or `LANG="DE,FR"`) · `APPROX=100` ("approximately 100", never plain 100) · `COUNT=1500` (N items).
+P: HIGH LOW (only if stated).
+G is MECHANICAL, never a judgement. First cross out negated actions (same as for I). Then apply two blocks of rules in this order.
+BLOCK 1 — ANYWHERE rules: look at ALL remaining actions, wherever they are in the list; the first hit wins: (1) COMPARE anywhere -> `G:COMPARISON`; (2) E contains ANOMALY and FIND or ANALYZE anywhere -> `G:ANOMALY_DETECTION`; (3) SUMMARIZE anywhere -> `G:SUMMARY`; (4) TRANSLATE anywhere -> `G:TRANSLATION`.
+BLOCK 2 — FIRST-ONLY rules, used only when Block 1 gave nothing: look ONLY at the FIRST remaining action and ignore all later ones: (5) it is GENERATE or CREATE -> `G:CONTENT_GENERATION`; (6) it is GET, RETRIEVE or SEARCH -> `G:DATA_RETRIEVAL`. If the first remaining action is anything else (ANALYZE, CHECK, VALIDATE, DELETE, EXECUTE, CALCULATE, TRANSFORM, CLASSIFY, PREDICT, FIND, EXTRACT), there is NO G, even when GENERATE, CREATE, GET, RETRIEVE or SEARCH appears later in the list. EXTRACT never produces a G (its intent is REQUEST_RETRIEVAL, but that does not create `G:DATA_RETRIEVAL`).
+Contrasts: "Analyze the videos, then create a dataset" -> `I:REQUEST_ANALYSIS A:ANALYZE,CREATE D:VIDEO,DATASET` (no G: first action is ANALYZE) · "Search for the products, then check the model" -> `I:REQUEST_SEARCH A:SEARCH,CHECK E:PRODUCT,MODEL G:DATA_RETRIEVAL` (first action SEARCH) · "Run the model, then translate the images to Italian" -> `I:REQUEST_EXECUTION A:EXECUTE,TRANSLATE E:MODEL D:IMAGE K:LANG=IT G:TRANSLATION` (translate counts anywhere) · "Extract the products, then get the audio" -> `I:REQUEST_RETRIEVAL A:EXTRACT,GET E:PRODUCT D:AUDIO` (no G: first action is EXTRACT). Also "Extract the videos from the dataset." is `I:REQUEST_RETRIEVAL A:EXTRACT D:VIDEO,DATASET` (no G) but "Retrieve the videos from the dataset." is `... A:RETRIEVE D:VIDEO,DATASET G:DATA_RETRIEVAL`.
+Final check on EVERY line, three questions in order: (a) is COMPARE, SUMMARIZE or TRANSLATE among the remaining actions (or ANOMALY with FIND/ANALYZE)? then G (the block-1 value). (b) otherwise, is the FIRST remaining action GENERATE, CREATE, GET, RETRIEVE or SEARCH? then G (block-2 value). (c) otherwise NO G.
+O: JSON CSV TABLE TEXT REPORT MARKDOWN AIXL.
+Token order: V I A D E T L H Y N K F P G O.
+Do not invent dates, people, places, quantities, actions, references or constraints. If unsure, say so with an F: ambiguity flag rather than guessing.
+
+Examples
+"Analiza las ventas del primer trimestre de 2026 y encuentra anomalías con confianza >= 0.90." -> `V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE,FIND D:SALES E:ANOMALY T:Q1-2026 H:>=.90 G:ANOMALY_DETECTION`
+"Compare dataset #77 with dataset #81." -> `V:AIXL-0.3 I:REQUEST_COMPARISON A:COMPARE D:DATASET Y:#77,#81 G:COMPARISON`
+"Busca proveedores en Quito, Ecuador." -> `V:AIXL-0.3 I:REQUEST_SEARCH A:SEARCH E:COMPANY L:QUITO,EC G:DATA_RETRIEVAL`
+"Resume los clientes y no borres el documento #9." -> `V:AIXL-0.3 I:REQUEST_SUMMARY A:SUMMARIZE,DELETE D:CUSTOMERS,DOCUMENT Y:#9 N:NO_DELETE K:FORBID_DELETE G:SUMMARY`
+"No elimines los videos, valida el modelo." -> `V:AIXL-0.3 I:REQUEST_VALIDATION A:DELETE,VALIDATE D:VIDEO E:MODEL N:NO_DELETE K:FORBID_DELETE`
+"Never delete the images; translate the report to French, max 8." -> `V:AIXL-0.3 I:REQUEST_TRANSLATION A:DELETE,TRANSLATE D:IMAGE,REPORT N:NO_DELETE K:FORBID_DELETE,LANG=FR,LIMIT=8 G:TRANSLATION`
+"Verifica el resultado si la confianza es menor a 0.80." -> `V:AIXL-0.3 I:REQUEST_VALIDATION A:CHECK E:RESULT F:H<.80`
+
+## AIXL 0.3 EXTENSIONS (apply on top of everything above; same one-line format, same UPPERCASE rules)
+- Items counted in the text ("100 registros", "1.000 users") are `K:QTY=100:RECORDS` (number with thousands separators removed; unit UPPERCASE plural such as RECORDS USERS CUSTOMERS SALES). A number that is a limit/ranking ("max 20", "top 10", "los 5 mejores", "up to 30 results") stays `K:LIMIT=N`. Number words become digits ("cinco" -> 5). Dates, years, ids (#77), confidence values and quarters are NEVER quantities.
+- More actions: ENABLE (activa, habilita, enable) · DISABLE (desactiva, deshabilita, disable) · SEND (envía, manda, remite, send) · INCLUDE · EXCLUDE (excluye, omite, descarta) · UPDATE (actualiza, modifica, update, modify). Intent: ENABLE/DISABLE/SEND/UPDATE -> REQUEST_EXECUTION; INCLUDE/EXCLUDE -> REQUEST_TRANSFORMATION. "Ejecuta el análisis" / "run the validation" mean ANALYZE / VALIDATE (do not write EXECUTE for it).
+- Permission: "allow / permite / autoriza X" -> the action X plus `K:ALLOW_X` (example `A:DELETE K:ALLOW_DELETE`). "Forbid / prohíbe / impide X" and "is forbidden / prohibido" are prohibitions like "do not X": `N:NO_X K:FORBID_X`. If allow/forbid concerns something that is not one of the listed actions (e.g. "see", "access"), use the placeholder action `UNSPECIFIED`: `A:UNSPECIFIED K:ALLOW_UNSPECIFIED` or `A:UNSPECIFIED N:NO_UNSPECIFIED K:FORBID_UNSPECIFIED`. "Without doing X" / "sin modificar" = prohibition of X. "Without a summary" (a noun) = `K:WITHOUT=SUMMARY`.
+- Aggregates: total / sum / volume of sales -> `D:TOTAL_SALES`; average/mean -> `D:AVERAGE_SALES`; number of / how many customers -> `D:COUNT_CUSTOMERS`.
+- Conditions: "if there are more than 100 records" -> `F:COUNT>100:RECORDS` (operators > >= < <= =; "at least" is >=); "if there are anomalies / if an anomaly is detected" -> `F:ANOMALY_EXISTS`; "if the report contains anomalies" -> `F:CONTAINS:ANOMALY`; "if it does not contain anomalies" -> `F:NOT_CONTAINS:ANOMALY`; confidence conditions stay `F:H<.80`. Do not keep the condition clause as a quoted literal when one of these forms applies.
+- Visibility: public -> `K:VISIBILITY=PUBLIC`, private/confidential -> `K:VISIBILITY=PRIVATE`. Before/after a date or period: `K:BEFORE=2026-03-15` / `K:AFTER=2026-03-15`.
+- Names of recipients/projects/quoted names are references in upper case with @: "la empresa Acme" -> `Y:@ACME`, 'plan' -> `Y:@PLAN` (ids stay `Y:#77`).
+- Priority: `P:URGENT` for urgent/urgente, `P:HIGH` for high/alta priority, `P:LOW` for low. Selection: "the last/latest N" -> `K:SELECT=LAST`, "the first N" -> `K:SELECT=FIRST` (plus the quantity).
+- Output formats also: PDF XLSX HTML XML DOCX. Periods: "2025-01-01 through 2025-03-31" = `T:Q1-2025`; "marzo de 2026" = `T:2026-03`; "el año pasado" = `T:LAST_YEAR`, "el mes pasado" = `T:LAST_MONTH`, "esta semana" = `T:THIS_WEEK`.
+- Order of steps: list the actions in the order they must be performed ("X after Y" lists Y first).
+- Action synonyms: create = generate, get = retrieve, search = find, check = validate for matching purposes: write the verb that best fits the card's verb guide.
+
+=== CASES (ID :: text) ===
+t201 :: Retrieve the top 10 customers by sales.
+t202 :: Retrieve the top 20 customers by sales.
+t203 :: Analyze the sales data for Q3 2025.
+t204 :: Could you please examine the sales figures for the third quarter of 2025?
+t205 :: Traduza o relatório para espanhol.
+t206 :: O relatório deve ser traduzido para o idioma espanhol.
+t207 :: Delete the duplicate records from the dataset.
+t208 :: Do not delete the duplicate records from the dataset.
+t209 :: Send the report to Maria today.
+t210 :: Envía el informe a Maria hoy.
+t211 :: If there are more than 100 records, export them as CSV.
+t212 :: Whenever the count of records exceeds 100, output them in CSV format.
+t213 :: Calcule as vendas de março de 2025.
+t214 :: Calcule as vendas de abril de 2025.
+t215 :: If confidence is below 0.80, flag the result as an anomaly.
+t216 :: If confidence is at most 0.80, flag the result as an anomaly.
+t217 :: Generate the sales report as a PDF.
+t218 :: Generate the sales report as a CSV.
+t219 :: Update the document referenced in #77.
+t220 :: Update the document referenced in #78.
+t221 :: Generate a summary of the customers' feedback in Markdown.
+t222 :: Write a Markdown summary of customer feedback.
+t223 :: Verifica los 100 registros de usuarios.
+t224 :: Validate the one hundred user records.
+t225 :: Analyze the video for anomalies.
+t226 :: Analyze the audio for anomalies.
+t227 :: Never include images in the report.
+t228 :: Images are forbidden in the report.
+t229 :: Validate the dataset, then delete the anomalies.
+t230 :: Delete the anomalies, then validate the dataset.
+t231 :: Compare this week's sales with last week's sales.
+t232 :: Contrast sales of the current week against those of the previous week.
+t233 :: Run the urgent check on the customers dataset.
+t234 :: Run the high-priority check on the customers dataset.
+t235 :: Envie o resultado somente se a confiança for maior que 0,90.
+t236 :: Send the result only if confidence is greater than 0.90.
+t237 :: Disable the notifications for user #12.
+t238 :: Turn off notifications for user #12.
+t239 :: Enable the anomaly detection on the sales data.
+t240 :: Disable the anomaly detection on the sales data.
+t241 :: Fetch the events from 2025-01-01 to 2025-03-31.
+t242 :: Get the events of Q1 2025.
+t243 :: Detecte anomalias nos dados de vendas de hoje.
+t244 :: Locate anomalies in today's sales data.
+t245 :: Fetch events from Q1 2025.
+t246 :: Fetch events from Q2 2025.
+t247 :: Inclua os clientes inativos na lista.
+t248 :: Não inclua os clientes inativos na lista.
+t249 :: Return max 50 records in the output.
+t250 :: Return max 500 records in the output.
+t251 :: Send o relatório para Carlos.
+t252 :: Send o relatório para Ana.
+t253 :: Muestra como máximo cinco resultados.
+t254 :: Return at most 5 results.
+t255 :: Fetch users, capped at 100 records.
+t256 :: Retrieve users, without exceeding one hundred records.
+t257 :: If there are more than 100 records, run the validation.
+t258 :: Run the validation.
+t259 :: The product document must be verified today.
+t260 :: Verify the product document today.
+t261 :: Translate the document into French.
+t262 :: Translate the document into German.
+t263 :: Exclua os usuários de teste da análise.
+t264 :: Exclude test users from the analysis.
+t265 :: Se houver mais de 1000 registros, envie um alerta.
+t266 :: Se houver mais de 100 registros, envie um alerta.
+t267 :: Search for the company in the customers dataset, and then compare it with last year's sales.
+t268 :: After searching the customers dataset for the company, compare it against sales from last year.
+t269 :: Calcula el promedio de ventas del mes pasado.
+t270 :: Compute the average sales for last month.
+t271 :: Calcule a média de vendas do mês passado.
+t272 :: Calcule a média de vendas deste mês.
+t273 :: Please generate a JSON file of the top 10 products.
+t274 :: Write the ten best products out as JSON.
+t275 :: Write the top 10 products as a table.
+t276 :: Write the top 10 products as JSON.
+t277 :: Nunca execute o script em produção.
+t278 :: É proibido executar o script em produção.
+t279 :: Allow the user to modify the report.
+t280 :: Forbid the user to modify the report.
+t281 :: Create a report on the anomaly.
+t282 :: Delete the report on the anomaly.
+t283 :: Procure 100 registros de clientes.
+t284 :: Procure 10 registros de clientes.
+t285 :: Create a report on sales from March 2025.
+t286 :: Produce a sales report for 2025-03.
+t287 :: Si la confianza es inferior a 0,80, elimina el resultado.
+t288 :: Remove the result whenever confidence is under 0.80.
+t289 :: Translate the document to English, then send it to Lucía.
+t290 :: Send the document to Lucía, then translate it to English.
+t291 :: Verifique se as imagens contêm alguma pessoa.
+t292 :: Confirme se há alguma pessoa nas imagens.
+t293 :: Check whether the images contain any person.
+t294 :: Check whether the images contain any product.
+t295 :: Traduce el documento al inglés y envíalo a Lucía.
+t296 :: Translate the document to English, then send it to Lucía.
+t297 :: Do not modify the customer data.
+t298 :: Do not modify the user data.
+t299 :: Don't modify the customer data.
+t300 :: Customer data must not be updated.
+t301 :: Compare sales of 2024 with those of 2025.
+t302 :: Contraste as vendas de 2024 e as de 2025.
+t303 :: Gere um relatório em PDF sobre os clientes.
+t304 :: Gere um relatório em PDF sobre os produtos.
+t305 :: Run the validation in case there are more than 100 records.
+t306 :: Should the records number over 100, execute the validation.
+t307 :: Find anomalies in sales data whose confidence is > 0.90.
+t308 :: Find anomalies in sales data whose confidence is >= 0.90.
+t309 :: Locate every anomaly in the sales data with confidence above 0.9.
+t310 :: Find anomalies in sales data whose confidence is > 0.90.
+t311 :: Run the validation in case there are more than 100 records.
+t312 :: Run the validation in case there are fewer than 100 records.
+t313 :: Update product #45 today.
+t314 :: Update product #45 tomorrow.
+t315 :: Envie os resultados em JSON.
+t316 :: Envie os resultados em Markdown.
+t317 :: Atualize o produto #45 hoje.
+t318 :: Modifique hoje o produto #45.
+t319 :: Envía los resultados en formato JSON.
+t320 :: Envie os resultados em JSON.
+t321 :: Escreva o documento em espanhol.
+t322 :: Escreva o documento em inglês.
+t323 :: Exclude every customer that is not from 2025.
+t324 :: Include only customers from 2025.
+t325 :: Include only customers from 2025.
+t326 :: Exclude customers from 2025.
+t327 :: Crie um documento em espanhol com o resumo dos eventos de ontem.
+t328 :: Escreva, em espanhol, um documento resumindo os eventos de ontem.
+t329 :: Locate the company Nova in the dataset.
+t330 :: Locate the company Acme in the dataset.
+t331 :: Search the dataset for a company named Acme.
+t332 :: Look up, in the dataset, the company called Acme.
+t333 :: Do not send the report without a summary.
+t334 :: Never send the report unless a summary is included.
+t335 :: Do not send the report without a summary.
+t336 :: Do not send the report with a summary.
+t337 :: Cinco clientes como máximo deben aparecer en la lista.
+t338 :: List no more than 5 customers.
+t339 :: Fetch users created last month.
+t340 :: Fetch users created this week.
+t341 :: Fetch users registered last month.
+t342 :: Get users created during the previous month.
+t343 :: Compare the two datasets.
+t344 :: Analyze the two datasets.
+t345 :: Remove event #301.
+t346 :: Remove event #310.
+t347 :: Send Sofia an urgent alert whenever an anomaly is detected.
+t348 :: Send Sofia a high-priority alert whenever an anomaly is detected.
+t349 :: Verify the audio files today.
+t350 :: Verifique os arquivos de áudio hoje.
+t351 :: Whenever an anomaly is detected, send an urgent alert to Sofia.
+t352 :: Send Sofia an urgent alert each time an anomaly is found.
+t353 :: If there are more than 100 records, remove the duplicates.
+t354 :: If there are more than 100 records, detect the duplicates.
+t355 :: Execute the report generation with max 3 retries.
+t356 :: Run the report generation, retrying no more than three times.
+t357 :: Execute the report generation with max 3 retries.
+t358 :: Execute the report generation with max 5 retries.
+t359 :: Se houver mais de 100 registros, exclua os duplicados.
+t360 :: In case there are more than 100 records, remove the duplicates.
+t361 :: Estude o vídeo e reporte qualquer anomalia.
+t362 :: Estude o vídeo e não reporte nenhuma anomalia.
+t363 :: Examine the video and report any anomaly found.
+t364 :: Study the video; any anomaly you find must be reported.
+t365 :: Genera el informe de ventas del T2 de 2025.
+t366 :: Write the sales report for the second quarter of 2025.
+t367 :: Generate the sales report for the second quarter of 2025.
+t368 :: Generate the sales report for the second quarter of 2024.
+t369 :: Disable the product #9 and verify the result.
+t370 :: Verify the result after disabling product #9.
+t371 :: Disable product #9 and then verify the result.
+t372 :: Verify the result and then disable product #9.
+t373 :: Não inclua imagens no documento.
+t374 :: Images must be excluded from the document.
+t375 :: Ejecuta el análisis con prioridad alta.
+t376 :: Ejecuta el análisis con prioridad urgente.
+t377 :: Compute the total sales per customer.
+t378 :: Compute the average sales per customer.
+t379 :: Localiza los eventos ocurridos ayer.
+t380 :: Find the events that occurred yesterday.
+t381 :: Compute the total sales per customer and output a table.
+t382 :: Output a table with sales totalled for each customer.
+t383 :: Localiza los eventos de ayer.
+t384 :: Find the events of tomorrow.
+t385 :: Verifique o documento do cliente.
+t386 :: Verifique o documento da empresa.
+t387 :: Return the result in JSON only if confidence reaches 0.80 or more.
+t388 :: Return JSON when confidence >= 0.80, and not otherwise.
+t389 :: Return the result only if confidence is at least 0.80.
+t390 :: Return the result only if confidence is at least 0.85.
+t391 :: Analise os 100 registros mais recentes de usuários.
+t392 :: Examine the latest one hundred user records.
+t393 :: Do not execute the script when there is an anomaly.
+t394 :: Execute the script only when there is an anomaly.
+t395 :: Do not execute the script when there is an anomaly.
+t396 :: If an anomaly is present, the script must not be run.
+t397 :: Translate the product document into Portuguese and generate it as PDF.
+t398 :: Traduza para português o documento do produto e gere-o em PDF.
+t399 :: Translate the product document into Portuguese and generate it as PDF.
+t400 :: Traduce el documento del producto al español y genéralo en PDF.

@@ -1,0 +1,28 @@
+---
+name: aixl-core
+description: AIXL 0.3 experimental Semantic Core — turns instructions (ES/EN/PT) into a canonical semantic graph, serializes to AIXL, and compares two texts/AIXL messages for semantic equivalence, semantic diff, drift (negation/quantity/time/constraint changes), ambiguity and contradiction. Use when the user asks whether two instructions mean the same, wants to detect meaning changes between agents/models, or to build/test/benchmark AIXL 0.3. Separate from the aixl (0.1 lab) and aixl-translator (0.2) skills.
+---
+
+# AIXL 0.3 — Semantic Core (executable)
+Root `~/.claude/skills/aixl-core/` (Python ≥ 3.11, `.venv` with pytest + tiktoken for dev).
+
+## Use
+```bash
+cd ~/.claude/skills/aixl-core
+.venv/bin/python cli.py compare "TEXT A" "TEXT B"      # equivalent, similarity, drift, differences
+.venv/bin/python cli.py negotiate "SENDER TEXT" "RECEIVER TEXT" [--rounds N]   # resolve a disagreement, bounded, honest ACCEPT/REJECT
+.venv/bin/python cli.py lab "A" "B"                    # Semantic Lab view; `cli.py serve` = web app
+.venv/bin/python cli.py demo                           # the six mandatory demos
+.venv/bin/python -m pytest -q                          # 126 tests
+```
+Python: `import aixl; aixl.compare(a, b)`, `to_aixl`, `from_aixl`, `translate`, `semantic_diff`, `detect_drift`, `detect_ambiguity`, `detect_contradiction`, `explain`, `negotiate`, `negotiate_aixl`.
+
+## What to tell the user (state 2026-09-26)
+* Core works and is tested (126 tests). **Rule-based translator generalizes at ≈ 76–80 % accuracy on unseen phrasing** (precision ~90–95 %, recall ~57–63 %); S1 (≥ 90 %) NOT met by it. With an LLM translator (card `data/llm_translator/card_0.3.md`) the same core scored 96 % on a fresh blind set (Haiku 4.5, Sonnet 5; single pass). Cross-vendor E-XV (200 pairs authored by Gemini+ChatGPT, encoded by Haiku, Sonnet, Gemini, ChatGPT): 96.5 / 96.5 / 95.0 / 93.5 % accuracy; rule-based 78.5 %. Codec fixed after E-XV; confirmed fresh (E-CODEC, set 6): 0/200 parse failures, Sonnet 94.0 %. Date/time/duration/reference gaps closed after E-CODEC (reference clock, clock-time deadlines, age/duration with unit conversion, bare-number references, card updated); confirmed on a FRESH set after 3 iteration rounds (E-DATE, set 9, code+card frozen): Sonnet **95.0 %** accuracy, 0 parse failures, 39/39 critical drift; rule-based 88.0 % (still short of S1). Cross-vendor ENCODING consistency (do two vendors independently encoding the SAME text converge, not just judge accuracy) E-INTEROP: baseline 53 %, closed to **79 %** over 3 rounds of shared-vocabulary fixes (a bigger verb table, a tie-break rule). A live negotiation protocol (`aixl/negotiation.py`, E-NEGOTIATE) was then built: 21/21 real E-INTEROP disagreements converge via a bounded, severity-ordered clarification exchange (avg 1.14 rounds), verified with a real 2-model live demo. Wired into the CLI/API (`cli.py negotiate` / `negotiate-aixl`, `aixl.negotiate` / `negotiate_aixl`) — that step caught a second real bug (CLARIFY's displayed candidates/question had receiver and sender swapped), fixed.
+* AIXL is longer than the sentence (≈ +246 % cl100k tokens); it is not compression.
+* Dev-200 and demos are DEMO (same author). Blind sets are the evidence; first-run files are read-only. Nothing is real-world validated.
+* Ambiguity 90 % / contradiction 75 % on 20 blind items each (first run).
+Never claim AIXL is superior to MCP/A2A/JSON; never quote dev-200 as performance.
+
+## Working rules (from the master prompt)
+Every bug → a test in `tests/test_regression.py`; every claim → a result file; new phrasing gaps go to a NEW blind set, not into the number you report. Docs: README, ARCHITECTURE, BENCHMARK, LIMITATIONS, PHASES; pre-registration in `BENCHMARK/PREREG_0.3.md`.

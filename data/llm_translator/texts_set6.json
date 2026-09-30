@@ -1,0 +1,1202 @@
+[
+{
+"pair": "S6-072",
+"side": "a",
+"text": "Genera el reporte de ventas del año dos mil veinticinco.",
+"tid": "t001"
+},
+{
+"pair": "S6-072",
+"side": "b",
+"text": "Genera el reporte de ventas del año 2025.",
+"tid": "t002"
+},
+{
+"pair": "S6-021",
+"side": "a",
+"text": "Search for all anomalous events logged this month.",
+"tid": "t003"
+},
+{
+"pair": "S6-021",
+"side": "b",
+"text": "Look up every anomalous event recorded this month.",
+"tid": "t004"
+},
+{
+"pair": "S6-049",
+"side": "a",
+"text": "Suprime los registros de ventas anteriores a 2020.",
+"tid": "t005"
+},
+{
+"pair": "S6-049",
+"side": "b",
+"text": "Elimina los registros de ventas anteriores al año 2020.",
+"tid": "t006"
+},
+{
+"pair": "S6-014",
+"side": "a",
+"text": "Marca como urgente cualquier anomalía con una confianza mayor o igual a 0.90.",
+"tid": "t007"
+},
+{
+"pair": "S6-014",
+"side": "b",
+"text": "Marca como urgente cualquier anomalía cuya confianza sea de al menos 0.90.",
+"tid": "t008"
+},
+{
+"pair": "S6-031",
+"side": "a",
+"text": "Translate the product document into French.",
+"tid": "t009"
+},
+{
+"pair": "S6-031",
+"side": "b",
+"text": "Translate the product images into French.",
+"tid": "t010"
+},
+{
+"pair": "S6-030",
+"side": "a",
+"text": "Delete all customer images older than one year.",
+"tid": "t011"
+},
+{
+"pair": "S6-030",
+"side": "b",
+"text": "Elimina todas las imágenes de clientes con más de un año de antigüedad.",
+"tid": "t012"
+},
+{
+"pair": "S6-004",
+"side": "a",
+"text": "Users are allowed to export the sales report.",
+"tid": "t013"
+},
+{
+"pair": "S6-004",
+"side": "b",
+"text": "Users are forbidden from exporting the sales report.",
+"tid": "t014"
+},
+{
+"pair": "S6-094",
+"side": "a",
+"text": "Exporta los datos de clientes en formato CSV.",
+"tid": "t015"
+},
+{
+"pair": "S6-094",
+"side": "b",
+"text": "Exporta los datos de clientes en un archivo separado por comas.",
+"tid": "t016"
+},
+{
+"pair": "S6-027",
+"side": "a",
+"text": "Debe validarse el documento antes de las 5pm de hoy.",
+"tid": "t017"
+},
+{
+"pair": "S6-027",
+"side": "b",
+"text": "Valida el documento antes de las 5pm de hoy.",
+"tid": "t018"
+},
+{
+"pair": "S6-029",
+"side": "a",
+"text": "Compara los datos de ventas de Aurora Textiles y Cascada Foods.",
+"tid": "t019"
+},
+{
+"pair": "S6-029",
+"side": "b",
+"text": "Compara los datos de usuarios de Aurora Textiles y Cascada Foods.",
+"tid": "t020"
+},
+{
+"pair": "S6-088",
+"side": "a",
+"text": "Calcula el total de ventas entre 2026-03-01 y 2026-03-31.",
+"tid": "t021"
+},
+{
+"pair": "S6-088",
+"side": "b",
+"text": "Calcula el total de ventas durante todo marzo de 2026.",
+"tid": "t022"
+},
+{
+"pair": "S6-044",
+"side": "a",
+"text": "Retrieve the top 10 products by revenue.",
+"tid": "t023"
+},
+{
+"pair": "S6-044",
+"side": "b",
+"text": "Recupera los 20 productos principales por ingresos.",
+"tid": "t024"
+},
+{
+"pair": "S6-015",
+"side": "a",
+"text": "Flag anomalies with a confidence score above 0.90.",
+"tid": "t025"
+},
+{
+"pair": "S6-015",
+"side": "b",
+"text": "Flag anomalies with a confidence score below 0.90.",
+"tid": "t026"
+},
+{
+"pair": "S6-009",
+"side": "a",
+"text": "Fetch yesterday's sales results.",
+"tid": "t027"
+},
+{
+"pair": "S6-009",
+"side": "b",
+"text": "Fetch the sales results for 2026-09-26.",
+"tid": "t028"
+},
+{
+"pair": "S6-022",
+"side": "a",
+"text": "Revisa el documento #77 y confirma los datos del cliente.",
+"tid": "t029"
+},
+{
+"pair": "S6-022",
+"side": "b",
+"text": "Revisa el documento #78 y confirma los datos del cliente.",
+"tid": "t030"
+},
+{
+"pair": "S6-079",
+"side": "a",
+"text": "Users must verify their identity before accessing the report.",
+"tid": "t031"
+},
+{
+"pair": "S6-079",
+"side": "b",
+"text": "Users must not verify their identity before accessing the report.",
+"tid": "t032"
+},
+{
+"pair": "S6-010",
+"side": "a",
+"text": "Genera el informe de ventas de julio de 2026.",
+"tid": "t033"
+},
+{
+"pair": "S6-010",
+"side": "b",
+"text": "Genera el informe de ventas de junio de 2026.",
+"tid": "t034"
+},
+{
+"pair": "S6-060",
+"side": "a",
+"text": "First verify the dataset, then generate the anomaly report.",
+"tid": "t035"
+},
+{
+"pair": "S6-060",
+"side": "b",
+"text": "Verify the dataset before generating the anomaly report.",
+"tid": "t036"
+},
+{
+"pair": "S6-099",
+"side": "a",
+"text": "Genera el informe correspondiente al 2026-01-15.",
+"tid": "t037"
+},
+{
+"pair": "S6-099",
+"side": "b",
+"text": "Genera el informe correspondiente al 2026-01-16.",
+"tid": "t038"
+},
+{
+"pair": "S6-080",
+"side": "a",
+"text": "Presenta los resultados en una tabla.",
+"tid": "t039"
+},
+{
+"pair": "S6-080",
+"side": "b",
+"text": "Presenta los resultados en formato de tabla.",
+"tid": "t040"
+},
+{
+"pair": "S6-051",
+"side": "a",
+"text": "Envie o relatório validado para a Delta Robotics.",
+"tid": "t041"
+},
+{
+"pair": "S6-051",
+"side": "b",
+"text": "Envía el informe validado a Vertex Ltda.",
+"tid": "t042"
+},
+{
+"pair": "S6-067",
+"side": "a",
+"text": "Habilita las notificaciones automáticas para el equipo de Meridian Bank.",
+"tid": "t043"
+},
+{
+"pair": "S6-067",
+"side": "b",
+"text": "Activa las notificaciones automáticas para el equipo de Meridian Bank.",
+"tid": "t044"
+},
+{
+"pair": "S6-095",
+"side": "a",
+"text": "Calcule a média de vendas do último trimestre.",
+"tid": "t045"
+},
+{
+"pair": "S6-095",
+"side": "b",
+"text": "Calcula el promedio de ventas del último trimestre.",
+"tid": "t046"
+},
+{
+"pair": "S6-017",
+"side": "a",
+"text": "If there are more than 100 records, generate a CSV summary.",
+"tid": "t047"
+},
+{
+"pair": "S6-017",
+"side": "b",
+"text": "Should the record count exceed 100, produce a summary in CSV format.",
+"tid": "t048"
+},
+{
+"pair": "S6-052",
+"side": "a",
+"text": "Forward the validated report to the legal team at Delta Robotics.",
+"tid": "t049"
+},
+{
+"pair": "S6-052",
+"side": "b",
+"text": "The validated report should be forwarded to Delta Robotics' legal team.",
+"tid": "t050"
+},
+{
+"pair": "S6-007",
+"side": "a",
+"text": "Delete the 20 oldest customer images.",
+"tid": "t051"
+},
+{
+"pair": "S6-007",
+"side": "b",
+"text": "Delete the 200 oldest customer images.",
+"tid": "t052"
+},
+{
+"pair": "S6-090",
+"side": "a",
+"text": "Check the audio dataset for corrupted files.",
+"tid": "t053"
+},
+{
+"pair": "S6-090",
+"side": "b",
+"text": "Check the video dataset for corrupted files.",
+"tid": "t054"
+},
+{
+"pair": "S6-096",
+"side": "a",
+"text": "Autoriza a Polaris Logística a acceder al informe de resultados.",
+"tid": "t055"
+},
+{
+"pair": "S6-096",
+"side": "b",
+"text": "Autoriza a Cascada Foods a acceder al informe de resultados.",
+"tid": "t056"
+},
+{
+"pair": "S6-087",
+"side": "a",
+"text": "Si hay más de 100 registros, genera un resumen en PDF.",
+"tid": "t057"
+},
+{
+"pair": "S6-087",
+"side": "b",
+"text": "Si hay más de 200 registros, elimina los registros duplicados.",
+"tid": "t058"
+},
+{
+"pair": "S6-046",
+"side": "a",
+"text": "Compara los datasets de imágenes de Nimbus SAS y Orbita Media.",
+"tid": "t059"
+},
+{
+"pair": "S6-046",
+"side": "b",
+"text": "Compare the image datasets of Nimbus SAS and Orbita Media.",
+"tid": "t060"
+},
+{
+"pair": "S6-083",
+"side": "a",
+"text": "Ejecuta el análisis de anomalías en el conjunto de datos de audio.",
+"tid": "t061"
+},
+{
+"pair": "S6-083",
+"side": "b",
+"text": "Corre el análisis de anomalías sobre el dataset de audio.",
+"tid": "t062"
+},
+{
+"pair": "S6-036",
+"side": "a",
+"text": "Translate the executive summary into Portuguese.",
+"tid": "t063"
+},
+{
+"pair": "S6-036",
+"side": "b",
+"text": "Translate the executive summary into Italian.",
+"tid": "t064"
+},
+{
+"pair": "S6-100",
+"side": "a",
+"text": "Se autoriza a Polaris Logística a acceder al informe de resultados.",
+"tid": "t065"
+},
+{
+"pair": "S6-100",
+"side": "b",
+"text": "Polaris Logística tiene permiso para acceder al informe de resultados.",
+"tid": "t066"
+},
+{
+"pair": "S6-018",
+"side": "a",
+"text": "Por favor revisa el documento #77 y verifica que los datos del cliente sean correctos.",
+"tid": "t067"
+},
+{
+"pair": "S6-018",
+"side": "b",
+"text": "Revisa el documento número 77 y confirma que los datos del cliente son correctos.",
+"tid": "t068"
+},
+{
+"pair": "S6-040",
+"side": "a",
+"text": "Recupera los últimos cincuenta registros de audio.",
+"tid": "t069"
+},
+{
+"pair": "S6-040",
+"side": "b",
+"text": "Recupera los últimos 50 registros de audio.",
+"tid": "t070"
+},
+{
+"pair": "S6-075",
+"side": "a",
+"text": "Suprime los registros de ventas anteriores a 2020.",
+"tid": "t071"
+},
+{
+"pair": "S6-075",
+"side": "b",
+"text": "Verifica los registros de ventas anteriores a 2020.",
+"tid": "t072"
+},
+{
+"pair": "S6-077",
+"side": "a",
+"text": "Compara los datasets de imágenes de Nimbus SAS y Orbita Media.",
+"tid": "t073"
+},
+{
+"pair": "S6-077",
+"side": "b",
+"text": "Compare the image datasets of Nimbus SAS and Meridian Bank.",
+"tid": "t074"
+},
+{
+"pair": "S6-050",
+"side": "a",
+"text": "Si la confianza es menor a 0.80, descarta el resultado.",
+"tid": "t075"
+},
+{
+"pair": "S6-050",
+"side": "b",
+"text": "Discard the result.",
+"tid": "t076"
+},
+{
+"pair": "S6-064",
+"side": "a",
+"text": "Approve requests with a confidence score of at least 0.75.",
+"tid": "t077"
+},
+{
+"pair": "S6-064",
+"side": "b",
+"text": "Approve requests whose confidence score is 0.75 or higher.",
+"tid": "t078"
+},
+{
+"pair": "S6-008",
+"side": "a",
+"text": "Elimina los 100 registros duplicados de la base de clientes.",
+"tid": "t079"
+},
+{
+"pair": "S6-008",
+"side": "b",
+"text": "Elimina los cien registros duplicados de la base de clientes.",
+"tid": "t080"
+},
+{
+"pair": "S6-086",
+"side": "a",
+"text": "Exclude cancelled orders from the sales report.",
+"tid": "t081"
+},
+{
+"pair": "S6-086",
+"side": "b",
+"text": "Leave out cancelled orders when compiling the sales report.",
+"tid": "t082"
+},
+{
+"pair": "S6-023",
+"side": "a",
+"text": "Send the validated report to Acme Corp.",
+"tid": "t083"
+},
+{
+"pair": "S6-023",
+"side": "b",
+"text": "Send the validated report to Globex Inc.",
+"tid": "t084"
+},
+{
+"pair": "S6-020",
+"side": "a",
+"text": "Generate the quarterly report as a table.",
+"tid": "t085"
+},
+{
+"pair": "S6-020",
+"side": "b",
+"text": "Produce the quarterly report in table format.",
+"tid": "t086"
+},
+{
+"pair": "S6-028",
+"side": "a",
+"text": "Verify the customer records before the deadline.",
+"tid": "t087"
+},
+{
+"pair": "S6-028",
+"side": "b",
+"text": "Delete the customer records before the deadline.",
+"tid": "t088"
+},
+{
+"pair": "S6-039",
+"side": "a",
+"text": "Translate the document, then send it to the client.",
+"tid": "t089"
+},
+{
+"pair": "S6-039",
+"side": "b",
+"text": "Send the document to the client, then translate it.",
+"tid": "t090"
+},
+{
+"pair": "S6-016",
+"side": "a",
+"text": "Genera un resumen en PDF si hay más de 100 registros.",
+"tid": "t091"
+},
+{
+"pair": "S6-016",
+"side": "b",
+"text": "Genera un resumen en PDF.",
+"tid": "t092"
+},
+{
+"pair": "S6-062",
+"side": "a",
+"text": "Crea un nuevo informe de resultados para el producto Aurora Textiles.",
+"tid": "t093"
+},
+{
+"pair": "S6-062",
+"side": "b",
+"text": "Delete the existing results report for the Aurora Textiles product.",
+"tid": "t094"
+},
+{
+"pair": "S6-089",
+"side": "a",
+"text": "Procesa la solicitud #88 con prioridad alta.",
+"tid": "t095"
+},
+{
+"pair": "S6-089",
+"side": "b",
+"text": "Process request #88 with high priority.",
+"tid": "t096"
+},
+{
+"pair": "S6-002",
+"side": "a",
+"text": "Permite que el equipo de soporte elimine tickets cerrados.",
+"tid": "t097"
+},
+{
+"pair": "S6-002",
+"side": "b",
+"text": "No permitas que el equipo de soporte elimine tickets cerrados.",
+"tid": "t098"
+},
+{
+"pair": "S6-056",
+"side": "a",
+"text": "Analiza los datos de audio del evento #12.",
+"tid": "t099"
+},
+{
+"pair": "S6-056",
+"side": "b",
+"text": "Analyze the video data for event #12.",
+"tid": "t100"
+},
+{
+"pair": "S6-045",
+"side": "a",
+"text": "Calcula las ventas totales entre el 1 y el 15 de agosto de 2026.",
+"tid": "t101"
+},
+{
+"pair": "S6-045",
+"side": "b",
+"text": "Calcule as vendas totais entre 1 e 15 de setembro de 2026.",
+"tid": "t102"
+},
+{
+"pair": "S6-059",
+"side": "a",
+"text": "Allow the marketing team to access the customer dataset.",
+"tid": "t103"
+},
+{
+"pair": "S6-059",
+"side": "b",
+"text": "Do not allow the marketing team to access the customer dataset.",
+"tid": "t104"
+},
+{
+"pair": "S6-037",
+"side": "a",
+"text": "Verifica el dataset y luego genera el informe de anomalías.",
+"tid": "t105"
+},
+{
+"pair": "S6-037",
+"side": "b",
+"text": "Genera el informe de anomalías y luego verifica el dataset.",
+"tid": "t106"
+},
+{
+"pair": "S6-082",
+"side": "a",
+"text": "Traduce el documento y luego envíalo al cliente.",
+"tid": "t107"
+},
+{
+"pair": "S6-082",
+"side": "b",
+"text": "Envía el documento al cliente y luego tradúcelo.",
+"tid": "t108"
+},
+{
+"pair": "S6-091",
+"side": "a",
+"text": "Presenta los resultados del análisis en una tabla.",
+"tid": "t109"
+},
+{
+"pair": "S6-091",
+"side": "b",
+"text": "Presenta los resultados del análisis en formato JSON.",
+"tid": "t110"
+},
+{
+"pair": "S6-054",
+"side": "a",
+"text": "Traduce el resumen ejecutivo al portugués y entrégalo en Markdown.",
+"tid": "t111"
+},
+{
+"pair": "S6-054",
+"side": "b",
+"text": "Traduce el resumen ejecutivo al idioma portugués y entrégalo en formato Markdown.",
+"tid": "t112"
+},
+{
+"pair": "S6-032",
+"side": "a",
+"text": "Calcula las ventas totales entre el 1 y el 15 de agosto de 2026.",
+"tid": "t113"
+},
+{
+"pair": "S6-032",
+"side": "b",
+"text": "Calcula las ventas totales del 01/08/2026 al 15/08/2026.",
+"tid": "t114"
+},
+{
+"pair": "S6-024",
+"side": "a",
+"text": "Actualiza el perfil del cliente #452, por favor.",
+"tid": "t115"
+},
+{
+"pair": "S6-024",
+"side": "b",
+"text": "Por favor, actualiza el perfil del cliente número 452.",
+"tid": "t116"
+},
+{
+"pair": "S6-042",
+"side": "a",
+"text": "Está permitido modificar el documento #310 sin autorización.",
+"tid": "t117"
+},
+{
+"pair": "S6-042",
+"side": "b",
+"text": "It is forbidden to modify document #310 without authorization.",
+"tid": "t118"
+},
+{
+"pair": "S6-078",
+"side": "a",
+"text": "Flag the anomaly if its confidence is 0.80 or above.",
+"tid": "t119"
+},
+{
+"pair": "S6-078",
+"side": "b",
+"text": "If the anomaly's confidence reaches 0.80 or more, flag it.",
+"tid": "t120"
+},
+{
+"pair": "S6-065",
+"side": "a",
+"text": "Remite el ticket #45 al equipo de soporte de Umbrella Inc.",
+"tid": "t121"
+},
+{
+"pair": "S6-065",
+"side": "b",
+"text": "Remite el ticket #145 al equipo de soporte de Soylent SA.",
+"tid": "t122"
+},
+{
+"pair": "S6-058",
+"side": "a",
+"text": "No está permitido modificar el documento #310 sin autorización.",
+"tid": "t123"
+},
+{
+"pair": "S6-058",
+"side": "b",
+"text": "Está prohibido modificar el documento número 310 sin autorización.",
+"tid": "t124"
+},
+{
+"pair": "S6-066",
+"side": "a",
+"text": "Verify the customer data before sending the final report.",
+"tid": "t125"
+},
+{
+"pair": "S6-066",
+"side": "b",
+"text": "Make sure the customer data is checked before the final report goes out.",
+"tid": "t126"
+},
+{
+"pair": "S6-006",
+"side": "a",
+"text": "Localiza las anomalías en el conjunto de datos de audio.",
+"tid": "t127"
+},
+{
+"pair": "S6-006",
+"side": "b",
+"text": "Detect the anomalies in the audio dataset.",
+"tid": "t128"
+},
+{
+"pair": "S6-068",
+"side": "a",
+"text": "Approve requests whose confidence score is 0.75 or higher.",
+"tid": "t129"
+},
+{
+"pair": "S6-068",
+"side": "b",
+"text": "Approve requests whose confidence score is 0.95 or higher.",
+"tid": "t130"
+},
+{
+"pair": "S6-038",
+"side": "a",
+"text": "Generate the anomaly report in JSON format.",
+"tid": "t131"
+},
+{
+"pair": "S6-038",
+"side": "b",
+"text": "Produce the anomaly report as JSON.",
+"tid": "t132"
+},
+{
+"pair": "S6-093",
+"side": "a",
+"text": "It is allowed to export customer data to third parties.",
+"tid": "t133"
+},
+{
+"pair": "S6-093",
+"side": "b",
+"text": "It is forbidden to export customer data to third parties.",
+"tid": "t134"
+},
+{
+"pair": "S6-081",
+"side": "a",
+"text": "Update the profile of person #204 with the new address.",
+"tid": "t135"
+},
+{
+"pair": "S6-081",
+"side": "b",
+"text": "Atualize o perfil da pessoa número 204 com o novo endereço.",
+"tid": "t136"
+},
+{
+"pair": "S6-057",
+"side": "a",
+"text": "Procesa la solicitud #88 con prioridad alta.",
+"tid": "t137"
+},
+{
+"pair": "S6-057",
+"side": "b",
+"text": "Process request #88 with urgent priority.",
+"tid": "t138"
+},
+{
+"pair": "S6-033",
+"side": "a",
+"text": "Send an urgent alert to Vertex Ltda about the detected anomaly.",
+"tid": "t139"
+},
+{
+"pair": "S6-033",
+"side": "b",
+"text": "Dispatch a high-priority alert to Vertex Ltda regarding the detected anomaly.",
+"tid": "t140"
+},
+{
+"pair": "S6-084",
+"side": "a",
+"text": "Elimine os cem registros duplicados da base de clientes.",
+"tid": "t141"
+},
+{
+"pair": "S6-084",
+"side": "b",
+"text": "Elimina los cincuenta registros duplicados de la base de clientes.",
+"tid": "t142"
+},
+{
+"pair": "S6-047",
+"side": "a",
+"text": "Scrutinize the video dataset for corrupted files.",
+"tid": "t143"
+},
+{
+"pair": "S6-047",
+"side": "b",
+"text": "Examine the video dataset for corrupted files.",
+"tid": "t144"
+},
+{
+"pair": "S6-092",
+"side": "a",
+"text": "The system must delete inactive user accounts every month.",
+"tid": "t145"
+},
+{
+"pair": "S6-092",
+"side": "b",
+"text": "Delete inactive user accounts every month.",
+"tid": "t146"
+},
+{
+"pair": "S6-043",
+"side": "a",
+"text": "Genera el informe correspondiente al 2026-01-15.",
+"tid": "t147"
+},
+{
+"pair": "S6-043",
+"side": "b",
+"text": "Genera el informe correspondiente al 15 de enero de 2026.",
+"tid": "t148"
+},
+{
+"pair": "S6-055",
+"side": "a",
+"text": "Retrieve the top 10 products by revenue.",
+"tid": "t149"
+},
+{
+"pair": "S6-055",
+"side": "b",
+"text": "Recupera los 10 productos principales por ingresos.",
+"tid": "t150"
+},
+{
+"pair": "S6-012",
+"side": "a",
+"text": "Translate the product document into Spanish before tomorrow.",
+"tid": "t151"
+},
+{
+"pair": "S6-012",
+"side": "b",
+"text": "The product document must be translated into Spanish before tomorrow.",
+"tid": "t152"
+},
+{
+"pair": "S6-097",
+"side": "a",
+"text": "Include no more than 5 examples per anomaly in the report.",
+"tid": "t153"
+},
+{
+"pair": "S6-097",
+"side": "b",
+"text": "Include a maximum of 5 examples per anomaly in the report.",
+"tid": "t154"
+},
+{
+"pair": "S6-071",
+"side": "a",
+"text": "Marca la anomalía como crítica si la confianza es mayor a 0.85.",
+"tid": "t155"
+},
+{
+"pair": "S6-071",
+"side": "b",
+"text": "Marca la anomalía como crítica si la confianza es menor a 0.85.",
+"tid": "t156"
+},
+{
+"pair": "S6-073",
+"side": "a",
+"text": "Coteja los resultados del análisis con el informe anterior.",
+"tid": "t157"
+},
+{
+"pair": "S6-073",
+"side": "b",
+"text": "Cross-check the analysis results against the previous report.",
+"tid": "t158"
+},
+{
+"pair": "S6-025",
+"side": "a",
+"text": "Analiza el conjunto de datos de ventas del segundo trimestre.",
+"tid": "t159"
+},
+{
+"pair": "S6-025",
+"side": "b",
+"text": "Elimina el conjunto de datos de ventas del segundo trimestre.",
+"tid": "t160"
+},
+{
+"pair": "S6-013",
+"side": "a",
+"text": "Aprueba los resultados con confianza mayor a 0.80.",
+"tid": "t161"
+},
+{
+"pair": "S6-013",
+"side": "b",
+"text": "Aprueba los resultados con confianza mayor o igual a 0.80.",
+"tid": "t162"
+},
+{
+"pair": "S6-070",
+"side": "a",
+"text": "Generate the summary in French and in PDF.",
+"tid": "t163"
+},
+{
+"pair": "S6-070",
+"side": "b",
+"text": "Generate the summary in German and in Markdown.",
+"tid": "t164"
+},
+{
+"pair": "S6-069",
+"side": "a",
+"text": "Search the customer database for duplicate entries.",
+"tid": "t165"
+},
+{
+"pair": "S6-069",
+"side": "b",
+"text": "Look through the customer database to find duplicate entries.",
+"tid": "t166"
+},
+{
+"pair": "S6-053",
+"side": "a",
+"text": "Enable automatic notifications for the Meridian Bank team.",
+"tid": "t167"
+},
+{
+"pair": "S6-053",
+"side": "b",
+"text": "Deshabilita las notificaciones automáticas para el equipo de Meridian Bank.",
+"tid": "t168"
+},
+{
+"pair": "S6-026",
+"side": "a",
+"text": "Compare the sales figures of Globex Inc and Initech for Q1 2026.",
+"tid": "t169"
+},
+{
+"pair": "S6-026",
+"side": "b",
+"text": "It is necessary to compare Globex Inc's and Initech's sales figures for Q1 2026.",
+"tid": "t170"
+},
+{
+"pair": "S6-098",
+"side": "a",
+"text": "Compare the sales figures of Globex Inc and Initech for Q1 2026.",
+"tid": "t171"
+},
+{
+"pair": "S6-098",
+"side": "b",
+"text": "Search for the sales figures of Globex Inc and Initech for Q1 2026.",
+"tid": "t172"
+},
+{
+"pair": "S6-035",
+"side": "a",
+"text": "Está permitido excluir los usuarios inactivos del informe.",
+"tid": "t173"
+},
+{
+"pair": "S6-035",
+"side": "b",
+"text": "Se permite excluir del informe a los usuarios que estén inactivos.",
+"tid": "t174"
+},
+{
+"pair": "S6-003",
+"side": "a",
+"text": "Verify the customer data before sending the report to Acme Corp.",
+"tid": "t175"
+},
+{
+"pair": "S6-003",
+"side": "b",
+"text": "The customer data must be verified before the report is sent to Acme Corp.",
+"tid": "t176"
+},
+{
+"pair": "S6-041",
+"side": "a",
+"text": "If the confidence is less than 0.80, discard the result.",
+"tid": "t177"
+},
+{
+"pair": "S6-041",
+"side": "b",
+"text": "Discard the result if the confidence is below 0.80.",
+"tid": "t178"
+},
+{
+"pair": "S6-048",
+"side": "a",
+"text": "Include a maximum of 5 examples per anomaly in the report.",
+"tid": "t179"
+},
+{
+"pair": "S6-048",
+"side": "b",
+"text": "Incluye un máximo de 10 ejemplos por anomalía en el informe.",
+"tid": "t180"
+},
+{
+"pair": "S6-061",
+"side": "a",
+"text": "Analiza los eventos del mes pasado.",
+"tid": "t181"
+},
+{
+"pair": "S6-061",
+"side": "b",
+"text": "Analiza los eventos de agosto de 2026.",
+"tid": "t182"
+},
+{
+"pair": "S6-076",
+"side": "a",
+"text": "Envía el documento validado a Cascada Foods antes de las 3:00 pm.",
+"tid": "t183"
+},
+{
+"pair": "S6-076",
+"side": "b",
+"text": "Antes de las 15:00, remite el documento validado a Cascada Foods.",
+"tid": "t184"
+},
+{
+"pair": "S6-085",
+"side": "a",
+"text": "Process ticket #310 with high priority.",
+"tid": "t185"
+},
+{
+"pair": "S6-085",
+"side": "b",
+"text": "Process ticket #310 with urgent priority.",
+"tid": "t186"
+},
+{
+"pair": "S6-019",
+"side": "a",
+"text": "If the confidence is less than 0.80, discard the result.",
+"tid": "t187"
+},
+{
+"pair": "S6-019",
+"side": "b",
+"text": "If the confidence is less than 0.60, discard the result.",
+"tid": "t188"
+},
+{
+"pair": "S6-001",
+"side": "a",
+"text": "Analiza las ventas del tercer trimestre de 2026 y genera un informe en PDF.",
+"tid": "t189"
+},
+{
+"pair": "S6-001",
+"side": "b",
+"text": "Examina las ventas del Q3 2026 y crea un reporte en formato PDF.",
+"tid": "t190"
+},
+{
+"pair": "S6-005",
+"side": "a",
+"text": "Recupera los primeros 100 registros de ventas.",
+"tid": "t191"
+},
+{
+"pair": "S6-005",
+"side": "b",
+"text": "Recupera los primeros 50 registros de ventas.",
+"tid": "t192"
+},
+{
+"pair": "S6-034",
+"side": "a",
+"text": "Genera el informe de anomalías en formato JSON.",
+"tid": "t193"
+},
+{
+"pair": "S6-034",
+"side": "b",
+"text": "Genera el informe de anomalías en formato CSV.",
+"tid": "t194"
+},
+{
+"pair": "S6-063",
+"side": "a",
+"text": "Fetch the last 50 sales records from this week.",
+"tid": "t195"
+},
+{
+"pair": "S6-063",
+"side": "b",
+"text": "Fetch the last 500 sales records from last month.",
+"tid": "t196"
+},
+{
+"pair": "S6-011",
+"side": "a",
+"text": "Analyze today's user sign-ups.",
+"tid": "t197"
+},
+{
+"pair": "S6-011",
+"side": "b",
+"text": "Analyze yesterday's user sign-ups.",
+"tid": "t198"
+},
+{
+"pair": "S6-074",
+"side": "a",
+"text": "Calculate total revenue between 2026-01-01 and 2026-03-31.",
+"tid": "t199"
+},
+{
+"pair": "S6-074",
+"side": "b",
+"text": "Calculate total revenue between 2026-04-01 and 2026-06-30.",
+"tid": "t200"
+}
+]
