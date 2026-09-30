@@ -71,3 +71,22 @@ el emisor 'Close ticket #77.' y el receptor 'Delete ticket #77.'...". Antigravit
 }
 ```
 Matches this project's own reproduction of the identical call exactly (see `results_mcp_desktop_negotiate_FIRST_RUN.md`). `aixl_negotiate` is now confirmed on all 3 independent vendor clients (Claude Desktop, and now Antigravity CLI; not yet on Codex).
+
+## Update: aixl_translate confirmed too (same session, same day)
+User asked: "Usa la herramienta aixl_translate para traducir 'Analiza las ventas del primer
+trimestre de 2026.'...". Antigravity's agent called `aixl-core/aixl_translate` and returned:
+```json
+{
+  "aixl": "V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE D:SALES T:Q1-2026",
+  "semantic": {"intent": "REQUEST_ANALYSIS", "actions": ["ANALYZE"], "entities": [], "data": ["SALES"],
+               "time": ["Q1-2026"], "location": [], "constraints": [], "conditions": [], "negation": [],
+               "references": [], "quantities": [], "goal": "", "output": [], "modifiers": []},
+  "ambiguous": false
+}
+```
+Matches this project's own reproduction exactly (see `results_mcp_desktop_translate_FIRST_RUN.md`).
+
+## Status: ALL 3 tools now confirmed on Antigravity CLI
+`aixl_compare`, `aixl_negotiate`, `aixl_translate` — all three, in the same `agy` session, all matching
+this project's own reproductions exactly. Antigravity CLI (Google) now has the same tool coverage as
+Claude Desktop (Anthropic); only Codex (OpenAI) still has just `aixl_compare` tested.
