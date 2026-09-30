@@ -8,24 +8,21 @@ piece: the sender is a genuinely separate process (aixl/agents/sender_agent.py, 
 OS subprocess); this module plays the receiver, asking it real questions over stdio JSON-RPC via the
 official `mcp` SDK client and getting back live answers.
 
-Deliberately reuses the exact turn semantics, severity ordering, wire format (NegotiationTurn) and
-the actions-emptiness REJECT rule from aixl/negotiation.py (imported, never reimplemented) — the only
-thing that changes is WHERE the sender's answer comes from: a live remote process instead of a local
-dict read. `negotiate()` itself is untouched (its 141 existing tests keep passing unmodified); this
-is pure addition. See tests/test_autonomous_negotiation.py for parity tests proving the two agree."""
+Deliberately reuses `_negotiate_core` from aixl/negotiation.py — the exact same round-loop `negotiate()`
+itself runs (audit finding #4, closed 2026-09-30: the two used to be independent ~40-line copies of the
+same control flow; now there is exactly one). The only thing this module supplies is WHERE the sender's
+canonical form and per-dimension answers come from: a live remote process over real MCP stdio JSON-RPC,
+instead of a local dict already held in memory. See tests/test_autonomous_negotiation.py for parity
+tests proving the two agree."""
 import asyncio
 import json
 
 from mcp import ClientSession
 from mcp.client.stdio import stdio_client, StdioServerParameters
 
-from aixl.core.comparator import compare_canonical
 from aixl.core.ontology import load_config
 from aixl.serialization import aixl_codec
-from aixl.negotiation import (
-    NegotiationTurn, NegotiationOutcome, worst_dimension, _dim_of_label, _is_empty, _fmt,
-    _involves_irreversible_action,
-)
+from aixl.negotiation import NegotiationOutcome, _negotiate_core
 
 
 def _coerce(receiver_value_before, wire_value):
@@ -60,18 +57,13 @@ async def negotiate_autonomous_async(sender_command: list[str], receiver_canonic
     """Async core, exported so a caller already running inside an event loop (e.g. an MCP server's
     own tool handler — see aixl/mcp_server.py's aixl_negotiate_autonomous) can `await` it directly
     instead of going through the sync `negotiate_autonomous()` wrapper, which cannot be called from
-    a running loop (asyncio.run() would raise)."""
+    a running loop (asyncio.run() would raise).
+
+    Spawns the real sender-agent subprocess and, once the session is live, delegates the entire
+    REQUEST -> CLARIFY -> ANSWER -> ACCEPT/REJECT round-loop to `_negotiate_core` (aixl/negotiation.py)
+    — the two `get_request`/`get_answer` closures below are the only thing specific to talking to a
+    real remote process instead of reading a local dict."""
     cfg = config or load_config()
-    belief = dict(receiver_canonical)
-    transcript: list[NegotiationTurn] = []
-    n = 0
-    mid = 0
-
-    def next_id():
-        nonlocal mid
-        mid += 1
-        return f"{msg_prefix}{mid}"
-
     sender_env, sender_cwd = _sender_env_and_cwd()
     params = StdioServerParameters(command=sender_command[0], args=sender_command[1:],
                                     env=sender_env, cwd=sender_cwd)
@@ -79,72 +71,17 @@ async def negotiate_autonomous_async(sender_command: list[str], receiver_canonic
         async with ClientSession(read, write) as session:
             await session.initialize()
 
-            msg = await session.call_tool("get_message", {})
-            sender_aixl = json.loads(msg.content[0].text)["aixl"]
-            sender_canonical = aixl_codec.decode(sender_aixl).canonical()
+            async def get_request():
+                msg = await session.call_tool("get_message", {})
+                sender_aixl = json.loads(msg.content[0].text)["aixl"]
+                return aixl_codec.decode(sender_aixl).canonical(), sender_aixl
 
-            req_id = next_id()
-            transcript.append(NegotiationTurn("REQUEST", req_id, payload=sender_aixl))
-            last_id = req_id
-
-            while n < max_rounds:
-                result = compare_canonical(sender_canonical, belief, cfg)
-                if result.equivalent:
-                    acc_id = next_id()
-                    transcript.append(NegotiationTurn("ACCEPT", acc_id, ref_id=last_id))
-                    return NegotiationOutcome(True, n, transcript, belief, [])
-                d = worst_dimension(result)
-                dim = _dim_of_label(d.field)
-                n += 1
-                clarify_id = next_id()
-                transcript.append(NegotiationTurn(
-                    "CLARIFY", clarify_id, ref_id=last_id, dim=dim, candidates=(d.target, d.source),
-                    question=f"{d.field}: receiver read '{d.target}', sender's own message implies "
-                             f"'{d.source}' — which is correct?"))
-
-                # E-MCP third-party test (2026-09-30, Claude Desktop): same fix as negotiate() — an
-                # irreversible-action disagreement (DELETE, see data/config.json's irreversible_actions;
-                # narrower than destructive_actions, which also includes reversible ones like UPDATE and
-                # broke the real "Close ticket" case in a first attempt) must not be auto-resolved by
-                # trusting the sender. Checked BEFORE the remote answer() call (unlike negotiate()'s local
-                # dict read, this one costs a real round-trip to a separate process).
-                if dim == "actions" and _involves_irreversible_action(d, cfg):
-                    rej_id = next_id()
-                    transcript.append(NegotiationTurn(
-                        "REJECT", rej_id, ref_id=clarify_id,
-                        reason=f"{d.field} disagreement involves an irreversible action ('{d.target}' vs "
-                               f"'{d.source}') — requires human confirmation, not auto-resolved by "
-                               f"trusting the sender"))
-                    return NegotiationOutcome(False, n, transcript, belief, result.differences)
-
+            async def get_answer(dim, belief):
                 ans = await session.call_tool("answer", {"dim": dim})
                 wire_value = json.loads(ans.content[0].text)["value"]
-                sender_value = _coerce(belief.get(dim), wire_value)
+                return _coerce(belief.get(dim), wire_value)
 
-                if dim == "actions" and _is_empty(sender_value):
-                    rej_id = next_id()
-                    transcript.append(NegotiationTurn(
-                        "REJECT", rej_id, ref_id=clarify_id,
-                        reason=f"sender's own message does not resolve {d.field} either — cannot "
-                               f"confirm which reading is correct"))
-                    return NegotiationOutcome(False, n, transcript, belief, result.differences)
-
-                answer_id = next_id()
-                transcript.append(NegotiationTurn(
-                    "ANSWER", answer_id, ref_id=clarify_id, dim=dim, value=_fmt(sender_value)))
-                belief[dim] = sender_value
-                last_id = answer_id
-
-            result = compare_canonical(sender_canonical, belief, cfg)
-            if result.equivalent:
-                acc_id = next_id()
-                transcript.append(NegotiationTurn("ACCEPT", acc_id, ref_id=last_id))
-                return NegotiationOutcome(True, n, transcript, belief, [])
-            rej_id = next_id()
-            transcript.append(NegotiationTurn(
-                "REJECT", rej_id, ref_id=last_id,
-                reason=f"no consensus after {max_rounds} rounds; {len(result.differences)} dimension(s) still differ"))
-            return NegotiationOutcome(False, n, transcript, belief, result.differences)
+            return await _negotiate_core(receiver_canonical, cfg, max_rounds, msg_prefix, get_request, get_answer)
 
 
 def negotiate_autonomous(sender_command: list[str], receiver_canonical: dict, config: dict | None = None,

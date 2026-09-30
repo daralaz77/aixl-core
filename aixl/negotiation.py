@@ -25,6 +25,7 @@ Design choices, each deliberate:
   never an infinite loop or a silent guess.
 """
 from dataclasses import dataclass, field
+import asyncio
 import re
 
 from aixl.core.comparator import compare_canonical, Difference
@@ -155,13 +156,30 @@ class NegotiationOutcome:
     remaining_differences: list = field(default_factory=list)   # list[Difference], empty if converged
 
 
-def negotiate(sender_canonical: dict, receiver_canonical: dict, config: dict | None = None,
-              max_rounds: int = 3, msg_prefix: str = "M") -> NegotiationOutcome:
-    """Run a bounded clarification exchange. The sender's own canonical() dict is treated as authoritative
-    for whichever ONE dimension the receiver disputes each round (see module docstring for why). Returns
-    an honest ACCEPT (converged) or REJECT (remaining_differences non-empty) — never a silent guess past
-    max_rounds, and never more rounds than the cap even if disagreements remain."""
-    cfg = config or load_config()
+async def _negotiate_core(receiver_canonical: dict, cfg: dict, max_rounds: int, msg_prefix: str,
+                           get_request, get_answer) -> NegotiationOutcome:
+    """Shared round-loop, used by BOTH `negotiate()` (sender data already known locally) and
+    `negotiate_autonomous_async()` in aixl/autonomous_negotiation.py (sender data comes from a real,
+    separate OS process over MCP stdio) — this used to be two independently-maintained ~40-line copies
+    of the exact same REQUEST -> loop{CLARIFY, fetch, empty-check, irreversible-check, ANSWER} ->
+    ACCEPT/REJECT control flow (audit finding #4, 2026-09-30), differing only in WHERE the sender's
+    canonical form and per-dimension answers come from. That's now the only thing the two callables
+    capture:
+      get_request() -> (sender_canonical: dict, request_payload: str)   # payload for the REQUEST turn
+      get_answer(dim: str, belief: dict) -> resolved sender value for `dim`
+    Both are async so a remote MCP round-trip and an instant local dict read fit the same shape.
+
+    Check order (fetch -> empty-check -> irreversible-check) matters and is deliberately NOT the
+    round-trip-saving order autonomous_negotiation.py used before this merge (irreversible-check
+    first, since it only needs `d` from the comparison, not the freshly-fetched value): a sender whose
+    re-derived value is empty AND whose receiver-side candidate happens to be irreversible (e.g. "Quita
+    el ticket #77." — out-of-vocabulary, so sender's actions is empty — vs. receiver's DELETE) must
+    still get the "sender can't resolve this at all" REJECT reason, not the "irreversible action"
+    one — the two are NOT mutually exclusive (an earlier attempt at reordering assumed they were,
+    since d.source can never itself be the irreversible value when sender_value is empty, but
+    d.target — the receiver's own candidate — can be, independent of the sender; caught immediately
+    by test_negotiate_rejects_rather_than_silently_discard_a_correct_reading_when_sender_cant_resolve_actions,
+    not shipped)."""
     belief = dict(receiver_canonical)
     transcript: list[NegotiationTurn] = []
     n = 0
@@ -172,8 +190,9 @@ def negotiate(sender_canonical: dict, receiver_canonical: dict, config: dict | N
         mid += 1
         return f"{msg_prefix}{mid}"
 
+    sender_canonical, request_payload = await get_request()
     req_id = next_id()
-    transcript.append(NegotiationTurn("REQUEST", req_id))
+    transcript.append(NegotiationTurn("REQUEST", req_id, payload=request_payload))
     last_id = req_id
     while n < max_rounds:
         result = compare_canonical(sender_canonical, belief, cfg)
@@ -192,7 +211,7 @@ def negotiate(sender_canonical: dict, receiver_canonical: dict, config: dict | N
         transcript.append(NegotiationTurn(
             "CLARIFY", clarify_id, ref_id=last_id, dim=dim, candidates=(d.target, d.source),
             question=f"{d.field}: receiver read '{d.target}', sender's own message implies '{d.source}' — which is correct?"))
-        sender_value = sender_canonical.get(dim, "")
+        sender_value = await get_answer(dim, belief)
         # E-MCP third-party test (2026-09-30, Claude Desktop): "the sender is authoritative" only holds
         # when the sender's own re-derived value actually says something. Scoped to `actions` ONLY: an
         # empty `actions` is always a translator failure (every real instruction has a main verb; found
@@ -200,7 +219,12 @@ def negotiate(sender_canonical: dict, receiver_canonical: dict, config: dict | N
         # correct DELETE reading with nothing while still reporting ACCEPT). Every OTHER dimension can be
         # legitimately, correctly empty (no prohibition stated, no time given, ...) — rejecting there too
         # broke a real case (sender genuinely states no negation vs. receiver's FORBID:DELETE, where the
-        # sender's empty value IS the correct answer), caught by the existing test suite.
+        # sender's empty value IS the correct answer), caught by the existing test suite. Checked BEFORE
+        # the irreversible-action check below: an empty sender value is a more fundamental failure
+        # ("the sender can't resolve this at all") than "the sender resolved it, but disagrees on
+        # something irreversible" — and the two are NOT mutually exclusive (the receiver's own candidate,
+        # d.target, can independently be irreversible regardless of whether the sender's fresh value is
+        # empty), so order here is a real behavioral choice, not an arbitrary one.
         if dim == "actions" and _is_empty(sender_value):
             rej_id = next_id()
             transcript.append(NegotiationTurn(
@@ -214,7 +238,7 @@ def negotiate(sender_canonical: dict, receiver_canonical: dict, config: dict | N
         # own `destructive_actions` (CRITICAL + "destructive action involved") but that list also includes
         # UPDATE/SEND/DISABLE/EXECUTE, which broke the real "Close ticket" case (UPDATE is on both sides of
         # countless ordinary disagreements) — caught immediately by the test suite, not shipped. Narrowed
-        # to the separate, smaller `irreversible_actions` config list (DELETE only, so far).
+        # to the separate, smaller `irreversible_actions` config list.
         if dim == "actions" and _involves_irreversible_action(d, cfg):
             rej_id = next_id()
             transcript.append(NegotiationTurn(
@@ -240,3 +264,27 @@ def negotiate(sender_canonical: dict, receiver_canonical: dict, config: dict | N
         "REJECT", rej_id, ref_id=last_id,
         reason=f"no consensus after {max_rounds} rounds; {len(result.differences)} dimension(s) still differ"))
     return NegotiationOutcome(False, n, transcript, belief, result.differences)
+
+
+def negotiate(sender_canonical: dict, receiver_canonical: dict, config: dict | None = None,
+              max_rounds: int = 3, msg_prefix: str = "M") -> NegotiationOutcome:
+    """Run a bounded clarification exchange. The sender's own canonical() dict is treated as authoritative
+    for whichever ONE dimension the receiver disputes each round (see module docstring for why). Returns
+    an honest ACCEPT (converged) or REJECT (remaining_differences non-empty) — never a silent guess past
+    max_rounds, and never more rounds than the cap even if disagreements remain.
+
+    Thin sync wrapper over `_negotiate_core`: the sender's canonical form is already fully known here, so
+    both callables resolve instantly with no real await — asyncio.run() just drives that trivial coroutine
+    to completion. Confirmed safe to call from the synchronous `aixl_negotiate` MCP tool handler by reading
+    the `mcp` SDK's own source (mcp.server.mcpserver.utilities.func_metadata.FuncMetadata.call_fn): a sync
+    tool runs via `anyio.to_thread.run_sync` on a worker thread with no event loop of its own, so this
+    never nests inside an already-running loop."""
+    cfg = config or load_config()
+
+    async def get_request():
+        return sender_canonical, ""
+
+    async def get_answer(dim, belief):
+        return sender_canonical.get(dim, "")
+
+    return asyncio.run(_negotiate_core(receiver_canonical, cfg, max_rounds, msg_prefix, get_request, get_answer))
