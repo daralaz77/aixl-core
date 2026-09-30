@@ -154,3 +154,28 @@ def test_negotiate_clarify_names_receiver_and_sender_the_right_way_round():
     assert clarify.candidates == ("DELETE", "UPDATE")            # (receiver's value, sender's value)
     assert "receiver read 'DELETE'" in clarify.question
     assert "sender's own message implies 'UPDATE'" in clarify.question
+
+
+def test_negotiate_rejects_rather_than_silently_discard_a_correct_reading_when_sender_cant_resolve_actions():
+    # found by a REAL third-party MCP client (Claude Desktop, E-MCP, 2026-09-30): "quita" is outside the
+    # rule-based vocabulary, so the sender's own re-derived `actions` is empty/NOT_SPECIFIED. Before this
+    # fix, negotiate() adopted that emptiness anyway and reported ACCEPT/converged, silently discarding the
+    # receiver's plausibly-correct DELETE reading with no signal anything was lost — worse than an honest
+    # REJECT, especially for a destructive action. Now it must REJECT instead of guessing wrong for free.
+    sender = canon("Quita el ticket #77.")         # -> actions=() (out-of-vocabulary verb, unresolved)
+    receiver = canon("Elimina el ticket #77.")     # -> DELETE
+    out = neg.negotiate(sender, receiver, max_rounds=3)
+    assert out.converged is False
+    assert out.transcript[-1].turn_type == "REJECT"
+    assert "does not resolve" in out.transcript[-1].reason
+    assert any(d.field == "ACTION" for d in out.remaining_differences)
+
+
+def test_negotiate_still_adopts_a_legitimately_empty_dimension_other_than_actions():
+    # the fix above is scoped to `actions` only: a genuinely correct empty value on another dimension
+    # (here, the sender really states no prohibition) must still be adopted and converge — rejecting
+    # every empty sender value would be over-broad and was caught regressing this real case.
+    sender = canon("Delete the report for this year.")              # -> no negation stated (correct)
+    receiver = canon("Do not delete the report for last year.")     # -> FORBID:DELETE
+    out = neg.negotiate(sender, receiver, max_rounds=5)
+    assert out.converged is True

@@ -52,6 +52,10 @@ def _fmt(v) -> str:
     return v if v else "NOT_SPECIFIED"
 
 
+def _is_empty(v) -> bool:
+    return v is None or v == "" or (isinstance(v, tuple) and len(v) == 0)
+
+
 def _quote(s: str) -> str:
     return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
@@ -179,6 +183,20 @@ def negotiate(sender_canonical: dict, receiver_canonical: dict, config: dict | N
             "CLARIFY", clarify_id, ref_id=last_id, dim=dim, candidates=(d.target, d.source),
             question=f"{d.field}: receiver read '{d.target}', sender's own message implies '{d.source}' — which is correct?"))
         sender_value = sender_canonical.get(dim, "")
+        # E-MCP third-party test (2026-09-30, Claude Desktop): "the sender is authoritative" only holds
+        # when the sender's own re-derived value actually says something. Scoped to `actions` ONLY: an
+        # empty `actions` is always a translator failure (every real instruction has a main verb; found
+        # via "Quita el ticket #77." — an out-of-vocabulary verb — silently overwriting the receiver's
+        # correct DELETE reading with nothing while still reporting ACCEPT). Every OTHER dimension can be
+        # legitimately, correctly empty (no prohibition stated, no time given, ...) — rejecting there too
+        # broke a real case (sender genuinely states no negation vs. receiver's FORBID:DELETE, where the
+        # sender's empty value IS the correct answer), caught by the existing test suite.
+        if dim == "actions" and _is_empty(sender_value):
+            rej_id = next_id()
+            transcript.append(NegotiationTurn(
+                "REJECT", rej_id, ref_id=clarify_id,
+                reason=f"sender's own message does not resolve {d.field} either — cannot confirm which reading is correct"))
+            return NegotiationOutcome(False, n, transcript, belief, result.differences)
         answer_id = next_id()
         transcript.append(NegotiationTurn("ANSWER", answer_id, ref_id=clarify_id, dim=dim, value=_fmt(sender_value)))
         belief[dim] = sender_value           # adopt the sender's value for exactly this one dimension
