@@ -95,12 +95,13 @@ def test_autonomous_negotiation_sender_replay_mode_accepts_a_precomputed_aixl_li
     """--aixl mode: the sender agent replays an already-encoded AIXL line instead of a raw text —
     the real mode used to re-run genuine historical E-INTEROP disagreements (see
     benchmarks/autonomous_negotiation_eval.py) without needing a live model call."""
-    # A:UPDATE vs A:SEND, not A:DELETE — DELETE would trigger E-MCP's irreversible-action REJECT
-    # (2026-09-30), which isn't what replay mode itself is testing here.
+    # A:UPDATE vs A:DISABLE, not A:DELETE/EXECUTE/SEND — those trigger E-MCP's irreversible-action
+    # REJECT (2026-09-30, widened to EXECUTE/SEND the same day), which isn't what replay mode itself
+    # is testing here.
     from aixl.serialization import aixl_codec
     sender_aixl = "V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE Y:#77"
     cmd = [sys.executable, "-m", "aixl.agents.sender_agent", "--aixl", sender_aixl]
-    receiver_canonical = aixl_codec.decode("V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND Y:#77").canonical()
+    receiver_canonical = aixl_codec.decode("V:AIXL-0.3 I:REQUEST_EXECUTION A:DISABLE Y:#77").canonical()
     out = negotiate_autonomous(cmd, receiver_canonical, max_rounds=3)
     assert out.converged is True
     assert out.transcript[0].payload == sender_aixl

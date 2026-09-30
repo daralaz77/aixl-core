@@ -75,10 +75,11 @@ def test_negotiate_converges_on_single_dimension_disagreement():
 
 
 def test_negotiate_resolves_multiple_dimensions_within_rounds():
-    # UPDATE, not DELETE, on the receiver side — DELETE would trigger E-MCP's irreversible-action REJECT
-    # (2026-09-30) before every dimension gets a chance to be negotiated, which isn't what this test checks.
-    sender = canon("Send the report to Acme before 15:00.")
-    receiver = canon("Update the document from Nova after 09:00.")
+    # UPDATE/DISABLE, not DELETE/EXECUTE/SEND — those now trigger E-MCP's irreversible-action REJECT
+    # (2026-09-30, widened to EXECUTE/SEND the same day) before every dimension gets a chance to be
+    # negotiated, which isn't what this test checks.
+    sender = canon("Update the report to Acme before 15:00.")
+    receiver = canon("Disable the document from Nova after 09:00.")
     n_diffs_before = len(neg.compare_canonical(sender, receiver).differences)
     assert n_diffs_before >= 2
     out = neg.negotiate(sender, receiver, max_rounds=6)
@@ -89,8 +90,8 @@ def test_negotiate_resolves_multiple_dimensions_within_rounds():
 
 
 def test_negotiate_rejects_after_max_rounds_instead_of_looping_forever():
-    sender = canon("Send the report to Acme before 15:00.")
-    receiver = canon("Update the document from Nova after 09:00.")
+    sender = canon("Update the report to Acme before 15:00.")
+    receiver = canon("Disable the document from Nova after 09:00.")
     n_diffs = len(neg.compare_canonical(sender, receiver).differences)
     assert n_diffs >= 2
     out = neg.negotiate(sender, receiver, max_rounds=1)
@@ -206,13 +207,38 @@ def test_negotiate_rejects_an_irreversible_action_disagreement_instead_of_trusti
 
 
 def test_negotiate_still_resolves_a_merely_destructive_but_reversible_action_disagreement():
-    # narrowing check: UPDATE and SEND are both on comparator's broader `destructive_actions` list (used
-    # only for CRITICAL severity display) but NEITHER is on the narrower `irreversible_actions` list
-    # (DELETE only) that gates the REJECT above — a first, broader attempt reusing `destructive_actions`
-    # directly broke exactly this kind of case (any UPDATE-involving disagreement), caught by the
-    # existing test suite before it shipped. Reversible actions must still resolve normally.
-    sender = canon("Send the invoice.")             # -> SEND
+    # narrowing check: UPDATE and DISABLE are both on comparator's broader `destructive_actions` list
+    # (used only for CRITICAL severity display) but NEITHER is on the narrower `irreversible_actions`
+    # list (DELETE/EXECUTE/SEND) that gates the REJECT above — a first, broader attempt reusing
+    # `destructive_actions` directly broke exactly this kind of case (any UPDATE-involving disagreement),
+    # caught by the existing test suite before it shipped. Reversible actions must still resolve normally.
+    # (SEND itself was moved OFF this "still reversible" list into `irreversible_actions` the same day,
+    # at the user's request — see test_negotiate_rejects_an_irreversible_send_disagreement.)
+    sender = canon("Disable the invoice.")           # -> DISABLE
     receiver = canon("Update the invoice.")          # -> UPDATE
     out = neg.negotiate(sender, receiver, max_rounds=3)
     assert out.converged is True
     assert out.transcript[-1].turn_type == "ACCEPT"
+
+
+def test_negotiate_rejects_an_irreversible_send_disagreement():
+    # E-MCP-DESTRUCTIVE widened (2026-09-30, user request): SEND joins DELETE/EXECUTE on
+    # `irreversible_actions` — a message sent usually can't be unsent. Not yet backed by a real
+    # disagreement case the way DELETE was (see data/config.json's irreversible_actions comment).
+    sender = canon("Send the invoice.")              # -> SEND
+    receiver = canon("Update the invoice.")           # -> UPDATE
+    out = neg.negotiate(sender, receiver, max_rounds=3)
+    assert out.converged is False
+    assert out.transcript[-1].turn_type == "REJECT"
+    assert "irreversible action" in out.transcript[-1].reason
+
+
+def test_negotiate_rejects_an_irreversible_execute_disagreement():
+    # E-MCP-DESTRUCTIVE widened (2026-09-30, user request): EXECUTE joins DELETE/SEND on
+    # `irreversible_actions` — running something usually can't be undone.
+    sender = canon("Execute the script.")            # -> EXECUTE
+    receiver = canon("Update the script.")            # -> UPDATE
+    out = neg.negotiate(sender, receiver, max_rounds=3)
+    assert out.converged is False
+    assert out.transcript[-1].turn_type == "REJECT"
+    assert "irreversible action" in out.transcript[-1].reason
