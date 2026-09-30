@@ -23,7 +23,7 @@ jobs:
         # config for this multi-top-level-dir layout, and `pip install -e .` fails on it) — pytest's own
         # `pythonpath = ["."]` (pyproject.toml) resolves imports straight from the checkout instead,
         # exactly like the project's documented dev setup (README.md: `pip install pytest tiktoken`).
-        run: pip install pytest tiktoken mcp
+        run: pip install pytest tiktoken mcp "a2a-sdk[http-server]"
 
       - name: Run test suite
         run: pytest -q

@@ -7,8 +7,8 @@ LANGUAGE   natural text (ES/EN/PT)                     "how it is said"
 SEMANTICS  SemanticGraph + canonical form              "what it means"   aixl/core/*
    │  aixl/serialization/{aixl_codec,json_codec}.py
 ENCODING   AIXL 0.3 (compact)  |  JSON (debug/interchange)
-   │  aixl/adapters/protocol_adapter.py   (AixlAdapter/JsonAdapter/MCPAdapter real; A2A/REST/OpenAPI/GraphQL not implemented)
-PROTOCOL / TRANSPORT  aixl/mcp_server.py — a real MCP server (official `mcp` SDK, stdio), tools: aixl_translate/aixl_compare/aixl_negotiate
+   │  aixl/adapters/protocol_adapter.py   (AixlAdapter/JsonAdapter/MCPAdapter/A2AAdapter real; REST/OpenAPI/GraphQL not implemented)
+PROTOCOL / TRANSPORT  aixl/mcp_server.py (official `mcp` SDK, stdio) and aixl/agents/a2a_server.py (official `a2a-sdk`, JSON-RPC/HTTP)
 EXECUTION  — out of scope for 0.3 (nothing here executes an action)
 ```
 Rule: the **Semantic Core is the graph**. AIXL is only a serialization of it; changing the AIXL syntax must not change meaning.
@@ -33,6 +33,7 @@ Rule: the **Semantic Core is the graph**. AIXL is only a serialization of it; ch
 | `mcp_server.py` | E-MCP (2026-09-30): a REAL running MCP server (official `mcp` SDK, stdio transport) exposing `aixl_translate`/`aixl_compare`/`aixl_negotiate`/`aixl_negotiate_autonomous` as thin wrappers over `api/service.py`/`autonomous_negotiation.py` — the first non-`NotImplementedError` protocol adapter target. `cli.py mcp-serve` starts it; needs the optional `mcp` extra (`pip install .[mcp]`). See BENCHMARK.md §12. |
 | `agents/sender_agent.py` | E-AUTONOMOUS (2026-09-30): a real, standalone MCP server playing the SENDER side of a negotiation — a genuinely separate OS process. Answers CLARIFY questions recomputed fresh from its own stored source (`--text` or `--aixl`) on every call, never cached at setup. |
 | `autonomous_negotiation.py` | E-AUTONOMOUS (2026-09-30): `negotiate_autonomous()`/`negotiate_autonomous_async()` spawn `agents/sender_agent.py` as a genuine subprocess and drive a REQUEST→CLARIFY→ANSWER→ACCEPT/REJECT exchange over real MCP stdio with zero human relay — reuses `negotiation.py`'s tested turn logic (imported, not reimplemented; `negotiate()` itself untouched). Re-measured 21/21 real E-INTEROP disagreements this way; wired into `mcp_server.py` so a real MCP client can trigger it directly. See BENCHMARK.md §13. |
+| `agents/a2a_server.py` | E-A2A (2026-09-30): a REAL running A2A agent (official Google `a2a-sdk`, JSON-RPC over HTTP, `starlette`+`uvicorn`) exposing one skill, `aixl_compare`, over the actual Agent2Agent protocol — the second real protocol adapter target after MCP. `python -m aixl.agents.a2a_server [PORT]` starts it; needs the optional `a2a` extra (`pip install .[a2a]`). See BENCHMARK.md §15. |
 
 ## Canonical form (what equivalence compares)
 `intent, actions (ordered), entities, data, time, location, constraints, conditions, negation (FORBID:/ALLOW: per action), references, quantities, goal, output, modifiers`. `intent` and `goal` are derived from actions/negation/entities and are scored but never reported as independent differences.
@@ -52,4 +53,4 @@ Rule: the **Semantic Core is the graph**. AIXL is only a serialization of it; ch
 9. A generic `DATA` mention is dropped when a specific datum is present ("datos de ventas" = SALES).
 
 ## Future integration (not implemented)
-`ProtocolAdapter.encode/decode/validate` with reference `AixlAdapter`, `JsonAdapter` and, since 2026-09-30, a REAL `MCPAdapter` (validated against the official `mcp` SDK's own pydantic models, backed by a real running server in `aixl/mcp_server.py` — see BENCHMARK.md §12). `A2AAdapter, RESTAdapter, OpenAPIAdapter, GraphQLAdapter` still raise `NotImplementedError`. `explain(text)` returns what the agent wants, on which object, under which constraints, allowed/forbidden — groundwork for a semantic firewall (no enforcement in 0.3).
+`ProtocolAdapter.encode/decode/validate` with reference `AixlAdapter`, `JsonAdapter` and, since 2026-09-30, two REAL ones: `MCPAdapter` (validated against the official `mcp` SDK's own pydantic models, backed by a real running server in `aixl/mcp_server.py` — see BENCHMARK.md §12) and `A2AAdapter` (validated against the official `a2a-sdk`'s own protobuf `Message` type, backed by a real running HTTP agent in `aixl/agents/a2a_server.py` — see BENCHMARK.md §15). `RESTAdapter, OpenAPIAdapter, GraphQLAdapter` still raise `NotImplementedError`. `explain(text)` returns what the agent wants, on which object, under which constraints, allowed/forbidden — groundwork for a semantic firewall (no enforcement in 0.3).

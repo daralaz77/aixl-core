@@ -1,8 +1,11 @@
-"""FUTURE-INTEGRATION INTERFACE (spec §37). Nothing here talks to A2A/REST/OpenAPI/GraphQL yet: adapters must
-be addable without touching the semantic core. MCPAdapter (2026-09-30, E-MCP) is the first REAL one: it validates
-against the actual pydantic models of the official `mcp` SDK (package `mcp`, MCP spec 2025-06-18), not a hand-rolled
-guess of the wire shape. See aixl/mcp_server.py for a real running server and tests/test_mcp_integration.py for a
-real stdio subprocess round-trip proving this is not just shape-matching."""
+"""FUTURE-INTEGRATION INTERFACE (spec §37). Nothing here talks to REST/OpenAPI/GraphQL yet: adapters must
+be addable without touching the semantic core. MCPAdapter (2026-09-30, E-MCP) was the first REAL one: it
+validates against the actual pydantic models of the official `mcp` SDK (package `mcp`, MCP spec 2025-06-18),
+not a hand-rolled guess of the wire shape. See aixl/mcp_server.py for a real running server and
+tests/test_mcp_integration.py for a real stdio subprocess round-trip proving this is not just shape-matching.
+A2AAdapter (2026-09-30, E-A2A) is the second REAL one, over Google's official `a2a-sdk`: see
+aixl/agents/a2a_server.py for a real running HTTP agent and tests/test_a2a_integration.py for a real
+subprocess + real client round-trip over actual JSON-RPC/HTTP."""
 from abc import ABC, abstractmethod
 from aixl.core.semantic_graph import SemanticGraph
 from aixl.serialization import aixl_codec, json_codec
@@ -119,13 +122,67 @@ class MCPAdapter(ProtocolAdapter):
         return None
 
 
+class A2AAdapterError(Exception):
+    pass
+
+
+class A2AAdapter(ProtocolAdapter):
+    """Carries an AIXL message inside a REAL A2A Message envelope (package `a2a-sdk`, Google's official
+    Agent2Agent Python SDK). The AIXL line travels as a text Part — exactly what this project's own real
+    running agent (aixl/agents/a2a_server.py) and the official SDK's own client actually exchange over
+    JSON-RPC/HTTP, proven end-to-end by tests/test_a2a_integration.py's real subprocess round-trip, not
+    just here.
+    `validate()` runs the payload through the SDK's OWN protobuf message (a2a.types.a2a_pb2.Message) via
+    google.protobuf.json_format.ParseDict — the real spec's own parser, not a hand-rolled shape check —
+    same "REAL adapter, not a plausible-looking mock" standard as MCPAdapter."""
+    name = "a2a"
+
+    def encode(self, graph: SemanticGraph) -> dict:
+        from google.protobuf.json_format import MessageToDict
+        from a2a.helpers.proto_helpers import new_text_message
+        aixl_line = aixl_codec.encode(graph)
+        return MessageToDict(new_text_message(aixl_line))
+
+    def decode(self, payload: dict) -> SemanticGraph:
+        aixl_line = self._extract_aixl(payload)
+        if aixl_line is None:
+            raise A2AAdapterError("payload is not an A2A Message with a text Part carrying an AIXL line")
+        return aixl_codec.decode(aixl_line)
+
+    def validate(self, payload) -> list:
+        from google.protobuf.json_format import ParseDict, ParseError
+        from a2a.types.a2a_pb2 import Message
+        if not isinstance(payload, dict):
+            return [f"payload must be a dict, got {type(payload).__name__}"]
+        try:
+            ParseDict(payload, Message())
+        except ParseError as e:
+            return [f"invalid A2A Message envelope ({type(e).__name__}): {e}"]
+        aixl_line = self._extract_aixl(payload)
+        if aixl_line is None:
+            return ["A2A Message is well-formed but carries no text Part"]
+        try:
+            aixl_codec.decode(aixl_line)
+        except aixl_codec.AixlError as e:
+            return [f"embedded AIXL does not decode: {e}"]
+        return []
+
+    @staticmethod
+    def _extract_aixl(payload) -> str | None:
+        if not isinstance(payload, dict):
+            return None
+        for part in payload.get("parts") or []:
+            if isinstance(part, dict) and isinstance(part.get("text"), str):
+                return part["text"]
+        return None
+
+
 class _NotImplementedAdapter(ProtocolAdapter):
     def encode(self, graph): raise NotImplementedError(f"{self.name}: planned, not implemented in 0.3")
     def decode(self, payload): raise NotImplementedError(f"{self.name}: planned, not implemented in 0.3")
     def validate(self, payload): raise NotImplementedError(f"{self.name}: planned, not implemented in 0.3")
 
 
-class A2AAdapter(_NotImplementedAdapter): name = "a2a"
 class RESTAdapter(_NotImplementedAdapter): name = "rest"
 class OpenAPIAdapter(_NotImplementedAdapter): name = "openapi"
 class GraphQLAdapter(_NotImplementedAdapter): name = "graphql"
