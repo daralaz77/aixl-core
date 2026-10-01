@@ -23,6 +23,13 @@ spec:
       securityContext:
         runAsNonRoot: true
         runAsUser: 10001   # matches the `aixl` user created in the Dockerfile
+      # ghcr.io/daralaz77/aixl-core is a PRIVATE package (matches the repo's own visibility) — without
+      # this, the kubelet gets a real 403/unauthorized trying to pull it, same as an anonymous
+      # `docker pull` does (confirmed for real: this was missing in the first version of this manifest
+      # and only surfaced once the image was actually published and something tried to pull it from
+      # outside CI's own authenticated context). See DEPLOYMENT.md for how to create this secret.
+      imagePullSecrets:
+        - name: ghcr-pull-secret
       containers:
         - name: aixl-a2a
           image: ghcr.io/daralaz77/aixl-core:latest   # built and published by .github/workflows/docker-publish.yml

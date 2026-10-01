@@ -79,7 +79,22 @@ see BENCHMARK.md §16); every pod is interchangeable, nothing to migrate or back
   correct `aixl_compare` result back, and — after installing `metrics-server` into the test cluster —
   the HPA reported real CPU usage (`cpu: 4%/70%`), not `<unknown>`.
 
-## 5. Two real bugs found by actually deploying this, not by reading the config
+### Creating the `ghcr-pull-secret` (needed for bug 3 below, and for any real cluster deploy)
+`ghcr.io/daralaz77/aixl-core` is a PRIVATE package. `k8s/deployment.yaml` references
+`imagePullSecrets: [ghcr-pull-secret]`; create it once per cluster/namespace with a GitHub PAT that has
+`read:packages` scope (a fine-grained token scoped to just this, or a classic token with that one
+scope — never reuse a broader token here):
+```bash
+kubectl create secret docker-registry ghcr-pull-secret \
+  --namespace aixl \
+  --docker-server=ghcr.io \
+  --docker-username=<your-github-username> \
+  --docker-password=<PAT with read:packages>
+```
+For `docker-compose.yml` / a plain `docker run` against the published image instead of building
+locally: `docker login ghcr.io` once with the same kind of credential before `docker compose pull`.
+
+## 5. Three real bugs found by actually deploying this, not by reading the config
 
 1. **`a2a-sdk[http-server]` does not include an ASGI server.** The first image built cleanly and
    crashed on start: `ModuleNotFoundError: No module named 'uvicorn'`. The CI *test* suite never caught
@@ -95,9 +110,20 @@ see BENCHMARK.md §16); every pod is interchangeable, nothing to migrate or back
    `docker-compose.yml` (`http://localhost:8766/`) and `k8s/configmap.yaml` (the in-cluster Service DNS
    name) — and documenting, loudly, that exposing this externally (Ingress/LoadBalancer) means
    overriding it again to the real external hostname, or every call will fail the same way.
+3. **The published image is private, and nothing could actually pull it.** Found right after the first
+   successful publish: `docker pull ghcr.io/daralaz77/aixl-core:latest` failed anonymously
+   ("unauthorized"), and even failed with a real personal GitHub token that happened to lack the
+   `read:packages` scope (a plain "403 Forbidden", easy to misread as "the publish didn't really work"
+   rather than "this credential can't read packages"). `k8s/deployment.yaml` had no `imagePullSecrets`
+   at all — anyone actually deploying this manifest as written would hit `ImagePullBackOff`. Fixed by
+   adding `imagePullSecrets: [ghcr-pull-secret]` to the Deployment (see above for creating it), and by
+   adding a step to `docker-publish.yml` that pulls the just-pushed image fresh (through the real
+   registry, with real `GITHUB_TOKEN` auth) and re-runs the smoke test against it — proving the full
+   publish → pull cycle actually works, not just that `docker push` returned success.
 
-Both were caught because the image was actually run and called, not just built — the lesson this whole
-project's evidence discipline already applies everywhere else, now applied to deployment too.
+All three were caught because the artifacts were actually run, called, and pulled — not just built or
+written — the lesson this whole project's evidence discipline already applies everywhere else, now
+applied to deployment too.
 
 ## 6. Monitoring strategy
 
@@ -130,6 +156,9 @@ project's evidence discipline already applies everywhere else, now applied to de
       project has).
 - [ ] `metrics-server` installed in the target cluster if you want the HPA to actually scale (most
       managed clusters — EKS/GKE/AKS — already have it; `kind`/bare `minikube` do not by default).
+- [ ] **`ghcr-pull-secret` created in the target namespace** (§4) — without it, every pod gets
+      `ImagePullBackOff` against this private package (§5, bug 3); a health check never even starts,
+      so this fails loudly and immediately, unlike bug 2's silent-until-a-real-call failure mode.
 - [ ] Point your log aggregator and metrics scraper at stdout/stderr and `/metrics` respectively.
 - [ ] Decide the GHCR package's visibility (private, matching the repo, by default) — make it public
       only if you actually want anyone to be able to `docker pull` it.

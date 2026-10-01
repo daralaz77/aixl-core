@@ -77,3 +77,27 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Pull the just-published image fresh and re-verify a real round-trip
+        # Proves the full publish -> pull cycle actually works through the real registry with real
+        # auth — ghcr.io/daralaz77/aixl-core is a PRIVATE package (matches the repo's own visibility),
+        # confirmed the hard way: an anonymous `docker pull` of it fails with "unauthorized", and even
+        # an authenticated-but-under-scoped token gets a 403 — so `docker push` succeeding is NOT
+        # sufficient evidence the image is actually retrievable. This also exercises the same kind of
+        # authenticated access k8s/deployment.yaml's imagePullSecrets exists to provide to a real
+        # cluster. Removing the local smoke-test image first forces a genuine registry round-trip,
+        # not a same-tag local-cache hit.
+        run: |
+          docker rmi aixl-core:smoke-test || true
+          docker pull ghcr.io/${{ github.repository }}:latest
+          docker run -d --name smoke2 -p 8767:8766 \
+            -e PORT=8766 -e AIXL_A2A_PUBLIC_URL=http://127.0.0.1:8767/ \
+            ghcr.io/${{ github.repository }}:latest
+          for i in $(seq 1 20); do
+            curl -sf http://127.0.0.1:8767/healthz > /dev/null && break
+            sleep 1
+          done
+          curl -sf http://127.0.0.1:8767/healthz
+          python scripts/smoke_test_a2a.py http://127.0.0.1:8767
+          docker logs smoke2
+          docker rm -f smoke2
