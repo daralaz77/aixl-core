@@ -1,5 +1,7 @@
-"""Public API (spec §28). Pure Python, no external service."""
-from aixl.translators.natural_to_semantic import to_graph
+"""Public API (spec §28). Pure Python, no external service required by default (AIXL_TRANSLATOR_MODE,
+see aixl/translators/auto.py, is 'rule_based' unless explicitly changed — this module behaves exactly
+as it did before the LLM-translator route existed, for every caller that doesn't opt in)."""
+from aixl.translators.auto import to_graph_auto as to_graph
 from aixl.serialization import aixl_codec, json_codec
 from aixl.core.semantic_graph import SemanticGraph
 from aixl.core.comparator import compare_graphs, format_diff, ComparisonResult
