@@ -1,3 +1,9 @@
+# NOT applied by kustomization.yaml right now — see its comment and DEPLOYMENT.md §8. Scaling past
+# replicas: 1 is unsafe today: aixl_negotiate's pause/resume state is an in-memory, per-pod TaskStore,
+# and real testing found 12 of 20 resumes fail (TaskNotFoundError) the moment a second pod exists.
+# Re-enable (add back to kustomization.yaml's resources list) once a shared TaskStore makes >1 replica
+# correct again.
+#
 # Requires the metrics-server add-on (present on most managed clusters: EKS/GKE/AKS; `minikube addons
 # enable metrics-server` / `kind` needs it installed separately) to read CPU usage.
 apiVersion: autoscaling/v2

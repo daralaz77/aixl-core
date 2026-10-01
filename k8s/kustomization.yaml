@@ -5,5 +5,8 @@ resources:
   - configmap.yaml
   - deployment.yaml
   - service.yaml
-  - hpa.yaml
-  - pdb.yaml
+  # hpa.yaml and pdb.yaml are intentionally NOT applied: both assume >1 replica is safe, which real
+  # testing disproved (DEPLOYMENT.md §8 — aixl_negotiate's in-memory TaskStore is per-pod). An HPA that
+  # scales past 1 would reintroduce the exact bug found; a PDB with minAvailable: 1 at replicas: 1
+  # would block every voluntary node drain/upgrade indefinitely. Both files are kept in the repo,
+  # commented at the top, ready to re-enable once a shared TaskStore makes >1 replica correct again.

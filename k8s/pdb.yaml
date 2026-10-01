@@ -1,3 +1,8 @@
+# NOT applied by kustomization.yaml right now — see its comment and DEPLOYMENT.md §8. At
+# deployment.yaml's current replicas: 1, `minAvailable: 1` here would block EVERY voluntary disruption
+# (node drain, cluster upgrade) indefinitely, since evicting the only pod would violate the budget —
+# the opposite of what this file is for. Re-enable alongside hpa.yaml once replicas can safely be >1.
+#
 # Keeps at least 1 pod up during a voluntary disruption (node drain, cluster upgrade) — the other real
 # lever (besides maxUnavailable: 0 on the Deployment's own rolling update) against unplanned downtime.
 apiVersion: policy/v1

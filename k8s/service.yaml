@@ -11,3 +11,12 @@ spec:
       targetPort: http
       name: http
   type: ClusterIP
+  # Defense in depth, not a substitute for deployment.yaml's replicas: 1 (see its comment and
+  # DEPLOYMENT.md §8): pins one client's repeated calls to the same pod for the affinity window, which
+  # helps IF this is ever scaled past 1 replica again before a shared TaskStore exists — but confirmed
+  # for real that it does NOT survive a pod restart/reschedule, so it is not a correctness guarantee by
+  # itself.
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 10800

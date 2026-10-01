@@ -6,12 +6,16 @@ metadata:
   labels:
     app: aixl-a2a
 spec:
-  replicas: 2   # >1 for reliability: a rolling update or a node drain never drops to zero pods
+  # replicas: 1, NOT >1 — found the hard way (DEPLOYMENT.md §8): aixl_negotiate's multi-turn pause/
+  # resume state lives in an in-memory, per-pod TaskStore. At replicas: 2 with a plain ClusterIP
+  # Service, 12 of 20 real resume attempts failed with TaskNotFoundError because the resume landed on
+  # a pod that never saw the original "start" call. Session affinity (service.yaml) fixes the common
+  # case but does NOT survive a pod restart/reschedule (confirmed: 0/1 resumes after a real pod
+  # restart) — so correctness, not just throughput, requires a single instance until a shared
+  # TaskStore exists (see DEPLOYMENT.md §8 for the real options, deliberately not built yet).
+  replicas: 1
   strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 0   # never go below `replicas` during a deploy — reduces downtime risk
-      maxSurge: 1
+    type: Recreate   # RollingUpdate's maxSurge would momentarily run 2 pods — the exact bug above
   selector:
     matchLabels:
       app: aixl-a2a

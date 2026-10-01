@@ -154,11 +154,12 @@ applied to deployment too.
 - [ ] If exposing externally: a real Ingress/LoadBalancer with TLS in front of the Service (this repo
       does not include one — it depends on your ingress controller and domain, neither of which this
       project has).
-- [ ] `metrics-server` installed in the target cluster if you want the HPA to actually scale (most
-      managed clusters — EKS/GKE/AKS — already have it; `kind`/bare `minikube` do not by default).
 - [ ] **`ghcr-pull-secret` created in the target namespace** (§4) — without it, every pod gets
       `ImagePullBackOff` against this private package (§5, bug 3); a health check never even starts,
       so this fails loudly and immediately, unlike bug 2's silent-until-a-real-call failure mode.
+- [ ] **Do not raise `k8s/deployment.yaml`'s `replicas` above 1** (and do not re-enable `hpa.yaml`)
+      until a shared TaskStore exists (§8) — confirmed for real that >1 replica breaks
+      `aixl_negotiate`'s resume ~60% of the time, silently (every health check still passes).
 - [ ] Point your log aggregator and metrics scraper at stdout/stderr and `/metrics` respectively.
 - [ ] Decide the GHCR package's visibility (private, matching the repo, by default) — make it public
       only if you actually want anyone to be able to `docker pull` it.
@@ -166,3 +167,56 @@ applied to deployment too.
       `python scripts/smoke_test_a2a.py <public-url>`) — the health check passing is not sufficient
       proof the deployment actually works (§5, bug 2 passed every health check and still failed every
       real call).
+- [ ] **If you ever need `aixl_negotiate` to survive >1 replica or a pod restart**: read §8 first —
+      a real multi-turn negotiation was confirmed to be silently lost on a pod restart even with
+      session affinity, and that's a real, deliberate limitation, not an oversight to patch over.
+
+## 8. Critical reading: the "reliability" deployment broke the one stateful feature
+
+Found by continuing to test after the first 3 bugs were fixed, not by inspection: **the original
+`replicas: 2` Deployment — written specifically "for reliability" — silently broke `aixl_negotiate`'s
+multi-turn pause/resume most of the time.** `aixl/agents/a2a_negotiate.py`'s paused-task state lives in
+`InMemoryTaskStore`, which is per-process. A plain `ClusterIP` Service load-balances each new connection
+across pods with no awareness of which pod is holding which paused task.
+
+**Measured, not assumed**: a real 2-replica `kind` deployment, 20 independent negotiate-then-resume
+cycles (a fresh client/connection for the resume, simulating the realistic case of a human answering
+later from a separate request) — **12 of 20 resumes failed with `TaskNotFoundError`**. Every health
+check, readiness probe, and agent-card fetch passed the whole time; nothing about the deployment looked
+broken from the outside. Adding `sessionAffinity: ClientIP` to the Service brought 20/20 cycles back to
+passing — but then a real pod restart (simulating a rolling update or node reschedule) while a task was
+paused made the very next resume fail 100% of the time (`TaskNotFoundError`, confirmed with a real
+`kubectl delete pod`), because affinity only matters for routing a request to a *pod that still exists*.
+
+**The fix applied today**: `k8s/deployment.yaml` runs **`replicas: 1`** (strategy `Recreate`, not
+`RollingUpdate`, so a deploy never briefly runs 2 pods) — correctness over redundancy, honestly, for a
+feature with zero production traffic today. `hpa.yaml` and `pdb.yaml` are kept in the repo but excluded
+from `kustomization.yaml`, each commented with why: an HPA scaling past 1 reintroduces the exact bug;
+a PDB with `minAvailable: 1` at `replicas: 1` would block every voluntary node drain forever. Session
+affinity stays on the Service as a harmless, if incomplete, safety net.
+
+**What this trades away**: `aixl_compare` (fully stateless) now also runs at 1 replica — a pod crash
+means a brief restart gap (seconds, k8s's own restart policy) rather than true zero-downtime redundancy.
+Judged an acceptable, disclosed trade-off for an experimental agent with no real traffic yet, not a
+permanent architectural ceiling.
+
+**The real path to restore both correctness AND horizontal scaling** (not built today — this is a new
+infrastructure dependency decision, not something to add unilaterally for a feature that doesn't have
+real traffic yet):
+
+1. **A shared `TaskStore`** — `a2a-sdk` already ships `DatabaseTaskStore` (SQLAlchemy-backed). SQLite on
+   a shared volume is the *wrong* choice here (SQLite does not handle concurrent writers from multiple
+   pods/nodes safely); a real Postgres (or MySQL) instance is the correct backing store. This is the
+   SDK's own intended answer, and the most "normal" fix — at the cost of a new stateful dependency this
+   project has deliberately avoided everywhere else.
+2. **Split the agent into two Deployments** behind path/skill-based routing: `aixl_compare` (stateless,
+   scale freely, no changes needed) and `aixl_negotiate` (kept at `replicas: 1`, or backed by option 1
+   if it ever needs to scale too). More architecturally correct long-term, more work today (routing,
+   two images or one image with a mode flag, two Services).
+3. **Stay at `replicas: 1` indefinitely** if real traffic never materializes — the honest "do nothing
+   further" option, valid as long as it stays true.
+
+No recommendation is made between these three here — unlike the `A2AAdapter`/negotiation design choices
+earlier in this project, this one trades off a real new dependency (a database) against real
+architectural effort (splitting the deployment), and should be picked when there is an actual traffic
+or reliability number driving the decision, not speculatively.
