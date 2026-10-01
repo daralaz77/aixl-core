@@ -176,6 +176,9 @@ applied to deployment too.
 - [ ] Watch `aixl_negotiate_expired_total` (§9) if you care about how many negotiations are actually
       being abandoned vs. completed — the default 1-hour TTL (`AIXL_TASK_TTL_SECONDS`) bounds memory
       either way, but a high rate is still worth knowing about.
+- [ ] If raising `k8s/deployment.yaml`'s CPU limit, re-measure before assuming `/healthz` stays
+      responsive under a concurrent burst — `AIXL_MAX_CONCURRENT_CPU_WORK` (default 4, §10) was tuned
+      against the current 500m limit specifically, not a universal safe number.
 
 ## 8. Critical reading: the "reliability" deployment broke the one stateful feature
 
@@ -259,3 +262,15 @@ publish) only ever checked `aixl_compare` — a real regression in `aixl_negotia
 without the pipeline noticing. It now checks both skills (the ordinary, single-call auto-resolve path
 for negotiate; a CI smoke test runs unattended, so the human-pause flow isn't exercised there — that's
 what `tests/test_a2a_integration.py`'s own pause/resume tests are for).
+
+## 10. A third critical finding: CPU-bound work blocked health checks under concurrent load — and a measurement lesson along the way
+
+Looked for more gaps again (user: "otra vuelta") and suspected `aixl.compare()`/`_advance()` — synchronous, regex-heavy, CPU-bound code called directly inside `async def execute()` — might block the single asyncio event loop under concurrent load, including the `/healthz` request a liveness probe depends on.
+
+**First measurement, and a real methodology mistake caught before trusting it**: fired 900 concurrent `aixl_compare` calls at a 1-CPU container while polling `/healthz` *from the same Python asyncio process*. Max `/healthz` latency: 4.5s — past the Deployment's 3s liveness timeout. Before accepting that number, re-ran it with the load generator and the `/healthz` poller as **two genuinely separate OS processes** (a background Python load-generator, `/healthz` polled by a plain `curl` loop) — the number dropped to ~1s, revealing that a meaningful part of the first measurement was the *test harness's own event loop* contending with itself, not the server. Repeating the clean, separate-process measurement 3 times against the **original** (unfixed) code still showed a real, reproducible problem, just smaller than first thought: **2.45s, 2.48s, 3.27s** — one of three trials genuinely exceeded the 3s liveness timeout.
+
+**Fixed**: `aixl/agents/concurrency.py`'s `run_cpu_bound()` wraps `aixl.compare()` (in `a2a_server.py`) and `_compute_start()`/`_advance()` (in `a2a_negotiate.py`) with `asyncio.to_thread` *plus* a small semaphore (`AIXL_MAX_CONCURRENT_CPU_WORK`, default 4). `asyncio.to_thread` alone was tried first and was **not enough** — re-running the exact same 900-request burst after that change alone still showed a 4.2s spike, because Python's default `ThreadPoolExecutor` happily spins up ~32 workers that all contend for the GIL and the container's real (1-core) CPU budget just as badly as before. The semaphore is what actually fixed it: bounding how many calls run at once means the rest `await` cheaply in the event loop (no competing OS thread, no GIL contention) instead of piling onto an oversubscribed thread pool.
+
+**Re-verified with the same honest, separate-process methodology, 3 clean trials against the fixed code**: **0.54s, 0.86s, 0.77s** — comfortably under the timeout every time, a real and consistent improvement over the original's 2.45–3.27s spread, not just a different single lucky number.
+
+Honest scope: this was tested at 900 concurrent requests on a constrained 1-CPU container — a stand-in for "a burst bigger than the box can handle," not a specific real traffic number (there is none yet). `AIXL_MAX_CONCURRENT_CPU_WORK=4` is a starting default matched loosely to `k8s/deployment.yaml`'s own `resources.limits.cpu: "500m"`; raise it if the Deployment's CPU limit is raised, and re-measure rather than assume a bigger number is strictly better (too high defeats the point; too low adds needless queuing latency under legitimate concurrent load). No rate limiting was added at the request-admission level (a 429-style reject beyond some concurrency) — the semaphore provides backpressure by making excess callers wait, which was sufficient to fix the measured problem; an explicit reject-based limiter remains a reasonable future addition if real abuse, not just a synthetic burst, is ever observed.

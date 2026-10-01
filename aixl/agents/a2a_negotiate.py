@@ -22,6 +22,7 @@ from a2a.helpers.proto_helpers import new_data_message, new_task_from_user_messa
 from a2a.server.tasks import TaskUpdater
 from a2a.types.a2a_pb2 import Role, TaskState
 
+from aixl.agents.concurrency import run_cpu_bound
 from aixl.agents.observability import inc
 from aixl.core.ontology import load_config
 from aixl.negotiation import (
@@ -107,20 +108,29 @@ async def _apply_outcome(updater: TaskUpdater, outcome, sender_canonical: dict, 
         inc("aixl_negotiate_paused_total")
 
 
-async def start_negotiation(context, event_queue, req: dict) -> None:
+def _compute_start(sender_text: str, receiver_text: str, max_rounds: int, cfg: dict):
     import aixl
+    sender_canonical = aixl.to_semantic(sender_text).canonical()
+    belief = aixl.to_semantic(receiver_text).canonical()
+    return sender_canonical, _advance(sender_canonical, belief, cfg, 0, max_rounds)
+
+
+async def start_negotiation(context, event_queue, req: dict) -> None:
     sender_text = req.get("sender_text", "")
     receiver_text = req.get("receiver_text", "")
     max_rounds = int(req.get("max_rounds", 3))
-    sender_canonical = aixl.to_semantic(sender_text).canonical()
-    belief = aixl.to_semantic(receiver_text).canonical()
     cfg = load_config()
 
     task = new_task_from_user_message(context.message)
     await event_queue.enqueue_event(task)
     updater = TaskUpdater(event_queue, context.task_id, context.context_id)
 
-    outcome = _advance(sender_canonical, belief, cfg, 0, max_rounds)
+    # aixl.to_semantic()/_advance() are CPU-bound, regex/comparison-heavy synchronous code, bundled
+    # into one run_cpu_bound() dispatch (aixl/agents/concurrency.py) so the event loop stays free to
+    # serve /healthz during a concurrent negotiation burst — same real, measured issue and fix as
+    # aixl_compare in a2a_server.py (see its comment: a bare asyncio.to_thread alone was NOT enough,
+    # confirmed by re-running the same 900-concurrent-request burst).
+    sender_canonical, outcome = await run_cpu_bound(_compute_start, sender_text, receiver_text, max_rounds, cfg)
     await _apply_outcome(updater, outcome, sender_canonical, max_rounds, context.context_id, context.task_id)
 
 
@@ -147,5 +157,5 @@ async def resume_negotiation(context, event_queue, req: dict) -> None:
     belief[dim] = resolved
 
     updater = TaskUpdater(event_queue, context.task_id, context.context_id)
-    outcome = _advance(sender_canonical, belief, cfg, round_, max_rounds)
+    outcome = await run_cpu_bound(_advance, sender_canonical, belief, cfg, round_, max_rounds)
     await _apply_outcome(updater, outcome, sender_canonical, max_rounds, context.context_id, context.task_id)

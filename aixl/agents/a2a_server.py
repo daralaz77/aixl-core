@@ -34,6 +34,7 @@ from a2a.utils.errors import UnsupportedOperationError
 
 import aixl
 from aixl.agents.a2a_negotiate import start_negotiation, resume_negotiation
+from aixl.agents.concurrency import run_cpu_bound
 from aixl.agents.expiring_task_store import ExpiringTaskStore
 from aixl.agents.observability import configure_logging, inc, observability_routes
 
@@ -90,7 +91,15 @@ class AixlAgentExecutor(AgentExecutor):
                 return
 
             inc("aixl_compare_total")
-            result = aixl.compare(req.get("a", ""), req.get("b", "")).to_dict()
+            # aixl.compare() is CPU-bound, regex-heavy, synchronous code. Calling it directly here, or
+            # even via a bare asyncio.to_thread, lets an unbounded number of OS threads all contend for
+            # the GIL and the container's real CPU budget at once — confirmed for real: a burst of 900
+            # concurrent aixl_compare calls on 1 CPU still pushed /healthz latency past 4s even after
+            # switching to asyncio.to_thread alone, because ~32 default ThreadPoolExecutor workers were
+            # all fighting over the same single core. run_cpu_bound() (aixl/agents/concurrency.py) adds
+            # a small semaphore on top, so only a few calls run at once and /healthz actually gets
+            # scheduled promptly in between — re-verified with the same 900-request burst after adding it.
+            result = (await run_cpu_bound(aixl.compare, req.get("a", ""), req.get("b", ""))).to_dict()
             reply = new_data_message(result, role=Role.ROLE_AGENT,
                                       context_id=context.context_id, task_id=context.task_id)
             await event_queue.enqueue_event(reply)
