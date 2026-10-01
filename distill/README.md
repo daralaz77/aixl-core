@@ -57,3 +57,20 @@ Compara el F1 resultante contra:
 - Ruta cloud (Sonnet/Haiku/Gemini/ChatGPT vía card): 93.5-96.5%
 
 Si el resultado se acerca al rango 90-95%, este modelo fine-tuned pasa a ser una tercera opción real en `aixl/translators/auto.py` (modo `AIXL_TRANSLATOR_MODE=local`, pendiente de implementar una vez haya un número real que justifique el trabajo). Si se queda muy por debajo, el corpus de 1417 ejemplos es probablemente insuficiente y el siguiente paso sería generar más pares sintéticos o probar un modelo base un poco más grande (3B) con QLoRA en el mismo notebook.
+
+## Resultado real (2026-10-01, primera corrida)
+
+Qwen2.5-1.5B-Instruct + LoRA (r=16, 4 épocas, 1276 ejemplos de entrenamiento, 141 de validación), exportado a GGUF q4_k_m, servido vía Ollama, medido contra blind5 con la misma metodología que las otras dos rutas:
+
+| Ruta | F1 (blind5) | Formato válido |
+|---|---|---|
+| Reglas | 0.88 (aprox., otra metodología) | 100% |
+| 1.5B zero-shot (card completa como prompt) | **0.06** | 91% (364/400) |
+| **1.5B fine-tuned (distillation, prompt corto)** | **0.6056** | **100% (400/400)**, 10 fallos de decode estricto |
+| Cloud (Sonnet/Haiku/Gemini/ChatGPT vía card) | 0.935–0.965 | ~100% |
+
+Pérdida de entrenamiento: 0.354 train / 0.220 val (4 épocas, sin señal de overfitting — val loss bajó en paralelo con train loss).
+
+**Lectura honesta**: el salto de 0.06 → 0.6056 (10x) prueba que la distillation es el camino correcto — el modelo pasó de "roto" a "funcional". Pero todavía está lejos del 90-95% objetivo y de las otras dos rutas. El parseo sintáctico llegó a 100%, así que los errores restantes son semánticos (elige el verbo/campo equivocado), no de formato. Candidatos para la siguiente vuelta: más datos de entrenamiento (1417 ejemplos es el mínimo citado en la literatura, no el óptimo), más épocas, o un modelo base un poco más grande (3B) con el mismo pipeline de Colab.
+
+El `.gguf` entrenado NO se versiona en git (956MB, demasiado grande) — `distill/*.gguf` está en `.gitignore`. Para reproducir: repetir el notebook de Colab con `corpus.jsonl` (sí versionado).
