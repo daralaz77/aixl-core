@@ -18,7 +18,7 @@ a2a = pytest.importorskip("a2a")
 import httpx                                                        # noqa: E402
 from a2a.client.client_factory import ClientFactory                  # noqa: E402
 from a2a.helpers.proto_helpers import get_data_parts, new_data_message  # noqa: E402
-from a2a.types.a2a_pb2 import Role, SendMessageRequest                # noqa: E402
+from a2a.types.a2a_pb2 import Role, SendMessageRequest, TaskState     # noqa: E402
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -64,11 +64,39 @@ async def _compare(url: str, a: str, b: str) -> dict:
     raise AssertionError("agent never sent a message reply")
 
 
-def test_agent_card_lists_the_aixl_compare_skill(server_url):
+async def _negotiate(url: str, sender_text: str, receiver_text: str, max_rounds: int = 3):
+    factory = ClientFactory()
+    client = await factory.create_from_url(url)
+    try:
+        msg = new_data_message({"skill": "aixl_negotiate", "sender_text": sender_text,
+                                 "receiver_text": receiver_text, "max_rounds": max_rounds}, role=Role.ROLE_USER)
+        async for resp in client.send_message(SendMessageRequest(message=msg)):
+            if resp.HasField("task"):
+                return resp.task
+    finally:
+        await client.close()
+    raise AssertionError("agent never sent a task reply")
+
+
+async def _answer(url: str, task, value: str):
+    factory = ClientFactory()
+    client = await factory.create_from_url(url)
+    try:
+        msg = new_data_message({"value": value}, role=Role.ROLE_USER,
+                                context_id=task.context_id, task_id=task.id)
+        async for resp in client.send_message(SendMessageRequest(message=msg)):
+            if resp.HasField("task"):
+                return resp.task
+    finally:
+        await client.close()
+    raise AssertionError("agent never sent a task reply")
+
+
+def test_agent_card_lists_both_skills(server_url):
     r = httpx.get(f"{server_url}/.well-known/agent-card.json")
     card = r.json()
     assert card["name"] == "aixl-core"
-    assert {s["id"] for s in card["skills"]} == {"aixl_compare"}
+    assert {s["id"] for s in card["skills"]} == {"aixl_compare", "aixl_negotiate"}
 
 
 def test_aixl_compare_over_real_a2a_jsonrpc_http_transport_detects_equivalence(server_url):
@@ -82,3 +110,64 @@ def test_aixl_compare_over_real_a2a_jsonrpc_http_transport_detects_critical_nega
     result = asyncio.run(_compare(server_url, "Elimina el reporte.", "No elimines el reporte."))
     assert result["equivalent"] is False
     assert result["drift_level"] == "CRITICAL_DRIFT"
+
+
+def test_aixl_negotiate_over_real_a2a_resolves_an_ordinary_disagreement_in_one_call_no_pause(server_url):
+    """A non-irreversible disagreement must auto-resolve immediately — the Task completes in the
+    very first call, no TASK_STATE_INPUT_REQUIRED pause, exactly like negotiate()'s own behavior."""
+    async def run():
+        return await _negotiate(server_url, "Archive ticket #77.", "Update ticket #77.")
+    task = asyncio.run(run())
+    assert task.status.state == TaskState.TASK_STATE_COMPLETED
+    payload = get_data_parts(task.status.message.parts)[0]
+    assert payload["converged"] is True
+
+
+def test_aixl_negotiate_over_real_a2a_pauses_for_a_human_on_an_irreversible_action_disagreement(server_url):
+    """The real, multi-turn case this whole mechanism exists for: "Close ticket #77." (UPDATE) vs
+    "Delete ticket #77." (DELETE) must PAUSE the Task (TASK_STATE_INPUT_REQUIRED) and ask a human —
+    not silently trust either side — because DELETE is on data/config.json's irreversible_actions."""
+    async def run():
+        return await _negotiate(server_url, "Close ticket #77.", "Delete ticket #77.")
+    task = asyncio.run(run())
+    assert task.status.state == TaskState.TASK_STATE_INPUT_REQUIRED
+    payload = get_data_parts(task.status.message.parts)[0]
+    assert set(payload["candidates"]) == {"DELETE", "UPDATE"}
+    assert payload["field"] == "actions"
+
+
+def test_aixl_negotiate_over_real_a2a_resumes_and_converges_on_the_humans_answer(server_url):
+    """A genuine multi-turn round-trip: pause, then a SECOND real HTTP call referencing the same
+    task_id/context_id resumes it — the human's answer becomes the agreed value on BOTH sides."""
+    async def run():
+        task = await _negotiate(server_url, "Close ticket #77.", "Delete ticket #77.")
+        return await _answer(server_url, task, "DELETE")
+    task = asyncio.run(run())
+    assert task.status.state == TaskState.TASK_STATE_COMPLETED
+    payload = get_data_parts(task.status.message.parts)[0]
+    assert payload["converged"] is True
+    assert payload["canonical"]["actions"] == ["DELETE"]
+
+
+def test_aixl_negotiate_over_real_a2a_resumes_on_the_other_candidate_too(server_url):
+    """Proves the human's choice genuinely drives the outcome, not a hardcoded default: picking the
+    OTHER candidate (UPDATE, the sender's original reading) must converge to UPDATE, not DELETE."""
+    async def run():
+        task = await _negotiate(server_url, "Close ticket #77.", "Delete ticket #77.")
+        return await _answer(server_url, task, "UPDATE")
+    task = asyncio.run(run())
+    payload = get_data_parts(task.status.message.parts)[0]
+    assert payload["canonical"]["actions"] == ["UPDATE"]
+
+
+def test_aixl_negotiate_over_real_a2a_rejects_immediately_when_sender_resolves_nothing(server_url):
+    """"Quita el ticket #77." is out-of-vocabulary for the sender's own actions — must REJECT outright
+    ("does not resolve"), not pause and ask a human to pick between DELETE and NOT_SPECIFIED. Order of
+    the empty-check vs the irreversible-check matters here (see a2a_negotiate.py's own regression note)."""
+    async def run():
+        return await _negotiate(server_url, "Quita el ticket #77.", "Elimina el ticket #77.")
+    task = asyncio.run(run())
+    assert task.status.state == TaskState.TASK_STATE_REJECTED
+    payload = get_data_parts(task.status.message.parts)[0]
+    assert payload["converged"] is False
+    assert "does not resolve" in payload["reason"]
