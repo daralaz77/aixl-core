@@ -53,6 +53,7 @@ _counters = {
     "aixl_negotiate_paused_total": 0,
     "aixl_negotiate_completed_total": 0,
     "aixl_negotiate_rejected_total": 0,
+    "aixl_negotiate_expired_total": 0,
     "aixl_errors_total": 0,
 }
 

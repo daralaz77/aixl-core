@@ -132,8 +132,11 @@ applied to deployment too.
   Stackdriver, ELK) expects without a custom parser. `AIXL_LOG_FORMAT=text` is available for a readable
   local `python -m aixl.agents.a2a_server` session.
 - **Metrics**: `/metrics`, hand-written Prometheus text exposition format (no new dependency — this
-  project has exactly 7 counters to track: total requests, compares, negotiations started/paused/
-  completed/rejected, errors). Any Prometheus-compatible scraper reads it with zero extra config.
+  project has exactly 8 counters to track: total requests, compares, negotiations started/paused/
+  completed/rejected/expired, errors). Any Prometheus-compatible scraper reads it with zero extra
+  config. `aixl_negotiate_expired_total` (§9) is worth actually watching: a sustained climb means
+  either real abandoned negotiations (a human never answered) or a client-side bug that starts
+  negotiations and never resumes them — the TTL sweep hides the memory-growth symptom, not the cause.
 - **Health**: `/healthz` (liveness — is the process up) and `/readyz` (readiness — distinct on purpose,
   so a future dependency this agent doesn't have today has somewhere to report without a wire-format
   change for every caller) back the Docker `HEALTHCHECK` and the Kubernetes probes directly.
@@ -170,6 +173,9 @@ applied to deployment too.
 - [ ] **If you ever need `aixl_negotiate` to survive >1 replica or a pod restart**: read §8 first —
       a real multi-turn negotiation was confirmed to be silently lost on a pod restart even with
       session affinity, and that's a real, deliberate limitation, not an oversight to patch over.
+- [ ] Watch `aixl_negotiate_expired_total` (§9) if you care about how many negotiations are actually
+      being abandoned vs. completed — the default 1-hour TTL (`AIXL_TASK_TTL_SECONDS`) bounds memory
+      either way, but a high rate is still worth knowing about.
 
 ## 8. Critical reading: the "reliability" deployment broke the one stateful feature
 
@@ -220,3 +226,36 @@ No recommendation is made between these three here — unlike the `A2AAdapter`/n
 earlier in this project, this one trades off a real new dependency (a database) against real
 architectural effort (splitting the deployment), and should be picked when there is an actual traffic
 or reliability number driving the decision, not speculatively.
+
+## 9. A second critical finding: abandoned negotiations grew memory without bound
+
+Asked again "what's still missing" after §8 shipped, and found this by load-testing the fix rather than
+re-reading the config. `a2a-sdk`'s `InMemoryTaskStore` has no eviction at all — every `aixl_negotiate`
+task it ever saves stays in memory forever, including one that pauses (`TASK_STATE_INPUT_REQUIRED`)
+waiting for a human and is simply never resumed.
+
+**Measured, not assumed**: started and abandoned 200 real `aixl_negotiate` tasks against a running
+container — memory climbed from ~60MB to ~71MB, with nothing to bring it back down. At the `k8s/`
+Deployment's 256Mi limit, a few thousand abandoned negotiations (an idle client that starts but never
+answers, a buggy integration, or deliberate abuse against a reachable endpoint) would OOMKill the pod —
+a real, unbounded resource-exhaustion risk, not a hypothetical one.
+
+**Fixed**: `aixl/agents/expiring_task_store.py`'s `ExpiringTaskStore` wraps `InMemoryTaskStore` and
+deletes a task once it has gone untouched for longer than `AIXL_TASK_TTL_SECONDS` (default 3600 —
+1 hour, long enough for a real human to actually read and answer a paused CLARIFY question; short
+enough to bound growth). The sweep runs as a side effect of every `save()` — no separate background
+timer needed at this scale — and increments a new `aixl_negotiate_expired_total` counter so a sustained
+climb is visible in `/metrics` rather than silent.
+
+**Verified**: `tests/test_expiring_task_store.py` (4 fast unit tests, no Docker needed) proves a task
+within its TTL survives and a stale one is swept without disturbing an unrelated fresh one. Re-ran the
+exact 200-abandoned-task scenario against a real container with a short TTL (3s): memory stayed at
+~52MB instead of climbing, `aixl_negotiate_expired_total` correctly counted all 202 sweeps, and a task
+resumed well within the TTL window still converged correctly — the fix bounds growth without breaking
+the feature it's protecting.
+
+**Also fixed in the same pass**: `scripts/smoke_test_a2a.py` (used by `docker-publish.yml` before every
+publish) only ever checked `aixl_compare` — a real regression in `aixl_negotiate` could have shipped
+without the pipeline noticing. It now checks both skills (the ordinary, single-call auto-resolve path
+for negotiate; a CI smoke test runs unattended, so the human-pause flow isn't exercised there — that's
+what `tests/test_a2a_integration.py`'s own pause/resume tests are for).

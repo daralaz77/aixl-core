@@ -27,7 +27,6 @@ from a2a.server.events import EventQueue
 from a2a.server.request_handlers import DefaultRequestHandler
 from a2a.server.routes.agent_card_routes import create_agent_card_routes
 from a2a.server.routes.jsonrpc_routes import create_jsonrpc_routes
-from a2a.server.tasks import InMemoryTaskStore
 from a2a.types.a2a_pb2 import (
     AgentCapabilities, AgentCard, AgentInterface, AgentSkill, Role,
 )
@@ -35,6 +34,7 @@ from a2a.utils.errors import UnsupportedOperationError
 
 import aixl
 from aixl.agents.a2a_negotiate import start_negotiation, resume_negotiation
+from aixl.agents.expiring_task_store import ExpiringTaskStore
 from aixl.agents.observability import configure_logging, inc, observability_routes
 
 log = logging.getLogger("aixl.a2a_server")
@@ -108,7 +108,7 @@ def build_app(url: str):
     from starlette.applications import Starlette
 
     card = _agent_card(url)
-    handler = DefaultRequestHandler(AixlAgentExecutor(), InMemoryTaskStore(), card)
+    handler = DefaultRequestHandler(AixlAgentExecutor(), ExpiringTaskStore(), card)
     routes = (observability_routes() + create_agent_card_routes(card)
               + create_jsonrpc_routes(handler, rpc_url="/"))
     return Starlette(routes=routes)
