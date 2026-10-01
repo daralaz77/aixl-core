@@ -1,0 +1,28 @@
+# Single-host deployment of the real A2A agent (aixl/agents/a2a_server.py). Not for the MCP server
+# (aixl/mcp_server.py), which talks stdio, not HTTP, and is spawned directly by its host client — there
+# is nothing for Docker to expose a port for. See DEPLOYMENT.md for the full architecture.
+#
+# AIXL_A2A_PUBLIC_URL must match how clients actually reach this service (see Dockerfile/DEPLOYMENT.md:
+# the AgentCard advertises this URL and real clients call back to it — getting it wrong looks fine at
+# the health-check/agent-card level and then fails on every real call, caught the hard way while
+# building this deployment). Override it (and the published port) if you expose this somewhere other
+# than localhost:8766.
+services:
+  aixl-a2a:
+    build: .
+    image: aixl-core:local
+    ports:
+      - "8766:8766"
+    environment:
+      PORT: "8766"
+      AIXL_A2A_HOST: "0.0.0.0"
+      AIXL_A2A_PUBLIC_URL: "http://localhost:8766/"
+      AIXL_LOG_FORMAT: "json"
+      AIXL_LOG_LEVEL: "INFO"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8766/healthz', timeout=2)"]
+      interval: 30s
+      timeout: 3s
+      start_period: 5s
+      retries: 3
+    restart: unless-stopped

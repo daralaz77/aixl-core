@@ -11,7 +11,14 @@ Exposes two skills:
 - `aixl_negotiate`: a genuine multi-turn A2A TASK (E-A2A-NEGOTIATE, same day), not a single reply — see
   aixl/agents/a2a_negotiate.py for why and how; it pauses (TASK_STATE_INPUT_REQUIRED) and asks a human
   when, and only when, the disagreement involves an irreversible action.
-No new negotiation semantics are introduced here; aixl/negotiation.py itself is untouched."""
+No new negotiation semantics are introduced here; aixl/negotiation.py itself is untouched.
+
+Production readiness (DevOps pass, 2026-10-01): `/healthz`/`/readyz`/`/metrics` routes (see
+aixl/agents/observability.py), structured logging, and a container-friendly main() (PORT/host/public
+URL all overridable by environment variables, not just the positional CLI arg) — see DEPLOYMENT.md for
+the full deployment architecture, CI/CD pipeline, Docker/Kubernetes config and production checklist."""
+import logging
+import os
 import sys
 
 from a2a.helpers.proto_helpers import get_data_parts, new_data_message
@@ -28,6 +35,9 @@ from a2a.utils.errors import UnsupportedOperationError
 
 import aixl
 from aixl.agents.a2a_negotiate import start_negotiation, resume_negotiation
+from aixl.agents.observability import configure_logging, inc, observability_routes
+
+log = logging.getLogger("aixl.a2a_server")
 
 SKILL_ID = "aixl_compare"
 NEGOTIATE_SKILL_ID = "aixl_negotiate"
@@ -66,20 +76,28 @@ class AixlAgentExecutor(AgentExecutor):
     the one case this agent genuinely needs A2A's stateful Task model for — see a2a_negotiate.py."""
 
     async def execute(self, context: RequestContext, event_queue: EventQueue) -> None:
+        inc("aixl_requests_total")
         data_parts = get_data_parts(context.message.parts) if context.message else []
         req = data_parts[0] if data_parts else {}
 
-        if context.current_task is not None:
-            await resume_negotiation(context, event_queue, req)
-            return
-        if req.get("skill") == NEGOTIATE_SKILL_ID:
-            await start_negotiation(context, event_queue, req)
-            return
+        try:
+            if context.current_task is not None:
+                await resume_negotiation(context, event_queue, req)
+                return
+            if req.get("skill") == NEGOTIATE_SKILL_ID:
+                inc("aixl_negotiate_started_total")
+                await start_negotiation(context, event_queue, req)
+                return
 
-        result = aixl.compare(req.get("a", ""), req.get("b", "")).to_dict()
-        reply = new_data_message(result, role=Role.ROLE_AGENT,
-                                  context_id=context.context_id, task_id=context.task_id)
-        await event_queue.enqueue_event(reply)
+            inc("aixl_compare_total")
+            result = aixl.compare(req.get("a", ""), req.get("b", "")).to_dict()
+            reply = new_data_message(result, role=Role.ROLE_AGENT,
+                                      context_id=context.context_id, task_id=context.task_id)
+            await event_queue.enqueue_event(reply)
+        except Exception:
+            inc("aixl_errors_total")
+            log.exception("execute() failed")
+            raise
 
     async def cancel(self, context: RequestContext, event_queue: EventQueue) -> None:
         raise UnsupportedOperationError("aixl-core's A2A agent does not support cancelling a "
@@ -91,15 +109,22 @@ def build_app(url: str):
 
     card = _agent_card(url)
     handler = DefaultRequestHandler(AixlAgentExecutor(), InMemoryTaskStore(), card)
-    routes = create_agent_card_routes(card) + create_jsonrpc_routes(handler, rpc_url="/")
+    routes = (observability_routes() + create_agent_card_routes(card)
+              + create_jsonrpc_routes(handler, rpc_url="/"))
     return Starlette(routes=routes)
 
 
 def main():
     import uvicorn
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8766
-    app = build_app(f"http://127.0.0.1:{port}/")
-    uvicorn.run(app, host="127.0.0.1", port=port, log_level="warning")
+
+    configure_logging()
+    port = int(os.environ.get("PORT") or (sys.argv[1] if len(sys.argv) > 1 else 8766))
+    host = os.environ.get("AIXL_A2A_HOST", "127.0.0.1")
+    public_url = os.environ.get("AIXL_A2A_PUBLIC_URL") or f"http://127.0.0.1:{port}/"
+    app = build_app(public_url)
+    log.info("starting aixl a2a agent on %s:%s (public url: %s)", host, port, public_url)
+    uvicorn.run(app, host=host, port=port, log_level=os.environ.get("AIXL_LOG_LEVEL", "info").lower(),
+                log_config=None)
 
 
 if __name__ == "__main__":

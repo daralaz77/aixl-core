@@ -1,0 +1,17 @@
+# AIXL_A2A_PUBLIC_URL defaults to the in-cluster Service DNS name — correct for callers inside the
+# cluster. If this agent is exposed externally (Ingress/LoadBalancer), you MUST override this to the
+# real external hostname: the AgentCard advertises this URL and real A2A clients call back to exactly
+# it, not to whatever address they used to fetch the agent card — getting this wrong passes every
+# health check and fails on the first real call (found and fixed for real while building this
+# deployment; see DEPLOYMENT.md).
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aixl-a2a-config
+  namespace: aixl
+data:
+  PORT: "8766"
+  AIXL_A2A_HOST: "0.0.0.0"
+  AIXL_A2A_PUBLIC_URL: "http://aixl-a2a.aixl.svc.cluster.local/"
+  AIXL_LOG_FORMAT: "json"
+  AIXL_LOG_LEVEL: "INFO"

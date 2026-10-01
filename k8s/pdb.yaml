@@ -1,0 +1,12 @@
+# Keeps at least 1 pod up during a voluntary disruption (node drain, cluster upgrade) — the other real
+# lever (besides maxUnavailable: 0 on the Deployment's own rolling update) against unplanned downtime.
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: aixl-a2a
+  namespace: aixl
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: aixl-a2a

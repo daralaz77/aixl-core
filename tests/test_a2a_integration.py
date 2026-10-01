@@ -171,3 +171,28 @@ def test_aixl_negotiate_over_real_a2a_rejects_immediately_when_sender_resolves_n
     payload = get_data_parts(task.status.message.parts)[0]
     assert payload["converged"] is False
     assert "does not resolve" in payload["reason"]
+
+
+def test_healthz_reports_ok_over_real_http(server_url):
+    r = httpx.get(f"{server_url}/healthz")
+    assert r.status_code == 200
+    assert r.json()["status"] == "ok"
+
+
+def test_readyz_reports_ready_over_real_http(server_url):
+    r = httpx.get(f"{server_url}/readyz")
+    assert r.status_code == 200
+    assert r.json()["status"] == "ready"
+
+
+def test_metrics_is_real_prometheus_text_format_and_counts_a_real_compare_call(server_url):
+    before = httpx.get(f"{server_url}/metrics").text
+    before_n = int([l for l in before.splitlines() if l.startswith("aixl_compare_total")][0].split()[1])
+
+    asyncio.run(_compare(server_url, "Analiza las ventas de Q1 2026.",
+                          "Examina las ventas del primer trimestre de 2026."))
+
+    after = httpx.get(f"{server_url}/metrics").text
+    assert "# TYPE aixl_requests_total counter" in after
+    after_n = int([l for l in after.splitlines() if l.startswith("aixl_compare_total")][0].split()[1])
+    assert after_n == before_n + 1

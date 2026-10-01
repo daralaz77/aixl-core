@@ -22,6 +22,7 @@ from a2a.helpers.proto_helpers import new_data_message, new_task_from_user_messa
 from a2a.server.tasks import TaskUpdater
 from a2a.types.a2a_pb2 import Role, TaskState
 
+from aixl.agents.observability import inc
 from aixl.core.ontology import load_config
 from aixl.negotiation import (
     compare_canonical, worst_dimension, _dim_of_label, _is_empty, _involves_irreversible_action,
@@ -84,11 +85,13 @@ async def _apply_outcome(updater: TaskUpdater, outcome, sender_canonical: dict, 
         msg = new_data_message({"converged": True, "canonical": _encode_canon(belief)},
                                 role=Role.ROLE_AGENT, context_id=context_id, task_id=task_id)
         await updater.complete(message=msg)
+        inc("aixl_negotiate_completed_total")
     elif kind == "reject":
         _, reason, belief = outcome
         msg = new_data_message({"converged": False, "reason": reason},
                                 role=Role.ROLE_AGENT, context_id=context_id, task_id=task_id)
         await updater.reject(message=msg)
+        inc("aixl_negotiate_rejected_total")
     else:  # ask_human
         _, dim, question, candidates, round_, belief = outcome
         msg = new_data_message({"question": question, "field": dim, "candidates": list(candidates)},
@@ -101,6 +104,7 @@ async def _apply_outcome(updater: TaskUpdater, outcome, sender_canonical: dict, 
             "max_rounds": max_rounds,
         }
         await updater.update_status(TaskState.TASK_STATE_INPUT_REQUIRED, message=msg, metadata=state)
+        inc("aixl_negotiate_paused_total")
 
 
 async def start_negotiation(context, event_queue, req: dict) -> None:

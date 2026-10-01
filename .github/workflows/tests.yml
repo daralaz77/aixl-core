@@ -23,7 +23,11 @@ jobs:
         # config for this multi-top-level-dir layout, and `pip install -e .` fails on it) — pytest's own
         # `pythonpath = ["."]` (pyproject.toml) resolves imports straight from the checkout instead,
         # exactly like the project's documented dev setup (README.md: `pip install pytest tiktoken`).
-        run: pip install pytest tiktoken mcp "a2a-sdk[http-server]"
+        # uvicorn is listed explicitly even though `mcp` happens to pull it in transitively today (for
+        # its own unrelated HTTP transport) — a2a-sdk[http-server] does NOT depend on an ASGI server by
+        # itself (found by actually running the Docker image with only that extra installed: it crashed
+        # with ModuleNotFoundError: uvicorn), so this step must not rely on that accidental coupling.
+        run: pip install pytest tiktoken mcp "a2a-sdk[http-server]" uvicorn
 
       - name: Run test suite
         run: pytest -q

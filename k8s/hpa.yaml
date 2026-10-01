@@ -1,0 +1,21 @@
+# Requires the metrics-server add-on (present on most managed clusters: EKS/GKE/AKS; `minikube addons
+# enable metrics-server` / `kind` needs it installed separately) to read CPU usage.
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: aixl-a2a
+  namespace: aixl
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: aixl-a2a
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
