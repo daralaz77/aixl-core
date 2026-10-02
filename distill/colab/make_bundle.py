@@ -24,5 +24,8 @@ with zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED) as z:
         z.write(os.path.join(ROOT, "data/blind5", f), f"data/blind5/{f}")
     z.write(os.path.join(ROOT, "distill/mlx_data/train.jsonl"), "mlx_data/train.jsonl")
     z.write(os.path.join(ROOT, "distill/mlx_data/valid.jsonl"), "mlx_data/valid.jsonl")
+    dev = os.path.join(ROOT, "distill/mlx_data/dev_groups.jsonl")
+    if os.path.exists(dev):
+        z.write(dev, "mlx_data/dev_groups.jsonl")
     z.write(os.path.join(ROOT, "distill/colab/pipeline.py"), "pipeline.py")
 print(OUT, os.path.getsize(OUT) // 1024, "KB")

@@ -35,11 +35,13 @@ def load(path):
 
 def main():
     out_dir = os.path.join(ROOT, "distill", "mlx_data")
-    n_valid, pair_copies = 150, 3
+    n_valid, pair_copies, n_dev_groups = 150, 3, 80
     if "--out" in sys.argv:
         out_dir = sys.argv[sys.argv.index("--out") + 1]
     if "--valid" in sys.argv:
         n_valid = int(sys.argv[sys.argv.index("--valid") + 1])
+    if "--dev-groups" in sys.argv:
+        n_dev_groups = int(sys.argv[sys.argv.index("--dev-groups") + 1])
     if "--pair-copies" in sys.argv:
         pair_copies = int(sys.argv[sys.argv.index("--pair-copies") + 1])
 
@@ -53,6 +55,23 @@ def main():
         paired_texts.update([p["a"], p["b"]])
     for text, aixl in load(os.path.join(ROOT, "distill", "corpus_consistent.jsonl")):
         pass  # the base consistency corpus already repeats its EQUIVALENT pairs 3x; re-derive membership below
+    # consensus paraphrase groups (distill/gen_paraphrase_groups.py): forced identical target per group
+    groups = {}
+    para_path = os.path.join(ROOT, "distill", "corpus_paraphrase.jsonl")
+    if os.path.exists(para_path):
+        for line in open(para_path, encoding="utf-8"):
+            if line.strip():
+                d = json.loads(line)
+                groups.setdefault(d["group"], []).append((d["text"], d["aixl"]))
+    gkeys = sorted(groups)
+    random.Random(11).shuffle(gkeys)
+    dev_keys = set(gkeys[:n_dev_groups])
+    dev_rows = [(t, a, g) for g in gkeys[:n_dev_groups] for t, a in groups[g]]
+    dev_texts = {t for t, _, _ in dev_rows}
+    for g in gkeys[n_dev_groups:]:
+        for t, a in groups[g]:
+            unique[t] = a
+            paired_texts.add(t)
     counts = {}
     for text, _ in load(os.path.join(ROOT, "distill", "corpus_consistent.jsonl")):
         counts[text] = counts.get(text, 0) + 1
@@ -68,7 +87,7 @@ def main():
         clean[text] = c
 
     rng = random.Random(0)
-    texts = sorted(clean)
+    texts = sorted(t for t in clean if t not in dev_texts)
     rng.shuffle(texts)
     valid_texts = [t for t in texts if t not in paired_texts][:n_valid]
     valid_set = set(valid_texts)
@@ -91,6 +110,12 @@ def main():
 
     dump("train.jsonl", train_rows)
     dump("valid.jsonl", valid_texts)
+    with open(os.path.join(out_dir, "dev_groups.jsonl"), "w", encoding="utf-8") as f:
+        for t, a, g in dev_rows:
+            c = canon(a)
+            if c:
+                f.write(json.dumps({"text": t, "aixl": c, "group": g}, ensure_ascii=False) + "\n")
+    print(f"paraphrase groups: {len(gkeys)} (dev held-out groups: {len(dev_keys)}, dev texts: {len(dev_rows)})")
     print(f"unique texts: {len(unique)}  dropped(undecodable): {dropped}  relabeled-by-canonicalization: {changed}")
     print(f"paired (oversampled x{pair_copies}): {len(paired_texts & set(clean))}")
     print(f"train rows: {len(train_rows)}  valid rows: {len(valid_texts)}  -> {out_dir}")

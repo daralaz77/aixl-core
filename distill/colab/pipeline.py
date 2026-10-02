@@ -153,6 +153,27 @@ def main():
         log(f"[{label}] errors by (label,category):", Counter((r["label"], r.get("category")) for r in wrong).most_common(10))
         return summ, lines
 
+    dev_path = os.path.join(ROOT, "mlx_data/dev_groups.jsonl")
+    dev_rows = [json.loads(l) for l in open(dev_path, encoding="utf-8") if l.strip()] if os.path.exists(dev_path) else []
+
+    def dev_score(model, label):
+        """Held-out paraphrase groups (never trained on): fraction of outputs semantically equivalent (project comparator)
+        to the group's consensus target. Independent of blind5, so blind5 stays a clean final measurement."""
+        if not dev_rows:
+            return None
+        from aixl.core.comparator import compare_graphs
+        from aixl.serialization import aixl_codec
+        raws = generate_all(model, [r["text"] for r in dev_rows])
+        ok = 0
+        for r, raw in zip(dev_rows, raws):
+            try:
+                ok += bool(compare_graphs(aixl_codec.decode(first_line(raw)), aixl_codec.decode(r["aixl"])).equivalent)
+            except Exception:  # noqa: BLE001
+                pass
+        v = ok / len(dev_rows)
+        log(f"[{label}] DEV held-out paraphrase groups equivalence: {v:.3f} (n={len(dev_rows)})")
+        return v
+
     def exact_valid(model, label):
         raws = generate_all(model, [t for t, _ in valid_rows])
         em = sum(first_line(r) == a for r, (_, a) in zip(raws, valid_rows)) / len(valid_rows)
@@ -188,6 +209,7 @@ def main():
     log("=== S2: F1 with adapter attached ===")
     model.config.use_cache = True
     results["valid_em_adapter"] = exact_valid(model, "adapter")
+    results["dev_adapter"] = dev_score(model, "adapter")
     s2, lines_adapter = f1_blind5(model, "adapter")
     results["adapter"] = s2["equivalence"]
     model.save_pretrained(os.path.join(out_dir, "lora_adapter"))
@@ -204,6 +226,7 @@ def main():
     if not args.skip_merge_check:
         m2 = load_model(merged_dir)
         results["valid_em_merged"] = exact_valid(m2, "merged")
+        results["dev_merged"] = dev_score(m2, "merged")
         s3, lines_merged = f1_blind5(m2, "merged")
         results["merged"] = s3["equivalence"]
         same = sum(a == b for a, b in zip(lines_adapter, lines_merged)) / len(lines_adapter)

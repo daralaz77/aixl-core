@@ -108,3 +108,21 @@ El usuario invirtió en Colab Pro (GPU A100) y dio una API key propia, de un sol
 SHA256 del GGUF verificado igual en Colab y en el Mac. 400/400 respuestas con línea AIXL; 7 fallos de decodificación estricta; detección de deriva crítica 93.4 %. Pérdida por fusionar (bf16) ~0.03 F1 y por cuantizar Q4_K_M ~0.02.
 
 **Dónde está el techo ahora**: de los 43 errores, 30 son pares `EQUIVALENT/PARAPHRASE` que el modelo codifica distinto (recall); la precisión ya es 0.95. Próximas palancas medibles: más pares parafraseados con objetivo forzado idéntico, más épocas/rango, fusión en fp32 y Q8_0, y un 7B en Colab como cota superior. Nota metodológica: blind5 se usa como set de desarrollo; cada iteración extra sobre él reduce su valor como medida independiente.
+
+
+## Cuarta vuelta (2026-10-02): datos de paráfrasis con consenso
+
+`distill/gen_paraphrase_groups.py`: para 1200 semillas del corpus ya validado (nunca de blind5) Haiku genera 3 variantes de igual significado (traducciones a los otros 2 idiomas + reformulación), el maestro cloud etiqueta las 4, y el comparador del propio proyecto elige la etiqueta por mayoría; se descartan los miembros discrepantes y los grupos sin mayoría (597 de 1200 sobreviven, 2074 textos), y todos los miembros se fuerzan a la MISMA etiqueta canónica y se sobremuestrean x3. Que el maestro necesite descartar la mitad de los grupos mide su propia inconsistencia entre idiomas. 80 grupos (279 textos) quedan fuera del entrenamiento como set de desarrollo propio, para no seguir iterando sobre blind5. Costo real de API: ~6000 llamadas con Haiku 4.5.
+
+Mismo modelo y receta (Qwen2.5-3B, r=32, 3 épocas), 11 668 filas de entrenamiento:
+
+| Etapa | F1 | Precisión | Recall | Exactitud |
+|---|---|---|---|---|
+| Ronda 3 (sin paráfrasis) GGUF local | 0.726 | 0.950 | 0.588 | 0.785 |
+| Adaptador bf16 | **0.833** | 0.986 | 0.722 | - |
+| Fusionado y recargado | 0.819 | 0.986 | 0.701 | 0.850 |
+| **GGUF Q4_K_M local (llama-server)** | **0.775** | 0.984 | 0.639 | 0.820 |
+
+Set de desarrollo (grupos retenidos): 0.785 de equivalencia con el adaptador. SHA256 del GGUF idéntico en Colab y en el Mac. 11 fallos de decodificación estricta; deriva crítica 58/61. Pérdida por empaquetar: fusionar ~0.014 F1, cuantizar a Q4_K_M ~0.044 F1. Errores restantes (43 -> 36): 26 siguen siendo parafraseos equivalentes codificados distinto; solo 1 falso positivo.
+
+Referencia de techo (memoria del proyecto): los encoders cloud con la tarjeta completa miden en blind5 una EXACTITUD de 96.5 % (Haiku/Sonnet), 95.0 % (Gemini), 93.5 % (ChatGPT). Ningún sistema medido ha superado 96.5 % en ese set.
