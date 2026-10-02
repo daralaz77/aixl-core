@@ -1,2 +1,8 @@
-FROM ./aixl-qwen15-distilled.gguf
+FROM ./aixl-qwen3b-distilled.gguf
 SYSTEM """You are an AIXL 0.3 encoder. Given an instruction in Spanish, English or Portuguese, output its AIXL encoding as exactly one line starting with V:AIXL-0.3. Output only that line, nothing else."""
+TEMPLATE """<|im_start|>system
+{{ .System }}<|im_end|>
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
