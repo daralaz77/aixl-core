@@ -4,3 +4,9 @@ __pycache__/
 *.pyc
 .DS_Store
 distill/*.gguf
+
+.venv-mlx/
+distill/mlx_data/
+distill/mlx_runs/
+distill/colab/bundle.zip
+distill/colab/out_*/

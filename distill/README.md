@@ -88,3 +88,23 @@ El usuario invirtió en Colab Pro (GPU A100) y dio una API key propia, de un sol
 **Bug real, sin resolver**: la exportación a GGUF (`model.save_pretrained_gguf(..., quantization_method="q4_k_m")`) se completó sin errores y el archivo pasó una verificación de integridad en tres puntos (SHA256 idéntico en Colab, en el Mac vía `shasum`, y en la capa que registra Ollama) — así que NO es corrupción de transferencia. Pero el modelo servido por Ollama produce salidas incoherentes (repite fragmentos del system prompt, nunca genera AIXL válido), incluso con el prompt ChatML crudo (`raw: true`, sin pasar por el TEMPLATE de Ollama). Se intentó aislar si el bug está en el merge LoRA→fp16 o en la cuantización/conversión GGUF cargando el merge limpio (`model.save_pretrained_merged(save_method="merged_16bit")`) de forma independiente, pero no se pudo verificar: cargarlo con `transformers` puro choca con los parches globales de Unsloth (`AttributeError` en `max_seq_length`, luego `rotary_emb`), y cargarlo con el propio `FastLanguageModel` de Unsloth funcionó pero no fue posible leer el resultado de la generación por fallas repetidas del entorno de Colab/navegador (lectura de outputs en iframe, descarga del `.ipynb` rota tras varios intentos).
 
 **Decisión**: no se midió un F1 real para esta vuelta — no se inventa un número. La ruta cloud (93.5-96.5%, ver tabla arriba) sigue siendo la de producción (`AIXL_TRANSLATOR_MODE=llm`). El modelo auto-hospedado queda pausado como "entrenamiento probadamente correcto, exportación con bug sin diagnosticar" — candidato a retomar en una sesión de Colab fresca (runtime limpio, sin el conflicto de parches de Unsloth) cuando se priorice de nuevo.
+
+
+## Tercera vuelta (2026-10-02): pipeline autoverificable — el bug de GGUF quedó resuelto
+
+**Diagnóstico**: `llama.cpp` directo sobre el GGUF viejo (sin Ollama) también daba basura, así que el archivo exportado por Unsloth estaba roto; el fallo estaba en el camino Unsloth + base 4-bit + merge/export, no en el aprendizaje ni en Ollama. Entrenar en el Mac con MLX se descartó con medición: ~99 tok/s en un M1 (límite de cómputo, ~2.4 h por época del 1.5B).
+
+**Solución**: `distill/colab/pipeline.py` (un solo comando en Colab; `make_bundle.py` empaqueta código real del comparador + blind5 + datos). Entrena LoRA sobre base **bf16** con PEFT (sin Unsloth ni 4-bit), mide F1 real en blind5 en cada etapa (adaptador -> fusionado y recargado desde disco -> GGUF), y exporta con el conversor de llama.cpp. Datos: `build_mlx_data.py` canonicaliza cada etiqueta con el codec real (1350 de 4031 venían en serializaciones distintas del mismo significado) y mantiene el sobremuestreo x3 de pares equivalentes.
+
+**Resultado real** (Qwen2.5-3B-Instruct, r=32, 3 épocas, 1398 pasos, 8.4 min en A100, blind5, 200 pares):
+
+| Etapa | F1 | Precisión | Recall |
+|---|---|---|---|
+| Referencia anterior (1.5B, Unsloth, medido en Ollama) | 0.693 | 0.946 | 0.546 |
+| Adaptador bf16 | 0.773 | 0.955 | 0.650 |
+| Fusionado y recargado (bf16) | 0.745 | 0.938 | 0.619 |
+| **GGUF Q4_K_M servido localmente (llama-server)** | **0.726** | 0.950 | 0.588 |
+
+SHA256 del GGUF verificado igual en Colab y en el Mac. 400/400 respuestas con línea AIXL; 7 fallos de decodificación estricta; detección de deriva crítica 93.4 %. Pérdida por fusionar (bf16) ~0.03 F1 y por cuantizar Q4_K_M ~0.02.
+
+**Dónde está el techo ahora**: de los 43 errores, 30 son pares `EQUIVALENT/PARAPHRASE` que el modelo codifica distinto (recall); la precisión ya es 0.95. Próximas palancas medibles: más pares parafraseados con objetivo forzado idéntico, más épocas/rango, fusión en fp32 y Q8_0, y un 7B en Colab como cota superior. Nota metodológica: blind5 se usa como set de desarrollo; cada iteración extra sobre él reduce su valor como medida independiente.
