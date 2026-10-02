@@ -27,7 +27,7 @@ def extract_aixl_line(text):
     return None
 
 
-def call_ollama(model, text, timeout=60):
+def call_ollama(model, text, timeout=60, temperature=0.0):
     payload = {
         "model": model,
         "messages": [
@@ -35,6 +35,7 @@ def call_ollama(model, text, timeout=60):
             {"role": "user", "content": text},
         ],
         "stream": False,
+        "options": {"temperature": temperature},
     }
     req = urllib.request.Request(
         "http://localhost:11434/api/chat",
@@ -52,6 +53,9 @@ def main():
     limit = None
     if "--limit" in sys.argv:
         limit = int(sys.argv[sys.argv.index("--limit") + 1])
+    temperature = 0.0
+    if "--temp" in sys.argv:
+        temperature = float(sys.argv[sys.argv.index("--temp") + 1])
 
     with open(os.path.join(ROOT, "data/llm_translator/texts_blind5.json"), encoding="utf-8") as f:
         texts = json.load(f)
@@ -64,7 +68,7 @@ def main():
     with open(out_path, "w", encoding="utf-8") as out:
         for i, t in enumerate(texts):
             try:
-                raw = call_ollama(model, t["text"])
+                raw = call_ollama(model, t["text"], temperature=temperature)
                 line = extract_aixl_line(raw)
             except Exception as e:                       # noqa: BLE001
                 raw, line = f"ERROR: {e}", None

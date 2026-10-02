@@ -82,7 +82,11 @@ def translate_via_llm(text: str, today: date | None = None, api_key: str | None 
             API_URL,
             headers={"x-api-key": api_key, "anthropic-version": ANTHROPIC_VERSION,
                       "content-type": "application/json"},
-            json={"model": model, "max_tokens": 300, "system": system_prompt,
+            # cache_control on the (static, 19.5k-char) card: repeated calls within the 5-min ephemeral
+            # window hit the cache instead of re-billing the full system prompt every time -- real cost
+            # win for both production traffic and batch corpus generation (distill/generate_fresh_corpus.py).
+            json={"model": model, "max_tokens": 300,
+                  "system": [{"type": "text", "text": system_prompt, "cache_control": {"type": "ephemeral"}}],
                   "messages": [{"role": "user", "content": text}]},
             timeout=timeout,
         )

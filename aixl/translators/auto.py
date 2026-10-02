@@ -1,17 +1,19 @@
-"""Chooses between the rule-based translator (aixl/translators/natural_to_semantic.py — always
-available, deterministic, the one every benchmark measures as "rule-based") and the live LLM translator
-(aixl/translators/llm_translator.py — optional, needs ANTHROPIC_API_KEY), controlled by
-AIXL_TRANSLATOR_MODE. Default is 'rule_based' — UNCHANGED behavior from before this module existed, so
-every existing test, benchmark, and deployment keeps working exactly as before unless the user
-explicitly opts in by setting AIXL_TRANSLATOR_MODE and a real API key.
+"""Chooses between three translators, controlled by AIXL_TRANSLATOR_MODE. Default is 'rule_based' —
+UNCHANGED behavior from before this module existed, so every existing test, benchmark, and deployment
+keeps working exactly as before unless the user explicitly opts in.
 
 Modes:
-- 'rule_based' (default): always the rule-based translator, exactly as before this module existed.
-- 'llm': always attempt the LLM route; falls back to rule-based (with a warning logged) if it fails —
-  never hard-fails the request just because the LLM route had a bad moment.
-- 'auto': same fallback behavior as 'llm' today (both try LLM then fall back) — kept as a distinct name
-  for a future where 'auto' might pick per-request based on something else (e.g. text length/cost);
-  right now the two modes behave identically.
+- 'rule_based' (default): always the rule-based translator (natural_to_semantic.py), exactly as before
+  this module existed. Zero dependencies, ~88% accuracy, the safe default for anything not explicitly
+  configured.
+- 'llm' / 'auto': the live cloud LLM route (llm_translator.py, needs ANTHROPIC_API_KEY) — 93.5-96.5%
+  measured accuracy, cross-vendor. **This is the recommended setting for production deployments** as of
+  2026-10-01: it is the only route with real evidence of reaching the 90-95% target. Falls back to
+  rule-based (with a warning logged) if the API call fails for any reason — never hard-fails a request.
+- 'local': the self-hosted, fine-tuned-locally route (local_translator.py, needs Ollama running with the
+  `aixl-distilled` model) — measured F1 0.6928, well below both other routes. Use only when a deployment
+  must run fully offline with no API key and no internet, per distill/README.md's honest evidence trail.
+  Falls back to rule-based on any failure, same contract as 'llm'.
 
 This is what aixl/api/service.py's public functions (to_semantic, compare, translate, ...) call instead
 of the rule-based to_graph() directly — so the deployed MCP/A2A agent benefits automatically. Benchmarks
@@ -35,4 +37,11 @@ def to_graph_auto(text: str, today: date | None = None):
             return g
         log.warning("AIXL_TRANSLATOR_MODE=%s but the LLM route returned nothing usable; "
                     "falling back to the rule-based translator for this request", mode)
+    elif mode == "local":
+        from aixl.translators.local_translator import translate_via_local
+        g = translate_via_local(text, today)
+        if g is not None:
+            return g
+        log.warning("AIXL_TRANSLATOR_MODE=local but the local route returned nothing usable; "
+                    "falling back to the rule-based translator for this request")
     return _rule_based_to_graph(text, today)

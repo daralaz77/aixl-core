@@ -52,9 +52,11 @@ def test_translate_via_llm_parses_a_well_formed_real_shaped_response():
         g = llm_translator.translate_via_llm("Analiza las ventas de Q1 2026.", api_key="sk-test-fake")
     assert g is not None
     assert g.canonical()["actions"] == ("ANALYZE",)
-    # confirms the card was actually sent as the system prompt, not an empty/placeholder one
+    # confirms the card was actually sent as the (cached) system prompt, not an empty/placeholder one
     _, kwargs = mock_post.call_args
-    assert "AIXL 0.2" in kwargs["json"]["system"] or "AIXL" in kwargs["json"]["system"]
+    system_text = kwargs["json"]["system"][0]["text"]
+    assert "AIXL" in system_text
+    assert kwargs["json"]["system"][0]["cache_control"] == {"type": "ephemeral"}
     assert kwargs["json"]["messages"][0]["content"] == "Analiza las ventas de Q1 2026."
 
 
