@@ -242,3 +242,21 @@ Qwen2.5-14B-Instruct (Colab, sin API) reescribió las 1200 semillas (563 s); 109
 Conclusión (con datos): **añadir los grupos de Qwen no mejora blind5** (medias idénticas, 0.787 vs 0.788; el mismo entrenamiento con otra semilla varía hasta ~0.075 de F1) y **empeora el dev en las dos semillas** (-0.054 y -0.032; dev son paráfrasis escritas por Haiku, así que probablemente el estilo de Qwen desplaza la distribución). La sonda de viabilidad (la generación es tan buena como la de Haiku según los chequeos) era correcta, pero "tan buena" no se traduce en mejor estudiante: más paráfrasis del MISMO tipo de semilla no mueven el cuello de botella (recall ~0.67). Nota: `valid_em` (0.26 vs 0.67) NO es comparable: las semillas del valid base entraron al entrenamiento del brazo Qwen (fuga solo en esa métrica; dev y blind5 verificados sin fuga).
 
 Qué NO se probó (y podría cambiar la conclusión): (a) los pares casi iguales NO equivalentes generados por Qwen (para sostener precisión, no recall); (b) etiquetado/consenso con Qwen; (c) semillas NUEVAS (más variedad de instrucciones) en vez de más paráfrasis de las mismas 1200. El recall sigue limitado por la variedad de instrucciones, no por el número de reformulaciones.
+
+
+## Undécima vuelta (2026-10-03): semillas NUEVAS con Qwen — el cuello es la etiqueta, no los datos
+
+Idea: más variedad de instrucciones (no más paráfrasis). `distill/colab/qwen_newseeds.py`: Qwen2.5-14B-Instruct (gratis, en Colab) inventó 3580 instrucciones naturales nuevas (ES/EN/PT, 12 rasgos: negación, condición, límite, fecha, formato, destinatario, prioridad, id, permiso, orden, umbral, idioma; 0 colisiones con el corpus y con blind5). Para etiquetarlas sin maestro de pago, un consenso de TRES etiquetadores independientes (`distill/consensus_label.py`): (1) el traductor por reglas, (2) el estudiante GGUF (3B Q4_K_M + gramática), (3) Qwen2.5-14B con la tarjeta `card_0.3.md` como prompt de sistema (misma ruta que la API de Haiku). Muestra aleatoria de 700 textos; regla de decisión fijada ANTES de medir: si el acuerdo (>=2 de 3) < ~50 % o el unánime < ~25 %, no se entrena.
+
+| Medida (700 textos) | Resultado |
+|---|---|
+| Los 3 etiquetadores producen AIXL decodificable | 667/700 |
+| >=2 etiquetadores equivalentes (comparador del proyecto) | **39/700 = 5.6 %** |
+| Los 3 equivalentes (unánime) | **1/700 = 0.14 %** |
+| Equivalencia por pares | reglas~estudiante 3.1 %, reglas~Qwen 2.1 %, estudiante~Qwen 0.6 % |
+| Acuerdo en la acción principal (`A`) | 56-66 % por pares |
+| Acuerdo en `D` (datos) | 18-64 %; en `K` (restricciones) 23-39 %; en `E` 25-51 % |
+
+No es un error de medición: las tres salidas de cada texto difieren en átomos concretos (las reglas descartan lo que no saben leer, el estudiante inventa `E:`/`K:`/`F:AMBIGUOUS_MODALITY`, Qwen con la tarjeta inventa `K:TO=...`/`G:` y le cambia la acción). Ejemplo: "Comparte la cartera actualizada con el equipo financiero una vez completado el análisis" -> reglas `I:UNKNOWN`; estudiante `A:UPDATE,ANALYZE D:FINANCE`; Qwen `A:ANALYZE,SEND D:PORTFOLIO`.
+
+**Conclusión: NO se entrenó con estas semillas** (acuerdo 5.6 % << 50 %). Con texto natural escrito libremente, tres lectores razonables del mismo formato no coinciden, así que cualquier etiqueta construida por consenso sería ruido. Coincide con `docs/EVIDENCE.md` (la ruta LLM+tarjeta y las reglas aciertan 37 % / 24-40 % en texto de otros autores): el techo no es de modelo, de datos ni de empaquetado, sino de que el formato AIXL no tiene un objetivo estable sobre lenguaje natural abierto. El 0.83 de exactitud en blind5 (pares escritos para parafraseo/cambio mínimo, vocabulario cercano a la tarjeta) NO debe leerse como fiabilidad general. Para decidir equivalencia en texto abierto, la evidencia del proyecto favorece el árbitro de texto completo (2-de-2), no más datos para el traductor distilado.
