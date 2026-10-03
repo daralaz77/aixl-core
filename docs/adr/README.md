@@ -18,5 +18,6 @@ Format: Problem / Decision / Alternatives / Reasoning / Consequences / Compatibi
 | 013 | Ambiguity with context never picks |
 | 014 | No execution in the Core |
 | 015 | Fingerprints: canonical, version-bound, conservative |
+| 016 | Open role slots + explicit residue + INCONCLUSIVE verdict (AIXL 0.5, DESIGN ONLY) |
 
 ADRs 001–008, 014 and 015 record decisions made earlier in the project, written down on 2026-10-02 from the code, tests and the benchmark notes; the evidence they cite is in BENCHMARK.md and LIMITATIONS.md. ADRs 009–013 were decided and measured on the same day.

@@ -4,7 +4,7 @@
   "pairs_ne": 78,
   "false_equivalent": 15,
   "controls": 18,
-  "false_different": 3,
+  "false_different": 2,
   "by_modifier": {
    "NEGATION": [
     6,
@@ -418,8 +418,8 @@
    "b": "Exclua os primeiros 100 de a fatura.",
    "pred": false,
    "parsed": true,
-   "a_aixl": "V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:EXCLUDE K:QTY=10,SELECT=LAST",
-   "b_aixl": "V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:EXCLUDE K:QTY=100,SELECT=LAST"
+   "a_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE K:QTY=10,SELECT=LAST",
+   "b_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE K:QTY=100,SELECT=LAST"
   },
   {
    "id": "S031",
@@ -694,8 +694,8 @@
    "b": "Exclua os logs de 2025.",
    "pred": false,
    "parsed": true,
-   "a_aixl": "V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:EXCLUDE T:2024",
-   "b_aixl": "V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:EXCLUDE T:2025"
+   "a_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE T:2024",
+   "b_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE T:2025"
   },
   {
    "id": "S054",
@@ -706,8 +706,8 @@
    "b": "Exclua os logs de 2025.",
    "pred": false,
    "parsed": true,
-   "a_aixl": "V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:EXCLUDE T:2024",
-   "b_aixl": "V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:EXCLUDE T:2025"
+   "a_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE T:2024",
+   "b_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE T:2025"
   },
   {
    "id": "S055",
@@ -778,7 +778,7 @@
    "b": "Arquive os registros de clientes.",
    "pred": false,
    "parsed": true,
-   "a_aixl": "V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:EXCLUDE D:CUSTOMERS",
+   "a_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE D:CUSTOMERS",
    "b_aixl": "V:AIXL-0.3 I:UNKNOWN D:CUSTOMERS"
   },
   {
@@ -1052,10 +1052,10 @@
    "lang": "pt",
    "a": "Exclua os registros de clientes.",
    "b": "Apague os registros de clientes.",
-   "pred": false,
+   "pred": true,
    "parsed": true,
-   "a_aixl": "V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:EXCLUDE D:CUSTOMERS",
-   "b_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DISABLE D:CUSTOMERS"
+   "a_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE D:CUSTOMERS",
+   "b_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE D:CUSTOMERS"
   },
   {
    "id": "S084",
@@ -1066,8 +1066,8 @@
    "b": "Apague os arquivos de log.",
    "pred": false,
    "parsed": true,
-   "a_aixl": "V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:EXCLUDE",
-   "b_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DISABLE"
+   "a_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE",
+   "b_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE,DISABLE"
   },
   {
    "id": "S085",
@@ -1199,7 +1199,7 @@
    "pred": false,
    "parsed": true,
    "a_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE K:QTY=10:LOG,SELECT=FIRST",
-   "b_aixl": "V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:EXCLUDE K:QTY=10:PRIMEIROS"
+   "b_aixl": "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE K:QTY=10:PRIMEIROS"
   },
   {
    "id": "S096",

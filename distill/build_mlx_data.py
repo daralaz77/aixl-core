@@ -8,12 +8,14 @@ usage: python distill/build_mlx_data.py [--out distill/mlx_data] [--valid 150] [
 import json
 import os
 import random
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
 from aixl.serialization import aixl_codec  # noqa: E402
+from aixl.translators.natural_to_semantic import to_graph  # noqa: E402
 
 
 def canon(aixl):
@@ -21,6 +23,34 @@ def canon(aixl):
         return aixl_codec.encode(aixl_codec.decode(aixl))
     except Exception:  # noqa: BLE001
         return None
+
+
+_PT_VERB = re.compile(r"\b(?:exclua|excluam|excluir|exclui|apague|apagar|apaga)\b", re.I)
+
+
+def fix_pt_delete(text, aixl):
+    """2026-10-02 vocabulary decision (card sha 6320431e...): Portuguese "excluir/exclua" and "apagar/apague" applied to data
+    are DELETE. The cloud teachers labelled them EXCLUDE/DISABLE under the old card (117+ rows), which is what taught the
+    local model to hide PT deletes from the irreversible-action check. Relabel only when the rule-based translator (which
+    carries the PT-evidence gate and the "da análise/do relatório" and "apague a luz" exceptions) also says DELETE."""
+    if not _PT_VERB.search(text):
+        return aixl
+    try:
+        rule = aixl_codec.encode(to_graph(text))
+    except Exception:  # noqa: BLE001
+        return aixl
+    def acts(a):
+        m = re.search(r" A:(\S+)", a)
+        return set(m.group(1).split(",")) if m else set()
+    old, new = acts(aixl), acts(rule)
+    swap = [a for a in ("EXCLUDE", "DISABLE") if a in old and a not in new]
+    if "DELETE" not in new or "DELETE" in old or not swap:
+        return aixl
+    out = aixl
+    for a in swap:
+        out = re.sub(rf"(?<![A-Z]){a}(?![A-Z])", "DELETE", out)
+    out = out.replace("I:REQUEST_TRANSFORMATION", "I:REQUEST_EXECUTION")
+    return canon(out) or aixl
 
 
 def load(path):
@@ -77,12 +107,15 @@ def main():
         counts[text] = counts.get(text, 0) + 1
     paired_texts.update(t for t, c in counts.items() if c > 1)
 
-    clean, dropped, changed = {}, 0, 0
+    clean, dropped, changed, pt_fixed = {}, 0, 0, 0
     for text, aixl in unique.items():
         c = canon(aixl)
         if c is None:
             dropped += 1
             continue
+        c2 = fix_pt_delete(text, c)
+        pt_fixed += c2 != c
+        c = c2
         changed += c != aixl
         clean[text] = c
 
@@ -113,10 +146,12 @@ def main():
     with open(os.path.join(out_dir, "dev_groups.jsonl"), "w", encoding="utf-8") as f:
         for t, a, g in dev_rows:
             c = canon(a)
+            c = fix_pt_delete(t, c) if c else c
             if c:
                 f.write(json.dumps({"text": t, "aixl": c, "group": g}, ensure_ascii=False) + "\n")
     print(f"paraphrase groups: {len(gkeys)} (dev held-out groups: {len(dev_keys)}, dev texts: {len(dev_rows)})")
     print(f"unique texts: {len(unique)}  dropped(undecodable): {dropped}  relabeled-by-canonicalization: {changed}")
+    print(f"relabeled PT delete verbs (excluir/apagar -> DELETE): {pt_fixed}")
     print(f"paired (oversampled x{pair_copies}): {len(paired_texts & set(clean))}")
     print(f"train rows: {len(train_rows)}  valid rows: {len(valid_texts)}  -> {out_dir}")
 
