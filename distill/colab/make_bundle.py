@@ -27,6 +27,9 @@ with zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED) as z:
     dev = os.path.join(ROOT, "distill/mlx_data/dev_groups.jsonl")
     if os.path.exists(dev):
         z.write(dev, "mlx_data/dev_groups.jsonl")
+    qtrain = os.path.join(ROOT, "distill/mlx_data_qwen/train.jsonl")
+    if os.path.exists(qtrain):  # A/B arm with open-model paraphrase groups (distill/build_qwen_groups.py)
+        z.write(qtrain, "mlx_data/train_qwen.jsonl")
     z.write(os.path.join(ROOT, "distill/colab/pipeline.py"), "pipeline.py")
     z.write(os.path.join(ROOT, "distill/colab/sweep.py"), "sweep.py")
     z.write(os.path.join(ROOT, "distill/aixl.gbnf"), "aixl.gbnf")

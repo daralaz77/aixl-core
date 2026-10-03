@@ -72,6 +72,7 @@ def main():
         n_valid = int(sys.argv[sys.argv.index("--valid") + 1])
     if "--dev-groups" in sys.argv:
         n_dev_groups = int(sys.argv[sys.argv.index("--dev-groups") + 1])
+    qwen_path = sys.argv[sys.argv.index("--qwen") + 1] if "--qwen" in sys.argv else None
     if "--pair-copies" in sys.argv:
         pair_copies = int(sys.argv[sys.argv.index("--pair-copies") + 1])
 
@@ -102,6 +103,24 @@ def main():
         for t, a in groups[g]:
             unique[t] = a
             paired_texts.add(t)
+    n_q_groups = n_q_texts = 0
+    if qwen_path:  # open-model paraphrase groups (distill/build_qwen_groups.py): label = the seed's validated label, x pair_copies
+        qgroups = {}
+        for line in open(qwen_path, encoding="utf-8"):
+            if line.strip():
+                d = json.loads(line)
+                qgroups.setdefault(d["group"], []).append((d["text"], d["aixl"]))
+        for g, members in qgroups.items():
+            if g[2:] in dev_keys:  # never train on a seed whose group is held out as DEV
+                continue
+            n_q_groups += 1
+            for t, a in members:
+                if t in unique and unique[t] != a and t != g[2:]:
+                    continue  # a different label already exists for this exact text: keep the validated one
+                if t not in dev_texts:
+                    unique[t] = a
+                    paired_texts.add(t)
+                    n_q_texts += 1
     counts = {}
     for text, _ in load(os.path.join(ROOT, "distill", "corpus_consistent.jsonl")):
         counts[text] = counts.get(text, 0) + 1
@@ -151,6 +170,7 @@ def main():
                 f.write(json.dumps({"text": t, "aixl": c, "group": g}, ensure_ascii=False) + "\n")
     print(f"paraphrase groups: {len(gkeys)} (dev held-out groups: {len(dev_keys)}, dev texts: {len(dev_rows)})")
     print(f"unique texts: {len(unique)}  dropped(undecodable): {dropped}  relabeled-by-canonicalization: {changed}")
+    print(f"open-model groups used: {n_q_groups} ({n_q_texts} texts) from {qwen_path}")
     print(f"relabeled PT delete verbs (excluir/apagar -> DELETE): {pt_fixed}")
     print(f"paired (oversampled x{pair_copies}): {len(paired_texts & set(clean))}")
     print(f"train rows: {len(train_rows)}  valid rows: {len(valid_texts)}  -> {out_dir}")

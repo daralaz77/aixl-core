@@ -49,6 +49,8 @@ def main():
     ap.add_argument("--valid", default="mlx_data/valid.jsonl")
     ap.add_argument("--export", action="store_true")
     ap.add_argument("--skip-merge-check", action="store_true")
+    ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--adapter-only", action="store_true", help="stop after S2 (adapter F1 + dev); no merge/export: cheap A/B runs")
     args = ap.parse_args()
 
     import torch
@@ -57,7 +59,7 @@ def main():
 
     out_dir = os.path.join(ROOT, f"out_{args.tag}")
     os.makedirs(out_dir, exist_ok=True)
-    results = {"tag": args.tag, "model": args.model, "epochs": args.epochs, "lr": args.lr, "rank": args.rank}
+    results = {"tag": args.tag, "model": args.model, "epochs": args.epochs, "lr": args.lr, "rank": args.rank, "seed": args.seed, "train": args.train}
 
     tok = AutoTokenizer.from_pretrained(args.model)
     tok.padding_side = "left"
@@ -192,7 +194,7 @@ def main():
     wanted = dict(output_dir=os.path.join(out_dir, "ckpt"), per_device_train_batch_size=args.bs,
                   num_train_epochs=args.epochs, learning_rate=args.lr, lr_scheduler_type="cosine",
                   warmup_steps=max(1, int(0.03 * total_steps)), bf16=True, logging_steps=25, save_strategy="no",
-                  report_to="none", seed=0, remove_unused_columns=False)
+                  report_to="none", seed=args.seed, remove_unused_columns=False)
     accepted = set(inspect.signature(TrainingArguments.__init__).parameters)
     dropped = [k for k in wanted if k not in accepted]
     if dropped:
@@ -213,6 +215,10 @@ def main():
     s2, lines_adapter = f1_blind5(model, "adapter")
     results["adapter"] = s2["equivalence"]
     model.save_pretrained(os.path.join(out_dir, "lora_adapter"))
+    if args.adapter_only:
+        json.dump(results, open(os.path.join(out_dir, "results.json"), "w"), indent=1)
+        log("ADAPTER_ONLY_RESULT", json.dumps({k: results.get(k) for k in ("tag", "seed", "train", "train_loss", "valid_em_adapter", "dev_adapter", "adapter")}))
+        return
 
     # ---------------------------------------------------------------- S3 merge + reload from disk
     log("=== S3: merge, save, RELOAD from disk, re-measure ===")
