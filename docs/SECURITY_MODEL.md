@@ -37,8 +37,20 @@ False alarms: 0/31 benign cross-lingual restatements flagged.
 * Period swap on a destructive action (`Delete the report from March` → `April`) is flagged MAJOR, not CRITICAL (×2 hard cases).
 * `Give read-only access` vs `Give full access` is caught only by `NO_ACTION_RECOGNIZED`, not understood (no permission-level vocabulary).
 * Any phrasing the closed lexicon does not know (new verbs/nouns) degrades to a warning at best. The hard tier is 57 hand-written cases by one author; an independent red team would find more.
-* The rule-based translator generalises at ≈ 76–88 % on fresh data; for high-stakes comparison use the LLM-translator route (95–96 % on fresh sets) *and* treat `warnings` as blocking.
+* **On other authors' open-domain text, neither AIXL route is a safe comparator by itself** (2026-10-03, [EVIDENCE.md](EVIDENCE.md)): the rules route judged 40.6 % (blind11) and 47–59 % (blind10) of non-equivalent pairs equivalent, the LLM route with the card likewise until `inconclusive` is on. For high-stakes comparison use the full-text arbiter (two independent LLMs, "same" only if both agree) and keep AIXL's `sanitize_input` in front; treat `warnings` as blocking.
 * Fingerprints and comparisons depend on the reference date for relative times; pass `today=` when you store or audit them.
 
 ## Reporting
 Reproduce with `python -m benchmarks.sil_security_eval --show 5`; ratchet in `tests/test_sil_security.py`. Add each newly found bypass as a case in `HARD` (benchmarks/sil_security_gen.py) **before** fixing it.
+
+## Measured against attacks written by someone else (2026-10-03)
+An Opus red-team author, told the arbiter's rules, wrote 70 adversarial pairs (injection aimed at the judge, hidden negation, scope shift, number locale, Cyrillic/look-alike characters, role swap, conditional flip, polarity verbs, partial commit) and 40 suspicious-looking benign controls ([ADR-017](adr/ADR-017.md)).
+| Defence | Attacks judged "same" (of 70) | Benign controls kept (of 40) |
+|---|---|---|
+| Full-text arbiter, 2-of-2, texts presented as data | **1** (a `1,000 kg` decimal-comma pair; injection pairs 0/8) | 39 |
+| Single arbiter, Haiku / Sonnet | 4 / 2 | 39 / 39 |
+| AIXL rules route as the comparator | 17 | 0 (proves nothing) |
+| Arbiter + AIXL "veto" (any NOT_EQUIVALENT of the rules route) | 0 | **13** (rejects 26 of 39 correct controls: unusable) |
+* `sanitize_input` (invisible characters, compatibility forms, mixed-script homoglyphs) had **0 false rejections on 71 benign pairs** and removes the homoglyph class that fooled a single cheap judge (Haiku alone 4 → 1 false "same", chosen post-hoc on one set; not confirmed by later sets, which had no obfuscation attacks). Look-alike *digits* (`1OO5` vs `1005`) are not caught by it.
+* Not defended, unchanged: context poisoning, provenance spoofing, replay, capability spoofing. An LLM arbiter is itself an injection target; the observed resistance (8/8 injection pairs) is one author, small n.
+* Repeatability: the 2-of-2 flips on 1.2 % of pairs across 5 passes (Haiku alone 6.1 %); store the verdict as a decision record instead of re-deriving it.

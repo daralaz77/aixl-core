@@ -9,7 +9,7 @@ A message is one line of tokens separated by single spaces: `ATOM:VALUE ATOM:VAL
 * **List atoms** hold comma-separated values (`A:SEND,DELETE`); an item containing a comma or space is quoted.
 * **Scalar atoms** hold one value. A repeated scalar atom is an error; a repeated list atom is merged (union).
 * `V:AIXL-0.3` is mandatory.
-* The encoder emits atoms in a fixed canonical order: `V I A D E T L H Y N K F P G O`, so the same meaning always yields the same line.
+* The encoder emits atoms in a fixed canonical order: `V I A D E T L H Y N K F P G O R`, so the same meaning always yields the same line.
 * Parser tolerance (not part of what the encoder emits): a stray space after a comparator operator (`H:> .90`).
 
 ## 2. Atoms (as implemented)
@@ -30,11 +30,16 @@ A message is one line of tokens separated by single spaces: `ATOM:VALUE ATOM:VAL
 | `N` | negations | list | `NO_SEND` (always paired with `K:FORBID_SEND`) |
 | `G` | goal | scalar | derived goal |
 | `O` | output | list | `PDF`, `JSON`, `CSV`, `TABLE` … |
+| `R` | residue | list | **additive, 2026-10-02 (not yet a released version)**: clauses the encoder could not place in any slot, kept as quoted literals in the text's own words (`R:"every week","to the CFO"`); never dropped. Compared as an order-free set of light-stemmed content words. Emitted only by an encoder following `data/llm_translator/card_0.5.md`/`card_0.6.md`; the rule-based encoder does not emit it |
 
 Intents (`REQUEST_ANALYSIS, REQUEST_COMPARISON, REQUEST_SEARCH, REQUEST_SUMMARY, REQUEST_GENERATION, REQUEST_TRANSLATION,
 REQUEST_VALIDATION, REQUEST_EXECUTION, REQUEST_RETRIEVAL, REQUEST_TRANSFORMATION`, plus protocol-level `CAPABILITY_QUERY/RESPONSE`)
 are **derived from the actions**, never free text. Actions (25): `ANALYZE COMPARE FIND SEARCH SUMMARIZE GENERATE CREATE CALCULATE
 CHECK VALIDATE TRANSLATE GET RETRIEVE DELETE EXECUTE TRANSFORM CLASSIFY EXTRACT PREDICT UPDATE ENABLE DISABLE SEND INCLUDE EXCLUDE`.
+
+**Compatibility of `R`:** lines without `R` are unchanged and read by every reader. A reader built before `R` existed rejects a line that contains it (`ERROR:INVALID_AIXL unknown atom R`) — check the reader's version out of band. `V:` stays `AIXL-0.3`.
+
+**What an AIXL line is (and is not):** a *lossy* encoding of what the encoder managed to place in its slots. On open-domain text the slots are not enough: whatever has no slot is dropped silently unless `R` carries it, which is why two different sentences ("to the CFO"/"to the CEO", "daily"/"weekly") can encode to the same line. Equal lines prove equal *captured* meaning, not equal intent — measured in [EVIDENCE.md](EVIDENCE.md).
 
 ## 3. Verified examples
 Each line is checked against the real encoder by `tests/test_docs.py` (the docs cannot drift from the code).
@@ -64,7 +69,7 @@ blind sets, `full_canonical_roundtrip` in `benchmarks/blind_eval.py`). Relative 
 | §8 atom letters `F`=Format, `Y`=Condition, `H`=Context | `F`=conditions, `Y`=references, `H`=confidence, `O`=output | taxonomy inherited from the measured AIXL 0.2; §8 allows evolving it if documented — this is the documentation |
 | §9 `I:REQUEST` | `I:REQUEST_EXECUTION` (etc.) | intent is derived from the action |
 | §9 `T:TOMORROW` | `T:<ISO date>` | **deviation from §16/§35**: relative days/months/years resolve against the system date (or `today=`) at translation time; the *pair* compare resolves both sides consistently, but the AIXL line itself is date-anchored. Weeks are left unresolved on purpose. |
-| §22 six statuses | `ComparisonResult.equivalent` + typed differences | `PARTIALLY_EQUIVALENT`/`CONTRADICTORY`/`AMBIGUOUS` are derived (benchmark mapping, `detect_*`), not a single status field |
+| §22 six statuses | `ComparisonResult.verdict` (EQUIVALENT / NOT_EQUIVALENT / INCONCLUSIVE, the last only with `inconclusive` on) + `equivalent` + typed differences | `PARTIALLY_EQUIVALENT`/`CONTRADICTORY`/`AMBIGUOUS` are derived (benchmark mapping, `detect_*`), not a single status field |
 | §32 REST endpoints | not implemented | Python API, CLI, MCP and A2A instead |
 | §37 compatibility with 0.2/0.2.5–0.2.7 | 0.2 parser vendored (`aixl/legacy02`); accepts `AIXL-0.2` and `AIXL-0.3` | 0.2.5–0.2.7 and everything else are rejected explicitly (`VERSION_MISMATCH`), never silently accepted; 0.3-only atoms in a 0.2 reader are not negotiated (no capability handshake) |
 | §52–§54 registry / handshake / negotiation of features | not implemented; message-level *negotiation* (disagreement resolution) is | see INTEROPERABILITY_GUIDE.md |

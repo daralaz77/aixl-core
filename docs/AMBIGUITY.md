@@ -4,3 +4,5 @@ UNKNOWN vs AMBIGUOUS: absent info (no target) is reported as missing; competing 
 
 ## Context (added 2026-10-02, §24/§35/§91)
 `detect_ambiguity(text, context={"entities": [{"id", "name", "aliases"?, "type"?}]})` checks reference names against known entities. Several matches => blocking `AMBIGUOUS_REFERENCE` with `candidate_interpretations`, `affected_nodes`, `required_context` (the Core never picks one). One match => `RESOLVED_REFERENCE` note (provenance EXTERNAL_CONTEXT; the graph is not mutated). None => `UNKNOWN_REFERENCE` note (unknown, not ambiguous). The translator emits name tokens one by one (@JUAN, @PÉREZ): tokens sharing a candidate are one mention, otherwise each is separate. Limits: name-token matching only (no gender/role/recency cues), no coreference for pronouns against the context.
+
+**Evidence (2026-10-03):** on 60 free-text ambiguous instructions written by another author the heuristic detector found 10 (16.7 %) and flagged 7 of 60 non-ambiguous sides (11.7 %) (blind11). Treat it as a hint inside the controlled vocabulary, not as a general ambiguity detector; no arbiter-based alternative has been measured.

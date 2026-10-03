@@ -10,6 +10,9 @@ Principle: *was the operational meaning preserved?*, not *does the text look rig
 | 5×100 (§42) | 500 | generated, same author as the code, seed 20261002 | `python -m benchmarks.sil5x100_eval` | coverage + regression ratchet |
 | security §39 | 450 combinatorial + 57 hard + 31 controls | generated + hand-written, same author | `python -m benchmarks.sil_security_eval` | adversarial regression ratchet |
 | interop / negotiation / xv | see BENCHMARK.md §7–§16 | cross-vendor LLM encoders | `benchmarks/interop_eval.py` etc. | cross-model consistency |
+| **blind10** (spent) | 150 + 150 cases, 5 classes; + 198 adversarial/red-team pairs | Opus, Haiku, Sonnet (no repository access); red-team by Opus | `benchmarks/blind10_eval.py`, `blind10_llm_eval.py`, `arbiter_eval.py`, `adversarial_eval.py`, `repeatability_eval.py` | first benchmark by other authors; diagnosis set (so no longer a clean judge) |
+| **blind11** (spent, run once) | 300 cases (60 per class) | Sonnet; sha256 frozen | `benchmarks/blind11_eval.py` | pre-registered one-shot judge: every arm |
+| **blind12** (spent, run once) | 360 texts = 60 clusters × 4 paraphrases + 120 near-misses (64 620 pairs) | Opus and Sonnet; sha256 frozen | `benchmarks/funnel_eval.py` | pre-registered funnel test |
 
 ## 5×100 labels (by construction, never from the system)
 EQUIVALENT = same slots, different language/synonym/order · NOT_EQUIVALENT = exactly one slot changed (no negation flip) · PARTIALLY_EQUIVALENT = B = A + one extra slot ·
@@ -30,6 +33,12 @@ are covered indirectly (the by-language breakdown) — not as separately named s
 | blind 9, LLM route (Sonnet) | 95.0 %, 39/39 critical drift | single run |
 | 5×100 v1.2 | 497/500 = 99.4 % | same-author; v1 first run was 89.4 % (2 benchmark defects corrected, then 2 real system gaps closed) |
 | security | 450/450 flagged; 54/57 hard critical; 0/31 false alarms | same-author; 3 declared limitations |
+| **blind11, other author, run once** | rules 0.4: 50 % proven but 40.6 % false "equivalent"; AIXL LLM route: 0 % proven, 0.6 % false; **arbiter 2-of-2: 100 % proven, 0.6 % false** | Sonnet-authored; Haiku (not the author) matches Sonnet |
+| **blind12, other authors, run once** | AIXL key recall 15.8 % (lexical baseline 60.3 %); arbiter 2-of-2 359/360 proven, 0/480 near-miss false | author-assigned cluster labels; disputes listed in ADR-017 |
+Full tables and limits: [EVIDENCE.md](EVIDENCE.md), [adr/ADR-017.md](adr/ADR-017.md).
+
+## Protocol for sets by other authors (2026-10-03)
+Authors write without repository access and in domains disjoint from earlier sets; the file is validated, hashed (`*.sha256`) and committed; the arms, metrics and pass/fail gates are written into ADR-017 **before** any output exists ("PRE-REGISTRATION"); the set is evaluated once and then declared spent; disputed labels are listed, never silently changed. Two fixed arbiter rules (`data/blind10/arb_rules.txt`) are used by every arbiter run and were not tuned after seeing outputs.
 
 ## Reproducibility
 Generators are seeded and tests assert the committed JSONL equals a regeneration. First-run result files in `BENCHMARK/` are read-only; `*_CONTAMINATED.json` are labelled as such.

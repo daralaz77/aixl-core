@@ -10,7 +10,7 @@ master prompt §32 (`POST /encode`, `/decode`, …) is **not implemented**; use 
 | `to_aixl(text)` | `str` | text → AIXL line |
 | `from_aixl(line)` | `SemanticGraph` | raises `AixlError` (`INVALID_AIXL`, `VERSION_MISMATCH`) |
 | `translate(text)` | `dict` | `input, semantic (canonical), graph, aixl, ambiguity, warnings` |
-| `compare(a, b, config=None)` | `ComparisonResult` | `.equivalent .similarity .drift_level .differences .critical_changes .warnings .to_dict()` |
+| `compare(a, b, config=None)` | `ComparisonResult` | `.verdict .equivalent .similarity .drift_level .differences .critical_changes .warnings .to_dict()`; `.verdict` is `INCONCLUSIVE` only with `config["inconclusive"]` on |
 | `compare_aixl(a, b, config=None)` | `ComparisonResult` | same, on two AIXL lines |
 | `semantic_diff(a, b)` | `str` | human-readable `SEMANTIC DIFF` |
 | `detect_drift(source, target)` | `DriftReport` | `.level .critical .differences`; `critical` ⇔ `CRITICAL_DRIFT` |
@@ -49,3 +49,9 @@ Stdlib HTTP server for demos only: `GET /` (UI) and `POST /api/compare` with `{"
 - `validate(text_or_graph) -> ValidationResult{status: VALID|INVALID|VALID_WITH_WARNINGS, issues[{code, severity, where, message}]}`. Codes: INVALID_SCHEMA UNKNOWN_TYPE INVALID_RELATION MISSING_REQUIRED_FIELD CONTRADICTION INVALID_TIME INVALID_QUANTITY SEMANTIC_LOSS. Errors => INVALID; warnings (e.g. unrecognised noun, no action) => VALID_WITH_WARNINGS.
 - `round_trip(text_or_graph) -> RoundTripResult{preserved, fidelity, aixl, differences, error}`. Fidelity = mean per-dimension agreement after text->graph->AIXL->graph; it measures encoding loss only, not extraction accuracy.
 - Node `provenance`: EXPLICIT (stated), INFERRED (derived INTENT/GOAL), MODEL_DERIVED (LLM/local route, via `mark_model_derived`). RESOLVED and EXTERNAL_CONTEXT are valid values but nothing produces them yet.
+
+## Module-level functions not exported by `import aixl` (2026-10-02/03)
+* `aixl.core.completeness.check_completeness(text, graph)` → `{complete, unaccounted, unreflected_markers, markers}`; `annotate(graph, text)` stores it in `graph.meta["completeness"]` so `compare_graphs(..., {"inconclusive": True})` can use it; `extract_markers(text)`, `marker_conflicts(a, b)`.
+* `aixl.core.lexicon_gaps.unaccounted_content(text, graph)` and `residue_key(clauses)`.
+* Not part of the library: the arbiter, funnel and repeatability experiments are harnesses in `benchmarks/` (`blind11_eval`, `funnel_eval`, `repeatability_eval`, `arbiter_eval`, `adversarial_eval`); the core never calls an LLM unless `AIXL_TRANSLATOR_MODE` is `llm`/`auto`/`local`.
+**Which call answers "do these two open-text instructions mean the same?"** None of the functions above, on their own: see the recommendation in [EVIDENCE.md](EVIDENCE.md) §1 (full-text arbiter, 2-of-2).

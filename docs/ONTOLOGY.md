@@ -8,3 +8,5 @@ Source of truth: `aixl/core/ontology.py` (do not duplicate the lists here; this 
 - **Intent vs action** are kept separate: `intent` is *derived* from canonical actions/negation (e.g. REQUEST_SEARCH), never an independent field.
 - **Relative time** tokens (TODAY, TOMORROW, LAST_MONTH, NEXT_YEAR...) resolve against an explicit `today` only at canonicalisation. Week-level tokens stay unresolved on purpose.
 - Extension: add terms in the ontology/config, add a test, bump VERSIONING_POLICY.md. Domain extensions: EXTENSION_GUIDE.md. Only the general domain exists.
+
+- **Residue** has no ontology entry on purpose: `RESIDUE` nodes hold free literals (words of the original text) that no closed list can name; they are compared as order-free stemmed content words.

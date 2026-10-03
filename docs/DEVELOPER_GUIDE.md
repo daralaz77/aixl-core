@@ -1,11 +1,14 @@
 # Developer guide
 
+## Before you build on it (2026-10-03)
+AIXL's rule/LLM routes are exact only inside a controlled vocabulary and are not safe on open text; the measured way to decide "same meaning" for open text is a full-text arbiter ([EVIDENCE.md](EVIDENCE.md)). Do not present `compare().equivalent` as proof of equal intent unless the texts are in the vocabulary, and consider `config["inconclusive"] = True`.
+
 ## Setup
 ```bash
 cd ~/.claude/skills/aixl-core            # Python ≥ 3.11; the core has zero runtime dependencies
 python3 -m venv .venv && .venv/bin/pip install pytest tiktoken
 .venv/bin/pip install mcp "a2a-sdk[http-server]" uvicorn   # optional: MCP / A2A tests and servers
-.venv/bin/python -m pytest -q                              # 253 tests; A2A tests skip cleanly without the SDK
+.venv/bin/python -m pytest -q                              # 462 tests; A2A tests skip cleanly without the SDK
 ```
 Always run through the venv (`python3 -m unittest` finds nothing and a bare `python3` lacks pytest). CI (`.github/workflows/tests.yml`) runs Python 3.11 and 3.12.
 
@@ -26,5 +29,5 @@ Rule for any new feature (§59): is it semantic, syntactic, transport, adaptatio
 3. Blind sets 1–4 numbers unchanged unless you intend a change: `python -m benchmarks.blind_eval --round N`. 4. Docs: `tests/test_docs.py` checks every `aixl-example` line and every CLI command named in these docs.
 
 ## Benchmark hygiene (what keeps the numbers honest)
-Fresh blind sets are evaluated **once** before any tuning; after you read a set's failures it is contaminated and must be labelled so. The dev-200 set and the generated
+Fresh blind sets are evaluated **once** before any tuning; after you read a set's failures it is contaminated and must be labelled so. blind10, blind11 and blind12 are spent: any new claim needs a new set written by someone who has not seen the repository, with the gates fixed in an ADR first. The dev-200 set and the generated
 5×100 / security sets are written by the code's author — regression instruments, not evidence of generalisation. Details: [BENCHMARK_SPEC.md](BENCHMARK_SPEC.md).

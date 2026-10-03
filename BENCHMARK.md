@@ -1,5 +1,7 @@
 # AIXL 0.3 — Benchmark (methodology and results)
 
+> **Status 2026-10-03:** sections below describe the project's own and same-vocabulary benchmarks (the 99.4 % / 95 %+ figures). The first benchmarks by OTHER authors (blind10, blind11, blind12, adversarial, repeatability, cost) are summarized in [docs/EVIDENCE.md](docs/EVIDENCE.md) and detailed in [docs/adr/ADR-017.md](docs/adr/ADR-017.md); they show those figures do not generalize to open-domain text for the AIXL routes.
+
 **Labels used in this document.** `DEMO` = written by the code's author, illustrates behaviour. `EVIDENCE` = independent blind authors (model agents that never saw the code), evaluated once before any tuning on that set. `NOT VALIDATED` = no real-world validation exists. Everything is pre-registered in `BENCHMARK/PREREG_0.3.md` (criteria, freeze hashes, and the rules that were added after each run).
 
 ## 1. Sets

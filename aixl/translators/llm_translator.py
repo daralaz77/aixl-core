@@ -1,4 +1,8 @@
-"""Live LLM-translator route (built 2026-10-01, at the user's explicit request after being shown the
+"""NOTE 2026-10-03: the 93.5-96.5 % below was measured on sets drawn from the card's own vocabulary. On text written by
+other authors (docs/EVIDENCE.md, blind10/blind11) this route scored 37.0 % and judged ~59 % of non-equivalent pairs
+equivalent; use it only with `config["inconclusive"]` on, or let a full-text arbiter decide equivalence.
+
+Live LLM-translator route (built 2026-10-01, at the user's explicit request after being shown the
 real evidence first: the rule-based translator plateaued at ~88% across 3 full improvement rounds —
 E-XV, E-CODEC, E-DATE, each against a fresh blind set — while the SAME core (graph, comparator, drift)
 fed by an LLM translator following `data/llm_translator/card_0.3.md` already measured 93.5-96.5 % across

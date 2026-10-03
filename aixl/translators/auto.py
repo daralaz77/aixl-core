@@ -7,9 +7,11 @@ Modes:
   this module existed. Zero dependencies, ~88% accuracy, the safe default for anything not explicitly
   configured.
 - 'llm' / 'auto': the live cloud LLM route (llm_translator.py, needs ANTHROPIC_API_KEY) — 93.5-96.5%
-  measured accuracy, cross-vendor. **This is the recommended setting for production deployments** as of
-  2026-10-01: it is the only route with real evidence of reaching the 90-95% target. Falls back to
-  rule-based (with a warning logged) if the API call fails for any reason — never hard-fails a request.
+  measured accuracy, cross-vendor, **on sets drawn from the card's own vocabulary** (2026-10-01 note, kept for
+  history). CORRECTION 2026-10-03: on text written by OTHER authors (blind10/blind11, see docs/EVIDENCE.md) this
+  route scored 37.0 % and is NOT safe by itself on open-domain text (it drops what the card has no slot for);
+  the earlier "recommended for production" wording is withdrawn. Falls back to rule-based (with a warning
+  logged) if the API call fails for any reason — never hard-fails a request.
 - 'local': the self-hosted, fine-tuned-locally route (local_translator.py, needs Ollama running with the
   `aixl-distilled` model) — measured F1 0.6928, well below both other routes. Use only when a deployment
   must run fully offline with no API key and no internet, per distill/README.md's honest evidence trail.

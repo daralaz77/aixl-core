@@ -1,4 +1,7 @@
-"""Self-hosted translator route via a locally fine-tuned model served by Ollama (distill/, built
+"""NOTE 2026-10-03: accuracy figures below predate the other-author benchmarks (docs/EVIDENCE.md); treat them as
+upper bounds for open-domain text.
+
+Self-hosted translator route via a locally fine-tuned model served by Ollama (distill/, built
 2026-10-01). Real, measured accuracy against blind5 (the held-out set, never seen in training):
 F1 0.6928 after LoRA fine-tuning + consistency-corpus correction + temperature=0 decoding — well below
 the rule-based translator (~88%) and far below the cloud LLM route (93.5-96.5%, llm_translator.py).
