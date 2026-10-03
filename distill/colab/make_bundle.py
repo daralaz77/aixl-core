@@ -28,4 +28,6 @@ with zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED) as z:
     if os.path.exists(dev):
         z.write(dev, "mlx_data/dev_groups.jsonl")
     z.write(os.path.join(ROOT, "distill/colab/pipeline.py"), "pipeline.py")
+    z.write(os.path.join(ROOT, "distill/colab/sweep.py"), "sweep.py")
+    z.write(os.path.join(ROOT, "distill/aixl.gbnf"), "aixl.gbnf")
 print(OUT, os.path.getsize(OUT) // 1024, "KB")

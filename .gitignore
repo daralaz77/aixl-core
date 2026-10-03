@@ -10,3 +10,4 @@ distill/mlx_data/
 distill/mlx_runs/
 distill/colab/bundle.zip
 distill/colab/out_*/
+distill/colab_out/

@@ -1,0 +1,25 @@
+root ::= "V:AIXL-0.3" (" I:" ival)? (" A:" aval)? (" D:" dval)? (" E:" eval)? (" T:" tval)? (" L:" lval)? (" H:" hval)? (" Y:" yval)? (" N:" nval)? (" K:" kval)? (" F:" fval)? (" P:" pval)? (" G:" gval)? (" O:" oval)?
+ival ::= iitem ("," iitem)*
+iitem ::= "REQUEST_ANALYSIS" | "REQUEST_COMPARISON" | "REQUEST_EXECUTION" | "REQUEST_GENERATION" | "REQUEST_RETRIEVAL" | "REQUEST_SEARCH" | "REQUEST_SUMMARY" | "REQUEST_TRANSFORMATION" | "REQUEST_TRANSLATION" | "REQUEST_VALIDATION" | "UNKNOWN"
+aval ::= aitem ("," aitem)*
+aitem ::= "ANALYZE" | "CALCULATE" | "CHECK" | "CLASSIFY" | "COMPARE" | "CONVERT" | "CREATE" | "DELETE" | "DISABLE" | "ENABLE" | "EXCLUDE" | "EXECUTE" | "EXTRACT" | "FIND" | "GENERATE" | "GET" | "INCLUDE" | "RETRIEVE" | "SEARCH" | "SEND" | "SUMMARIZE" | "TRANSFORM" | "TRANSLATE" | "UNSPECIFIED" | "UPDATE" | "VALIDATE"
+dval ::= ditem ("," ditem)*
+ditem ::= "AUDIO" | "AVERAGE_SALES" | "CONTACT" | "COUNT_CUSTOMERS" | "COUNT_ELEMENTS" | "COUNT_RECORDS" | "COUNT_SALES" | "CUSTOMERS" | "DATA" | "DATASET" | "DOCUMENT" | "FINANCE" | "IMAGE" | "JSON" | "MANAGER" | "PDF" | "PRODUCTS" | "RECORD" | "RECORDS" | "REPORT" | "SALES" | "SUMMARY" | "TABLE" | "TOTAL" | "TOTAL_ANOMALIES" | "TOTAL_CUSTOMERS" | "TOTAL_EVENTS" | "TOTAL_IMAGE" | "TOTAL_SALES" | "TOTAL_USERS" | "USERS" | "VIDEO"
+eval ::= eitem ("," eitem)*
+eitem ::= "ANALYSIS" | "ANOMALY" | "COMPANY" | "CUSTOMER" | "DOCUMENT" | "EVENT" | "MODEL" | "PERSON" | "PRODUCT" | "RECORD" | "REPORT" | "RESULT" | "TEAM" | "UNSPECIFIED"
+tval ::= item ("," item)*
+lval ::= item ("," item)*
+hval ::= item ("," item)*
+yval ::= item ("," item)*
+nval ::= item ("," item)*
+kval ::= item ("," item)*
+fval ::= item ("," item)*
+pval ::= pitem ("," pitem)*
+pitem ::= "HIGH" | "URGENT"
+gval ::= gitem ("," gitem)*
+gitem ::= "ANALYSIS" | "ANOMALY_DETECTION" | "COMPARISON" | "CONTENT_GENERATION" | "DATA_RETRIEVAL" | "SUMMARY" | "TRANSFORMATION" | "TRANSLATION"
+oval ::= oitem ("," oitem)*
+oitem ::= "CSV" | "JSON" | "MARKDOWN" | "PDF" | "REPORT" | "TABLE" | "TEXT"
+item ::= bare | quoted
+bare ::= [A-Za-z0-9_#@=.:<>/+*!?%-]+
+quoted ::= "\"" [^"\\\n]* "\""

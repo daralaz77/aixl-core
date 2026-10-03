@@ -126,3 +126,25 @@ Mismo modelo y receta (Qwen2.5-3B, r=32, 3 épocas), 11 668 filas de entrenamien
 Set de desarrollo (grupos retenidos): 0.785 de equivalencia con el adaptador. SHA256 del GGUF idéntico en Colab y en el Mac. 11 fallos de decodificación estricta; deriva crítica 58/61. Pérdida por empaquetar: fusionar ~0.014 F1, cuantizar a Q4_K_M ~0.044 F1. Errores restantes (43 -> 36): 26 siguen siendo parafraseos equivalentes codificados distinto; solo 1 falso positivo.
 
 Referencia de techo (memoria del proyecto): los encoders cloud con la tarjeta completa miden en blind5 una EXACTITUD de 96.5 % (Haiku/Sonnet), 95.0 % (Gemini), 93.5 % (ChatGPT). Ningún sistema medido ha superado 96.5 % en ese set.
+
+
+## Quinta vuelta (2026-10-02): barrido de empaquetado + decodificación con gramática
+
+`distill/colab/sweep.py` mide en la A100, con el `llama-server` CUDA y el prompt exacto de entrenamiento, 8 variantes del MISMO adaptador: fusión bf16 o fp32 x {Q4_K_M, Q6_K, Q8_0, f16}. Luego se repite con una gramática GBNF (`distill/aixl_grammar.py` -> `distill/aixl.gbnf`, derivada solo de los corpus de entrenamiento) que hace imposibles los fallos de formato (átomos inventados, `V:AIXL-1.0`, duplicados) y cierra los vocabularios de I/A/D/E/P/G/O.
+
+| Config | F1 sin gram. | F1 con gram. | Exactitud con gram. | Dev con gram. | Fallos de parseo (sin -> con) | GB |
+|---|---|---|---|---|---|---|
+| fp32 Q8_0 | 0.793 | 0.790 | 0.825 | 0.778 | 16 -> 0 | 3.29 |
+| bf16 Q4_K_M | 0.755 | 0.788 | 0.825 | 0.767 | 7 -> 0 | 1.93 |
+| fp32 f16 | 0.793 | 0.783 | 0.820 | 0.778 | 15 -> 1 | 6.18 |
+| fp32 Q4_K_M | 0.805 | 0.783 | 0.825 | 0.760 | 7 -> 0 | 1.93 |
+| bf16 Q8_0 | 0.770 | 0.776 | 0.815 | 0.778 | 13 -> 1 | 3.29 |
+| bf16 f16 | 0.785 | 0.776 | 0.815 | 0.778 | 14 -> 1 | 6.18 |
+| fp32 Q6_K | 0.755 | 0.765 | 0.810 | 0.781 | 13 -> 0 | 2.54 |
+| bf16 Q6_K | 0.755 | 0.761 | 0.805 | 0.778 | 12 -> 0 | 2.54 |
+
+Lectura honesta:
+- El ruido de medición es ~±0.02 F1 (1 par = 0.005 de exactitud). Las 8 variantes con gramática caen en 0.761-0.790: **no hay una ganadora real**; la precisión y la fusión (bf16/fp32) no importan a este nivel. Se conserva **Q4_K_M** (1.93 GB), que con gramática en el Mac midió F1 0.788 / exactitud 0.825, idéntico al valor de Colab.
+- La gramática elimina los fallos de formato (de 7-16 a 0-1) y da ~+0.01-0.03 F1; ya no es el cuello de botella.
+- El cuello es el **recall** (0.64-0.68) con precisión 0.94-0.98: el modelo codifica distinto parafraseos equivalentes. Es un problema semántico de generalización, no de empaquetado ni de formato.
+- Experimento de empaquetado (paso 1): perder 0.04-0.06 F1 entre adaptador (0.833) y GGUF no se debe a la precisión numérica, y queda al nivel del ruido.

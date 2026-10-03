@@ -39,6 +39,7 @@ def first_aixl(text):
 def main():
     gguf, tag = sys.argv[1], sys.argv[2]
     limit = int(sys.argv[sys.argv.index("--limit") + 1]) if "--limit" in sys.argv else None
+    grammar = open(sys.argv[sys.argv.index("--grammar") + 1], encoding="utf-8").read() if "--grammar" in sys.argv else None
     srv = subprocess.Popen(["llama-server", "-m", gguf, "--port", str(PORT), "-ngl", "99", "-c", "2048", "--parallel", "1"],
                            stdout=subprocess.DEVNULL, stderr=open(f"/tmp/llama_server_{tag}.log", "w"))
     try:
@@ -55,8 +56,11 @@ def main():
         t0, ok = time.time(), 0
         with open(out_path, "w", encoding="utf-8") as out:
             for i, t in enumerate(texts):
-                r = post("/completion", {"prompt": PROMPT.format(text=t["text"]), "n_predict": 110, "temperature": 0,
-                                         "stop": ["<|im_end|>"], "cache_prompt": True})
+                payload = {"prompt": PROMPT.format(text=t["text"]), "n_predict": 110, "temperature": 0,
+                           "stop": ["<|im_end|>"], "cache_prompt": True}
+                if grammar:
+                    payload["grammar"] = grammar
+                r = post("/completion", payload)
                 line = first_aixl(r.get("content", ""))
                 ok += line is not None
                 out.write(f"{t['tid']} :: {line or 'PARSE_FAILURE'}\n")
