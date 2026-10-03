@@ -107,6 +107,18 @@ def compare_graphs(ga: SemanticGraph, gb: SemanticGraph, config: dict | None = N
         res.verdict, res.equivalent = "INCONCLUSIVE", False
         res.warnings.append({"type": "UNACCOUNTED_CONTENT", "a_only": sorted(set(ua) - set(ub)), "b_only": sorted(set(ub) - set(ua)),
                              "note": "canonical forms match, but each text has content no slot represents; equivalence not proven"})
+    ca, cb = ga.meta.get("completeness"), gb.meta.get("completeness")
+    if res.equivalent and cfg.get("inconclusive", False) and ca is not None and cb is not None:
+        from aixl.core.completeness import marker_conflicts
+        opposed, other = marker_conflicts(set(ca["markers"]), set(cb["markers"]))
+        if opposed:                                             # ADR-017: opposed structural markers separate on a single piece of evidence
+            res.equivalent, res.verdict = False, "NOT_EQUIVALENT"
+            res.differences.append(Difference("MARKERS", _fmt(sorted(ca["markers"])), _fmt(sorted(cb["markers"])), "changed", "MAJOR", "opposed structural markers: " + ", ".join(f"{x}/{y}" for x, y in opposed)))
+        elif not (ca["complete"] and cb["complete"]) or other:
+            res.equivalent, res.verdict = False, "INCONCLUSIVE"
+            res.warnings.append({"type": "INCOMPLETE_ENCODING", "a": {k: ca[k] for k in ("unaccounted", "unreflected_markers")},
+                                 "b": {k: cb[k] for k in ("unaccounted", "unreflected_markers")}, "marker_mismatch": other,
+                                 "note": "a side drops content or an unreflected structural marker; or markers differ; equality not proven"})
     for side, g in (("a", ga), ("b", gb)):
         terms = g.meta.get("unrecognized")
         if terms:

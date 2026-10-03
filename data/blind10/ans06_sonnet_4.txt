@@ -1,0 +1,90 @@
+t271 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND R:"fifty thousand dollars","marketing department's account"
+t272 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND R:"$50,000","marketing's bank account"
+t273 :: V:AIXL-0.3 I:REQUEST_RETRIEVAL A:GET D:CUSTOMERS R:"la factura","antes del viernes" G:DATA_RETRIEVAL
+t274 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:CUSTOMERS R:"la factura","antes de que termine la semana"
+t275 :: V:AIXL-0.3 I:REQUEST_GENERATION A:CREATE T:NEXT_WEEK R:"reunião","com o gerente" G:CONTENT_GENERATION
+t276 :: V:AIXL-0.3 I:REQUEST_GENERATION A:CREATE T:NEXT_WEEK R:"meeting","with the manager" G:CONTENT_GENERATION
+t277 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DISABLE D:USERS R:"all user accounts","inactive for six months"
+t278 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DISABLE D:USERS R:"accounts","haven't logged in","past six months"
+t279 :: V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:TRANSFORM D:DATA R:"encriptados en tránsito","almacenados de forma segura"
+t280 :: V:AIXL-0.3 I:REQUEST_TRANSFORMATION A:TRANSFORM D:DATA R:"during transmission","protect it when stored"
+t281 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:SALES E:PRODUCT R:"notificação","time de vendas","novo produto"
+t282 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:SALES E:PRODUCT R:"notification","sales team","new product launch"
+t283 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"contraseña","cada noventa días"
+t284 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"senha","a cada 90 dias"
+t285 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE R:"all backup files","older than one year"
+t286 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE R:"backups","more than 12 months old"
+t287 :: V:AIXL-0.3 I:REQUEST_GENERATION A:CREATE R:"todas as transações financeiras","sistema" G:CONTENT_GENERATION
+t288 :: V:AIXL-0.3 I:REQUEST_GENERATION A:CREATE R:"every financial transaction","system" G:CONTENT_GENERATION
+t289 :: V:AIXL-0.3 I:REQUEST_GENERATION A:GENERATE D:REPORT T:Q3 F:AMBIGUOUS_YEAR R:"cifras de ingresos","todas las regiones" G:CONTENT_GENERATION
+t290 :: V:AIXL-0.3 I:REQUEST_GENERATION A:CREATE D:REPORT T:Q3 F:AMBIGUOUS_YEAR R:"quarterly","revenue by region" G:CONTENT_GENERATION
+t291 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DISABLE D:USERS R:"login automático","todos"
+t292 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DISABLE D:USERS R:"auto-login","across all user accounts"
+t293 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE D:DOCUMENT R:"API","nuevos endpoints"
+t294 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE D:DOCUMENT R:"API","new endpoints"
+t295 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:EXECUTE R:"system maintenance","scheduled downtime window"
+t296 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:EXECUTE R:"maintenance tasks","throughout the planned outage period"
+t297 :: V:AIXL-0.3 I:REQUEST_VALIDATION A:CHECK R:"inventario","al final de cada mes"
+t298 :: V:AIXL-0.3 I:REQUEST_VALIDATION A:CHECK R:"inventory levels","end of every month"
+t299 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"permissões de acesso","novo usuário administrativo"
+t300 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"access permissions","new admin user account"
+t301 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE R:"archivos temporales","servidor","antes de hacer backup"
+t302 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE R:"temporary files","server","before running backups"
+t303 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND R:"reminder email","all employees","training deadline"
+t304 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND R:"every staff member","by email","training submission deadline"
+t305 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"limite de memória","máquina virtual","16GB"
+t306 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"memory capacity","virtual machine","16GB"
+t307 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:EXECUTE R:"todas las solicitudes de compra","menores a mil dólares"
+t308 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:EXECUTE R:"purchase requests","under $1,000"
+t309 :: V:AIXL-0.3 I:REQUEST_GENERATION A:GENERATE E:PRODUCT R:"etiquetas","catálogo principal" G:CONTENT_GENERATION
+t310 :: V:AIXL-0.3 I:REQUEST_GENERATION A:GENERATE E:PRODUCT R:"print labels","all items","main product catalog" G:CONTENT_GENERATION
+t311 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"DNS records","new server address"
+t312 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"DNS settings","redirect traffic","new server"
+t313 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND R:"empleados","horas trabajadas","cada viernes"
+t314 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND R:"staff","timesheets","by the end of each Friday"
+t315 :: V:AIXL-0.3 I:REQUEST_GENERATION A:CREATE R:"banco de dados","antes de qualquer atualização de schema" G:CONTENT_GENERATION
+t316 :: V:AIXL-0.3 I:REQUEST_GENERATION A:CREATE R:"database","prior to executing any schema changes" G:CONTENT_GENERATION
+t317 :: V:AIXL-0.3 I:REQUEST_VALIDATION A:VALIDATE R:"todas las contraseñas","requisitos de seguridad"
+t318 :: V:AIXL-0.3 I:REQUEST_VALIDATION A:VALIDATE R:"all passwords","security policy requirements"
+t319 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DISABLE D:CUSTOMERS R:"anular a inscrição","não pagaram sua última fatura"
+t320 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DISABLE D:CUSTOMERS R:"unsubscribe","outstanding unpaid invoices"
+t321 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"all support tickets","marked as resolved","within thirty days"
+t322 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"support tickets","resolution status","after 30 days"
+t323 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:EXECUTE R:"certificado SSL","servidor web principal"
+t324 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:EXECUTE R:"SSL certificate","primary web server"
+t325 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"dependências do projeto","versões mais recentes"
+t326 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"all project dependencies","latest available versions"
+t327 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"cuotas de almacenamiento","cada usuario"
+t328 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"storage quotas","per-user basis"
+t329 :: V:AIXL-0.3 I:REQUEST_VALIDATION A:CHECK R:"registros de auditoria","atividades suspeitas","últimos sete dias"
+t330 :: V:AIXL-0.3 I:REQUEST_VALIDATION A:CHECK R:"audit logs","suspicious activity","past week"
+t331 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:REPORT R:"weekly","the CFO","by Monday"
+t332 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:REPORT R:"weekly","the CEO","by Monday"
+t333 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE E:PRODUCT R:"precio","15 por ciento"
+t334 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE E:PRODUCT R:"precio","25 por ciento"
+t335 :: V:AIXL-0.3 I:REQUEST_GENERATION A:CREATE R:"database","daily" G:CONTENT_GENERATION
+t336 :: V:AIXL-0.3 I:REQUEST_GENERATION A:CREATE R:"database","weekly" G:CONTENT_GENERATION
+t337 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:EXECUTE R:"pedidos","antes das 5 da tarde"
+t338 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:EXECUTE R:"pedidos","antes das 3 da tarde"
+t339 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:EXECUTE R:"solicitudes de gastos","menores a quinientos dólares"
+t340 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:EXECUTE R:"solicitudes de gastos","menores a mil dólares"
+t341 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:CUSTOMERS R:"via email","service outage"
+t342 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:CUSTOMERS R:"via SMS","service outage"
+t343 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:REPORT O:PDF
+t344 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:REPORT O:XLSX
+t345 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE D:CUSTOMERS R:"records","older than five years"
+t346 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE D:CUSTOMERS R:"records","older than three years"
+t347 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"tiempo de sesión máximo","treinta minutos"
+t348 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"tiempo de sesión máximo","sesenta minutos"
+t349 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"project","development team"
+t350 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"project","quality assurance team"
+t351 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"pool de conexões","100"
+t352 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"pool de conexões","50"
+t353 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:CUSTOMERS R:"invitaciones","VIP","solamente"
+t354 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:CUSTOMERS R:"invitaciones","todos"
+t355 :: V:AIXL-0.3 I:REQUEST_GENERATION A:CREATE R:"maintenance","Saturday evening" G:CONTENT_GENERATION
+t356 :: V:AIXL-0.3 I:REQUEST_GENERATION A:CREATE R:"maintenance","Sunday evening" G:CONTENT_GENERATION
+t357 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE E:PRODUCT R:"desconto","dez por cento","todos os produtos"
+t358 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE E:PRODUCT R:"desconto","vinte por cento","todos os produtos"
+t359 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"read-only access","finance department"
+t360 :: V:AIXL-0.3 I:REQUEST_EXECUTION A:UPDATE R:"full access","finance department"
