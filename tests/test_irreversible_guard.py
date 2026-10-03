@@ -34,3 +34,24 @@ def test_never_acts_without_an_irreversible_action_and_never_flips_to_equivalent
     # a NOT_EQUIVALENT verdict is never touched for cue mismatch (veto-only: it can only add escalations to equivalence)
     assert not assess("Delete ticket #77.", "Delete ticket #78.", DEL, DEL, False)["escalate"]
     assert cue_signature("Delete ticket #77.") != cue_signature("Delete ticket #78.")
+
+
+def test_portuguese_delete_verbs_translate_to_delete_in_the_rule_based_translator():
+    # 2026-10-02: PT "apague/exclua" applied to data is DELETE (permanent), not DISABLE/EXCLUDE; ES "apaga" and PT
+    # "exclua ... da análise" (leave out of a selection) and "apague a luz" (device off) keep their old meaning.
+    from aixl.serialization import aixl_codec
+    from aixl.translators.natural_to_semantic import to_graph
+
+    def acts(t):
+        return aixl_codec.encode(to_graph(t)).split(" A:")[1].split()[0]
+
+    assert acts("Apague os registros de clientes.") == "DELETE"
+    assert acts("Exclua os registros de clientes.") == "DELETE"
+    assert acts("Não apague o relatório.") == "DELETE"
+    assert acts("Exclua os usuários de teste da análise.").startswith("EXCLUDE")
+    assert acts("Apague a luz do servidor.") == "DISABLE"
+    assert acts("Apaga los registros.") == "DISABLE"
+    assert acts("Excluye los registros de clientes.") == "EXCLUDE"
+    # English "Do not ..." must not be read as Portuguese "do" (regression: first version of the PT-evidence helper did)
+    assert acts("Do not ever exclude Ana from the results.").startswith("EXCLUDE")
+    assert acts("Exclude test users from the analysis.").startswith("EXCLUDE")

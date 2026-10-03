@@ -589,6 +589,16 @@ def _derive_intent_goal(frame, conf: dict) -> None:
             conf[c] = 0.6
 
 
+_PT_ONLY_WORDS = re.compile(r"\b(?:os|das|uma|nao|voce|ao|aos|pelo|pela|seu|sua|dele|dela|esses|essas|relatorio|relatorios)\b")
+
+
+def _looks_portuguese(lang: str, raw: str, s: str) -> bool:
+    """`detect_lang` is a word-count vote with ties going to Spanish, so short PT imperatives ("Exclua os registros de
+    clientes.") came out as "es" and skipped the PT-only delete rules below (found 2026-10-02 with the irreversible-action
+    stress set). Add PT-only evidence (function words ES lacks, or ã/õ/ç) without touching detect_lang itself."""
+    return lang == "pt" or bool(re.search(r"[ãõç]", raw.lower())) or bool(_PT_ONLY_WORDS.search(s))
+
+
 def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     from aixl.core.normalizer import sanitize_input
     text, obfuscation = sanitize_input(text)               # §39: strip invisible chars / fold lookalike letters BEFORE any rule runs
@@ -633,11 +643,24 @@ def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     if deontic:
         all_acts.add("UNSPECIFIED"); pos["UNSPECIFIED"] = cue.start()
         (forbidden if deontic == "FORBID" else allowed).add("UNSPECIFIED")
-    if frame.lang == "pt" and "EXCLUDE" in all_acts and not re.search(r"\bd[oa]s?\s+(?:relatorio|analise|resultado|conjunto|informe|report)", s):
+    pt = _looks_portuguese(frame.lang, text, s)
+    if pt and "EXCLUDE" in all_acts and not re.search(r"\bd[oa]s?\s+(?:relatorio|analise|resultado|conjunto|informe|report)", s):
         all_acts.discard("EXCLUDE"); all_acts.add("DELETE")          # PT "excluir X" (not "excluir X do relatório") = delete
         pos["DELETE"] = pos.get("EXCLUDE", 0)
         if "EXCLUDE" in forbidden:
             forbidden.discard("EXCLUDE"); forbidden.add("DELETE")
+    # PT "apagar X" = delete (data), like "excluir"; "apagar a luz/o servidor/o computador" (device off) stays DISABLE.
+    # ES "apaga" keeps DISABLE: the language gate matters (found 2026-10-02: the local model sent PT "Apague os registros" to
+    # DISABLE, which escaped the irreversible-action check).
+    apag = re.search(r"\bapag(?:a|ar|ue|ues|e|em|ou|ado|ada|ados|adas)\b", s)
+    if pt and "DISABLE" in all_acts and apag \
+            and not re.search(r"\bapag\w*\s+(?:(?:a|o|as|os|esse|essa|este|esta)\s+)?(?:luz|luzes|tv|televisao|computador|maquina|servidor|sistema|motor|alarme|monitor|celular|equipamento|dispositivo|aparelho)\b", s):
+        all_acts.add("DELETE")
+        pos["DELETE"] = apag.start()
+        if "DISABLE" in forbidden:                     # "nao apague" was matched as DISABLE: the prohibition belongs to DELETE
+            forbidden.discard("DISABLE"); forbidden.add("DELETE")
+        if not re.search(r"\b(?:desativ|arquiv|suspend|desabilit)\w*", s):      # "apague" was the only reason for DISABLE
+            all_acts.discard("DISABLE"); pos.pop("DISABLE", None)
     frame.actions = sorted(all_acts, key=lambda a: pos.get(a, 10 ** 6))
     # --- tie-break (E-INTEROP, 2026-09-29): "generate/create/write A SUMMARY" is SUMMARIZE, not GENERATE —
     # the object names a more specific action already in the vocabulary, so that one wins. Found because two
