@@ -87,8 +87,11 @@ def test_sender_env_always_includes_pythonpath_even_when_the_current_process_lac
     monkeypatch.delenv("PYTHONPATH", raising=False)
     env, cwd = _sender_env_and_cwd()
     assert "PYTHONPATH" in env
-    assert env["PYTHONPATH"].endswith("aixl-core")
-    assert cwd.endswith("aixl-core")
+    # The project root is whatever directory holds the `aixl` package — not a fixed folder name (a CI checkout, a
+    # worktree or a renamed clone must pass too).
+    import os
+    assert env["PYTHONPATH"] == cwd
+    assert os.path.isdir(os.path.join(cwd, "aixl")) and os.path.isfile(os.path.join(cwd, "aixl", "autonomous_negotiation.py"))
 
 
 def test_autonomous_negotiation_sender_replay_mode_accepts_a_precomputed_aixl_line():
