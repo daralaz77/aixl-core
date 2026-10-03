@@ -111,6 +111,10 @@ def main():
     ap.add_argument("--model", default="Qwen/Qwen2.5-3B-Instruct")
     ap.add_argument("--epochs", default="3")
     ap.add_argument("--quants", default="Q4_K_M,Q6_K,Q8_0,f16")
+    ap.add_argument("--rank", default="32")
+    ap.add_argument("--lr", default="2e-4")
+    ap.add_argument("--merges", default="bf16merge,fp32merge", help="which merge precisions to build and evaluate")
+    ap.add_argument("--slim", action="store_true", help="delete HF merges and f16 GGUFs once no longer needed (big models, small disk)")
     ap.add_argument("--grammar", default=None, help="path to a GBNF file; evaluates every GGUF with grammar-constrained decoding")
     args = ap.parse_args()
     global GRAMMAR
@@ -124,10 +128,10 @@ def main():
     # ---- A: train (also leaves the bf16-merged model on disk)
     if not os.path.isdir(adapter):
         log("=== A: training (pipeline.py) ===")
-        sh(f"cd {ROOT} && python -u pipeline.py --model {args.model} --epochs {args.epochs} --tag {args.tag} --skip-merge-check")
+        sh(f"cd {ROOT} && python -u pipeline.py --model {args.model} --epochs {args.epochs} --rank {args.rank} --lr {args.lr} --tag {args.tag} --skip-merge-check")
 
     # ---- B: fp32 re-merge from the SAME adapter (isolates merge rounding)
-    if not os.path.isdir(merged_fp32):
+    if "fp32merge" in args.merges and not os.path.isdir(merged_fp32):
         log("=== B: fp32 merge ===")
         import torch
         from peft import PeftModel
@@ -158,15 +162,19 @@ def main():
     # ---- D: convert both merges to f16 GGUF
     f16 = {}
     for name, d in (("bf16merge", merged_bf16), ("fp32merge", merged_fp32)):
+        if name not in args.merges:
+            continue
         f16[name] = os.path.join(out, f"{name}-f16.gguf")
         if not os.path.exists(f16[name]):
             sh(f"python {LLAMA}/convert_hf_to_gguf.py {d} --outfile {f16[name]} --outtype f16")
+        if args.slim:
+            sh(f"rm -rf {d}")
 
     # ---- E: sweep
     blind5 = json.load(open(os.path.join(ROOT, "data/llm_translator/texts_blind5.json"), encoding="utf-8"))
     dev_rows = [json.loads(l) for l in open(os.path.join(ROOT, "mlx_data/dev_groups.jsonl"), encoding="utf-8") if l.strip()]
     results = []
-    for name in ("bf16merge", "fp32merge"):
+    for name in args.merges.split(","):
         for q in args.quants.split(","):
             if q == "f16":
                 g = f16[name]
@@ -174,7 +182,9 @@ def main():
                 g = os.path.join(out, f"{name}-{q}.gguf")
                 if not os.path.exists(g):
                     sh(f"{LLAMA}/build/bin/llama-quantize {f16[name]} {g} {q}")
-            results.append(serve_and_eval(g, f"{name}-{q}" + ("-gbnf" if GRAMMAR else ""), blind5, dev_rows))
+            results.append(serve_and_eval(g, f"{args.tag}-{name}-{q}" + ("-gbnf" if GRAMMAR else ""), blind5, dev_rows))
+            if args.slim and q != "f16":
+                sh(f"rm -f {f16[name]}") if q == args.quants.split(",")[-1] else None
             json.dump(results, open(os.path.join(out, "sweep_results_gbnf.json" if GRAMMAR else "sweep_results.json"), "w"), indent=1)
     log("=== SWEEP TABLE ===")
     log(f"{'config':22} {'F1':>6} {'P':>6} {'R':>6} {'acc':>6} {'dev':>6} {'parsefail':>9} {'GB':>5}")

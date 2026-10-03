@@ -148,3 +148,19 @@ Lectura honesta:
 - La gramática elimina los fallos de formato (de 7-16 a 0-1) y da ~+0.01-0.03 F1; ya no es el cuello de botella.
 - El cuello es el **recall** (0.64-0.68) con precisión 0.94-0.98: el modelo codifica distinto parafraseos equivalentes. Es un problema semántico de generalización, no de empaquetado ni de formato.
 - Experimento de empaquetado (paso 1): perder 0.04-0.06 F1 entre adaptador (0.833) y GGUF no se debe a la precisión numérica, y queda al nivel del ruido.
+
+
+## Sexta vuelta (2026-10-02): recetas (épocas, rank, 7B) y normalizador determinista
+
+Mismos datos (11 668 filas), misma gramática, Q4_K_M fusionado en bf16, blind5 + dev retenido (`distill/colab/sweep.py --rank/--epochs/--model`):
+
+| Receta | Adaptador F1 | Adaptador dev | GGUF+gram. F1 | P | R | Exact. | Dev | GB |
+|---|---|---|---|---|---|---|---|---|
+| 3B, r32, 3 épocas (base) | 0.833 | 0.785 | 0.788 | 0.956 | 0.670 | 0.825 | 0.767 | 1.93 |
+| 3B, r64, 5 épocas | 0.765 | 0.785 | 0.778 | 0.969 | 0.649 | 0.820 | 0.756 | 1.93 |
+| 7B (Qwen2.5-7B), r32, 3 épocas | 0.821 | 0.785 | 0.793 | 0.970 | 0.670 | 0.830 | 0.774 | 4.68 |
+
+Conclusión (con datos): **ninguna receta mueve la aguja**. Más épocas y más rank sobreajustan (pérdida final 0.002, dev sin cambio). Un modelo 2.3x mayor tampoco mejora (+0.005 F1, dentro del ruido de ±0.02) y las 3 recetas dan exactamente el mismo dev del adaptador (0.785). El techo ~0.79 F1 / 0.83 exactitud no es de capacidad ni de empaquetado ni de formato: es de **datos** (qué paráfrasis equivalentes ve el modelo y qué tan consistente es la etiqueta que se le enseña). No se descargó el 7B: no gana lo suficiente para justificar 4.7 GB en un Mac de 8 GB.
+
+### Normalizador determinista: descartado con evidencia
+Análisis campo a campo de los 32 falsos negativos de blind5 (GGUF Q4_K_M + gramática): las diferencias se reparten E 12, A 9, G 9, D 9, K 9, I 5, Y 5, F 4, P 4 (un par suele diferir en varios). Son omisiones o adiciones de átomos opcionales y sinónimos de acción (`TRANSLATE` vs `TRANSFORM`), no variantes sintácticas, y el comparador ya ignora los campos derivados (intención, meta). No existe una regla determinista que las repare sin riesgo de crear falsos positivos; la gramática ya cubre los fallos sintácticos. Palancas que quedan: más y mejores datos (paráfrasis nuevas, pares casi-iguales NO equivalentes para sostener la precisión, consenso de varios maestros) y, sobre todo, un set ciego NUEVO: blind5 ya se usó para elegir configuraciones y para decidir 99 % haría falta medir contra un set no visto.
