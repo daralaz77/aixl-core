@@ -4,7 +4,7 @@ from dataclasses import dataclass, field, asdict
 RELATIONS = ["TARGET", "ACTOR", "OBJECT", "SOURCE", "RESULT", "CAUSE", "CONDITION", "CONSTRAINT", "REFERENCE",
              "DEPENDS_ON", "BEFORE", "AFTER", "EQUIVALENT", "CONTRADICTS",
              # ASSUMPTION: attribute-style relations needed to hang time/location/output on an action
-             "TIME", "LOCATION", "OUTPUT", "MODIFIER", "QUANTITY", "INTENT"]
+             "TIME", "LOCATION", "OUTPUT", "MODIFIER", "QUANTITY", "INTENT", "RESIDUE"]
 
 
 @dataclass

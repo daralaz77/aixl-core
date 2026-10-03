@@ -2,11 +2,11 @@
 from dataclasses import dataclass, field, asdict
 
 LIST_FIELDS = ["actions", "entities", "data", "location", "constraints",
-               "conditions", "references", "negations", "output"]
+               "conditions", "references", "negations", "output", "residue"]
 SCALAR_FIELDS = ["version", "intent", "time", "priority", "confidence", "goal"]
 FIELDS = SCALAR_FIELDS[:2] + ["actions", "entities", "data", "time", "location",
     "constraints", "conditions", "priority", "confidence", "references",
-    "negations", "goal", "output"]
+    "negations", "goal", "output", "residue"]
 
 
 @dataclass
@@ -26,6 +26,7 @@ class SemanticFrame:
     negations: list = field(default_factory=list)
     goal: str = ""
     output: list = field(default_factory=list)
+    residue: list = field(default_factory=list)
     # metadata, NOT part of the meaning (spec §27, §4 SOURCE/RAW)
     lang: str = ""
     source: str = ""

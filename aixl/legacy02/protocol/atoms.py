@@ -17,11 +17,12 @@ ATOMS = {
     "N": ("negations", True),
     "G": ("goal", False),
     "O": ("output", True),
+    "R": ("residue", True),       # ADR-016: clauses the encoder could not place in any slot, kept as quoted literals (never dropped)
 }
 LETTER_OF = {field: k for k, (field, _) in ATOMS.items()}
 
 # canonical order used by the encoder
-ORDER = ["V", "I", "A", "D", "E", "T", "L", "H", "Y", "N", "K", "F", "P", "G", "O"]
+ORDER = ["V", "I", "A", "D", "E", "T", "L", "H", "Y", "N", "K", "F", "P", "G", "O", "R"]
 
 INTENTS = {
     "REQUEST_ANALYSIS", "REQUEST_COMPARISON", "REQUEST_SEARCH", "REQUEST_SUMMARY",

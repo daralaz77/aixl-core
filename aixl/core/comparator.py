@@ -97,6 +97,9 @@ def compare_graphs(ga: SemanticGraph, gb: SemanticGraph, config: dict | None = N
     A, B = ga.canonical(today=today), gb.canonical(today=today)
     res = compare_canonical(A, B, cfg)
     res.verdict = "EQUIVALENT" if res.equivalent else "NOT_EQUIVALENT"
+    if (not res.equivalent and cfg.get("inconclusive", False) and res.differences
+            and all(d.field == _label("residue") and d.kind == "changed" for d in res.differences)):
+        res.verdict = "INCONCLUSIVE"        # ADR-016: the ONLY difference is two different residues -> may be a translation/synonym
     ua, ub = ga.meta.get("unaccounted"), gb.meta.get("unaccounted")
     if res.equivalent and cfg.get("inconclusive", False) and ua is not None and ub is not None and {_stem(x) for x in ua} != {_stem(x) for x in ub}:
         # ADR-016: canonical forms agree but the texts carry different content the vocabulary could not represent ->

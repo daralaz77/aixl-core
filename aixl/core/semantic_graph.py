@@ -54,6 +54,9 @@ def _cond_canon(c: str) -> str:
     return _unit_canon(c)
 
 
+from aixl.core.lexicon_gaps import residue_key
+
+
 class SemanticGraph:
     def __init__(self, nodes=None, edges=None, meta=None):
         self.nodes: list[SemanticObject] = nodes or []
@@ -139,6 +142,8 @@ class SemanticGraph:
             hang(g.add_node("GOAL", frame.goal, {}, 1.0, source, "INFERRED"), "RESULT")
         for o in frame.output:
             hang(g.add_node("OUTPUT", o, {}, 1.0, source), "OUTPUT")
+        for r in frame.residue:
+            hang(g.add_node("RESIDUE", r, {}, 1.0, source), "RESIDUE")
         return g
 
     def to_frame(self) -> SemanticFrame:
@@ -165,6 +170,7 @@ class SemanticGraph:
             elif n.value.startswith("PRIORITY="): f.priority = n.value[len("PRIORITY="):]
         f.goal = next((n.value for n in self.by_type("GOAL")), "")
         f.output = [n.value for n in self.by_type("OUTPUT")]
+        f.residue = [n.value for n in self.by_type("RESIDUE")]
         f.intent = next((n.value for n in self.by_type("INTENT")), "") or derive_intent(f.actions, [x[3:] for x in f.negations])
         return f
 
@@ -249,6 +255,7 @@ class SemanticGraph:
             "quantities": tuple(sorted(f"{n.value}:{n.attributes.get('unit', '')}" for n in self.by_type("QUANTITY"))),
             "goal": derive_goal(canon_actions, list(entities), negated),
             "output": tuple(sorted(n.value for n in self.by_type("OUTPUT"))),
+            "residue": residue_key([n.value for n in self.by_type("RESIDUE")]),
             "bindings": tuple(sorted(self._canon_bindings(rep))),
             "modifiers": tuple(sorted(("CONFIDENCE" + _num(n.value[10:])) if n.value.startswith("CONFIDENCE") else n.value for n in self.by_type("MODIFIER"))),
         }

@@ -7,10 +7,13 @@ from aixl.core.comparator import compare_graphs
 from aixl.core.contradiction import detect_contradiction_graphs
 from aixl.core.ambiguity import detect_ambiguity_graph
 from benchmarks.sil5x100_eval import LABELS
+from aixl.core.lexicon_gaps import unaccounted_content
+from aixl.core.ontology import load_config
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def main():
+    cfg = dict(load_config()); cfg['inconclusive'] = '--inconclusive' in sys.argv
     show = int(sys.argv[sys.argv.index("--show") + 1]) if "--show" in sys.argv else 0
     paths = [a for i, a in enumerate(sys.argv[1:], 1) if not a.startswith("--") and not sys.argv[i-1] == "--show"]
     ans = {}
@@ -26,7 +29,9 @@ def main():
     g, perr, missing = {}, 0, 0
     for t in texts:
         if t["tid"] not in ans: missing += 1; continue          # not evaluated
-        try: g[t["tid"]] = aixl_codec.decode(ans[t["tid"]])
+        try:
+            g[t["tid"]] = aixl_codec.decode(ans[t["tid"]])
+            g[t["tid"]].meta["unaccounted"] = unaccounted_content(t["text"], g[t["tid"]])   # ADR-016 lint of the LLM encoding
         except Exception: g[t["tid"]] = None; perr += 1
     by = collections.defaultdict(dict)
     for t in texts: by[t["id"]][t["side"]] = t
@@ -42,9 +47,10 @@ def main():
             pred = "NOT_EQUIVALENT"
         elif detect_contradiction_graphs(gs["a"], gs["b"]).contradiction: pred = "CONTRADICTORY"
         else:
-            c = compare_graphs(gs["a"], gs["b"])
+            c = compare_graphs(gs["a"], gs["b"], cfg)
             kinds = {d.kind for d in c.differences}
-            if c.equivalent: pred = "EQUIVALENT"
+            if c.verdict == "INCONCLUSIVE": pred = "INCONCLUSIVE"
+            elif c.equivalent: pred = "EQUIVALENT"
             elif len(kinds) == 1 and kinds <= {"added", "removed"} and all(d.field != "NEGATION" for d in c.differences): pred = "PARTIALLY_EQUIVALENT"
             else: pred = "NOT_EQUIVALENT"
         rows.append({**r, "pred": pred, "src": pid.split("-")[0]})
@@ -58,7 +64,9 @@ def main():
             print(f"{lab:22s} {ok:3d}/{n}  " + ", ".join(f"{k}={v}" for k, v in conf[lab].most_common() if k != lab))
         print(f"overall {tot}/{len(sel)} = {100*tot/max(1,len(sel)):.1f}%   (parse failures {perr}, texts without answer {missing})")
     fe = [r for r in rows if "b" in r and r["label"] != "EQUIVALENT" and r["pred"] == "EQUIVALENT"]
-    print("false-EQUIVALENT:", len(fe))
+    ne = [r for r in rows if "b" in r and r["label"] != "EQUIVALENT"]
+    te = [r for r in rows if r["label"] == "EQUIVALENT"]
+    print(f"false-EQUIVALENT: {len(fe)}/{len(ne)} = {100*len(fe)/max(1,len(ne)):.1f}%   true EQUIV proven: {sum(r['pred']=='EQUIVALENT' for r in te)}/{len(te)}, INCONCLUSIVE {sum(r['pred']=='INCONCLUSIVE' for r in te)}")
     for r in [r for r in rows if r["pred"] != r["label"]][:show]:
         print(f'[{r["label"]}->{r["pred"]}] {r["a"]} || {r.get("b","")}')
 

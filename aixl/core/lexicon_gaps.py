@@ -135,3 +135,15 @@ def stem(w: str) -> str:
     for _ in range(2):
         w = _SUFFIX.sub("", _PLURAL.sub("", _CLITIC.sub("", w)))
     return w
+
+
+def residue_key(clauses: list) -> tuple:
+    """Canonical form of the R: residue (ADR-016): the sorted, de-duplicated, light-stemmed content words of all residue
+    clauses (function words dropped, generic cross-lingual concepts collapsed). Order-free, so 'by WhatsApp' ~ 'WhatsApp'."""
+    out = set()
+    for c in clauses:
+        for w in _TOKEN.findall(strip_accents(str(c)).lower()):
+            if (len(w) < 3 and not w[0].isdigit()) or w in FUNCTION_WORDS or w in STOP:
+                continue
+            out.add(stem(_CONCEPT.get(w, w)))
+    return tuple(sorted(out))
