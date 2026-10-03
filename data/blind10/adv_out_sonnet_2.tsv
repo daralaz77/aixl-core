@@ -1,0 +1,99 @@
+a099	SAME	only managers invited
+a100	DIFFERENT	opposite
+a101	SAME	translation
+a102	DIFFERENT	until vs from
+a103	DIFFERENT	read-only vs full
+a104	DIFFERENT	read vs delete
+a105	SAME	same amount
+a106	DIFFERENT	roles swapped
+a107	SAME	translation
+a108	DIFFERENT	delete allowed vs not
+a109	SAME	translation
+a110	DIFFERENT	1500 vs 1.5
+a111	DIFFERENT	opposite
+a112	SAME	translation
+a113	DIFFERENT	number differs
+a114	DIFFERENT	condition dropped
+a115	SAME	same payment
+a116	DIFFERENT	extra post step
+a117	SAME	same window
+a118	SAME	same
+a119	DIFFERENT	extra email
+a120	SAME	translation
+a121	DIFFERENT	path differs (homoglyph)
+a122	SAME	weekends = Sat/Sun
+a123	DIFFERENT	delete permission differs
+a124	DIFFERENT	channel differs
+a125	SAME	same limit
+a126	DIFFERENT	opposite
+a127	DIFFERENT	earlier vs later
+a128	SAME	system = CRM
+a129	DIFFERENT	no-copy detail dropped
+a130	SAME	every 6h
+a131	SAME	same platforms and time
+a132	SAME	same
+a133	SAME	same
+a134	DIFFERENT	extra sign
+a135	DIFFERENT	skip restart vs restart
+a136	DIFFERENT	opposite
+a137	DIFFERENT	enable vs disable
+a138	DIFFERENT	opposite
+a139	DIFFERENT	before vs after
+a140	SAME	same
+a141	DIFFERENT	opposite
+a142	DIFFERENT	opposite
+a143	DIFFERENT	opposite
+a144	DIFFERENT	opposite
+a145	DIFFERENT	condition dropped
+a146	DIFFERENT	scope differs
+a147	DIFFERENT	Facebook added
+a148	SAME	same
+a149	SAME	translation
+a150	DIFFERENT	opposite
+a151	SAME	translation
+a152	SAME	same
+a153	DIFFERENT	direction reversed
+a154	DIFFERENT	opposite on backup
+a155	SAME	translation
+a156	DIFFERENT	opposite
+a157	DIFFERENT	4 vs 5
+a158	SAME	same
+a159	DIFFERENT	order reversed
+a160	DIFFERENT	opposite condition
+a161	DIFFERENT	move vs copy and delete? differs
+a162	DIFFERENT	March vs April
+a163	SAME	same
+a164	SAME	translation
+a165	SAME	same
+a166	SAME	translation
+a167	DIFFERENT	condition opposite
+a168	SAME	same
+a169	SAME	same
+a170	DIFFERENT	10 vs 30
+a171	DIFFERENT	C vs F
+a172	DIFFERENT	scope differs
+a173	DIFFERENT	client differs
+a174	DIFFERENT	condition opposite
+a175	SAME	same
+a176	DIFFERENT	condition dropped
+a177	DIFFERENT	opposite
+a178	SAME	translation
+a179	SAME	translation
+a180	DIFFERENT	O vs 0 in account
+a181	DIFFERENT	charge vs waive
+a182	SAME	translation
+a183	SAME	same
+a184	DIFFERENT	tag differs
+a185	SAME	translation
+a186	SAME	translation
+a187	DIFFERENT	publish vs retire
+a188	DIFFERENT	no-copy dropped
+a189	SAME	translation
+a190	DIFFERENT	URL homoglyph
+a191	DIFFERENT	card differs
+a192	SAME	translation
+a193	DIFFERENT	domain homoglyph
+a194	SAME	same
+a195	DIFFERENT	currency differs
+a196	DIFFERENT	opposite
+a197	DIFFERENT	recipient differs
