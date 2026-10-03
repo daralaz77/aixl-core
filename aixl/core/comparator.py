@@ -45,6 +45,7 @@ class ComparisonResult:
     critical_changes: list = field(default_factory=list)
     per_dimension: dict = field(default_factory=dict)
     explanation: str = ""
+    verdict: str = ""        # ADR-016: EQUIVALENT | NOT_EQUIVALENT | INCONCLUSIVE ("" never leaves compare_graphs)
     warnings: list = field(default_factory=list)     # §66 transparency: LOSS/UNCERTAINTY that the verdict does not show
 
     @property
@@ -52,7 +53,7 @@ class ComparisonResult:
         return [d.to_dict() for d in self.differences]
 
     def to_dict(self):
-        d = dict(equivalent=self.equivalent, similarity=round(self.similarity, 4), drift=round(self.drift, 4),
+        d = dict(verdict=self.verdict, equivalent=self.equivalent, similarity=round(self.similarity, 4), drift=round(self.drift, 4),
                  drift_level=self.drift_level, differences=self.diff, critical_changes=[d.to_dict() for d in self.critical_changes],
                  per_dimension={k: (None if v is None else round(v, 3)) for k, v in self.per_dimension.items()}, explanation=self.explanation)
         if self.warnings:
@@ -88,10 +89,21 @@ def _severity(dim: str, a, b, cfg: dict, acts=frozenset(), kind: str = "changed"
     return base, detail
 
 
+from aixl.core.lexicon_gaps import stem as _stem
+
+
 def compare_graphs(ga: SemanticGraph, gb: SemanticGraph, config: dict | None = None, today=None) -> ComparisonResult:
     cfg = config or load_config()
     A, B = ga.canonical(today=today), gb.canonical(today=today)
     res = compare_canonical(A, B, cfg)
+    res.verdict = "EQUIVALENT" if res.equivalent else "NOT_EQUIVALENT"
+    ua, ub = ga.meta.get("unaccounted"), gb.meta.get("unaccounted")
+    if res.equivalent and cfg.get("inconclusive", False) and ua is not None and ub is not None and {_stem(x) for x in ua} != {_stem(x) for x in ub}:
+        # ADR-016: canonical forms agree but the texts carry different content the vocabulary could not represent ->
+        # equality is NOT PROVEN. `equivalent` stays False (legacy callers err on the safe side).
+        res.verdict, res.equivalent = "INCONCLUSIVE", False
+        res.warnings.append({"type": "UNACCOUNTED_CONTENT", "a_only": sorted(set(ua) - set(ub)), "b_only": sorted(set(ub) - set(ua)),
+                             "note": "canonical forms match, but each text has content no slot represents; equivalence not proven"})
     for side, g in (("a", ga), ("b", gb)):
         terms = g.meta.get("unrecognized")
         if terms:

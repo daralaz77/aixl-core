@@ -1,83 +1,84 @@
 {
- "_comment": "Configurable weights and severities (spec: not hard-coded). ASSUMPTION documented in ARCHITECTURE.md: TIME=MAJOR (the two user specs disagree: CRITICAL in one, MODERATE in an example of the other).",
- "weights": {
-  "negation": 3.0,
-  "actions": 3.0,
-  "quantities": 3.0,
-  "constraints": 3.0,
-  "conditions": 3.0,
-  "intent": 2.0,
-  "time": 2.5,
-  "references": 2.5,
-  "modifiers": 2.5,
-  "entities": 2.0,
-  "data": 2.0,
-  "output": 2.0,
-  "location": 2.0,
-  "goal": 1.0,
-  "bindings": 3.0
- },
- "severity": {
-  "negation": "CRITICAL",
-  "quantities": "CRITICAL",
-  "time": "MAJOR",
-  "constraints": "MAJOR",
-  "conditions": "MAJOR",
-  "references": "MAJOR",
-  "actions": "MAJOR",
-  "data": "MAJOR",
-  "output": "MAJOR",
-  "modifiers": "MAJOR",
-  "entities": "MODERATE",
-  "location": "MODERATE",
-  "goal": "MINOR",
-  "intent": "MINOR",
-  "bindings": "MAJOR"
- },
- "critical_constraint_keys": [
-  "VISIBILITY",
-  "BEFORE",
-  "AFTER",
-  "TIME_AT",
-  "RECIPIENT",
-  "SCOPE"
- ],
- "destructive_actions": [
-  "DELETE",
-  "EXECUTE",
-  "SEND",
-  "DISABLE",
-  "UPDATE"
- ],
- "irreversible_actions": [
-  "DELETE",
-  "SEND"
- ],
- "_irreversible_actions_comment": "E-MCP/E-AUTONOMOUS (2026-09-30): a NARROWER list than destructive_actions, used only by aixl/negotiation.py to decide whether an actions-dimension disagreement must escalate to REJECT instead of being auto-resolved by trusting the sender. destructive_actions (used for compare's own CRITICAL severity display) also includes UPDATE/DISABLE/EXECUTE, which are common and usually reversible — reusing the full list here broke the real 'Close ticket' vs 'Delete ticket' case (UPDATE is on both sides of countless ordinary disagreements). First scoped to DELETE alone (the only one confirmed by real test pairs). Widened the same day to also cover EXECUTE and SEND at the user's request; re-measuring the real 21 E-INTEROP disagreements immediately caught EXECUTE as a false-positive-shaped addition (its one affected case, 'schedule the call', wasn't genuinely irreversible under either reading). Asked to search wider evidence before trusting either: scanned the independent 200-pair E-XV cross-vendor dataset and found 9 real EXECUTE-involving disagreements, 8 of which are the SAME translator-vocabulary quirk (a sentence literally says 'execute/run the analysis', and one vendor mistags the introductory verb as the action instead of recognizing ANALYZE — completely benign either way) — EXECUTE removed again, this time on real cross-dataset evidence, not a guess. SEND found 2 real, distinct supporting cases in that same wider search (on top of E-INTEROP's own t092), both showing genuine real-world stakes if a wrong SEND reading were trusted — kept. See BENCHMARK/results_irreversible_actions_evidence_search.md for the full breakdown.",
- "drift_levels": [
-  "NO_DRIFT",
-  "MINOR_DRIFT",
-  "MODERATE_DRIFT",
-  "MAJOR_DRIFT",
-  "CRITICAL_DRIFT"
- ],
- "action_groups": [
-  [
-   "GENERATE",
-   "CREATE"
+  "_comment": "Configurable weights and severities (spec: not hard-coded). ASSUMPTION documented in ARCHITECTURE.md: TIME=MAJOR (the two user specs disagree: CRITICAL in one, MODERATE in an example of the other).",
+  "weights": {
+    "negation": 3.0,
+    "actions": 3.0,
+    "quantities": 3.0,
+    "constraints": 3.0,
+    "conditions": 3.0,
+    "intent": 2.0,
+    "time": 2.5,
+    "references": 2.5,
+    "modifiers": 2.5,
+    "entities": 2.0,
+    "data": 2.0,
+    "output": 2.0,
+    "location": 2.0,
+    "goal": 1.0,
+    "bindings": 3.0
+  },
+  "severity": {
+    "negation": "CRITICAL",
+    "quantities": "CRITICAL",
+    "time": "MAJOR",
+    "constraints": "MAJOR",
+    "conditions": "MAJOR",
+    "references": "MAJOR",
+    "actions": "MAJOR",
+    "data": "MAJOR",
+    "output": "MAJOR",
+    "modifiers": "MAJOR",
+    "entities": "MODERATE",
+    "location": "MODERATE",
+    "goal": "MINOR",
+    "intent": "MINOR",
+    "bindings": "MAJOR"
+  },
+  "critical_constraint_keys": [
+    "VISIBILITY",
+    "BEFORE",
+    "AFTER",
+    "TIME_AT",
+    "RECIPIENT",
+    "SCOPE"
   ],
-  [
-   "GET",
-   "RETRIEVE"
+  "destructive_actions": [
+    "DELETE",
+    "EXECUTE",
+    "SEND",
+    "DISABLE",
+    "UPDATE"
   ],
-  [
-   "SEARCH",
-   "FIND"
+  "irreversible_actions": [
+    "DELETE",
+    "SEND"
   ],
-  [
-   "CHECK",
-   "VALIDATE"
-  ]
- ],
- "_action_groups_comment": "ASSUMPTION (added after blind run 1): actions in the same group are treated as the same task for equivalence; the first item is the representative. Blind authors treated Crea/Escribe, Fetch/Get, Busca/Localiza, Verifica/Valida as the same instruction. Configurable: set to [] for strict lexical actions."
+  "_irreversible_actions_comment": "E-MCP/E-AUTONOMOUS (2026-09-30): a NARROWER list than destructive_actions, used only by aixl/negotiation.py to decide whether an actions-dimension disagreement must escalate to REJECT instead of being auto-resolved by trusting the sender. destructive_actions (used for compare's own CRITICAL severity display) also includes UPDATE/DISABLE/EXECUTE, which are common and usually reversible — reusing the full list here broke the real 'Close ticket' vs 'Delete ticket' case (UPDATE is on both sides of countless ordinary disagreements). First scoped to DELETE alone (the only one confirmed by real test pairs). Widened the same day to also cover EXECUTE and SEND at the user's request; re-measuring the real 21 E-INTEROP disagreements immediately caught EXECUTE as a false-positive-shaped addition (its one affected case, 'schedule the call', wasn't genuinely irreversible under either reading). Asked to search wider evidence before trusting either: scanned the independent 200-pair E-XV cross-vendor dataset and found 9 real EXECUTE-involving disagreements, 8 of which are the SAME translator-vocabulary quirk (a sentence literally says 'execute/run the analysis', and one vendor mistags the introductory verb as the action instead of recognizing ANALYZE — completely benign either way) — EXECUTE removed again, this time on real cross-dataset evidence, not a guess. SEND found 2 real, distinct supporting cases in that same wider search (on top of E-INTEROP's own t092), both showing genuine real-world stakes if a wrong SEND reading were trusted — kept. See BENCHMARK/results_irreversible_actions_evidence_search.md for the full breakdown.",
+  "drift_levels": [
+    "NO_DRIFT",
+    "MINOR_DRIFT",
+    "MODERATE_DRIFT",
+    "MAJOR_DRIFT",
+    "CRITICAL_DRIFT"
+  ],
+  "action_groups": [
+    [
+      "GENERATE",
+      "CREATE"
+    ],
+    [
+      "GET",
+      "RETRIEVE"
+    ],
+    [
+      "SEARCH",
+      "FIND"
+    ],
+    [
+      "CHECK",
+      "VALIDATE"
+    ]
+  ],
+  "_action_groups_comment": "ASSUMPTION (added after blind run 1): actions in the same group are treated as the same task for equivalence; the first item is the representative. Blind authors treated Crea/Escribe, Fetch/Get, Busca/Localiza, Verifica/Valida as the same instruction. Configurable: set to [] for strict lexical actions.",
+  "inconclusive": false
 }

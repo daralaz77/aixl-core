@@ -702,6 +702,8 @@ def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     g.meta["obfuscation"] = obfuscation
     from aixl.core.lexicon_gaps import unrecognized_terms
     g.meta["unrecognized"] = unrecognized_terms(text, g)        # §66: dropped-from-meaning nouns are reported, never silent
+    from aixl.core.lexicon_gaps import unaccounted_content
+    g.meta["unaccounted"] = unaccounted_content(text, g)        # ADR-016: content the vocabulary dropped (drives INCONCLUSIVE)
     g.meta["ordered"] = ordered
     g.meta["text_stripped"] = strip_accents(text)
     return g
