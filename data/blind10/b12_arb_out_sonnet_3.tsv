@@ -1,0 +1,120 @@
+f240	SAME	same
+f241	SAME	same
+f242	SAME	same
+f243	SAME	same
+f244	SAME	same
+f245	DIFFERENT	date Apr 30 vs Mar 31
+f246	DIFFERENT	210 vs 120 guests
+f247	SAME	same
+f248	DIFFERENT	first vs second weekend
+f249	DIFFERENT	dollars vs euros
+f250	DIFFERENT	next week vs tomorrow
+f251	DIFFERENT	recipient differs
+f252	DIFFERENT	on-call dev vs security team
+f253	DIFFERENT	January vs December
+f254	SAME	same
+f255	DIFFERENT	email vs SMS
+f256	DIFFERENT	opposite force-change
+f257	DIFFERENT	day vs night shift
+f258	DIFFERENT	rice vs wheat
+f259	SAME	same
+f260	DIFFERENT	Thursday vs Monday
+f261	DIFFERENT	five vs three beds
+f262	SAME	same
+f263	DIFFERENT	only video ads vs all ads
+f264	SAME	same
+f265	DIFFERENT	800 vs 500 kg
+f266	SAME	same
+f267	SAME	same
+f268	DIFFERENT	recipient differs
+f269	DIFFERENT	48h vs 24h
+f270	DIFFERENT	three vs five bullets
+f271	SAME	same
+f272	DIFFERENT	archive vs purge
+f273	SAME	same
+f274	DIFFERENT	Facebook vs Instagram
+f275	DIFFERENT	before vs after 22:00
+f276	DIFFERENT	line 3 vs line 2
+f277	SAME	same
+f278	SAME	same
+f279	DIFFERENT	monthly vs weekly
+f280	SAME	same
+f281	DIFFERENT	24 vs 22 Maple
+f282	DIFFERENT	April vs March
+f283	DIFFERENT	postpone vs cancel
+f284	SAME	same
+f285	DIFFERENT	30 vs 90 days
+f286	SAME	same
+f287	SAME	same
+f288	DIFFERENT	mjones vs jsmith
+f289	DIFFERENT	translate vs summarize
+f290	DIFFERENT	delete vs send
+f291	DIFFERENT	800 vs 500 kg
+f292	DIFFERENT	rises above vs falls under
+f293	DIFFERENT	50 vs 20 units
+f294	DIFFERENT	five vs three attempts
+f295	SAME	same
+f296	DIFFERENT	only from vs until Nov 15
+f297	SAME	same
+f298	DIFFERENT	April 30 vs May 31
+f299	SAME	same
+f300	DIFFERENT	15,000 vs 50,000
+f301	SAME	same
+f302	SAME	same
+f303	DIFFERENT	Monday vs Friday
+f304	SAME	same
+f305	DIFFERENT	noon vs eleven
+f306	SAME	same
+f307	SAME	same
+f308	DIFFERENT	only interns vs all except interns
+f309	SAME	same
+f310	DIFFERENT	ten vs seven years
+f311	SAME	same
+f312	SAME	same
+f313	SAME	same
+f314	SAME	same
+f315	DIFFERENT	monthly vs weekly
+f316	DIFFERENT	opposite force-change
+f317	SAME	same
+f318	DIFFERENT	anonymize vs delete
+f319	DIFFERENT	30 vs 90 days
+f320	DIFFERENT	next week vs this week
+f321	DIFFERENT	resume vs pause
+f322	SAME	same
+f323	SAME	same
+f324	SAME	same
+f325	SAME	same
+f326	DIFFERENT	Mac vs Windows
+f327	SAME	same
+f328	DIFFERENT	24h vs 48h
+f329	SAME	same
+f330	DIFFERENT	Rojas vs Silva
+f331	SAME	same
+f332	SAME	same
+f333	DIFFERENT	five vs three attempts
+f334	DIFFERENT	24 vs 48 hours
+f335	DIFFERENT	April 30 vs March 31
+f336	DIFFERENT	day vs night shift
+f337	SAME	same
+f338	DIFFERENT	recipient differs
+f339	DIFFERENT	IT manager vs senior engineer
+f340	DIFFERENT	final vs midterm
+f341	DIFFERENT	QA team vs Tomas
+f342	DIFFERENT	archive vs delete
+f343	SAME	same
+f344	DIFFERENT	4417 vs 4471
+f345	DIFFERENT	SMS vs email
+f346	SAME	same
+f347	DIFFERENT	four vs three nights
+f348	DIFFERENT	Q3 vs Q2
+f349	DIFFERENT	reduce speed vs halt
+f350	SAME	same
+f351	SAME	same
+f352	DIFFERENT	Q2 vs Q3
+f353	DIFFERENT	company card vs original method
+f354	SAME	same
+f355	DIFFERENT	2024 vs 2025
+f356	DIFFERENT	ten vs seven years
+f357	DIFFERENT	three vs two days late
+f358	SAME	same
+f359	SAME	same

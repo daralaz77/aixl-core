@@ -1,0 +1,120 @@
+f000	DIFFERENT	opposite actions (delete vs send)
+f001	DIFFERENT	different channels (email vs SMS)
+f002	DIFFERENT	different locations (Medellín vs Bogotá)
+f003	DIFFERENT	different weeks (first vs second)
+f004	SAME	one-star reviews, within 24 hours, apology template
+f005	DIFFERENT	different quantities (50 vs 20 units)
+f006	DIFFERENT	different days (Friday vs Wednesday)
+f007	DIFFERENT	different timeframes (last week vs yesterday)
+f008	SAME	field 4, below 20%, alert
+f009	DIFFERENT	different percentages (10% vs 5%)
+f010	DIFFERENT	opposite polarity (raise vs lower)
+f011	DIFFERENT	different districts (south vs north)
+f012	DIFFERENT	different star ratings (2-star vs 1-star)
+f013	DIFFERENT	different percentages (10% vs 5%)
+f014	SAME	>1% failure rate, halt line 2 immediately
+f015	SAME	escalate when customer mentions legal action
+f016	SAME	>48 hours, escalate to senior engineer
+f017	DIFFERENT	opposite actions (translate vs summarize)
+f018	SAME	deploy 2.3.1 to staging only, after 10pm
+f019	DIFFERENT	opposite actions (translate vs summarize)
+f020	DIFFERENT	different users (mjones vs jsmith)
+f021	DIFFERENT	different target days (Wednesday vs Thursday)
+f022	DIFFERENT	different timeframes (12 months vs 6 months)
+f023	DIFFERENT	different thresholds (500 vs 1000 dollars)
+f024	DIFFERENT	different objects (turbines vs solar panels)
+f025	DIFFERENT	different amounts (15k vs 50k euros)
+f026	SAME	order 500kg organic fertilizer, next Monday
+f027	SAME	reject permit without certified ID copy
+f028	DIFFERENT	different recipients (Ana vs Carlos)
+f029	DIFFERENT	different amounts (5k vs 50k euros)
+f030	SAME	analyze yesterday's error logs, send to Tomás
+f031	DIFFERENT	different recipients (QA team vs Tomás)
+f032	SAME	reset jsmith password, force next-login change
+f033	DIFFERENT	different days (Friday vs Wednesday)
+f034	SAME	send March lab results to Dr. Silva
+f035	SAME	daily random sample of 20 units per shift
+f036	DIFFERENT	different platforms (Facebook vs Instagram)
+f037	DIFFERENT	different months (September vs October)
+f038	SAME	email speakers itineraries 2 weeks before conference
+f039	DIFFERENT	different districts (south vs north)
+f040	DIFFERENT	different tax types (income tax vs VAT)
+f041	DIFFERENT	different fields (7 vs 4)
+f042	SAME	notify by email when package >48 hours late
+f043	SAME	alert when field 4 soil moisture <20%
+f044	SAME	review 12 vendor contracts, flag price clauses
+f045	SAME	delete warehouse supervisor applicant data after 6 months
+f046	DIFFERENT	opposite directions (departing vs arriving)
+f047	DIFFERENT	different recipients (IT manager vs senior engineer)
+f048	DIFFERENT	opposite actions (anonymize vs delete)
+f049	DIFFERENT	different room types (single vs double)
+f050	DIFFERENT	different doctors (Rojas vs Silva)
+f051	DIFFERENT	different scope (refrigerated only vs all)
+f052	DIFFERENT	different timeframes (10 years vs 7 years)
+f053	SAME	north district, Thursday 8-11am power outage
+f054	SAME	field 4, below 20%, alert
+f055	DIFFERENT	different days (Sunday vs Saturday)
+f056	SAME	summarize 22 Maple Ave appraisal for investors
+f057	DIFFERENT	different penalties (5% vs 10% per day)
+f058	SAME	send signed Meridian NDA to legal by Friday
+f059	SAME	north district, Thursday 8-11am notification
+f060	DIFFERENT	different thresholds (500 vs 1000 dollars)
+f061	DIFFERENT	different crops (rice vs wheat)
+f062	DIFFERENT	different guest counts (210 vs 120)
+f063	DIFFERENT	different channels (letter/post vs email)
+f064	SAME	email self check-in to arriving guests tomorrow
+f065	SAME	post grades on portal only, no email
+f066	SAME	summarize Q3 audit in 5 bullet points
+f067	DIFFERENT	opposite actions (delete vs send)
+f068	SAME	email self check-in to arriving guests
+f069	DIFFERENT	different channels (SMS vs email)
+f070	SAME	calculate Q3 VAT, send to accountant
+f071	DIFFERENT	different penalties (5% vs 10% per day)
+f072	SAME	double room Hotel Sol Lisbon 3 nights from June 12
+f073	SAME	cancel Gómez flight, refund to original payment
+f074	DIFFERENT	different languages (French vs Portuguese)
+f075	SAME	reject permit without certified ID copy
+f076	DIFFERENT	different actions (reduce speed vs halt)
+f077	DIFFERENT	different timing (48 hours vs 1 day)
+f078	DIFFERENT	different routes (Madrid vs Zaragoza)
+f079	DIFFERENT	different fields (7 vs 4)
+f080	SAME	full refund without return for damaged orders
+f081	DIFFERENT	different channels (letter/post vs email)
+f082	DIFFERENT	different routes (Madrid vs Zaragoza)
+f083	SAME	install latest patch on Windows sales dept tonight
+f084	SAME	Lisbon venue 120 guests 2nd weekend May <15k euros
+f085	DIFFERENT	different refund amounts (50% vs full)
+f086	SAME	send November newsletter Portuguese to Carlos
+f087	SAME	Portuguese Organic Chemistry for August arrivals
+f088	DIFFERENT	different summaries (3 vs 5 bullet points)
+f089	SAME	weekly solar panel output report Cartagena
+f090	SAME	Rua Augusta viewing Saturday 11am Santos couple
+f091	SAME	send October electricity invoice to Calle 45
+f092	SAME	send shipment 4471 invoice to Carla by tomorrow
+f093	DIFFERENT	different users (mjones vs jsmith)
+f094	DIFFERENT	different months (April vs March)
+f095	DIFFERENT	different end times (noon vs 11am)
+f096	SAME	email travel itineraries 2 weeks before conference
+f097	DIFFERENT	different recipients (on-call dev vs security team)
+f098	DIFFERENT	different star ratings (2-star vs 1-star)
+f099	SAME	schedule spring sale Instagram Tuesday 9am
+f100	SAME	summarize 22 Maple Ave appraisal for investors
+f101	SAME	rotate DB passwords 90 days, alert security
+f102	DIFFERENT	different languages (French vs Portuguese)
+f103	DIFFERENT	different thresholds (24 hours vs 2 days)
+f104	DIFFERENT	different addresses (24 vs 22 Maple)
+f105	SAME	order 500kg fertilizer from co-op next Monday
+f106	SAME	analyze 2025 wheat harvest, send yield comparison
+f107	DIFFERENT	different deadlines (next week vs tomorrow)
+f108	DIFFERENT	different response times (48 hours vs 24 hours)
+f109	SAME	calculate Q3 VAT, send to accountant
+f110	SAME	reschedule Rivera cardiology Monday to Thursday AM
+f111	DIFFERENT	different amounts (5k vs 50k euros)
+f112	SAME	email when parcel >48 hours late
+f113	DIFFERENT	different end dates (April 30 vs May 31)
+f114	SAME	rotate DB passwords 90 days, alert security
+f115	DIFFERENT	different thresholds (500 vs 200 dollars)
+f116	SAME	translate November newsletter Portuguese to Carlos
+f117	SAME	install latest patch on Windows sales dept tonight
+f118	DIFFERENT	different months (September vs August)
+f119	DIFFERENT	different deadlines (Monday vs Friday)

@@ -1,0 +1,120 @@
+f480	DIFFERENT	4 nights vs 3 nights
+f481	DIFFERENT	opposite: caps increase vs permits unilateral increase
+f482	SAME	publish midterm on portal, no email
+f483	DIFFERENT	WhatsApp vs Email channel
+f484	DIFFERENT	50 units vs 20 units
+f485	SAME	remind citizens to submit forms in person before March 31
+f486	DIFFERENT	August vs September
+f487	DIFFERENT	January vacation vs December vacation
+f488	DIFFERENT	email yes vs email no
+f489	SAME	rotate credentials 90 days, alert on failure
+f490	DIFFERENT	November vs October
+f491	DIFFERENT	income tax vs VAT
+f492	SAME	cancel catering if fewer than 40 confirm by Wednesday
+f493	DIFFERENT	raise vs reduce price
+f494	SAME	reschedule appointment Monday to Thursday morning
+f495	SAME	send October electricity invoice to tenant at Calle 45
+f496	DIFFERENT	weekly vs daily
+f497	SAME	wire transfers over 50k need second signature
+f498	DIFFERENT	2 days vs 2 weeks
+f499	DIFFERENT	20 contracts vs 12 contracts
+f500	SAME	spring fundraising campaign 50k euros, close May 31
+f501	SAME	order 500 kg organic fertilizer from cooperative for next Monday
+f502	DIFFERENT	departing vs arriving guests
+f503	SAME	freeze card after 3+ failed PINs within 1 hour
+f504	DIFFERENT	first weekend vs second weekend of May
+f505	SAME	cancel catering if under 40 confirmations by Wednesday
+f506	SAME	2 days late allowed, 10% penalty per day
+f507	DIFFERENT	finance team vs legal team
+f508	SAME	send March lab results of Juan Torres to Dr. Silva
+f509	SAME	reject permit applications missing certified ID copy
+f510	DIFFERENT	Mac vs Windows laptops
+f511	DIFFERENT	postpone vs cancel surgeries
+f512	DIFFERENT	April vs March
+f513	DIFFERENT	2 days vs 2 weeks
+f514	DIFFERENT	3 bullet points vs 5 bullet points
+f515	SAME	shipment 4471 number word/digit equivalent
+f516	DIFFERENT	final vs midterm exam
+f517	DIFFERENT	email yes vs email no
+f518	SAME	summarize property appraisal for investor group
+f519	SAME	reset password and force change at next login
+f520	SAME	reroute all Valencia pallets through Zaragoza during strike
+f521	DIFFERENT	reduce order vs cancel order
+f522	DIFFERENT	2 days vs 14 days
+f523	DIFFERENT	email vs text message
+f524	DIFFERENT	chargeback vs legal action mention
+f525	SAME	email speakers 14 days before conference
+f526	DIFFERENT	next week vs tomorrow
+f527	DIFFERENT	September vs October
+f528	DIFFERENT	November vs October
+f529	DIFFERENT	translate vs summarize
+f530	DIFFERENT	email yes vs email no
+f531	SAME	December vacation requests by November 15
+f532	DIFFERENT	production vs staging deployment
+f533	DIFFERENT	5% vs 10% penalty
+f534	DIFFERENT	April 30 vs March 31
+f535	DIFFERENT	English vs Portuguese
+f536	DIFFERENT	QA team vs Tomás
+f537	DIFFERENT	monthly vs weekly
+f538	DIFFERENT	2024 vs 2025
+f539	SAME	cancel catering if under 40 by Wednesday
+f540	SAME	move cardiology appointment Monday to Thursday AM
+f541	SAME	reduce 5% price of Oak Street house
+f542	SAME	publish midterm on portal only, no email
+f543	DIFFERENT	anonymize vs delete
+f544	SAME	delete candidate data after 6 months
+f545	DIFFERENT	company credit card vs original payment method
+f546	DIFFERENT	line 3 vs line 2
+f547	SAME	send March lab results to Dr. Silva
+f548	DIFFERENT	15k euros vs 50k euros
+f549	DIFFERENT	one day vs one hour
+f550	DIFFERENT	return for correction vs reject
+f551	SAME	email arriving guests self check-in tomorrow
+f552	DIFFERENT	departing vs arriving guests
+f553	SAME	thank-you email to donors over $1000
+f554	SAME	escalate to supervisor for legal action mentions
+f555	DIFFERENT	Q2 vs Q3
+f556	DIFFERENT	April 2026 vs March 2026
+f557	SAME	book double room 3 nights June 12
+f558	SAME	translate November newsletter to Portuguese for Carlos Mendes
+f559	DIFFERENT	Sunday vs Saturday
+f560	DIFFERENT	pay even if not approved vs pay only if approved
+f561	DIFFERENT	batch 7738 vs batch 7783
+f562	DIFFERENT	next week vs this week
+f563	DIFFERENT	3 days vs 48 hours/2 days
+f564	SAME	pay supplier invoices only if finance approved
+f565	SAME	analyze September report and flag items over 200
+f566	SAME	reset password and force change at next login
+f567	SAME	translate November newsletter to Portuguese for Carlos Mendes
+f568	SAME	delete candidate data after 6 months
+f569	DIFFERENT	rises above vs falls below 20%
+f570	SAME	5-bullet Q3 compliance audit summary
+f571	DIFFERENT	close chat vs escalate to supervisor
+f572	DIFFERENT	refrigerated pallets only vs all pallets
+f573	DIFFERENT	September vs August
+f574	DIFFERENT	house vs apartment
+f575	SAME	delete customer records over 7 years
+f576	SAME	analyze 2025 wheat harvest, send yield to Pedro Alves
+f577	DIFFERENT	income tax vs VAT
+f578	SAME	calculate and send Q3 VAT to accountant
+f579	SAME	calculate and send Q3 VAT to accountant
+f580	DIFFERENT	50% vs 100% refund
+f581	DIFFERENT	chemical vs organic fertilizer
+f582	DIFFERENT	12 months vs 6 months
+f583	SAME	send signed NDA to legal team by Friday
+f584	DIFFERENT	Q2 vs Q3
+f585	DIFFERENT	weekly vs daily inspection
+f586	DIFFERENT	August vs September
+f587	DIFFERENT	2-star vs 1-star reviews
+f588	SAME	rotate database credentials 90 days, alert on failure
+f589	SAME	publish midterm on portal only, no email
+f590	DIFFERENT	Mac vs Windows
+f591	DIFFERENT	50% vs 100% refund
+f592	SAME	cancel catering if under 40 by Wednesday
+f593	DIFFERENT	video ads only vs all paid ads
+f594	DIFFERENT	single vs double room
+f595	SAME	deploy to staging not production after 22:00
+f596	SAME	remind citizens to submit forms in person before March 31
+f597	DIFFERENT	shipment 4417 vs shipment 4471
+f598	SAME	email notification for 48+ hour delay
+f599	SAME	stop line 2 if seal test failure exceeds 1%

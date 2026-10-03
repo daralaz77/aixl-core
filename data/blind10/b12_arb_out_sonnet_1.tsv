@@ -1,0 +1,120 @@
+f000	DIFFERENT	delete vs send
+f001	DIFFERENT	email vs SMS
+f002	DIFFERENT	Medellin vs Bogota
+f003	DIFFERENT	first vs second weekend
+f004	SAME	same action, 24h, one star
+f005	DIFFERENT	50 vs 20 units
+f006	DIFFERENT	Friday vs Wednesday
+f007	DIFFERENT	last week vs yesterday
+f008	SAME	same
+f009	DIFFERENT	10 vs 5 percent
+f010	DIFFERENT	raise vs cut
+f011	DIFFERENT	south vs north
+f012	DIFFERENT	two-star vs one-star
+f013	DIFFERENT	10 vs 5 percent
+f014	SAME	same
+f015	SAME	same
+f016	SAME	same
+f017	DIFFERENT	translate vs summarize
+f018	SAME	same
+f019	DIFFERENT	translate vs summarize
+f020	DIFFERENT	mjones vs jsmith
+f021	DIFFERENT	Wednesday vs Thursday
+f022	DIFFERENT	12 months vs 6 months
+f023	DIFFERENT	500 vs 1000
+f024	DIFFERENT	wind vs solar
+f025	DIFFERENT	15000 vs 50000
+f026	SAME	same
+f027	DIFFERENT	return for correction vs reject
+f028	DIFFERENT	Ana vs Carlos
+f029	DIFFERENT	5000 vs 50000
+f030	SAME	same
+f031	DIFFERENT	QA team vs Tomas
+f032	SAME	same
+f033	DIFFERENT	Friday vs Wednesday
+f034	SAME	same
+f035	SAME	same
+f036	DIFFERENT	Facebook vs Instagram
+f037	DIFFERENT	September vs October
+f038	SAME	same
+f039	DIFFERENT	south vs north
+f040	DIFFERENT	income tax vs VAT
+f041	DIFFERENT	field 7 vs 4
+f042	SAME	same
+f043	SAME	same
+f044	SAME	same
+f045	SAME	same
+f046	DIFFERENT	departing vs arriving
+f047	DIFFERENT	IT manager vs senior engineer
+f048	DIFFERENT	anonymize vs delete
+f049	DIFFERENT	single vs double room
+f050	DIFFERENT	Rojas vs Silva
+f051	DIFFERENT	only refrigerated vs all
+f052	DIFFERENT	ten vs seven years
+f053	SAME	same
+f054	SAME	same
+f055	DIFFERENT	Sunday vs Saturday
+f056	SAME	same
+f057	DIFFERENT	5% vs 10%
+f058	SAME	same
+f059	SAME	same
+f060	DIFFERENT	500 vs 1000
+f061	DIFFERENT	rice vs wheat
+f062	DIFFERENT	210 vs 120 guests
+f063	DIFFERENT	post letter vs email
+f064	SAME	same
+f065	SAME	same
+f066	SAME	same
+f067	DIFFERENT	delete vs send
+f068	SAME	same
+f069	DIFFERENT	SMS vs email
+f070	SAME	same
+f071	DIFFERENT	5% vs 10%
+f072	SAME	same
+f073	SAME	same
+f074	DIFFERENT	French vs Portuguese
+f075	SAME	same
+f076	DIFFERENT	reduce speed vs stop line
+f077	DIFFERENT	48 hours vs one day ahead
+f078	DIFFERENT	Madrid vs Zaragoza
+f079	DIFFERENT	field 7 vs 4
+f080	SAME	same
+f081	DIFFERENT	post vs email
+f082	DIFFERENT	Madrid vs Zaragoza
+f083	DIFFERENT	tomorrow night vs tonight
+f084	SAME	same
+f085	DIFFERENT	50% vs full refund
+f086	SAME	same
+f087	SAME	same
+f088	DIFFERENT	three vs five bullets
+f089	SAME	same
+f090	DIFFERENT	house vs apartment
+f091	SAME	same
+f092	SAME	same
+f093	DIFFERENT	mjones vs jsmith
+f094	DIFFERENT	April vs March
+f095	DIFFERENT	noon vs 11 a.m.
+f096	DIFFERENT	attendees vs speakers
+f097	DIFFERENT	on-call developer vs security team
+f098	DIFFERENT	two-star vs one-star
+f099	SAME	same
+f100	SAME	same
+f101	SAME	same
+f102	DIFFERENT	French vs Portuguese
+f103	DIFFERENT	24 vs 48 hours
+f104	DIFFERENT	24 vs 22 Maple
+f105	SAME	same
+f106	SAME	same
+f107	DIFFERENT	next week vs tomorrow
+f108	DIFFERENT	48 vs 24 hours
+f109	SAME	same
+f110	SAME	same
+f111	DIFFERENT	5000 vs 50000
+f112	SAME	same
+f113	DIFFERENT	April 30 vs May 31
+f114	SAME	same
+f115	DIFFERENT	500 vs 200
+f116	SAME	same
+f117	SAME	same
+f118	DIFFERENT	September vs August
+f119	DIFFERENT	Monday vs Friday

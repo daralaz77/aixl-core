@@ -1,0 +1,120 @@
+f120	SAME	same
+f121	DIFFERENT	return required vs not
+f122	SAME	same
+f123	DIFFERENT	specialty differs
+f124	DIFFERENT	online vs in person
+f125	SAME	same
+f126	SAME	same
+f127	DIFFERENT	20 vs 12
+f128	SAME	same
+f129	DIFFERENT	April 30 vs March 31
+f130	DIFFERENT	only refrigerated vs all
+f131	SAME	same
+f132	DIFFERENT	field 7 vs 4
+f133	SAME	same
+f134	SAME	same
+f135	DIFFERENT	postpone vs cancel
+f136	DIFFERENT	house vs apartment
+f137	DIFFERENT	April vs March
+f138	DIFFERENT	post vs email
+f139	DIFFERENT	even if unapproved vs only if approved
+f140	DIFFERENT	south vs north
+f141	SAME	same
+f142	DIFFERENT	raise vs lower
+f143	SAME	same
+f144	SAME	same
+f145	DIFFERENT	24h vs 48h
+f146	DIFFERENT	raise vs lower
+f147	DIFFERENT	500 vs 1000
+f148	DIFFERENT	WhatsApp vs email
+f149	SAME	same
+f150	SAME	same
+f151	SAME	same
+f152	DIFFERENT	day vs night shift
+f153	DIFFERENT	April vs March
+f154	DIFFERENT	September vs August
+f155	DIFFERENT	French vs Portuguese
+f156	SAME	same
+f157	SAME	same
+f158	SAME	same
+f159	DIFFERENT	September vs October
+f160	SAME	same
+f161	SAME	same
+f162	DIFFERENT	30 vs 90 days
+f163	DIFFERENT	10 vs 5 percent
+f164	DIFFERENT	24h vs 48h
+f165	DIFFERENT	close vs escalate
+f166	SAME	same
+f167	SAME	same
+f168	SAME	same
+f169	SAME	same
+f170	DIFFERENT	September vs October
+f171	SAME	same
+f172	DIFFERENT	50 vs 20 units
+f173	DIFFERENT	dollars vs euros
+f174	SAME	same
+f175	DIFFERENT	production vs staging
+f176	DIFFERENT	Sunday vs Saturday
+f177	SAME	same
+f178	DIFFERENT	April 30 vs May 31
+f179	DIFFERENT	batch 7738 vs 7783
+f180	SAME	same
+f181	SAME	same
+f182	DIFFERENT	two-star vs 1-star
+f183	DIFFERENT	48h vs 24h
+f184	DIFFERENT	25th vs 20th
+f185	DIFFERENT	QA team vs Tomas
+f186	DIFFERENT	rice vs wheat
+f187	SAME	same
+f188	DIFFERENT	April 30 vs May 31
+f189	DIFFERENT	only video ads vs all
+f190	SAME	same
+f191	SAME	same
+f192	DIFFERENT	wind vs solar
+f193	DIFFERENT	Friday vs Wednesday
+f194	DIFFERENT	Q3 vs Q2
+f195	DIFFERENT	only from Nov 15 vs by Nov 15
+f196	SAME	same
+f197	DIFFERENT	24 vs 48 hours
+f198	SAME	same
+f199	SAME	same
+f200	DIFFERENT	6pm vs 9am
+f201	SAME	same
+f202	DIFFERENT	5 vs 3 attempts
+f203	SAME	same
+f204	SAME	same
+f205	SAME	same
+f206	SAME	same
+f207	SAME	same
+f208	DIFFERENT	reduce speed vs stop
+f209	SAME	same
+f210	SAME	same
+f211	DIFFERENT	archive vs delete
+f212	DIFFERENT	online vs in person
+f213	DIFFERENT	Q2 vs Q3
+f214	DIFFERENT	Wednesday vs Thursday
+f215	DIFFERENT	email vs SMS
+f216	SAME	same
+f217	DIFFERENT	delete vs send
+f218	DIFFERENT	English vs Portuguese
+f219	SAME	same
+f220	SAME	same
+f221	SAME	same
+f222	SAME	same
+f223	SAME	same
+f224	SAME	same
+f225	DIFFERENT	Ana vs Carlos
+f226	SAME	same
+f227	DIFFERENT	Sunday vs Saturday
+f228	DIFFERENT	Monday vs Friday
+f229	SAME	same
+f230	DIFFERENT	next week vs this week
+f231	DIFFERENT	house vs apartment
+f232	DIFFERENT	WhatsApp vs email
+f233	DIFFERENT	dermatology vs cardiology
+f234	DIFFERENT	reduce vs cancel
+f235	DIFFERENT	income tax vs VAT
+f236	SAME	same
+f237	SAME	same
+f238	SAME	same
+f239	SAME	same

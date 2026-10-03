@@ -1,0 +1,120 @@
+f360	SAME	two weeks = 14 days, same
+f361	DIFFERENT	recipient differs
+f362	SAME	same
+f363	DIFFERENT	number and action differ
+f364	DIFFERENT	chemical vs organic
+f365	SAME	same
+f366	SAME	same
+f367	DIFFERENT	chemical vs organic
+f368	DIFFERENT	final exam vs midterm
+f369	SAME	same
+f370	DIFFERENT	SMS vs email
+f371	DIFFERENT	5000 vs 50k
+f372	SAME	same
+f373	DIFFERENT	time differs
+f374	DIFFERENT	day vs 60 minutes
+f375	DIFFERENT	48h vs 1 day
+f376	DIFFERENT	25th vs 20th
+f377	DIFFERENT	cap vs unilateral raise
+f378	SAME	same
+f379	DIFFERENT	document differs
+f380	DIFFERENT	tomorrow vs tonight
+f381	DIFFERENT	Q2 vs Q3
+f382	DIFFERENT	day vs hour
+f383	DIFFERENT	goal differs
+f384	DIFFERENT	guests and weekend differ
+f385	DIFFERENT	five vs three beds
+f386	DIFFERENT	30 vs 90 days
+f387	SAME	same
+f388	DIFFERENT	210 vs 120 guests
+f389	SAME	same
+f390	DIFFERENT	postpone vs cancel
+f391	SAME	same
+f392	SAME	same
+f393	SAME	same
+f394	SAME	same
+f395	SAME	same
+f396	SAME	same
+f397	SAME	same
+f398	SAME	same
+f399	SAME	same
+f400	SAME	same
+f401	SAME	same
+f402	DIFFERENT	French vs Portuguese
+f403	SAME	same
+f404	DIFFERENT	day vs hour
+f405	DIFFERENT	Q2 vs Q3
+f406	DIFFERENT	day vs night shift
+f407	SAME	same
+f408	DIFFERENT	email vs SMS
+f409	DIFFERENT	on-call dev vs security team
+f410	DIFFERENT	Q2 vs Q3
+f411	SAME	same
+f412	DIFFERENT	finance vs legal
+f413	SAME	same
+f414	DIFFERENT	return required vs not
+f415	SAME	same
+f416	DIFFERENT	Q3 vs Q2
+f417	DIFFERENT	August vs September
+f418	DIFFERENT	ten vs five
+f419	DIFFERENT	weekly vs daily
+f420	SAME	same
+f421	DIFFERENT	wind vs solar
+f422	SAME	same
+f423	DIFFERENT	five vs three
+f424	SAME	same
+f425	SAME	same
+f426	DIFFERENT	line 3 vs 2
+f427	DIFFERENT	resume vs pause
+f428	DIFFERENT	user differs
+f429	DIFFERENT	three vs two days
+f430	DIFFERENT	opposite condition
+f431	DIFFERENT	monthly vs weekly
+f432	SAME	same
+f433	DIFFERENT	three vs five bullets
+f434	DIFFERENT	Thursday vs Monday
+f435	DIFFERENT	24 vs 22
+f436	DIFFERENT	12 vs 6 months
+f437	DIFFERENT	WhatsApp vs email
+f438	DIFFERENT	2024 vs 2025
+f439	DIFFERENT	November vs October
+f440	SAME	same condition
+f441	DIFFERENT	April vs March
+f442	DIFFERENT	Medellin vs Bogota
+f443	DIFFERENT	Thursday vs Monday
+f444	SAME	same
+f445	SAME	same
+f446	DIFFERENT	dollars vs euros
+f447	SAME	same
+f448	DIFFERENT	September vs August
+f449	DIFFERENT	reduce vs call off
+f450	SAME	same
+f451	SAME	same
+f452	SAME	same
+f453	SAME	same
+f454	SAME	same
+f455	SAME	same
+f456	DIFFERENT	email vs text
+f457	DIFFERENT	opposite condition
+f458	SAME	same
+f459	DIFFERENT	attendees vs speakers
+f460	SAME	same
+f461	DIFFERENT	Facebook vs Instagram
+f462	DIFFERENT	August vs September
+f463	SAME	same
+f464	SAME	same
+f465	DIFFERENT	25th vs 20th
+f466	SAME	same
+f467	SAME	same
+f468	DIFFERENT	20 vs 12 contracts
+f469	DIFFERENT	tomorrow vs tonight
+f470	SAME	same
+f471	SAME	same
+f472	SAME	same
+f473	DIFFERENT	return required vs not
+f474	DIFFERENT	translate vs summarize
+f475	SAME	same
+f476	SAME	same
+f477	SAME	same
+f478	SAME	same
+f479	DIFFERENT	return required vs not

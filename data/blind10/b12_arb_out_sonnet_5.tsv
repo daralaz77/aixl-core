@@ -1,0 +1,120 @@
+f480	DIFFERENT	four vs three nights
+f481	DIFFERENT	caps on raises vs unilateral raise clause
+f482	SAME	portal only, no email
+f483	DIFFERENT	WhatsApp vs email
+f484	DIFFERENT	50 vs 20 units
+f485	SAME	same in-person rule and date
+f486	DIFFERENT	August vs September
+f487	DIFFERENT	January vs December
+f488	DIFFERENT	also email vs no email
+f489	SAME	same rotation and alert
+f490	DIFFERENT	November vs October
+f491	DIFFERENT	income tax vs VAT
+f492	SAME	same condition and action
+f493	DIFFERENT	raise vs reduce
+f494	SAME	same reschedule
+f495	SAME	same invoice and recipient
+f496	DIFFERENT	weekly vs daily
+f497	SAME	same threshold and approval rule
+f498	DIFFERENT	two days vs two weeks
+f499	DIFFERENT	20 vs 12 contracts
+f500	SAME	same goal and close date
+f501	SAME	same order
+f502	DIFFERENT	departing vs arriving guests
+f503	SAME	same rule
+f504	DIFFERENT	first vs second weekend
+f505	SAME	same condition
+f506	SAME	two days = 48 hours, 10% per day
+f507	DIFFERENT	finance vs legal team
+f508	SAME	same results and recipient
+f509	SAME	reject without copy
+f510	DIFFERENT	Mac vs Windows
+f511	DIFFERENT	postpone vs cancel
+f512	DIFFERENT	April vs March
+f513	DIFFERENT	two days vs two weeks
+f514	DIFFERENT	3 vs 5 bullets
+f515	SAME	same invoice, recipient, deadline
+f516	DIFFERENT	final vs midterm
+f517	DIFFERENT	email vs no email
+f518	SAME	same summary task
+f519	SAME	same reset
+f520	SAME	same reroute
+f521	DIFFERENT	reduce vs cancel
+f522	DIFFERENT	two days vs fourteen days
+f523	DIFFERENT	email vs text
+f524	DIFFERENT	chargeback vs legal action
+f525	SAME	14 days before by email
+f526	DIFFERENT	next week vs tomorrow
+f527	DIFFERENT	September vs October
+f528	SAME	same exit interviews
+f529	DIFFERENT	translate vs summarize
+f530	DIFFERENT	also email vs portal only
+f531	SAME	same request
+f532	SAME	staging not production
+f533	DIFFERENT	5% vs 10%
+f534	DIFFERENT	April 30 vs March 31
+f535	DIFFERENT	English vs Portuguese
+f536	DIFFERENT	QA team vs Tomas
+f537	DIFFERENT	monthly vs weekly
+f538	DIFFERENT	2024 vs 2025
+f539	SAME	same cancel condition
+f540	SAME	same reschedule
+f541	SAME	reduce price 5%
+f542	SAME	portal only, no email
+f543	DIFFERENT	anonymize vs delete
+f544	SAME	delete after six months
+f545	DIFFERENT	company card vs original method
+f546	DIFFERENT	line 3 vs line 2
+f547	SAME	same results and recipient
+f548	DIFFERENT	15,000 vs 50,000
+f549	DIFFERENT	one day vs one hour
+f550	DIFFERENT	return for correction vs reject
+f551	SAME	arriving guests by email
+f552	DIFFERENT	departing vs arriving
+f553	SAME	same thank-you emails
+f554	SAME	escalate legal action chats
+f555	DIFFERENT	second vs third quarter
+f556	DIFFERENT	April vs March
+f557	SAME	same booking
+f558	SAME	translated newsletter to Carlos
+f559	DIFFERENT	Sunday vs Saturday
+f560	DIFFERENT	regardless of approval vs conditional
+f561	DIFFERENT	batch 7738 vs 7783
+f562	DIFFERENT	next week vs this week
+f563	DIFFERENT	three days vs 48 hours
+f564	SAME	pay only if approved
+f565	SAME	same analysis and flag
+f566	SAME	same reset and forced change
+f567	SAME	same translation and send
+f568	SAME	delete after six months
+f569	DIFFERENT	rises above vs falls below
+f570	SAME	five bullets
+f571	DIFFERENT	close vs escalate
+f572	DIFFERENT	only refrigerated vs all
+f573	DIFFERENT	September vs August
+f574	DIFFERENT	house vs apartment
+f575	SAME	purge records over seven years
+f576	SAME	same analysis and recipient
+f577	DIFFERENT	income tax vs VAT
+f578	SAME	same VAT Q3
+f579	SAME	same VAT Q3
+f580	DIFFERENT	50% vs 100% refund
+f581	DIFFERENT	chemical vs organic
+f582	DIFFERENT	12 vs 6 months
+f583	SAME	same NDA to legal by Friday
+f584	DIFFERENT	second vs third quarter
+f585	DIFFERENT	weekly vs daily
+f586	DIFFERENT	August vs September
+f587	DIFFERENT	two-star vs one-star
+f588	SAME	same rotation and alert
+f589	SAME	portal only, no email
+f590	DIFFERENT	Mac vs Windows
+f591	DIFFERENT	50% vs full refund
+f592	SAME	same cancel condition
+f593	DIFFERENT	only video ads vs all paid ads
+f594	DIFFERENT	single vs double room
+f595	SAME	staging not production
+f596	SAME	same in-person rule and date
+f597	DIFFERENT	4417 vs 4471
+f598	SAME	same email notification
+f599	SAME	same stop condition

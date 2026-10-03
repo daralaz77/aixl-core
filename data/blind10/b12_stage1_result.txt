@@ -1,0 +1,10 @@
+texts 360 | all pairs 64620 | equivalent pairs 360 | near-miss pairs 480
+controlled clusters: 6/60 (36 equivalent pairs)
+
+generator                    recall    ctrl    free  nm-leak  cand-rate  precision  candidates
+K1 canonical equality         15.8%    8.3%   16.7%    16.0%      0.28%     31.67%         180
+K2 fingerprint equality       15.8%    8.3%   16.7%    16.0%      0.28%     31.67%         180
+K3 lexical J>=0.1             60.3%   50.0%   61.4%    64.8%      1.30%     25.77%         842
+K3 lexical J>=0.2             28.6%   25.0%   29.0%    46.5%      0.56%     28.53%         361
+K3 lexical J>=0.3             12.2%   11.1%   12.3%    36.2%      0.38%     17.74%         248
+K4 all pairs                 100.0%  100.0%  100.0%   100.0%    100.00%      0.56%       64620

@@ -1,0 +1,120 @@
+f720	SAME	translation, same action and scope
+f721	SAME	translation, same event and timing
+f722	SAME	translation, same recipients and object
+f723	DIFFERENT	date: 25th vs 20th
+f724	SAME	translation, same action and condition
+f725	SAME	translation, same action and condition
+f726	DIFFERENT	timeframe: 12 months vs 6 months
+f727	SAME	translation, same action and recipients
+f728	SAME	translation, same action and object
+f729	DIFFERENT	recipients: attendees vs speakers
+f730	DIFFERENT	timeframe: last week vs yesterday
+f731	DIFFERENT	month: April vs March
+f732	DIFFERENT	vacation month: January vs December
+f733	SAME	translation, same action and condition
+f734	SAME	translation, same action and scope
+f735	DIFFERENT	advance notice: 48 hours vs 24 hours
+f736	SAME	translation, same action and timing
+f737	SAME	translation, same action and deadline
+f738	DIFFERENT	opposite polarity on forced password change
+f739	DIFFERENT	product type: chemical vs organic fertilizer
+f740	DIFFERENT	room type: single vs double
+f741	DIFFERENT	opposite scope: only interns vs all except interns
+f742	DIFFERENT	amount: 800 vs 500 kilos
+f743	DIFFERENT	recipient: Dr. Rojas vs Dr. Silva
+f744	SAME	translation, same action and deadline
+f745	DIFFERENT	duration: 4 nights vs 3 nights
+f746	DIFFERENT	guest count: 210 vs 120
+f747	DIFFERENT	recipient: factory manager vs quality engineer Lina Ortiz
+f748	SAME	translation, same action and details
+f749	DIFFERENT	threshold: $500 vs $200
+f750	DIFFERENT	target language: English vs Portuguese
+f751	DIFFERENT	action: translate vs summarize
+f752	SAME	translation, same action and timing (after 10pm)
+f753	DIFFERENT	opposite action: resume vs hold
+f754	DIFFERENT	line: 3 vs 2
+f755	SAME	translation, same action and recipient
+f756	SAME	translation, same condition (48 hours = 2 days)
+f757	SAME	translation, same action and condition
+f758	DIFFERENT	scope: only refrigerated vs all pallets
+f759	SAME	translation, same action and result
+f760	DIFFERENT	destination day: Wednesday vs Thursday
+f761	DIFFERENT	time direction: before 10pm vs after 10pm
+f762	DIFFERENT	opposite scope: only interns vs all except interns
+f763	DIFFERENT	timing: 2 days vs 14 days before
+f764	SAME	translation, same alert condition
+f765	SAME	translation, same action and recipient
+f766	DIFFERENT	missing document: address proof vs identity document
+f767	DIFFERENT	opposite action: archive vs delete
+f768	DIFFERENT	deadline: Friday vs Wednesday
+f769	DIFFERENT	time direction: before 22:00 vs after 22:00
+f770	SAME	translation, same action and penalty
+f771	DIFFERENT	missing document: address proof vs identity document
+f772	SAME	translation, same action and dates
+f773	SAME	translation, same action and frequency
+f774	DIFFERENT	deadline: 48 hours vs 24 hours
+f775	DIFFERENT	scope: only video ads vs all ads
+f776	DIFFERENT	exam type: final exam vs midterm
+f777	SAME	translation, same action and details
+f778	SAME	translation, same action and condition
+f779	DIFFERENT	location: Medellín vs Bogotá
+f780	SAME	translation, same action and object
+f781	DIFFERENT	currency: dollars vs euros
+f782	DIFFERENT	recipients: attendees vs speakers
+f783	SAME	translation, same action and timing
+f784	DIFFERENT	threshold: $500 vs $200
+f785	SAME	translation, same action and threshold
+f786	DIFFERENT	channel: email vs SMS
+f787	SAME	translation, same action and recipient
+f788	DIFFERENT	specialty: dermatology vs cardiology
+f789	DIFFERENT	opposite: departing guests vs arriving guests
+f790	SAME	translation, same action and deadline
+f791	SAME	translation, same action and timing
+f792	DIFFERENT	location: Medellín vs Bogotá
+f793	DIFFERENT	channel: SMS/text vs email
+f794	DIFFERENT	contract count: 20 vs 12
+f795	DIFFERENT	opposite: email students vs don't email students
+f796	DIFFERENT	trigger: chargeback vs legal action
+f797	DIFFERENT	refund destination: company card vs original method
+f798	SAME	translation, same action and timing
+f799	SAME	translation, same action and day
+f800	SAME	translation, same action and condition
+f801	SAME	translation, same action and criterion
+f802	SAME	translation, same action and delivery
+f803	SAME	translation, same action and timing
+f804	DIFFERENT	opposite scope: only interns vs all except interns
+f805	DIFFERENT	count: top 10 vs top 5 issues
+f806	SAME	translation, same action and refund method
+f807	DIFFERENT	recipient: IT manager vs senior engineer
+f808	DIFFERENT	deadline: 48 hours vs 24 hours
+f809	SAME	translation, same action and amount
+f810	SAME	translation, same action and scope
+f811	SAME	translation, same recipient and condition (48 hours = 2 days)
+f812	SAME	translation, same action and threshold
+f813	SAME	translation, same action and details
+f814	DIFFERENT	reroute city: Madrid vs Zaragoza
+f815	DIFFERENT	recipient: factory manager vs quality engineer Lina Ortiz
+f816	SAME	translation, same action and purpose
+f817	DIFFERENT	threshold: $500 vs $200
+f818	SAME	translation, same action and condition
+f819	DIFFERENT	opposite action: reduce speed vs stop line
+f820	SAME	translation, same action and condition
+f821	SAME	translation, same action and amount
+f822	SAME	translation, same action and object
+f823	DIFFERENT	batch: 7738 vs 7783
+f824	DIFFERENT	crop: rice vs wheat
+f825	DIFFERENT	opposite action: resume vs pause
+f826	DIFFERENT	opposite action: close vs escalate
+f827	SAME	translation, same action and condition
+f828	SAME	translation, same event and timing
+f829	DIFFERENT	quarter: Q2 vs Q3
+f830	DIFFERENT	opposite action: close vs escalate
+f831	DIFFERENT	month: November vs October
+f832	SAME	translation, same action and destination
+f833	SAME	translation, same action and recipient
+f834	SAME	translation, same action and purpose
+f835	SAME	translation, same action and frequency
+f836	SAME	translation, same action and format
+f837	SAME	translation, same action and recipient
+f838	SAME	translation, same action and details
+f839	DIFFERENT	timing: next week due vs this week due

@@ -1,0 +1,120 @@
+f360	SAME	two weeks = fourteen days; same action and recipients
+f361	DIFFERENT	recipient differs: Ana Duarte vs Carlos Mendes
+f362	SAME	2 days = 48 hours; same penalty and acceptance terms
+f363	DIFFERENT	property address differs: 24 Maple vs 22 Maple
+f364	DIFFERENT	fertilizer type differs: chemical vs organic
+f365	SAME	same escalation rule for legal action mentions
+f366	SAME	same deadline, method, and requirement across languages
+f367	DIFFERENT	fertilizer type differs: chemical vs organic (abono)
+f368	DIFFERENT	exam type differs: prova final vs parcial
+f369	SAME	same patient, month, and recipient
+f370	DIFFERENT	delivery channel differs: SMS vs email
+f371	DIFFERENT	threshold differs: 5,000 euros vs 50,000 euros
+f372	SAME	same payment condition and timing
+f373	DIFFERENT	time differs: 6 p.m. vs 9 a.m.
+f374	DIFFERENT	time window differs: one day vs sixty minutes
+f375	DIFFERENT	deadline differs: less than 48 hours vs no more than one day
+f376	DIFFERENT	date differs: 25th vs 20th
+f377	DIFFERENT	clause type differs: caps raises vs permits unilateral increases
+f378	SAME	same requirement, deadline, and method
+f379	DIFFERENT	missing document type differs: address proof vs certified ID
+f380	DIFFERENT	time differs: tomorrow night vs tonight
+f381	DIFFERENT	quarter differs: Q2 vs Q3
+f382	DIFFERENT	time window differs: one day vs one hour
+f383	DIFFERENT	goal amount differs: 15,000 vs 50,000 euros
+f384	DIFFERENT	weekend differs: first vs second
+f385	DIFFERENT	bed threshold differs: fewer than five vs fewer than three
+f386	DIFFERENT	rotation frequency differs: 30 days vs 90 days
+f387	SAME	same notification and time window
+f388	DIFFERENT	guest count differs: 210 vs 120
+f389	SAME	same rejection condition and requirement
+f390	DIFFERENT	action differs: postpone (adie) vs cancel (cancela)
+f391	SAME	same escalation rule and condition
+f392	SAME	same room type, hotel, and duration
+f393	SAME	same refund amount and return policy
+f394	SAME	same summary and recipient details
+f395	SAME	same invoice and recipient
+f396	SAME	same escalation threshold and recipient
+f397	SAME	same translation requirement and recipient cohort
+f398	SAME	same wire transfer rule and threshold
+f399	SAME	same contract review and clause flagging
+f400	SAME	same analysis, date, and recipient
+f401	SAME	same dataset year, analysis, and recipient
+f402	DIFFERENT	target language differs: French vs Portuguese
+f403	SAME	same pause condition and campaign scope
+f404	DIFFERENT	time window differs: one day vs one hour
+f405	DIFFERENT	quarter differs: second vs third
+f406	DIFFERENT	shift differs: day shift vs night shift
+f407	SAME	same order quantity, supplier, and delivery date
+f408	DIFFERENT	channel differs: email vs SMS
+f409	DIFFERENT	alert recipient differs: on-call developer vs security team
+f410	DIFFERENT	quarter differs: Q2 vs Q3
+f411	SAME	same daily inspection of 20 units per shift
+f412	DIFFERENT	recipient differs: finance team vs legal team
+f413	SAME	same month, reporter, and threshold
+f414	DIFFERENT	return policy opposite: requires return vs no return required
+f415	SAME	same order details with synonyms
+f416	DIFFERENT	quarter differs: Q3 vs Q2
+f417	DIFFERENT	month differs: August vs September
+f418	DIFFERENT	number of issues differs: top ten vs top five
+f419	DIFFERENT	frequency differs: weekly vs daily
+f420	SAME	same password rotation frequency and alert condition
+f421	DIFFERENT	equipment differs: wind turbines vs solar panels
+f422	SAME	same appointment date, time, and attendees
+f423	DIFFERENT	bed threshold differs: fewer than five vs fewer than three
+f424	SAME	same rerouting condition until strike ends
+f425	SAME	twenty-four hours = one day; same response template and scope
+f426	DIFFERENT	line number differs: line 3 vs line 2
+f427	DIFFERENT	actions opposite: resume vs pause
+f428	DIFFERENT	user differs: mjones vs jsmith
+f429	DIFFERENT	grace period differs: three days vs two days
+f430	DIFFERENT	payment condition opposite: even if not approved vs only if approved
+f431	DIFFERENT	frequency differs: monthly vs weekly
+f432	SAME	same exclusion and timing
+f433	DIFFERENT	bullet count differs: three vs five
+f434	DIFFERENT	day differs: Thursday vs Monday
+f435	DIFFERENT	property address differs: 24 Maple vs 22 Maple
+f436	DIFFERENT	deletion timeline differs: 12 months vs six months
+f437	DIFFERENT	notification channel differs: WhatsApp vs email
+f438	DIFFERENT	year differs: 2024 vs 2025
+f439	DIFFERENT	month differs: November vs October
+f440	SAME	same cancellation condition and threshold
+f441	DIFFERENT	month differs: April vs March
+f442	DIFFERENT	city differs: Medellín vs Bogotá
+f443	DIFFERENT	day differs: Thursday vs Monday
+f444	SAME	same date, destination, and refund method
+f445	SAME	same document, recipient, and deadline
+f446	DIFFERENT	currency differs: dollars vs euros
+f447	SAME	same 6-month deletion requirement
+f448	DIFFERENT	month differs: September vs August
+f449	SAME	same threshold and catering action
+f450	SAME	same email delivery to arriving guests
+f451	SAME	same posting time and platform
+f452	SAME	same analysis scope and top-five report
+f453	SAME	same dataset year and recipient
+f454	SAME	same weekly report scope
+f455	SAME	same document delivery and deadline
+f456	DIFFERENT	channel differs: email vs text/SMS
+f457	DIFFERENT	approval condition opposite: even if not approved vs only if approved
+f458	SAME	same cancellation condition and threshold
+f459	SAME	same recipients and two-week advance timing
+f460	SAME	same SMS reminder and training deadline
+f461	DIFFERENT	platform differs: Facebook vs Instagram
+f462	DIFFERENT	month differs: August vs September
+f463	SAME	same two-day grace period and penalty
+f464	SAME	same weekly solar panel report
+f465	DIFFERENT	date differs: 25th vs 20th
+f466	SAME	same SMS timing and appointment cohort
+f467	SAME	same 48-hour threshold and engineer level
+f468	DIFFERENT	contract count differs: 20 vs twelve
+f469	DIFFERENT	time differs: tomorrow night vs tonight
+f470	SAME	same batch summary and recipient
+f471	SAME	same month, language, and recipient
+f472	SAME	same escalation threshold and recipient
+f473	DIFFERENT	return requirement opposite: requires return vs without return
+f474	DIFFERENT	actions differ: translate vs summarize/resume
+f475	SAME	same SMS timing and appointment cohort
+f476	SAME	same outage notification and time window
+f477	SAME	same cancellation threshold and timing
+f478	SAME	same campaign goal and end date
+f479	DIFFERENT	return policy opposite: requires return vs no return required

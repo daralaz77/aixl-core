@@ -1,0 +1,120 @@
+f240	SAME	reject applications without certified ID copy
+f241	SAME	refund without return for damaged orders
+f242	SAME	send lab results to doctor for patient
+f243	SAME	analyze wheat data, send yield comparison
+f244	SAME	respond to 1-star reviews in 24 hours with template
+f245	DIFFERENT	deadline: April 30 vs March 31
+f246	DIFFERENT	guest count: 210 vs 120
+f247	SAME	cancel flight, refund to original payment method
+f248	DIFFERENT	first weekend vs second weekend of May
+f249	DIFFERENT	currency: $50k vs €50k
+f250	DIFFERENT	deadline: next week vs tomorrow
+f251	DIFFERENT	recipient: factory manager vs quality engineer Lina Ortiz
+f252	DIFFERENT	recipient: on-call developer vs security team
+f253	DIFFERENT	month: January vacation vs December vacation
+f254	SAME	route pallets via Zaragoza during strike
+f255	DIFFERENT	channel: email reminder vs SMS reminder
+f256	DIFFERENT	polarity: do not force change vs force change
+f257	DIFFERENT	shift: day shift vs night shift
+f258	DIFFERENT	crop: rice harvest vs wheat harvest
+f259	SAME	request December vacation by November 15
+f260	DIFFERENT	day: Thursday vs Monday
+f261	DIFFERENT	beds threshold: fewer than 5 vs fewer than 3
+f262	SAME	summarize Q3 compliance audit in 5 points for María López
+f263	DIFFERENT	scope: only video ads vs all ads
+f264	SAME	set campaign goal 50k euros, close May 31
+f265	DIFFERENT	quantity: 800 kilos vs 500 kilos
+f266	SAME	summarize batch 7783 defects, share with Lina Ortiz
+f267	SAME	email speakers travel itineraries 2 weeks before conference
+f268	DIFFERENT	recipient: on-call developer vs security team
+f269	DIFFERENT	time: 48 hours in advance vs 24 hours in advance
+f270	DIFFERENT	bullet points: three vs five
+f271	SAME	cancel Gómez flight, refund to original payment method
+f272	DIFFERENT	action: archive vs purge/delete
+f273	SAME	reschedule cardiology from Monday to Thursday morning
+f274	DIFFERENT	platform: Facebook vs Instagram
+f275	DIFFERENT	deadline direction: before 10pm vs after 10pm
+f276	DIFFERENT	line number: line 3 vs line 2
+f277	SAME	pause all Black Friday Facebook ads until budget approved
+f278	SAME	escalate to supervisor when customer mentions legal action
+f279	DIFFERENT	frequency: monthly vs weekly
+f280	SAME	cancel elective surgeries if ICU has fewer than 3 beds
+f281	DIFFERENT	address: 24 Maple Avenue vs 22 Maple Avenue
+f282	DIFFERENT	month: April 2026 vs March 2026
+f283	SAME	cancel surgeries if ICU has fewer than 3 free beds
+f284	SAME	provide Portuguese Organic Chemistry syllabus for August exchange students
+f285	DIFFERENT	frequency: every 30 days vs every 90 days
+f286	SAME	summarize Q3 compliance audit in 5 points for María López
+f287	SAME	analyze 2025 Bogotá complaints, report top 5 issues
+f288	DIFFERENT	user: mjones vs jsmith
+f289	DIFFERENT	action: translate vs summarize
+f290	DIFFERENT	action: delete vs send invoice
+f291	DIFFERENT	quantity: 800 kilos vs 500 kg
+f292	DIFFERENT	condition: rises above 20% vs falls under 20%
+f293	DIFFERENT	quantity: fifty units vs twenty units
+f294	DIFFERENT	PIN failures threshold: more than 5 vs more than 3
+f295	SAME	escalate to supervisor when customer mentions legal action
+f296	DIFFERENT	deadline direction: from Nov 15 vs by Nov 15
+f297	SAME	post grades on portal, don't email students
+f298	DIFFERENT	closing date: April 30 vs May 31
+f299	SAME	stop line 2 if seal test failure exceeds 1%
+f300	DIFFERENT	goal amount: 15,000 euros vs 50,000 euros
+f301	SAME	alert if field 4 moisture drops below 20%
+f302	SAME	send thank-you email to donors over $1,000
+f303	DIFFERENT	deadline: by Monday vs by Friday
+f304	SAME	email thank-you to donors over $1,000 last year
+f305	DIFFERENT	time window: 8am-noon vs 8am-11am
+f306	SAME	reduce Oak Street house price by 5%
+f307	SAME	summarize March 2026 bed occupancy for Dr. Ramírez
+f308	DIFFERENT	scope: only interns vs all employees except interns
+f309	SAME	cancel catering if fewer than 40 confirm by Wednesday
+f310	DIFFERENT	age threshold: older than 10 years vs older than 7 years
+f311	SAME	pause Black Friday Facebook ads until budget approved
+f312	SAME	summarize batch 7783 defects, share with Lina Ortiz
+f313	SAME	alert if field 4 soil moisture below 20%
+f314	SAME	install latest security patch on Windows sales laptops tonight
+f315	DIFFERENT	frequency: monthly vs weekly report
+f316	DIFFERENT	polarity: do not force change vs force change
+f317	SAME	SMS reminder to night shift nurses about hand hygiene training
+f318	DIFFERENT	action: anonymize vs delete
+f319	DIFFERENT	frequency: every 30 days vs 90-day cycle
+f320	DIFFERENT	timeframe: invoices due next week vs this week
+f321	DIFFERENT	action: resume ads vs pause ads
+f322	SAME	reply to 1-star reviews within 24 hours using template
+f323	SAME	reject permit applications without certified ID copy
+f324	SAME	analyze Laura Pérez September expenses, flag items over $200
+f325	SAME	send Q2 overdraft report to risk committee on Monday
+f326	DIFFERENT	hardware: Mac laptops vs Windows notebooks
+f327	SAME	schedule exit interviews for all except interns leaving October
+f328	DIFFERENT	delay threshold: more than 24 hours vs more than 48 hours
+f329	SAME	review 12 vendor contracts, flag unilateral price clauses
+f330	DIFFERENT	recipient: Dr. Rojas vs Dr. Silva
+f331	SAME	send thank-you email to donors over $1,000 last year
+f332	SAME	analyze Laura Pérez September expenses, flag over $200
+f333	DIFFERENT	PIN attempts: more than 5 vs more than 3
+f334	DIFFERENT	delay threshold: more than 24 hours vs more than 48 hours
+f335	DIFFERENT	deadline: April 30 vs March 31
+f336	DIFFERENT	shift: day shift vs night shift
+f337	SAME	analyze 2025 Bogotá complaints, identify top 5 issues
+f338	DIFFERENT	recipient: Ana Duarte vs Carlos Mendes
+f339	DIFFERENT	escalation target: IT manager vs senior engineer
+f340	DIFFERENT	exam type: final vs midterm
+f341	DIFFERENT	recipient: QA team vs Tomás (specific person)
+f342	DIFFERENT	action: archive vs delete
+f343	SAME	send weekly solar panel report for Cartagena plant
+f344	DIFFERENT	shipment number: 4417 vs 4471
+f345	DIFFERENT	channel: SMS text vs email
+f346	SAME	require second signature for transfers over €50k
+f347	DIFFERENT	duration: four nights vs three nights
+f348	DIFFERENT	quarter: Q3 vs Q2
+f349	DIFFERENT	action: reduce speed vs halt line
+f350	SAME	schedule exit interviews for all except interns in October
+f351	SAME	freeze card if more than 3 PIN failures in 1 hour
+f352	DIFFERENT	quarter: Q2 vs Q3
+f353	DIFFERENT	refund method: company card vs original payment method
+f354	DIFFERENT	escalation target: IT manager vs senior engineer
+f355	DIFFERENT	year: 2024 wheat data vs 2025 wheat data
+f356	DIFFERENT	age threshold: older than 10 years vs older than 7 years
+f357	DIFFERENT	late submission days: up to 3 days vs up to 2 days
+f358	SAME	SMS reminder to patients about appointment 24 hours in advance
+f359	SAME	send weekly solar panel production report for Cartagena

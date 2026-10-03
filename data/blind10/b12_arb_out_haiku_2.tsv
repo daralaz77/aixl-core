@@ -1,0 +1,120 @@
+f120	SAME	Translation; same action, amount, property
+f121	DIFFERENT	Spanish requires return; English explicitly forbids it
+f122	SAME	Translation; same recipients, channel, deadline
+f123	DIFFERENT	Dermatology vs heart-specialist appointment
+f124	DIFFERENT	Online vs in-person filing (opposite conditions)
+f125	SAME	Translation; same action, recipient, deadline
+f126	SAME	Translation; same month, report, recipient
+f127	DIFFERENT	20 contracts vs 12 contracts
+f128	SAME	Translation; same deletion criteria and policy
+f129	DIFFERENT	April 30 vs March 31; different dates
+f130	DIFFERENT	Only refrigerated vs all pallets
+f131	SAME	Translation; same venue, guests, budget, dates
+f132	DIFFERENT	Field 7 vs field 4
+f133	SAME	Translation; same venue, guests, budget, dates
+f134	SAME	Translation; same patch, devices, department, time
+f135	DIFFERENT	Reschedule vs cancel (different actions)
+f136	DIFFERENT	House vs apartment (different property type)
+f137	DIFFERENT	April vs March lab results
+f138	DIFFERENT	Letter by post vs email (different channels)
+f139	DIFFERENT	Pay regardless vs only if approved (opposite conditions)
+f140	DIFFERENT	South vs north district
+f141	SAME	Translation; same condition, scope, timeline
+f142	DIFFERENT	Raise vs lower price (opposite actions)
+f143	SAME	Translation; same patch, time, devices, department
+f144	DIFFERENT	Online vs in-person filing (opposite conditions)
+f145	DIFFERENT	24 hours vs 48 hours threshold
+f146	DIFFERENT	Raise vs lower (opposite actions)
+f147	DIFFERENT	$500 vs $1,000 threshold
+f148	DIFFERENT	WhatsApp vs email notification channel
+f149	SAME	Translation; same amount, date, campaign
+f150	SAME	Translation; same donation amount, notification
+f151	SAME	Translation; twelve=doce contracts, same review criteria
+f152	DIFFERENT	Day-shift nurses vs night-shift nurses
+f153	DIFFERENT	April vs March lab results
+f154	DIFFERENT	September vs August arrival date
+f155	DIFFERENT	French vs Portuguese translation target
+f156	SAME	Translation; same viewing time, property, recipients
+f157	SAME	Translation; same password reset, login requirement
+f158	SAME	Translation; same service, environment, time constraint
+f159	DIFFERENT	September vs October invoice month
+f160	SAME	Translation; same syllabus, target, students
+f161	SAME	Translation; same invoice month, recipient, location
+f162	DIFFERENT	30 days vs 90 days rotation frequency
+f163	DIFFERENT	10% vs 5% price reduction
+f164	DIFFERENT	24 hours vs 48 hours delay threshold
+f165	DIFFERENT	Close vs escalate (opposite actions)
+f166	SAME	Translation; same invoices, condition, approval
+f167	SAME	Translation; same delay threshold, channel
+f168	SAME	Translation; same frequency, sample size, scope
+f169	SAME	Translation; same requirement, deadline, method
+f170	DIFFERENT	September vs October invoice month
+f171	SAME	Translation; same ads, campaign, approval condition
+f172	DIFFERENT	50 units vs 20 units sample size
+f173	DIFFERENT	$50,000 vs €50,000 (different currencies)
+f174	SAME	Translation; same invoice, recipient, deadline
+f175	DIFFERENT	Production vs staging (opposite deployment targets)
+f176	DIFFERENT	Sunday vs Saturday viewing date
+f177	SAME	Translation; same venue, guests, budget, dates
+f178	DIFFERENT	April 30 vs May 31 closing date
+f179	DIFFERENT	Batch 7738 vs batch 7783
+f180	SAME	Translation; same invoices, condition, scope
+f181	SAME	Translation; same card block trigger (3+ attempts/hour)
+f182	DIFFERENT	Two-star vs one-star review threshold
+f183	DIFFERENT	48 hours vs 24 hours advance notice
+f184	DIFFERENT	25th vs 20th flight cancellation date
+f185	DIFFERENT	QA team vs Tomás (different recipients)
+f186	DIFFERENT	Rice vs wheat harvest dataset
+f187	SAME	Translation; same password reset, login requirement
+f188	DIFFERENT	April 30 vs May 31 closing date
+f189	DIFFERENT	Only video ads vs all paid ads
+f190	SAME	Translation; same line, trigger threshold, action
+f191	SAME	Translation; same essay, late days, penalty
+f192	DIFFERENT	Wind turbine vs solar panels output
+f193	DIFFERENT	Friday vs Wednesday deadline
+f194	DIFFERENT	Q3 vs Q2 (different quarters)
+f195	DIFFERENT	From Nov 15 (start date) vs by Nov 15 (deadline)
+f196	SAME	Translation; 48 hours=2 days threshold
+f197	DIFFERENT	24 hours vs 48 hours escalation threshold
+f198	SAME	Translation; same summary, property, recipients
+f199	SAME	Translation; same rejection criteria, ID requirement
+f200	DIFFERENT	6 p.m. vs 9 a.m. posting time
+f201	SAME	Translation; Q2=2º trimestre, same report scope
+f202	DIFFERENT	5+ attempts vs 3+ attempts card lock threshold
+f203	SAME	Translation; same delay, channel, notification
+f204	SAME	Translation; same SMS reminder, shift, deadline
+f205	SAME	Translation; same summary, property, recipients
+f206	SAME	Translation; same NDA, recipient, deadline
+f207	SAME	Translation; same campaign target, May 31 date
+f208	DIFFERENT	Reduce speed vs stop line (different actions)
+f209	SAME	Translation; same deadline, vacation requests
+f210	SAME	Translation; pause/hold are synonyms
+f211	DIFFERENT	Archive vs delete (different actions)
+f212	DIFFERENT	Online vs in-person filing (opposite conditions)
+f213	DIFFERENT	Q2 vs Q3 report quarter
+f214	DIFFERENT	Wednesday vs Thursday rescheduling day
+f215	DIFFERENT	Email vs SMS notification channel
+f216	SAME	Translation; same patch, devices, department, time
+f217	DIFFERENT	Delete vs send invoice (opposite actions)
+f218	DIFFERENT	English vs Portuguese translation target
+f219	SAME	Translation; same service, staging deployment, time
+f220	SAME	Translation; same card block trigger (3+ PIN attempts)
+f221	SAME	Translation; 6 months=half year deletion trigger
+f222	SAME	Translation; same grade posting, no-email condition
+f223	SAME	Translation; same viewing time, property, recipients
+f224	SAME	Translation; same Instagram post, Tuesday 9am
+f225	DIFFERENT	Ana Duarte vs Carlos Mendes recipient
+f226	SAME	Translation; same vacation requests, Nov 15 deadline
+f227	DIFFERENT	Sunday vs Saturday viewing date
+f228	DIFFERENT	Monday vs Friday deadline
+f229	SAME	Translation; same SMS, patients, 24-hour advance
+f230	DIFFERENT	Next week vs this week payment window
+f231	DIFFERENT	House vs apartment property type
+f232	DIFFERENT	WhatsApp vs email notification channel
+f233	DIFFERENT	Dermatology vs cardiology appointment
+f234	DIFFERENT	Reduce vs cancel catering order
+f235	DIFFERENT	Income tax vs IVA (value-added tax)
+f236	SAME	Translation; same self check-in instructions, recipients
+f237	SAME	Translation; same 90-day rotation, failure alert
+f238	SAME	Translation; same invoices, condition, approval
+f239	SAME	Translation; twelve=12 contracts, same clause review

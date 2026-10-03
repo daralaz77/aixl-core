@@ -1,0 +1,20 @@
+
+stage 2: judged 840 pairs (Sonnet 840, Haiku 840 verdicts)
+  arbiter alone (all 840)      Sonnet  equivalent SAME 360/360 = 100.0% | near-miss SAME   5/480 =   1.0%
+  arbiter alone (all 840)      Haiku   equivalent SAME 359/360 =  99.7% | near-miss SAME  14/480 =   2.9%
+  arbiter alone (all 840)      2-of-2  equivalent SAME 359/360 =  99.7% | near-miss SAME   0/480 =   0.0%
+  funnel K1 canonical equality Sonnet  equivalent SAME  57/57 = 100.0% | near-miss SAME   0/77 =   0.0%
+  funnel K1 canonical equality Haiku   equivalent SAME  56/57 =  98.2% | near-miss SAME   2/77 =   2.6%
+  funnel K1 canonical equality 2-of-2  equivalent SAME  56/57 =  98.2% | near-miss SAME   0/77 =   0.0%
+  funnel K2 fingerprint equality Sonnet  equivalent SAME  57/57 = 100.0% | near-miss SAME   0/77 =   0.0%
+  funnel K2 fingerprint equality Haiku   equivalent SAME  56/57 =  98.2% | near-miss SAME   2/77 =   2.6%
+  funnel K2 fingerprint equality 2-of-2  equivalent SAME  56/57 =  98.2% | near-miss SAME   0/77 =   0.0%
+  funnel K3 lexical J>=0.1     Sonnet  equivalent SAME 217/217 = 100.0% | near-miss SAME   2/311 =   0.6%
+  funnel K3 lexical J>=0.1     Haiku   equivalent SAME 216/217 =  99.5% | near-miss SAME   6/311 =   1.9%
+  funnel K3 lexical J>=0.1     2-of-2  equivalent SAME 216/217 =  99.5% | near-miss SAME   0/311 =   0.0%
+  funnel K3 lexical J>=0.2     Sonnet  equivalent SAME 103/103 = 100.0% | near-miss SAME   2/223 =   0.9%
+  funnel K3 lexical J>=0.2     Haiku   equivalent SAME 103/103 = 100.0% | near-miss SAME   5/223 =   2.2%
+  funnel K3 lexical J>=0.2     2-of-2  equivalent SAME 103/103 = 100.0% | near-miss SAME   0/223 =   0.0%
+  funnel K3 lexical J>=0.3     Sonnet  equivalent SAME  44/44 = 100.0% | near-miss SAME   0/174 =   0.0%
+  funnel K3 lexical J>=0.3     Haiku   equivalent SAME  44/44 = 100.0% | near-miss SAME   4/174 =   2.3%
+  funnel K3 lexical J>=0.3     2-of-2  equivalent SAME  44/44 = 100.0% | near-miss SAME   0/174 =   0.0%

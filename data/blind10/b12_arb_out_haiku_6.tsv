@@ -1,0 +1,120 @@
+f600	SAME	Both summarize bed occupancy report for Dr. Ramírez, March 2026
+f601	DIFFERENT	Translation target language differs: English vs Portuguese
+f602	DIFFERENT	Timing differs: tomorrow night vs tonight
+f603	DIFFERENT	Soil condition direction opposite: rises above vs falls below
+f604	DIFFERENT	Time direction opposite: before 22h vs after 22h
+f605	DIFFERENT	Target day differs: Wednesday vs Thursday
+f606	DIFFERENT	Duration differs: 4 nights vs 3 nights
+f607	DIFFERENT	PIN attempt threshold differs: 5 vs 3
+f608	SAME	Both analyze error logs and send findings to Tomás
+f609	SAME	Both summarize bed occupancy report for Dr. Ramírez, March 2026
+f610	DIFFERENT	End time differs: noon vs 11 a.m.
+f611	DIFFERENT	Platform differs: Facebook vs Instagram
+f612	DIFFERENT	Time differs: 6 p.m. vs morning 9 a.m.
+f613	SAME	Both send Juan Torres March lab results to Dr. Silva
+f614	DIFFERENT	Field number differs: field 7 vs field 4
+f615	DIFFERENT	Shipment number differs: 4417 vs 4471
+f616	DIFFERENT	Recipient differs: Dr. Rojas vs Dr. Silva
+f617	DIFFERENT	Method requirement opposite: online vs in person
+f618	SAME	Both translate Organic Chemistry syllabus to Portuguese for exchange students
+f619	SAME	Both send thank-you email to donors contributing over 1000 dollars
+f620	SAME	Both book Lisbon venue 120 guests, second May weekend, under 15k euros
+f621	SAME	Both schedule Rua Augusta apartment viewing Saturday 11 a.m. with Santos couple
+f622	SAME	Both remind citizens property tax forms filed in person, not online, before March 31
+f623	SAME	Both inspect 20-unit random sample from each shift daily
+f624	DIFFERENT	Recipient differs: finance team vs legal team
+f625	SAME	Both send invoice 4471 to Carla Mendes by tomorrow
+f626	DIFFERENT	Missing document type differs: address proof vs ID copy
+f627	SAME	Both allow final essays 2 days late with 10% per day penalty
+f628	DIFFERENT	Action type differs: reduce vs cancel catering
+f629	DIFFERENT	Record age threshold differs: 10 years vs 7 years
+f630	DIFFERENT	Trigger term differs: chargeback vs legal proceedings
+f631	DIFFERENT	Recipient differs: finance team vs legal team
+f632	DIFFERENT	Device type differs: Mac vs Windows
+f633	SAME	Both analyze error logs and send findings to Tomás
+f634	DIFFERENT	Channel differs: email vs SMS
+f635	SAME	Both analyze 2025 Bogotá complaints dataset, report top 5 issues
+f636	DIFFERENT	Donor amount threshold differs: 500 vs 1000 dollars
+f637	DIFFERENT	Energy source differs: wind turbine vs solar panel
+f638	SAME	Both arrange Santos couple to view Rua Augusta apartment Saturday 11 a.m.
+f639	SAME	Both send Q2 overdraft report to risk committee on Monday
+f640	SAME	Both reset password and force change at next login
+f641	DIFFERENT	Trigger condition differs: chargeback vs legal threat
+f642	DIFFERENT	Shipment number differs: 4417 vs 4471
+f643	SAME	Both reserve double room Hotel Sol Lisbon 3 nights from June 12
+f644	DIFFERENT	Environment differs: production vs staging
+f645	DIFFERENT	Issue count differs: top 10 vs top 5
+f646	DIFFERENT	Action type differs: translate vs summarize
+f647	SAME	Both email customers for packages delayed over 24 hours
+f648	SAME	Both return permit applications without ID copy for correction
+f649	DIFFERENT	Action differs: anonymize vs delete records
+f650	DIFFERENT	ICU threshold differs: 5 free beds vs 3 free beds
+f651	SAME	Both reduce Oak Street house price by 5%
+f652	DIFFERENT	Soil condition direction opposite: rises above vs drops below
+f653	SAME	Both install latest security patch on Windows sales laptops tonight
+f654	SAME	Both calculate Q3 VAT and send to accountant
+f655	SAME	Both return permit applications without ID copy
+f656	DIFFERENT	Room type differs: single vs double
+f657	DIFFERENT	Fertilizer quantity differs: 800 kg vs 500 kg
+f658	SAME	Both send October electricity bill to Calle 45 tenant
+f659	DIFFERENT	Late submission days differ: 3 days vs 2 days
+f660	SAME	Both summarize Q3 compliance audit for María López in 5 bullet points
+f661	DIFFERENT	Environment differs: production vs staging
+f662	DIFFERENT	Issue count differs: top 10 vs top 5
+f663	DIFFERENT	Action type differs: translate vs summarize
+f664	DIFFERENT	Day differs: Thursday vs Monday
+f665	SAME	Both summarize appraisal report of 22 Maple Avenue for investor group
+f666	DIFFERENT	Appointment type differs: dermatology vs cardiology
+f667	DIFFERENT	Harvest year differs: 2024 vs 2025
+f668	SAME	Both email speakers travel itineraries 2 weeks before conference
+f669	DIFFERENT	Late penalty differs: 5% vs 10%
+f670	SAME	Both require second signature for wire transfers over 50k euros
+f671	SAME	Both schedule Instagram spring sale post Tuesday 9 a.m.
+f672	DIFFERENT	Frequency differs: weekly vs daily
+f673	SAME	Both stop line 2 if over 1% bottles fail seal test
+f674	SAME	Both schedule exit interviews for October departing employees except interns
+f675	SAME	Both remind night-shift nurses by SMS of hygiene training deadline Friday
+f676	SAME	Both offer full refund without return for damaged orders
+f677	SAME	Both send invoice 4471 to Carla Mendes by tomorrow
+f678	SAME	Both deploy version 2.3.1 to staging (not production) after 10 p.m.
+f679	SAME	Both freeze cards with 3+ failed PIN attempts within 1 hour
+f680	DIFFERENT	Vacation month differs: January vs December
+f681	DIFFERENT	Deadline day differs: Monday vs Friday
+f682	SAME	Both send invoice 4471 to Carla Mendes by tomorrow
+f683	SAME	Both delete customer records older than 7 years per policy
+f684	DIFFERENT	Quarter differs: Q3 vs Q2
+f685	SAME	Both reschedule cardiology appointment from Monday to Thursday morning
+f686	SAME	Both lower Oak Street house price by 5%
+f687	DIFFERENT	Refund amount differs: 50% vs full/integral
+f688	SAME	Both send SMS reminder to patients 24 hours before appointment
+f689	DIFFERENT	Timeframe differs: last week vs yesterday
+f690	DIFFERENT	Post time differs: 6 p.m. vs 9 a.m.
+f691	DIFFERENT	Price reduction percentage differs: 10% vs 5%
+f692	SAME	Both cancel Gómez flight to Bogotá on 20th with refund
+f693	SAME	Both review vendor contracts and flag price-cap clauses
+f694	SAME	Both email self check-in instructions to arriving guests
+f695	DIFFERENT	Recipient differs: factory manager vs Lina Ortiz quality engineer
+f696	DIFFERENT	Request timing direction differs: starting from 15th vs by 15th
+f697	DIFFERENT	Timeframe differs: last week vs yesterday
+f698	SAME	Both review vendor contracts and flag unilateral price clauses
+f699	DIFFERENT	Password change requirement opposite: do not force vs force
+f700	DIFFERENT	Delivery timeframe differs: next week vs tomorrow
+f701	DIFFERENT	Batch number differs: 7738 vs 7783
+f702	DIFFERENT	End time differs: noon vs 11 a.m.
+f703	SAME	Both analyze 2025 wheat harvest and send yield comparison to Pedro
+f704	SAME	Both analyze error logs and send findings to Tomás
+f705	DIFFERENT	Reroute city differs: Zaragoza vs Madrid
+f706	SAME	Both reply to 1-star reviews within 24 hours using apology template
+f707	SAME	Both email speakers travel itineraries 2 weeks before conference
+f708	SAME	Both book Lisbon venue 120 guests, second May weekend, under 15k euros
+f709	SAME	Both require second signature for transfers over 50k euros
+f710	SAME	Both pause Facebook Black Friday ads until budget approval
+f711	SAME	Both cancel Gómez flight to Bogotá 20th with refund
+f712	DIFFERENT	Time threshold differs: 24 hours vs 48 hours
+f713	SAME	Both analyze 2025 Bogotá complaints and report top 5 issues
+f714	SAME	Both request December vacation submissions from managers by November 15
+f715	DIFFERENT	Delivery channel differs: postal letter vs email
+f716	DIFFERENT	Reroute city differs: Madrid vs Zaragoza
+f717	SAME	Both summarize batch 7783 defect data for Lina Ortiz
+f718	DIFFERENT	Transfer amount threshold differs: 5000 euros vs 50000 euros
+f719	DIFFERENT	District differs: south vs north
