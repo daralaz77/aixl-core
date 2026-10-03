@@ -1,0 +1,120 @@
+j120	SAME	Archive resolved tickets > 30 days; number word vs digit OK
+j121	DIFFERENT	Second adds condition: before deploy to production
+j122	SAME	Send quarterly report to council by Monday; translation OK
+j123	DIFFERENT	Opposite: keep confidential vs share publicly
+j124	SAME	Log all financial transactions; synonyms OK
+j125	SAME	Transfer 50K to marketing; number format OK
+j126	DIFFERENT	Opposite: HTTPS vs HTTP without encryption
+j127	DIFFERENT	Opposite: require clearance vs allow anyone
+j128	DIFFERENT	Opposite: multi-factor vs password only
+j129	DIFFERENT	Opposite: send vs don't send
+j130	DIFFERENT	Different room: B vs C
+j131	DIFFERENT	Different duration: 1 year vs 2 years
+j132	DIFFERENT	Opposite: increase to 100 vs reduce to 50
+j133	DIFFERENT	Opposite: open vs close port
+j134	DIFFERENT	Opposite: allow vs block remote access
+j135	DIFFERENT	Second adds detail: about scheduled maintenance
+j136	SAME	Cancel subscription and refund; order variation OK
+j137	DIFFERENT	Opposite: hold until cleared vs release before
+j138	DIFFERENT	Different channel: SMS vs Slack
+j139	DIFFERENT	Opposite: approve vs don't approve
+j140	DIFFERENT	Different number: 10 vs 15 members
+j141	DIFFERENT	Different condition: damaged vs late
+j142	SAME	Print labels for main catalog; synonyms OK
+j143	DIFFERENT	Second adds condition: with budget limit
+j144	DIFFERENT	Second specifies format: as PDF
+j145	SAME	Password change every 90 days; number word vs digit OK
+j146	DIFFERENT	Different time: 11 PM vs 11 AM
+j147	DIFFERENT	Different timeframe: 5 years vs 3 years
+j148	DIFFERENT	Different grade: 7th year vs 8th year
+j149	DIFFERENT	First adds condition: after tests pass
+j150	DIFFERENT	Second specifies topic: security policies
+j151	SAME	Modify DNS for new server; synonyms OK
+j152	DIFFERENT	Opposite: publish vs hold updates
+j153	DIFFERENT	Opposite: real-time vs quarterly sync
+j154	SAME	Approve purchases under $1000; number format OK
+j155	DIFFERENT	Second specifies: labor law specialist
+j156	DIFFERENT	Second specifies: for critical servers
+j157	DIFFERENT	Opposite: allow vs block API access
+j158	DIFFERENT	Second adds: with high priority
+j159	DIFFERENT	Opposite: backup vs delete without backup
+j160	DIFFERENT	Second specifies: economy class
+j161	DIFFERENT	Second specifies: for admin users
+j162	DIFFERENT	Second specifies: from last 24 hours
+j163	SAME	Close/archive resolved tickets after 30 days; synonyms OK
+j164	DIFFERENT	Second adds: high priority and 24-hour deadline
+j165	DIFFERENT	Opposite: activate vs turn off maintenance
+j166	SAME	Wait for 2 reviewer approvals before merge; phrasing OK
+j167	DIFFERENT	Opposite: allow vs block auto-registration
+j168	SAME	Send replacement via express courier; synonyms OK
+j169	SAME	Review audit logs for suspicious activity 7 days; synonyms OK
+j170	DIFFERENT	Opposite: archive vs summarize
+j171	SAME	Verify inventory end of month; synonyms OK
+j172	DIFFERENT	Different environment: production vs development
+j173	DIFFERENT	Second specifies: focus on methodology
+j174	SAME	Email all staff about training deadline; synonyms OK
+j175	DIFFERENT	Second excludes development environment
+j176	DIFFERENT	Different frequency: hourly vs daily
+j177	DIFFERENT	Different channel: call vs write/email
+j178	DIFFERENT	Opposite: read-only vs full access
+j179	DIFFERENT	Different file: original vs updated CSV
+j180	DIFFERENT	Opposite: raise prices vs lower prices
+j181	DIFFERENT	Opposite: require validation vs allow without
+j182	SAME	Disable accounts inactive 6 months; synonyms OK
+j183	DIFFERENT	Different clause: renewal vs termination
+j184	SAME	Send invoice to client by Friday/end-of-week; timing OK
+j185	DIFFERENT	Opposite: encrypt vs plain text
+j186	DIFFERENT	Second specifies: into main branch
+j187	DIFFERENT	Second specifies: overnight delivery
+j188	DIFFERENT	Second adds: also SMS
+j189	DIFFERENT	Second adds: before noon
+j190	SAME	Install/deploy SSL on primary server; synonyms OK
+j191	DIFFERENT	Opposite: show vs hide errors
+j192	SAME	Unsubscribe customers with unpaid invoices; synonyms OK
+j193	DIFFERENT	Opposite: keep on vs turn off
+j194	DIFFERENT	Second specifies: on public web servers
+j195	DIFFERENT	Different encryption: AES-256 vs AES-128
+j196	DIFFERENT	Opposite: increase vs reduce storage
+j197	DIFFERENT	Different recipient: Campinas vs Santos
+j198	DIFFERENT	Different day: 1st vs 15th of month
+j199	DIFFERENT	Opposite deadline: before Tuesday vs after Wednesday
+j200	DIFFERENT	Different recipient: CFO vs CEO
+j201	SAME	Grant read-only to auditors on finance folder; synonyms OK
+j202	DIFFERENT	Second specifies: to prevent SQL injection
+j203	DIFFERENT	Different day: 15 vs 25
+j204	SAME	Reserve 10-person meeting room Thursday afternoon; synonyms OK
+j205	DIFFERENT	Second specifies: during traffic peaks
+j206	DIFFERENT	Opposite: grant vs remove admin privileges
+j207	DIFFERENT	Opposite: hire vs reject
+j208	DIFFERENT	Second specifies: from 2023 fiscal year
+j209	DIFFERENT	Different target: 100 vs 50 connections
+j210	SAME	Update API docs with new endpoints; synonyms OK
+j211	SAME	Notify warehouse manager when shipment leaves; synonyms OK
+j212	DIFFERENT	Opposite timing: before vs after maintenance
+j213	SAME	Delete backups older than 1 year; synonyms OK
+j214	DIFFERENT	Second specifies: last quarter in Excel format
+j215	DIFFERENT	Opposite: grant vs revoke supplier access
+j216	SAME	Escalate to network team if latency > 300ms; order OK
+j217	SAME	Backup production DB nightly at 2am; order variation OK
+j218	DIFFERENT	Opposite: include vs don't include attachment
+j219	DIFFERENT	Different duration: 30 vs 60 minutes
+j220	DIFFERENT	Different type: temporary vs permanent staff
+j221	SAME	Schedule follow-up with patient in 2 weeks; synonyms OK
+j222	DIFFERENT	Opposite: delete vs save draft
+j223	DIFFERENT	Second specifies: order 8812
+j224	DIFFERENT	Different timeframe: today's orders vs yesterday's
+j225	DIFFERENT	Second specifies: via Zoom during business hours
+j226	DIFFERENT	Different quantity: 50 vs 500 boxes
+j227	DIFFERENT	Opposite: approve vs reject vacation
+j228	SAME	Remove temp files before backup; synonyms OK
+j229	DIFFERENT	Opposite: accept vs don't accept return
+j230	DIFFERENT	Opposite: suspend vs reactivate
+j231	DIFFERENT	Second specifies: 30 minutes duration
+j232	DIFFERENT	Different percentage: 15% vs 25%
+j233	SAME	Review lease and mark penalty clauses; synonyms OK
+j234	SAME	Call supplier to confirm delivery; synonyms OK
+j235	DIFFERENT	Opposite: approve vs reject budget
+j236	DIFFERENT	Opposite: schedule vs cancel meeting
+j237	DIFFERENT	Second specifies: on Google Drive
+j238	DIFFERENT	Second specifies: server config via control panel
+j239	DIFFERENT	Opposite: limit vs allow unlimited requests

@@ -1,0 +1,120 @@
+j000	DIFFERENT	Opposite: renew vs don't renew
+j001	DIFFERENT	Different objects: invoice vs quote
+j002	SAME	Same action, duration, condition; different order
+j003	DIFFERENT	Second adds recipient condition: subscriptions expiring soon
+j004	DIFFERENT	Opposite timing: every session vs never during session
+j005	DIFFERENT	First has no deadline; second specifies March 3
+j006	SAME	Same action, scope, synonyms (turn off vs disable)
+j007	SAME	Same action, time, location; different phrasing
+j008	SAME	Same action, channel, object; translation only
+j009	DIFFERENT	Different channels: email vs SMS
+j010	DIFFERENT	Second adds scope: detailed response examples
+j011	DIFFERENT	Second adds condition: refrigerated samples
+j012	DIFFERENT	Second specifies subset: critical customer databases
+j013	SAME	Same action, target capacity; translation only
+j014	DIFFERENT	Second adds currency specification: euros
+j015	DIFFERENT	Opposite: keep running 24/7 vs shut down and keep shut down
+j016	SAME	Same action, time (week=seven days), conditions
+j017	DIFFERENT	Second specifies channel: WhatsApp
+j018	DIFFERENT	Different frequency: monthly vs quarterly
+j019	DIFFERENT	Second adds time specification: tonight
+j020	DIFFERENT	Second specifies scope: production, weekend timing
+j021	DIFFERENT	Opposite: enable safe mode vs disable safe mode
+j022	DIFFERENT	Opposite: enable vs disable
+j023	DIFFERENT	Different scope: admin only vs all accounts
+j024	DIFFERENT	Opposite: keep vs delete immediately
+j025	DIFFERENT	Different formats: PDF vs Excel
+j026	DIFFERENT	Opposite: store indefinitely vs delete immediately
+j027	DIFFERENT	Different percentages: 10% vs 20%
+j028	DIFFERENT	Opposite: allow vs forbid calculators
+j029	SAME	Same action, recipient, subject matter
+j030	DIFFERENT	Different servers: database vs cache
+j031	SAME	Same action, order number; synonyms
+j032	SAME	Same action, object; translation only
+j033	DIFFERENT	Opposite: enable vs disable
+j034	DIFFERENT	Second specifies scope: all warehouse locations
+j035	DIFFERENT	Opposite: upgrade tonight vs don't upgrade
+j036	DIFFERENT	First specifies frequency (every 90 days); second does not
+j037	SAME	Same action, recipients, subject, timing
+j038	SAME	Same action, timing context
+j039	SAME	Same action, subject (new admin user)
+j040	DIFFERENT	Second specifies time range: January to March
+j041	DIFFERENT	Opposite status changes: paid vs pending payment
+j042	DIFFERENT	Different teams: frontend vs QA
+j043	DIFFERENT	Second specifies time period: last month
+j044	DIFFERENT	First general; second specific: vacation section
+j045	DIFFERENT	Second specifies: security logs, recent days
+j046	DIFFERENT	Second specifies region: Europe
+j047	DIFFERENT	Second specifies context: departmental file shares
+j048	DIFFERENT	Different frequencies: daily vs weekly
+j049	DIFFERENT	Second specifies quantity: five
+j050	SAME	Same action, condition; different word order
+j051	DIFFERENT	Second specifies source and destination
+j052	DIFFERENT	Different recipients: infrastructure vs security
+j053	SAME	Same action, object, format; synonyms
+j054	DIFFERENT	Different objects: presentation vs spreadsheet
+j055	DIFFERENT	Different channels: website vs social media
+j056	DIFFERENT	Different conditions: end time vs start time
+j057	DIFFERENT	Opposite: enable vs disable
+j058	SAME	Same action, object, quantity
+j059	SAME	Same action, subject, method
+j060	DIFFERENT	Archive vs delete are different actions
+j061	DIFFERENT	Second adds price condition: less than 5000 pesos
+j062	DIFFERENT	Different target numbers: 6 vs 8 nodes
+j063	DIFFERENT	Second adds equipment specification: lift gate
+j064	SAME	Same action; translation only
+j065	DIFFERENT	Second adds deadline: 5 PM
+j066	DIFFERENT	Different recipients: lawyer vs accountant
+j067	DIFFERENT	Second specifies time period: last month
+j068	DIFFERENT	Different amounts: $500 vs $1000
+j069	SAME	Same action, subject, timing, recipients
+j070	SAME	Same action: quarterly report, Q3 revenue by region
+j071	DIFFERENT	Opposite: send today vs hold and don't send
+j072	SAME	Same action, frequency, subject
+j073	DIFFERENT	Opposite: compress vs decompress
+j074	DIFFERENT	Opposite: charge vs don't charge shipping fee
+j075	DIFFERENT	Opposite: apply immediately vs delay indefinitely
+j076	SAME	Same action: per-user storage quotas
+j077	DIFFERENT	Opposite: always require vs never require signature
+j078	DIFFERENT	Different timing: before due date vs after
+j079	DIFFERENT	Opposite: assign to developers vs no developer works
+j080	SAME	Same action, condition; translation only
+j081	DIFFERENT	Different locations: local server vs cloud
+j082	DIFFERENT	Second specifies channel: LinkedIn
+j083	DIFFERENT	Different when: automatic after session vs manual
+j084	DIFFERENT	Second specifies method: OAuth2 for external apps
+j085	DIFFERENT	Different times: 5 PM vs 3 PM
+j086	DIFFERENT	Second specifies: monthly frequency, board of directors
+j087	DIFFERENT	Opposite: publish today vs don't publish
+j088	SAME	Same action: validate passwords meet security requirements
+j089	DIFFERENT	Different percentages: 10% vs 15%
+j090	SAME	Same action: encrypt in transit, protect storage
+j091	SAME	Same action, timing; different word order
+j092	DIFFERENT	Opposite: approve vs deny
+j093	DIFFERENT	Different target languages: Spanish vs Italian
+j094	SAME	Same action; different word order
+j095	DIFFERENT	Different formats: CSV vs PDF
+j096	DIFFERENT	Different scope: VIP only vs all customers
+j097	DIFFERENT	Opposite: include vs exclude minors
+j098	DIFFERENT	Second adds deadline: by Friday
+j099	DIFFERENT	Second adds visualization: bar charts
+j100	DIFFERENT	Different frequencies: every hour vs every 6 hours
+j101	DIFFERENT	First has no recipient specified; second specifies customer finance dept
+j102	DIFFERENT	Second specifies method: double-sided
+j103	DIFFERENT	Second specifies scope: cover expanded team
+j104	SAME	Same condition and action
+j105	SAME	Same action; translation only
+j106	SAME	Same action; translation only
+j107	DIFFERENT	Different days: Tuesday vs Thursday
+j108	DIFFERENT	Different recipients: patient vs doctor
+j109	DIFFERENT	Opposite: lock vs unlock
+j110	DIFFERENT	Different teams: development vs QA
+j111	DIFFERENT	Different days: Saturday vs Sunday
+j112	DIFFERENT	Different target branches: develop vs main
+j113	DIFFERENT	Opposite: increase vs eliminate budget
+j114	DIFFERENT	Different times: 8 AM vs 6 PM
+j115	DIFFERENT	Opposite: automate vs manual process
+j116	SAME	Same action; translation only
+j117	DIFFERENT	Second specifies timing: next week
+j118	DIFFERENT	Different trigger numbers: twice vs three times
+j119	DIFFERENT	Different durations: 30 days vs 90 days

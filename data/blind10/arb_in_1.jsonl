@@ -1,0 +1,120 @@
+{"id": "j000", "a": "Renove o contrato do fornecedor.", "b": "No renueves el contrato del proveedor."}
+{"id": "j001", "a": "Send the invoice to the billing department.", "b": "Send the quote to the billing department."}
+{"id": "j002", "a": "Os pacientes devem jejuar oito horas antes do exame de sangue.", "b": "Antes do exame de sangue, os pacientes precisam ficar em jejum por 8 horas."}
+{"id": "j003", "a": "Send notifications to users", "b": "Send notifications to users whose subscriptions are expiring soon"}
+{"id": "j004", "a": "Fazer refresh da aplicação a cada sessão do usuário", "b": "Nunca fazer refresh da aplicação durante a sessão"}
+{"id": "j005", "a": "Renove o certificado SSL do site.", "b": "Renew the website's SSL certificate before it expires on March 3."}
+{"id": "j006", "a": "Desativar a função de login automático para todos os usuários", "b": "Turn off auto-login capability across all user accounts"}
+{"id": "j007", "a": "Programa la migración de servidores para el sábado a medianoche.", "b": "La migración de servidores debe programarse para la medianoche del sábado."}
+{"id": "j008", "a": "Publish the release notes on the company blog.", "b": "Publique as notas de versão no blog da empresa."}
+{"id": "j009", "a": "Notify customers via email about the service outage", "b": "Notify customers via SMS about the service outage"}
+{"id": "j010", "a": "Document API endpoints", "b": "Document all API endpoints with detailed response examples"}
+{"id": "j011", "a": "Envía las muestras al laboratorio.", "b": "Envie as amostras refrigeradas ao laboratório."}
+{"id": "j012", "a": "Crear respaldos de datos", "b": "Crear respaldos de datos de las bases de datos de clientes críticas"}
+{"id": "j013", "a": "Aumentar o limite de memória da máquina virtual para 16GB", "b": "Upgrade the virtual machine's memory capacity to 16GB"}
+{"id": "j014", "a": "Generate an invoice for the consulting work.", "b": "Generate an invoice in euros for the consulting work."}
+{"id": "j015", "a": "Manter o servidor em execução 24/7", "b": "Desligar o servidor imediatamente e mantê-lo desligado"}
+{"id": "j016", "a": "Compress the log files older than a week and move them to cold storage.", "b": "Move log files older than seven days to cold storage after compressing them."}
+{"id": "j017", "a": "Envía el presupuesto al cliente.", "b": "Envie o orçamento ao cliente por WhatsApp."}
+{"id": "j018", "a": "Send monthly reports to internal stakeholders", "b": "Send quarterly reports to internal stakeholders"}
+{"id": "j019", "a": "Reinicia el servidor de correo.", "b": "Reinicia el servidor de correo esta noche."}
+{"id": "j020", "a": "Programar a manutenção do servidor", "b": "Programar a manutenção do servidor de produção no fim de semana"}
+{"id": "j021", "a": "Ativar o modo seguro do banco de dados", "b": "Desativar o modo seguro do banco de dados"}
+{"id": "j022", "a": "Keep the feature enabled for beta testing", "b": "Disable the feature completely during beta testing"}
+{"id": "j023", "a": "Require two-factor authentication for admin accounts only", "b": "Require two-factor authentication for all accounts"}
+{"id": "j024", "a": "Mantenha o histórico de chamados por cinco anos.", "b": "Elimina el historial de tickets de inmediato."}
+{"id": "j025", "a": "O relatório deve ser entregue em formato PDF", "b": "O relatório deve ser entregue em formato Excel"}
+{"id": "j026", "a": "Store all logs indefinitely for compliance", "b": "Delete all logs immediately after generation"}
+{"id": "j027", "a": "Aplicar desconto de dez por cento em todos os produtos", "b": "Aplicar desconto de vinte por cento em todos os produtos"}
+{"id": "j028", "a": "Permita que os alunos usem calculadora na prova.", "b": "Proíba o uso de calculadora pelos alunos na prova."}
+{"id": "j029", "a": "Enviar notificação ao time de vendas sobre o novo produto", "b": "Send a notification to the sales team regarding the new product launch"}
+{"id": "j030", "a": "Reinicia el servidor de base de datos.", "b": "Restart the cache server."}
+{"id": "j031", "a": "Actualiza la dirección de envío del pedido 4521.", "b": "Atualize o endereço de entrega do pedido 4521."}
+{"id": "j032", "a": "Remova o usuário inativo do grupo de administradores.", "b": "Remove the inactive user from the administrators group."}
+{"id": "j033", "a": "Enable two-factor authentication for all users", "b": "Disable two-factor authentication for all users"}
+{"id": "j034", "a": "Update inventory records", "b": "Update inventory records for all warehouse locations"}
+{"id": "j035", "a": "Upgrade the cluster to Kubernetes 1.30 tonight.", "b": "Do not upgrade the cluster tonight."}
+{"id": "j036", "a": "Rotate the database credentials every 90 days.", "b": "Rotate the database credentials."}
+{"id": "j037", "a": "Envie um lembrete aos pais sobre a reunião escolar de amanhã.", "b": "Mande aos pais um aviso lembrando da reunião da escola amanhã."}
+{"id": "j038", "a": "Perform system maintenance during the scheduled downtime window", "b": "Execute maintenance tasks throughout the planned outage period"}
+{"id": "j039", "a": "Configurar permissões de acesso para o novo usuário administrativo", "b": "Set up access permissions for the new admin user account"}
+{"id": "j040", "a": "Descarga los extractos bancarios.", "b": "Descarga los extractos bancarios de enero a marzo."}
+{"id": "j041", "a": "Mark the invoice as paid.", "b": "Marca la factura como pendiente de pago."}
+{"id": "j042", "a": "Assign the bug to the frontend team.", "b": "Assign the bug to the QA team."}
+{"id": "j043", "a": "Archive the closed support tickets.", "b": "Archiva los tickets de soporte cerrados del mes pasado."}
+{"id": "j044", "a": "Update the employee handbook.", "b": "Actualiza la sección de vacaciones del manual del empleado."}
+{"id": "j045", "a": "Pesquisar anomalias em logs", "b": "Pesquisar anomalias em logs de segurança dos últimos dias"}
+{"id": "j046", "a": "Send an email to all customers", "b": "Send an email to all customers in the Europe region"}
+{"id": "j047", "a": "Manage user permissions", "b": "Manage user permissions for departmental file shares"}
+{"id": "j048", "a": "The database should be backed up daily", "b": "The database should be backed up weekly"}
+{"id": "j049", "a": "Order new laptops for the design team.", "b": "Encomende cinco notebooks novos para a equipe de design."}
+{"id": "j050", "a": "Restart the payment service after deploying the hotfix.", "b": "Once the hotfix is deployed, restart the payment service."}
+{"id": "j051", "a": "Replicar la base de datos", "b": "Replicar la base de datos de producción a ambiente de staging"}
+{"id": "j052", "a": "Transferir responsabilidad al departamento de infraestructura", "b": "Transferir responsabilidad al departamento de seguridad"}
+{"id": "j053", "a": "Digitalize os documentos de admissão e salve-os em PDF.", "b": "Escanea los documentos de admisión y guárdalos en PDF."}
+{"id": "j054", "a": "Comparte la presentación con el equipo de ventas.", "b": "Comparte la hoja de cálculo con el equipo de ventas."}
+{"id": "j055", "a": "Publish the announcement on the company website", "b": "Publish the announcement on social media"}
+{"id": "j056", "a": "La reunión debe terminar antes de las 3 p.m.", "b": "La reunión debe empezar a las 4 p.m."}
+{"id": "j057", "a": "Enable two-factor authentication for all admin accounts.", "b": "Disable two-factor authentication for all admin accounts."}
+{"id": "j058", "a": "Print two copies of the signed agreement.", "b": "Imprime dos copias del acuerdo firmado."}
+{"id": "j059", "a": "Los estudiantes deben entregar el ensayo por correo electrónico.", "b": "Que los alumnos envíen el ensayo por email."}
+{"id": "j060", "a": "Archiva los correos del proyecto Atlas.", "b": "Exclua os e-mails do projeto Atlas."}
+{"id": "j061", "a": "Aprobar solicitudes de compra", "b": "Aprobar solicitudes de compra por menos de cinco mil pesos"}
+{"id": "j062", "a": "Scale the web cluster to six nodes.", "b": "Escale o cluster web para oito nós."}
+{"id": "j063", "a": "Book a delivery truck for the furniture.", "b": "Book a delivery truck with a lift gate for the furniture."}
+{"id": "j064", "a": "Traduce el manual de usuario al francés.", "b": "Translate the user manual into French."}
+{"id": "j065", "a": "Envie o contrato para assinatura digital.", "b": "Envie o contrato para assinatura digital até as 17h."}
+{"id": "j066", "a": "Envía el contrato al abogado.", "b": "Envía el contrato al contador."}
+{"id": "j067", "a": "Auditar cambios en el sistema", "b": "Auditar cambios en el sistema realizados en el último mes"}
+{"id": "j068", "a": "Aprobar solicitudes de gastos menores a quinientos dólares", "b": "Aprobar solicitudes de gastos menores a mil dólares"}
+{"id": "j069", "a": "Email the onboarding checklist to every new hire on their first day.", "b": "On their first day, send each new employee the onboarding checklist by email."}
+{"id": "j070", "a": "Generar un reporte con las cifras de ingresos del Q3 para todas las regiones", "b": "Create a quarterly report showing Q3 revenue by region"}
+{"id": "j071", "a": "Envie a encomenda hoje.", "b": "Segure a encomenda e não a envie hoje."}
+{"id": "j072", "a": "Los empleados deben reportar sus horas trabajadas cada viernes", "b": "Require staff to submit timesheets by the end of each Friday"}
+{"id": "j073", "a": "Comprimir archivos para ahorrar espacio", "b": "Descomprimir todos los archivos existentes"}
+{"id": "j074", "a": "Cobra la tarifa de envío al cliente.", "b": "No le cobres la tarifa de envío al cliente."}
+{"id": "j075", "a": "Aplicar parches de seguridad inmediatamente", "b": "Retrasar los parches de seguridad indefinidamente"}
+{"id": "j076", "a": "Establecer cuotas de almacenamiento para cada usuario", "b": "Set storage quotas on a per-user basis"}
+{"id": "j077", "a": "Always require a signature on delivery.", "b": "Never require a signature on delivery."}
+{"id": "j078", "a": "Envía el recordatorio de pago tres días antes del vencimiento.", "b": "Send the payment reminder three days after the due date."}
+{"id": "j079", "a": "Asignar la tarea al equipo de desarrolladores", "b": "Ningún desarrollador debe trabajar en esta tarea"}
+{"id": "j080", "a": "Fazer backup do banco de dados antes de qualquer atualização de schema", "b": "Back up the database prior to executing any schema changes"}
+{"id": "j081", "a": "Guardar los archivos en el servidor local", "b": "Guardar los archivos en la nube"}
+{"id": "j082", "a": "Publica la vacante de enfermería.", "b": "Publica la vacante de enfermería en LinkedIn."}
+{"id": "j083", "a": "Limpar cache de navegador após cada sessão", "b": "Limpar cache de navegador manualmente"}
+{"id": "j084", "a": "Configure authentication", "b": "Configure authentication using OAuth2 for external applications"}
+{"id": "j085", "a": "Processar pedidos antes das 5 da tarde", "b": "Processar pedidos antes das 3 da tarde"}
+{"id": "j086", "a": "Enviar relatórios financeiros", "b": "Enviar relatórios financeiros mensais ao conselho de diretores"}
+{"id": "j087", "a": "Publish the press release today.", "b": "No publiques el comunicado de prensa hoy."}
+{"id": "j088", "a": "Validar que todas las contraseñas cumplan con los requisitos de seguridad", "b": "Ensure all passwords meet the security policy requirements"}
+{"id": "j089", "a": "Descuenta el 10% a los pedidos superiores a 200 dólares.", "b": "Descuenta el 15% a los pedidos superiores a 200 dólares."}
+{"id": "j090", "a": "Los datos deben estar encriptados en tránsito y almacenados de forma segura", "b": "Encrypt data during transmission and protect it when stored"}
+{"id": "j091", "a": "Envía la factura al cliente antes del viernes.", "b": "Antes del viernes, mándale la factura al cliente."}
+{"id": "j092", "a": "Approve the expense report.", "b": "Deny the expense report."}
+{"id": "j093", "a": "Translate the brochure into Spanish.", "b": "Traduza o folheto para o italiano."}
+{"id": "j094", "a": "Rotate the API keys for the staging environment.", "b": "For the staging environment, rotate its API keys."}
+{"id": "j095", "a": "Exporte o relatório em formato CSV.", "b": "Exporte o relatório em formato PDF."}
+{"id": "j096", "a": "Enviar invitaciones a los clientes VIP solamente", "b": "Enviar invitaciones a todos los clientes"}
+{"id": "j097", "a": "Incluye a los menores de edad en la encuesta.", "b": "Excluye a los menores de edad de la encuesta."}
+{"id": "j098", "a": "Notify the parents about the field trip.", "b": "Notify the parents about the field trip by Friday."}
+{"id": "j099", "a": "Monte o relatório de vendas por região.", "b": "Arma el informe de ventas por región con gráficos de barras."}
+{"id": "j100", "a": "Sincronizar dados a cada hora", "b": "Sincronizar dados a cada seis horas"}
+{"id": "j101", "a": "Send a reminder about the unpaid invoice.", "b": "Envie um lembrete sobre a fatura não paga ao departamento financeiro do cliente."}
+{"id": "j102", "a": "Imprime el contrato de alquiler.", "b": "Imprime el contrato de alquiler a doble cara."}
+{"id": "j103", "a": "Update software licenses", "b": "Update software licenses to cover the expanded team size"}
+{"id": "j104", "a": "Cierra el ticket si el cliente no responde en 48 horas.", "b": "Si en 48 horas el cliente no contesta, cierra el ticket."}
+{"id": "j105", "a": "Agende a reunião com o gerente para próxima semana", "b": "Schedule a meeting with the manager for next week"}
+{"id": "j106", "a": "Atualizar as dependências do projeto para suas versões mais recentes", "b": "Upgrade all project dependencies to the latest available versions"}
+{"id": "j107", "a": "Agenda la vacuna del paciente para el martes.", "b": "Agenda la vacuna del paciente para el jueves."}
+{"id": "j108", "a": "Notifique o paciente por e-mail sobre o resultado.", "b": "Notifica al médico por correo sobre el resultado."}
+{"id": "j109", "a": "Lock the repository to prevent new commits.", "b": "Unlock the repository so new commits are allowed."}
+{"id": "j110", "a": "Assign the project to the development team", "b": "Assign the project to the quality assurance team"}
+{"id": "j111", "a": "Schedule maintenance for Saturday evening", "b": "Schedule maintenance for Sunday evening"}
+{"id": "j112", "a": "Merge the feature branch into develop.", "b": "Merge the feature branch into main."}
+{"id": "j113", "a": "Aumentar el presupuesto del equipo de investigación", "b": "Eliminar completamente el presupuesto del equipo de investigación"}
+{"id": "j114", "a": "Crear una copia de seguridad antes de las 8 AM", "b": "Crear una copia de seguridad antes de las 6 PM"}
+{"id": "j115", "a": "Automate the monthly billing process", "b": "Process all invoices manually every month"}
+{"id": "j116", "a": "Calcula el promedio de ventas mensuales del último año.", "b": "Compute the average monthly sales for the past year."}
+{"id": "j117", "a": "Agende uma consulta com o cardiologista.", "b": "Agende uma consulta com o cardiologista para a próxima semana."}
+{"id": "j118", "a": "Si el pago falla dos veces, bloquea la tarjeta.", "b": "Si el pago falla tres veces, bloquea la tarjeta."}
+{"id": "j119", "a": "Armazenar logs de servidor por trinta dias", "b": "Armazenar logs de servidor por noventa dias"}

@@ -1,0 +1,120 @@
+{"id": "j120", "a": "Arquive os tickets resolvidos há mais de 30 dias.", "b": "Os tickets resolvidos há mais de trinta dias devem ser arquivados."}
+{"id": "j121", "a": "Ejecutar tests automatizados", "b": "Ejecutar tests automatizados antes de desplegar a producción"}
+{"id": "j122", "a": "Envie o relatório trimestral ao conselho até segunda-feira.", "b": "Manda el informe trimestral a la junta a más tardar el lunes."}
+{"id": "j123", "a": "Keep the patient's file confidential.", "b": "Compartilhe a ficha do paciente publicamente."}
+{"id": "j124", "a": "O sistema deve registrar todas as transações financeiras", "b": "Log every financial transaction in the system"}
+{"id": "j125", "a": "Transfer fifty thousand dollars to the marketing department's account", "b": "Move $50,000 to marketing's bank account"}
+{"id": "j126", "a": "Implementar HTTPS en todos los endpoints", "b": "Usar HTTP sin cifrado en los endpoints"}
+{"id": "j127", "a": "Require security clearance for database access", "b": "Allow anyone to access the database without restrictions"}
+{"id": "j128", "a": "Implementar autenticación de múltiples factores", "b": "Usar solo contraseña para autenticación"}
+{"id": "j129", "a": "Send notifications to users on Mondays", "b": "Do not send any notifications on Mondays"}
+{"id": "j130", "a": "Mueve la reunión de presupuesto a la sala B.", "b": "Mueve la reunión de presupuesto a la sala C."}
+{"id": "j131", "a": "O certificado é válido por um ano", "b": "O certificado é válido por dois anos"}
+{"id": "j132", "a": "Aumentar el tamaño del pool de conexiones a 100", "b": "Reducir el tamaño del pool de conexiones a 50"}
+{"id": "j133", "a": "Abre el puerto 22 en el firewall.", "b": "Close port 22 on the firewall."}
+{"id": "j134", "a": "Permite el acceso remoto a la base de datos.", "b": "Bloqueie o acesso remoto ao banco de dados."}
+{"id": "j135", "a": "Enviar aviso ao cliente", "b": "Enviar aviso ao cliente sobre a próxima manutenção programada"}
+{"id": "j136", "a": "Cancele a assinatura do cliente e reembolse o último pagamento.", "b": "Reembolse o último pagamento do cliente e cancele a assinatura dele."}
+{"id": "j137", "a": "Hold the shipment until customs clears it.", "b": "Release the shipment immediately, before customs clearance."}
+{"id": "j138", "a": "Notify the on-call engineer via SMS.", "b": "Notify the on-call engineer via Slack."}
+{"id": "j139", "a": "Aprove o orçamento da campanha.", "b": "Não aprove o orçamento da campanha."}
+{"id": "j140", "a": "The team should have 10 members", "b": "The team should have 15 members"}
+{"id": "j141", "a": "Refund the customer if the package arrives damaged.", "b": "Refund the customer if the package arrives late."}
+{"id": "j142", "a": "Imprimir etiquetas para os produtos do catálogo principal", "b": "Generate and print labels for all items in the main product catalog"}
+{"id": "j143", "a": "Provisionar recursos en la nube", "b": "Provisionar recursos en la nube con límite de presupuesto máximo"}
+{"id": "j144", "a": "Send the weekly report to the sales team.", "b": "Send the weekly report to the sales team as a PDF."}
+{"id": "j145", "a": "La contraseña debe cambiarse cada noventa días", "b": "A senha deve ser alterada a cada 90 dias"}
+{"id": "j146", "a": "Restart the API gateway at 11 p.m.", "b": "Restart the API gateway at 11 a.m."}
+{"id": "j147", "a": "Delete customer records older than five years", "b": "Delete customer records older than three years"}
+{"id": "j148", "a": "Corrija as provas do 7º ano até sexta.", "b": "Corrija as provas do 8º ano até sexta."}
+{"id": "j149", "a": "Deploy the new build to staging after the tests pass.", "b": "Deploy the new build to staging."}
+{"id": "j150", "a": "Train the staff", "b": "Train the staff on new software security policies"}
+{"id": "j151", "a": "Modify the DNS records to point to the new server address", "b": "Update DNS settings to redirect traffic to the new server"}
+{"id": "j152", "a": "Publish the website updates immediately", "b": "Hold all website updates until further notice"}
+{"id": "j153", "a": "Sincronizar dados em tempo real", "b": "Sincronizar dados apenas uma vez por trimestre"}
+{"id": "j154", "a": "Aprobar todas las solicitudes de compra menores a mil dólares", "b": "Approve purchase requests that are under $1,000"}
+{"id": "j155", "a": "Asigna el caso a un abogado del despacho.", "b": "Asigna el caso a un abogado del despacho especializado en derecho laboral."}
+{"id": "j156", "a": "Configurar alertas de monitoramento", "b": "Configurar alertas de monitoramento para os servidores críticos"}
+{"id": "j157", "a": "Permitir acesso à API para todas as aplicações externas", "b": "Bloquear acesso à API para todas as aplicações externas"}
+{"id": "j158", "a": "Escala el ticket al segundo nivel.", "b": "Escalate the ticket to tier two with high priority."}
+{"id": "j159", "a": "Crear una copia de seguridad de los datos", "b": "Eliminar todos los datos sin respaldo"}
+{"id": "j160", "a": "Reserve um voo para Lisboa.", "b": "Reserva un vuelo a Lisboa en clase económica."}
+{"id": "j161", "a": "Atualizar as credenciais de acesso", "b": "Atualizar as credenciais de acesso para todos os usuários administrativos"}
+{"id": "j162", "a": "Revisa los registros del firewall.", "b": "Review the firewall logs from the last 24 hours."}
+{"id": "j163", "a": "Close all support tickets marked as resolved within thirty days", "b": "Archive support tickets with resolution status after 30 days have passed"}
+{"id": "j164", "a": "Processar solicitações de suporte", "b": "Processar solicitações de suporte com prioridade alta dentro de 24 horas"}
+{"id": "j165", "a": "Ative o modo de manutenção do site.", "b": "Turn off the site's maintenance mode."}
+{"id": "j166", "a": "Don't merge the pull request until two reviewers approve it.", "b": "Wait for approval from two reviewers before merging the pull request."}
+{"id": "j167", "a": "Permitir que novos usuários se registrem automaticamente", "b": "Bloquear todos os novos registros de usuários"}
+{"id": "j168", "a": "Ship the replacement part to the customer via express courier.", "b": "Send the customer the replacement part by express courier."}
+{"id": "j169", "a": "Revisar registros de auditoria para atividades suspeitas nos últimos sete dias", "b": "Check audit logs for suspicious activity from the past week"}
+{"id": "j170", "a": "Archive the Q3 marketing reports.", "b": "Summarize the Q3 marketing reports."}
+{"id": "j171", "a": "El inventario debe verificarse al final de cada mes", "b": "Verify inventory levels at the end of every month"}
+{"id": "j172", "a": "Apply the patch to all production servers immediately", "b": "Apply the patch to all development servers immediately"}
+{"id": "j173", "a": "Revise o trabalho de conclusão do aluno.", "b": "Revise o trabalho de conclusão do aluno com foco na metodologia."}
+{"id": "j174", "a": "Send a reminder email to all employees about the training deadline", "b": "Notify every staff member by email regarding the training submission deadline"}
+{"id": "j175", "a": "Backup all databases", "b": "Backup all databases except the development environment"}
+{"id": "j176", "a": "Sube los archivos al bucket de respaldo cada hora.", "b": "Envie os arquivos para o bucket de backup a cada dia."}
+{"id": "j177", "a": "Ligue para o cliente amanhã de manhã.", "b": "Escríbele al cliente mañana por la mañana."}
+{"id": "j178", "a": "Grant read-only access to the finance department", "b": "Grant full access to the finance department"}
+{"id": "j179", "a": "Importar datos desde el archivo CSV original", "b": "Importar datos desde el archivo CSV actualizado"}
+{"id": "j180", "a": "Sube los precios un 5% en enero.", "b": "Lower prices by 5% in January."}
+{"id": "j181", "a": "Requerir validación de email para registros", "b": "Permitir registros sin validación de email"}
+{"id": "j182", "a": "Deactivate all user accounts inactive for six months", "b": "Disable accounts belonging to users who haven't logged in during the past six months"}
+{"id": "j183", "a": "Review the lease renewal clause before signing.", "b": "Revisa la cláusula de terminación del arrendamiento antes de firmar."}
+{"id": "j184", "a": "El cliente debe recibir la factura antes del viernes", "b": "Enviar la factura al cliente antes de que termine la semana"}
+{"id": "j185", "a": "Encrypt all customer information in the database", "b": "Store customer information in plain text"}
+{"id": "j186", "a": "Revisar código antes de merge", "b": "Revisar código antes de merge en la rama principal"}
+{"id": "j187", "a": "Ship the order to the customer.", "b": "Ship the order to the customer using overnight delivery."}
+{"id": "j188", "a": "Enviar confirmación por correo electrónico", "b": "Enviar confirmación por correo electrónico y SMS"}
+{"id": "j189", "a": "Call the supplier about the delayed shipment.", "b": "Call the supplier about the delayed shipment before noon."}
+{"id": "j190", "a": "Instalar el certificado SSL en el servidor web principal", "b": "Deploy the SSL certificate to the primary web server"}
+{"id": "j191", "a": "Mostrar errores detallados a los usuarios finales", "b": "Ocultar todos los errores de los usuarios finales"}
+{"id": "j192", "a": "Anular a inscrição de clientes que não pagaram sua última fatura", "b": "Unsubscribe customers who have outstanding unpaid invoices"}
+{"id": "j193", "a": "Mantenha o servidor ligado durante o fim de semana.", "b": "Desligue o servidor durante o fim de semana."}
+{"id": "j194", "a": "Implementar medidas de seguridad", "b": "Implementar medidas de seguridad en los servidores web públicos"}
+{"id": "j195", "a": "Encrypt the backups with AES-256.", "b": "Encrypt the backups with AES-128."}
+{"id": "j196", "a": "Aumentar a capacidade de armazenamento em 50%", "b": "Reduzir a capacidade de armazenamento em 50%"}
+{"id": "j197", "a": "Envie a encomenda para a filial de Campinas.", "b": "Envie a encomenda para a filial de Santos."}
+{"id": "j198", "a": "Invoice the client on the first of each month", "b": "Invoice the client on the fifteenth of each month"}
+{"id": "j199", "a": "Entrega el informe antes del martes.", "b": "Entregue o relatório só depois de quarta-feira."}
+{"id": "j200", "a": "Send the weekly report to the CFO by Monday", "b": "Send the weekly report to the CEO by Monday"}
+{"id": "j201", "a": "Grant read-only access to the finance folder for the auditors.", "b": "Give the auditors read-only permission on the finance folder."}
+{"id": "j202", "a": "Validate input from forms", "b": "Validate input from forms to prevent SQL injection attacks"}
+{"id": "j203", "a": "Agende a manutenção do elevador para o dia 15.", "b": "Agende a manutenção do elevador para o dia 25."}
+{"id": "j204", "a": "Reserve uma sala de reunião para dez pessoas na quinta à tarde.", "b": "Na quinta-feira à tarde, reserve uma sala de reuniões com capacidade para 10 pessoas."}
+{"id": "j205", "a": "Monitorar performance do sistema", "b": "Monitorar performance do sistema durante picos de tráfego"}
+{"id": "j206", "a": "Grant admin privileges to all team members", "b": "Remove all privileges from team members"}
+{"id": "j207", "a": "Hire the candidate for the analyst role.", "b": "Reject the candidate for the analyst role."}
+{"id": "j208", "a": "Archive old records", "b": "Archive old records from the 2023 fiscal year"}
+{"id": "j209", "a": "Aumentar o tamanho do pool de conexões para 100", "b": "Aumentar o tamanho do pool de conexões para 50"}
+{"id": "j210", "a": "Actualizar la documentación del API con los nuevos endpoints", "b": "Update the API documentation to include the new endpoints"}
+{"id": "j211", "a": "Notify the warehouse manager when the shipment leaves the port.", "b": "Avise o gerente do armazém quando a carga sair do porto."}
+{"id": "j212", "a": "Start the backup job before the maintenance window.", "b": "Start the backup job only after the maintenance window ends."}
+{"id": "j213", "a": "Delete all backup files older than one year", "b": "Remove backups that are more than 12 months old"}
+{"id": "j214", "a": "Generar reporte de ventas", "b": "Generar reporte de ventas del último trimestre en formato Excel"}
+{"id": "j215", "a": "Compartilhar acesso ao banco de dados com fornecedores", "b": "Revogr todo acesso de fornecedores ao banco de dados"}
+{"id": "j216", "a": "Escala el incidente al equipo de redes si la latencia supera 300 ms.", "b": "Si la latencia pasa de 300 ms, escala el incidente al equipo de redes."}
+{"id": "j217", "a": "Back up the production database every night at 2 a.m.", "b": "Every night at 2 a.m., take a backup of the production database."}
+{"id": "j218", "a": "Inclua o anexo no e-mail.", "b": "Não inclua o anexo no e-mail."}
+{"id": "j219", "a": "Establecer el tiempo de sesión máximo en treinta minutos", "b": "Establecer el tiempo de sesión máximo en sesenta minutos"}
+{"id": "j220", "a": "Contrate dois técnicos temporários para o inventário.", "b": "Contrate dois técnicos permanentes para o inventário."}
+{"id": "j221", "a": "Schedule a follow-up appointment with the patient in two weeks.", "b": "Agenda una cita de seguimiento con el paciente dentro de dos semanas."}
+{"id": "j222", "a": "Delete the draft after sending it.", "b": "Guarde o rascunho depois de enviá-lo."}
+{"id": "j223", "a": "Cancele o pedido do cliente.", "b": "Cancele o pedido 8812 do cliente."}
+{"id": "j224", "a": "Imprima as etiquetas de envio para os pedidos de hoje.", "b": "Print the shipping labels for yesterday's orders."}
+{"id": "j225", "a": "Schedule team meetings", "b": "Schedule team meetings via Zoom during business hours"}
+{"id": "j226", "a": "Order 50 boxes of printer paper.", "b": "Pide 500 cajas de papel para impresora."}
+{"id": "j227", "a": "Aprueba la solicitud de vacaciones de Laura.", "b": "Rechaza la solicitud de vacaciones de Laura."}
+{"id": "j228", "a": "Remover archivos temporales del servidor antes de hacer backup", "b": "Clean temporary files from the server before running backups"}
+{"id": "j229", "a": "Acepta la devolución del cliente.", "b": "No aceptes la devolución del cliente."}
+{"id": "j230", "a": "Suspende la cuenta del usuario.", "b": "Reactiva la cuenta del usuario."}
+{"id": "j231", "a": "Programa una reunión con el equipo de marketing.", "b": "Programa una reunión de 30 minutos con el equipo de marketing."}
+{"id": "j232", "a": "Aumentar el precio del producto en un 15 por ciento", "b": "Aumentar el precio del producto en un 25 por ciento"}
+{"id": "j233", "a": "Revisa el contrato de arrendamiento y marca las cláusulas de penalización.", "b": "Revise o contrato de locação e marque as cláusulas de multa."}
+{"id": "j234", "a": "Llama al proveedor para confirmar la entrega de mañana.", "b": "Confirma por teléfono con el proveedor la entrega de mañana."}
+{"id": "j235", "a": "Approve the budget increase for marketing", "b": "Reject the budget increase for marketing"}
+{"id": "j236", "a": "Agendar reunião para amanhã às 10 AM", "b": "Cancelar a reunião agendada para amanhã"}
+{"id": "j237", "a": "Faça backup da pasta de projetos.", "b": "Faça backup da pasta de projetos no Google Drive."}
+{"id": "j238", "a": "Modificar configuração", "b": "Modificar configuración del servidor a través del panel de control"}
+{"id": "j239", "a": "Implement strict rate limiting on API requests", "b": "Allow unlimited API requests without throttling"}

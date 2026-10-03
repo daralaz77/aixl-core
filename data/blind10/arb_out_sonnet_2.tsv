@@ -1,0 +1,120 @@
+j120	SAME	same
+j121	DIFFERENT	added condition
+j122	SAME	same
+j123	DIFFERENT	opposite
+j124	SAME	same
+j125	SAME	same
+j126	DIFFERENT	opposite
+j127	DIFFERENT	opposite
+j128	DIFFERENT	opposite
+j129	DIFFERENT	opposite
+j130	DIFFERENT	room
+j131	DIFFERENT	years
+j132	DIFFERENT	direction/number
+j133	DIFFERENT	open vs close
+j134	DIFFERENT	opposite
+j135	DIFFERENT	added detail
+j136	SAME	same
+j137	DIFFERENT	opposite
+j138	DIFFERENT	channel
+j139	DIFFERENT	opposite
+j140	DIFFERENT	number
+j141	DIFFERENT	condition
+j142	DIFFERENT	scope
+j143	DIFFERENT	added constraint
+j144	DIFFERENT	added format
+j145	SAME	same
+j146	DIFFERENT	pm vs am
+j147	DIFFERENT	years
+j148	DIFFERENT	grade
+j149	DIFFERENT	condition dropped
+j150	DIFFERENT	added topic
+j151	SAME	same
+j152	DIFFERENT	opposite
+j153	DIFFERENT	frequency
+j154	SAME	same
+j155	DIFFERENT	added specialty
+j156	DIFFERENT	added scope
+j157	DIFFERENT	opposite
+j158	DIFFERENT	added priority
+j159	DIFFERENT	opposite
+j160	DIFFERENT	added class
+j161	DIFFERENT	added scope
+j162	DIFFERENT	added period
+j163	DIFFERENT	close vs archive
+j164	DIFFERENT	added detail
+j165	DIFFERENT	opposite
+j166	SAME	same
+j167	DIFFERENT	opposite
+j168	SAME	same
+j169	SAME	same
+j170	DIFFERENT	action
+j171	SAME	same
+j172	DIFFERENT	environment
+j173	DIFFERENT	added focus
+j174	SAME	same
+j175	DIFFERENT	exception
+j176	DIFFERENT	frequency
+j177	DIFFERENT	call vs write
+j178	DIFFERENT	access level
+j179	DIFFERENT	file version
+j180	DIFFERENT	direction
+j181	DIFFERENT	opposite
+j182	SAME	same
+j183	DIFFERENT	different clause
+j184	DIFFERENT	deadline/action differ
+j185	DIFFERENT	opposite
+j186	DIFFERENT	added scope
+j187	DIFFERENT	added method
+j188	DIFFERENT	added SMS
+j189	DIFFERENT	added time
+j190	SAME	same
+j191	DIFFERENT	opposite
+j192	DIFFERENT	last invoice vs any
+j193	DIFFERENT	opposite
+j194	DIFFERENT	added scope
+j195	DIFFERENT	key size
+j196	DIFFERENT	direction
+j197	DIFFERENT	branch
+j198	DIFFERENT	day
+j199	DIFFERENT	deadline direction
+j200	DIFFERENT	recipient
+j201	SAME	same
+j202	DIFFERENT	added purpose
+j203	DIFFERENT	day
+j204	SAME	same
+j205	DIFFERENT	added condition
+j206	DIFFERENT	opposite
+j207	DIFFERENT	opposite
+j208	DIFFERENT	added scope
+j209	DIFFERENT	number
+j210	SAME	same
+j211	SAME	same
+j212	DIFFERENT	timing opposite
+j213	SAME	same
+j214	DIFFERENT	added detail
+j215	DIFFERENT	opposite
+j216	SAME	same
+j217	SAME	same
+j218	DIFFERENT	opposite
+j219	DIFFERENT	number
+j220	DIFFERENT	temp vs permanent
+j221	SAME	same
+j222	DIFFERENT	delete vs keep
+j223	DIFFERENT	added order id
+j224	DIFFERENT	today vs yesterday
+j225	DIFFERENT	added detail
+j226	DIFFERENT	quantity
+j227	DIFFERENT	opposite
+j228	SAME	same
+j229	DIFFERENT	opposite
+j230	DIFFERENT	opposite
+j231	DIFFERENT	added duration
+j232	DIFFERENT	percent
+j233	SAME	same
+j234	SAME	same
+j235	DIFFERENT	opposite
+j236	DIFFERENT	schedule vs cancel
+j237	DIFFERENT	added destination
+j238	DIFFERENT	added detail
+j239	DIFFERENT	opposite
