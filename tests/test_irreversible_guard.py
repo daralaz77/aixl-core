@@ -55,3 +55,11 @@ def test_portuguese_delete_verbs_translate_to_delete_in_the_rule_based_translato
     # English "Do not ..." must not be read as Portuguese "do" (regression: first version of the PT-evidence helper did)
     assert acts("Do not ever exclude Ana from the results.").startswith("EXCLUDE")
     assert acts("Exclude test users from the analysis.").startswith("EXCLUDE")
+
+
+def test_limit_and_before_synonyms_in_pt_es_en_are_not_vetoed():
+    # false positives found by the free-teacher probe (2026-10-03): "no máximo" is a limit, not a negation; "antes das" = before
+    for a, b in [("Cinco clientes como máximo deben aparecer en la lista.", "A maximum of five customers should appear on the list."),
+                 ("Incluye un máximo de 10 ejemplos.", "Inclua no máximo 10 exemplos."),
+                 ("Termina el despliegue antes de las 9am.", "Termine a implantação antes das 9am.")]:
+        assert cue_signature(a) == cue_signature(b), (a, b)

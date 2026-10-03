@@ -209,3 +209,17 @@ Reentrenamiento (3B, r32, 3 épocas, mismos hiperparámetros) y medición:
 | Adaptador: F1 / dev | 0.833 / 0.785 | 0.775 / 0.763 |
 
 Lectura honesta: el cambio hace lo que se buscaba en portugués (el hueco pasa de 28 a 4 textos) y mejora el estrés, pero **blind5 baja 0.05-0.11 de F1**, más que el ruido de ±0.02 y más de lo que explicarían 73 etiquetas de ~5100; el adaptador también bajó (0.775 vs 0.833). Hay dos explicaciones sin separar: varianza entre corridas de entrenamiento (adaptadores de recetas casi iguales ya variaron 0.765-0.833) o un efecto real del re-etiquetado. Además la medición en el Mac difiere de la de Colab para el mismo GGUF (0.680 vs 0.742), a diferencia de la ronda anterior (0.788 en ambos): conviene repetirla antes de fiarse de cualquiera de las dos. **Modelo vigente sin cambio: `aixl-para3b-Q4_K_M.gguf` + guard** (el guard ya cubre el hueco PT en el borde). Para separar varianza de efecto: reentrenar con 2 semillas distintas, con y sin el re-etiquetado.
+
+
+## Novena vuelta (2026-10-03): ¿puede un modelo chino abierto y gratis reemplazar a Haiku como generador de paráfrasis?
+
+Sonda de viabilidad (`distill/colab/qwen_gen.py` en Colab + `distill/qwen_probe_eval.py` local): MISMAS 80 semillas (de `paraphrase_cache.jsonl`), MISMO prompt de sistema que Haiku, Qwen2.5-14B-Instruct en bf16 en la A100 (80 semillas en 44 s, sin API ni clave), y las MISMAS verificaciones deterministas para ambos generadores:
+
+| Generador | Parseo JSON | `facts` (cifras, ids y pistas de modificador iguales a la semilla) | `rules` (traductor por reglas + comparador dicen equivalente) | Grupos de 3 variantes que pasan `facts` |
+|---|---|---|---|---|
+| Haiku 4.5 (referencia) | 1.00 | 0.94 | 0.49 | 0.84 |
+| **Qwen2.5-14B-Instruct** | 1.00 | **0.93** | **0.52** | **0.81** |
+
+Lectura honesta: en estas verificaciones Qwen 14B queda **a la par de Haiku** (diferencias dentro del ruido de 80 semillas) para la parte "reescribir sin perder negaciones, condiciones, cantidades ni ids". Límites: (1) las verificaciones son proxies débiles (las reglas aciertan ~80 %, el comparador de pistas es heurístico); (2) solo se probó la generación de paráfrasis, NO el etiquetado ni la generación de pares casi iguales; (3) la prueba definitiva es el efecto en el estudiante (entrenar con datos de Qwen y medir dev/blind5 con semillas repetidas, dado el ruido de ±0.03-0.05 entre corridas). Licencias: verificar antes de uso comercial (Qwen2.5-3B y 72B no son Apache-2.0; 7B/14B/32B sí).
+
+Efecto colateral: el chequeo de pistas del guard tenía falsos positivos en portugués ("no máximo" leído como negación, "antes das" sin reconocer); corregido (`irreversible_guard.py`, +1 test, 462/462). Sigue sin resolverse "no" (= "en el") en portugués como pista de negación (solo causa vetos de más, nunca equivalencias falsas) y numerales en palabras en general.

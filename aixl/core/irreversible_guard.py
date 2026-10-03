@@ -28,8 +28,8 @@ _CUES = {
     "WITHOUT": r"\b(without|sin|sem)\b",
     "ONLY_IF": r"\b(only if|solo si|s[oó]lo si|somente se|apenas se|unless|a menos que|salvo que|exceto se)\b",
     "EVEN_IF": r"\b(even if|even though|aunque|incluso si|mesmo que|mesmo se|ainda que)\b",
-    "BEFORE": r"\b(before|prior to|ahead of|antes de|antes del|antes de la)\b",
-    "MAX": r"\b(no more than|at most|up to|como m[aá]ximo|a lo sumo|no m[aá]ximo|at the most|hasta)\b",
+    "BEFORE": r"\b(before|prior to|ahead of|antes de|antes del|antes de la|antes d[oa]s?|antes das)\b",
+    "MAX": r"\b(no more than|at most|up to|maximum|m[aá]xim[oa]s?|a lo sumo|at the most|at\u00e9)\b",
     "AFTER": r"\b(after|despu[eé]s de|depois de)\b",
     "CONFIRM": r"\b(confirm\w*|approv\w*|aprob\w*|aprov\w*|authori[sz]\w*|autoriz\w*)\b",
     "ALL": r"\b(all|every|todos?|todas?|cada)\b",
@@ -57,7 +57,7 @@ def aixl_actions(aixl):
 
 def cue_signature(text):
     sig = {name for name, rx in _CUES.items() if re.search(rx, text, re.I)}
-    if "MAX" in sig and "NEG" in sig and not re.search(_CUES["NEG"], _LIMIT_RX.sub(" ", re.sub(r"\bno more than\b", " ", text, flags=re.I)), re.I):
+    if "MAX" in sig and "NEG" in sig and not re.search(_CUES["NEG"], _LIMIT_RX.sub(" ", re.sub(r"\b(?:no more than|no m[aá]ximo)\b", " ", text, flags=re.I)), re.I):
         sig.discard("NEG")
     sig |= {"N" + n.replace(",", ".").lstrip("#") for n in _NUM.findall(text)}
     sig |= {"N" + str(_NUMWORDS[w.lower()]) for w in _NUMWORD_RX.findall(text)}
