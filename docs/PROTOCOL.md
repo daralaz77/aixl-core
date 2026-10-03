@@ -41,6 +41,7 @@ Each line is checked against the real encoder by `tests/test_docs.py` (the docs 
 ```aixl-example
 No envíes el informe. | V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND E:REPORT N:NO_SEND K:FORBID_SEND
 Analiza 100 registros. | V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE K:QTY=100:RECORDS
+Elimina los usuarios y analiza los reportes. | V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE,ANALYZE D:USERS E:REPORT K:BIND=ANALYZE>REPORT,BIND=DELETE>USERS
 Elimina el reporte #4. | V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE E:REPORT Y:#4
 Analiza las ventas de Q1 2026 en JSON. | V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE D:SALES T:Q1-2026 O:JSON
 Envía el informe a Ana en PDF. | V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND E:REPORT Y:@ANA O:PDF

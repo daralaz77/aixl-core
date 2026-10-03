@@ -44,3 +44,8 @@ Stdlib HTTP server for demos only: `GET /` (UI) and `POST /api/compare` with `{"
 ## Errors and stability
 `AixlError(code)` is the only protocol exception. Result shapes are stable within a MINOR version ([VERSIONING_POLICY.md](VERSIONING_POLICY.md)); the
 `warnings` key of `ComparisonResult.to_dict()` appears only when non-empty.
+
+## validate / round_trip (added 2026-10-02)
+- `validate(text_or_graph) -> ValidationResult{status: VALID|INVALID|VALID_WITH_WARNINGS, issues[{code, severity, where, message}]}`. Codes: INVALID_SCHEMA UNKNOWN_TYPE INVALID_RELATION MISSING_REQUIRED_FIELD CONTRADICTION INVALID_TIME INVALID_QUANTITY SEMANTIC_LOSS. Errors => INVALID; warnings (e.g. unrecognised noun, no action) => VALID_WITH_WARNINGS.
+- `round_trip(text_or_graph) -> RoundTripResult{preserved, fidelity, aixl, differences, error}`. Fidelity = mean per-dimension agreement after text->graph->AIXL->graph; it measures encoding loss only, not extraction accuracy.
+- Node `provenance`: EXPLICIT (stated), INFERRED (derived INTENT/GOAL), MODEL_DERIVED (LLM/local route, via `mark_model_derived`). RESOLVED and EXTERNAL_CONTEXT are valid values but nothing produces them yet.

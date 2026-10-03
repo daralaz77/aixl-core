@@ -1,0 +1,5 @@
+# Fingerprint
+`fingerprint_graph(graph, config, today, length=16)` = truncated SHA-256 of the sorted-key JSON of `canonical()`. Stable across language (ES/EN/PT converge, tested), word order within sets, punctuation, case, JSON and AIXL round-trips. Any differing canonical field (negation, target, quantity, time...) changes it. Relative time depends on `today`: pin it for reproducible hashes.
+Limits: it is a hash of the *extracted* meaning; what the translator drops (GAP-1/2, unrecognised nouns) is invisible to it. Equal fingerprints do not prove equal intent, only equal canonical form. 16 hex chars is for comparison, not security. API: `semantic_fingerprint`, `semantic_fingerprint_aixl`.
+
+Bindings (2026-10-02) are part of the canonical form, so they are in the fingerprint: multi-action texts that differ only in which action gets which argument now hash differently. Because `compare` treats subset bindings as compatible, two texts can compare EQUIVALENT yet have different fingerprints (stricter, safe direction). An LLM-encoded AIXL line without BIND hashes differently from the rule-based route for multi-action texts.

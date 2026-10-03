@@ -1,0 +1,3 @@
+# Normalizer
+`aixl/core/normalizer.py` (`SemanticNormalizer`) maps expressions to canonical values using **closed lexicons only**: action verbs (incl. extension verbs), units, aggregates, output formats, numbers (`.90 == 0.9`), time. No fuzzy or embedding similarity: two words are equivalent only if declared so (§27). Context-dependent phrases stay different ("total de ventas" has aggregate=TOTAL; "ventas" does not).
+Canonicalisation proper lives in `SemanticGraph.canonical()` (`aixl/core/semantic_graph.py`): action groups, EXCLUDE -> prohibited INCLUDE, sorted tuples, duration units to months, relative time vs `today`. It is deterministic for equal input and `today`; idempotence/round-trip stability is tested in `tests/test_properties.py`.

@@ -1,0 +1,6 @@
+# Ambiguity
+`detect_ambiguity_graph(text, graph)` (`aixl/core/ambiguity.py`) says AMBIGUOUS instead of choosing. BLOCKING reasons: PRONOUN_NO_ANTECEDENT, MULTIPLE_POSSIBLE_REFERENTS, VAGUE_TIME, MISSING_YEAR, MISSING_TARGET, UNSPECIFIED_SCOPE, MISSING_COMPARAND, UNRESOLVED_REFERENT, AMBIGUOUS_MODALITY; INFO notes (e.g. relative date needing a clock) don't block. Findings carry field, reason, evidence and extraction confidence (metadata, not evidence).
+UNKNOWN vs AMBIGUOUS: absent info (no target) is reported as missing; competing interpretations (pronoun with several antecedents) as ambiguous. Heuristic, not real coreference.
+
+## Context (added 2026-10-02, §24/§35/§91)
+`detect_ambiguity(text, context={"entities": [{"id", "name", "aliases"?, "type"?}]})` checks reference names against known entities. Several matches => blocking `AMBIGUOUS_REFERENCE` with `candidate_interpretations`, `affected_nodes`, `required_context` (the Core never picks one). One match => `RESOLVED_REFERENCE` note (provenance EXTERNAL_CONTEXT; the graph is not mutated). None => `UNKNOWN_REFERENCE` note (unknown, not ambiguous). The translator emits name tokens one by one (@JUAN, @PÉREZ): tokens sharing a candidate are one mention, otherwise each is separate. Limits: name-token matching only (no gender/role/recency cues), no coreference for pronouns against the context.
