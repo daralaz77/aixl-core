@@ -1,0 +1,120 @@
+p000	SAME	backups older than 1 year = more than 12 months
+p001	DIFFERENT	original vs updated CSV
+p002	DIFFERENT	actions UPDATE vs EXCLUDE
+p003	DIFFERENT	resolved/within thirty days vs after 30 days; timing differs
+p004	SAME	follow-up appointment with patient in two weeks
+p005	DIFFERENT	presentation vs spreadsheet
+p006	DIFFERENT	Friday vs end of week; GET vs SEND
+p007	SAME	temp files on server before backup
+p008	DIFFERENT	production vs development servers
+p009	SAME	after hotfix deployed
+p010	SAME	identical
+p011	DIFFERENT	room B vs C
+p012	DIFFERENT	patient vs doctor
+p013	SAME	update dependencies to latest
+p014	DIFFERENT	database vs cache server
+p015	SAME	shipping address of order
+p016	DIFFERENT	10% vs 15%
+p017	SAME	meeting room 10 people Thursday afternoon
+p018	SAME	two reviewer approval before merging
+p019	DIFFERENT	hourly vs every six hours
+p020	SAME	memory limit/capacity VM 16GB
+p021	DIFFERENT	b adds print labels; a only labels
+p022	SAME	patients fast 8 hours before blood test
+p023	DIFFERENT	10 vs 15 members
+p024	SAME	identical
+p025	DIFFERENT	SMS vs Slack
+p026	SAME	staff timesheets every Friday
+p027	DIFFERENT	30 vs 60 minutes
+p028	DIFFERENT	admin only vs all accounts
+p029	DIFFERENT	six vs eight nodes
+p030	DIFFERENT	100 vs 50
+p031	SAME	archive resolved tickets older than 30 days
+p032	DIFFERENT	develop vs main
+p033	DIFFERENT	renewal vs termination clause
+p034	DIFFERENT	after each session vs manually
+p035	DIFFERENT	day 15 vs 25
+p036	SAME	user manual
+p037	SAME	notification to sales team
+p038	SAME	both empty
+p039	SAME	password every 90 days
+p040	DIFFERENT	website vs social media
+p041	DIFFERENT	7th vs 8th grade
+p042	DIFFERENT	a mil dolares vs under $1000 same; but both ok -> same
+p043	SAME	unpaid last invoice / outstanding unpaid
+p044	SAME	call supplier about delivery
+p045	DIFFERENT	lawyer vs accountant
+p046	SAME	printer paper
+p047	DIFFERENT	temporary vs permanent
+p048	SAME	identical
+p049	DIFFERENT	monthly vs quarterly
+p050	DIFFERENT	10 vs 20 percent
+p051	SAME	meeting manager
+p052	DIFFERENT	Campinas vs Santos
+p053	DIFFERENT	development vs QA team
+p054	SAME	SSL cert main web server
+p055	SAME	reminder email all employees training deadline
+p056	DIFFERENT	8 AM vs 6 PM
+p057	DIFFERENT	email vs SMS
+p058	SAME	50000 to marketing account
+p059	DIFFERENT	15 vs 25 percent
+p060	SAME	express courier
+p061	SAME	logs older than week to cold storage
+p062	SAME	print shipping labels for orders
+p063	DIFFERENT	five vs three years
+p064	SAME	inactive six months
+p065	SAME	reminder to parents school meeting
+p066	DIFFERENT	a has last seven days; b omits
+p067	DIFFERENT	VIP only vs all
+p068	DIFFERENT	30 vs 90 days
+p069	DIFFERENT	frontend vs QA
+p070	SAME	monthly
+p071	SAME	identical
+p072	SAME	release notes company blog
+p073	SAME	backup before schema changes
+p074	DIFFERENT	invoice vs quote
+p075	SAME	per-user storage quotas
+p076	DIFFERENT	500 vs 1000
+p077	DIFFERENT	b adds quarterly; a lacks
+p078	SAME	Saturday midnight
+p079	DIFFERENT	Saturday vs Sunday
+p080	DIFFERENT	Tuesday vs Thursday
+p081	SAME	onboarding checklist new hire first day
+p082	SAME	API new endpoints
+p083	SAME	warehouse manager when shipment leaves port
+p084	DIFFERENT	5 pm vs 3 pm
+p085	DIFFERENT	infrastructure vs security
+p086	DIFFERENT	one vs two years
+p087	DIFFERENT	CFO vs CEO
+p088	SAME	inventory end of month
+p089	SAME	both empty
+p090	DIFFERENT	b adds SMS channel
+p091	DIFFERENT	daily vs weekly
+p092	SAME	DNS to new server
+p093	UNSURE	garbled; b adds save
+p094	SAME	two copies signed agreement
+p095	SAME	maintenance during downtime window
+p096	DIFFERENT	first vs fifteenth
+p097	DIFFERENT	before vs after due date
+p098	SAME	auto-login
+p099	DIFFERENT	read-only vs full access
+p100	DIFFERENT	11 pm vs 11 am
+p101	SAME	cancel subscription refund last payment
+p102	SAME	the brochure
+p103	DIFFERENT	AES-256 vs 128
+p104	SAME	quarterly to board by Monday
+p105	SAME	lease contract penalty clauses
+p106	SAME	incident network team
+p107	SAME	encrypted in transit and at rest
+p108	SAME	students essay by email
+p109	SAME	access permissions new admin user
+p110	DIFFERENT	hourly vs daily
+p111	SAME	API keys staging
+p112	SAME	log financial transactions
+p113	DIFFERENT	local server vs cloud
+p114	SAME	read-only finance folder auditors
+p115	SAME	prod db nightly 2am
+p116	SAME	validate passwords against security requirements
+p117	DIFFERENT	archive vs summarize
+p118	SAME	inactive admin group
+p119	DIFFERENT	call vs write

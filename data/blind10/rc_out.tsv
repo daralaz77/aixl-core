@@ -1,0 +1,240 @@
+p116b	password ; security requirement
+p023b	qty:15 member ; team
+p100a	api gateway ; at:23:00
+p001a	csv file ; original
+p069b	bug ; recipient:qa team
+p110b	backup bucket ; file ; freq:daily
+p067b	all ; invitation
+p028a	2fa ; scope:admin account only
+p007a	before:backup ; server ; temporary file
+p073b	backup ; before:schema change
+p029a	qty:6 node ; web cluster
+p090b	channel:email ; channel:sms ; confirmation
+p026a	day:fri ; employee ; freq:weekly ; hours worked
+p115b	at:02:00 ; freq:daily ; production database
+p082b	api ; endpoint:new
+p092b	dns record ; redirect traffic ; target:new server
+p009b	after:hotfix deployed ; payment service
+p070b	freq:monthly
+p066b	audit log ; suspicious activity
+p057b	channel:sms ; service outage
+p098b	auto-login
+p097a	payment reminder ; when:3d before due date
+p002a	email ; project
+p024b	block card
+p008a	all production server ; immediately ; patch
+p042a	limit:<$1000 ; purchase request
+p112b	financial transaction
+p011b	budget meeting ; move ; room:c
+p088b	freq:monthly ; inventory ; when:month end
+p017a	capacity:10 person ; day:thu ; meeting room ; time:afternoon
+p032b	feature branch ; target:main
+p019b	freq:6h ; sync
+p041b	by:fri ; exam ; grade:8
+p011a	budget meeting ; move ; room:b
+p031a	archive ; older than:30d ; resolved ticket
+p096a	client ; day-of-month:1 ; freq:monthly ; invoice
+p091b	backup ; freq:weekly
+p004b	follow-up appointment ; patient ; within:2w
+p096b	client ; day-of-month:15 ; freq:monthly ; invoice
+p004a	follow-up appointment ; patient ; within:2w
+p051b	manager ; meeting
+p037a	notification ; recipient:sales team
+p037b	notification ; recipient:sales team
+p027a	dur:30min ; max ; session time
+p106b	incident ; recipient:network team
+p086a	certificate ; validity:1y
+p035a	day-of-month:15 ; elevator maintenance ; schedule
+p052b	order ; recipient:santos branch
+p020a	memory ; qty:16gb ; virtual machine
+p013b	dependency ; version:latest
+p055b	all employee ; channel:email ; reminder ; training deadline
+p046a	printer paper
+p006a	by:fri ; invoice
+p083a	recipient:warehouse manager ; when:shipment leaves port
+p043a	unpaid invoice
+p025a	channel:sms ; recipient:on-call engineer
+p040a	announcement ; channel:company website
+p003b	after:30d ; resolution status ; support ticket
+p089a
+p074a	invoice ; recipient:billing department
+p112a	financial transaction
+p064a	inactive:6mo
+p105a	lease contract ; penalty clause
+p038a
+p060a	channel:express courier ; replacement part
+p094a	qty:2 copy ; signed agreement
+p030b	connection pool ; qty:50
+p117b	marketing
+p119a	call ; time:morning
+p081b	channel:email ; each new hire ; onboarding checklist ; when:first day
+p056b	backup ; by:18:00
+p119b	time:morning ; write
+p091a	backup ; freq:daily
+p047b	contract:permanent ; inventory ; qty:2 technician
+p005a	presentation ; recipient:sales team
+p105b	lease contract ; penalty clause
+p114b	finance folder ; read-only ; recipient:auditor
+p028b	2fa ; scope:all account
+p022a	before:blood test ; dur:8h ; fasting ; patient
+p038b
+p092a	dns record ; target:new server
+p054b	primary web server ; ssl certificate
+p030a	connection pool ; qty:100
+p108b	channel:email ; essay ; student
+p042b	limit:<$1000 ; purchase request
+p059a	percent:15 ; price
+p052a	order ; recipient:campinas branch
+p114a	finance folder ; read-only ; recipient:auditor
+p095b	maintenance ; scheduled downtime window
+p076a	expense request ; limit:<$500
+p107a	at rest ; in transit
+p025b	channel:slack ; recipient:on-call engineer
+p015a	order ; shipping address
+p012a	channel:email ; patient ; result
+p039a	freq:90d ; password
+p100b	api gateway ; at:11:00
+p093a	admission document
+p111a	api key ; environment:staging
+p077b	freq:quarterly ; group:region ; revenue
+p049b	freq:quarterly ; recipient:internal stakeholder
+p069a	bug ; recipient:frontend team
+p034a	browser cache ; when:after each session
+p080b	day:thu ; patient vaccine
+p049a	freq:monthly ; recipient:internal stakeholder
+p102a	brochure
+p067a	invitation ; scope:vip only
+p064b	inactive:6mo
+p033a	before:signing ; lease renewal clause
+p115a	at:02:00 ; freq:daily ; production database
+p054a	primary web server ; ssl certificate
+p044b	channel:phone ; delivery ; supplier
+p005b	recipient:sales team ; spreadsheet
+p107b	at rest ; in transit
+p041a	by:fri ; exam ; grade:7
+p073a	backup ; before:schema change
+p095a	maintenance ; scheduled downtime window
+p104a	by:mon ; freq:quarterly ; recipient:board
+p099b	access:full ; finance department
+p058b	amount:$50000 ; recipient:marketing account
+p034b	browser cache ; manual
+p093b	admission document
+p074b	quote ; recipient:billing department
+p116a	password ; security requirement
+p065a	recipient:parent ; reminder ; school meeting
+p062b	order ; shipping label
+p071a	close ticket
+p066a	audit log ; period:last 7d ; suspicious activity
+p002b	email ; project
+p084b	by:15:00 ; order
+p079b	day:sun ; maintenance ; time:evening
+p097b	payment reminder ; when:3d after due date
+p080a	day:tue ; patient vaccine
+p078b	day:sat ; server migration ; time:00:00
+p018a	approval:2 reviewer ; pull request
+p102b	brochure
+p039b	freq:90d ; password
+p085a	recipient:infrastructure department ; responsibility
+p061a	cold storage ; log file ; older than:7d
+p059b	percent:25 ; price
+p099a	access:read-only ; finance department
+p118a	administrators group ; inactive
+p015b	order ; shipping address
+p060b	channel:express courier ; replacement part
+p075b	per user ; storage quota
+p044a	channel:phone ; delivery ; supplier
+p032a	feature branch ; target:develop
+p077a	group:region ; revenue
+p048a	refund
+p082a	api ; endpoint:new
+p009a	after:hotfix deployed ; payment service
+p003a	marked resolved ; support ticket ; within:30d
+p046b	printer paper
+p012b	channel:email ; doctor ; result
+p068b	dur:90d ; server log
+p101b	last payment ; refund ; subscription
+p072b	channel:company blog ; release note
+p000a	backup file ; older than:1y
+p085b	recipient:security department ; responsibility
+p089b
+p076b	expense request ; limit:<$1000
+p043b	unpaid invoice
+p014a	database server
+p020b	memory ; qty:16gb ; virtual machine
+p056a	backup ; by:08:00
+p026b	day:fri ; employee ; freq:weekly ; hours worked
+p008b	all development server ; immediately ; patch
+p024a	block card
+p117a	marketing
+p106a	incident ; recipient:network team
+p081a	each new hire ; onboarding checklist ; when:first day
+p061b	cold storage ; log file ; older than:7d
+p013a	dependency ; version:latest
+p087b	by:mon ; freq:weekly ; recipient:ceo
+p110a	backup bucket ; file ; freq:hourly
+p113b	file ; location:cloud
+p113a	file ; location:local server
+p071b	close ticket
+p108a	channel:email ; essay ; student
+p058a	amount:$50000 ; recipient:marketing account
+p006b	by:end of week ; invoice
+p086b	certificate ; validity:2y
+p083b	recipient:warehouse manager ; when:shipment leaves port
+p079a	day:sat ; maintenance ; time:evening
+p065b	recipient:parent ; reminder ; school meeting
+p088a	freq:monthly ; inventory ; when:month end
+p016a	orders over:$200 ; percent:10
+p040b	announcement ; channel:social media
+p072a	channel:company blog ; release note
+p118b	administrators group ; inactive
+p047a	contract:temporary ; inventory ; qty:2 technician
+p068a	dur:30d ; server log
+p053b	project ; recipient:qa team
+p018b	approval:2 reviewer ; pull request
+p000b	backup file ; older than:1y
+p036a	user manual
+p033b	before:signing ; lease termination clause
+p023a	qty:10 member ; team
+p075a	per user ; storage quota
+p062a	order ; shipping label
+p001b	csv file ; updated
+p101a	last payment ; refund ; subscription
+p084a	by:17:00 ; order
+p103b	aes-128 ; backup
+p103a	aes-256 ; backup
+p022b	before:blood test ; dur:8h ; fasting ; patient
+p010b	by:fri ; invoice
+p019a	freq:hourly ; sync
+p029b	qty:8 node ; web cluster
+p048b	refund
+p087a	by:mon ; freq:weekly ; recipient:cfo
+p045b	contract ; recipient:accountant
+p053a	project ; recipient:development team
+p090a	channel:email ; confirmation
+p109a	access permission ; user:new admin
+p109b	access permission ; user:new admin
+p055a	all employee ; channel:email ; reminder ; training deadline
+p104b	by:mon ; freq:quarterly ; recipient:board
+p017b	capacity:10 person ; day:thu ; meeting room ; time:afternoon
+p035b	day-of-month:25 ; elevator maintenance ; schedule
+p070a	freq:monthly
+p051a	manager ; meeting
+p057a	channel:email ; service outage
+p021a	label ; main product catalog
+p010a	by:fri ; invoice
+p063b	older than:3y ; record
+p111b	api key ; environment:staging
+p050a	discount ; percent:10
+p050b	discount ; percent:20
+p031b	archive ; older than:30d ; resolved ticket
+p094b	qty:2 copy ; signed agreement
+p016b	orders over:$200 ; percent:15
+p036b	user manual
+p098a	auto-login
+p027b	dur:60min ; max ; session time
+p007b	before:backup ; server ; temporary file
+p063a	older than:5y ; record
+p014b	cache server
+p078a	day:sat ; server migration ; time:00:00
+p021b	label ; main product catalog
+p045a	contract ; recipient:lawyer

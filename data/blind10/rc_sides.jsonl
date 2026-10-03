@@ -1,0 +1,240 @@
+{"id": "p116b", "actions": ["VALIDATE"], "residue": ["passwords", "security policy requirements"]}
+{"id": "p023b", "actions": [], "residue": ["The team", "15 members"]}
+{"id": "p100a", "actions": ["EXECUTE"], "residue": ["API gateway", "11 p.m."]}
+{"id": "p001a", "actions": ["RETRIEVE"], "residue": ["archivo CSV original"]}
+{"id": "p069b", "actions": [], "residue": ["Assign the bug", "to the QA team"]}
+{"id": "p110b", "actions": ["SEND"], "residue": ["os arquivos", "para o bucket de backup", "a cada dia"]}
+{"id": "p067b", "actions": ["SEND"], "residue": ["invitaciones", "todos"]}
+{"id": "p028a", "actions": [], "residue": ["Require two-factor authentication", "for admin accounts only"]}
+{"id": "p007a", "actions": ["DELETE"], "residue": ["archivos temporales", "servidor", "antes de hacer backup"]}
+{"id": "p073b", "actions": ["CREATE"], "residue": ["back up", "prior to executing any schema changes"]}
+{"id": "p029a", "actions": ["UPDATE"], "residue": ["web cluster", "six nodes"]}
+{"id": "p090b", "actions": ["SEND"], "residue": ["confirmación", "por correo electrónico", "SMS"]}
+{"id": "p026a", "actions": ["SEND"], "residue": ["empleados", "horas trabajadas", "cada viernes"]}
+{"id": "p115b", "actions": ["EXECUTE"], "residue": ["production database", "Every night", "at 2 a.m."]}
+{"id": "p082b", "actions": ["UPDATE"], "residue": ["API", "new endpoints"]}
+{"id": "p092b", "actions": ["UPDATE"], "residue": ["DNS settings", "redirect traffic", "new server"]}
+{"id": "p009b", "actions": ["EXECUTE"], "residue": ["payment service", "Once the hotfix is deployed"]}
+{"id": "p070b", "actions": ["CALCULATE"], "residue": ["monthly"]}
+{"id": "p066b", "actions": ["CHECK"], "residue": ["audit logs", "suspicious activity"]}
+{"id": "p057b", "actions": ["SEND"], "residue": ["via SMS", "service outage"]}
+{"id": "p098b", "actions": ["DISABLE"], "residue": ["auto-login"]}
+{"id": "p097a", "actions": ["SEND"], "residue": ["recordatorio de pago", "tres días antes del vencimiento"]}
+{"id": "p002a", "actions": ["UPDATE"], "residue": ["correos", "proyecto"]}
+{"id": "p024b", "actions": [], "residue": ["bloquea la tarjeta"]}
+{"id": "p008a", "actions": ["UPDATE"], "residue": ["the patch", "all production servers", "immediately"]}
+{"id": "p042a", "actions": ["EXECUTE"], "residue": ["solicitudes de compra", "menores a mil dólares"]}
+{"id": "p112b", "actions": [], "residue": ["every financial transaction"]}
+{"id": "p011b", "actions": [], "residue": ["Mueve la reunión de presupuesto", "a la sala C"]}
+{"id": "p088b", "actions": ["CHECK"], "residue": ["inventory levels", "end of every month"]}
+{"id": "p017a", "actions": ["CREATE"], "residue": ["sala de reunião", "dez pessoas", "quinta à tarde"]}
+{"id": "p032b", "actions": [], "residue": ["Merge the feature branch", "into main"]}
+{"id": "p019b", "actions": ["UPDATE"], "residue": ["Sincronizar", "a cada seis horas"]}
+{"id": "p041b", "actions": ["CHECK"], "residue": ["provas", "8º ano", "até sexta"]}
+{"id": "p011a", "actions": [], "residue": ["Mueve la reunión de presupuesto", "a la sala B"]}
+{"id": "p031a", "actions": ["UPDATE"], "residue": ["Arquive os tickets resolvidos", "há mais de 30 dias"]}
+{"id": "p096a", "actions": [], "residue": ["Invoice the client", "on the first of each month"]}
+{"id": "p091b", "actions": ["CREATE"], "residue": ["backed up", "weekly"]}
+{"id": "p004b", "actions": ["CREATE"], "residue": ["cita de seguimiento", "con el paciente", "dentro de dos semanas"]}
+{"id": "p096b", "actions": [], "residue": ["Invoice the client", "on the fifteenth of each month"]}
+{"id": "p004a", "actions": ["CREATE"], "residue": ["follow-up appointment", "with the patient", "in two weeks"]}
+{"id": "p051b", "actions": [], "residue": ["meeting", "manager"]}
+{"id": "p037a", "actions": ["SEND"], "residue": ["notificação", "time de vendas"]}
+{"id": "p037b", "actions": ["SEND"], "residue": ["notification", "sales team"]}
+{"id": "p027a", "actions": ["UPDATE"], "residue": ["tiempo de sesión", "máximo", "treinta minutos"]}
+{"id": "p106b", "actions": ["SEND"], "residue": ["incidente", "equipo de redes"]}
+{"id": "p086a", "actions": [], "residue": ["O certificado", "válido por um ano"]}
+{"id": "p035a", "actions": [], "residue": ["Agende a manutenção do elevador", "dia 15"]}
+{"id": "p052b", "actions": ["SEND"], "residue": ["encomenda", "filial de Santos"]}
+{"id": "p020a", "actions": ["UPDATE"], "residue": ["limite de memória", "máquina virtual", "16GB"]}
+{"id": "p013b", "actions": ["UPDATE"], "residue": ["project dependencies", "latest available versions"]}
+{"id": "p055b", "actions": ["SEND"], "residue": ["every staff member", "by email", "training submission deadline"]}
+{"id": "p046a", "actions": ["EXECUTE"], "residue": ["printer paper"]}
+{"id": "p006a", "actions": ["GET"], "residue": ["la factura", "antes del viernes"]}
+{"id": "p083a", "actions": ["SEND"], "residue": ["warehouse manager", "when the shipment leaves the port"]}
+{"id": "p043a", "actions": ["DISABLE"], "residue": ["não pagaram sua última fatura"]}
+{"id": "p025a", "actions": ["SEND"], "residue": ["on-call engineer", "via SMS"]}
+{"id": "p040a", "actions": [], "residue": ["Publish the announcement", "on the company website"]}
+{"id": "p003b", "actions": ["UPDATE"], "residue": ["support tickets", "resolution status", "after 30 days"]}
+{"id": "p089a", "actions": ["SEND"], "residue": []}
+{"id": "p074a", "actions": ["SEND"], "residue": ["invoice", "billing department"]}
+{"id": "p112a", "actions": [], "residue": ["registrar", "transações financeiras"]}
+{"id": "p064a", "actions": ["DISABLE"], "residue": ["inactive for six months"]}
+{"id": "p105a", "actions": ["CHECK", "UPDATE"], "residue": ["contrato de arrendamiento", "cláusulas de penalización"]}
+{"id": "p038a", "actions": ["EXECUTE"], "residue": []}
+{"id": "p060a", "actions": ["SEND"], "residue": ["replacement part", "via express courier"]}
+{"id": "p094a", "actions": ["EXECUTE"], "residue": ["two copies", "signed agreement"]}
+{"id": "p030b", "actions": ["UPDATE"], "residue": ["pool de conexões", "50"]}
+{"id": "p117b", "actions": ["SUMMARIZE"], "residue": ["marketing"]}
+{"id": "p119a", "actions": ["SEND"], "residue": ["Ligue para", "de manhã"]}
+{"id": "p081b", "actions": ["SEND"], "residue": ["On their first day", "each new employee", "onboarding checklist", "by email"]}
+{"id": "p056b", "actions": ["CREATE"], "residue": ["copia de seguridad", "antes de las 6 PM"]}
+{"id": "p119b", "actions": ["SEND"], "residue": ["Escríbele", "por la mañana"]}
+{"id": "p091a", "actions": ["CREATE"], "residue": ["backed up", "daily"]}
+{"id": "p047b", "actions": [], "residue": ["Contrate dois técnicos permanentes", "para o inventário"]}
+{"id": "p005a", "actions": ["SEND"], "residue": ["la presentación", "equipo de ventas"]}
+{"id": "p105b", "actions": ["CHECK", "UPDATE"], "residue": ["contrato de locação", "cláusulas de multa"]}
+{"id": "p114b", "actions": ["UNSPECIFIED"], "residue": ["read-only permission", "finance folder", "the auditors"]}
+{"id": "p028b", "actions": [], "residue": ["Require two-factor authentication", "for all accounts"]}
+{"id": "p022a", "actions": ["EXECUTE"], "residue": ["pacientes", "jejuar", "oito horas", "antes do exame de sangue"]}
+{"id": "p038b", "actions": ["EXECUTE"], "residue": []}
+{"id": "p092a", "actions": ["UPDATE"], "residue": ["DNS records", "new server address"]}
+{"id": "p054b", "actions": ["EXECUTE"], "residue": ["SSL certificate", "primary web server"]}
+{"id": "p030a", "actions": ["UPDATE"], "residue": ["pool de conexões", "100"]}
+{"id": "p108b", "actions": ["SEND"], "residue": ["los alumnos", "ensayo", "por email"]}
+{"id": "p042b", "actions": ["EXECUTE"], "residue": ["purchase requests", "under $1,000"]}
+{"id": "p059a", "actions": ["UPDATE"], "residue": ["precio", "15 por ciento"]}
+{"id": "p052a", "actions": ["SEND"], "residue": ["encomenda", "filial de Campinas"]}
+{"id": "p114a", "actions": ["UNSPECIFIED"], "residue": ["read-only access", "finance folder", "for the auditors"]}
+{"id": "p095b", "actions": ["EXECUTE"], "residue": ["maintenance tasks", "planned outage period"]}
+{"id": "p076a", "actions": ["EXECUTE"], "residue": ["solicitudes de gastos", "menores a quinientos dólares"]}
+{"id": "p107a", "actions": [], "residue": ["encriptados en tránsito", "almacenados de forma segura"]}
+{"id": "p025b", "actions": ["SEND"], "residue": ["on-call engineer", "via Slack"]}
+{"id": "p015a", "actions": ["UPDATE"], "residue": ["dirección de envío", "pedido"]}
+{"id": "p012a", "actions": [], "residue": ["Notifique o paciente", "por e-mail", "sobre o resultado"]}
+{"id": "p039a", "actions": ["UPDATE"], "residue": ["contraseña", "cada noventa días"]}
+{"id": "p100b", "actions": ["EXECUTE"], "residue": ["API gateway", "11 a.m."]}
+{"id": "p093a", "actions": ["EXECUTE", "EXECUTE"], "residue": ["documentos de admissão"]}
+{"id": "p111a", "actions": ["UPDATE"], "residue": ["API keys", "staging environment"]}
+{"id": "p077b", "actions": ["CREATE"], "residue": ["quarterly", "revenue", "by region"]}
+{"id": "p049b", "actions": ["SEND"], "residue": ["quarterly", "to internal stakeholders"]}
+{"id": "p069a", "actions": [], "residue": ["Assign the bug", "to the frontend team"]}
+{"id": "p034a", "actions": ["DELETE"], "residue": ["cache de navegador", "após cada sessão"]}
+{"id": "p080b", "actions": ["CREATE"], "residue": ["vacuna del paciente", "jueves"]}
+{"id": "p049a", "actions": ["SEND"], "residue": ["monthly", "to internal stakeholders"]}
+{"id": "p102a", "actions": ["TRANSLATE"], "residue": ["the brochure"]}
+{"id": "p067a", "actions": ["SEND"], "residue": ["invitaciones", "VIP solamente"]}
+{"id": "p064b", "actions": ["DISABLE"], "residue": ["haven't logged in during the past six months"]}
+{"id": "p033a", "actions": ["CHECK"], "residue": ["lease renewal clause", "before signing"]}
+{"id": "p115a", "actions": ["EXECUTE"], "residue": ["production database", "every night", "at 2 a.m."]}
+{"id": "p054a", "actions": ["EXECUTE"], "residue": ["certificado SSL", "servidor web principal"]}
+{"id": "p044b", "actions": ["CHECK"], "residue": ["por teléfono", "proveedor", "entrega"]}
+{"id": "p005b", "actions": ["SEND"], "residue": ["la hoja de cálculo", "equipo de ventas"]}
+{"id": "p107b", "actions": [], "residue": ["during transmission", "when stored"]}
+{"id": "p041a", "actions": ["CHECK"], "residue": ["provas", "7º ano", "até sexta"]}
+{"id": "p073a", "actions": ["CREATE"], "residue": ["backup", "antes de qualquer atualização de schema"]}
+{"id": "p095a", "actions": ["EXECUTE"], "residue": ["system maintenance", "scheduled downtime window"]}
+{"id": "p104a", "actions": ["SEND"], "residue": ["trimestral", "ao conselho", "até segunda-feira"]}
+{"id": "p099b", "actions": ["UNSPECIFIED"], "residue": ["full access", "finance department"]}
+{"id": "p058b", "actions": ["SEND"], "residue": ["$50,000", "marketing's bank account"]}
+{"id": "p034b", "actions": ["DELETE"], "residue": ["cache de navegador", "manualmente"]}
+{"id": "p093b", "actions": ["EXECUTE"], "residue": ["documentos de admisión", "guárdalos"]}
+{"id": "p074b", "actions": ["SEND"], "residue": ["quote", "billing department"]}
+{"id": "p116a", "actions": ["VALIDATE"], "residue": ["contraseñas", "requisitos de seguridad"]}
+{"id": "p065a", "actions": ["SEND"], "residue": ["lembrete", "aos pais", "reunião escolar"]}
+{"id": "p062b", "actions": [], "residue": ["Print the shipping labels", "orders"]}
+{"id": "p071a", "actions": ["UPDATE"], "residue": ["cierra el ticket"]}
+{"id": "p066a", "actions": ["CHECK"], "residue": ["registros de auditoria", "atividades suspeitas", "últimos sete dias"]}
+{"id": "p002b", "actions": ["EXCLUDE"], "residue": ["e-mails", "projeto"]}
+{"id": "p084b", "actions": ["EXECUTE"], "residue": ["pedidos", "antes das 3 da tarde"]}
+{"id": "p079b", "actions": [], "residue": ["maintenance", "Sunday evening"]}
+{"id": "p097b", "actions": ["SEND"], "residue": ["payment reminder", "three days after the due date"]}
+{"id": "p080a", "actions": ["CREATE"], "residue": ["vacuna del paciente", "martes"]}
+{"id": "p078b", "actions": ["EXECUTE"], "residue": ["migración de servidores", "medianoche del sábado"]}
+{"id": "p018a", "actions": ["EXECUTE"], "residue": ["pull request", "until two reviewers approve it"]}
+{"id": "p102b", "actions": ["TRANSLATE"], "residue": ["o folheto"]}
+{"id": "p039b", "actions": ["UPDATE"], "residue": ["senha", "a cada 90 dias"]}
+{"id": "p085a", "actions": [], "residue": ["Transferir responsabilidad", "al departamento de infraestructura"]}
+{"id": "p061a", "actions": ["TRANSFORM", "EXECUTE"], "residue": ["log files", "older than a week", "cold storage"]}
+{"id": "p059b", "actions": ["UPDATE"], "residue": ["precio", "25 por ciento"]}
+{"id": "p099a", "actions": ["UNSPECIFIED"], "residue": ["read-only access", "finance department"]}
+{"id": "p118a", "actions": ["DELETE"], "residue": ["inativo", "grupo de administradores"]}
+{"id": "p015b", "actions": ["UPDATE"], "residue": ["endereço de entrega", "pedido"]}
+{"id": "p060b", "actions": ["SEND"], "residue": ["replacement part", "by express courier"]}
+{"id": "p075b", "actions": ["UPDATE"], "residue": ["storage quotas", "per-user basis"]}
+{"id": "p044a", "actions": ["CHECK"], "residue": ["Llama al proveedor", "entrega"]}
+{"id": "p032a", "actions": [], "residue": ["Merge the feature branch", "into develop"]}
+{"id": "p077a", "actions": ["GENERATE"], "residue": ["ingresos", "todas las regiones"]}
+{"id": "p048a", "actions": ["EXECUTE"], "residue": ["Refund"]}
+{"id": "p082a", "actions": ["UPDATE"], "residue": ["API", "nuevos endpoints"]}
+{"id": "p009a", "actions": ["EXECUTE"], "residue": ["payment service", "after deploying the hotfix"]}
+{"id": "p003a", "actions": ["UPDATE"], "residue": ["support tickets", "marked as resolved", "within thirty days"]}
+{"id": "p046b", "actions": ["EXECUTE"], "residue": ["papel para impresora"]}
+{"id": "p012b", "actions": [], "residue": ["Notifica al médico", "por correo", "sobre el resultado"]}
+{"id": "p068b", "actions": [], "residue": ["Armazenar logs de servidor", "por noventa dias"]}
+{"id": "p101b", "actions": ["EXECUTE", "DISABLE"], "residue": ["reembolse", "último pagamento", "assinatura"]}
+{"id": "p072b", "actions": ["EXECUTE"], "residue": ["notas de versão", "blog da empresa"]}
+{"id": "p000a", "actions": ["DELETE"], "residue": ["backup files", "older than one year"]}
+{"id": "p085b", "actions": [], "residue": ["Transferir responsabilidad", "al departamento de seguridad"]}
+{"id": "p089b", "actions": ["SEND"], "residue": []}
+{"id": "p076b", "actions": ["EXECUTE"], "residue": ["solicitudes de gastos", "menores a mil dólares"]}
+{"id": "p043b", "actions": ["DISABLE"], "residue": ["outstanding unpaid invoices"]}
+{"id": "p014a", "actions": ["EXECUTE"], "residue": ["servidor de base de datos"]}
+{"id": "p020b", "actions": ["UPDATE"], "residue": ["memory capacity", "virtual machine", "16GB"]}
+{"id": "p056a", "actions": ["CREATE"], "residue": ["copia de seguridad", "antes de las 8 AM"]}
+{"id": "p026b", "actions": ["SEND"], "residue": ["staff", "timesheets", "by the end of each Friday"]}
+{"id": "p008b", "actions": ["UPDATE"], "residue": ["the patch", "all development servers", "immediately"]}
+{"id": "p024a", "actions": [], "residue": ["bloquea la tarjeta"]}
+{"id": "p117a", "actions": [], "residue": ["Archive", "marketing"]}
+{"id": "p106a", "actions": ["SEND"], "residue": ["incidente", "equipo de redes"]}
+{"id": "p081a", "actions": ["SEND"], "residue": ["onboarding checklist", "every new hire", "on their first day"]}
+{"id": "p061b", "actions": ["EXECUTE", "TRANSFORM"], "residue": ["log files", "older than seven days", "cold storage"]}
+{"id": "p013a", "actions": ["UPDATE"], "residue": ["dependências do projeto", "versões mais recentes"]}
+{"id": "p087b", "actions": ["SEND"], "residue": ["weekly", "to the CEO", "by Monday"]}
+{"id": "p110a", "actions": [], "residue": ["Sube los archivos", "al bucket de respaldo", "cada hora"]}
+{"id": "p113b", "actions": [], "residue": ["Guardar los archivos", "en la nube"]}
+{"id": "p113a", "actions": [], "residue": ["Guardar los archivos", "en el servidor local"]}
+{"id": "p071b", "actions": ["UPDATE"], "residue": ["cierra el ticket"]}
+{"id": "p108a", "actions": ["SEND"], "residue": ["los estudiantes", "ensayo", "por correo electrónico"]}
+{"id": "p058a", "actions": ["SEND"], "residue": ["fifty thousand dollars", "marketing department's account"]}
+{"id": "p006b", "actions": ["SEND"], "residue": ["la factura", "antes de que termine la semana"]}
+{"id": "p086b", "actions": [], "residue": ["O certificado", "válido por dois anos"]}
+{"id": "p083b", "actions": ["SEND"], "residue": ["gerente do armazém", "quando a carga sair do porto"]}
+{"id": "p079a", "actions": [], "residue": ["maintenance", "Saturday evening"]}
+{"id": "p065b", "actions": ["SEND"], "residue": ["aos pais", "aviso lembrando", "reunião da escola"]}
+{"id": "p088a", "actions": ["CHECK"], "residue": ["inventario", "al final de cada mes"]}
+{"id": "p016a", "actions": ["UPDATE"], "residue": ["10%", "pedidos superiores a 200 dólares"]}
+{"id": "p040b", "actions": [], "residue": ["Publish the announcement", "on social media"]}
+{"id": "p072a", "actions": ["EXECUTE"], "residue": ["release notes", "company blog"]}
+{"id": "p118b", "actions": ["DELETE"], "residue": ["inactive", "administrators group"]}
+{"id": "p047a", "actions": [], "residue": ["Contrate dois técnicos temporários", "para o inventário"]}
+{"id": "p068a", "actions": [], "residue": ["Armazenar logs de servidor", "por trinta dias"]}
+{"id": "p053b", "actions": ["UPDATE"], "residue": ["project", "quality assurance team"]}
+{"id": "p018b", "actions": ["EXECUTE"], "residue": ["approval from two reviewers", "before merging the pull request"]}
+{"id": "p000b", "actions": ["DELETE"], "residue": ["backups", "more than 12 months old"]}
+{"id": "p036a", "actions": ["TRANSLATE"], "residue": ["manual de usuario"]}
+{"id": "p033b", "actions": ["CHECK"], "residue": ["cláusula de terminación del arrendamiento", "antes de firmar"]}
+{"id": "p023a", "actions": [], "residue": ["The team", "10 members"]}
+{"id": "p075a", "actions": ["UPDATE"], "residue": ["cuotas de almacenamiento", "cada usuario"]}
+{"id": "p062a", "actions": [], "residue": ["Imprima as etiquetas de envio", "pedidos"]}
+{"id": "p001b", "actions": ["RETRIEVE"], "residue": ["archivo CSV actualizado"]}
+{"id": "p101a", "actions": ["DISABLE", "EXECUTE"], "residue": ["assinatura", "reembolse", "último pagamento"]}
+{"id": "p084a", "actions": ["EXECUTE"], "residue": ["pedidos", "antes das 5 da tarde"]}
+{"id": "p103b", "actions": [], "residue": ["Encrypt the backups", "AES-128"]}
+{"id": "p103a", "actions": [], "residue": ["Encrypt the backups", "AES-256"]}
+{"id": "p022b", "actions": ["EXECUTE"], "residue": ["Antes do exame de sangue", "pacientes", "jejum", "8 horas"]}
+{"id": "p010b", "actions": ["SEND"], "residue": ["factura", "Antes del viernes"]}
+{"id": "p019a", "actions": ["UPDATE"], "residue": ["Sincronizar", "a cada hora"]}
+{"id": "p029b", "actions": ["UPDATE"], "residue": ["cluster web", "oito nós"]}
+{"id": "p048b", "actions": ["EXECUTE"], "residue": ["Refund"]}
+{"id": "p087a", "actions": ["SEND"], "residue": ["weekly", "to the CFO", "by Monday"]}
+{"id": "p045b", "actions": ["SEND"], "residue": ["contrato", "al contador"]}
+{"id": "p053a", "actions": ["UPDATE"], "residue": ["project", "development team"]}
+{"id": "p090a", "actions": ["SEND"], "residue": ["confirmación", "por correo electrónico"]}
+{"id": "p109a", "actions": ["UPDATE"], "residue": ["permissões de acesso", "novo usuário administrativo"]}
+{"id": "p109b", "actions": ["UPDATE"], "residue": ["access permissions", "new admin user account"]}
+{"id": "p055a", "actions": ["SEND"], "residue": ["reminder", "email", "all employees", "training deadline"]}
+{"id": "p104b", "actions": ["SEND"], "residue": ["trimestral", "a la junta", "a más tardar el lunes"]}
+{"id": "p017b", "actions": ["CREATE"], "residue": ["quinta-feira à tarde", "sala de reuniões", "capacidade para 10 pessoas"]}
+{"id": "p035b", "actions": [], "residue": ["Agende a manutenção do elevador", "dia 25"]}
+{"id": "p070a", "actions": ["CALCULATE"], "residue": ["mensuales"]}
+{"id": "p051a", "actions": [], "residue": ["reunião", "gerente"]}
+{"id": "p057a", "actions": ["SEND"], "residue": ["via email", "service outage"]}
+{"id": "p021a", "actions": ["GENERATE"], "residue": ["etiquetas", "catálogo principal"]}
+{"id": "p010a", "actions": ["SEND"], "residue": ["factura", "antes del viernes"]}
+{"id": "p063b", "actions": ["DELETE"], "residue": ["records", "older than three years"]}
+{"id": "p111b", "actions": ["UPDATE"], "residue": ["API keys", "staging environment"]}
+{"id": "p050a", "actions": ["UPDATE"], "residue": ["desconto", "dez por cento"]}
+{"id": "p050b", "actions": ["UPDATE"], "residue": ["desconto", "vinte por cento"]}
+{"id": "p031b", "actions": ["UPDATE"], "residue": ["tickets resolvidos", "há mais de trinta dias", "arquivados"]}
+{"id": "p094b", "actions": ["EXECUTE"], "residue": ["dos copias", "acuerdo firmado"]}
+{"id": "p016b", "actions": ["UPDATE"], "residue": ["15%", "pedidos superiores a 200 dólares"]}
+{"id": "p036b", "actions": ["TRANSLATE"], "residue": ["user manual"]}
+{"id": "p098a", "actions": ["DISABLE"], "residue": ["login automático"]}
+{"id": "p027b", "actions": ["UPDATE"], "residue": ["tiempo de sesión", "máximo", "sesenta minutos"]}
+{"id": "p007b", "actions": ["DELETE"], "residue": ["temporary files", "server", "before running backups"]}
+{"id": "p063a", "actions": ["DELETE"], "residue": ["records", "older than five years"]}
+{"id": "p014b", "actions": ["EXECUTE"], "residue": ["cache server"]}
+{"id": "p078a", "actions": ["EXECUTE"], "residue": ["migración de servidores", "sábado", "medianoche"]}
+{"id": "p021b", "actions": ["GENERATE"], "residue": ["print", "labels", "main product catalog"]}
+{"id": "p045a", "actions": ["SEND"], "residue": ["contrato", "al abogado"]}
