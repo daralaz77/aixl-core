@@ -1,0 +1,150 @@
+{"id":"H-EQU-001","label":"EQUIVALENT","a":"Transfer fifty thousand dollars to the marketing department's account","b":"Move $50,000 to marketing's bank account","langs":["en"]}
+{"id":"H-EQU-002","label":"EQUIVALENT","a":"El cliente debe recibir la factura antes del viernes","b":"Enviar la factura al cliente antes de que termine la semana","langs":["es"]}
+{"id":"H-EQU-003","label":"EQUIVALENT","a":"Agende a reunião com o gerente para próxima semana","b":"Schedule a meeting with the manager for next week","langs":["pt","en"]}
+{"id":"H-EQU-004","label":"EQUIVALENT","a":"Deactivate all user accounts inactive for six months","b":"Disable accounts belonging to users who haven't logged in during the past six months","langs":["en"]}
+{"id":"H-EQU-005","label":"EQUIVALENT","a":"Los datos deben estar encriptados en tránsito y almacenados de forma segura","b":"Encrypt data during transmission and protect it when stored","langs":["es","en"]}
+{"id":"H-EQU-006","label":"EQUIVALENT","a":"Enviar notificação ao time de vendas sobre o novo produto","b":"Send a notification to the sales team regarding the new product launch","langs":["pt","en"]}
+{"id":"H-EQU-007","label":"EQUIVALENT","a":"La contraseña debe cambiarse cada noventa días","b":"A senha deve ser alterada a cada 90 dias","langs":["es","pt"]}
+{"id":"H-EQU-008","label":"EQUIVALENT","a":"Delete all backup files older than one year","b":"Remove backups that are more than 12 months old","langs":["en"]}
+{"id":"H-EQU-009","label":"EQUIVALENT","a":"O sistema deve registrar todas as transações financeiras","b":"Log every financial transaction in the system","langs":["pt","en"]}
+{"id":"H-EQU-010","label":"EQUIVALENT","a":"Generar un reporte con las cifras de ingresos del Q3 para todas las regiones","b":"Create a quarterly report showing Q3 revenue by region","langs":["es","en"]}
+{"id":"H-EQU-011","label":"EQUIVALENT","a":"Desativar a função de login automático para todos os usuários","b":"Turn off auto-login capability across all user accounts","langs":["pt","en"]}
+{"id":"H-EQU-012","label":"EQUIVALENT","a":"Actualizar la documentación del API con los nuevos endpoints","b":"Update the API documentation to include the new endpoints","langs":["es","en"]}
+{"id":"H-EQU-013","label":"EQUIVALENT","a":"Perform system maintenance during the scheduled downtime window","b":"Execute maintenance tasks throughout the planned outage period","langs":["en"]}
+{"id":"H-EQU-014","label":"EQUIVALENT","a":"El inventario debe verificarse al final de cada mes","b":"Verify inventory levels at the end of every month","langs":["es","en"]}
+{"id":"H-EQU-015","label":"EQUIVALENT","a":"Configurar permissões de acesso para o novo usuário administrativo","b":"Set up access permissions for the new admin user account","langs":["pt","en"]}
+{"id":"H-EQU-016","label":"EQUIVALENT","a":"Remover archivos temporales del servidor antes de hacer backup","b":"Clean temporary files from the server before running backups","langs":["es","en"]}
+{"id":"H-EQU-017","label":"EQUIVALENT","a":"Send a reminder email to all employees about the training deadline","b":"Notify every staff member by email regarding the training submission deadline","langs":["en"]}
+{"id":"H-EQU-018","label":"EQUIVALENT","a":"Aumentar o limite de memória da máquina virtual para 16GB","b":"Upgrade the virtual machine's memory capacity to 16GB","langs":["pt","en"]}
+{"id":"H-EQU-019","label":"EQUIVALENT","a":"Aprobar todas las solicitudes de compra menores a mil dólares","b":"Approve purchase requests that are under $1,000","langs":["es","en"]}
+{"id":"H-EQU-020","label":"EQUIVALENT","a":"Imprimir etiquetas para os produtos do catálogo principal","b":"Generate and print labels for all items in the main product catalog","langs":["pt","en"]}
+{"id":"H-EQU-021","label":"EQUIVALENT","a":"Modify the DNS records to point to the new server address","b":"Update DNS settings to redirect traffic to the new server","langs":["en"]}
+{"id":"H-EQU-022","label":"EQUIVALENT","a":"Los empleados deben reportar sus horas trabajadas cada viernes","b":"Require staff to submit timesheets by the end of each Friday","langs":["es","en"]}
+{"id":"H-EQU-023","label":"EQUIVALENT","a":"Fazer backup do banco de dados antes de qualquer atualização de schema","b":"Back up the database prior to executing any schema changes","langs":["pt","en"]}
+{"id":"H-EQU-024","label":"EQUIVALENT","a":"Validar que todas las contraseñas cumplan con los requisitos de seguridad","b":"Ensure all passwords meet the security policy requirements","langs":["es","en"]}
+{"id":"H-EQU-025","label":"EQUIVALENT","a":"Anular a inscrição de clientes que não pagaram sua última fatura","b":"Unsubscribe customers who have outstanding unpaid invoices","langs":["pt","en"]}
+{"id":"H-EQU-026","label":"EQUIVALENT","a":"Close all support tickets marked as resolved within thirty days","b":"Archive support tickets with resolution status after 30 days have passed","langs":["en"]}
+{"id":"H-EQU-027","label":"EQUIVALENT","a":"Instalar el certificado SSL en el servidor web principal","b":"Deploy the SSL certificate to the primary web server","langs":["es","en"]}
+{"id":"H-EQU-028","label":"EQUIVALENT","a":"Atualizar as dependências do projeto para suas versões mais recentes","b":"Upgrade all project dependencies to the latest available versions","langs":["pt","en"]}
+{"id":"H-EQU-029","label":"EQUIVALENT","a":"Establecer cuotas de almacenamiento para cada usuario","b":"Set storage quotas on a per-user basis","langs":["es","en"]}
+{"id":"H-EQU-030","label":"EQUIVALENT","a":"Revisar registros de auditoria para atividades suspeitas nos últimos sete dias","b":"Check audit logs for suspicious activity from the past week","langs":["pt","en"]}
+{"id":"H-NE-001","label":"NOT_EQUIVALENT","a":"Send the weekly report to the CFO by Monday","b":"Send the weekly report to the CEO by Monday","langs":["en"]}
+{"id":"H-NE-002","label":"NOT_EQUIVALENT","a":"Aumentar el precio del producto en un 15 por ciento","b":"Aumentar el precio del producto en un 25 por ciento","langs":["es"]}
+{"id":"H-NE-003","label":"NOT_EQUIVALENT","a":"The database should be backed up daily","b":"The database should be backed up weekly","langs":["en"]}
+{"id":"H-NE-004","label":"NOT_EQUIVALENT","a":"Processar pedidos antes das 5 da tarde","b":"Processar pedidos antes das 3 da tarde","langs":["pt"]}
+{"id":"H-NE-005","label":"NOT_EQUIVALENT","a":"Aprobar solicitudes de gastos menores a quinientos dólares","b":"Aprobar solicitudes de gastos menores a mil dólares","langs":["es"]}
+{"id":"H-NE-006","label":"NOT_EQUIVALENT","a":"Notify customers via email about the service outage","b":"Notify customers via SMS about the service outage","langs":["en"]}
+{"id":"H-NE-007","label":"NOT_EQUIVALENT","a":"O relatório deve ser entregue em formato PDF","b":"O relatório deve ser entregue em formato Excel","langs":["pt"]}
+{"id":"H-NE-008","label":"NOT_EQUIVALENT","a":"Delete customer records older than five years","b":"Delete customer records older than three years","langs":["en"]}
+{"id":"H-NE-009","label":"NOT_EQUIVALENT","a":"Establecer el tiempo de sesión máximo en treinta minutos","b":"Establecer el tiempo de sesión máximo en sesenta minutos","langs":["es"]}
+{"id":"H-NE-010","label":"NOT_EQUIVALENT","a":"Assign the project to the development team","b":"Assign the project to the quality assurance team","langs":["en"]}
+{"id":"H-NE-011","label":"NOT_EQUIVALENT","a":"Aumentar o tamanho do pool de conexões para 100","b":"Aumentar o tamanho do pool de conexões para 50","langs":["pt"]}
+{"id":"H-NE-012","label":"NOT_EQUIVALENT","a":"Enviar invitaciones a los clientes VIP solamente","b":"Enviar invitaciones a todos los clientes","langs":["es"]}
+{"id":"H-NE-013","label":"NOT_EQUIVALENT","a":"Schedule maintenance for Saturday evening","b":"Schedule maintenance for Sunday evening","langs":["en"]}
+{"id":"H-NE-014","label":"NOT_EQUIVALENT","a":"Aplicar desconto de dez por cento em todos os produtos","b":"Aplicar desconto de vinte por cento em todos os produtos","langs":["pt"]}
+{"id":"H-NE-015","label":"NOT_EQUIVALENT","a":"Grant read-only access to the finance department","b":"Grant full access to the finance department","langs":["en"]}
+{"id":"H-NE-016","label":"NOT_EQUIVALENT","a":"Guardar los archivos en el servidor local","b":"Guardar los archivos en la nube","langs":["es"]}
+{"id":"H-NE-017","label":"NOT_EQUIVALENT","a":"The team should have 10 members","b":"The team should have 15 members","langs":["en"]}
+{"id":"H-NE-018","label":"NOT_EQUIVALENT","a":"Sincronizar dados a cada hora","b":"Sincronizar dados a cada seis horas","langs":["pt"]}
+{"id":"H-NE-019","label":"NOT_EQUIVALENT","a":"Invoice the client on the first of each month","b":"Invoice the client on the fifteenth of each month","langs":["en"]}
+{"id":"H-NE-020","label":"NOT_EQUIVALENT","a":"Enviar confirmación por correo electrónico","b":"Enviar confirmación por correo electrónico y SMS","langs":["es"]}
+{"id":"H-NE-021","label":"NOT_EQUIVALENT","a":"Require two-factor authentication for admin accounts only","b":"Require two-factor authentication for all accounts","langs":["en"]}
+{"id":"H-NE-022","label":"NOT_EQUIVALENT","a":"Armazenar logs de servidor por trinta dias","b":"Armazenar logs de servidor por noventa dias","langs":["pt"]}
+{"id":"H-NE-023","label":"NOT_EQUIVALENT","a":"Importar datos desde el archivo CSV original","b":"Importar datos desde el archivo CSV actualizado","langs":["es"]}
+{"id":"H-NE-024","label":"NOT_EQUIVALENT","a":"Publish the announcement on the company website","b":"Publish the announcement on social media","langs":["en"]}
+{"id":"H-NE-025","label":"NOT_EQUIVALENT","a":"Limpar cache de navegador após cada sessão","b":"Limpar cache de navegador manualmente","langs":["pt"]}
+{"id":"H-NE-026","label":"NOT_EQUIVALENT","a":"Transferir responsabilidad al departamento de infraestructura","b":"Transferir responsabilidad al departamento de seguridad","langs":["es"]}
+{"id":"H-NE-027","label":"NOT_EQUIVALENT","a":"Send monthly reports to internal stakeholders","b":"Send quarterly reports to internal stakeholders","langs":["en"]}
+{"id":"H-NE-028","label":"NOT_EQUIVALENT","a":"O certificado é válido por um ano","b":"O certificado é válido por dois anos","langs":["pt"]}
+{"id":"H-NE-029","label":"NOT_EQUIVALENT","a":"Crear una copia de seguridad antes de las 8 AM","b":"Crear una copia de seguridad antes de las 6 PM","langs":["es"]}
+{"id":"H-NE-030","label":"NOT_EQUIVALENT","a":"Apply the patch to all production servers immediately","b":"Apply the patch to all development servers immediately","langs":["en"]}
+{"id":"H-PE-001","label":"PARTIALLY_EQUIVALENT","a":"Send an email to all customers","b":"Send an email to all customers in the Europe region","langs":["en"]}
+{"id":"H-PE-002","label":"PARTIALLY_EQUIVALENT","a":"Generar reporte de ventas","b":"Generar reporte de ventas del último trimestre en formato Excel","langs":["es"]}
+{"id":"H-PE-003","label":"PARTIALLY_EQUIVALENT","a":"Programar a manutenção do servidor","b":"Programar a manutenção do servidor de produção no fim de semana","langs":["pt"]}
+{"id":"H-PE-004","label":"PARTIALLY_EQUIVALENT","a":"Backup all databases","b":"Backup all databases except the development environment","langs":["en"]}
+{"id":"H-PE-005","label":"PARTIALLY_EQUIVALENT","a":"Aprobar solicitudes de compra","b":"Aprobar solicitudes de compra por menos de cinco mil pesos","langs":["es"]}
+{"id":"H-PE-006","label":"PARTIALLY_EQUIVALENT","a":"Schedule team meetings","b":"Schedule team meetings via Zoom during business hours","langs":["en"]}
+{"id":"H-PE-007","label":"PARTIALLY_EQUIVALENT","a":"Atualizar as credenciais de acesso","b":"Atualizar as credenciais de acesso para todos os usuários administrativos","langs":["pt"]}
+{"id":"H-PE-008","label":"PARTIALLY_EQUIVALENT","a":"Archive old records","b":"Archive old records from the 2023 fiscal year","langs":["en"]}
+{"id":"H-PE-009","label":"PARTIALLY_EQUIVALENT","a":"Implementar medidas de seguridad","b":"Implementar medidas de seguridad en los servidores web públicos","langs":["es"]}
+{"id":"H-PE-010","label":"PARTIALLY_EQUIVALENT","a":"Send notifications to users","b":"Send notifications to users whose subscriptions are expiring soon","langs":["en"]}
+{"id":"H-PE-011","label":"PARTIALLY_EQUIVALENT","a":"Revisar código antes de merge","b":"Revisar código antes de merge en la rama principal","langs":["es"]}
+{"id":"H-PE-012","label":"PARTIALLY_EQUIVALENT","a":"Configurar alertas de monitoramento","b":"Configurar alertas de monitoramento para os servidores críticos","langs":["pt"]}
+{"id":"H-PE-013","label":"PARTIALLY_EQUIVALENT","a":"Update inventory records","b":"Update inventory records for all warehouse locations","langs":["en"]}
+{"id":"H-PE-014","label":"PARTIALLY_EQUIVALENT","a":"Enviar relatórios financeiros","b":"Enviar relatórios financeiros mensais ao conselho de diretores","langs":["pt"]}
+{"id":"H-PE-015","label":"PARTIALLY_EQUIVALENT","a":"Crear respaldos de datos","b":"Crear respaldos de datos de las bases de datos de clientes críticas","langs":["es"]}
+{"id":"H-PE-016","label":"PARTIALLY_EQUIVALENT","a":"Train the staff","b":"Train the staff on new software security policies","langs":["en"]}
+{"id":"H-PE-017","label":"PARTIALLY_EQUIVALENT","a":"Provisionar recursos en la nube","b":"Provisionar recursos en la nube con límite de presupuesto máximo","langs":["es"]}
+{"id":"H-PE-018","label":"PARTIALLY_EQUIVALENT","a":"Monitorar performance do sistema","b":"Monitorar performance do sistema durante picos de tráfego","langs":["pt"]}
+{"id":"H-PE-019","label":"PARTIALLY_EQUIVALENT","a":"Document API endpoints","b":"Document all API endpoints with detailed response examples","langs":["en"]}
+{"id":"H-PE-020","label":"PARTIALLY_EQUIVALENT","a":"Modificar configuração","b":"Modificar configuración del servidor a través del panel de control","langs":["es"]}
+{"id":"H-PE-021","label":"PARTIALLY_EQUIVALENT","a":"Validate input from forms","b":"Validate input from forms to prevent SQL injection attacks","langs":["en"]}
+{"id":"H-PE-022","label":"PARTIALLY_EQUIVALENT","a":"Processar solicitações de suporte","b":"Processar solicitações de suporte com prioridade alta dentro de 24 horas","langs":["pt"]}
+{"id":"H-PE-023","label":"PARTIALLY_EQUIVALENT","a":"Auditar cambios en el sistema","b":"Auditar cambios en el sistema realizados en el último mes","langs":["es"]}
+{"id":"H-PE-024","label":"PARTIALLY_EQUIVALENT","a":"Configure authentication","b":"Configure authentication using OAuth2 for external applications","langs":["en"]}
+{"id":"H-PE-025","label":"PARTIALLY_EQUIVALENT","a":"Enviar aviso ao cliente","b":"Enviar aviso ao cliente sobre a próxima manutenção programada","langs":["pt"]}
+{"id":"H-PE-026","label":"PARTIALLY_EQUIVALENT","a":"Ejecutar tests automatizados","b":"Ejecutar tests automatizados antes de desplegar a producción","langs":["es"]}
+{"id":"H-PE-027","label":"PARTIALLY_EQUIVALENT","a":"Manage user permissions","b":"Manage user permissions for departmental file shares","langs":["en"]}
+{"id":"H-PE-028","label":"PARTIALLY_EQUIVALENT","a":"Pesquisar anomalias em logs","b":"Pesquisar anomalias em logs de segurança dos últimos dias","langs":["pt"]}
+{"id":"H-PE-029","label":"PARTIALLY_EQUIVALENT","a":"Replicar la base de datos","b":"Replicar la base de datos de producción a ambiente de staging","langs":["es"]}
+{"id":"H-PE-030","label":"PARTIALLY_EQUIVALENT","a":"Update software licenses","b":"Update software licenses to cover the expanded team size","langs":["en"]}
+{"id":"H-CONT-001","label":"CONTRADICTORY","a":"Enable two-factor authentication for all users","b":"Disable two-factor authentication for all users","langs":["en"]}
+{"id":"H-CONT-002","label":"CONTRADICTORY","a":"Aumentar el tamaño del pool de conexiones a 100","b":"Reducir el tamaño del pool de conexiones a 50","langs":["es"]}
+{"id":"H-CONT-003","label":"CONTRADICTORY","a":"Approve the budget increase for marketing","b":"Reject the budget increase for marketing","langs":["en"]}
+{"id":"H-CONT-004","label":"CONTRADICTORY","a":"Ativar o modo seguro do banco de dados","b":"Desativar o modo seguro do banco de dados","langs":["pt"]}
+{"id":"H-CONT-005","label":"CONTRADICTORY","a":"Crear una copia de seguridad de los datos","b":"Eliminar todos los datos sin respaldo","langs":["es"]}
+{"id":"H-CONT-006","label":"CONTRADICTORY","a":"Encrypt all customer information in the database","b":"Store customer information in plain text","langs":["en"]}
+{"id":"H-CONT-007","label":"CONTRADICTORY","a":"Permitir acesso à API para todas as aplicações externas","b":"Bloquear acesso à API para todas as aplicações externas","langs":["pt"]}
+{"id":"H-CONT-008","label":"CONTRADICTORY","a":"Comprimir archivos para ahorrar espacio","b":"Descomprimir todos los archivos existentes","langs":["es"]}
+{"id":"H-CONT-009","label":"CONTRADICTORY","a":"Publish the website updates immediately","b":"Hold all website updates until further notice","langs":["en"]}
+{"id":"H-CONT-010","label":"CONTRADICTORY","a":"Aumentar a capacidade de armazenamento em 50%","b":"Reduzir a capacidade de armazenamento em 50%","langs":["pt"]}
+{"id":"H-CONT-011","label":"CONTRADICTORY","a":"Implementar autenticación de múltiples factores","b":"Usar solo contraseña para autenticación","langs":["es"]}
+{"id":"H-CONT-012","label":"CONTRADICTORY","a":"Send notifications to users on Mondays","b":"Do not send any notifications on Mondays","langs":["en"]}
+{"id":"H-CONT-013","label":"CONTRADICTORY","a":"Manter o servidor em execução 24/7","b":"Desligar o servidor imediatamente e mantê-lo desligado","langs":["pt"]}
+{"id":"H-CONT-014","label":"CONTRADICTORY","a":"Implementar HTTPS en todos los endpoints","b":"Usar HTTP sin cifrado en los endpoints","langs":["es"]}
+{"id":"H-CONT-015","label":"CONTRADICTORY","a":"Keep the feature enabled for beta testing","b":"Disable the feature completely during beta testing","langs":["en"]}
+{"id":"H-CONT-016","label":"CONTRADICTORY","a":"Permitir que novos usuários se registrem automaticamente","b":"Bloquear todos os novos registros de usuários","langs":["pt"]}
+{"id":"H-CONT-017","label":"CONTRADICTORY","a":"Aumentar el presupuesto del equipo de investigación","b":"Eliminar completamente el presupuesto del equipo de investigación","langs":["es"]}
+{"id":"H-CONT-018","label":"CONTRADICTORY","a":"Grant admin privileges to all team members","b":"Remove all privileges from team members","langs":["en"]}
+{"id":"H-CONT-019","label":"CONTRADICTORY","a":"Agendar reunião para amanhã às 10 AM","b":"Cancelar a reunião agendada para amanhã","langs":["pt"]}
+{"id":"H-CONT-020","label":"CONTRADICTORY","a":"Aplicar parches de seguridad inmediatamente","b":"Retrasar los parches de seguridad indefinidamente","langs":["es"]}
+{"id":"H-CONT-021","label":"CONTRADICTORY","a":"Store all logs indefinitely for compliance","b":"Delete all logs immediately after generation","langs":["en"]}
+{"id":"H-CONT-022","label":"CONTRADICTORY","a":"Sincronizar dados em tempo real","b":"Sincronizar dados apenas uma vez por trimestre","langs":["pt"]}
+{"id":"H-CONT-023","label":"CONTRADICTORY","a":"Requerir validación de email para registros","b":"Permitir registros sin validación de email","langs":["es"]}
+{"id":"H-CONT-024","label":"CONTRADICTORY","a":"Automate the monthly billing process","b":"Process all invoices manually every month","langs":["en"]}
+{"id":"H-CONT-025","label":"CONTRADICTORY","a":"Compartilhar acesso ao banco de dados com fornecedores","b":"Revogr todo acesso de fornecedores ao banco de dados","langs":["pt"]}
+{"id":"H-CONT-026","label":"CONTRADICTORY","a":"Asignar la tarea al equipo de desarrolladores","b":"Ningún desarrollador debe trabajar en esta tarea","langs":["es"]}
+{"id":"H-CONT-027","label":"CONTRADICTORY","a":"Implement strict rate limiting on API requests","b":"Allow unlimited API requests without throttling","langs":["en"]}
+{"id":"H-CONT-028","label":"CONTRADICTORY","a":"Fazer refresh da aplicação a cada sessão do usuário","b":"Nunca fazer refresh da aplicação durante a sessão","langs":["pt"]}
+{"id":"H-CONT-029","label":"CONTRADICTORY","a":"Mostrar errores detallados a los usuarios finales","b":"Ocultar todos los errores de los usuarios finales","langs":["es"]}
+{"id":"H-CONT-030","label":"CONTRADICTORY","a":"Require security clearance for database access","b":"Allow anyone to access the database without restrictions","langs":["en"]}
+{"id":"H-AMB-001","label":"AMBIGUOUS","a":"Update the configuration as soon as possible","langs":["en"]}
+{"id":"H-AMB-002","label":"AMBIGUOUS","a":"Notificar al equipo sobre los cambios","langs":["es"]}
+{"id":"H-AMB-003","label":"AMBIGUOUS","a":"Arquivar registros antigos","langs":["pt"]}
+{"id":"H-AMB-004","label":"AMBIGUOUS","a":"Handle urgent requests from customers","langs":["en"]}
+{"id":"H-AMB-005","label":"AMBIGUOUS","a":"Revisar la propuesta lo antes posible","langs":["es"]}
+{"id":"H-AMB-006","label":"AMBIGUOUS","a":"Atualizar o sistema quando apropriado","langs":["pt"]}
+{"id":"H-AMB-007","label":"AMBIGUOUS","a":"Schedule meetings with relevant parties","langs":["en"]}
+{"id":"H-AMB-008","label":"AMBIGUOUS","a":"Mejorar el rendimiento del servicio","langs":["es"]}
+{"id":"H-AMB-009","label":"AMBIGUOUS","a":"Processar transações de forma segura","langs":["pt"]}
+{"id":"H-AMB-010","label":"AMBIGUOUS","a":"Contact the responsible department about this issue","langs":["en"]}
+{"id":"H-AMB-011","label":"AMBIGUOUS","a":"Guardar los datos en un lugar seguro","langs":["es"]}
+{"id":"H-AMB-012","label":"AMBIGUOUS","a":"Informar ao cliente sobre o status da solicitação","langs":["pt"]}
+{"id":"H-AMB-013","label":"AMBIGUOUS","a":"Optimize database queries for better performance","langs":["en"]}
+{"id":"H-AMB-014","label":"AMBIGUOUS","a":"Enviar una copia a los interesados apropiados","langs":["es"]}
+{"id":"H-AMB-015","label":"AMBIGUOUS","a":"Validar a entrada de dados antes de processar","langs":["pt"]}
+{"id":"H-AMB-016","label":"AMBIGUOUS","a":"Review feedback from stakeholders when available","langs":["en"]}
+{"id":"H-AMB-017","label":"AMBIGUOUS","a":"Aplicar cambios según sea necesario","langs":["es"]}
+{"id":"H-AMB-018","label":"AMBIGUOUS","a":"Monitorar atividade suspeita no sistema","langs":["pt"]}
+{"id":"H-AMB-019","label":"AMBIGUOUS","a":"Set up access for authorized personnel","langs":["en"]}
+{"id":"H-AMB-020","label":"AMBIGUOUS","a":"Ejecutar pruebas del sistema regularmente","langs":["es"]}
+{"id":"H-AMB-021","label":"AMBIGUOUS","a":"Manter o código limpo e documentado","langs":["pt"]}
+{"id":"H-AMB-022","label":"AMBIGUOUS","a":"Prepare reports on departmental activities","langs":["en"]}
+{"id":"H-AMB-023","label":"AMBIGUOUS","a":"Comunicar decisiones importantes a los equipos","langs":["es"]}
+{"id":"H-AMB-024","label":"AMBIGUOUS","a":"Implementar mudanças conforme necessário","langs":["pt"]}
+{"id":"H-AMB-025","label":"AMBIGUOUS","a":"Coordinate with external partners on deliverables","langs":["en"]}
+{"id":"H-AMB-026","label":"AMBIGUOUS","a":"Evaluar la calidad de los entregables","langs":["es"]}
+{"id":"H-AMB-027","label":"AMBIGUOUS","a":"Verificar conformidade com as regulamentações","langs":["pt"]}
+{"id":"H-AMB-028","label":"AMBIGUOUS","a":"Manage resource allocation across projects","langs":["en"]}
+{"id":"H-AMB-029","label":"AMBIGUOUS","a":"Coordinar con el personal relevante sobre cambios próximos","langs":["es"]}
+{"id":"H-AMB-030","label":"AMBIGUOUS","a":"Consolidar informações de múltiplas fontes","langs":["pt"]}
