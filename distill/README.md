@@ -164,3 +164,28 @@ Conclusión (con datos): **ninguna receta mueve la aguja**. Más épocas y más 
 
 ### Normalizador determinista: descartado con evidencia
 Análisis campo a campo de los 32 falsos negativos de blind5 (GGUF Q4_K_M + gramática): las diferencias se reparten E 12, A 9, G 9, D 9, K 9, I 5, Y 5, F 4, P 4 (un par suele diferir en varios). Son omisiones o adiciones de átomos opcionales y sinónimos de acción (`TRANSLATE` vs `TRANSFORM`), no variantes sintácticas, y el comparador ya ignora los campos derivados (intención, meta). No existe una regla determinista que las repare sin riesgo de crear falsos positivos; la gramática ya cubre los fallos sintácticos. Palancas que quedan: más y mejores datos (paráfrasis nuevas, pares casi-iguales NO equivalentes para sostener la precisión, consenso de varios maestros) y, sobre todo, un set ciego NUEVO: blind5 ya se usó para elegir configuraciones y para decidir 99 % haría falta medir contra un set no visto.
+
+
+## Séptima vuelta (2026-10-02): acciones irreversibles y el modelo local
+
+blind5 solo tiene 27 pares NO equivalentes que toquen DELETE/SEND, así que no dice cuán a menudo un traductor ignora en silencio una negación, condición, cantidad o destinatario sobre "eliminar/enviar". `distill/irreversible_stress.py` construye 96 pares mínimos (78 NO equivalentes que difieren en UN modificador + 18 controles equivalentes; EN/ES/PT; oro por construcción, no por opinión) y mide el error PELIGROSO: declarar equivalentes dos instrucciones que no lo son. Es un set de estrés escrito por el autor (no un benchmark de exactitud).
+
+| Traductor | Falsos equivalentes (peligroso) | Controles falsamente distintos (seguro) |
+|---|---|---|
+| Reglas (`to_graph`) | 15/78 (19.2 %): ORDER 6/6, TIME-SEND 6/6, CONDITION 3/6 | 3/18 |
+| Modelo local 3B Q4_K_M + gramática | **2/78 (2.6 %)**: "sin pedir confirmación" vs "después de pedir confirmación" | 8/18 (44 %) |
+
+Dos hallazgos reales:
+1. **El modelo local es conservador, pero a veces por ruido**: en ORDER (hacer backup y luego eliminar vs eliminar y luego backup) acierta 6/6 porque emite salidas distintas y erráticas (`A:EXECUTE`, `K:WITHOUT=DUPLICATE`), no porque entienda el orden; 8/18 sinónimos equivalentes ("Elimina"/"Borra") los codifica distinto (dirección segura, pero escala de más).
+2. **Hueco de cobertura en portugués**: un portón que mire solo `A:DELETE|SEND` del AIXL de salida detecta 51/51 textos EN y 50/50 ES, pero solo **22/50 PT**: "Exclua/Apague" salen como `EXCLUDE`/`DISABLE`. Causa raíz: la tarjeta pone `exclui` bajo EXCLUDE (y 117 etiquetas de entrenamiento "exclua → EXCLUDE"), y el normalizador pone `apaga/apagar → DISABLE` mientras la propia tarjeta lista `apaga` bajo DELETE (inconsistencia tarjeta↔código). En portugués de software "excluir" es borrar. NO se cambió la tarjeta ni el normalizador (congelados: cambiarlos mueve las cifras ya medidas y exige set ciego nuevo); queda como decisión del usuario.
+
+**Mitigación entregada** (`aixl/core/irreversible_guard.py`, 4 tests, 439/439 pasan): segunda opinión determinista SOLO-VETO, independiente del traductor. Mira el TEXTO (EN/ES/PT) por verbos irreversibles y por señales de modificador (negación, sin/sem/without, solo si vs aunque, antes/después, confirmación, números e ids, orden respecto a un respaldo). Nunca dice "equivalente": solo puede convertir un veredicto EQUIVALENTE en "requiere revisión", así que no puede crear un falso equivalente.
+
+| Medición | Antes | Con guard |
+|---|---|---|
+| Estrés, modelo local: falsos equivalentes | 2/78 | **0/78** |
+| Estrés, reglas: falsos equivalentes | 15/78 | **0/78** |
+| Estrés: controles vetados de más | - | 0 nuevos |
+| blind5 (modelo local): exactitud / F1 | 0.825 / 0.788 | 0.820 / 0.781 (1 par equivalente vetado: "valida antes de enviar" vs "revisa primero, luego envía") |
+
+Límites honestos: el guard se diseñó mirando las categorías del set de estrés, así que 0/78 NO es validación independiente (el set de estrés es de desarrollo del guard); la sinonimia de "no más de/at most", "prior to" y números en palabras se añadió tras ver 2 vetos de blind5 (contaminación leve de blind5). Las expresiones regulares cubren solo EN/ES/PT y son heurísticas (sobre-marcan "remove"). Para confirmar de verdad hace falta un set de estrés NUEVO escrito por otro autor. El hueco PT del modelo sigue ahí; el guard lo cubre en el borde, no lo arregla en el modelo.
