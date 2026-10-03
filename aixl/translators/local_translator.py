@@ -88,7 +88,7 @@ def translate_via_local(text: str, today: date | None = None, model: str | None 
 
     from aixl.serialization import aixl_codec
     try:
-        return aixl_codec.decode(aixl_line)
+        return aixl_codec.decode(aixl_line).mark_model_derived("local")
     except aixl_codec.AixlError:
         log.warning("Local translator produced AIXL that failed to decode (%r), falling back to rule-based",
                     aixl_line)

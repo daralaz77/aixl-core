@@ -47,8 +47,10 @@ def detect_drift(source: str, target: str, config: dict | None = None) -> DriftR
     return detect_drift_graphs(to_graph(source), to_graph(target), config)
 
 
-def detect_ambiguity(text: str) -> AmbiguityResult:
-    return detect_ambiguity_graph(text)
+def detect_ambiguity(text: str, context: dict | None = None) -> AmbiguityResult:
+    """`context={"entities": [{"id", "name", "aliases"?, "type"?}, ...]}` lets references be checked against known
+    entities: several matches => AMBIGUOUS_REFERENCE with candidates; one => RESOLVED note; none => UNKNOWN note."""
+    return detect_ambiguity_graph(text, context=context)
 
 
 def detect_contradiction(text_a: str, text_b: str) -> ContradictionResult:
@@ -92,3 +94,17 @@ def semantic_fingerprint(text: str, config: dict | None = None, today=None) -> s
 def semantic_fingerprint_aixl(aixl: str, config: dict | None = None, today=None) -> str:
     from aixl.core.fingerprint import fingerprint_graph
     return fingerprint_graph(aixl_codec.decode(aixl), config, today)
+
+
+def validate(text_or_graph) -> "ValidationResult":
+    """VALID / INVALID / VALID_WITH_WARNINGS with structured issues (aixl/core/validator.py)."""
+    from aixl.core.validator import validate_graph
+    g = to_graph(text_or_graph) if isinstance(text_or_graph, str) else text_or_graph
+    return validate_graph(g)
+
+
+def round_trip(text_or_graph, config: dict | None = None, today=None) -> "RoundTripResult":
+    """text -> graph -> AIXL -> graph -> compare; `.fidelity` is the SEMANTIC FIDELITY (aixl/core/roundtrip.py)."""
+    from aixl.core.roundtrip import round_trip_graph
+    g = to_graph(text_or_graph) if isinstance(text_or_graph, str) else text_or_graph
+    return round_trip_graph(g, config, today)

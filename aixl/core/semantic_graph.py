@@ -61,9 +61,10 @@ class SemanticGraph:
         self.meta: dict = meta or {}
 
     # ---- construction -------------------------------------------------------------------------------
-    def add_node(self, type_: str, value: str, attributes=None, confidence=1.0, source="natural_language") -> SemanticObject:
+    def add_node(self, type_: str, value: str, attributes=None, confidence=1.0, source="natural_language",
+                 provenance="EXPLICIT") -> SemanticObject:
         n = SemanticObject(f"{type_.lower()}_{sum(1 for x in self.nodes if x.type == type_) + 1}", type_, value,
-                           attributes or {}, confidence, source)
+                           attributes or {}, confidence, source, provenance)
         self.nodes.append(n)
         return n
 
@@ -91,7 +92,7 @@ class SemanticGraph:
             actions.append(g.add_node("ACTION", a, {"modality": mod, "order": i}, c(a), source))
         root = next((n for n in actions if n.attributes["modality"] == "REQUEST"), actions[0] if actions else None)
         if frame.intent:
-            g.add_node("INTENT", frame.intent, {}, 1.0, source)
+            g.add_node("INTENT", frame.intent, {}, 1.0, source, "INFERRED")     # derived from the actions, not stated
         for a1, a2 in zip(actions, actions[1:]):
             g.add_edge(a1.id, "BEFORE", a2.id)
 
@@ -117,6 +118,9 @@ class SemanticGraph:
         for k in frame.constraints:
             if k.startswith(("FORBID_", "ALLOW_")):
                 continue
+            if k.startswith("BIND="):
+                g.meta.setdefault("bindings", []).append(k[5:])
+                continue
             if k.startswith("QTY="):
                 v, _, unit = k[4:].partition(":")
                 hang(g.add_node("QUANTITY", v, {"unit": unit}, c(k), source), "QUANTITY")
@@ -132,7 +136,7 @@ class SemanticGraph:
         if frame.priority:
             hang(g.add_node("MODIFIER", "PRIORITY=" + frame.priority, {}, 1.0, source), "MODIFIER")
         if frame.goal:
-            hang(g.add_node("GOAL", frame.goal, {}, 1.0, source), "RESULT")
+            hang(g.add_node("GOAL", frame.goal, {}, 1.0, source, "INFERRED"), "RESULT")
         for o in frame.output:
             hang(g.add_node("OUTPUT", o, {}, 1.0, source), "OUTPUT")
         return g
@@ -154,6 +158,7 @@ class SemanticGraph:
         for n in self.by_type("QUANTITY"):
             f.constraints.append("QTY=" + n.value + (":" + n.attributes["unit"] if n.attributes.get("unit") else ""))
         f.constraints += [n.value for n in self.by_type("CONSTRAINT")]
+        f.constraints += ["BIND=" + b for b in sorted(self.meta.get("bindings", []))]
         f.conditions = [n.value for n in self.by_type("CONDITION")] + list(self.meta.get("flags", []))
         for n in self.by_type("MODIFIER"):
             if n.value.startswith("CONFIDENCE"): f.confidence = n.value[len("CONFIDENCE"):]
@@ -162,6 +167,32 @@ class SemanticGraph:
         f.output = [n.value for n in self.by_type("OUTPUT")]
         f.intent = next((n.value for n in self.by_type("INTENT")), "") or derive_intent(f.actions, [x[3:] for x in f.negations])
         return f
+
+    def _canon_bindings(self, rep: dict) -> set:
+        """Binding actions go through the same synonym groups (and EXCLUDE == FORBID INCLUDE) as `actions`, else
+        'check'/'validate' paraphrases would differ in bindings only. Negated actions bind under their own name."""
+        mod = {a.value: a.attributes.get("modality", "REQUEST") for a in self.by_type("ACTION")}
+        out = set()
+        for b in self.meta.get("bindings", []):
+            if ">" not in b:
+                continue
+            act, arg = b.split(">", 1)
+            c = rep.get(act, act)
+            if c == "EXCLUDE":
+                c = "INCLUDE"
+                m = {"REQUEST": "FORBID", "FORBID": "REQUEST"}.get(mod.get(act, "REQUEST"), mod.get(act, "REQUEST"))
+            else:
+                m = mod.get(act, "REQUEST")
+            out.add(f"{'NOT_' if m == 'FORBID' else ''}{c}>{arg}")
+        return out
+
+    def mark_model_derived(self, source: str) -> "SemanticGraph":
+        """Everything an LLM/local model proposed is MODEL_DERIVED (the Core validates it, it is not ground truth)."""
+        for n in self.nodes:
+            n.source = source
+            if n.provenance == "EXPLICIT":
+                n.provenance = "MODEL_DERIVED"
+        return self
 
     # ---- canonical form -----------------------------------------------------------------------------
     def canonical(self, config: dict | None = None, today=None) -> dict:
@@ -218,6 +249,7 @@ class SemanticGraph:
             "quantities": tuple(sorted(f"{n.value}:{n.attributes.get('unit', '')}" for n in self.by_type("QUANTITY"))),
             "goal": derive_goal(canon_actions, list(entities), negated),
             "output": tuple(sorted(n.value for n in self.by_type("OUTPUT"))),
+            "bindings": tuple(sorted(self._canon_bindings(rep))),
             "modifiers": tuple(sorted(("CONFIDENCE" + _num(n.value[10:])) if n.value.startswith("CONFIDENCE") else n.value for n in self.by_type("MODIFIER"))),
         }
 

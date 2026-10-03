@@ -66,7 +66,7 @@ def _severity(dim: str, a, b, cfg: dict, acts=frozenset(), kind: str = "changed"
     # context-sensitive (§39, adversarial suite 2026-10-02): swapping or dropping WHO/WHAT a destructive or external
     # action applies to (recipient, id, object, "only to X" scope) is as dangerous as flipping the action itself.
     # Directional: 'added' (original -> narrower) stays at its base severity; 'removed'/'changed' escalate.
-    if dim in ("references", "entities", "data") and kind in ("changed", "removed") and acts & set(cfg.get("destructive_actions", [])):
+    if dim in ("references", "entities", "data", "bindings") and kind in ("changed", "removed") and acts & set(cfg.get("destructive_actions", [])):
         return "CRITICAL", "target/scope of a destructive or external action changed"
     if dim in ("conditions", "constraints") and kind in ("changed", "removed") and acts & set(cfg.get("destructive_actions", [])):
         return "CRITICAL", "safeguard (condition/constraint) dropped from a destructive or external action"
@@ -104,6 +104,14 @@ def compare_graphs(ga: SemanticGraph, gb: SemanticGraph, config: dict | None = N
     return res
 
 
+def _bind_map(bindings) -> dict:
+    out: dict = {}
+    for b in bindings:
+        act, arg = b.split(">", 1)
+        out.setdefault(arg, set()).add(act)
+    return out
+
+
 def compare_canonical(A: dict, B: dict, config: dict | None = None) -> ComparisonResult:
     """Same comparison as compare_graphs, but on two already-computed canonical() dicts directly —
     used by the negotiation protocol (aixl/negotiation.py) to re-score a receiver's belief state after
@@ -113,7 +121,25 @@ def compare_canonical(A: dict, B: dict, config: dict | None = None) -> Compariso
     per: dict = {}
     acts = frozenset(A["actions"]) | frozenset(B["actions"])
     for dim in DIMENSIONS:
-        va, vb = A[dim], B[dim]
+        va, vb = A.get(dim, ()), B.get(dim, ())
+        if dim == "bindings":
+            # absent on either side = UNKNOWN (e.g. AIXL from an encoder that never emits BIND), not a difference.
+            # Per argument, compare the SETS of actions it is bound to: one side repeating the noun for a second
+            # action ("resultado #200 y compáralo con el resultado #201" vs "...y compáralos") is compatible
+            # (subset); an argument reassigned to a different action (disjoint / crossing) is a real difference.
+            if not (va and vb):
+                per[dim] = None
+                continue
+            ma, mb = _bind_map(va), _bind_map(vb)
+            shared = set(ma) & set(mb)
+            bad = sorted(k for k in shared if not (ma[k] <= mb[k] or mb[k] <= ma[k]))
+            per[dim] = 1.0 if not shared else 1 - len(bad) / len(shared)
+            if bad:
+                sa = tuple(sorted(f"{a}>{k}" for k in bad for a in ma[k]))
+                sb = tuple(sorted(f"{a}>{k}" for k in bad for a in mb[k]))
+                sev, det = _severity(dim, set(sa), set(sb), cfg, acts, "changed")
+                diffs.append(Difference(_label(dim), _fmt(sa), _fmt(sb), "changed", sev, det))
+            continue
         if not va and not vb:
             per[dim] = None
             continue

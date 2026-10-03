@@ -50,7 +50,7 @@ OUTPUT_FORMATS = ["JSON", "CSV", "TABLE", "TEXT", "REPORT", "AIXL", "MARKDOWN", 
 # explicit oppositions (same object): (a, b)
 ANTONYM_ACTIONS = [("ENABLE", "DISABLE"), ("INCLUDE", "EXCLUDE")]
 DIMENSIONS = ["intent", "actions", "entities", "data", "time", "location", "constraints", "conditions", "negation",
-              "references", "quantities", "goal", "output", "modifiers"]
+              "references", "quantities", "goal", "output", "modifiers", "bindings"]
 
 
 def type_of(value: str) -> str:

@@ -419,6 +419,80 @@ def _apply_quantities_and_selection(frame, pre: str, s: str, conf: dict) -> None
         frame.constraints.append("SELECT=" + ("FIRST" if m.group(1).startswith(("primer", "first")) else "LAST"))
 
 
+RECENT_RX = re.compile(r"\b(?:mas\s+recientes?|most\s+recent|newest|latest|mais\s+recentes?|mas\s+nuev[oa]s?)\b")
+OLDEST_RX = re.compile(r"\b(?:mas\s+antigu[oa]s?|oldest|earliest|mais\s+antigu[oa]s?)\b")
+
+
+_NOUN_RX = "(?:" + "|".join(rx for _, rx in legacy.DATA_RX + legacy.ENTITY_RX) + ")"
+LAST_NOUN_RX = re.compile(r"\bultim[oa]\s+" + _NOUN_RX)      # singular 'último documento' == 'documento más reciente' (blind A043)
+
+
+def _apply_recency_order(frame, s: str) -> None:
+    """'el informe más reciente' / 'the latest report' = ORDER=MOST_RECENT (GAP-1, §92). A superlative that selects
+    WHICH object; it is not a time period, and 'latest N' is already SELECT=LAST (handled upstream)."""
+    if SELECT_RX.search(s):
+        return
+    if RECENT_RX.search(s) or LAST_NOUN_RX.search(s):
+        frame.constraints.append("ORDER=MOST_RECENT")
+    elif OLDEST_RX.search(s):
+        frame.constraints.append("ORDER=OLDEST")
+
+
+_ENCLITIC_RX = re.compile(r"^(?:\w{3,}(?:lo|la|los|las)|\w+-[oa]s?)\b|\b(?:it|them)\b")
+
+
+def _bind_actions(g: SemanticGraph, s: str, pos: dict, text: str, reliable: bool = True) -> None:
+    """GAP-2 / LIMITATIONS #3 (§71-73): with 2+ actions, record WHICH action each argument belongs to.
+    Arguments = name references, entities and data; each is bound to every action whose text
+    segment (verb start to next verb start) contains it. Written twice: as graph edges (TARGET/OBJECT/DEPENDS_ON,
+    structure) and as `meta["bindings"]` strings, the form canonical()/AIXL (`K:BIND=SEND>@ANA`) use:
+      ACTION>ARG        argument belongs to that action
+    Measured on the blind sets (2026-10-02): output formats ("en tabla", "in Markdown") and anaphoric dependencies
+    (-lo/it/them) attach to the clause inconsistently across languages and phrasings (19 false NOT_EQUIVALENT on
+    paraphrase pairs), so they stay as graph edges/structure only and are NOT part of `bindings`.
+    An argument found in no segment (e.g. an anaphoric 'envíalo') is left unbound, never guessed. Single-action
+    texts get no bindings. Empty bindings mean UNKNOWN: the comparator skips the dimension unless both sides have it."""
+    acts = sorted(g.by_type("ACTION"), key=lambda n: n.attributes.get("order", 0))
+    if len(acts) < 2 or not reliable:
+        return
+    starts = [pos.get(a.value) for a in acts]
+    if any(st is None for st in starts) or starts != sorted(starts):
+        return
+    bounds = starts[1:] + [len(s) + 1]
+    seg = {a.id: s[st:en] for a, st, en in zip(acts, starts, bounds)}
+    rx = {**{k: v for k, v in legacy.DATA_RX}, **{k: v for k, v in legacy.ENTITY_RX}}
+    bind: set = set()
+    for n in g.nodes:
+        if n.type == "REFERENCE":
+            name = n.value.lstrip("@").lower()
+            pat, label, rel = (r"\b" + re.escape(strip_accents(name)) + r"\b"), n.value, "TARGET"
+        elif n.type in ("ENTITY", "DATA") and n.value in rx:
+            pat, label, rel = rx[n.value], n.value, "TARGET"
+        else:
+            continue
+        for a in acts:
+            if re.search(pat, strip_accents(seg[a.id])):
+                bind.add(f"{a.value}>{label}")
+                for e in list(g.edges):                       # re-hang the structural edge on its own action
+                    if e.target == n.id and e.relation in ("REFERENCE", "TARGET", "OUTPUT") and e.source != a.id and \
+                            not any(x.source == a.id and x.target == n.id for x in g.edges):
+                        g.edges.remove(e)
+                        g.add_edge(a.id, rel, n.id)
+                        break
+    # `s` is the prepared text: enclitics are already stripped there ("envialo" -> "envia"), so the anaphoric
+    # object is detected on the original words, matched to `s` by token index.
+    orig_words = strip_accents(text).lower().split()
+    for prev, cur, st, en in zip(acts, acts[1:], starts[1:], bounds[1:]):
+        k = len(s[:st].split())
+        n = len(s[st:en].split())
+        window = " ".join(orig_words[k:k + n])
+        if _ENCLITIC_RX.search(window) or _ENCLITIC_RX.search(window.split(" ", 1)[0]):
+            g.add_edge(cur.id, "DEPENDS_ON", prev.id)
+            g.add_edge(cur.id, "OBJECT", prev.id, role="RESULT_OF")
+    g.meta["bindings"] = sorted(bind)
+    g.meta["composition"] = "SEQUENCE"
+
+
 def _apply_aggregate_qualifiers(frame, s: str) -> None:
     for rx, code in AGG_MAP:
         for m in re.finditer(rf"\b{rx}\s+(?:las?\s+|los\s+|the\s+)?(\w+)", s):
@@ -584,6 +658,7 @@ def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     ordered = _apply_step_order(frame, s)
     _apply_quantities_and_selection(frame, pre, s, conf)
     frame.conditions += conds
+    _apply_recency_order(frame, s)
     _apply_aggregate_qualifiers(frame, s)
     _detect_output_format(frame, s)
     _apply_without_constraint(frame, s)
@@ -597,6 +672,9 @@ def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     frame = _norm_frame(frame)
     frame.raw = text
     g = SemanticGraph.from_frame(frame, conf)
+    # positional segmentation is only trusted when the verbs' textual order is their semantic order and the clause
+    # is active: step-order cues ("before/after/first/then") and passives front or move arguments (blind B4-040, S6-003)
+    _bind_actions(g, s, pos, text, reliable=not ordered and not passives)
     g.meta["warnings"] = list(warns) + [f"OBFUSCATION:{o}" for o in obfuscation]
     g.meta["obfuscation"] = obfuscation
     from aixl.core.lexicon_gaps import unrecognized_terms

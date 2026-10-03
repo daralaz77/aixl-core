@@ -110,7 +110,7 @@ def translate_via_llm(text: str, today: date | None = None, api_key: str | None 
 
     from aixl.serialization import aixl_codec
     try:
-        return aixl_codec.decode(aixl_line)
+        return aixl_codec.decode(aixl_line).mark_model_derived("llm")
     except aixl_codec.AixlError:
         log.warning("LLM translator produced AIXL that failed to decode (%r), falling back to rule-based",
                     aixl_line)

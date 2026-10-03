@@ -38,9 +38,52 @@ class Finding:
     reason: str
     evidence: str = ""
     confidence: float = 0.9
+    candidates: list = field(default_factory=list)        # candidate_interpretations (only with a context, §35)
+    affected_nodes: list = field(default_factory=list)
+    required_context: str = ""
 
     def to_dict(self):
-        return dict(field=self.field, reason=self.reason, evidence=self.evidence, confidence=self.confidence)
+        d = dict(field=self.field, reason=self.reason, evidence=self.evidence, confidence=self.confidence)
+        if self.candidates:
+            d.update(candidate_interpretations=self.candidates, affected_nodes=self.affected_nodes,
+                     required_context=self.required_context)
+        return d
+
+
+def _tokens(s: str) -> set:
+    return set(re.findall(r"[a-z]+", strip_accents(s).lower()))
+
+
+def _context_findings(g: SemanticGraph, context: dict | None) -> tuple[list, list]:
+    """Reference resolution against a caller-supplied context (§24, §35, §91). The Core never picks a candidate:
+    >1 matching entity => blocking AMBIGUOUS_REFERENCE listing all of them; exactly 1 => a RESOLVED note (the graph is
+    not mutated); 0 => UNKNOWN_REFERENCE note (not ambiguous: nothing is known about it).
+    context = {"entities": [{"id": "juan_a", "name": "Juan Pérez", "aliases": [...], "type": "PERSON"}, ...]}.
+    Name tokens come from the translator one by one (@JUAN, @PÉREZ). Tokens that share a candidate are treated as
+    one mention (narrowing "Juan" + "Pérez" to Juan Pérez); tokens that share none are treated separately."""
+    ents = (context or {}).get("entities") or []
+    refs = [n for n in g.by_type("REFERENCE") if n.value.startswith("@")]
+    if not ents or not refs:
+        return [], []
+    keys = {i: _tokens(" ".join([e.get("name", "")] + list(e.get("aliases", [])))) for i, e in enumerate(ents)}
+    per = [(n, {i for i, k in keys.items() if _tokens(n.value) <= k}) for n in refs]
+    shared = set.intersection(*[c for _, c in per]) if per else set()
+    groups = [(per, shared)] if shared else [([p], p[1]) for p in per]
+    findings, notes = [], []
+    for members, cands in groups:
+        nodes = [n.id for n, _ in members]
+        label = " ".join(n.value for n, _ in members)
+        if len(cands) > 1:
+            findings.append(Finding("REFERENCE", "AMBIGUOUS_REFERENCE", label, 0.95,
+                                    [ents[i].get("id", ents[i].get("name")) for i in sorted(cands)], nodes,
+                                    "which of these entities is meant (add a surname, id or disambiguating detail)"))
+        elif len(cands) == 1:
+            e = ents[next(iter(cands))]
+            notes.append({"field": "REFERENCE", "reason": "RESOLVED_REFERENCE", "reference": label, "entity": e.get("id", e.get("name")),
+                          "provenance": "EXTERNAL_CONTEXT", "severity": "INFO"})
+        else:
+            notes.append({"field": "REFERENCE", "reason": "UNKNOWN_REFERENCE", "reference": label, "severity": "INFO"})
+    return findings, notes
 
 
 @dataclass
@@ -83,7 +126,7 @@ def _action_positions(s: str) -> dict:
     return pos
 
 
-def detect_ambiguity_graph(text: str, graph: SemanticGraph | None = None) -> AmbiguityResult:
+def detect_ambiguity_graph(text: str, graph: SemanticGraph | None = None, context: dict | None = None) -> AmbiguityResult:
     from aixl.core.normalizer import sanitize_input
     text, _ = sanitize_input(text)
     g = graph or to_graph(text)
@@ -151,5 +194,8 @@ def detect_ambiguity_graph(text: str, graph: SemanticGraph | None = None) -> Amb
         k = (f.field, f.reason)
         if k not in seen:
             seen.add(k); uniq.append(f)
+    ctx_findings, ctx_notes = _context_findings(g, context)
+    uniq += ctx_findings
+    notes += ctx_notes
     fields = sorted({f.field for f in uniq})
     return AmbiguityResult(bool(uniq), fields, uniq[0].reason if uniq else "", uniq, notes)

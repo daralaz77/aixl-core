@@ -14,7 +14,8 @@
   "data": 2.0,
   "output": 2.0,
   "location": 2.0,
-  "goal": 1.0
+  "goal": 1.0,
+  "bindings": 3.0
  },
  "severity": {
   "negation": "CRITICAL",
@@ -30,7 +31,8 @@
   "entities": "MODERATE",
   "location": "MODERATE",
   "goal": "MINOR",
-  "intent": "MINOR"
+  "intent": "MINOR",
+  "bindings": "MAJOR"
  },
  "critical_constraint_keys": [
   "VISIBILITY",
