@@ -189,3 +189,23 @@ Dos hallazgos reales:
 | blind5 (modelo local): exactitud / F1 | 0.825 / 0.788 | 0.820 / 0.781 (1 par equivalente vetado: "valida antes de enviar" vs "revisa primero, luego envía") |
 
 Límites honestos: el guard se diseñó mirando las categorías del set de estrés, así que 0/78 NO es validación independiente (el set de estrés es de desarrollo del guard); la sinonimia de "no más de/at most", "prior to" y números en palabras se añadió tras ver 2 vetos de blind5 (contaminación leve de blind5). Las expresiones regulares cubren solo EN/ES/PT y son heurísticas (sobre-marcan "remove"). Para confirmar de verdad hace falta un set de estrés NUEVO escrito por otro autor. El hueco PT del modelo sigue ahí; el guard lo cubre en el borde, no lo arregla en el modelo.
+
+
+## Octava vuelta (2026-10-03): "excluir/apagar" en portugués = DELETE
+
+Decisión de vocabulario (a pedido del usuario): en portugués, `excluir/exclua` y `apagar/apague` aplicados a datos son DELETE (excepciones: "excluir X da análise/do relatório" = EXCLUDE; "apague a luz/o servidor" = DISABLE; el español no cambia).
+- **Tarjeta** `card_0.3.md`: sha `d0e597aa…` -> `6320431e…`. **Reglas** (`natural_to_semantic.py`): regla PT de `apagar` + helper `_looks_portuguese` (el detector de idioma resolvía empates a favor del español y las frases PT cortas se saltaban la regla PT existente de `excluir`).
+- **Sin deriva**: blind1-4 idénticos al byte, 19/21 en negociación, 440/440 tests; de 59 textos con esos verbos solo cambian 2 ("Apague o documento", con y sin "Nunca"), ambos correcciones.
+- **Datos**: `build_mlx_data.py::fix_pt_delete` re-etiqueta 73 frases PT (EXCLUDE/DISABLE -> DELETE, con N:/K:FORBID_ e intención coherentes) solo cuando el traductor por reglas también dice DELETE.
+
+Reentrenamiento (3B, r32, 3 épocas, mismos hiperparámetros) y medición:
+
+| | Modelo vigente `para3b` | Reentrenado `ptfix` |
+|---|---|---|
+| Cobertura del portón por salida `A:DELETE/SEND` en PT (stress, 50 textos) | 22/50 | **46/50** |
+| Estrés: falsos equivalentes / controles falsamente distintos | 2/78 / 8/18 | **0/78 / 3/18** |
+| blind5 GGUF+gramática en Colab: F1 / exactitud / dev | 0.788 / 0.825 / 0.767 | 0.742 / 0.795 / 0.735 |
+| blind5 GGUF+gramática en el Mac: F1 / exactitud | 0.788 / 0.825 | 0.680 / 0.760 |
+| Adaptador: F1 / dev | 0.833 / 0.785 | 0.775 / 0.763 |
+
+Lectura honesta: el cambio hace lo que se buscaba en portugués (el hueco pasa de 28 a 4 textos) y mejora el estrés, pero **blind5 baja 0.05-0.11 de F1**, más que el ruido de ±0.02 y más de lo que explicarían 73 etiquetas de ~5100; el adaptador también bajó (0.775 vs 0.833). Hay dos explicaciones sin separar: varianza entre corridas de entrenamiento (adaptadores de recetas casi iguales ya variaron 0.765-0.833) o un efecto real del re-etiquetado. Además la medición en el Mac difiere de la de Colab para el mismo GGUF (0.680 vs 0.742), a diferencia de la ronda anterior (0.788 en ambos): conviene repetirla antes de fiarse de cualquiera de las dos. **Modelo vigente sin cambio: `aixl-para3b-Q4_K_M.gguf` + guard** (el guard ya cubre el hueco PT en el borde). Para separar varianza de efecto: reentrenar con 2 semillas distintas, con y sin el re-etiquetado.
