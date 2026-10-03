@@ -168,3 +168,10 @@ All 5 original audit findings are now resolved: 2 fixed outright, 2 merged after
 were actually investigated (one turned out safe, one needed a genuine fix), and 1 (the verb tables'
 *content*, as opposed to their concatenation) remains deliberately split, since merging it still needs
 the isolated-session, full-benchmark treatment described in finding #3 above.
+
+## Addendum 2026-10-03 — what this audit did and did not cover
+This audit (2026-09-30) is a **code-structure** audit: data flow, duplication, dead code, scalability of the ruleset. Its findings and verifications stand as written, with these updates:
+* The data-flow diagram in §1 is dated: `A2AAdapter` was a stub when the diagram was drawn and became real the same day (E-A2A); `core/lexicon_gaps.py`, `core/completeness.py`, `core/fingerprint.py`, the `R:` residue atom and the `residue` canonical dimension were added afterwards (see [ARCHITECTURE.md](ARCHITECTURE.md)). Suite size is now 462 tests (154 at the time).
+* "Zero behavioral drift" was verified against the frozen blind sets 1–4 and the negotiation benchmarks, i.e. against **the project's own vocabulary family**. It says nothing about open-domain correctness.
+* **What the audit did not look for, and later experiments found to be the dominant risk**: not code structure but *semantic coverage*. On text written by other authors the closed vocabulary silently drops whatever has no slot, so 40–59 % of non-equivalent pairs were judged equivalent (blind10/blind11; [docs/EVIDENCE.md](docs/EVIDENCE.md)). No refactor of the kind listed above could have exposed that; only benchmarks by authors outside the project did. Any future audit should include an out-of-vocabulary, other-author evaluation as a first-class item.
+* Process note: a commit of 2026-10-03 (`blind12 … frozen`) accidentally included two WIP files of a parallel `distill/` workstream because of a blanket `git add -A`; commits since then stage explicit paths only.
