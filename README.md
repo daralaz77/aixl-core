@@ -1,4 +1,4 @@
-# AIXL — experimental semantic layer (Semantic Core 0.4.0) — read the status first
+# AIXL — experimental semantic layer (0.5.0) — read the status first
 
 > **Status (2026-10-03), in one paragraph.** AIXL was built as a way to represent what an instruction *means* and to check that two instructions mean the same.
 > Measured on text written by **other** authors (not on the project's own benchmark), the answer for **open-domain** text is: the rule-based and LLM-encoded AIXL
@@ -9,9 +9,13 @@
 > without proof; and an interchange format with real MCP/A2A servers. Everything is in [`docs/EVIDENCE.md`](docs/EVIDENCE.md); the earlier headline
 > numbers (99.4 %, 95 %+) are kept as history because they come from sets that share the translator's own vocabulary.
 >
-> **462 tests** pass (`.venv/bin/python -m pytest -q`). Not a standard; no production use; nothing in it executes an action.
+> **479 tests** pass (`.venv/bin/python -m pytest -q`). Not a standard; no production use; nothing in it executes an action.
 
 [![tests](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml/badge.svg)](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml)
+
+## 0. Scope of AIXL 0.5 (decided 2026-10-03, [ADR-018](docs/adr/ADR-018.md))
+AIXL 0.5 is: **(1)** an exact, offline, free comparison engine *inside a controlled vocabulary*; **(2)** a loss detector that refuses to say "equal" without proof (opt-in `inconclusive`, `R:` residue, completeness); **(3)** deterministic input hygiene (`sanitize_input`); **(4)** an interchange format with real MCP/A2A servers and a bounded negotiation protocol; **(5)** an **audit layer around a full-text arbiter** (`aixl.arbiter`: versioned rules, 2-of-2 consensus, output validation, a decision memo — judges are functions you supply; the core never calls a model).
+It is *not* a prover of paraphrase equivalence on open text, a candidate-pair prefilter, compression, or a standard (claims withdrawn in ADR-018).
 
 ## 1. What AIXL is
 AIXL (AI Interoperability eXchange Language) is an **experimental semantic layer**: it represents what an instruction *means* (actions, targets, time, quantities, constraints, conditions, negations, references) in a canonical graph, serializes it in a compact `ATOM:VALUE` syntax, and compares two meanings. It is not a replacement for MCP, A2A, REST or JSON, and no claim of superiority over them is made or supported.
@@ -88,12 +92,12 @@ Only the A2A agent (`aixl/agents/a2a_server.py`) is a network service; see `DEPL
 See `LIMITATIONS.md` and [docs/EVIDENCE.md](docs/EVIDENCE.md) §4. The decisive ones: the closed vocabulary drops what it has no slot for; rule-based and LLM-encoded AIXL cannot prove paraphrase equivalence on open text; every number is on ES/EN/PT instruction-like text, ≤ 360 cases per set, author-assigned labels, one vendor's judge models; blind10, blind11 and blind12 are spent (any new claim needs a fresh set).
 
 ## 11. Roadmap (evidence-driven; nothing here is committed)
-1. **Decide AIXL 0.5's scope** from [ADR-016](docs/adr/ADR-016.md)/[ADR-017](docs/adr/ADR-017.md): a loss detector + interchange/audit layer around an arbiter, plus an exact engine for controlled vocabularies; remove "proves equivalence on open text" from every description.
-2. Decision memo (pair hash + models + prompt id → verdict) as a first-class, replayable artifact; output validation and retry for the arbiter (one dropped line in 410 judgments was seen).
-3. Cross-vendor judges (GPT, Gemini, open-source) on a FRESH set; embedding-based candidate blocking against the lexical baseline (untested).
-4. Measure the product hypothesis with real agent-to-agent handoffs (does meaning change in practice, how often?).
-5. ProtocolAdapters: MCP and A2A are real; REST/OpenAPI/GraphQL are not implemented; capability handshake and extension registry remain design-only.
-
+Done: ~~scope decision~~ (ADR-018, 2026-10-03); ~~decision memo + consensus + arbiter-output validation~~ (`aixl.arbiter`, 0.5.0).
+1. **Cross-vendor judges** (GPT, Gemini, open-source) and **order-symmetry** of the arbiter on a FRESH set; embedding-based candidate blocking against the lexical baseline (untested).
+2. **Default for `inconclusive`**: measure its effect on controlled-vocabulary use and decide in 0.6 whether it becomes the default.
+3. Measure the product hypothesis with real agent-to-agent handoffs (does meaning change in practice, how often?).
+4. ProtocolAdapters: MCP and A2A are real; REST/OpenAPI/GraphQL are not implemented; capability handshake and extension registry remain design-only.
+5. If a canonical form with open role slots is ever built (ADR-016 steps 3–5), it must pass a fresh, pre-registered set against the arbiter baseline before any claim.
 
 ## Audit (master prompt §41–42) — updated 2026-10-03
 | Question | Answer, with evidence |

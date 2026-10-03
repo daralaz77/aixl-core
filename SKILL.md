@@ -3,8 +3,8 @@ name: aixl-core
 description: AIXL experimental Semantic Core (ES/EN/PT) — canonical meaning graph, AIXL serialization, comparator/diff/drift/ambiguity/contradiction, fingerprint, MCP/A2A adapters, plus the benchmark harness that measured all of it on other authors' text. Use when the user asks whether two instructions mean the same, wants to detect meaning changes between agents/models, or to build/test/benchmark/document AIXL. IMPORTANT status: for OPEN-DOMAIN text the strict full-text LLM arbiter (2 judges, 2-of-2) is the measured baseline; AIXL's rule/LLM routes are safe only as loss detectors and exact only in a controlled vocabulary. Separate from the aixl (0.1 lab) and aixl-translator (0.2) skills.
 ---
 
-# AIXL Semantic Core (executable) — state 2026-10-03
-Root `~/.claude/skills/aixl-core/` (Python ≥ 3.11, `.venv` with pytest + tiktoken for dev). 462 tests. CI (GitHub Actions) runs the suite on Python 3.11 and 3.12.
+# AIXL Semantic Core 0.5.0 (executable) — state 2026-10-03; scope fixed in docs/adr/ADR-018.md
+Root `~/.claude/skills/aixl-core/` (Python ≥ 3.11, `.venv` with pytest + tiktoken for dev). 479 tests. CI (GitHub Actions) runs the suite on Python 3.11 and 3.12.
 **Read `docs/EVIDENCE.md` before answering any question about accuracy, safety, cost or "does AIXL work".** It is the single source of truth; this file only summarizes it.
 
 ## Use
@@ -15,9 +15,9 @@ cd ~/.claude/skills/aixl-core
 .venv/bin/python cli.py mcp-serve                      # real MCP server over stdio (needs: .venv/bin/pip install .[mcp])
 .venv/bin/python -m aixl.agents.a2a_server 8766        # real A2A agent over HTTP (needs: .venv/bin/pip install .[a2a])
 .venv/bin/python cli.py lab "A" "B"                    # Semantic Lab view; `cli.py serve` = web app
-.venv/bin/python -m pytest -q                          # 462 tests
+.venv/bin/python -m pytest -q                          # 479 tests
 ```
-Python: `import aixl; aixl.compare(a, b)` (returns `.verdict` EQUIVALENT / NOT_EQUIVALENT / INCONCLUSIVE and `.equivalent`), `to_aixl`, `from_aixl`, `translate`, `semantic_diff`, `detect_drift`, `detect_ambiguity`, `detect_contradiction`, `semantic_fingerprint`, `negotiate`, `validate`, `round_trip`. Opt-in safety: `config["inconclusive"] = True` (see docs/COMPARATOR.md).
+Python: `import aixl; aixl.compare(a, b)` (returns `.verdict` EQUIVALENT / NOT_EQUIVALENT / INCONCLUSIVE and `.equivalent`), `to_aixl`, `from_aixl`, `translate`, `semantic_diff`, `detect_drift`, `detect_ambiguity`, `detect_contradiction`, `semantic_fingerprint`, `negotiate`, `validate`, `round_trip`. Opt-in safety: `config["inconclusive"] = True` (see docs/COMPARATOR.md). Audit layer around an arbiter (ADR-018): `from aixl import arbiter` → `decide(a, b, judges={name: fn(a,b)->'SAME'|'DIFFERENT'|'UNSURE'}, memo=DecisionMemo(path))`, `consensus`, `parse_judge_lines`, `rules_text/rules_id` — you supply the judges; the core calls no model.
 
 ## What to tell the user (measured on OTHER authors' text; sets blind10/11/12 are spent)
 * **Same meaning on open text?** Use the full-text arbiter, 2-of-2 (two independent LLMs read both texts under the strict rules in `data/blind10/arb_rules.txt`; "same" only if both say SAME; store the verdict). Result: blind12 359/360 true paraphrases recovered and **0/480 false "same"** on one-detail near-misses; blind11 100 % / 0.6 % false; repeatability: verdict flips 1.2 % for the 2-of-2; ≈ $0.28 per 1 000 pairs (estimate). Errors are systematic, so store decisions instead of re-deriving.

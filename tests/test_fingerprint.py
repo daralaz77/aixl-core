@@ -39,3 +39,12 @@ def test_real_differences_change_fingerprint(a, b):
 def test_aixl_roundtrip_same_fingerprint():
     t = "Analiza las ventas de Q1 2026."
     assert fpa(to_aixl(t), today=D) == f(t)
+
+
+def test_fingerprint_of_a_graph_without_residue_is_the_0_4_0_value():
+    """Adding the `residue` dimension (0.5) must not change any fingerprint stored under 0.4.0: an empty residue is omitted from canonical()."""
+    import datetime
+    from aixl import semantic_fingerprint, from_aixl
+    assert semantic_fingerprint("Envía el informe a Ana en PDF.", today=datetime.date(2026, 10, 3)) == "4d601cd77a368a82"
+    g = from_aixl('V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND E:REPORT Y:@ANA O:PDF R:"every week"')
+    assert "residue" in g.canonical() and "residue" not in from_aixl("V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND E:REPORT").canonical()

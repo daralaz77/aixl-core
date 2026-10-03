@@ -3,4 +3,4 @@ from aixl.api.service import (translate, to_semantic, to_aixl, from_aixl, compar
                               detect_drift, detect_ambiguity, detect_contradiction, explain, negotiate, negotiate_aixl,
                               semantic_fingerprint, semantic_fingerprint_aixl, validate, round_trip)
 
-__version__ = "0.4.0"
+__version__ = "0.5.0"

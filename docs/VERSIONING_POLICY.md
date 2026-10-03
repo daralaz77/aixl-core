@@ -8,6 +8,8 @@
 | New compatible capability | **MINOR** | new action verb, noun, unit, constraint key, warning type, CLI command, API function |
 | Fix that makes behaviour match the documented/intended meaning, vocabulary additions that only reduce silent loss, docs | **PATCH** | new negation cue (`Avoid …`), PT lexicon entries, `sanitize_input` |
 
+Current: package **0.5.0**, wire token `AIXL-0.3` (unchanged; `R:` is additive). Scope of 0.5: [adr/ADR-018.md](adr/ADR-018.md).
+
 ## What is stable
 * The wire format and atom meanings of a given `V:` version (PROTOCOL.md).
 * Result **shapes** (`ComparisonResult.to_dict()` keys, `AixlError.code`) within a MINOR line; keys are only added (`warnings` appears only when non-empty).

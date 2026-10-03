@@ -6,7 +6,7 @@ Golden rule (§57): system A understands AIXL, system B understands AIXL — `A 
 Transporting an AIXL line is solved (below). **Deciding that two open-text instructions mean the same is not something an AIXL line can prove**: on other authors' text the line drops whatever has no slot, so different instructions can encode identically ([EVIDENCE.md](EVIDENCE.md)). The measured recommendation:
 1. Keep the instructions' original texts. Hash them or the canonical key for exact duplicates (`semantic_fingerprint`, free).
 2. For candidate pairs, ask a strict full-text arbiter, 2-of-2 (two independent LLMs, "same" only if both say SAME); ≈ $0.28 per 1 000 pairs, 359/360 true paraphrases recovered with 0/480 false "same" on near-misses (blind12).
-3. Store each verdict (pair hash + models + prompt id) and reuse it; do not re-derive (the 2-of-2 flips on 1.2 % of pairs between runs).
+3. Store each verdict (pair hash + models + prompt id) and reuse it; do not re-derive (the 2-of-2 flips on 1.2 % of pairs between runs). `aixl.arbiter.decide(a, b, judges, memo)` does steps 2–3 for you (versioned rules, consensus, output validation, decision memo) with judges you supply — the core never calls a model.
 4. Use a cheap lexical filter, not AIXL's key, to cut candidate pairs (recall 60 % vs 15.8 % at 1.3 % vs 0.28 % of all pairs).
 5. Keep AIXL for what it measured well: controlled-vocabulary exact comparison, input hygiene, and as the interchange/negotiation format between MCP/A2A agents.
 

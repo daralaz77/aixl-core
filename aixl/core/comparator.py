@@ -207,7 +207,7 @@ def format_diff(ga: SemanticGraph, gb: SemanticGraph, result: ComparisonResult |
     for dim in DIMENSIONS:
         if dim in ("intent", "goal"):
             continue
-        if not A[dim] and not B[dim]:
+        if not A.get(dim) and not B.get(dim):          # absent == empty (e.g. `residue`)
             continue
         lab = _label(dim)
         lines.append(lab)
@@ -215,6 +215,6 @@ def format_diff(ga: SemanticGraph, gb: SemanticGraph, result: ComparisonResult |
             d = changed[lab]
             lines += ["  changed:", f"    {d.source}", "    →", f"    {d.target}", f"  severity: {d.severity}" + (f" ({d.detail})" if d.detail else "")]
         else:
-            lines.append(f"  unchanged: {_fmt(A[dim])}")
+            lines.append(f"  unchanged: {_fmt(A.get(dim, ()))}")
     lines += ["RESULT", "  SEMANTIC DRIFT DETECTED (" + r.drift_level + ")" if r.differences else "  No meaningful differences detected."]
     return "\n".join(lines)

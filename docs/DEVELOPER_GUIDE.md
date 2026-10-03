@@ -8,7 +8,7 @@ AIXL's rule/LLM routes are exact only inside a controlled vocabulary and are not
 cd ~/.claude/skills/aixl-core            # Python ≥ 3.11; the core has zero runtime dependencies
 python3 -m venv .venv && .venv/bin/pip install pytest tiktoken
 .venv/bin/pip install mcp "a2a-sdk[http-server]" uvicorn   # optional: MCP / A2A tests and servers
-.venv/bin/python -m pytest -q                              # 462 tests; A2A tests skip cleanly without the SDK
+.venv/bin/python -m pytest -q                              # 479 tests; A2A tests skip cleanly without the SDK
 ```
 Always run through the venv (`python3 -m unittest` finds nothing and a bare `python3` lacks pytest). CI (`.github/workflows/tests.yml`) runs Python 3.11 and 3.12.
 

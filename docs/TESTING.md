@@ -1,5 +1,5 @@
 # Testing
-Run: `cd ~/.claude/skills/aixl-core && .venv/bin/python -m pytest tests -q` (system python has no pytest). 2026-10-03: 462 passed, 0 xfailed.
+Run: `cd ~/.claude/skills/aixl-core && .venv/bin/python -m pytest tests -q` (system python has no pytest). 2026-10-03: 479 passed, 0 xfailed.
 - Unit/integration: `test_equivalence, test_drift, test_ambiguity, test_contradiction, test_fingerprint, test_normalizer, test_objects, test_codec, test_demos, test_translator, test_mcp_*, test_a2a_*, test_negotiation`.
 - Regression: `test_regression.py` (every bug, BUG-NNN). Security: `test_sil_security.py` (adversarial tier). Benchmarks: `test_sil5x100.py`, `benchmarks/`.
 - Properties/invariants (new): `test_properties.py` — determinism, canonical stable under AIXL and JSON round-trip, fingerprint stability, self-equivalence, and invariants: negation must not disappear, target must not change silently, constraint/condition loss is drift, no invented time/target, cross-lingual convergence.

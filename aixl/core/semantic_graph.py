@@ -241,7 +241,7 @@ class SemanticGraph:
             elif v.startswith("AGE"):
                 v = _unit_canon(v)
             cons.append(v)
-        return {
+        out = {
             "intent": derive_intent(canon_actions, negated) if canon_actions else "UNKNOWN",
             "actions": tuple(canon_actions),
             "entities": entities,
@@ -259,6 +259,9 @@ class SemanticGraph:
             "bindings": tuple(sorted(self._canon_bindings(rep))),
             "modifiers": tuple(sorted(("CONFIDENCE" + _num(n.value[10:])) if n.value.startswith("CONFIDENCE") else n.value for n in self.by_type("MODIFIER"))),
         }
+        if not out["residue"]:
+            del out["residue"]          # absent == empty: graphs without residue keep EXACTLY their 0.4.0 canonical form and fingerprint
+        return out
 
     # ---- JSON ---------------------------------------------------------------------------------------
     def to_dict(self) -> dict:
