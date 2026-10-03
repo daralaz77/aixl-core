@@ -1,0 +1,3242 @@
+[
+ {
+  "id": "O-EQU-001",
+  "side": "a",
+  "text": "Restart the payment service after deploying the hotfix.",
+  "tid": "t001"
+ },
+ {
+  "id": "O-EQU-001",
+  "side": "b",
+  "text": "Once the hotfix is deployed, restart the payment service.",
+  "tid": "t002"
+ },
+ {
+  "id": "O-EQU-002",
+  "side": "a",
+  "text": "Envía la factura al cliente antes del viernes.",
+  "tid": "t003"
+ },
+ {
+  "id": "O-EQU-002",
+  "side": "b",
+  "text": "Antes del viernes, mándale la factura al cliente.",
+  "tid": "t004"
+ },
+ {
+  "id": "O-EQU-003",
+  "side": "a",
+  "text": "Arquive os tickets resolvidos há mais de 30 dias.",
+  "tid": "t005"
+ },
+ {
+  "id": "O-EQU-003",
+  "side": "b",
+  "text": "Os tickets resolvidos há mais de trinta dias devem ser arquivados.",
+  "tid": "t006"
+ },
+ {
+  "id": "O-EQU-004",
+  "side": "a",
+  "text": "Schedule a follow-up appointment with the patient in two weeks.",
+  "tid": "t007"
+ },
+ {
+  "id": "O-EQU-004",
+  "side": "b",
+  "text": "Agenda una cita de seguimiento con el paciente dentro de dos semanas.",
+  "tid": "t008"
+ },
+ {
+  "id": "O-EQU-005",
+  "side": "a",
+  "text": "Revisa el contrato de arrendamiento y marca las cláusulas de penalización.",
+  "tid": "t009"
+ },
+ {
+  "id": "O-EQU-005",
+  "side": "b",
+  "text": "Revise o contrato de locação e marque as cláusulas de multa.",
+  "tid": "t010"
+ },
+ {
+  "id": "O-EQU-006",
+  "side": "a",
+  "text": "Notify the warehouse manager when the shipment leaves the port.",
+  "tid": "t011"
+ },
+ {
+  "id": "O-EQU-006",
+  "side": "b",
+  "text": "Avise o gerente do armazém quando a carga sair do porto.",
+  "tid": "t012"
+ },
+ {
+  "id": "O-EQU-007",
+  "side": "a",
+  "text": "Back up the production database every night at 2 a.m.",
+  "tid": "t013"
+ },
+ {
+  "id": "O-EQU-007",
+  "side": "b",
+  "text": "Every night at 2 a.m., take a backup of the production database.",
+  "tid": "t014"
+ },
+ {
+  "id": "O-EQU-008",
+  "side": "a",
+  "text": "Los estudiantes deben entregar el ensayo por correo electrónico.",
+  "tid": "t015"
+ },
+ {
+  "id": "O-EQU-008",
+  "side": "b",
+  "text": "Que los alumnos envíen el ensayo por email.",
+  "tid": "t016"
+ },
+ {
+  "id": "O-EQU-009",
+  "side": "a",
+  "text": "Cancele a assinatura do cliente e reembolse o último pagamento.",
+  "tid": "t017"
+ },
+ {
+  "id": "O-EQU-009",
+  "side": "b",
+  "text": "Reembolse o último pagamento do cliente e cancele a assinatura dele.",
+  "tid": "t018"
+ },
+ {
+  "id": "O-EQU-010",
+  "side": "a",
+  "text": "Grant read-only access to the finance folder for the auditors.",
+  "tid": "t019"
+ },
+ {
+  "id": "O-EQU-010",
+  "side": "b",
+  "text": "Give the auditors read-only permission on the finance folder.",
+  "tid": "t020"
+ },
+ {
+  "id": "O-EQU-011",
+  "side": "a",
+  "text": "Traduce el manual de usuario al francés.",
+  "tid": "t021"
+ },
+ {
+  "id": "O-EQU-011",
+  "side": "b",
+  "text": "Translate the user manual into French.",
+  "tid": "t022"
+ },
+ {
+  "id": "O-EQU-012",
+  "side": "a",
+  "text": "Envie o relatório trimestral ao conselho até segunda-feira.",
+  "tid": "t023"
+ },
+ {
+  "id": "O-EQU-012",
+  "side": "b",
+  "text": "Manda el informe trimestral a la junta a más tardar el lunes.",
+  "tid": "t024"
+ },
+ {
+  "id": "O-EQU-013",
+  "side": "a",
+  "text": "Rotate the API keys for the staging environment.",
+  "tid": "t025"
+ },
+ {
+  "id": "O-EQU-013",
+  "side": "b",
+  "text": "For the staging environment, rotate its API keys.",
+  "tid": "t026"
+ },
+ {
+  "id": "O-EQU-014",
+  "side": "a",
+  "text": "Cierra el ticket si el cliente no responde en 48 horas.",
+  "tid": "t027"
+ },
+ {
+  "id": "O-EQU-014",
+  "side": "b",
+  "text": "Si en 48 horas el cliente no contesta, cierra el ticket.",
+  "tid": "t028"
+ },
+ {
+  "id": "O-EQU-015",
+  "side": "a",
+  "text": "Reserve uma sala de reunião para dez pessoas na quinta à tarde.",
+  "tid": "t029"
+ },
+ {
+  "id": "O-EQU-015",
+  "side": "b",
+  "text": "Na quinta-feira à tarde, reserve uma sala de reuniões com capacidade para 10 pessoas.",
+  "tid": "t030"
+ },
+ {
+  "id": "O-EQU-016",
+  "side": "a",
+  "text": "Print two copies of the signed agreement.",
+  "tid": "t031"
+ },
+ {
+  "id": "O-EQU-016",
+  "side": "b",
+  "text": "Imprime dos copias del acuerdo firmado.",
+  "tid": "t032"
+ },
+ {
+  "id": "O-EQU-017",
+  "side": "a",
+  "text": "Actualiza la dirección de envío del pedido 4521.",
+  "tid": "t033"
+ },
+ {
+  "id": "O-EQU-017",
+  "side": "b",
+  "text": "Atualize o endereço de entrega do pedido 4521.",
+  "tid": "t034"
+ },
+ {
+  "id": "O-EQU-018",
+  "side": "a",
+  "text": "Email the onboarding checklist to every new hire on their first day.",
+  "tid": "t035"
+ },
+ {
+  "id": "O-EQU-018",
+  "side": "b",
+  "text": "On their first day, send each new employee the onboarding checklist by email.",
+  "tid": "t036"
+ },
+ {
+  "id": "O-EQU-019",
+  "side": "a",
+  "text": "Programa la migración de servidores para el sábado a medianoche.",
+  "tid": "t037"
+ },
+ {
+  "id": "O-EQU-019",
+  "side": "b",
+  "text": "La migración de servidores debe programarse para la medianoche del sábado.",
+  "tid": "t038"
+ },
+ {
+  "id": "O-EQU-020",
+  "side": "a",
+  "text": "Remova o usuário inativo do grupo de administradores.",
+  "tid": "t039"
+ },
+ {
+  "id": "O-EQU-020",
+  "side": "b",
+  "text": "Remove the inactive user from the administrators group.",
+  "tid": "t040"
+ },
+ {
+  "id": "O-EQU-021",
+  "side": "a",
+  "text": "Compress the log files older than a week and move them to cold storage.",
+  "tid": "t041"
+ },
+ {
+  "id": "O-EQU-021",
+  "side": "b",
+  "text": "Move log files older than seven days to cold storage after compressing them.",
+  "tid": "t042"
+ },
+ {
+  "id": "O-EQU-022",
+  "side": "a",
+  "text": "Llama al proveedor para confirmar la entrega de mañana.",
+  "tid": "t043"
+ },
+ {
+  "id": "O-EQU-022",
+  "side": "b",
+  "text": "Confirma por teléfono con el proveedor la entrega de mañana.",
+  "tid": "t044"
+ },
+ {
+  "id": "O-EQU-023",
+  "side": "a",
+  "text": "Os pacientes devem jejuar oito horas antes do exame de sangue.",
+  "tid": "t045"
+ },
+ {
+  "id": "O-EQU-023",
+  "side": "b",
+  "text": "Antes do exame de sangue, os pacientes precisam ficar em jejum por 8 horas.",
+  "tid": "t046"
+ },
+ {
+  "id": "O-EQU-024",
+  "side": "a",
+  "text": "Publish the release notes on the company blog.",
+  "tid": "t047"
+ },
+ {
+  "id": "O-EQU-024",
+  "side": "b",
+  "text": "Publique as notas de versão no blog da empresa.",
+  "tid": "t048"
+ },
+ {
+  "id": "O-EQU-025",
+  "side": "a",
+  "text": "Calcula el promedio de ventas mensuales del último año.",
+  "tid": "t049"
+ },
+ {
+  "id": "O-EQU-025",
+  "side": "b",
+  "text": "Compute the average monthly sales for the past year.",
+  "tid": "t050"
+ },
+ {
+  "id": "O-EQU-026",
+  "side": "a",
+  "text": "Don't merge the pull request until two reviewers approve it.",
+  "tid": "t051"
+ },
+ {
+  "id": "O-EQU-026",
+  "side": "b",
+  "text": "Wait for approval from two reviewers before merging the pull request.",
+  "tid": "t052"
+ },
+ {
+  "id": "O-EQU-027",
+  "side": "a",
+  "text": "Envie um lembrete aos pais sobre a reunião escolar de amanhã.",
+  "tid": "t053"
+ },
+ {
+  "id": "O-EQU-027",
+  "side": "b",
+  "text": "Mande aos pais um aviso lembrando da reunião da escola amanhã.",
+  "tid": "t054"
+ },
+ {
+  "id": "O-EQU-028",
+  "side": "a",
+  "text": "Escala el incidente al equipo de redes si la latencia supera 300 ms.",
+  "tid": "t055"
+ },
+ {
+  "id": "O-EQU-028",
+  "side": "b",
+  "text": "Si la latencia pasa de 300 ms, escala el incidente al equipo de redes.",
+  "tid": "t056"
+ },
+ {
+  "id": "O-EQU-029",
+  "side": "a",
+  "text": "Digitalize os documentos de admissão e salve-os em PDF.",
+  "tid": "t057"
+ },
+ {
+  "id": "O-EQU-029",
+  "side": "b",
+  "text": "Escanea los documentos de admisión y guárdalos en PDF.",
+  "tid": "t058"
+ },
+ {
+  "id": "O-EQU-030",
+  "side": "a",
+  "text": "Ship the replacement part to the customer via express courier.",
+  "tid": "t059"
+ },
+ {
+  "id": "O-EQU-030",
+  "side": "b",
+  "text": "Send the customer the replacement part by express courier.",
+  "tid": "t060"
+ },
+ {
+  "id": "O-NEQ-001",
+  "side": "a",
+  "text": "Restart the API gateway at 11 p.m.",
+  "tid": "t061"
+ },
+ {
+  "id": "O-NEQ-001",
+  "side": "b",
+  "text": "Restart the API gateway at 11 a.m.",
+  "tid": "t062"
+ },
+ {
+  "id": "O-NEQ-002",
+  "side": "a",
+  "text": "Envía el contrato al abogado.",
+  "tid": "t063"
+ },
+ {
+  "id": "O-NEQ-002",
+  "side": "b",
+  "text": "Envía el contrato al contador.",
+  "tid": "t064"
+ },
+ {
+  "id": "O-NEQ-003",
+  "side": "a",
+  "text": "Exporte o relatório em formato CSV.",
+  "tid": "t065"
+ },
+ {
+  "id": "O-NEQ-003",
+  "side": "b",
+  "text": "Exporte o relatório em formato PDF.",
+  "tid": "t066"
+ },
+ {
+  "id": "O-NEQ-004",
+  "side": "a",
+  "text": "Order 50 boxes of printer paper.",
+  "tid": "t067"
+ },
+ {
+  "id": "O-NEQ-004",
+  "side": "b",
+  "text": "Pide 500 cajas de papel para impresora.",
+  "tid": "t068"
+ },
+ {
+  "id": "O-NEQ-005",
+  "side": "a",
+  "text": "Archiva los correos del proyecto Atlas.",
+  "tid": "t069"
+ },
+ {
+  "id": "O-NEQ-005",
+  "side": "b",
+  "text": "Exclua os e-mails do projeto Atlas.",
+  "tid": "t070"
+ },
+ {
+  "id": "O-NEQ-006",
+  "side": "a",
+  "text": "Scale the web cluster to six nodes.",
+  "tid": "t071"
+ },
+ {
+  "id": "O-NEQ-006",
+  "side": "b",
+  "text": "Escale o cluster web para oito nós.",
+  "tid": "t072"
+ },
+ {
+  "id": "O-NEQ-007",
+  "side": "a",
+  "text": "Refund the customer if the package arrives damaged.",
+  "tid": "t073"
+ },
+ {
+  "id": "O-NEQ-007",
+  "side": "b",
+  "text": "Refund the customer if the package arrives late.",
+  "tid": "t074"
+ },
+ {
+  "id": "O-NEQ-008",
+  "side": "a",
+  "text": "Agenda la vacuna del paciente para el martes.",
+  "tid": "t075"
+ },
+ {
+  "id": "O-NEQ-008",
+  "side": "b",
+  "text": "Agenda la vacuna del paciente para el jueves.",
+  "tid": "t076"
+ },
+ {
+  "id": "O-NEQ-009",
+  "side": "a",
+  "text": "Corrija as provas do 7º ano até sexta.",
+  "tid": "t077"
+ },
+ {
+  "id": "O-NEQ-009",
+  "side": "b",
+  "text": "Corrija as provas do 8º ano até sexta.",
+  "tid": "t078"
+ },
+ {
+  "id": "O-NEQ-010",
+  "side": "a",
+  "text": "Send the invoice to the billing department.",
+  "tid": "t079"
+ },
+ {
+  "id": "O-NEQ-010",
+  "side": "b",
+  "text": "Send the quote to the billing department.",
+  "tid": "t080"
+ },
+ {
+  "id": "O-NEQ-011",
+  "side": "a",
+  "text": "Reinicia el servidor de base de datos.",
+  "tid": "t081"
+ },
+ {
+  "id": "O-NEQ-011",
+  "side": "b",
+  "text": "Restart the cache server.",
+  "tid": "t082"
+ },
+ {
+  "id": "O-NEQ-012",
+  "side": "a",
+  "text": "Ligue para o cliente amanhã de manhã.",
+  "tid": "t083"
+ },
+ {
+  "id": "O-NEQ-012",
+  "side": "b",
+  "text": "Escríbele al cliente mañana por la mañana.",
+  "tid": "t084"
+ },
+ {
+  "id": "O-NEQ-013",
+  "side": "a",
+  "text": "Notify the on-call engineer via SMS.",
+  "tid": "t085"
+ },
+ {
+  "id": "O-NEQ-013",
+  "side": "b",
+  "text": "Notify the on-call engineer via Slack.",
+  "tid": "t086"
+ },
+ {
+  "id": "O-NEQ-014",
+  "side": "a",
+  "text": "Descuenta el 10% a los pedidos superiores a 200 dólares.",
+  "tid": "t087"
+ },
+ {
+  "id": "O-NEQ-014",
+  "side": "b",
+  "text": "Descuenta el 15% a los pedidos superiores a 200 dólares.",
+  "tid": "t088"
+ },
+ {
+  "id": "O-NEQ-015",
+  "side": "a",
+  "text": "Envie a encomenda para a filial de Campinas.",
+  "tid": "t089"
+ },
+ {
+  "id": "O-NEQ-015",
+  "side": "b",
+  "text": "Envie a encomenda para a filial de Santos.",
+  "tid": "t090"
+ },
+ {
+  "id": "O-NEQ-016",
+  "side": "a",
+  "text": "Review the lease renewal clause before signing.",
+  "tid": "t091"
+ },
+ {
+  "id": "O-NEQ-016",
+  "side": "b",
+  "text": "Revisa la cláusula de terminación del arrendamiento antes de firmar.",
+  "tid": "t092"
+ },
+ {
+  "id": "O-NEQ-017",
+  "side": "a",
+  "text": "Sube los archivos al bucket de respaldo cada hora.",
+  "tid": "t093"
+ },
+ {
+  "id": "O-NEQ-017",
+  "side": "b",
+  "text": "Envie os arquivos para o bucket de backup a cada dia.",
+  "tid": "t094"
+ },
+ {
+  "id": "O-NEQ-018",
+  "side": "a",
+  "text": "Assign the bug to the frontend team.",
+  "tid": "t095"
+ },
+ {
+  "id": "O-NEQ-018",
+  "side": "b",
+  "text": "Assign the bug to the QA team.",
+  "tid": "t096"
+ },
+ {
+  "id": "O-NEQ-019",
+  "side": "a",
+  "text": "Si el pago falla dos veces, bloquea la tarjeta.",
+  "tid": "t097"
+ },
+ {
+  "id": "O-NEQ-019",
+  "side": "b",
+  "text": "Si el pago falla tres veces, bloquea la tarjeta.",
+  "tid": "t098"
+ },
+ {
+  "id": "O-NEQ-020",
+  "side": "a",
+  "text": "Imprima as etiquetas de envio para os pedidos de hoje.",
+  "tid": "t099"
+ },
+ {
+  "id": "O-NEQ-020",
+  "side": "b",
+  "text": "Print the shipping labels for yesterday's orders.",
+  "tid": "t100"
+ },
+ {
+  "id": "O-NEQ-021",
+  "side": "a",
+  "text": "Archive the Q3 marketing reports.",
+  "tid": "t101"
+ },
+ {
+  "id": "O-NEQ-021",
+  "side": "b",
+  "text": "Summarize the Q3 marketing reports.",
+  "tid": "t102"
+ },
+ {
+  "id": "O-NEQ-022",
+  "side": "a",
+  "text": "Comparte la presentación con el equipo de ventas.",
+  "tid": "t103"
+ },
+ {
+  "id": "O-NEQ-022",
+  "side": "b",
+  "text": "Comparte la hoja de cálculo con el equipo de ventas.",
+  "tid": "t104"
+ },
+ {
+  "id": "O-NEQ-023",
+  "side": "a",
+  "text": "Agende a manutenção do elevador para o dia 15.",
+  "tid": "t105"
+ },
+ {
+  "id": "O-NEQ-023",
+  "side": "b",
+  "text": "Agende a manutenção do elevador para o dia 25.",
+  "tid": "t106"
+ },
+ {
+  "id": "O-NEQ-024",
+  "side": "a",
+  "text": "Translate the brochure into Spanish.",
+  "tid": "t107"
+ },
+ {
+  "id": "O-NEQ-024",
+  "side": "b",
+  "text": "Traduza o folheto para o italiano.",
+  "tid": "t108"
+ },
+ {
+  "id": "O-NEQ-025",
+  "side": "a",
+  "text": "Envía el recordatorio de pago tres días antes del vencimiento.",
+  "tid": "t109"
+ },
+ {
+  "id": "O-NEQ-025",
+  "side": "b",
+  "text": "Send the payment reminder three days after the due date.",
+  "tid": "t110"
+ },
+ {
+  "id": "O-NEQ-026",
+  "side": "a",
+  "text": "Encrypt the backups with AES-256.",
+  "tid": "t111"
+ },
+ {
+  "id": "O-NEQ-026",
+  "side": "b",
+  "text": "Encrypt the backups with AES-128.",
+  "tid": "t112"
+ },
+ {
+  "id": "O-NEQ-027",
+  "side": "a",
+  "text": "Contrate dois técnicos temporários para o inventário.",
+  "tid": "t113"
+ },
+ {
+  "id": "O-NEQ-027",
+  "side": "b",
+  "text": "Contrate dois técnicos permanentes para o inventário.",
+  "tid": "t114"
+ },
+ {
+  "id": "O-NEQ-028",
+  "side": "a",
+  "text": "Mueve la reunión de presupuesto a la sala B.",
+  "tid": "t115"
+ },
+ {
+  "id": "O-NEQ-028",
+  "side": "b",
+  "text": "Mueve la reunión de presupuesto a la sala C.",
+  "tid": "t116"
+ },
+ {
+  "id": "O-NEQ-029",
+  "side": "a",
+  "text": "Notifique o paciente por e-mail sobre o resultado.",
+  "tid": "t117"
+ },
+ {
+  "id": "O-NEQ-029",
+  "side": "b",
+  "text": "Notifica al médico por correo sobre el resultado.",
+  "tid": "t118"
+ },
+ {
+  "id": "O-NEQ-030",
+  "side": "a",
+  "text": "Merge the feature branch into develop.",
+  "tid": "t119"
+ },
+ {
+  "id": "O-NEQ-030",
+  "side": "b",
+  "text": "Merge the feature branch into main.",
+  "tid": "t120"
+ },
+ {
+  "id": "O-PAR-001",
+  "side": "a",
+  "text": "Send the weekly report to the sales team.",
+  "tid": "t121"
+ },
+ {
+  "id": "O-PAR-001",
+  "side": "b",
+  "text": "Send the weekly report to the sales team as a PDF.",
+  "tid": "t122"
+ },
+ {
+  "id": "O-PAR-002",
+  "side": "a",
+  "text": "Reinicia el servidor de correo.",
+  "tid": "t123"
+ },
+ {
+  "id": "O-PAR-002",
+  "side": "b",
+  "text": "Reinicia el servidor de correo esta noche.",
+  "tid": "t124"
+ },
+ {
+  "id": "O-PAR-003",
+  "side": "a",
+  "text": "Agende uma consulta com o cardiologista.",
+  "tid": "t125"
+ },
+ {
+  "id": "O-PAR-003",
+  "side": "b",
+  "text": "Agende uma consulta com o cardiologista para a próxima semana.",
+  "tid": "t126"
+ },
+ {
+  "id": "O-PAR-004",
+  "side": "a",
+  "text": "Archive the closed support tickets.",
+  "tid": "t127"
+ },
+ {
+  "id": "O-PAR-004",
+  "side": "b",
+  "text": "Archiva los tickets de soporte cerrados del mes pasado.",
+  "tid": "t128"
+ },
+ {
+  "id": "O-PAR-005",
+  "side": "a",
+  "text": "Envía el presupuesto al cliente.",
+  "tid": "t129"
+ },
+ {
+  "id": "O-PAR-005",
+  "side": "b",
+  "text": "Envie o orçamento ao cliente por WhatsApp.",
+  "tid": "t130"
+ },
+ {
+  "id": "O-PAR-006",
+  "side": "a",
+  "text": "Order new laptops for the design team.",
+  "tid": "t131"
+ },
+ {
+  "id": "O-PAR-006",
+  "side": "b",
+  "text": "Encomende cinco notebooks novos para a equipe de design.",
+  "tid": "t132"
+ },
+ {
+  "id": "O-PAR-007",
+  "side": "a",
+  "text": "Deploy the new build to staging after the tests pass.",
+  "tid": "t133"
+ },
+ {
+  "id": "O-PAR-007",
+  "side": "b",
+  "text": "Deploy the new build to staging.",
+  "tid": "t134"
+ },
+ {
+  "id": "O-PAR-008",
+  "side": "a",
+  "text": "Imprime el contrato de alquiler.",
+  "tid": "t135"
+ },
+ {
+  "id": "O-PAR-008",
+  "side": "b",
+  "text": "Imprime el contrato de alquiler a doble cara.",
+  "tid": "t136"
+ },
+ {
+  "id": "O-PAR-009",
+  "side": "a",
+  "text": "Cancele o pedido do cliente.",
+  "tid": "t137"
+ },
+ {
+  "id": "O-PAR-009",
+  "side": "b",
+  "text": "Cancele o pedido 8812 do cliente.",
+  "tid": "t138"
+ },
+ {
+  "id": "O-PAR-010",
+  "side": "a",
+  "text": "Notify the parents about the field trip.",
+  "tid": "t139"
+ },
+ {
+  "id": "O-PAR-010",
+  "side": "b",
+  "text": "Notify the parents about the field trip by Friday.",
+  "tid": "t140"
+ },
+ {
+  "id": "O-PAR-011",
+  "side": "a",
+  "text": "Revisa los registros del firewall.",
+  "tid": "t141"
+ },
+ {
+  "id": "O-PAR-011",
+  "side": "b",
+  "text": "Review the firewall logs from the last 24 hours.",
+  "tid": "t142"
+ },
+ {
+  "id": "O-PAR-012",
+  "side": "a",
+  "text": "Reserve um voo para Lisboa.",
+  "tid": "t143"
+ },
+ {
+  "id": "O-PAR-012",
+  "side": "b",
+  "text": "Reserva un vuelo a Lisboa en clase económica.",
+  "tid": "t144"
+ },
+ {
+  "id": "O-PAR-013",
+  "side": "a",
+  "text": "Call the supplier about the delayed shipment.",
+  "tid": "t145"
+ },
+ {
+  "id": "O-PAR-013",
+  "side": "b",
+  "text": "Call the supplier about the delayed shipment before noon.",
+  "tid": "t146"
+ },
+ {
+  "id": "O-PAR-014",
+  "side": "a",
+  "text": "Asigna el caso a un abogado del despacho.",
+  "tid": "t147"
+ },
+ {
+  "id": "O-PAR-014",
+  "side": "b",
+  "text": "Asigna el caso a un abogado del despacho especializado en derecho laboral.",
+  "tid": "t148"
+ },
+ {
+  "id": "O-PAR-015",
+  "side": "a",
+  "text": "Faça backup da pasta de projetos.",
+  "tid": "t149"
+ },
+ {
+  "id": "O-PAR-015",
+  "side": "b",
+  "text": "Faça backup da pasta de projetos no Google Drive.",
+  "tid": "t150"
+ },
+ {
+  "id": "O-PAR-016",
+  "side": "a",
+  "text": "Update the employee handbook.",
+  "tid": "t151"
+ },
+ {
+  "id": "O-PAR-016",
+  "side": "b",
+  "text": "Actualiza la sección de vacaciones del manual del empleado.",
+  "tid": "t152"
+ },
+ {
+  "id": "O-PAR-017",
+  "side": "a",
+  "text": "Envía las muestras al laboratorio.",
+  "tid": "t153"
+ },
+ {
+  "id": "O-PAR-017",
+  "side": "b",
+  "text": "Envie as amostras refrigeradas ao laboratório.",
+  "tid": "t154"
+ },
+ {
+  "id": "O-PAR-018",
+  "side": "a",
+  "text": "Generate an invoice for the consulting work.",
+  "tid": "t155"
+ },
+ {
+  "id": "O-PAR-018",
+  "side": "b",
+  "text": "Generate an invoice in euros for the consulting work.",
+  "tid": "t156"
+ },
+ {
+  "id": "O-PAR-019",
+  "side": "a",
+  "text": "Programa una reunión con el equipo de marketing.",
+  "tid": "t157"
+ },
+ {
+  "id": "O-PAR-019",
+  "side": "b",
+  "text": "Programa una reunión de 30 minutos con el equipo de marketing.",
+  "tid": "t158"
+ },
+ {
+  "id": "O-PAR-020",
+  "side": "a",
+  "text": "Renove o certificado SSL do site.",
+  "tid": "t159"
+ },
+ {
+  "id": "O-PAR-020",
+  "side": "b",
+  "text": "Renew the website's SSL certificate before it expires on March 3.",
+  "tid": "t160"
+ },
+ {
+  "id": "O-PAR-021",
+  "side": "a",
+  "text": "Ship the order to the customer.",
+  "tid": "t161"
+ },
+ {
+  "id": "O-PAR-021",
+  "side": "b",
+  "text": "Ship the order to the customer using overnight delivery.",
+  "tid": "t162"
+ },
+ {
+  "id": "O-PAR-022",
+  "side": "a",
+  "text": "Publica la vacante de enfermería.",
+  "tid": "t163"
+ },
+ {
+  "id": "O-PAR-022",
+  "side": "b",
+  "text": "Publica la vacante de enfermería en LinkedIn.",
+  "tid": "t164"
+ },
+ {
+  "id": "O-PAR-023",
+  "side": "a",
+  "text": "Revise o trabalho de conclusão do aluno.",
+  "tid": "t165"
+ },
+ {
+  "id": "O-PAR-023",
+  "side": "b",
+  "text": "Revise o trabalho de conclusão do aluno com foco na metodologia.",
+  "tid": "t166"
+ },
+ {
+  "id": "O-PAR-024",
+  "side": "a",
+  "text": "Send a reminder about the unpaid invoice.",
+  "tid": "t167"
+ },
+ {
+  "id": "O-PAR-024",
+  "side": "b",
+  "text": "Envie um lembrete sobre a fatura não paga ao departamento financeiro do cliente.",
+  "tid": "t168"
+ },
+ {
+  "id": "O-PAR-025",
+  "side": "a",
+  "text": "Escala el ticket al segundo nivel.",
+  "tid": "t169"
+ },
+ {
+  "id": "O-PAR-025",
+  "side": "b",
+  "text": "Escalate the ticket to tier two with high priority.",
+  "tid": "t170"
+ },
+ {
+  "id": "O-PAR-026",
+  "side": "a",
+  "text": "Rotate the database credentials every 90 days.",
+  "tid": "t171"
+ },
+ {
+  "id": "O-PAR-026",
+  "side": "b",
+  "text": "Rotate the database credentials.",
+  "tid": "t172"
+ },
+ {
+  "id": "O-PAR-027",
+  "side": "a",
+  "text": "Envie o contrato para assinatura digital.",
+  "tid": "t173"
+ },
+ {
+  "id": "O-PAR-027",
+  "side": "b",
+  "text": "Envie o contrato para assinatura digital até as 17h.",
+  "tid": "t174"
+ },
+ {
+  "id": "O-PAR-028",
+  "side": "a",
+  "text": "Descarga los extractos bancarios.",
+  "tid": "t175"
+ },
+ {
+  "id": "O-PAR-028",
+  "side": "b",
+  "text": "Descarga los extractos bancarios de enero a marzo.",
+  "tid": "t176"
+ },
+ {
+  "id": "O-PAR-029",
+  "side": "a",
+  "text": "Monte o relatório de vendas por região.",
+  "tid": "t177"
+ },
+ {
+  "id": "O-PAR-029",
+  "side": "b",
+  "text": "Arma el informe de ventas por región con gráficos de barras.",
+  "tid": "t178"
+ },
+ {
+  "id": "O-PAR-030",
+  "side": "a",
+  "text": "Book a delivery truck for the furniture.",
+  "tid": "t179"
+ },
+ {
+  "id": "O-PAR-030",
+  "side": "b",
+  "text": "Book a delivery truck with a lift gate for the furniture.",
+  "tid": "t180"
+ },
+ {
+  "id": "O-CON-001",
+  "side": "a",
+  "text": "Enable two-factor authentication for all admin accounts.",
+  "tid": "t181"
+ },
+ {
+  "id": "O-CON-001",
+  "side": "b",
+  "text": "Disable two-factor authentication for all admin accounts.",
+  "tid": "t182"
+ },
+ {
+  "id": "O-CON-002",
+  "side": "a",
+  "text": "Aprueba la solicitud de vacaciones de Laura.",
+  "tid": "t183"
+ },
+ {
+  "id": "O-CON-002",
+  "side": "b",
+  "text": "Rechaza la solicitud de vacaciones de Laura.",
+  "tid": "t184"
+ },
+ {
+  "id": "O-CON-003",
+  "side": "a",
+  "text": "Mantenha o servidor ligado durante o fim de semana.",
+  "tid": "t185"
+ },
+ {
+  "id": "O-CON-003",
+  "side": "b",
+  "text": "Desligue o servidor durante o fim de semana.",
+  "tid": "t186"
+ },
+ {
+  "id": "O-CON-004",
+  "side": "a",
+  "text": "Publish the press release today.",
+  "tid": "t187"
+ },
+ {
+  "id": "O-CON-004",
+  "side": "b",
+  "text": "No publiques el comunicado de prensa hoy.",
+  "tid": "t188"
+ },
+ {
+  "id": "O-CON-005",
+  "side": "a",
+  "text": "Entrega el informe antes del martes.",
+  "tid": "t189"
+ },
+ {
+  "id": "O-CON-005",
+  "side": "b",
+  "text": "Entregue o relatório só depois de quarta-feira.",
+  "tid": "t190"
+ },
+ {
+  "id": "O-CON-006",
+  "side": "a",
+  "text": "Keep the patient's file confidential.",
+  "tid": "t191"
+ },
+ {
+  "id": "O-CON-006",
+  "side": "b",
+  "text": "Compartilhe a ficha do paciente publicamente.",
+  "tid": "t192"
+ },
+ {
+  "id": "O-CON-007",
+  "side": "a",
+  "text": "Lock the repository to prevent new commits.",
+  "tid": "t193"
+ },
+ {
+  "id": "O-CON-007",
+  "side": "b",
+  "text": "Unlock the repository so new commits are allowed.",
+  "tid": "t194"
+ },
+ {
+  "id": "O-CON-008",
+  "side": "a",
+  "text": "Acepta la devolución del cliente.",
+  "tid": "t195"
+ },
+ {
+  "id": "O-CON-008",
+  "side": "b",
+  "text": "No aceptes la devolución del cliente.",
+  "tid": "t196"
+ },
+ {
+  "id": "O-CON-009",
+  "side": "a",
+  "text": "Aprove o orçamento da campanha.",
+  "tid": "t197"
+ },
+ {
+  "id": "O-CON-009",
+  "side": "b",
+  "text": "Não aprove o orçamento da campanha.",
+  "tid": "t198"
+ },
+ {
+  "id": "O-CON-010",
+  "side": "a",
+  "text": "Always require a signature on delivery.",
+  "tid": "t199"
+ },
+ {
+  "id": "O-CON-010",
+  "side": "b",
+  "text": "Never require a signature on delivery.",
+  "tid": "t200"
+ },
+ {
+  "id": "O-CON-011",
+  "side": "a",
+  "text": "Abre el puerto 22 en el firewall.",
+  "tid": "t201"
+ },
+ {
+  "id": "O-CON-011",
+  "side": "b",
+  "text": "Close port 22 on the firewall.",
+  "tid": "t202"
+ },
+ {
+  "id": "O-CON-012",
+  "side": "a",
+  "text": "Renove o contrato do fornecedor.",
+  "tid": "t203"
+ },
+ {
+  "id": "O-CON-012",
+  "side": "b",
+  "text": "No renueves el contrato del proveedor.",
+  "tid": "t204"
+ },
+ {
+  "id": "O-CON-013",
+  "side": "a",
+  "text": "Upgrade the cluster to Kubernetes 1.30 tonight.",
+  "tid": "t205"
+ },
+ {
+  "id": "O-CON-013",
+  "side": "b",
+  "text": "Do not upgrade the cluster tonight.",
+  "tid": "t206"
+ },
+ {
+  "id": "O-CON-014",
+  "side": "a",
+  "text": "Incluye a los menores de edad en la encuesta.",
+  "tid": "t207"
+ },
+ {
+  "id": "O-CON-014",
+  "side": "b",
+  "text": "Excluye a los menores de edad de la encuesta.",
+  "tid": "t208"
+ },
+ {
+  "id": "O-CON-015",
+  "side": "a",
+  "text": "Envie a encomenda hoje.",
+  "tid": "t209"
+ },
+ {
+  "id": "O-CON-015",
+  "side": "b",
+  "text": "Segure a encomenda e não a envie hoje.",
+  "tid": "t210"
+ },
+ {
+  "id": "O-CON-016",
+  "side": "a",
+  "text": "Mark the invoice as paid.",
+  "tid": "t211"
+ },
+ {
+  "id": "O-CON-016",
+  "side": "b",
+  "text": "Marca la factura como pendiente de pago.",
+  "tid": "t212"
+ },
+ {
+  "id": "O-CON-017",
+  "side": "a",
+  "text": "Permite el acceso remoto a la base de datos.",
+  "tid": "t213"
+ },
+ {
+  "id": "O-CON-017",
+  "side": "b",
+  "text": "Bloqueie o acesso remoto ao banco de dados.",
+  "tid": "t214"
+ },
+ {
+  "id": "O-CON-018",
+  "side": "a",
+  "text": "Start the backup job before the maintenance window.",
+  "tid": "t215"
+ },
+ {
+  "id": "O-CON-018",
+  "side": "b",
+  "text": "Start the backup job only after the maintenance window ends.",
+  "tid": "t216"
+ },
+ {
+  "id": "O-CON-019",
+  "side": "a",
+  "text": "Suspende la cuenta del usuario.",
+  "tid": "t217"
+ },
+ {
+  "id": "O-CON-019",
+  "side": "b",
+  "text": "Reactiva la cuenta del usuario.",
+  "tid": "t218"
+ },
+ {
+  "id": "O-CON-020",
+  "side": "a",
+  "text": "Ative o modo de manutenção do site.",
+  "tid": "t219"
+ },
+ {
+  "id": "O-CON-020",
+  "side": "b",
+  "text": "Turn off the site's maintenance mode.",
+  "tid": "t220"
+ },
+ {
+  "id": "O-CON-021",
+  "side": "a",
+  "text": "Hire the candidate for the analyst role.",
+  "tid": "t221"
+ },
+ {
+  "id": "O-CON-021",
+  "side": "b",
+  "text": "Reject the candidate for the analyst role.",
+  "tid": "t222"
+ },
+ {
+  "id": "O-CON-022",
+  "side": "a",
+  "text": "Cobra la tarifa de envío al cliente.",
+  "tid": "t223"
+ },
+ {
+  "id": "O-CON-022",
+  "side": "b",
+  "text": "No le cobres la tarifa de envío al cliente.",
+  "tid": "t224"
+ },
+ {
+  "id": "O-CON-023",
+  "side": "a",
+  "text": "Permita que os alunos usem calculadora na prova.",
+  "tid": "t225"
+ },
+ {
+  "id": "O-CON-023",
+  "side": "b",
+  "text": "Proíba o uso de calculadora pelos alunos na prova.",
+  "tid": "t226"
+ },
+ {
+  "id": "O-CON-024",
+  "side": "a",
+  "text": "Delete the draft after sending it.",
+  "tid": "t227"
+ },
+ {
+  "id": "O-CON-024",
+  "side": "b",
+  "text": "Guarde o rascunho depois de enviá-lo.",
+  "tid": "t228"
+ },
+ {
+  "id": "O-CON-025",
+  "side": "a",
+  "text": "Sube los precios un 5% en enero.",
+  "tid": "t229"
+ },
+ {
+  "id": "O-CON-025",
+  "side": "b",
+  "text": "Lower prices by 5% in January.",
+  "tid": "t230"
+ },
+ {
+  "id": "O-CON-026",
+  "side": "a",
+  "text": "Hold the shipment until customs clears it.",
+  "tid": "t231"
+ },
+ {
+  "id": "O-CON-026",
+  "side": "b",
+  "text": "Release the shipment immediately, before customs clearance.",
+  "tid": "t232"
+ },
+ {
+  "id": "O-CON-027",
+  "side": "a",
+  "text": "Inclua o anexo no e-mail.",
+  "tid": "t233"
+ },
+ {
+  "id": "O-CON-027",
+  "side": "b",
+  "text": "Não inclua o anexo no e-mail.",
+  "tid": "t234"
+ },
+ {
+  "id": "O-CON-028",
+  "side": "a",
+  "text": "La reunión debe terminar antes de las 3 p.m.",
+  "tid": "t235"
+ },
+ {
+  "id": "O-CON-028",
+  "side": "b",
+  "text": "La reunión debe empezar a las 4 p.m.",
+  "tid": "t236"
+ },
+ {
+  "id": "O-CON-029",
+  "side": "a",
+  "text": "Mantenha o histórico de chamados por cinco anos.",
+  "tid": "t237"
+ },
+ {
+  "id": "O-CON-029",
+  "side": "b",
+  "text": "Elimina el historial de tickets de inmediato.",
+  "tid": "t238"
+ },
+ {
+  "id": "O-CON-030",
+  "side": "a",
+  "text": "Approve the expense report.",
+  "tid": "t239"
+ },
+ {
+  "id": "O-CON-030",
+  "side": "b",
+  "text": "Deny the expense report.",
+  "tid": "t240"
+ },
+ {
+  "id": "O-AMB-001",
+  "side": "a",
+  "text": "Send it to them before the meeting.",
+  "tid": "t241"
+ },
+ {
+  "id": "O-AMB-002",
+  "side": "a",
+  "text": "Arregla eso cuanto antes.",
+  "tid": "t242"
+ },
+ {
+  "id": "O-AMB-003",
+  "side": "a",
+  "text": "Atualize os dados do cliente depois.",
+  "tid": "t243"
+ },
+ {
+  "id": "O-AMB-004",
+  "side": "a",
+  "text": "Remove the old ones from the server.",
+  "tid": "t244"
+ },
+ {
+  "id": "O-AMB-005",
+  "side": "a",
+  "text": "Revisa los documentos del caso con Pedro y Ana y avísale cuando termines.",
+  "tid": "t245"
+ },
+ {
+  "id": "O-AMB-006",
+  "side": "a",
+  "text": "Mande o relatório para o gerente na próxima sexta.",
+  "tid": "t246"
+ },
+ {
+  "id": "O-AMB-007",
+  "side": "a",
+  "text": "Book the room for the team next week.",
+  "tid": "t247"
+ },
+ {
+  "id": "O-AMB-008",
+  "side": "a",
+  "text": "Cambia la configuración para que funcione mejor.",
+  "tid": "t248"
+ },
+ {
+  "id": "O-AMB-009",
+  "side": "a",
+  "text": "Reinicie o serviço quando der.",
+  "tid": "t249"
+ },
+ {
+  "id": "O-AMB-010",
+  "side": "a",
+  "text": "Call the patient's doctor about the results and let her know.",
+  "tid": "t250"
+ },
+ {
+  "id": "O-AMB-011",
+  "side": "a",
+  "text": "Borra los archivos grandes.",
+  "tid": "t251"
+ },
+ {
+  "id": "O-AMB-012",
+  "side": "a",
+  "text": "Notifique todos sobre a mudança.",
+  "tid": "t252"
+ },
+ {
+  "id": "O-AMB-013",
+  "side": "a",
+  "text": "Fix the bug in the last release.",
+  "tid": "t253"
+ },
+ {
+  "id": "O-AMB-014",
+  "side": "a",
+  "text": "Dile a Juan que su hermano tiene que firmar su contrato.",
+  "tid": "t254"
+ },
+ {
+  "id": "O-AMB-015",
+  "side": "a",
+  "text": "Process the refunds quickly.",
+  "tid": "t255"
+ },
+ {
+  "id": "O-AMB-016",
+  "side": "a",
+  "text": "Organize os arquivos por data e tamanho.",
+  "tid": "t256"
+ },
+ {
+  "id": "O-AMB-017",
+  "side": "a",
+  "text": "Prepara el reporte como el anterior.",
+  "tid": "t257"
+ },
+ {
+  "id": "O-AMB-018",
+  "side": "a",
+  "text": "Deploy the update to the servers in the morning.",
+  "tid": "t258"
+ },
+ {
+  "id": "O-AMB-019",
+  "side": "a",
+  "text": "Ajuste o preço do produto.",
+  "tid": "t259"
+ },
+ {
+  "id": "O-AMB-020",
+  "side": "a",
+  "text": "Contacta al proveedor sobre lo del pedido.",
+  "tid": "t260"
+ },
+ {
+  "id": "O-AMB-021",
+  "side": "a",
+  "text": "Migrate the users with the new permissions.",
+  "tid": "t261"
+ },
+ {
+  "id": "O-AMB-022",
+  "side": "a",
+  "text": "Envie as notas para os alunos que faltaram e os pais.",
+  "tid": "t262"
+ },
+ {
+  "id": "O-AMB-023",
+  "side": "a",
+  "text": "Agenda la cita para el paciente en un par de días.",
+  "tid": "t263"
+ },
+ {
+  "id": "O-AMB-024",
+  "side": "a",
+  "text": "Make the report shorter but keep everything important.",
+  "tid": "t264"
+ },
+ {
+  "id": "O-AMB-025",
+  "side": "a",
+  "text": "Faça isso de novo, mas melhor.",
+  "tid": "t265"
+ },
+ {
+  "id": "O-AMB-026",
+  "side": "a",
+  "text": "Limpia la base de datos.",
+  "tid": "t266"
+ },
+ {
+  "id": "O-AMB-027",
+  "side": "a",
+  "text": "Escalate this if it gets worse.",
+  "tid": "t267"
+ },
+ {
+  "id": "O-AMB-028",
+  "side": "a",
+  "text": "Compre mais material para o escritório.",
+  "tid": "t268"
+ },
+ {
+  "id": "O-AMB-029",
+  "side": "a",
+  "text": "Envía la propuesta a los interesados lo antes posible.",
+  "tid": "t269"
+ },
+ {
+  "id": "O-AMB-030",
+  "side": "a",
+  "text": "Archive everything from last quarter except the important stuff.",
+  "tid": "t270"
+ },
+ {
+  "id": "H-EQU-001",
+  "side": "a",
+  "text": "Transfer fifty thousand dollars to the marketing department's account",
+  "tid": "t271"
+ },
+ {
+  "id": "H-EQU-001",
+  "side": "b",
+  "text": "Move $50,000 to marketing's bank account",
+  "tid": "t272"
+ },
+ {
+  "id": "H-EQU-002",
+  "side": "a",
+  "text": "El cliente debe recibir la factura antes del viernes",
+  "tid": "t273"
+ },
+ {
+  "id": "H-EQU-002",
+  "side": "b",
+  "text": "Enviar la factura al cliente antes de que termine la semana",
+  "tid": "t274"
+ },
+ {
+  "id": "H-EQU-003",
+  "side": "a",
+  "text": "Agende a reunião com o gerente para próxima semana",
+  "tid": "t275"
+ },
+ {
+  "id": "H-EQU-003",
+  "side": "b",
+  "text": "Schedule a meeting with the manager for next week",
+  "tid": "t276"
+ },
+ {
+  "id": "H-EQU-004",
+  "side": "a",
+  "text": "Deactivate all user accounts inactive for six months",
+  "tid": "t277"
+ },
+ {
+  "id": "H-EQU-004",
+  "side": "b",
+  "text": "Disable accounts belonging to users who haven't logged in during the past six months",
+  "tid": "t278"
+ },
+ {
+  "id": "H-EQU-005",
+  "side": "a",
+  "text": "Los datos deben estar encriptados en tránsito y almacenados de forma segura",
+  "tid": "t279"
+ },
+ {
+  "id": "H-EQU-005",
+  "side": "b",
+  "text": "Encrypt data during transmission and protect it when stored",
+  "tid": "t280"
+ },
+ {
+  "id": "H-EQU-006",
+  "side": "a",
+  "text": "Enviar notificação ao time de vendas sobre o novo produto",
+  "tid": "t281"
+ },
+ {
+  "id": "H-EQU-006",
+  "side": "b",
+  "text": "Send a notification to the sales team regarding the new product launch",
+  "tid": "t282"
+ },
+ {
+  "id": "H-EQU-007",
+  "side": "a",
+  "text": "La contraseña debe cambiarse cada noventa días",
+  "tid": "t283"
+ },
+ {
+  "id": "H-EQU-007",
+  "side": "b",
+  "text": "A senha deve ser alterada a cada 90 dias",
+  "tid": "t284"
+ },
+ {
+  "id": "H-EQU-008",
+  "side": "a",
+  "text": "Delete all backup files older than one year",
+  "tid": "t285"
+ },
+ {
+  "id": "H-EQU-008",
+  "side": "b",
+  "text": "Remove backups that are more than 12 months old",
+  "tid": "t286"
+ },
+ {
+  "id": "H-EQU-009",
+  "side": "a",
+  "text": "O sistema deve registrar todas as transações financeiras",
+  "tid": "t287"
+ },
+ {
+  "id": "H-EQU-009",
+  "side": "b",
+  "text": "Log every financial transaction in the system",
+  "tid": "t288"
+ },
+ {
+  "id": "H-EQU-010",
+  "side": "a",
+  "text": "Generar un reporte con las cifras de ingresos del Q3 para todas las regiones",
+  "tid": "t289"
+ },
+ {
+  "id": "H-EQU-010",
+  "side": "b",
+  "text": "Create a quarterly report showing Q3 revenue by region",
+  "tid": "t290"
+ },
+ {
+  "id": "H-EQU-011",
+  "side": "a",
+  "text": "Desativar a função de login automático para todos os usuários",
+  "tid": "t291"
+ },
+ {
+  "id": "H-EQU-011",
+  "side": "b",
+  "text": "Turn off auto-login capability across all user accounts",
+  "tid": "t292"
+ },
+ {
+  "id": "H-EQU-012",
+  "side": "a",
+  "text": "Actualizar la documentación del API con los nuevos endpoints",
+  "tid": "t293"
+ },
+ {
+  "id": "H-EQU-012",
+  "side": "b",
+  "text": "Update the API documentation to include the new endpoints",
+  "tid": "t294"
+ },
+ {
+  "id": "H-EQU-013",
+  "side": "a",
+  "text": "Perform system maintenance during the scheduled downtime window",
+  "tid": "t295"
+ },
+ {
+  "id": "H-EQU-013",
+  "side": "b",
+  "text": "Execute maintenance tasks throughout the planned outage period",
+  "tid": "t296"
+ },
+ {
+  "id": "H-EQU-014",
+  "side": "a",
+  "text": "El inventario debe verificarse al final de cada mes",
+  "tid": "t297"
+ },
+ {
+  "id": "H-EQU-014",
+  "side": "b",
+  "text": "Verify inventory levels at the end of every month",
+  "tid": "t298"
+ },
+ {
+  "id": "H-EQU-015",
+  "side": "a",
+  "text": "Configurar permissões de acesso para o novo usuário administrativo",
+  "tid": "t299"
+ },
+ {
+  "id": "H-EQU-015",
+  "side": "b",
+  "text": "Set up access permissions for the new admin user account",
+  "tid": "t300"
+ },
+ {
+  "id": "H-EQU-016",
+  "side": "a",
+  "text": "Remover archivos temporales del servidor antes de hacer backup",
+  "tid": "t301"
+ },
+ {
+  "id": "H-EQU-016",
+  "side": "b",
+  "text": "Clean temporary files from the server before running backups",
+  "tid": "t302"
+ },
+ {
+  "id": "H-EQU-017",
+  "side": "a",
+  "text": "Send a reminder email to all employees about the training deadline",
+  "tid": "t303"
+ },
+ {
+  "id": "H-EQU-017",
+  "side": "b",
+  "text": "Notify every staff member by email regarding the training submission deadline",
+  "tid": "t304"
+ },
+ {
+  "id": "H-EQU-018",
+  "side": "a",
+  "text": "Aumentar o limite de memória da máquina virtual para 16GB",
+  "tid": "t305"
+ },
+ {
+  "id": "H-EQU-018",
+  "side": "b",
+  "text": "Upgrade the virtual machine's memory capacity to 16GB",
+  "tid": "t306"
+ },
+ {
+  "id": "H-EQU-019",
+  "side": "a",
+  "text": "Aprobar todas las solicitudes de compra menores a mil dólares",
+  "tid": "t307"
+ },
+ {
+  "id": "H-EQU-019",
+  "side": "b",
+  "text": "Approve purchase requests that are under $1,000",
+  "tid": "t308"
+ },
+ {
+  "id": "H-EQU-020",
+  "side": "a",
+  "text": "Imprimir etiquetas para os produtos do catálogo principal",
+  "tid": "t309"
+ },
+ {
+  "id": "H-EQU-020",
+  "side": "b",
+  "text": "Generate and print labels for all items in the main product catalog",
+  "tid": "t310"
+ },
+ {
+  "id": "H-EQU-021",
+  "side": "a",
+  "text": "Modify the DNS records to point to the new server address",
+  "tid": "t311"
+ },
+ {
+  "id": "H-EQU-021",
+  "side": "b",
+  "text": "Update DNS settings to redirect traffic to the new server",
+  "tid": "t312"
+ },
+ {
+  "id": "H-EQU-022",
+  "side": "a",
+  "text": "Los empleados deben reportar sus horas trabajadas cada viernes",
+  "tid": "t313"
+ },
+ {
+  "id": "H-EQU-022",
+  "side": "b",
+  "text": "Require staff to submit timesheets by the end of each Friday",
+  "tid": "t314"
+ },
+ {
+  "id": "H-EQU-023",
+  "side": "a",
+  "text": "Fazer backup do banco de dados antes de qualquer atualização de schema",
+  "tid": "t315"
+ },
+ {
+  "id": "H-EQU-023",
+  "side": "b",
+  "text": "Back up the database prior to executing any schema changes",
+  "tid": "t316"
+ },
+ {
+  "id": "H-EQU-024",
+  "side": "a",
+  "text": "Validar que todas las contraseñas cumplan con los requisitos de seguridad",
+  "tid": "t317"
+ },
+ {
+  "id": "H-EQU-024",
+  "side": "b",
+  "text": "Ensure all passwords meet the security policy requirements",
+  "tid": "t318"
+ },
+ {
+  "id": "H-EQU-025",
+  "side": "a",
+  "text": "Anular a inscrição de clientes que não pagaram sua última fatura",
+  "tid": "t319"
+ },
+ {
+  "id": "H-EQU-025",
+  "side": "b",
+  "text": "Unsubscribe customers who have outstanding unpaid invoices",
+  "tid": "t320"
+ },
+ {
+  "id": "H-EQU-026",
+  "side": "a",
+  "text": "Close all support tickets marked as resolved within thirty days",
+  "tid": "t321"
+ },
+ {
+  "id": "H-EQU-026",
+  "side": "b",
+  "text": "Archive support tickets with resolution status after 30 days have passed",
+  "tid": "t322"
+ },
+ {
+  "id": "H-EQU-027",
+  "side": "a",
+  "text": "Instalar el certificado SSL en el servidor web principal",
+  "tid": "t323"
+ },
+ {
+  "id": "H-EQU-027",
+  "side": "b",
+  "text": "Deploy the SSL certificate to the primary web server",
+  "tid": "t324"
+ },
+ {
+  "id": "H-EQU-028",
+  "side": "a",
+  "text": "Atualizar as dependências do projeto para suas versões mais recentes",
+  "tid": "t325"
+ },
+ {
+  "id": "H-EQU-028",
+  "side": "b",
+  "text": "Upgrade all project dependencies to the latest available versions",
+  "tid": "t326"
+ },
+ {
+  "id": "H-EQU-029",
+  "side": "a",
+  "text": "Establecer cuotas de almacenamiento para cada usuario",
+  "tid": "t327"
+ },
+ {
+  "id": "H-EQU-029",
+  "side": "b",
+  "text": "Set storage quotas on a per-user basis",
+  "tid": "t328"
+ },
+ {
+  "id": "H-EQU-030",
+  "side": "a",
+  "text": "Revisar registros de auditoria para atividades suspeitas nos últimos sete dias",
+  "tid": "t329"
+ },
+ {
+  "id": "H-EQU-030",
+  "side": "b",
+  "text": "Check audit logs for suspicious activity from the past week",
+  "tid": "t330"
+ },
+ {
+  "id": "H-NE-001",
+  "side": "a",
+  "text": "Send the weekly report to the CFO by Monday",
+  "tid": "t331"
+ },
+ {
+  "id": "H-NE-001",
+  "side": "b",
+  "text": "Send the weekly report to the CEO by Monday",
+  "tid": "t332"
+ },
+ {
+  "id": "H-NE-002",
+  "side": "a",
+  "text": "Aumentar el precio del producto en un 15 por ciento",
+  "tid": "t333"
+ },
+ {
+  "id": "H-NE-002",
+  "side": "b",
+  "text": "Aumentar el precio del producto en un 25 por ciento",
+  "tid": "t334"
+ },
+ {
+  "id": "H-NE-003",
+  "side": "a",
+  "text": "The database should be backed up daily",
+  "tid": "t335"
+ },
+ {
+  "id": "H-NE-003",
+  "side": "b",
+  "text": "The database should be backed up weekly",
+  "tid": "t336"
+ },
+ {
+  "id": "H-NE-004",
+  "side": "a",
+  "text": "Processar pedidos antes das 5 da tarde",
+  "tid": "t337"
+ },
+ {
+  "id": "H-NE-004",
+  "side": "b",
+  "text": "Processar pedidos antes das 3 da tarde",
+  "tid": "t338"
+ },
+ {
+  "id": "H-NE-005",
+  "side": "a",
+  "text": "Aprobar solicitudes de gastos menores a quinientos dólares",
+  "tid": "t339"
+ },
+ {
+  "id": "H-NE-005",
+  "side": "b",
+  "text": "Aprobar solicitudes de gastos menores a mil dólares",
+  "tid": "t340"
+ },
+ {
+  "id": "H-NE-006",
+  "side": "a",
+  "text": "Notify customers via email about the service outage",
+  "tid": "t341"
+ },
+ {
+  "id": "H-NE-006",
+  "side": "b",
+  "text": "Notify customers via SMS about the service outage",
+  "tid": "t342"
+ },
+ {
+  "id": "H-NE-007",
+  "side": "a",
+  "text": "O relatório deve ser entregue em formato PDF",
+  "tid": "t343"
+ },
+ {
+  "id": "H-NE-007",
+  "side": "b",
+  "text": "O relatório deve ser entregue em formato Excel",
+  "tid": "t344"
+ },
+ {
+  "id": "H-NE-008",
+  "side": "a",
+  "text": "Delete customer records older than five years",
+  "tid": "t345"
+ },
+ {
+  "id": "H-NE-008",
+  "side": "b",
+  "text": "Delete customer records older than three years",
+  "tid": "t346"
+ },
+ {
+  "id": "H-NE-009",
+  "side": "a",
+  "text": "Establecer el tiempo de sesión máximo en treinta minutos",
+  "tid": "t347"
+ },
+ {
+  "id": "H-NE-009",
+  "side": "b",
+  "text": "Establecer el tiempo de sesión máximo en sesenta minutos",
+  "tid": "t348"
+ },
+ {
+  "id": "H-NE-010",
+  "side": "a",
+  "text": "Assign the project to the development team",
+  "tid": "t349"
+ },
+ {
+  "id": "H-NE-010",
+  "side": "b",
+  "text": "Assign the project to the quality assurance team",
+  "tid": "t350"
+ },
+ {
+  "id": "H-NE-011",
+  "side": "a",
+  "text": "Aumentar o tamanho do pool de conexões para 100",
+  "tid": "t351"
+ },
+ {
+  "id": "H-NE-011",
+  "side": "b",
+  "text": "Aumentar o tamanho do pool de conexões para 50",
+  "tid": "t352"
+ },
+ {
+  "id": "H-NE-012",
+  "side": "a",
+  "text": "Enviar invitaciones a los clientes VIP solamente",
+  "tid": "t353"
+ },
+ {
+  "id": "H-NE-012",
+  "side": "b",
+  "text": "Enviar invitaciones a todos los clientes",
+  "tid": "t354"
+ },
+ {
+  "id": "H-NE-013",
+  "side": "a",
+  "text": "Schedule maintenance for Saturday evening",
+  "tid": "t355"
+ },
+ {
+  "id": "H-NE-013",
+  "side": "b",
+  "text": "Schedule maintenance for Sunday evening",
+  "tid": "t356"
+ },
+ {
+  "id": "H-NE-014",
+  "side": "a",
+  "text": "Aplicar desconto de dez por cento em todos os produtos",
+  "tid": "t357"
+ },
+ {
+  "id": "H-NE-014",
+  "side": "b",
+  "text": "Aplicar desconto de vinte por cento em todos os produtos",
+  "tid": "t358"
+ },
+ {
+  "id": "H-NE-015",
+  "side": "a",
+  "text": "Grant read-only access to the finance department",
+  "tid": "t359"
+ },
+ {
+  "id": "H-NE-015",
+  "side": "b",
+  "text": "Grant full access to the finance department",
+  "tid": "t360"
+ },
+ {
+  "id": "H-NE-016",
+  "side": "a",
+  "text": "Guardar los archivos en el servidor local",
+  "tid": "t361"
+ },
+ {
+  "id": "H-NE-016",
+  "side": "b",
+  "text": "Guardar los archivos en la nube",
+  "tid": "t362"
+ },
+ {
+  "id": "H-NE-017",
+  "side": "a",
+  "text": "The team should have 10 members",
+  "tid": "t363"
+ },
+ {
+  "id": "H-NE-017",
+  "side": "b",
+  "text": "The team should have 15 members",
+  "tid": "t364"
+ },
+ {
+  "id": "H-NE-018",
+  "side": "a",
+  "text": "Sincronizar dados a cada hora",
+  "tid": "t365"
+ },
+ {
+  "id": "H-NE-018",
+  "side": "b",
+  "text": "Sincronizar dados a cada seis horas",
+  "tid": "t366"
+ },
+ {
+  "id": "H-NE-019",
+  "side": "a",
+  "text": "Invoice the client on the first of each month",
+  "tid": "t367"
+ },
+ {
+  "id": "H-NE-019",
+  "side": "b",
+  "text": "Invoice the client on the fifteenth of each month",
+  "tid": "t368"
+ },
+ {
+  "id": "H-NE-020",
+  "side": "a",
+  "text": "Enviar confirmación por correo electrónico",
+  "tid": "t369"
+ },
+ {
+  "id": "H-NE-020",
+  "side": "b",
+  "text": "Enviar confirmación por correo electrónico y SMS",
+  "tid": "t370"
+ },
+ {
+  "id": "H-NE-021",
+  "side": "a",
+  "text": "Require two-factor authentication for admin accounts only",
+  "tid": "t371"
+ },
+ {
+  "id": "H-NE-021",
+  "side": "b",
+  "text": "Require two-factor authentication for all accounts",
+  "tid": "t372"
+ },
+ {
+  "id": "H-NE-022",
+  "side": "a",
+  "text": "Armazenar logs de servidor por trinta dias",
+  "tid": "t373"
+ },
+ {
+  "id": "H-NE-022",
+  "side": "b",
+  "text": "Armazenar logs de servidor por noventa dias",
+  "tid": "t374"
+ },
+ {
+  "id": "H-NE-023",
+  "side": "a",
+  "text": "Importar datos desde el archivo CSV original",
+  "tid": "t375"
+ },
+ {
+  "id": "H-NE-023",
+  "side": "b",
+  "text": "Importar datos desde el archivo CSV actualizado",
+  "tid": "t376"
+ },
+ {
+  "id": "H-NE-024",
+  "side": "a",
+  "text": "Publish the announcement on the company website",
+  "tid": "t377"
+ },
+ {
+  "id": "H-NE-024",
+  "side": "b",
+  "text": "Publish the announcement on social media",
+  "tid": "t378"
+ },
+ {
+  "id": "H-NE-025",
+  "side": "a",
+  "text": "Limpar cache de navegador após cada sessão",
+  "tid": "t379"
+ },
+ {
+  "id": "H-NE-025",
+  "side": "b",
+  "text": "Limpar cache de navegador manualmente",
+  "tid": "t380"
+ },
+ {
+  "id": "H-NE-026",
+  "side": "a",
+  "text": "Transferir responsabilidad al departamento de infraestructura",
+  "tid": "t381"
+ },
+ {
+  "id": "H-NE-026",
+  "side": "b",
+  "text": "Transferir responsabilidad al departamento de seguridad",
+  "tid": "t382"
+ },
+ {
+  "id": "H-NE-027",
+  "side": "a",
+  "text": "Send monthly reports to internal stakeholders",
+  "tid": "t383"
+ },
+ {
+  "id": "H-NE-027",
+  "side": "b",
+  "text": "Send quarterly reports to internal stakeholders",
+  "tid": "t384"
+ },
+ {
+  "id": "H-NE-028",
+  "side": "a",
+  "text": "O certificado é válido por um ano",
+  "tid": "t385"
+ },
+ {
+  "id": "H-NE-028",
+  "side": "b",
+  "text": "O certificado é válido por dois anos",
+  "tid": "t386"
+ },
+ {
+  "id": "H-NE-029",
+  "side": "a",
+  "text": "Crear una copia de seguridad antes de las 8 AM",
+  "tid": "t387"
+ },
+ {
+  "id": "H-NE-029",
+  "side": "b",
+  "text": "Crear una copia de seguridad antes de las 6 PM",
+  "tid": "t388"
+ },
+ {
+  "id": "H-NE-030",
+  "side": "a",
+  "text": "Apply the patch to all production servers immediately",
+  "tid": "t389"
+ },
+ {
+  "id": "H-NE-030",
+  "side": "b",
+  "text": "Apply the patch to all development servers immediately",
+  "tid": "t390"
+ },
+ {
+  "id": "H-PE-001",
+  "side": "a",
+  "text": "Send an email to all customers",
+  "tid": "t391"
+ },
+ {
+  "id": "H-PE-001",
+  "side": "b",
+  "text": "Send an email to all customers in the Europe region",
+  "tid": "t392"
+ },
+ {
+  "id": "H-PE-002",
+  "side": "a",
+  "text": "Generar reporte de ventas",
+  "tid": "t393"
+ },
+ {
+  "id": "H-PE-002",
+  "side": "b",
+  "text": "Generar reporte de ventas del último trimestre en formato Excel",
+  "tid": "t394"
+ },
+ {
+  "id": "H-PE-003",
+  "side": "a",
+  "text": "Programar a manutenção do servidor",
+  "tid": "t395"
+ },
+ {
+  "id": "H-PE-003",
+  "side": "b",
+  "text": "Programar a manutenção do servidor de produção no fim de semana",
+  "tid": "t396"
+ },
+ {
+  "id": "H-PE-004",
+  "side": "a",
+  "text": "Backup all databases",
+  "tid": "t397"
+ },
+ {
+  "id": "H-PE-004",
+  "side": "b",
+  "text": "Backup all databases except the development environment",
+  "tid": "t398"
+ },
+ {
+  "id": "H-PE-005",
+  "side": "a",
+  "text": "Aprobar solicitudes de compra",
+  "tid": "t399"
+ },
+ {
+  "id": "H-PE-005",
+  "side": "b",
+  "text": "Aprobar solicitudes de compra por menos de cinco mil pesos",
+  "tid": "t400"
+ },
+ {
+  "id": "H-PE-006",
+  "side": "a",
+  "text": "Schedule team meetings",
+  "tid": "t401"
+ },
+ {
+  "id": "H-PE-006",
+  "side": "b",
+  "text": "Schedule team meetings via Zoom during business hours",
+  "tid": "t402"
+ },
+ {
+  "id": "H-PE-007",
+  "side": "a",
+  "text": "Atualizar as credenciais de acesso",
+  "tid": "t403"
+ },
+ {
+  "id": "H-PE-007",
+  "side": "b",
+  "text": "Atualizar as credenciais de acesso para todos os usuários administrativos",
+  "tid": "t404"
+ },
+ {
+  "id": "H-PE-008",
+  "side": "a",
+  "text": "Archive old records",
+  "tid": "t405"
+ },
+ {
+  "id": "H-PE-008",
+  "side": "b",
+  "text": "Archive old records from the 2023 fiscal year",
+  "tid": "t406"
+ },
+ {
+  "id": "H-PE-009",
+  "side": "a",
+  "text": "Implementar medidas de seguridad",
+  "tid": "t407"
+ },
+ {
+  "id": "H-PE-009",
+  "side": "b",
+  "text": "Implementar medidas de seguridad en los servidores web públicos",
+  "tid": "t408"
+ },
+ {
+  "id": "H-PE-010",
+  "side": "a",
+  "text": "Send notifications to users",
+  "tid": "t409"
+ },
+ {
+  "id": "H-PE-010",
+  "side": "b",
+  "text": "Send notifications to users whose subscriptions are expiring soon",
+  "tid": "t410"
+ },
+ {
+  "id": "H-PE-011",
+  "side": "a",
+  "text": "Revisar código antes de merge",
+  "tid": "t411"
+ },
+ {
+  "id": "H-PE-011",
+  "side": "b",
+  "text": "Revisar código antes de merge en la rama principal",
+  "tid": "t412"
+ },
+ {
+  "id": "H-PE-012",
+  "side": "a",
+  "text": "Configurar alertas de monitoramento",
+  "tid": "t413"
+ },
+ {
+  "id": "H-PE-012",
+  "side": "b",
+  "text": "Configurar alertas de monitoramento para os servidores críticos",
+  "tid": "t414"
+ },
+ {
+  "id": "H-PE-013",
+  "side": "a",
+  "text": "Update inventory records",
+  "tid": "t415"
+ },
+ {
+  "id": "H-PE-013",
+  "side": "b",
+  "text": "Update inventory records for all warehouse locations",
+  "tid": "t416"
+ },
+ {
+  "id": "H-PE-014",
+  "side": "a",
+  "text": "Enviar relatórios financeiros",
+  "tid": "t417"
+ },
+ {
+  "id": "H-PE-014",
+  "side": "b",
+  "text": "Enviar relatórios financeiros mensais ao conselho de diretores",
+  "tid": "t418"
+ },
+ {
+  "id": "H-PE-015",
+  "side": "a",
+  "text": "Crear respaldos de datos",
+  "tid": "t419"
+ },
+ {
+  "id": "H-PE-015",
+  "side": "b",
+  "text": "Crear respaldos de datos de las bases de datos de clientes críticas",
+  "tid": "t420"
+ },
+ {
+  "id": "H-PE-016",
+  "side": "a",
+  "text": "Train the staff",
+  "tid": "t421"
+ },
+ {
+  "id": "H-PE-016",
+  "side": "b",
+  "text": "Train the staff on new software security policies",
+  "tid": "t422"
+ },
+ {
+  "id": "H-PE-017",
+  "side": "a",
+  "text": "Provisionar recursos en la nube",
+  "tid": "t423"
+ },
+ {
+  "id": "H-PE-017",
+  "side": "b",
+  "text": "Provisionar recursos en la nube con límite de presupuesto máximo",
+  "tid": "t424"
+ },
+ {
+  "id": "H-PE-018",
+  "side": "a",
+  "text": "Monitorar performance do sistema",
+  "tid": "t425"
+ },
+ {
+  "id": "H-PE-018",
+  "side": "b",
+  "text": "Monitorar performance do sistema durante picos de tráfego",
+  "tid": "t426"
+ },
+ {
+  "id": "H-PE-019",
+  "side": "a",
+  "text": "Document API endpoints",
+  "tid": "t427"
+ },
+ {
+  "id": "H-PE-019",
+  "side": "b",
+  "text": "Document all API endpoints with detailed response examples",
+  "tid": "t428"
+ },
+ {
+  "id": "H-PE-020",
+  "side": "a",
+  "text": "Modificar configuração",
+  "tid": "t429"
+ },
+ {
+  "id": "H-PE-020",
+  "side": "b",
+  "text": "Modificar configuración del servidor a través del panel de control",
+  "tid": "t430"
+ },
+ {
+  "id": "H-PE-021",
+  "side": "a",
+  "text": "Validate input from forms",
+  "tid": "t431"
+ },
+ {
+  "id": "H-PE-021",
+  "side": "b",
+  "text": "Validate input from forms to prevent SQL injection attacks",
+  "tid": "t432"
+ },
+ {
+  "id": "H-PE-022",
+  "side": "a",
+  "text": "Processar solicitações de suporte",
+  "tid": "t433"
+ },
+ {
+  "id": "H-PE-022",
+  "side": "b",
+  "text": "Processar solicitações de suporte com prioridade alta dentro de 24 horas",
+  "tid": "t434"
+ },
+ {
+  "id": "H-PE-023",
+  "side": "a",
+  "text": "Auditar cambios en el sistema",
+  "tid": "t435"
+ },
+ {
+  "id": "H-PE-023",
+  "side": "b",
+  "text": "Auditar cambios en el sistema realizados en el último mes",
+  "tid": "t436"
+ },
+ {
+  "id": "H-PE-024",
+  "side": "a",
+  "text": "Configure authentication",
+  "tid": "t437"
+ },
+ {
+  "id": "H-PE-024",
+  "side": "b",
+  "text": "Configure authentication using OAuth2 for external applications",
+  "tid": "t438"
+ },
+ {
+  "id": "H-PE-025",
+  "side": "a",
+  "text": "Enviar aviso ao cliente",
+  "tid": "t439"
+ },
+ {
+  "id": "H-PE-025",
+  "side": "b",
+  "text": "Enviar aviso ao cliente sobre a próxima manutenção programada",
+  "tid": "t440"
+ },
+ {
+  "id": "H-PE-026",
+  "side": "a",
+  "text": "Ejecutar tests automatizados",
+  "tid": "t441"
+ },
+ {
+  "id": "H-PE-026",
+  "side": "b",
+  "text": "Ejecutar tests automatizados antes de desplegar a producción",
+  "tid": "t442"
+ },
+ {
+  "id": "H-PE-027",
+  "side": "a",
+  "text": "Manage user permissions",
+  "tid": "t443"
+ },
+ {
+  "id": "H-PE-027",
+  "side": "b",
+  "text": "Manage user permissions for departmental file shares",
+  "tid": "t444"
+ },
+ {
+  "id": "H-PE-028",
+  "side": "a",
+  "text": "Pesquisar anomalias em logs",
+  "tid": "t445"
+ },
+ {
+  "id": "H-PE-028",
+  "side": "b",
+  "text": "Pesquisar anomalias em logs de segurança dos últimos dias",
+  "tid": "t446"
+ },
+ {
+  "id": "H-PE-029",
+  "side": "a",
+  "text": "Replicar la base de datos",
+  "tid": "t447"
+ },
+ {
+  "id": "H-PE-029",
+  "side": "b",
+  "text": "Replicar la base de datos de producción a ambiente de staging",
+  "tid": "t448"
+ },
+ {
+  "id": "H-PE-030",
+  "side": "a",
+  "text": "Update software licenses",
+  "tid": "t449"
+ },
+ {
+  "id": "H-PE-030",
+  "side": "b",
+  "text": "Update software licenses to cover the expanded team size",
+  "tid": "t450"
+ },
+ {
+  "id": "H-CONT-001",
+  "side": "a",
+  "text": "Enable two-factor authentication for all users",
+  "tid": "t451"
+ },
+ {
+  "id": "H-CONT-001",
+  "side": "b",
+  "text": "Disable two-factor authentication for all users",
+  "tid": "t452"
+ },
+ {
+  "id": "H-CONT-002",
+  "side": "a",
+  "text": "Aumentar el tamaño del pool de conexiones a 100",
+  "tid": "t453"
+ },
+ {
+  "id": "H-CONT-002",
+  "side": "b",
+  "text": "Reducir el tamaño del pool de conexiones a 50",
+  "tid": "t454"
+ },
+ {
+  "id": "H-CONT-003",
+  "side": "a",
+  "text": "Approve the budget increase for marketing",
+  "tid": "t455"
+ },
+ {
+  "id": "H-CONT-003",
+  "side": "b",
+  "text": "Reject the budget increase for marketing",
+  "tid": "t456"
+ },
+ {
+  "id": "H-CONT-004",
+  "side": "a",
+  "text": "Ativar o modo seguro do banco de dados",
+  "tid": "t457"
+ },
+ {
+  "id": "H-CONT-004",
+  "side": "b",
+  "text": "Desativar o modo seguro do banco de dados",
+  "tid": "t458"
+ },
+ {
+  "id": "H-CONT-005",
+  "side": "a",
+  "text": "Crear una copia de seguridad de los datos",
+  "tid": "t459"
+ },
+ {
+  "id": "H-CONT-005",
+  "side": "b",
+  "text": "Eliminar todos los datos sin respaldo",
+  "tid": "t460"
+ },
+ {
+  "id": "H-CONT-006",
+  "side": "a",
+  "text": "Encrypt all customer information in the database",
+  "tid": "t461"
+ },
+ {
+  "id": "H-CONT-006",
+  "side": "b",
+  "text": "Store customer information in plain text",
+  "tid": "t462"
+ },
+ {
+  "id": "H-CONT-007",
+  "side": "a",
+  "text": "Permitir acesso à API para todas as aplicações externas",
+  "tid": "t463"
+ },
+ {
+  "id": "H-CONT-007",
+  "side": "b",
+  "text": "Bloquear acesso à API para todas as aplicações externas",
+  "tid": "t464"
+ },
+ {
+  "id": "H-CONT-008",
+  "side": "a",
+  "text": "Comprimir archivos para ahorrar espacio",
+  "tid": "t465"
+ },
+ {
+  "id": "H-CONT-008",
+  "side": "b",
+  "text": "Descomprimir todos los archivos existentes",
+  "tid": "t466"
+ },
+ {
+  "id": "H-CONT-009",
+  "side": "a",
+  "text": "Publish the website updates immediately",
+  "tid": "t467"
+ },
+ {
+  "id": "H-CONT-009",
+  "side": "b",
+  "text": "Hold all website updates until further notice",
+  "tid": "t468"
+ },
+ {
+  "id": "H-CONT-010",
+  "side": "a",
+  "text": "Aumentar a capacidade de armazenamento em 50%",
+  "tid": "t469"
+ },
+ {
+  "id": "H-CONT-010",
+  "side": "b",
+  "text": "Reduzir a capacidade de armazenamento em 50%",
+  "tid": "t470"
+ },
+ {
+  "id": "H-CONT-011",
+  "side": "a",
+  "text": "Implementar autenticación de múltiples factores",
+  "tid": "t471"
+ },
+ {
+  "id": "H-CONT-011",
+  "side": "b",
+  "text": "Usar solo contraseña para autenticación",
+  "tid": "t472"
+ },
+ {
+  "id": "H-CONT-012",
+  "side": "a",
+  "text": "Send notifications to users on Mondays",
+  "tid": "t473"
+ },
+ {
+  "id": "H-CONT-012",
+  "side": "b",
+  "text": "Do not send any notifications on Mondays",
+  "tid": "t474"
+ },
+ {
+  "id": "H-CONT-013",
+  "side": "a",
+  "text": "Manter o servidor em execução 24/7",
+  "tid": "t475"
+ },
+ {
+  "id": "H-CONT-013",
+  "side": "b",
+  "text": "Desligar o servidor imediatamente e mantê-lo desligado",
+  "tid": "t476"
+ },
+ {
+  "id": "H-CONT-014",
+  "side": "a",
+  "text": "Implementar HTTPS en todos los endpoints",
+  "tid": "t477"
+ },
+ {
+  "id": "H-CONT-014",
+  "side": "b",
+  "text": "Usar HTTP sin cifrado en los endpoints",
+  "tid": "t478"
+ },
+ {
+  "id": "H-CONT-015",
+  "side": "a",
+  "text": "Keep the feature enabled for beta testing",
+  "tid": "t479"
+ },
+ {
+  "id": "H-CONT-015",
+  "side": "b",
+  "text": "Disable the feature completely during beta testing",
+  "tid": "t480"
+ },
+ {
+  "id": "H-CONT-016",
+  "side": "a",
+  "text": "Permitir que novos usuários se registrem automaticamente",
+  "tid": "t481"
+ },
+ {
+  "id": "H-CONT-016",
+  "side": "b",
+  "text": "Bloquear todos os novos registros de usuários",
+  "tid": "t482"
+ },
+ {
+  "id": "H-CONT-017",
+  "side": "a",
+  "text": "Aumentar el presupuesto del equipo de investigación",
+  "tid": "t483"
+ },
+ {
+  "id": "H-CONT-017",
+  "side": "b",
+  "text": "Eliminar completamente el presupuesto del equipo de investigación",
+  "tid": "t484"
+ },
+ {
+  "id": "H-CONT-018",
+  "side": "a",
+  "text": "Grant admin privileges to all team members",
+  "tid": "t485"
+ },
+ {
+  "id": "H-CONT-018",
+  "side": "b",
+  "text": "Remove all privileges from team members",
+  "tid": "t486"
+ },
+ {
+  "id": "H-CONT-019",
+  "side": "a",
+  "text": "Agendar reunião para amanhã às 10 AM",
+  "tid": "t487"
+ },
+ {
+  "id": "H-CONT-019",
+  "side": "b",
+  "text": "Cancelar a reunião agendada para amanhã",
+  "tid": "t488"
+ },
+ {
+  "id": "H-CONT-020",
+  "side": "a",
+  "text": "Aplicar parches de seguridad inmediatamente",
+  "tid": "t489"
+ },
+ {
+  "id": "H-CONT-020",
+  "side": "b",
+  "text": "Retrasar los parches de seguridad indefinidamente",
+  "tid": "t490"
+ },
+ {
+  "id": "H-CONT-021",
+  "side": "a",
+  "text": "Store all logs indefinitely for compliance",
+  "tid": "t491"
+ },
+ {
+  "id": "H-CONT-021",
+  "side": "b",
+  "text": "Delete all logs immediately after generation",
+  "tid": "t492"
+ },
+ {
+  "id": "H-CONT-022",
+  "side": "a",
+  "text": "Sincronizar dados em tempo real",
+  "tid": "t493"
+ },
+ {
+  "id": "H-CONT-022",
+  "side": "b",
+  "text": "Sincronizar dados apenas uma vez por trimestre",
+  "tid": "t494"
+ },
+ {
+  "id": "H-CONT-023",
+  "side": "a",
+  "text": "Requerir validación de email para registros",
+  "tid": "t495"
+ },
+ {
+  "id": "H-CONT-023",
+  "side": "b",
+  "text": "Permitir registros sin validación de email",
+  "tid": "t496"
+ },
+ {
+  "id": "H-CONT-024",
+  "side": "a",
+  "text": "Automate the monthly billing process",
+  "tid": "t497"
+ },
+ {
+  "id": "H-CONT-024",
+  "side": "b",
+  "text": "Process all invoices manually every month",
+  "tid": "t498"
+ },
+ {
+  "id": "H-CONT-025",
+  "side": "a",
+  "text": "Compartilhar acesso ao banco de dados com fornecedores",
+  "tid": "t499"
+ },
+ {
+  "id": "H-CONT-025",
+  "side": "b",
+  "text": "Revogr todo acesso de fornecedores ao banco de dados",
+  "tid": "t500"
+ },
+ {
+  "id": "H-CONT-026",
+  "side": "a",
+  "text": "Asignar la tarea al equipo de desarrolladores",
+  "tid": "t501"
+ },
+ {
+  "id": "H-CONT-026",
+  "side": "b",
+  "text": "Ningún desarrollador debe trabajar en esta tarea",
+  "tid": "t502"
+ },
+ {
+  "id": "H-CONT-027",
+  "side": "a",
+  "text": "Implement strict rate limiting on API requests",
+  "tid": "t503"
+ },
+ {
+  "id": "H-CONT-027",
+  "side": "b",
+  "text": "Allow unlimited API requests without throttling",
+  "tid": "t504"
+ },
+ {
+  "id": "H-CONT-028",
+  "side": "a",
+  "text": "Fazer refresh da aplicação a cada sessão do usuário",
+  "tid": "t505"
+ },
+ {
+  "id": "H-CONT-028",
+  "side": "b",
+  "text": "Nunca fazer refresh da aplicação durante a sessão",
+  "tid": "t506"
+ },
+ {
+  "id": "H-CONT-029",
+  "side": "a",
+  "text": "Mostrar errores detallados a los usuarios finales",
+  "tid": "t507"
+ },
+ {
+  "id": "H-CONT-029",
+  "side": "b",
+  "text": "Ocultar todos los errores de los usuarios finales",
+  "tid": "t508"
+ },
+ {
+  "id": "H-CONT-030",
+  "side": "a",
+  "text": "Require security clearance for database access",
+  "tid": "t509"
+ },
+ {
+  "id": "H-CONT-030",
+  "side": "b",
+  "text": "Allow anyone to access the database without restrictions",
+  "tid": "t510"
+ },
+ {
+  "id": "H-AMB-001",
+  "side": "a",
+  "text": "Update the configuration as soon as possible",
+  "tid": "t511"
+ },
+ {
+  "id": "H-AMB-002",
+  "side": "a",
+  "text": "Notificar al equipo sobre los cambios",
+  "tid": "t512"
+ },
+ {
+  "id": "H-AMB-003",
+  "side": "a",
+  "text": "Arquivar registros antigos",
+  "tid": "t513"
+ },
+ {
+  "id": "H-AMB-004",
+  "side": "a",
+  "text": "Handle urgent requests from customers",
+  "tid": "t514"
+ },
+ {
+  "id": "H-AMB-005",
+  "side": "a",
+  "text": "Revisar la propuesta lo antes posible",
+  "tid": "t515"
+ },
+ {
+  "id": "H-AMB-006",
+  "side": "a",
+  "text": "Atualizar o sistema quando apropriado",
+  "tid": "t516"
+ },
+ {
+  "id": "H-AMB-007",
+  "side": "a",
+  "text": "Schedule meetings with relevant parties",
+  "tid": "t517"
+ },
+ {
+  "id": "H-AMB-008",
+  "side": "a",
+  "text": "Mejorar el rendimiento del servicio",
+  "tid": "t518"
+ },
+ {
+  "id": "H-AMB-009",
+  "side": "a",
+  "text": "Processar transações de forma segura",
+  "tid": "t519"
+ },
+ {
+  "id": "H-AMB-010",
+  "side": "a",
+  "text": "Contact the responsible department about this issue",
+  "tid": "t520"
+ },
+ {
+  "id": "H-AMB-011",
+  "side": "a",
+  "text": "Guardar los datos en un lugar seguro",
+  "tid": "t521"
+ },
+ {
+  "id": "H-AMB-012",
+  "side": "a",
+  "text": "Informar ao cliente sobre o status da solicitação",
+  "tid": "t522"
+ },
+ {
+  "id": "H-AMB-013",
+  "side": "a",
+  "text": "Optimize database queries for better performance",
+  "tid": "t523"
+ },
+ {
+  "id": "H-AMB-014",
+  "side": "a",
+  "text": "Enviar una copia a los interesados apropiados",
+  "tid": "t524"
+ },
+ {
+  "id": "H-AMB-015",
+  "side": "a",
+  "text": "Validar a entrada de dados antes de processar",
+  "tid": "t525"
+ },
+ {
+  "id": "H-AMB-016",
+  "side": "a",
+  "text": "Review feedback from stakeholders when available",
+  "tid": "t526"
+ },
+ {
+  "id": "H-AMB-017",
+  "side": "a",
+  "text": "Aplicar cambios según sea necesario",
+  "tid": "t527"
+ },
+ {
+  "id": "H-AMB-018",
+  "side": "a",
+  "text": "Monitorar atividade suspeita no sistema",
+  "tid": "t528"
+ },
+ {
+  "id": "H-AMB-019",
+  "side": "a",
+  "text": "Set up access for authorized personnel",
+  "tid": "t529"
+ },
+ {
+  "id": "H-AMB-020",
+  "side": "a",
+  "text": "Ejecutar pruebas del sistema regularmente",
+  "tid": "t530"
+ },
+ {
+  "id": "H-AMB-021",
+  "side": "a",
+  "text": "Manter o código limpo e documentado",
+  "tid": "t531"
+ },
+ {
+  "id": "H-AMB-022",
+  "side": "a",
+  "text": "Prepare reports on departmental activities",
+  "tid": "t532"
+ },
+ {
+  "id": "H-AMB-023",
+  "side": "a",
+  "text": "Comunicar decisiones importantes a los equipos",
+  "tid": "t533"
+ },
+ {
+  "id": "H-AMB-024",
+  "side": "a",
+  "text": "Implementar mudanças conforme necessário",
+  "tid": "t534"
+ },
+ {
+  "id": "H-AMB-025",
+  "side": "a",
+  "text": "Coordinate with external partners on deliverables",
+  "tid": "t535"
+ },
+ {
+  "id": "H-AMB-026",
+  "side": "a",
+  "text": "Evaluar la calidad de los entregables",
+  "tid": "t536"
+ },
+ {
+  "id": "H-AMB-027",
+  "side": "a",
+  "text": "Verificar conformidade com as regulamentações",
+  "tid": "t537"
+ },
+ {
+  "id": "H-AMB-028",
+  "side": "a",
+  "text": "Manage resource allocation across projects",
+  "tid": "t538"
+ },
+ {
+  "id": "H-AMB-029",
+  "side": "a",
+  "text": "Coordinar con el personal relevante sobre cambios próximos",
+  "tid": "t539"
+ },
+ {
+  "id": "H-AMB-030",
+  "side": "a",
+  "text": "Consolidar informações de múltiplas fontes",
+  "tid": "t540"
+ }
+]
