@@ -68,3 +68,13 @@ def test_synonym_actions_bind_identically():
 
 def test_output_and_dependencies_stay_out_of_bindings():
     assert all(">" in x and "<" not in x and "TABLE" not in x for x in b("Calcula las ventas y preséntalas en una tabla."))
+
+
+def test_config_without_bindings_keys_still_works():
+    """SEMANTIC_CHANGELOG 0.4.0 promises custom configs written before the dimension existed keep working."""
+    import json
+    from aixl.core.ontology import load_config
+    c = json.loads(json.dumps(load_config()))
+    c["weights"].pop("bindings"); c["severity"].pop("bindings")
+    r = S.compare("Elimina los usuarios y analiza los reportes.", "Elimina los reportes y analiza los usuarios.", c)
+    assert not r.equivalent and r.critical_changes

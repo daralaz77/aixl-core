@@ -160,8 +160,9 @@ def compare_canonical(A: dict, B: dict, config: dict | None = None) -> Compariso
                 sev, det = _severity(dim, va, vb, cfg, acts, kind)
                 diffs.append(Difference(_label(dim), _fmt(va), _fmt(vb), kind, sev, det))
     w = cfg["weights"]
-    num = sum(w[d] * s for d, s in per.items() if s is not None)
-    den = sum(w[d] for d, s in per.items() if s is not None)
+    wt = lambda d: w.get(d, 3.0)                       # configs written before a dimension existed (e.g. "bindings") still work
+    num = sum(wt(d) * s for d, s in per.items() if s is not None)
+    den = sum(wt(d) for d, s in per.items() if s is not None)
     sim = num / den if den else 1.0
     worst = max((rank(d.severity) for d in diffs), default=0)
     level = ["NO_DRIFT", "MINOR_DRIFT", "MODERATE_DRIFT", "MAJOR_DRIFT", "CRITICAL_DRIFT"][worst]

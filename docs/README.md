@@ -31,3 +31,6 @@ with any real organisation.
 ## Where the master prompt and the code differ (conformance matrix)
 See [PROTOCOL.md §Conformance](PROTOCOL.md#conformance-with-the-master-prompt). Short version: the atom letters, the intent names,
 and the relative-time handling differ from the prompt's examples, and are documented rather than hidden.
+
+## Decisions and changes
+[adr/README.md](adr/README.md) lists the architecture decision records (§82); [SEMANTIC_CHANGELOG.md](SEMANTIC_CHANGELOG.md) lists semantic changes with compatibility and migration (§83).

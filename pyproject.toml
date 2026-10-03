@@ -1,6 +1,6 @@
 [project]
 name = "aixl"
-version = "0.3.0"
+version = "0.4.0"
 description = "AIXL 0.3 - experimental semantic core: canonical semantic representation, equivalence, diff, drift, contradiction and ambiguity detection"
 requires-python = ">=3.11"
 dependencies = []
