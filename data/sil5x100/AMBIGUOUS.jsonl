@@ -1,0 +1,100 @@
+{"id": "AMB-000", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envía aquello.", "langs": ["es"]}
+{"id": "AMB-001", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Send this.", "langs": ["en"]}
+{"id": "AMB-002", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analyze it.", "langs": ["en"]}
+{"id": "AMB-003", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Delete it.", "langs": ["en"]}
+{"id": "AMB-004", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envía ambos.", "langs": ["es"]}
+{"id": "AMB-005", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Gere isto para ele.", "langs": ["pt"]}
+{"id": "AMB-006", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Summarize the other ones.", "langs": ["en"]}
+{"id": "AMB-007", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Send it.", "langs": ["en"]}
+{"id": "AMB-008", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Traduza isto para ele.", "langs": ["pt"]}
+{"id": "AMB-009", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Generate that.", "langs": ["en"]}
+{"id": "AMB-010", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Elimina eso.", "langs": ["es"]}
+{"id": "AMB-011", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Elimine aquilo.", "langs": ["pt"]}
+{"id": "AMB-012", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Summarize both.", "langs": ["en"]}
+{"id": "AMB-013", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Delete both.", "langs": ["en"]}
+{"id": "AMB-014", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Traduza aquilo.", "langs": ["pt"]}
+{"id": "AMB-015", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analyze the other ones.", "langs": ["en"]}
+{"id": "AMB-016", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Genera el archivo viejo.", "langs": ["es"]}
+{"id": "AMB-017", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analise ambos.", "langs": ["pt"]}
+{"id": "AMB-018", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Send it to him.", "langs": ["en"]}
+{"id": "AMB-019", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Elimina los otros.", "langs": ["es"]}
+{"id": "AMB-020", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Resuma aquilo.", "langs": ["pt"]}
+{"id": "AMB-021", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analise isto para ele.", "langs": ["pt"]}
+{"id": "AMB-022", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Gere tudo.", "langs": ["pt"]}
+{"id": "AMB-023", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Genera ambos.", "langs": ["es"]}
+{"id": "AMB-024", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Gere aquele.", "langs": ["pt"]}
+{"id": "AMB-025", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envie isso.", "langs": ["pt"]}
+{"id": "AMB-026", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Translate everything.", "langs": ["en"]}
+{"id": "AMB-027", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envie aquilo.", "langs": ["pt"]}
+{"id": "AMB-028", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envie tudo.", "langs": ["pt"]}
+{"id": "AMB-029", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Elimina el archivo viejo.", "langs": ["es"]}
+{"id": "AMB-030", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analizalo.", "langs": ["es"]}
+{"id": "AMB-031", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Gere aquilo.", "langs": ["pt"]}
+{"id": "AMB-032", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analyze it to him.", "langs": ["en"]}
+{"id": "AMB-033", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analiza el archivo viejo.", "langs": ["es"]}
+{"id": "AMB-034", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Resuma ambos.", "langs": ["pt"]}
+{"id": "AMB-035", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Resume eso.", "langs": ["es"]}
+{"id": "AMB-036", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Elimine aquele.", "langs": ["pt"]}
+{"id": "AMB-037", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Translate this.", "langs": ["en"]}
+{"id": "AMB-038", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Send both.", "langs": ["en"]}
+{"id": "AMB-039", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Send the other ones.", "langs": ["en"]}
+{"id": "AMB-040", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Delete everything.", "langs": ["en"]}
+{"id": "AMB-041", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Translate that.", "langs": ["en"]}
+{"id": "AMB-042", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analyze both.", "langs": ["en"]}
+{"id": "AMB-043", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Gere os outros.", "langs": ["pt"]}
+{"id": "AMB-044", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Translate it to him.", "langs": ["en"]}
+{"id": "AMB-045", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Traduza os outros.", "langs": ["pt"]}
+{"id": "AMB-046", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Resumelo.", "langs": ["es"]}
+{"id": "AMB-047", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Delete those.", "langs": ["en"]}
+{"id": "AMB-048", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Send that.", "langs": ["en"]}
+{"id": "AMB-049", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Elimina aquello.", "langs": ["es"]}
+{"id": "AMB-050", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Send everything.", "langs": ["en"]}
+{"id": "AMB-051", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Resume todo.", "langs": ["es"]}
+{"id": "AMB-052", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Generate the other ones.", "langs": ["en"]}
+{"id": "AMB-053", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Resuma isto para ele.", "langs": ["pt"]}
+{"id": "AMB-054", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Generate this.", "langs": ["en"]}
+{"id": "AMB-055", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Traduce ambos.", "langs": ["es"]}
+{"id": "AMB-056", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Traduce eso.", "langs": ["es"]}
+{"id": "AMB-057", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analyze everything.", "langs": ["en"]}
+{"id": "AMB-058", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Delete the other ones.", "langs": ["en"]}
+{"id": "AMB-059", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Summarize those.", "langs": ["en"]}
+{"id": "AMB-060", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Genera todo.", "langs": ["es"]}
+{"id": "AMB-061", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analise aquele.", "langs": ["pt"]}
+{"id": "AMB-062", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analise os outros.", "langs": ["pt"]}
+{"id": "AMB-063", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envie aquele.", "langs": ["pt"]}
+{"id": "AMB-064", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Genera aquello.", "langs": ["es"]}
+{"id": "AMB-065", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analiza los otros.", "langs": ["es"]}
+{"id": "AMB-066", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Generate everything.", "langs": ["en"]}
+{"id": "AMB-067", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Delete this.", "langs": ["en"]}
+{"id": "AMB-068", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envía eso.", "langs": ["es"]}
+{"id": "AMB-069", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Elimine tudo.", "langs": ["pt"]}
+{"id": "AMB-070", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Resuma isso.", "langs": ["pt"]}
+{"id": "AMB-071", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Elimine ambos.", "langs": ["pt"]}
+{"id": "AMB-072", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Genera los otros.", "langs": ["es"]}
+{"id": "AMB-073", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Elimina ambos.", "langs": ["es"]}
+{"id": "AMB-074", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analiza aquello.", "langs": ["es"]}
+{"id": "AMB-075", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Translate the other ones.", "langs": ["en"]}
+{"id": "AMB-076", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analiza todo.", "langs": ["es"]}
+{"id": "AMB-077", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Summarize that.", "langs": ["en"]}
+{"id": "AMB-078", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Resume los otros.", "langs": ["es"]}
+{"id": "AMB-079", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envía el archivo viejo.", "langs": ["es"]}
+{"id": "AMB-080", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Traduce esto a él.", "langs": ["es"]}
+{"id": "AMB-081", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Traduza aquele.", "langs": ["pt"]}
+{"id": "AMB-082", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Traduza ambos.", "langs": ["pt"]}
+{"id": "AMB-083", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Eliminalo.", "langs": ["es"]}
+{"id": "AMB-084", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Translate those.", "langs": ["en"]}
+{"id": "AMB-085", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envía los otros.", "langs": ["es"]}
+{"id": "AMB-086", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Gere isso.", "langs": ["pt"]}
+{"id": "AMB-087", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Resume aquello.", "langs": ["es"]}
+{"id": "AMB-088", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Analiza ambos.", "langs": ["es"]}
+{"id": "AMB-089", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envie isto para ele.", "langs": ["pt"]}
+{"id": "AMB-090", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Traduce los otros.", "langs": ["es"]}
+{"id": "AMB-091", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Genera eso.", "langs": ["es"]}
+{"id": "AMB-092", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envie os outros.", "langs": ["pt"]}
+{"id": "AMB-093", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Traduce todo.", "langs": ["es"]}
+{"id": "AMB-094", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Elimine os outros.", "langs": ["pt"]}
+{"id": "AMB-095", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Gere ambos.", "langs": ["pt"]}
+{"id": "AMB-096", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Translate both.", "langs": ["en"]}
+{"id": "AMB-097", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Translate it.", "langs": ["en"]}
+{"id": "AMB-098", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Envía esto a él.", "langs": ["es"]}
+{"id": "AMB-099", "label": "AMBIGUOUS", "kind": "vague-referent", "a": "Summarize everything.", "langs": ["en"]}

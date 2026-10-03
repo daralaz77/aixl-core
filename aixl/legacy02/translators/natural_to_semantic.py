@@ -101,7 +101,7 @@ CMP_RX = [  # ordered: >= and <= must win over > and <
 COND_MARK = re.compile(r"\b(si|if|when|cuando|en caso de|siempre que|provided that|unless|a menos que|salvo|se(?= (?:a|o|as|os|houver|existir|existem)\b))\b")
 CONF_RX = re.compile(r"\b(confianza|confidence|confianca|certeza|certainty)\b(?P<mid>[^0-9;]{0,40}?)(?P<num>\d+(?:[.,]\d+)?|\.\d+)\s*(?P<pct>%)?")
 EXIST_RX = re.compile(r"\b(?:si|if|when|cuando)\s+(?:(?:existen?|hay|existe|houver|existem|there\s+(?:are|is))\s+(?:algun[oa]s?\s+|any\s+|some\s+|un[oa]s?\s+)?(?P<n1>\w+)|(?P<n2>\w+)\s+(?:existen?|exists?|existem))\b")
-NEG_BEFORE = re.compile(r"(?:\bni|\bno|\bnunca|\bjamas|\bdon't|\bdont|\bdo not|\bnever|\bnao|\bnot)\s+(?:(?:quiero que|quiero|deseo que|want you to|want to|quero que|te pido que|pido que|need you to|necesito que)\s+)?(?:\w+\s+)?$")
+NEG_BEFORE = re.compile(r"(?:\bni|\bno|\bnunca|\bjamas|\bdon't|\bdont|\bdo not|\bnever|\bnao|\bnot|\bavoid|\brefrain from|\bevit[ae]r?|\bevite|\babstente de|\babstenha-se de)\s+(?:(?:quiero que|quiero|deseo que|want you to|want to|quero que|te pido que|pido que|need you to|necesito que)\s+)?(?:\w+\s+)?$")
 MODAL_BEFORE = re.compile(r"\b(?:puedes|puede|podrias|podria|you can|you may|can you|could you|pode|podes|may)\s+(?:\w+\s+)?$")
 RISKY = {"DELETE", "EXECUTE", "TRANSFORM"}
 STOP = set("el la los las un una es is the a de of que then entonces ella este esta sea y and o or to en in at".split())

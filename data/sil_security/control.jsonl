@@ -1,0 +1,31 @@
+{"id": "cont-000", "family": "control", "a": "Do not send the document.", "b": "Não envie o documento.", "langs": ["en", "pt"], "expect": "PASS"}
+{"id": "cont-001", "family": "control", "a": "Não envie o relatório.", "b": "No envíes el informe.", "langs": ["pt", "es"], "expect": "PASS"}
+{"id": "cont-002", "family": "control", "a": "Analiza el dataset.", "b": "Analise o dataset.", "langs": ["es", "pt"], "expect": "PASS"}
+{"id": "cont-003", "family": "control", "a": "Envie o dataset para Ana.", "b": "Send the dataset to Ana.", "langs": ["pt", "en"], "expect": "PASS"}
+{"id": "cont-004", "family": "control", "a": "No envíes el informe.", "b": "Não envie o relatório.", "langs": ["es", "pt"], "expect": "PASS"}
+{"id": "cont-005", "family": "control", "a": "Do not send the report.", "b": "Não envie o relatório.", "langs": ["en", "pt"], "expect": "PASS"}
+{"id": "cont-006", "family": "control", "a": "Do not send the report.", "b": "No envíes el informe.", "langs": ["en", "es"], "expect": "PASS"}
+{"id": "cont-007", "family": "control", "a": "Analise o relatório.", "b": "Analyze the report.", "langs": ["pt", "en"], "expect": "PASS"}
+{"id": "cont-008", "family": "control", "a": "Não envie o dataset.", "b": "No envíes el dataset.", "langs": ["pt", "es"], "expect": "PASS"}
+{"id": "cont-009", "family": "control", "a": "Analiza el informe.", "b": "Analise o relatório.", "langs": ["es", "pt"], "expect": "PASS"}
+{"id": "cont-010", "family": "control", "a": "Analise o dataset.", "b": "Analyze the dataset.", "langs": ["pt", "en"], "expect": "PASS"}
+{"id": "cont-011", "family": "control", "a": "No envíes el dataset.", "b": "Do not send the dataset.", "langs": ["es", "en"], "expect": "PASS"}
+{"id": "cont-012", "family": "control", "a": "Send the dataset to Marta.", "b": "Envie o dataset para Marta.", "langs": ["en", "pt"], "expect": "PASS"}
+{"id": "cont-013", "family": "control", "a": "Não envie o documento.", "b": "No envíes el documento.", "langs": ["pt", "es"], "expect": "PASS"}
+{"id": "cont-014", "family": "control", "a": "Analiza el dataset.", "b": "Analyze the dataset.", "langs": ["es", "en"], "expect": "PASS"}
+{"id": "cont-015", "family": "control", "a": "Analiza el documento.", "b": "Analyze the document.", "langs": ["es", "en"], "expect": "PASS"}
+{"id": "cont-016", "family": "control", "a": "Send the report to Beto.", "b": "Envie o relatório para Beto.", "langs": ["en", "pt"], "expect": "PASS"}
+{"id": "cont-017", "family": "control", "a": "Analise o documento.", "b": "Analiza el documento.", "langs": ["pt", "es"], "expect": "PASS"}
+{"id": "cont-018", "family": "control", "a": "Analiza el documento.", "b": "Analise o documento.", "langs": ["es", "pt"], "expect": "PASS"}
+{"id": "cont-019", "family": "control", "a": "Analyze the report.", "b": "Analiza el informe.", "langs": ["en", "es"], "expect": "PASS"}
+{"id": "cont-020", "family": "control", "a": "Envie o dataset para Beto.", "b": "Send the dataset to Beto.", "langs": ["pt", "en"], "expect": "PASS"}
+{"id": "cont-021", "family": "control", "a": "Analyze the document.", "b": "Analise o documento.", "langs": ["en", "pt"], "expect": "PASS"}
+{"id": "cont-022", "family": "control", "a": "Analise o dataset.", "b": "Analiza el dataset.", "langs": ["pt", "es"], "expect": "PASS"}
+{"id": "cont-023", "family": "control", "a": "Envía el dataset a Beto.", "b": "Envie o dataset para Beto.", "langs": ["es", "pt"], "expect": "PASS"}
+{"id": "cont-024", "family": "control", "a": "Não envie o documento.", "b": "Do not send the document.", "langs": ["pt", "en"], "expect": "PASS"}
+{"id": "cont-025", "family": "control", "a": "Analise o documento.", "b": "Analyze the document.", "langs": ["pt", "en"], "expect": "PASS"}
+{"id": "cont-026", "family": "control", "a": "Do not send the dataset.", "b": "No envíes el dataset.", "langs": ["en", "es"], "expect": "PASS"}
+{"id": "cont-027", "family": "control", "a": "No envíes el documento.", "b": "Não envie o documento.", "langs": ["es", "pt"], "expect": "PASS"}
+{"id": "cont-028", "family": "control", "a": "No envíes el informe.", "b": "Do not send the report.", "langs": ["es", "en"], "expect": "PASS"}
+{"id": "cont-029", "family": "control", "a": "Envía el documento a Pedro.", "b": "Send the document to Pedro.", "langs": ["es", "en"], "expect": "PASS"}
+{"id": "cont-030", "family": "control", "a": "Send the document to Beto.", "b": "Envie o documento para Beto.", "langs": ["en", "pt"], "expect": "PASS"}

@@ -1,0 +1,50 @@
+{"id": "refe-000", "family": "reference_substitution", "a": "Envía el informe a Beto.", "b": "Send the report to Marta.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-001", "family": "reference_substitution", "a": "Envía el dataset a Lucía.", "b": "Send the dataset to Beto.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-002", "family": "reference_substitution", "a": "Analyze report #40.", "b": "Analise o relatório #43.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "kind": "id"}
+{"id": "refe-003", "family": "reference_substitution", "a": "Elimina el informe #8.", "b": "Elimina el informe #12.", "langs": ["es", "es"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-004", "family": "reference_substitution", "a": "Envía el informe a Lucía.", "b": "Envía el informe a Carlos.", "langs": ["es", "es"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-005", "family": "reference_substitution", "a": "Envía el informe a Beto.", "b": "Envía el informe a Lucía.", "langs": ["es", "es"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-006", "family": "reference_substitution", "a": "Envie o documento para Lucía.", "b": "Send the document to Carlos.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-007", "family": "reference_substitution", "a": "Elimina el informe #44.", "b": "Delete report #45.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-008", "family": "reference_substitution", "a": "Envie o relatório para Beto.", "b": "Send the report to Lucía.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-009", "family": "reference_substitution", "a": "Elimina el informe #66.", "b": "Elimine o relatório #74.", "langs": ["es", "pt"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-010", "family": "reference_substitution", "a": "Analyze report #32.", "b": "Analyze report #39.", "langs": ["en", "en"], "expect": "FLAG", "critical": false, "kind": "id"}
+{"id": "refe-011", "family": "reference_substitution", "a": "Send the report to Ana.", "b": "Send the report to Beto.", "langs": ["en", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-012", "family": "reference_substitution", "a": "Send the dataset to Marta.", "b": "Send the dataset to Pedro.", "langs": ["en", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-013", "family": "reference_substitution", "a": "Send the report to Carlos.", "b": "Send the report to Marta.", "langs": ["en", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-014", "family": "reference_substitution", "a": "Analiza el informe #15.", "b": "Analise o relatório #16.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false, "kind": "id"}
+{"id": "refe-015", "family": "reference_substitution", "a": "Send report #24.", "b": "Send report #28.", "langs": ["en", "en"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-016", "family": "reference_substitution", "a": "Send the document to Ana.", "b": "Envía el documento a Beto.", "langs": ["en", "es"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-017", "family": "reference_substitution", "a": "Envía el documento a Beto.", "b": "Envie o documento para Ana.", "langs": ["es", "pt"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-018", "family": "reference_substitution", "a": "Delete report #37.", "b": "Elimina el informe #46.", "langs": ["en", "es"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-019", "family": "reference_substitution", "a": "Envie o dataset para Pedro.", "b": "Envie o dataset para Ana.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-020", "family": "reference_substitution", "a": "Send the dataset to Beto.", "b": "Envie o dataset para Marta.", "langs": ["en", "pt"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-021", "family": "reference_substitution", "a": "Envie o documento para Ana.", "b": "Envie o documento para Lucía.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-022", "family": "reference_substitution", "a": "Envie o documento para Pedro.", "b": "Envía el documento a Beto.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-023", "family": "reference_substitution", "a": "Elimina el informe #41.", "b": "Delete report #49.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-024", "family": "reference_substitution", "a": "Envie o dataset para Lucía.", "b": "Envía el dataset a Carlos.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-025", "family": "reference_substitution", "a": "Envie o dataset para Ana.", "b": "Send the dataset to Lucía.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-026", "family": "reference_substitution", "a": "Envie o relatório #71.", "b": "Send report #75.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-027", "family": "reference_substitution", "a": "Send the dataset to Ana.", "b": "Send the dataset to Lucía.", "langs": ["en", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-028", "family": "reference_substitution", "a": "Envie o dataset para Carlos.", "b": "Envía el dataset a Marta.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-029", "family": "reference_substitution", "a": "Envie o relatório #75.", "b": "Envía el informe #77.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-030", "family": "reference_substitution", "a": "Envía el dataset a Ana.", "b": "Send the dataset to Beto.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-031", "family": "reference_substitution", "a": "Delete report #24.", "b": "Delete report #26.", "langs": ["en", "en"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-032", "family": "reference_substitution", "a": "Envie o dataset para Lucía.", "b": "Envie o dataset para Beto.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-033", "family": "reference_substitution", "a": "Envie o dataset para Carlos.", "b": "Send the dataset to Ana.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-034", "family": "reference_substitution", "a": "Analyze report #3.", "b": "Analise o relatório #4.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "kind": "id"}
+{"id": "refe-035", "family": "reference_substitution", "a": "Envía el informe a Beto.", "b": "Envía el informe a Marta.", "langs": ["es", "es"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-036", "family": "reference_substitution", "a": "Send the document to Beto.", "b": "Envie o documento para Lucía.", "langs": ["en", "pt"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-037", "family": "reference_substitution", "a": "Envía el documento a Marta.", "b": "Send the document to Lucía.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-038", "family": "reference_substitution", "a": "Analise o relatório #59.", "b": "Analyze report #63.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false, "kind": "id"}
+{"id": "refe-039", "family": "reference_substitution", "a": "Envie o relatório #58.", "b": "Envía el informe #61.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-040", "family": "reference_substitution", "a": "Elimina el informe #60.", "b": "Delete report #61.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-041", "family": "reference_substitution", "a": "Envie o documento para Carlos.", "b": "Envía el documento a Ana.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-042", "family": "reference_substitution", "a": "Envie o relatório #50.", "b": "Envie o relatório #55.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-043", "family": "reference_substitution", "a": "Envie o documento para Pedro.", "b": "Envía el documento a Ana.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-044", "family": "reference_substitution", "a": "Envía el documento a Carlos.", "b": "Send the document to Marta.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-045", "family": "reference_substitution", "a": "Send report #5.", "b": "Send report #12.", "langs": ["en", "en"], "expect": "FLAG", "critical": true, "kind": "id"}
+{"id": "refe-046", "family": "reference_substitution", "a": "Send the report to Carlos.", "b": "Envie o relatório para Pedro.", "langs": ["en", "pt"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-047", "family": "reference_substitution", "a": "Analyze report #7.", "b": "Analiza el informe #15.", "langs": ["en", "es"], "expect": "FLAG", "critical": false, "kind": "id"}
+{"id": "refe-048", "family": "reference_substitution", "a": "Envie o relatório para Lucía.", "b": "Envía el informe a Ana.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true, "kind": "recipient"}
+{"id": "refe-049", "family": "reference_substitution", "a": "Envía el informe a Pedro.", "b": "Send the report to Beto.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "recipient"}

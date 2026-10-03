@@ -1,5 +1,7 @@
 # AIXL 0.3 — Semantic Core & Semantic Equivalence Engine (MVP)
 
+> **Docs (2026-10-02):** the full documentation set required by the master prompt §50 lives in [`docs/`](docs/README.md) — protocol spec, semantic model, API/CLI reference, security model, interoperability, versioning, extensions, benchmark spec. It is test-verified (`tests/test_docs.py`). **Current status:** 253 tests; 5×100 benchmark 497/500 (same-author); adversarial suite 450/450 flagged + 54/57 hard critical; the "170 tests" figures further down predate this and are kept as historical record.
+
 [![tests](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml/badge.svg)](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml)
 
 ## 1. What AIXL is

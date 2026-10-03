@@ -97,3 +97,72 @@ Built against the SDK's own mechanics, verified by reading its source, not assum
 **A real logic bug found by actually running the round-trip, not by reasoning about the code**: the first implementation applied the human's answer only to the receiver's belief, leaving the sender's own canonical value unchanged — so the very next comparison reported the exact same disagreement all over again, going nowhere. Fixed by treating the human's answer as the agreed value on BOTH sides for that one dimension. **A second real bug, the SAME class of mistake made earlier the same day merging `negotiate()`/`negotiate_autonomous_async()` (§4 in AUDIT.md)**: checked the irreversible-action condition before the empty-sender-value condition, so "Quita el ticket #77." (an out-of-vocabulary sender verb) asked a human to choose between DELETE and NOT_SPECIFIED instead of correctly rejecting outright — fixed by restoring the same check order (empty first, irreversible second) already established as correct earlier.
 **Real validation, not a mock**: `tests/test_a2a_integration.py` gained 5 new tests (8 total) exercising the real multi-turn round-trip over actual HTTP — an ordinary disagreement auto-resolving in one call with no pause; an irreversible disagreement pausing with the two real candidates; two full pause→answer→resume cycles (one per candidate, proving the human's choice genuinely drives the outcome, not a hardcoded default); and the empty-sender-value REJECT case. 170/170 total (was 165). Confirmed in genuinely clean venvs with and without `a2a-sdk` installed, on both Python 3.12 and a real Python 3.11 install — same standard as every other change today.
 Honest scope: n=1 (this project's own test client only); the `cancel()` method still raises `UnsupportedOperationError` — a negotiation task cannot yet be cancelled mid-flight; no independent third-party A2A client has driven this multi-turn flow. Full design detail: `BENCHMARK/PREREG_0.3.md` (E-A2A-NEGOTIATE).
+
+## §42 5x100 benchmark (master prompt SIL) — added 2026-10-02
+500 cases (EQUIVALENT / NOT_EQUIVALENT / PARTIALLY_EQUIVALENT / AMBIGUOUS / CONTRADICTORY ×100), ES/EN/PT, generated
+reproducibly by `benchmarks/sil5x100_gen.py` (seed 20261002, labels by construction, vocabulary not taken from the
+system's lexicon); evaluated by `python -m benchmarks.sil5x100_eval`; pinned by `tests/test_sil5x100.py` (ratchet).
+Same-author caveat applies (generator and system share an author): treat as a regression/coverage instrument, not
+independent evidence.
+
+| Run | EQ | NOT_EQ | PARTIAL | AMBIG | CONTRA | 5-way |
+|---|---|---|---|---|---|---|
+| v1 first run | 92 | 85 | 100 | 80 | 90 | 89.4 % |
+| v1.1 (generator + mapping fixes, see below) | 100 | 97 | 100 | 82 | 91 | 94.0 % |
+| v1.2 (system fixes: PT lexicons + §66 warning) | 100 | 97 | 100 | 100 | 100 | **99.4 %** |
+
+v1→v1.1 corrections were to the BENCHMARK, not the system: "Forward" removed as synonym of "Send" (label noise);
+PARTIAL now requires all differences to be the same kind (removed+added = replacement). Ambiguity false positives on
+100 unambiguous texts: 0.
+
+**Real system gaps found (the 30 remaining misses):**
+1. **Portuguese coverage** (mono-PT 46/67 vs ES 91/91, EN 83/84): ambiguity lexicon has no PT vague referents
+   (`tudo`, `isto`, `os outros`, `aquele`: 18 misses); contradiction lexicon lacks `Ative/Desative` and `antes de/depois de` (9 misses).
+2. **Silent drop of out-of-lexicon nouns** (`factura`/`invoice`): "Generate the invoice" vs "Generate the report" loses the
+   object with no warning — violates §66 transparency (3 misses; wider risk than the count suggests).
+3. Cross-ontology object swap (ENTITY↔DATA) is reported as removed+added rather than CHANGED (cosmetic; handled by the mapping rule).
+
+**v1.2 (2026-10-02) — both gaps closed in the SYSTEM (benchmark untouched between v1.1 and v1.2):**
+1. PT lexicons: ambiguity (`tudo`, `isto`, `aquele/a(s)`, `os/as outros`, `ele/ela(s)`), enable (`ative`), after (`depois de`). Mono-PT 46/67 → 67/67.
+   Regression check: 209 existing tests + blind round 1 unchanged; 0 ambiguity false positives.
+2. §66 transparency: `aixl/core/lexicon_gaps.py` flags article+noun words no lexicon accounts for, only when the graph kept
+   no ENTITY/DATA object (the silent-loss case). Surfaces as `graph.meta["unrecognized"]`, `ComparisonResult.warnings`
+   (UNRECOGNIZED_TERMS, per side) and an INFO note in `detect_ambiguity`. It never changes a verdict. Out-of-lexicon objects
+   reported: 62/62; all 3 remaining misses (invoice/factura swaps judged PARTIAL instead of NOT_EQUIVALENT) carry the warning.
+   Noise: 239/3275 (7.3 %) texts across all repo corpora get the INFO warning — mostly genuinely unknown nouns (invoice, script,
+   ticket, deployment, database...); a few handled concepts may still trigger it (known limitation).
+**Not fixed (by design):** the verdict for unknown-noun swaps is still wrong; the system now says so instead of hiding it.
+
+## §39 adversarial semantic-security suite — added 2026-10-02
+`benchmarks/sil_security_gen.py` / `sil_security_eval.py` / `tests/test_sil_security.py` (ratchet). 9 attack families × 50
+(negation_removal, constraint_removal, permission_escalation, reference_substitution, instruction_injection, scope_widening,
+quantity_tamper, time_tamper, payload_ambiguity) + a HARD tier of 57 hand-written natural phrasings (+ obfuscation) + 31 benign
+controls. Every case is an (original, manipulated) pair, ES/EN/PT mixed. **Not covered: context_poisoning** (needs session
+context, not a text pair). Same-author caveat applies.
+
+Threat model declared for the `critical` ground truth: a manipulation is critical iff it touches an action that DELETES/SENDS
+(or changes a plain count); read-only ANALYZE changes and format-only changes are not. (v1 had every family critical; the
+label was refined after the first run. v1 numbers: constraint 0/50, reference 0/50, scope 0/50, quantity 19/50 critical.)
+
+| Stage | combinatorial tier (450) detected / critical | HARD tier (57) detected / critical | control false alarms |
+|---|---|---|---|
+| first run (system as it was) | 450/450 · see v1 note | 46/57 · 40/57 | 0/31 |
+| after fixes (below) | 450/450 · all expected | **57/57 · 54/57** | 0/31 |
+
+**Real vulnerabilities found by the HARD tier (11 judged "same meaning" = silent):** negation lost for `Avoid / Evita / Evite / Refrain from`
+(4); invisible-character and Cyrillic/fullwidth-lookalike negation read as the bare request (4); `internally`→`externally` scope flip (1);
+`email` not known as a send verb (1); texts with NO recognised action compared as "equivalent" (1, `Give read-only/full access`).
+**Fixes (all in the system, verified against blind sets 1–4: identical numbers before/after, 229 tests):**
+1. `sanitize_input()` (normalizer): strips zero-width/bidi chars, NFKC-folds fullwidth forms, folds Cyrillic/Greek lookalikes only inside
+   mixed-script words; applied in `to_graph` and `detect_ambiguity`; recorded in `meta["warnings"]` as `OBFUSCATION:*`.
+2. Negation cues: avoid / refrain from / evita(r)/evite / abstente de.
+3. New constraint `SCOPE=EXTERNAL|INTERNAL` (+ listed as a critical constraint key). `email(s|ed|ing)` is a SEND verb.
+4. Context-sensitive, DIRECTIONAL severity: when a destructive/external action (DELETE, SEND, EXECUTE, DISABLE, UPDATE) is involved,
+   removing/changing a reference, object, condition or constraint is CRITICAL (target/scope changed, safeguard dropped). `added`
+   (original → narrower) keeps its base severity.
+5. `NO_ACTION_RECOGNIZED` BLOCKING warning: "equivalent" between texts with no recognised action is "cannot verify", counted as flagged.
+
+**Known limitations (declared, floors pin them):** (a) `Delete the report from March` → `from April` is flagged MAJOR, not CRITICAL (a period
+swap is indistinguishable from a harmless schedule change without more ontology) ×2; (b) `Give read-only access` → `full access` is caught only by
+the NO_ACTION warning, not understood (no ACCESS/PERMISSION-level vocabulary); (c) the HARD tier is 57 hand-written cases — a second, independent
+author would find more; (d) severity is directional: a compare(B, A) of a widening attack reads as "removed/added" the other way round.

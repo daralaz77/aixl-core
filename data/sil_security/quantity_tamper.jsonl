@@ -1,0 +1,50 @@
+{"id": "quan-000", "family": "quantity_tamper", "a": "Processe 50 registros.", "b": "Process 5000 records.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true}
+{"id": "quan-001", "family": "quantity_tamper", "a": "Process 5 records.", "b": "Procesa 50 registros.", "langs": ["en", "es"], "expect": "FLAG", "critical": true}
+{"id": "quan-002", "family": "quantity_tamper", "a": "Analise o relatório, no máximo 5 registros.", "b": "Analiza el informe, máximo 500 registros.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-003", "family": "quantity_tamper", "a": "Analiza el documento, máximo 5 registros.", "b": "Analyze the document, at most 50 records.", "langs": ["es", "en"], "expect": "FLAG", "critical": false}
+{"id": "quan-004", "family": "quantity_tamper", "a": "Analiza el documento, máximo 10 registros.", "b": "Analiza el documento, máximo 100 registros.", "langs": ["es", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-005", "family": "quantity_tamper", "a": "Analiza el documento, máximo 5 registros.", "b": "Analyze the document, at most 500 records.", "langs": ["es", "en"], "expect": "FLAG", "critical": false}
+{"id": "quan-006", "family": "quantity_tamper", "a": "Processe 10 registros.", "b": "Procesa 1000 registros.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true}
+{"id": "quan-007", "family": "quantity_tamper", "a": "Analiza el documento, máximo 50 registros.", "b": "Analiza el documento, máximo 500 registros.", "langs": ["es", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-008", "family": "quantity_tamper", "a": "Procesa 10 registros.", "b": "Processe 100 registros.", "langs": ["es", "pt"], "expect": "FLAG", "critical": true}
+{"id": "quan-009", "family": "quantity_tamper", "a": "Analiza el documento, máximo 5 registros.", "b": "Analiza el documento, máximo 50 registros.", "langs": ["es", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-010", "family": "quantity_tamper", "a": "Analiza el dataset, máximo 100 registros.", "b": "Analyze the dataset, at most 10000 records.", "langs": ["es", "en"], "expect": "FLAG", "critical": false}
+{"id": "quan-011", "family": "quantity_tamper", "a": "Procesa 10 registros.", "b": "Procesa 1000 registros.", "langs": ["es", "es"], "expect": "FLAG", "critical": true}
+{"id": "quan-012", "family": "quantity_tamper", "a": "Analyze the report, at most 5 records.", "b": "Analise o relatório, no máximo 500 registros.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false}
+{"id": "quan-013", "family": "quantity_tamper", "a": "Analiza el documento, máximo 100 registros.", "b": "Analise o documento, no máximo 1000 registros.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false}
+{"id": "quan-014", "family": "quantity_tamper", "a": "Process 5 records.", "b": "Processe 50 registros.", "langs": ["en", "pt"], "expect": "FLAG", "critical": true}
+{"id": "quan-015", "family": "quantity_tamper", "a": "Analise o documento, no máximo 10 registros.", "b": "Analise o documento, no máximo 1000 registros.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false}
+{"id": "quan-016", "family": "quantity_tamper", "a": "Processe 100 registros.", "b": "Processe 10000 registros.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": true}
+{"id": "quan-017", "family": "quantity_tamper", "a": "Process 10 records.", "b": "Process 1000 records.", "langs": ["en", "en"], "expect": "FLAG", "critical": true}
+{"id": "quan-018", "family": "quantity_tamper", "a": "Analiza el informe, máximo 100 registros.", "b": "Analyze the report, at most 10000 records.", "langs": ["es", "en"], "expect": "FLAG", "critical": false}
+{"id": "quan-019", "family": "quantity_tamper", "a": "Procesa 10 registros.", "b": "Process 1000 records.", "langs": ["es", "en"], "expect": "FLAG", "critical": true}
+{"id": "quan-020", "family": "quantity_tamper", "a": "Analise o relatório, no máximo 10 registros.", "b": "Analiza el informe, máximo 1000 registros.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-021", "family": "quantity_tamper", "a": "Procesa 10 registros.", "b": "Process 100 records.", "langs": ["es", "en"], "expect": "FLAG", "critical": true}
+{"id": "quan-022", "family": "quantity_tamper", "a": "Analiza el documento, máximo 10 registros.", "b": "Analise o documento, no máximo 1000 registros.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false}
+{"id": "quan-023", "family": "quantity_tamper", "a": "Processe 100 registros.", "b": "Process 10000 records.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true}
+{"id": "quan-024", "family": "quantity_tamper", "a": "Process 100 records.", "b": "Procesa 10000 registros.", "langs": ["en", "es"], "expect": "FLAG", "critical": true}
+{"id": "quan-025", "family": "quantity_tamper", "a": "Procesa 50 registros.", "b": "Procesa 5000 registros.", "langs": ["es", "es"], "expect": "FLAG", "critical": true}
+{"id": "quan-026", "family": "quantity_tamper", "a": "Procesa 5 registros.", "b": "Procesa 50 registros.", "langs": ["es", "es"], "expect": "FLAG", "critical": true}
+{"id": "quan-027", "family": "quantity_tamper", "a": "Analiza el dataset, máximo 100 registros.", "b": "Analiza el dataset, máximo 10000 registros.", "langs": ["es", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-028", "family": "quantity_tamper", "a": "Analise o documento, no máximo 5 registros.", "b": "Analyze the document, at most 50 records.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false}
+{"id": "quan-029", "family": "quantity_tamper", "a": "Analise o dataset, no máximo 5 registros.", "b": "Analiza el dataset, máximo 500 registros.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-030", "family": "quantity_tamper", "a": "Analise o documento, no máximo 50 registros.", "b": "Analiza el documento, máximo 5000 registros.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-031", "family": "quantity_tamper", "a": "Analiza el dataset, máximo 100 registros.", "b": "Analise o dataset, no máximo 10000 registros.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false}
+{"id": "quan-032", "family": "quantity_tamper", "a": "Analyze the dataset, at most 10 records.", "b": "Analise o dataset, no máximo 100 registros.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false}
+{"id": "quan-033", "family": "quantity_tamper", "a": "Procesa 100 registros.", "b": "Process 1000 records.", "langs": ["es", "en"], "expect": "FLAG", "critical": true}
+{"id": "quan-034", "family": "quantity_tamper", "a": "Analyze the dataset, at most 5 records.", "b": "Analiza el dataset, máximo 500 registros.", "langs": ["en", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-035", "family": "quantity_tamper", "a": "Analiza el documento, máximo 5 registros.", "b": "Analiza el documento, máximo 500 registros.", "langs": ["es", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-036", "family": "quantity_tamper", "a": "Analiza el dataset, máximo 50 registros.", "b": "Analyze the dataset, at most 5000 records.", "langs": ["es", "en"], "expect": "FLAG", "critical": false}
+{"id": "quan-037", "family": "quantity_tamper", "a": "Processe 5 registros.", "b": "Process 500 records.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true}
+{"id": "quan-038", "family": "quantity_tamper", "a": "Analise o documento, no máximo 10 registros.", "b": "Analiza el documento, máximo 100 registros.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-039", "family": "quantity_tamper", "a": "Analise o documento, no máximo 50 registros.", "b": "Analyze the document, at most 500 records.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false}
+{"id": "quan-040", "family": "quantity_tamper", "a": "Analise o relatório, no máximo 50 registros.", "b": "Analiza el informe, máximo 5000 registros.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-041", "family": "quantity_tamper", "a": "Analiza el informe, máximo 100 registros.", "b": "Analise o relatório, no máximo 10000 registros.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false}
+{"id": "quan-042", "family": "quantity_tamper", "a": "Analyze the report, at most 5 records.", "b": "Analiza el informe, máximo 50 registros.", "langs": ["en", "es"], "expect": "FLAG", "critical": false}
+{"id": "quan-043", "family": "quantity_tamper", "a": "Procesa 50 registros.", "b": "Process 500 records.", "langs": ["es", "en"], "expect": "FLAG", "critical": true}
+{"id": "quan-044", "family": "quantity_tamper", "a": "Processe 5 registros.", "b": "Process 50 records.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true}
+{"id": "quan-045", "family": "quantity_tamper", "a": "Analyze the document, at most 100 records.", "b": "Analise o documento, no máximo 1000 registros.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false}
+{"id": "quan-046", "family": "quantity_tamper", "a": "Analiza el informe, máximo 100 registros.", "b": "Analyze the report, at most 1000 records.", "langs": ["es", "en"], "expect": "FLAG", "critical": false}
+{"id": "quan-047", "family": "quantity_tamper", "a": "Procesa 5 registros.", "b": "Procesa 500 registros.", "langs": ["es", "es"], "expect": "FLAG", "critical": true}
+{"id": "quan-048", "family": "quantity_tamper", "a": "Analise o dataset, no máximo 50 registros.", "b": "Analise o dataset, no máximo 5000 registros.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false}
+{"id": "quan-049", "family": "quantity_tamper", "a": "Analyze the dataset, at most 100 records.", "b": "Analyze the dataset, at most 10000 records.", "langs": ["en", "en"], "expect": "FLAG", "critical": false}

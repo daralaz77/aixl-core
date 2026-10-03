@@ -1,0 +1,100 @@
+{"id": "PAR-000", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Elimine o dataset em PDF ontem.", "b": "Delete the dataset yesterday.", "langs": ["en", "pt"]}
+{"id": "PAR-001", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Analyze the report today.", "b": "Analyze the report as CSV today.", "langs": ["en", "en"]}
+{"id": "PAR-002", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Analise as vendas em JSON amanhã.", "b": "Analiza las ventas mañana.", "langs": ["es", "pt"]}
+{"id": "PAR-003", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the sales today.", "b": "Envía las ventas a Lucía hoy.", "langs": ["en", "es"]}
+{"id": "PAR-004", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Elimina el informe en JSON ayer.", "b": "Delete the report yesterday.", "langs": ["en", "es"]}
+{"id": "PAR-005", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Generate the dataset today.", "b": "Gere o dataset em PDF hoje.", "langs": ["en", "pt"]}
+{"id": "PAR-006", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Send the dataset to Carlos as JSON yesterday.", "b": "Envía el dataset a Carlos ayer.", "langs": ["es", "en"]}
+{"id": "PAR-007", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Traduce la factura mañana.", "b": "Traduza a fatura em PDF amanhã.", "langs": ["es", "pt"]}
+{"id": "PAR-008", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Send the dataset to Marta.", "b": "Envie o dataset para Marta ontem.", "langs": ["en", "pt"]}
+{"id": "PAR-009", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envie a fatura amanhã.", "b": "Envía la factura a Beto mañana.", "langs": ["pt", "es"]}
+{"id": "PAR-010", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Send the report to Marta.", "b": "Envie o relatório para Marta ontem.", "langs": ["en", "pt"]}
+{"id": "PAR-011", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía la factura a Ana hoy.", "b": "Envía la factura hoy.", "langs": ["es", "es"]}
+{"id": "PAR-012", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía el dataset ayer.", "b": "Envía el dataset a Beto ayer.", "langs": ["es", "es"]}
+{"id": "PAR-013", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Analyze the dataset.", "b": "Analyze the dataset tomorrow.", "langs": ["en", "en"]}
+{"id": "PAR-014", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the document to Carlos yesterday.", "b": "Send the document yesterday.", "langs": ["en", "en"]}
+{"id": "PAR-015", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Summarize the sales tomorrow.", "b": "Summarize the sales as CSV tomorrow.", "langs": ["en", "en"]}
+{"id": "PAR-016", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the sales tomorrow.", "b": "Envie as vendas para Ana amanhã.", "langs": ["en", "pt"]}
+{"id": "PAR-017", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Genera el documento mañana.", "b": "Genera el documento.", "langs": ["es", "es"]}
+{"id": "PAR-018", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envie o documento amanhã.", "b": "Envie o documento para Beto amanhã.", "langs": ["pt", "pt"]}
+{"id": "PAR-019", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Analiza la factura mañana.", "b": "Analiza la factura.", "langs": ["es", "es"]}
+{"id": "PAR-020", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Elimine o relatório ontem.", "b": "Delete the report.", "langs": ["en", "pt"]}
+{"id": "PAR-021", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Send the dataset to Marta yesterday.", "b": "Envía el dataset a Marta en JSON ayer.", "langs": ["en", "es"]}
+{"id": "PAR-022", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Traduza o documento.", "b": "Traduce el documento mañana.", "langs": ["pt", "es"]}
+{"id": "PAR-023", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the dataset today.", "b": "Envie o dataset para Lucía hoje.", "langs": ["en", "pt"]}
+{"id": "PAR-024", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Traduza o dataset ontem.", "b": "Traduza o dataset em CSV ontem.", "langs": ["pt", "pt"]}
+{"id": "PAR-025", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Delete the document as a PDF yesterday.", "b": "Delete the document yesterday.", "langs": ["en", "en"]}
+{"id": "PAR-026", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía el dataset a Carlos mañana.", "b": "Send the dataset tomorrow.", "langs": ["en", "es"]}
+{"id": "PAR-027", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Traduce la factura mañana.", "b": "Traduce la factura en PDF mañana.", "langs": ["es", "es"]}
+{"id": "PAR-028", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the report today.", "b": "Send the report to Ana today.", "langs": ["en", "en"]}
+{"id": "PAR-029", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía el informe a Ana ayer.", "b": "Send the report yesterday.", "langs": ["en", "es"]}
+{"id": "PAR-030", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envie o relatório para Beto hoje.", "b": "Envie o relatório hoje.", "langs": ["pt", "pt"]}
+{"id": "PAR-031", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Translate the dataset as CSV today.", "b": "Traduza o dataset hoje.", "langs": ["pt", "en"]}
+{"id": "PAR-032", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envie o documento para Carlos hoje.", "b": "Envía el documento hoy.", "langs": ["es", "pt"]}
+{"id": "PAR-033", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía las ventas mañana.", "b": "Envie as vendas para Pedro amanhã.", "langs": ["es", "pt"]}
+{"id": "PAR-034", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Traduce el documento ayer.", "b": "Translate the document as JSON yesterday.", "langs": ["es", "en"]}
+{"id": "PAR-035", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía el documento mañana.", "b": "Send the document to Lucía tomorrow.", "langs": ["es", "en"]}
+{"id": "PAR-036", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Summarize the document as CSV yesterday.", "b": "Resume el documento ayer.", "langs": ["es", "en"]}
+{"id": "PAR-037", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Delete the document yesterday.", "b": "Elimina el documento en JSON ayer.", "langs": ["en", "es"]}
+{"id": "PAR-038", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Resume el documento mañana.", "b": "Summarize the document as a PDF tomorrow.", "langs": ["es", "en"]}
+{"id": "PAR-039", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía las ventas hoy.", "b": "Envie as vendas para Carlos hoje.", "langs": ["es", "pt"]}
+{"id": "PAR-040", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Send the document to Marta tomorrow.", "b": "Envie o documento para Marta.", "langs": ["pt", "en"]}
+{"id": "PAR-041", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Send the sales to Carlos tomorrow.", "b": "Send the sales to Carlos as JSON tomorrow.", "langs": ["en", "en"]}
+{"id": "PAR-042", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Resume la factura ayer.", "b": "Summarize the invoice as JSON yesterday.", "langs": ["es", "en"]}
+{"id": "PAR-043", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envie as vendas para Marta hoje.", "b": "Envie as vendas hoje.", "langs": ["pt", "pt"]}
+{"id": "PAR-044", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Delete the document today.", "b": "Elimine o documento.", "langs": ["pt", "en"]}
+{"id": "PAR-045", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Elimina el informe.", "b": "Elimine o relatório hoje.", "langs": ["es", "pt"]}
+{"id": "PAR-046", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the invoice to Pedro today.", "b": "Envía la factura hoy.", "langs": ["es", "en"]}
+{"id": "PAR-047", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Envía el dataset a Pedro hoy.", "b": "Envie o dataset para Pedro em JSON hoje.", "langs": ["es", "pt"]}
+{"id": "PAR-048", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía el dataset a Pedro mañana.", "b": "Send the dataset tomorrow.", "langs": ["en", "es"]}
+{"id": "PAR-049", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Elimine o documento amanhã.", "b": "Delete the document.", "langs": ["en", "pt"]}
+{"id": "PAR-050", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Send the dataset to Ana as CSV yesterday.", "b": "Send the dataset to Ana yesterday.", "langs": ["en", "en"]}
+{"id": "PAR-051", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Resuma o relatório amanhã.", "b": "Resuma o relatório em PDF amanhã.", "langs": ["pt", "pt"]}
+{"id": "PAR-052", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Translate the invoice.", "b": "Traduce la factura ayer.", "langs": ["en", "es"]}
+{"id": "PAR-053", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Elimina el informe en PDF ayer.", "b": "Elimina el informe ayer.", "langs": ["es", "es"]}
+{"id": "PAR-054", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Envía las ventas a Carlos mañana.", "b": "Envie as vendas para Carlos.", "langs": ["pt", "es"]}
+{"id": "PAR-055", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Analise o relatório.", "b": "Analiza el informe mañana.", "langs": ["pt", "es"]}
+{"id": "PAR-056", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Genera la factura mañana.", "b": "Generate the invoice as JSON tomorrow.", "langs": ["es", "en"]}
+{"id": "PAR-057", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envie o documento para Marta hoje.", "b": "Envía el documento hoy.", "langs": ["es", "pt"]}
+{"id": "PAR-058", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Elimina el dataset mañana.", "b": "Delete the dataset.", "langs": ["en", "es"]}
+{"id": "PAR-059", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Generate the report tomorrow.", "b": "Genera el informe.", "langs": ["es", "en"]}
+{"id": "PAR-060", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Envie o documento para Marta em PDF hoje.", "b": "Envía el documento a Marta hoy.", "langs": ["es", "pt"]}
+{"id": "PAR-061", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía las ventas a Pedro mañana.", "b": "Envie as vendas amanhã.", "langs": ["pt", "es"]}
+{"id": "PAR-062", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía el documento mañana.", "b": "Envía el documento a Ana mañana.", "langs": ["es", "es"]}
+{"id": "PAR-063", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía el informe a Lucía hoy.", "b": "Send the report today.", "langs": ["en", "es"]}
+{"id": "PAR-064", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía el dataset ayer.", "b": "Send the dataset to Ana yesterday.", "langs": ["es", "en"]}
+{"id": "PAR-065", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envía las ventas a Marta ayer.", "b": "Envía las ventas ayer.", "langs": ["es", "es"]}
+{"id": "PAR-066", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Envie o relatório para Beto em PDF ontem.", "b": "Envía el informe a Beto ayer.", "langs": ["es", "pt"]}
+{"id": "PAR-067", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the document to Marta yesterday.", "b": "Envía el documento ayer.", "langs": ["es", "en"]}
+{"id": "PAR-068", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Generate the report as a PDF tomorrow.", "b": "Generate the report tomorrow.", "langs": ["en", "en"]}
+{"id": "PAR-069", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Send the invoice to Carlos as JSON yesterday.", "b": "Envía la factura a Carlos ayer.", "langs": ["es", "en"]}
+{"id": "PAR-070", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the sales tomorrow.", "b": "Send the sales to Ana tomorrow.", "langs": ["en", "en"]}
+{"id": "PAR-071", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Resume el informe.", "b": "Resuma o relatório hoje.", "langs": ["es", "pt"]}
+{"id": "PAR-072", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Gere as vendas em PDF hoje.", "b": "Gere as vendas hoje.", "langs": ["pt", "pt"]}
+{"id": "PAR-073", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Envía el dataset a Carlos.", "b": "Send the dataset to Carlos tomorrow.", "langs": ["es", "en"]}
+{"id": "PAR-074", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Send the dataset to Beto yesterday.", "b": "Send the dataset to Beto.", "langs": ["en", "en"]}
+{"id": "PAR-075", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Envía el informe a Beto.", "b": "Envía el informe a Beto ayer.", "langs": ["es", "es"]}
+{"id": "PAR-076", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Resume el dataset mañana.", "b": "Resuma o dataset em CSV amanhã.", "langs": ["es", "pt"]}
+{"id": "PAR-077", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Envía la factura a Pedro ayer.", "b": "Envie a fatura para Pedro.", "langs": ["pt", "es"]}
+{"id": "PAR-078", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Translate the sales yesterday.", "b": "Traduce las ventas en JSON ayer.", "langs": ["en", "es"]}
+{"id": "PAR-079", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Send the sales to Pedro as a PDF tomorrow.", "b": "Envía las ventas a Pedro mañana.", "langs": ["es", "en"]}
+{"id": "PAR-080", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envie o relatório ontem.", "b": "Envie o relatório para Marta ontem.", "langs": ["pt", "pt"]}
+{"id": "PAR-081", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Resuma o documento amanhã.", "b": "Resuma o documento em PDF amanhã.", "langs": ["pt", "pt"]}
+{"id": "PAR-082", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Elimine o documento hoje.", "b": "Elimine o documento em JSON hoje.", "langs": ["pt", "pt"]}
+{"id": "PAR-083", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Envie o dataset para Ana em JSON amanhã.", "b": "Envie o dataset para Ana amanhã.", "langs": ["pt", "pt"]}
+{"id": "PAR-084", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Delete the sales yesterday.", "b": "Delete the sales as a PDF yesterday.", "langs": ["en", "en"]}
+{"id": "PAR-085", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Genera el dataset.", "b": "Generate the dataset today.", "langs": ["es", "en"]}
+{"id": "PAR-086", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envie o dataset para Marta amanhã.", "b": "Envía el dataset mañana.", "langs": ["es", "pt"]}
+{"id": "PAR-087", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the dataset today.", "b": "Envía el dataset a Beto hoy.", "langs": ["en", "es"]}
+{"id": "PAR-088", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Elimina el documento.", "b": "Elimine o documento amanhã.", "langs": ["es", "pt"]}
+{"id": "PAR-089", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Traduce la factura hoy.", "b": "Traduce la factura.", "langs": ["es", "es"]}
+{"id": "PAR-090", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Traduce la factura en CSV ayer.", "b": "Traduce la factura ayer.", "langs": ["es", "es"]}
+{"id": "PAR-091", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Envía el documento a Carlos en PDF ayer.", "b": "Envía el documento a Carlos ayer.", "langs": ["es", "es"]}
+{"id": "PAR-092", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Analiza el dataset mañana.", "b": "Analise o dataset em CSV amanhã.", "langs": ["es", "pt"]}
+{"id": "PAR-093", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Envie as vendas para Beto ontem.", "b": "Envía las ventas ayer.", "langs": ["es", "pt"]}
+{"id": "PAR-094", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:time", "a": "Translate the dataset tomorrow.", "b": "Translate the dataset.", "langs": ["en", "en"]}
+{"id": "PAR-095", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the document to Carlos tomorrow.", "b": "Envía el documento mañana.", "langs": ["es", "en"]}
+{"id": "PAR-096", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the document to Lucía today.", "b": "Envie o documento hoje.", "langs": ["pt", "en"]}
+{"id": "PAR-097", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:target", "a": "Send the sales to Marta yesterday.", "b": "Send the sales yesterday.", "langs": ["en", "en"]}
+{"id": "PAR-098", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Elimina el documento mañana.", "b": "Elimina el documento en JSON mañana.", "langs": ["es", "es"]}
+{"id": "PAR-099", "label": "PARTIALLY_EQUIVALENT", "kind": "extra-slot:format", "a": "Summarize the document tomorrow.", "b": "Summarize the document as JSON tomorrow.", "langs": ["en", "en"]}

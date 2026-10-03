@@ -12,9 +12,9 @@ from aixl.translators.natural_to_semantic import to_graph
 
 PRONOUNS = (r"\b(eso|esto|aquello|ello|el otro|la otra|los otros|las otras|ambos|ambas|el mismo|la misma|"
             r"el|ella|ellos|ellas|it|them|they|he|she|him|her|that|this|those|these|the other one|the others?|both|"
-            r"ele|ela|eles|elas|isso|aquilo)\b")
+            r"ele|ela|eles|elas|isso|isto|aquilo|aquele|aquela|aqueles|aquelas|os outros|as outras|o outro|a outra)\b")
 PRONOUN_STRICT = re.compile(r"\b(eso|esto|aquello|ello|el otro|la otra|los otros|las otras|ambos|ambas|"
-                            r"ella|ellos|ellas|it|them|they|he|she|him|her|those|these|the other one|the others?|both|isso|aquilo)\b")
+                            r"ella|ellos|ellas|it|them|they|he|she|him|her|those|these|the other one|the others?|both|isso|isto|aquilo|aquele|aquela|aqueles|aquelas|ele|ela|eles|elas|os outros|as outras|o outro|a outra)\b")
 DETERMINER_AMBIG = re.compile(r"\b(that|this)\b(?!\s+\w)")     # bare "that"/"this" (not followed by a word)
 ES_EL_PRONOUN = re.compile(r"(?<![a-z])el(?=\s*[,.;!?]|$)")
 VAGUE_TIME = re.compile(r"\b(recientes?|recientemente|recently|recent|ultimamente|hace poco|pronto|soon|en breve|shortly|"
@@ -24,7 +24,7 @@ RELATIVE_TIME = re.compile(r"\b(hoy|ayer|manana|today|yesterday|tomorrow|esta se
                            r"proximo|next|pasado|last)\b")
 UNRESOLVED_ONES = re.compile(r"\b(los|las|el|la)\s+(anteriores|viejos|viejas|antiguos|antiguas|otros|otras|otro|otra|mismos|mismas)\b|"
                              r"\bthe\s+(previous|old|older|other|same|latest)\s+ones?\b|\bthe\s+(other|previous|same)\s+one\b")
-UNIVERSAL = re.compile(r"\b(todo|todos|todas|everything|all)\b(?!\s+(?:the|los|las|el|la)\b)")
+UNIVERSAL = re.compile(r"\b(todo|todos|todas|tudo|everything|all)\b(?!\s+(?:the|los|las|el|la)\b)")
 GENERIC_OBJ = re.compile(r"\b(archivos?|files?|reportes?|informes?|reports?|documentos?|documents?|registros?|records?)\b")
 GENERIC_ANY = re.compile(r"\b(?:el|la|los|las|the)\s+(archivos?|files?|arquivos?|elementos?|items?|cosas?|things?)\b")
 DESTRUCTIVE = {"DELETE", "EXECUTE", "UPDATE", "SEND", "DISABLE"}
@@ -84,6 +84,8 @@ def _action_positions(s: str) -> dict:
 
 
 def detect_ambiguity_graph(text: str, graph: SemanticGraph | None = None) -> AmbiguityResult:
+    from aixl.core.normalizer import sanitize_input
+    text, _ = sanitize_input(text)
     g = graph or to_graph(text)
     s = strip_accents(text.replace("’", "'"))
     findings: list[Finding] = []
@@ -140,6 +142,9 @@ def detect_ambiguity_graph(text: str, graph: SemanticGraph | None = None) -> Amb
         findings.append(Finding("REFERENCE", "UNRESOLVED_REFERENT", GENERIC_ANY.search(s).group(), 0.7))
     if "AMBIGUOUS_MODALITY" in g.meta.get("flags", []):
         findings.append(Finding("ACTION", "AMBIGUOUS_MODALITY", "permission or request?", 0.8))
+
+    if g.meta.get("unrecognized"):
+        notes.append({"field": "LEXICON", "reason": "UNRECOGNIZED_TERMS", "terms": list(g.meta["unrecognized"]), "severity": "INFO"})
 
     seen, uniq = set(), []
     for f in findings:

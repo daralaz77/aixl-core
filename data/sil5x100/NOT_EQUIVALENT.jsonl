@@ -1,0 +1,100 @@
+{"id": "NOT-000", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Resume el informe hoy.", "b": "Traduce el informe hoy.", "langs": ["es", "es"]}
+{"id": "NOT-001", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Generate the dataset tomorrow.", "b": "Generate the dataset today.", "langs": ["en", "en"]}
+{"id": "NOT-002", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Genera el informe ayer.", "b": "Gere o relatório amanhã.", "langs": ["es", "pt"]}
+{"id": "NOT-003", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Elimina el documento mañana.", "b": "Elimine o documento ontem.", "langs": ["es", "pt"]}
+{"id": "NOT-004", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Summarize the invoice today.", "b": "Summarize the invoice yesterday.", "langs": ["en", "en"]}
+{"id": "NOT-005", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Traduza as vendas amanhã.", "b": "Traduce el dataset mañana.", "langs": ["pt", "es"]}
+{"id": "NOT-006", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Generate the report tomorrow.", "b": "Elimine o relatório amanhã.", "langs": ["en", "pt"]}
+{"id": "NOT-007", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Analiza el documento en CSV ayer.", "b": "Analyze the document as a PDF yesterday.", "langs": ["es", "en"]}
+{"id": "NOT-008", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Envía el dataset a Lucía mañana.", "b": "Send the dataset to Lucía yesterday.", "langs": ["es", "en"]}
+{"id": "NOT-009", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Resuma o relatório em PDF hoje.", "b": "Resuma o relatório em CSV hoje.", "langs": ["pt", "pt"]}
+{"id": "NOT-010", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Envie o dataset para Lucía ontem.", "b": "Send the dataset to Pedro yesterday.", "langs": ["pt", "en"]}
+{"id": "NOT-011", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Genera el informe hoy.", "b": "Generate the report yesterday.", "langs": ["es", "en"]}
+{"id": "NOT-012", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Envie as vendas para Carlos ontem.", "b": "Envie as vendas para Ana ontem.", "langs": ["pt", "pt"]}
+{"id": "NOT-013", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Summarize the document yesterday.", "b": "Resuma o documento amanhã.", "langs": ["en", "pt"]}
+{"id": "NOT-014", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Elimine o documento em PDF amanhã.", "b": "Elimina el documento en CSV mañana.", "langs": ["pt", "es"]}
+{"id": "NOT-015", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Elimina las ventas en PDF hoy.", "b": "Elimine as vendas em JSON hoje.", "langs": ["es", "pt"]}
+{"id": "NOT-016", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Analise as vendas em PDF amanhã.", "b": "Analiza las ventas en CSV mañana.", "langs": ["pt", "es"]}
+{"id": "NOT-017", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Resume la factura hoy.", "b": "Summarize the invoice tomorrow.", "langs": ["es", "en"]}
+{"id": "NOT-018", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Generate the invoice yesterday.", "b": "Genera la factura mañana.", "langs": ["en", "es"]}
+{"id": "NOT-019", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Gere o relatório amanhã.", "b": "Analyze the report tomorrow.", "langs": ["pt", "en"]}
+{"id": "NOT-020", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Traduce las ventas ayer.", "b": "Traduce las ventas hoy.", "langs": ["es", "es"]}
+{"id": "NOT-021", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Send the sales to Lucía today.", "b": "Envía las ventas a Carlos hoy.", "langs": ["en", "es"]}
+{"id": "NOT-022", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Genera la factura mañana.", "b": "Generate the report tomorrow.", "langs": ["es", "en"]}
+{"id": "NOT-023", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Analiza el dataset hoy.", "b": "Analise o dataset amanhã.", "langs": ["es", "pt"]}
+{"id": "NOT-024", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Summarize the document today.", "b": "Traduza o documento hoje.", "langs": ["en", "pt"]}
+{"id": "NOT-025", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Traduce el documento hoy.", "b": "Traduce el documento ayer.", "langs": ["es", "es"]}
+{"id": "NOT-026", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Resuma as vendas amanhã.", "b": "Summarize the sales today.", "langs": ["pt", "en"]}
+{"id": "NOT-027", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Send the report to Pedro today.", "b": "Envie o relatório para Ana hoje.", "langs": ["en", "pt"]}
+{"id": "NOT-028", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Resume el informe ayer.", "b": "Resume el dataset ayer.", "langs": ["es", "es"]}
+{"id": "NOT-029", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Genera las ventas ayer.", "b": "Envía las ventas a Lucía ayer.", "langs": ["es", "es"]}
+{"id": "NOT-030", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Analyze the sales tomorrow.", "b": "Analyze the sales yesterday.", "langs": ["en", "en"]}
+{"id": "NOT-031", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Envie o dataset para Pedro amanhã.", "b": "Envie o dataset para Ana amanhã.", "langs": ["pt", "pt"]}
+{"id": "NOT-032", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Traduza o relatório hoje.", "b": "Translate the report tomorrow.", "langs": ["pt", "en"]}
+{"id": "NOT-033", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Generate the dataset tomorrow.", "b": "Generate the document tomorrow.", "langs": ["en", "en"]}
+{"id": "NOT-034", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Envía el dataset a Lucía ayer.", "b": "Send the dataset to Ana yesterday.", "langs": ["es", "en"]}
+{"id": "NOT-035", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Translate the sales tomorrow.", "b": "Translate the dataset tomorrow.", "langs": ["en", "en"]}
+{"id": "NOT-036", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Resuma o dataset hoje.", "b": "Resuma o documento hoje.", "langs": ["pt", "pt"]}
+{"id": "NOT-037", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Send the sales to Ana yesterday.", "b": "Send the sales to Carlos yesterday.", "langs": ["en", "en"]}
+{"id": "NOT-038", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Resume el dataset mañana.", "b": "Resuma o dataset ontem.", "langs": ["es", "pt"]}
+{"id": "NOT-039", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Traduza as vendas ontem.", "b": "Traduza o documento ontem.", "langs": ["pt", "pt"]}
+{"id": "NOT-040", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Translate the report as JSON yesterday.", "b": "Translate the report as CSV yesterday.", "langs": ["en", "en"]}
+{"id": "NOT-041", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Envía la factura a Ana mañana.", "b": "Gere a fatura amanhã.", "langs": ["es", "pt"]}
+{"id": "NOT-042", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Envía el informe a Beto en PDF ayer.", "b": "Envía el informe a Beto en CSV ayer.", "langs": ["es", "es"]}
+{"id": "NOT-043", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Traduza o dataset amanhã.", "b": "Analise o dataset amanhã.", "langs": ["pt", "pt"]}
+{"id": "NOT-044", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Analise as vendas hoje.", "b": "Send the sales to Ana today.", "langs": ["pt", "en"]}
+{"id": "NOT-045", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Traduce las ventas hoy.", "b": "Traduce el dataset hoy.", "langs": ["es", "es"]}
+{"id": "NOT-046", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Analiza el documento en CSV ayer.", "b": "Analise o documento em PDF ontem.", "langs": ["es", "pt"]}
+{"id": "NOT-047", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Genera las ventas ayer.", "b": "Generate the invoice yesterday.", "langs": ["es", "en"]}
+{"id": "NOT-048", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Envía el documento a Ana en CSV hoy.", "b": "Envía el documento a Ana en PDF hoy.", "langs": ["es", "es"]}
+{"id": "NOT-049", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Traduza o relatório ontem.", "b": "Traduza o dataset ontem.", "langs": ["pt", "pt"]}
+{"id": "NOT-050", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Generate the document today.", "b": "Genera el informe hoy.", "langs": ["en", "es"]}
+{"id": "NOT-051", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Delete the dataset yesterday.", "b": "Delete the dataset tomorrow.", "langs": ["en", "en"]}
+{"id": "NOT-052", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Gere o relatório em JSON amanhã.", "b": "Gere o relatório em PDF amanhã.", "langs": ["pt", "pt"]}
+{"id": "NOT-053", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Elimina el informe hoy.", "b": "Resume el informe hoy.", "langs": ["es", "es"]}
+{"id": "NOT-054", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Analise o documento amanhã.", "b": "Analise o dataset amanhã.", "langs": ["pt", "pt"]}
+{"id": "NOT-055", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Send the document to Ana today.", "b": "Send the report to Ana today.", "langs": ["en", "en"]}
+{"id": "NOT-056", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Envía las ventas a Carlos hoy.", "b": "Send the sales to Ana today.", "langs": ["es", "en"]}
+{"id": "NOT-057", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Elimina el documento ayer.", "b": "Elimina las ventas ayer.", "langs": ["es", "es"]}
+{"id": "NOT-058", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Analiza el dataset en CSV hoy.", "b": "Analyze the dataset as JSON today.", "langs": ["es", "en"]}
+{"id": "NOT-059", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Genera el informe ayer.", "b": "Generate the sales yesterday.", "langs": ["es", "en"]}
+{"id": "NOT-060", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Summarize the report today.", "b": "Traduza o relatório hoje.", "langs": ["en", "pt"]}
+{"id": "NOT-061", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Traduce el documento mañana.", "b": "Traduce el documento hoy.", "langs": ["es", "es"]}
+{"id": "NOT-062", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Elimina el documento mañana.", "b": "Elimina el documento hoy.", "langs": ["es", "es"]}
+{"id": "NOT-063", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Gere o documento hoje.", "b": "Gere o relatório hoje.", "langs": ["pt", "pt"]}
+{"id": "NOT-064", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Analyze the invoice yesterday.", "b": "Analise a fatura amanhã.", "langs": ["en", "pt"]}
+{"id": "NOT-065", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Resume las ventas mañana.", "b": "Resuma o documento amanhã.", "langs": ["es", "pt"]}
+{"id": "NOT-066", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Elimine o documento ontem.", "b": "Delete the document tomorrow.", "langs": ["pt", "en"]}
+{"id": "NOT-067", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Resume el informe en CSV mañana.", "b": "Resuma o relatório em PDF amanhã.", "langs": ["es", "pt"]}
+{"id": "NOT-068", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Traduza as vendas em JSON ontem.", "b": "Translate the sales as a PDF yesterday.", "langs": ["pt", "en"]}
+{"id": "NOT-069", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Envía la factura a Beto mañana.", "b": "Envie a fatura para Lucía amanhã.", "langs": ["es", "pt"]}
+{"id": "NOT-070", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Send the sales to Beto today.", "b": "Envie as vendas para Pedro hoje.", "langs": ["en", "pt"]}
+{"id": "NOT-071", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Resume el documento mañana.", "b": "Analiza el documento mañana.", "langs": ["es", "es"]}
+{"id": "NOT-072", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Summarize the invoice as JSON tomorrow.", "b": "Resuma a fatura em CSV amanhã.", "langs": ["en", "pt"]}
+{"id": "NOT-073", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Resume el dataset ayer.", "b": "Resuma o documento ontem.", "langs": ["es", "pt"]}
+{"id": "NOT-074", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Analiza el informe ayer.", "b": "Analiza el dataset ayer.", "langs": ["es", "es"]}
+{"id": "NOT-075", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Summarize the dataset yesterday.", "b": "Resuma as vendas ontem.", "langs": ["en", "pt"]}
+{"id": "NOT-076", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Send the report to Lucía as JSON today.", "b": "Envie o relatório para Lucía em CSV hoje.", "langs": ["en", "pt"]}
+{"id": "NOT-077", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Summarize the document tomorrow.", "b": "Delete the document tomorrow.", "langs": ["en", "en"]}
+{"id": "NOT-078", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Generate the sales today.", "b": "Genera las ventas mañana.", "langs": ["en", "es"]}
+{"id": "NOT-079", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Envía el documento a Ana ayer.", "b": "Envie o documento para Pedro ontem.", "langs": ["es", "pt"]}
+{"id": "NOT-080", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Analyze the document as JSON yesterday.", "b": "Analiza el documento en CSV ayer.", "langs": ["en", "es"]}
+{"id": "NOT-081", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Envie o relatório para Ana amanhã.", "b": "Envie o relatório para Pedro amanhã.", "langs": ["pt", "pt"]}
+{"id": "NOT-082", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Summarize the dataset tomorrow.", "b": "Envía el dataset a Pedro mañana.", "langs": ["en", "es"]}
+{"id": "NOT-083", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Traduce el documento mañana.", "b": "Traduce el dataset mañana.", "langs": ["es", "es"]}
+{"id": "NOT-084", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Delete the report today.", "b": "Delete the document today.", "langs": ["en", "en"]}
+{"id": "NOT-085", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Envie a fatura para Beto hoje.", "b": "Send the invoice to Lucía today.", "langs": ["pt", "en"]}
+{"id": "NOT-086", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Analise o documento hoje.", "b": "Traduza o documento hoje.", "langs": ["pt", "pt"]}
+{"id": "NOT-087", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Genera el informe en PDF ayer.", "b": "Genera el informe en CSV ayer.", "langs": ["es", "es"]}
+{"id": "NOT-088", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Generate the document today.", "b": "Generate the invoice today.", "langs": ["en", "en"]}
+{"id": "NOT-089", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Gere as vendas em JSON hoje.", "b": "Genera las ventas en CSV hoy.", "langs": ["pt", "es"]}
+{"id": "NOT-090", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Resuma a fatura amanhã.", "b": "Summarize the invoice today.", "langs": ["pt", "en"]}
+{"id": "NOT-091", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Genera el documento hoy.", "b": "Genera el documento mañana.", "langs": ["es", "es"]}
+{"id": "NOT-092", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Traduce las ventas hoy.", "b": "Analise as vendas hoje.", "langs": ["es", "pt"]}
+{"id": "NOT-093", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Delete the dataset as a PDF today.", "b": "Elimine o dataset em CSV hoje.", "langs": ["en", "pt"]}
+{"id": "NOT-094", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Envie o relatório para Pedro ontem.", "b": "Send the report to Carlos yesterday.", "langs": ["pt", "en"]}
+{"id": "NOT-095", "label": "NOT_EQUIVALENT", "kind": "slot-changed:time", "a": "Elimina el informe ayer.", "b": "Elimina el informe hoy.", "langs": ["es", "es"]}
+{"id": "NOT-096", "label": "NOT_EQUIVALENT", "kind": "slot-changed:format", "a": "Genera las ventas en CSV hoy.", "b": "Gere as vendas em PDF hoje.", "langs": ["es", "pt"]}
+{"id": "NOT-097", "label": "NOT_EQUIVALENT", "kind": "slot-changed:action", "a": "Envía el documento a Lucía hoy.", "b": "Analiza el documento hoy.", "langs": ["es", "es"]}
+{"id": "NOT-098", "label": "NOT_EQUIVALENT", "kind": "slot-changed:object", "a": "Generate the dataset yesterday.", "b": "Genera las ventas ayer.", "langs": ["en", "es"]}
+{"id": "NOT-099", "label": "NOT_EQUIVALENT", "kind": "slot-changed:target", "a": "Envía el documento a Beto ayer.", "b": "Envía el documento a Pedro ayer.", "langs": ["es", "es"]}

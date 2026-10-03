@@ -1,0 +1,50 @@
+{"id": "cons-000", "family": "constraint_removal", "a": "Analise o documento, no máximo 10 registros.", "b": "Analise o documento.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-001", "family": "constraint_removal", "a": "Analyze the dataset, at most 10 records.", "b": "Analiza el dataset.", "langs": ["en", "es"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-002", "family": "constraint_removal", "a": "Send the dataset only to Ana.", "b": "Send the dataset.", "langs": ["en", "en"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-003", "family": "constraint_removal", "a": "Analyze the report, at most 20 records.", "b": "Analiza el informe.", "langs": ["en", "es"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-004", "family": "constraint_removal", "a": "Send the dataset only as PDF.", "b": "Send the dataset.", "langs": ["en", "en"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-005", "family": "constraint_removal", "a": "Envie o documento apenas em PDF.", "b": "Send the document.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-006", "family": "constraint_removal", "a": "Send the document only as PDF.", "b": "Envía el documento.", "langs": ["en", "es"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-007", "family": "constraint_removal", "a": "Envie o dataset apenas para Beto.", "b": "Envía el dataset.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-008", "family": "constraint_removal", "a": "Envía el dataset solo a Marta.", "b": "Send the dataset.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-009", "family": "constraint_removal", "a": "Analise o documento, no máximo 10 registros.", "b": "Analiza el documento.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-010", "family": "constraint_removal", "a": "Envía el documento solo en PDF.", "b": "Envía el documento.", "langs": ["es", "es"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-011", "family": "constraint_removal", "a": "Envie o documento apenas em PDF.", "b": "Envie o documento.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-012", "family": "constraint_removal", "a": "Analise o dataset, no máximo 20 registros.", "b": "Analiza el dataset.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-013", "family": "constraint_removal", "a": "Analiza el dataset, máximo 10 registros.", "b": "Analyze the dataset.", "langs": ["es", "en"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-014", "family": "constraint_removal", "a": "Analyze the report, at most 20 records.", "b": "Analise o relatório.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-015", "family": "constraint_removal", "a": "Envie o relatório apenas para Ana.", "b": "Envía el informe.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-016", "family": "constraint_removal", "a": "Analiza el informe, máximo 5 registros.", "b": "Analiza el informe.", "langs": ["es", "es"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-017", "family": "constraint_removal", "a": "Envía el documento solo a Marta.", "b": "Send the document.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-018", "family": "constraint_removal", "a": "Envie o dataset apenas para Marta.", "b": "Send the dataset.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-019", "family": "constraint_removal", "a": "Envie o dataset apenas em PDF.", "b": "Send the dataset.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-020", "family": "constraint_removal", "a": "Envie o documento apenas para Carlos.", "b": "Envía el documento.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-021", "family": "constraint_removal", "a": "Analiza el dataset, máximo 20 registros.", "b": "Analyze the dataset.", "langs": ["es", "en"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-022", "family": "constraint_removal", "a": "Analise o dataset, no máximo 20 registros.", "b": "Analyze the dataset.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-023", "family": "constraint_removal", "a": "Analyze the document, at most 10 records.", "b": "Analiza el documento.", "langs": ["en", "es"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-024", "family": "constraint_removal", "a": "Analiza el informe, máximo 20 registros.", "b": "Analiza el informe.", "langs": ["es", "es"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-025", "family": "constraint_removal", "a": "Envía el dataset solo a Marta.", "b": "Envie o dataset.", "langs": ["es", "pt"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-026", "family": "constraint_removal", "a": "Send the report only as PDF.", "b": "Envie o relatório.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-027", "family": "constraint_removal", "a": "Analise o dataset, no máximo 20 registros.", "b": "Analise o dataset.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-028", "family": "constraint_removal", "a": "Envie o relatório apenas em PDF.", "b": "Envía el informe.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-029", "family": "constraint_removal", "a": "Envie o documento apenas em PDF.", "b": "Envía el documento.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-030", "family": "constraint_removal", "a": "Analiza el dataset, máximo 5 registros.", "b": "Analyze the dataset.", "langs": ["es", "en"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-031", "family": "constraint_removal", "a": "Analyze the document, at most 20 records.", "b": "Analise o documento.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-032", "family": "constraint_removal", "a": "Analise o documento, no máximo 5 registros.", "b": "Analise o documento.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-033", "family": "constraint_removal", "a": "Envía el dataset solo a Lucía.", "b": "Envie o dataset.", "langs": ["es", "pt"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-034", "family": "constraint_removal", "a": "Analyze the dataset, at most 5 records.", "b": "Analise o dataset.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-035", "family": "constraint_removal", "a": "Analyze the dataset, at most 20 records.", "b": "Analise o dataset.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-036", "family": "constraint_removal", "a": "Envía el informe solo a Carlos.", "b": "Send the report.", "langs": ["es", "en"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-037", "family": "constraint_removal", "a": "Send the dataset only to Pedro.", "b": "Send the dataset.", "langs": ["en", "en"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-038", "family": "constraint_removal", "a": "Envía el informe solo en PDF.", "b": "Envía el informe.", "langs": ["es", "es"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-039", "family": "constraint_removal", "a": "Envía el informe solo a Ana.", "b": "Envie o relatório.", "langs": ["es", "pt"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-040", "family": "constraint_removal", "a": "Analise o relatório, no máximo 20 registros.", "b": "Analiza el informe.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-041", "family": "constraint_removal", "a": "Send the report only to Beto.", "b": "Envie o relatório.", "langs": ["en", "pt"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-042", "family": "constraint_removal", "a": "Envía el documento solo en PDF.", "b": "Envie o documento.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-043", "family": "constraint_removal", "a": "Envie o dataset apenas para Lucía.", "b": "Envie o dataset.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-044", "family": "constraint_removal", "a": "Analyze the document, at most 20 records.", "b": "Analyze the document.", "langs": ["en", "en"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-045", "family": "constraint_removal", "a": "Envía el dataset solo en PDF.", "b": "Send the dataset.", "langs": ["es", "en"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-046", "family": "constraint_removal", "a": "Send the document only as PDF.", "b": "Envie o documento.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "kind": "only_pdf"}
+{"id": "cons-047", "family": "constraint_removal", "a": "Send the report only to Lucía.", "b": "Envía el informe.", "langs": ["en", "es"], "expect": "FLAG", "critical": true, "kind": "only_to"}
+{"id": "cons-048", "family": "constraint_removal", "a": "Analise o dataset, no máximo 5 registros.", "b": "Analyze the dataset.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false, "kind": "max"}
+{"id": "cons-049", "family": "constraint_removal", "a": "Analiza el dataset, máximo 5 registros.", "b": "Analiza el dataset.", "langs": ["es", "es"], "expect": "FLAG", "critical": false, "kind": "max"}

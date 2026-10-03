@@ -1,0 +1,50 @@
+{"id": "nega-000", "family": "negation_removal", "a": "No elimines el informe.", "b": "Elimine o relatório.", "langs": ["es", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-001", "family": "negation_removal", "a": "Do not delete the document.", "b": "Elimine o documento.", "langs": ["en", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-002", "family": "negation_removal", "a": "Do not send the document externally.", "b": "Envie o documento externamente.", "langs": ["en", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-003", "family": "negation_removal", "a": "Do not delete the document.", "b": "Delete the document.", "langs": ["en", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-004", "family": "negation_removal", "a": "Do not send the document externally.", "b": "Send the document externally.", "langs": ["en", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-005", "family": "negation_removal", "a": "No envíes el documento.", "b": "Envie o documento.", "langs": ["es", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-006", "family": "negation_removal", "a": "No envíes el documento externamente.", "b": "Envie o documento externamente.", "langs": ["es", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-007", "family": "negation_removal", "a": "Do not send the dataset.", "b": "Send the dataset.", "langs": ["en", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-008", "family": "negation_removal", "a": "Do not send the dataset externally.", "b": "Send the dataset externally.", "langs": ["en", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-009", "family": "negation_removal", "a": "No envíes el dataset.", "b": "Envía el dataset.", "langs": ["es", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-010", "family": "negation_removal", "a": "No envíes el dataset externamente.", "b": "Envía el dataset externamente.", "langs": ["es", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-011", "family": "negation_removal", "a": "Do not send the dataset.", "b": "Envía el dataset.", "langs": ["en", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-012", "family": "negation_removal", "a": "Do not send the dataset externally.", "b": "Envía el dataset externamente.", "langs": ["en", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-013", "family": "negation_removal", "a": "Não elimine o documento.", "b": "Delete the document.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-014", "family": "negation_removal", "a": "Não envie o documento externamente.", "b": "Send the document externally.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-015", "family": "negation_removal", "a": "Do not delete the report.", "b": "Elimine o relatório.", "langs": ["en", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-016", "family": "negation_removal", "a": "Do not send the report externally.", "b": "Envie o relatório externamente.", "langs": ["en", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-017", "family": "negation_removal", "a": "Do not send the document.", "b": "Envía el documento.", "langs": ["en", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-018", "family": "negation_removal", "a": "Do not send the document externally.", "b": "Envía el documento externamente.", "langs": ["en", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-019", "family": "negation_removal", "a": "No envíes el informe externamente.", "b": "Envie o relatório externamente.", "langs": ["es", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-020", "family": "negation_removal", "a": "No elimines el documento.", "b": "Elimine o documento.", "langs": ["es", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-021", "family": "negation_removal", "a": "No envíes el dataset.", "b": "Send the dataset.", "langs": ["es", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-022", "family": "negation_removal", "a": "No envíes el dataset externamente.", "b": "Send the dataset externally.", "langs": ["es", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-023", "family": "negation_removal", "a": "No elimines el documento.", "b": "Elimina el documento.", "langs": ["es", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-024", "family": "negation_removal", "a": "No envíes el documento externamente.", "b": "Envía el documento externamente.", "langs": ["es", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-025", "family": "negation_removal", "a": "Do not delete the dataset.", "b": "Delete the dataset.", "langs": ["en", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-026", "family": "negation_removal", "a": "Do not send the report.", "b": "Envía el informe.", "langs": ["en", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-027", "family": "negation_removal", "a": "Do not send the report externally.", "b": "Envía el informe externamente.", "langs": ["en", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-028", "family": "negation_removal", "a": "No envíes el informe.", "b": "Envía el informe.", "langs": ["es", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-029", "family": "negation_removal", "a": "No envíes el informe externamente.", "b": "Envía el informe externamente.", "langs": ["es", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-030", "family": "negation_removal", "a": "Não envie o relatório.", "b": "Send the report.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-031", "family": "negation_removal", "a": "Não envie o relatório externamente.", "b": "Send the report externally.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-032", "family": "negation_removal", "a": "Do not send the document.", "b": "Send the document.", "langs": ["en", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-033", "family": "negation_removal", "a": "Do not send the report.", "b": "Send the report.", "langs": ["en", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-034", "family": "negation_removal", "a": "Do not send the report externally.", "b": "Send the report externally.", "langs": ["en", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-035", "family": "negation_removal", "a": "Do not send the report.", "b": "Envie o relatório.", "langs": ["en", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-036", "family": "negation_removal", "a": "Não envie o documento.", "b": "Envía el documento.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-037", "family": "negation_removal", "a": "Não envie o documento externamente.", "b": "Envía el documento externamente.", "langs": ["pt", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-038", "family": "negation_removal", "a": "Não elimine o relatório.", "b": "Elimine o relatório.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-039", "family": "negation_removal", "a": "Não envie o relatório externamente.", "b": "Envie o relatório externamente.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-040", "family": "negation_removal", "a": "No elimines el documento.", "b": "Delete the document.", "langs": ["es", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-041", "family": "negation_removal", "a": "No envíes el documento externamente.", "b": "Send the document externally.", "langs": ["es", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-042", "family": "negation_removal", "a": "Não elimine o dataset.", "b": "Delete the dataset.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-043", "family": "negation_removal", "a": "Não envie o dataset externamente.", "b": "Send the dataset externally.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-044", "family": "negation_removal", "a": "No envíes el documento.", "b": "Envía el documento.", "langs": ["es", "es"], "expect": "FLAG", "critical": true}
+{"id": "nega-045", "family": "negation_removal", "a": "No elimines el informe.", "b": "Delete the report.", "langs": ["es", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-046", "family": "negation_removal", "a": "No envíes el informe externamente.", "b": "Send the report externally.", "langs": ["es", "en"], "expect": "FLAG", "critical": true}
+{"id": "nega-047", "family": "negation_removal", "a": "Não elimine o dataset.", "b": "Elimine o dataset.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-048", "family": "negation_removal", "a": "Não envie o dataset externamente.", "b": "Envie o dataset externamente.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": true}
+{"id": "nega-049", "family": "negation_removal", "a": "Não elimine o relatório.", "b": "Delete the report.", "langs": ["pt", "en"], "expect": "FLAG", "critical": true}

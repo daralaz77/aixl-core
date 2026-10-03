@@ -38,7 +38,7 @@ def _print_negotiation(out):
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="aixl", description=__doc__)
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for name, n in (("translate", 1), ("ambiguity", 1), ("aixl", 1), ("compare", 2), ("diff", 2), ("drift", 2), ("contradiction", 2), ("lab", 2)):
+    for name, n in (("translate", 1), ("ambiguity", 1), ("aixl", 1), ("encode", 1), ("decode", 1), ("validate", 1), ("fingerprint", 1), ("compare", 2), ("diff", 2), ("drift", 2), ("contradiction", 2), ("lab", 2)):
         p = sub.add_parser(name)
         p.add_argument("a"); n == 2 and p.add_argument("b"); p.add_argument("--json", action="store_true")
     sub.add_parser("demo"); sub.add_parser("bench"); sub.add_parser("mcp-serve")
@@ -51,7 +51,19 @@ def main(argv=None):
     if a.cmd == "translate":
         t = aixl.translate(a.a)
         return dump(t) if a.json else (print("AIXL:", t["aixl"]), dump({"semantic": t["semantic"], "ambiguity": t["ambiguity"]["ambiguous"]}))
-    if a.cmd == "aixl":
+    if a.cmd == "encode":                                   # §33: natural language -> AIXL line only
+        return print(aixl.to_aixl(a.a))
+    if a.cmd == "fingerprint":
+        return print(aixl.semantic_fingerprint(a.a))
+    if a.cmd == "validate":                                 # §33: protocol validation of one AIXL line; exit 1 when invalid
+        from aixl.serialization.aixl_codec import AixlError
+        try:
+            aixl.from_aixl(a.a)
+        except AixlError as e:
+            print(f"INVALID {e.code}: {e}")
+            raise SystemExit(1)
+        return print("VALID")
+    if a.cmd in ("aixl", "decode"):
         g = aixl.from_aixl(a.a); dump({k: (list(v) if isinstance(v, tuple) else v) for k, v in g.canonical().items()}); return
     if a.cmd == "compare":
         r = aixl.compare(a.a, a.b)

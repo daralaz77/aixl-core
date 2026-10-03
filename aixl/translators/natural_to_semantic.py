@@ -289,7 +289,7 @@ AGE_RX = [
 ]
 
 CLOCK_TIME = re.compile(
-    r"\b(?P<dir>antes de|before|prior to|by|no later than|despues de|after|later than)\s+(?:las?\s+)?"
+    r"\b(?P<dir>antes de|before|prior to|by|no later than|despues de|depois de|after|later than)\s+(?:las?\s+)?"
     r"(?P<h>\d{1,2})(?:[:h](?P<m>\d{2}))?\s*(?P<ap>a\.?m\.?|p\.?m\.?)?\b", re.I)
 BEFORE_WORDS = {"antes de", "before", "prior to", "by", "no later than"}
 AT_TIME = re.compile(
@@ -453,6 +453,11 @@ def _apply_without_constraint(frame, s: str) -> None:
 
 
 def _apply_visibility(frame, s: str) -> None:
+    # SCOPE (§39, adversarial suite 2026-10-02): who may receive / where it may go. "internally" -> "externally" flips an exfiltration guard.
+    if re.search(r"\b(external|externally|externa|externas|externo|externos|externamente|outside (?:the |of the )?(?:company|organi[sz]ation)|fuera de (?:la )?(?:empresa|organizacion)|fora d[aeo] (?:empresa|organizacao))\b", s):
+        frame.constraints.append("SCOPE=EXTERNAL")
+    if re.search(r"\b(internal|internally|interna|internas|interno|internos|internamente|(?:inside|within) (?:the )?(?:company|organi[sz]ation)|dentro de (?:la )?(?:empresa|organizacion)|dentro d[aeo] (?:empresa|organizacao))\b", s):
+        frame.constraints.append("SCOPE=INTERNAL")
     if re.search(r"\b(publico|publica|publicos|publicas|public|publicly)\b", s):
         frame.constraints.append("VISIBILITY=PUBLIC")
     if re.search(r"\b(privado|privada|privados|privadas|private|confidencial|restringido|restringida)\b", s):
@@ -462,7 +467,7 @@ def _apply_visibility(frame, s: str) -> None:
 def _apply_date_relation_constraints(frame, s: str) -> None:
     """before / after a date or period already extracted."""
     for t in (frame.time.split(",") if frame.time else []):
-        for kw, con in ((r"antes de(?:l| la| el)?|before|prior to", "BEFORE"), (r"despues de(?:l| la| el)?|after|later than", "AFTER")):
+        for kw, con in ((r"antes de(?:l| la| el)?|before|prior to", "BEFORE"), (r"despues de(?:l| la| el)?|depois de|after|later than", "AFTER")):
             if re.search(rf"\b(?:{kw})\s+(?:el\s+)?{re.escape(t.lower())}", s):
                 frame.constraints.append(f"{con}={t}")
 
@@ -511,6 +516,8 @@ def _derive_intent_goal(frame, conf: dict) -> None:
 
 
 def to_graph(text: str, today: date | None = None) -> SemanticGraph:
+    from aixl.core.normalizer import sanitize_input
+    text, obfuscation = sanitize_input(text)               # §39: strip invisible chars / fold lookalike letters BEFORE any rule runs
     frame, pre, s, conds, passives, warns, conf = _prepare_frame(text, today)
     pos: dict = {}
     for act, rx in legacy.ACTION_RX:
@@ -590,7 +597,10 @@ def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     frame = _norm_frame(frame)
     frame.raw = text
     g = SemanticGraph.from_frame(frame, conf)
-    g.meta["warnings"] = warns
+    g.meta["warnings"] = list(warns) + [f"OBFUSCATION:{o}" for o in obfuscation]
+    g.meta["obfuscation"] = obfuscation
+    from aixl.core.lexicon_gaps import unrecognized_terms
+    g.meta["unrecognized"] = unrecognized_terms(text, g)        # §66: dropped-from-meaning nouns are reported, never silent
     g.meta["ordered"] = ordered
     g.meta["text_stripped"] = strip_accents(text)
     return g

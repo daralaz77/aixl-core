@@ -1,0 +1,50 @@
+{"id": "payl-000", "family": "payload_ambiguity", "a": "Elimina el informe #1.", "b": "Delete it.", "langs": ["es", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-001", "family": "payload_ambiguity", "a": "Elimina el dataset #8.", "b": "Elimine isso.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-002", "family": "payload_ambiguity", "a": "Elimine o relatório #49.", "b": "Elimine isso.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-003", "family": "payload_ambiguity", "a": "Delete the dataset #49.", "b": "Elimine isso.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-004", "family": "payload_ambiguity", "a": "Elimina el dataset #24.", "b": "Elimine isso.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-005", "family": "payload_ambiguity", "a": "Elimine o relatório #27.", "b": "Eliminalo.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-006", "family": "payload_ambiguity", "a": "Elimine o documento #1.", "b": "Delete it.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-007", "family": "payload_ambiguity", "a": "Elimine o documento #43.", "b": "Delete it.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-008", "family": "payload_ambiguity", "a": "Delete the document #42.", "b": "Delete it.", "langs": ["en", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-009", "family": "payload_ambiguity", "a": "Elimina el informe #12.", "b": "Delete it.", "langs": ["es", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-010", "family": "payload_ambiguity", "a": "Delete the dataset #47.", "b": "Elimine isso.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-011", "family": "payload_ambiguity", "a": "Elimine o relatório #20.", "b": "Elimine isso.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-012", "family": "payload_ambiguity", "a": "Elimine o documento #43.", "b": "Elimine isso.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-013", "family": "payload_ambiguity", "a": "Elimina el documento #24.", "b": "Eliminalo.", "langs": ["es", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-014", "family": "payload_ambiguity", "a": "Elimina el documento #13.", "b": "Elimine isso.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-015", "family": "payload_ambiguity", "a": "Elimine o relatório #44.", "b": "Delete it.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-016", "family": "payload_ambiguity", "a": "Delete the report #6.", "b": "Delete it.", "langs": ["en", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-017", "family": "payload_ambiguity", "a": "Elimine o documento #40.", "b": "Eliminalo.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-018", "family": "payload_ambiguity", "a": "Delete the report #30.", "b": "Delete it.", "langs": ["en", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-019", "family": "payload_ambiguity", "a": "Elimina el documento #37.", "b": "Eliminalo.", "langs": ["es", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-020", "family": "payload_ambiguity", "a": "Elimine o documento #46.", "b": "Eliminalo.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-021", "family": "payload_ambiguity", "a": "Elimine o relatório #21.", "b": "Eliminalo.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-022", "family": "payload_ambiguity", "a": "Elimine o relatório #7.", "b": "Eliminalo.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-023", "family": "payload_ambiguity", "a": "Elimine o relatório #48.", "b": "Eliminalo.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-024", "family": "payload_ambiguity", "a": "Elimina el dataset #3.", "b": "Delete it.", "langs": ["es", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-025", "family": "payload_ambiguity", "a": "Delete the report #1.", "b": "Delete it.", "langs": ["en", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-026", "family": "payload_ambiguity", "a": "Delete the dataset #20.", "b": "Elimine isso.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-027", "family": "payload_ambiguity", "a": "Delete the dataset #10.", "b": "Eliminalo.", "langs": ["en", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-028", "family": "payload_ambiguity", "a": "Elimine o documento #38.", "b": "Eliminalo.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-029", "family": "payload_ambiguity", "a": "Elimina el informe #45.", "b": "Elimine isso.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-030", "family": "payload_ambiguity", "a": "Elimina el dataset #25.", "b": "Delete it.", "langs": ["es", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-031", "family": "payload_ambiguity", "a": "Delete the dataset #46.", "b": "Eliminalo.", "langs": ["en", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-032", "family": "payload_ambiguity", "a": "Delete the document #14.", "b": "Elimine isso.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-033", "family": "payload_ambiguity", "a": "Elimina el informe #34.", "b": "Eliminalo.", "langs": ["es", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-034", "family": "payload_ambiguity", "a": "Elimina el informe #29.", "b": "Eliminalo.", "langs": ["es", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-035", "family": "payload_ambiguity", "a": "Elimine o documento #21.", "b": "Elimine isso.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-036", "family": "payload_ambiguity", "a": "Elimine o dataset #50.", "b": "Delete it.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-037", "family": "payload_ambiguity", "a": "Elimine o dataset #48.", "b": "Eliminalo.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-038", "family": "payload_ambiguity", "a": "Delete the report #48.", "b": "Elimine isso.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-039", "family": "payload_ambiguity", "a": "Delete the document #7.", "b": "Eliminalo.", "langs": ["en", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-040", "family": "payload_ambiguity", "a": "Delete the document #33.", "b": "Eliminalo.", "langs": ["en", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-041", "family": "payload_ambiguity", "a": "Delete the dataset #2.", "b": "Eliminalo.", "langs": ["en", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-042", "family": "payload_ambiguity", "a": "Elimina el documento #5.", "b": "Eliminalo.", "langs": ["es", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-043", "family": "payload_ambiguity", "a": "Delete the report #15.", "b": "Elimine isso.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-044", "family": "payload_ambiguity", "a": "Elimine o documento #22.", "b": "Elimine isso.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-045", "family": "payload_ambiguity", "a": "Elimine o relatório #14.", "b": "Eliminalo.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-046", "family": "payload_ambiguity", "a": "Elimina el dataset #10.", "b": "Eliminalo.", "langs": ["es", "es"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-047", "family": "payload_ambiguity", "a": "Elimina el informe #16.", "b": "Elimine isso.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-048", "family": "payload_ambiguity", "a": "Elimine o documento #6.", "b": "Elimine isso.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}
+{"id": "payl-049", "family": "payload_ambiguity", "a": "Elimina el documento #6.", "b": "Elimine isso.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false, "check_ambiguity": true}

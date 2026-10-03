@@ -82,3 +82,13 @@ def explain(text: str) -> dict:
     return {"wants": [a for a in c["actions"]], "objects": list(c["data"] + c["entities"] + c["references"]),
             "constraints": list(c["constraints"] + c["modifiers"] + c["quantities"]), "conditions": list(c["conditions"]),
             "modality": list(c["negation"]) or ["REQUEST"], "ambiguous": detect_ambiguity_graph(text, g).ambiguous}
+
+
+def semantic_fingerprint(text: str, config: dict | None = None, today=None) -> str:
+    from aixl.core.fingerprint import fingerprint_graph
+    return fingerprint_graph(to_graph(text), config, today)
+
+
+def semantic_fingerprint_aixl(aixl: str, config: dict | None = None, today=None) -> str:
+    from aixl.core.fingerprint import fingerprint_graph
+    return fingerprint_graph(aixl_codec.decode(aixl), config, today)

@@ -1,0 +1,5802 @@
+[
+ {
+  "id": "EQU-000",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analiza el documento en CSV ayer.",
+  "b": "Yesterday, examine the document as CSV.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-001",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Summarize the invoice yesterday.",
+  "b": "Yesterday, summarize the invoice.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-002",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Genera el documento en PDF hoy.",
+  "b": "Gere o documento em PDF hoje.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-003",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analiza el dataset mañana.",
+  "b": "Tomorrow, examine the dataset.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-004",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduza as vendas ontem.",
+  "b": "Translate the sales yesterday.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-005",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Resume el documento mañana.",
+  "b": "Mañana, resume el documento.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-006",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envie o dataset para Carlos em JSON ontem.",
+  "b": "Envía el dataset a Carlos en JSON ayer.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-007",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Translate the dataset yesterday.",
+  "b": "Ontem, traduza o dataset.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-008",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Resume el informe mañana.",
+  "b": "Resuma o relatório amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-009",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envía la factura a Ana ayer.",
+  "b": "Yesterday, send the invoice to Ana.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-010",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduce el informe en CSV hoy.",
+  "b": "Today, translate the report as CSV.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-011",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Summarize the dataset today.",
+  "b": "Resuma o dataset hoje.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-012",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Delete the sales today.",
+  "b": "Borra las ventas hoy.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-013",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Genera el informe en CSV ayer.",
+  "b": "Crea el informe en CSV ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-014",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Elimine as vendas amanhã.",
+  "b": "Mañana, borra las ventas.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-015",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envie o dataset para Marta hoje.",
+  "b": "Hoy, manda el dataset a Marta.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-016",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analyze the dataset as CSV yesterday.",
+  "b": "Examine o dataset em CSV ontem.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-017",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Send the document to Marta today.",
+  "b": "Hoje, mande o documento para Marta.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-018",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Elimine o documento em CSV hoje.",
+  "b": "Today, remove the document as CSV.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-019",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Resume el documento ayer.",
+  "b": "Summarize the document yesterday.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-020",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envie as vendas para Carlos amanhã.",
+  "b": "Mañana, manda las ventas a Carlos.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-021",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Translate the dataset as CSV today.",
+  "b": "Hoje, traduza o dataset em CSV.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-022",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Send the invoice to Marta tomorrow.",
+  "b": "Tomorrow, send the invoice to Marta.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-023",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Translate the sales tomorrow.",
+  "b": "Mañana, traduce las ventas.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-024",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduza o relatório amanhã.",
+  "b": "Translate the report tomorrow.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-025",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduza a fatura ontem.",
+  "b": "Yesterday, translate the invoice.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-026",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Analise o dataset hoje.",
+  "b": "Hoje, analise o dataset.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-027",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduza as vendas em JSON amanhã.",
+  "b": "Translate the sales as JSON tomorrow.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-028",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envie as vendas para Ana em JSON hoje.",
+  "b": "Today, send the sales to Ana as JSON.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-029",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Gere o dataset amanhã.",
+  "b": "Create the dataset tomorrow.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-030",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduce el documento hoy.",
+  "b": "Hoje, traduza o documento.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-031",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Elimina las ventas en JSON mañana.",
+  "b": "Mañana, elimina las ventas en JSON.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-032",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Translate the report as CSV yesterday.",
+  "b": "Traduza o relatório em CSV ontem.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-033",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envía el dataset a Lucía hoy.",
+  "b": "Today, send the dataset to Lucía.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-034",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Genera el documento en CSV mañana.",
+  "b": "Tomorrow, generate the document as CSV.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-035",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduce la factura ayer.",
+  "b": "Yesterday, translate the invoice.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-036",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Generate the invoice as JSON tomorrow.",
+  "b": "Genera la factura en JSON mañana.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-037",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analyze the report as CSV today.",
+  "b": "Analiza el informe en CSV hoy.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-038",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Elimina el informe en JSON ayer.",
+  "b": "Yesterday, remove the report as JSON.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-039",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analiza el dataset en JSON ayer.",
+  "b": "Yesterday, analyze the dataset as JSON.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-040",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analise o relatório hoje.",
+  "b": "Examine the report today.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-041",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Resuma a fatura hoje.",
+  "b": "Resume la factura hoy.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-042",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analyze the dataset as CSV yesterday.",
+  "b": "Ayer, examina el dataset en CSV.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-043",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Elimina el documento hoy.",
+  "b": "Hoy, borra el documento.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-044",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Genera las ventas en JSON hoy.",
+  "b": "Today, generate the sales as JSON.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-045",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Gere o dataset hoje.",
+  "b": "Hoje, crie o dataset.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-046",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Genera el documento ayer.",
+  "b": "Crie o documento ontem.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-047",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analyze the report as JSON tomorrow.",
+  "b": "Amanhã, analise o relatório em JSON.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-048",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Elimina el documento en CSV hoy.",
+  "b": "Hoy, elimina el documento en CSV.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-049",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analyze the document as JSON tomorrow.",
+  "b": "Analiza el documento en JSON mañana.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-050",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envie o documento para Pedro amanhã.",
+  "b": "Envía el documento a Pedro mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-051",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Envie o dataset para Marta hoje.",
+  "b": "Mande o dataset para Marta hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-052",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Elimina el documento hoy.",
+  "b": "Today, remove the document.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-053",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Elimine o relatório ontem.",
+  "b": "Yesterday, delete the report.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-054",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Summarize the sales today.",
+  "b": "Hoy, resume las ventas.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-055",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Summarize the report yesterday.",
+  "b": "Ontem, resuma o relatório.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-056",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Elimina el documento mañana.",
+  "b": "Tomorrow, delete the document.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-057",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envie as vendas para Carlos em CSV amanhã.",
+  "b": "Envía las ventas a Carlos en CSV mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-058",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analyze the invoice as CSV tomorrow.",
+  "b": "Amanhã, analise a fatura em CSV.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-059",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Delete the dataset as CSV yesterday.",
+  "b": "Ayer, borra el dataset en CSV.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-060",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Genera el documento mañana.",
+  "b": "Mañana, crea el documento.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-061",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envía el informe a Carlos en PDF mañana.",
+  "b": "Amanhã, envie o relatório para Carlos em PDF.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-062",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduza o documento em JSON amanhã.",
+  "b": "Mañana, traduce el documento en JSON.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-063",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envie o documento para Beto em PDF amanhã.",
+  "b": "Manda el documento a Beto en PDF mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-064",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Analyze the sales tomorrow.",
+  "b": "Tomorrow, examine the sales.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-065",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Genera el documento ayer.",
+  "b": "Ontem, crie o documento.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-066",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Generate the invoice yesterday.",
+  "b": "Gere a fatura ontem.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-067",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Traduza o documento em JSON hoje.",
+  "b": "Hoje, traduza o documento em JSON.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-068",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Resuma as vendas amanhã.",
+  "b": "Resume las ventas mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-069",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envie o documento para Lucía em CSV hoje.",
+  "b": "Send the document to Lucía as CSV today.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-070",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Resuma as vendas ontem.",
+  "b": "Yesterday, summarize the sales.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-071",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Elimina la factura en JSON hoy.",
+  "b": "Today, delete the invoice as JSON.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-072",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduce las ventas hoy.",
+  "b": "Traduza as vendas hoje.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-073",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envie a fatura para Carlos amanhã.",
+  "b": "Mañana, manda la factura a Carlos.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-074",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Envía el informe a Carlos en JSON ayer.",
+  "b": "Ayer, manda el informe a Carlos en JSON.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-075",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Delete the invoice as JSON today.",
+  "b": "Borra la factura en JSON hoy.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-076",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analise a fatura amanhã.",
+  "b": "Examina la factura mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-077",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envía las ventas a Ana hoy.",
+  "b": "Today, send the sales to Ana.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-078",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Elimine as vendas hoje.",
+  "b": "Remove the sales today.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-079",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envía el dataset a Ana mañana.",
+  "b": "Amanhã, envie o dataset para Ana.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-080",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envie o documento para Marta hoje.",
+  "b": "Hoy, envía el documento a Marta.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-081",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Genera las ventas ayer.",
+  "b": "Yesterday, create the sales.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-082",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Gere o relatório em CSV amanhã.",
+  "b": "Mañana, genera el informe en CSV.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-083",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Summarize the document as a PDF today.",
+  "b": "Hoje, resuma o documento em PDF.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-084",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Genera el dataset en CSV mañana.",
+  "b": "Tomorrow, create the dataset as CSV.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-085",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Translate the invoice as CSV yesterday.",
+  "b": "Ayer, traduce la factura en CSV.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-086",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduza o dataset ontem.",
+  "b": "Translate the dataset yesterday.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-087",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Elimine o dataset amanhã.",
+  "b": "Elimina el dataset mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-088",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduza as vendas em PDF amanhã.",
+  "b": "Tomorrow, translate the sales as a PDF.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-089",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Traduce el informe en JSON mañana.",
+  "b": "Amanhã, traduza o relatório em JSON.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-090",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envía el dataset a Beto en CSV hoy.",
+  "b": "Send the dataset to Beto as CSV today.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-091",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Resuma a fatura hoje.",
+  "b": "Hoy, resume la factura.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-092",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analyze the invoice today.",
+  "b": "Examine a fatura hoje.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-093",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Envía el documento a Lucía en CSV mañana.",
+  "b": "Tomorrow, send the document to Lucía as CSV.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-094",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Translate the document today.",
+  "b": "Today, translate the document.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-095",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analyze the sales tomorrow.",
+  "b": "Examine as vendas amanhã.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-096",
+  "label": "EQUIVALENT",
+  "kind": "paraphrase",
+  "a": "Delete the invoice as CSV tomorrow.",
+  "b": "Tomorrow, delete the invoice as CSV.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-097",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Genera la factura hoy.",
+  "b": "Hoje, gere a fatura.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-098",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Analiza el documento en PDF mañana.",
+  "b": "Analise o documento em PDF amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "EQU-099",
+  "label": "EQUIVALENT",
+  "kind": "cross-lingual",
+  "a": "Generate the invoice as CSV yesterday.",
+  "b": "Gere a fatura em CSV ontem.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "EQUIVALENT"
+ },
+ {
+  "id": "NOT-000",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Resume el informe hoy.",
+  "b": "Traduce el informe hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-001",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Generate the dataset tomorrow.",
+  "b": "Generate the dataset today.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-002",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Genera el informe ayer.",
+  "b": "Gere o relatório amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-003",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Elimina el documento mañana.",
+  "b": "Elimine o documento ontem.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-004",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Summarize the invoice today.",
+  "b": "Summarize the invoice yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-005",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Traduza as vendas amanhã.",
+  "b": "Traduce el dataset mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-006",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Generate the report tomorrow.",
+  "b": "Elimine o relatório amanhã.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-007",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Analiza el documento en CSV ayer.",
+  "b": "Analyze the document as a PDF yesterday.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-008",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Envía el dataset a Lucía mañana.",
+  "b": "Send the dataset to Lucía yesterday.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-009",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Resuma o relatório em PDF hoje.",
+  "b": "Resuma o relatório em CSV hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-010",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Envie o dataset para Lucía ontem.",
+  "b": "Send the dataset to Pedro yesterday.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-011",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Genera el informe hoy.",
+  "b": "Generate the report yesterday.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-012",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Envie as vendas para Carlos ontem.",
+  "b": "Envie as vendas para Ana ontem.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-013",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Summarize the document yesterday.",
+  "b": "Resuma o documento amanhã.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-014",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Elimine o documento em PDF amanhã.",
+  "b": "Elimina el documento en CSV mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-015",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Elimina las ventas en PDF hoy.",
+  "b": "Elimine as vendas em JSON hoje.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-016",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Analise as vendas em PDF amanhã.",
+  "b": "Analiza las ventas en CSV mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-017",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Resume la factura hoy.",
+  "b": "Summarize the invoice tomorrow.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-018",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Generate the invoice yesterday.",
+  "b": "Genera la factura mañana.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-019",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Gere o relatório amanhã.",
+  "b": "Analyze the report tomorrow.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-020",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Traduce las ventas ayer.",
+  "b": "Traduce las ventas hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-021",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Send the sales to Lucía today.",
+  "b": "Envía las ventas a Carlos hoy.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-022",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Genera la factura mañana.",
+  "b": "Generate the report tomorrow.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "NOT-023",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Analiza el dataset hoy.",
+  "b": "Analise o dataset amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-024",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Summarize the document today.",
+  "b": "Traduza o documento hoje.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-025",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Traduce el documento hoy.",
+  "b": "Traduce el documento ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-026",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Resuma as vendas amanhã.",
+  "b": "Summarize the sales today.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-027",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Send the report to Pedro today.",
+  "b": "Envie o relatório para Ana hoje.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-028",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Resume el informe ayer.",
+  "b": "Resume el dataset ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-029",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Genera las ventas ayer.",
+  "b": "Envía las ventas a Lucía ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-030",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Analyze the sales tomorrow.",
+  "b": "Analyze the sales yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-031",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Envie o dataset para Pedro amanhã.",
+  "b": "Envie o dataset para Ana amanhã.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-032",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Traduza o relatório hoje.",
+  "b": "Translate the report tomorrow.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-033",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Generate the dataset tomorrow.",
+  "b": "Generate the document tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-034",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Envía el dataset a Lucía ayer.",
+  "b": "Send the dataset to Ana yesterday.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-035",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Translate the sales tomorrow.",
+  "b": "Translate the dataset tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-036",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Resuma o dataset hoje.",
+  "b": "Resuma o documento hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-037",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Send the sales to Ana yesterday.",
+  "b": "Send the sales to Carlos yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-038",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Resume el dataset mañana.",
+  "b": "Resuma o dataset ontem.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-039",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Traduza as vendas ontem.",
+  "b": "Traduza o documento ontem.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-040",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Translate the report as JSON yesterday.",
+  "b": "Translate the report as CSV yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-041",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Envía la factura a Ana mañana.",
+  "b": "Gere a fatura amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-042",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Envía el informe a Beto en PDF ayer.",
+  "b": "Envía el informe a Beto en CSV ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-043",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Traduza o dataset amanhã.",
+  "b": "Analise o dataset amanhã.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-044",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Analise as vendas hoje.",
+  "b": "Send the sales to Ana today.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-045",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Traduce las ventas hoy.",
+  "b": "Traduce el dataset hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-046",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Analiza el documento en CSV ayer.",
+  "b": "Analise o documento em PDF ontem.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-047",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Genera las ventas ayer.",
+  "b": "Generate the invoice yesterday.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "NOT-048",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Envía el documento a Ana en CSV hoy.",
+  "b": "Envía el documento a Ana en PDF hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-049",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Traduza o relatório ontem.",
+  "b": "Traduza o dataset ontem.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-050",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Generate the document today.",
+  "b": "Genera el informe hoy.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-051",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Delete the dataset yesterday.",
+  "b": "Delete the dataset tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-052",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Gere o relatório em JSON amanhã.",
+  "b": "Gere o relatório em PDF amanhã.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-053",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Elimina el informe hoy.",
+  "b": "Resume el informe hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-054",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Analise o documento amanhã.",
+  "b": "Analise o dataset amanhã.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-055",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Send the document to Ana today.",
+  "b": "Send the report to Ana today.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-056",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Envía las ventas a Carlos hoy.",
+  "b": "Send the sales to Ana today.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-057",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Elimina el documento ayer.",
+  "b": "Elimina las ventas ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-058",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Analiza el dataset en CSV hoy.",
+  "b": "Analyze the dataset as JSON today.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-059",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Genera el informe ayer.",
+  "b": "Generate the sales yesterday.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-060",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Summarize the report today.",
+  "b": "Traduza o relatório hoje.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-061",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Traduce el documento mañana.",
+  "b": "Traduce el documento hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-062",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Elimina el documento mañana.",
+  "b": "Elimina el documento hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-063",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Gere o documento hoje.",
+  "b": "Gere o relatório hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-064",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Analyze the invoice yesterday.",
+  "b": "Analise a fatura amanhã.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-065",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Resume las ventas mañana.",
+  "b": "Resuma o documento amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-066",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Elimine o documento ontem.",
+  "b": "Delete the document tomorrow.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-067",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Resume el informe en CSV mañana.",
+  "b": "Resuma o relatório em PDF amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-068",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Traduza as vendas em JSON ontem.",
+  "b": "Translate the sales as a PDF yesterday.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-069",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Envía la factura a Beto mañana.",
+  "b": "Envie a fatura para Lucía amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-070",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Send the sales to Beto today.",
+  "b": "Envie as vendas para Pedro hoje.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-071",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Resume el documento mañana.",
+  "b": "Analiza el documento mañana.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-072",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Summarize the invoice as JSON tomorrow.",
+  "b": "Resuma a fatura em CSV amanhã.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-073",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Resume el dataset ayer.",
+  "b": "Resuma o documento ontem.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-074",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Analiza el informe ayer.",
+  "b": "Analiza el dataset ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-075",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Summarize the dataset yesterday.",
+  "b": "Resuma as vendas ontem.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-076",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Send the report to Lucía as JSON today.",
+  "b": "Envie o relatório para Lucía em CSV hoje.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-077",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Summarize the document tomorrow.",
+  "b": "Delete the document tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-078",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Generate the sales today.",
+  "b": "Genera las ventas mañana.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-079",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Envía el documento a Ana ayer.",
+  "b": "Envie o documento para Pedro ontem.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-080",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Analyze the document as JSON yesterday.",
+  "b": "Analiza el documento en CSV ayer.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-081",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Envie o relatório para Ana amanhã.",
+  "b": "Envie o relatório para Pedro amanhã.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-082",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Summarize the dataset tomorrow.",
+  "b": "Envía el dataset a Pedro mañana.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-083",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Traduce el documento mañana.",
+  "b": "Traduce el dataset mañana.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-084",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Delete the report today.",
+  "b": "Delete the document today.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-085",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Envie a fatura para Beto hoje.",
+  "b": "Send the invoice to Lucía today.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-086",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Analise o documento hoje.",
+  "b": "Traduza o documento hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-087",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Genera el informe en PDF ayer.",
+  "b": "Genera el informe en CSV ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-088",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Generate the document today.",
+  "b": "Generate the invoice today.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "NOT-089",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Gere as vendas em JSON hoje.",
+  "b": "Genera las ventas en CSV hoy.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-090",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Resuma a fatura amanhã.",
+  "b": "Summarize the invoice today.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-091",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Genera el documento hoy.",
+  "b": "Genera el documento mañana.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-092",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Traduce las ventas hoy.",
+  "b": "Analise as vendas hoje.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-093",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Delete the dataset as a PDF today.",
+  "b": "Elimine o dataset em CSV hoje.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-094",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Envie o relatório para Pedro ontem.",
+  "b": "Send the report to Carlos yesterday.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-095",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:time",
+  "a": "Elimina el informe ayer.",
+  "b": "Elimina el informe hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-096",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:format",
+  "a": "Genera las ventas en CSV hoy.",
+  "b": "Gere as vendas em PDF hoje.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-097",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:action",
+  "a": "Envía el documento a Lucía hoy.",
+  "b": "Analiza el documento hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-098",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:object",
+  "a": "Generate the dataset yesterday.",
+  "b": "Genera las ventas ayer.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "NOT-099",
+  "label": "NOT_EQUIVALENT",
+  "kind": "slot-changed:target",
+  "a": "Envía el documento a Beto ayer.",
+  "b": "Envía el documento a Pedro ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "NOT_EQUIVALENT"
+ },
+ {
+  "id": "PAR-000",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Elimine o dataset em PDF ontem.",
+  "b": "Delete the dataset yesterday.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-001",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Analyze the report today.",
+  "b": "Analyze the report as CSV today.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-002",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Analise as vendas em JSON amanhã.",
+  "b": "Analiza las ventas mañana.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-003",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the sales today.",
+  "b": "Envía las ventas a Lucía hoy.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-004",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Elimina el informe en JSON ayer.",
+  "b": "Delete the report yesterday.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-005",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Generate the dataset today.",
+  "b": "Gere o dataset em PDF hoje.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-006",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Send the dataset to Carlos as JSON yesterday.",
+  "b": "Envía el dataset a Carlos ayer.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-007",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Traduce la factura mañana.",
+  "b": "Traduza a fatura em PDF amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-008",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Send the dataset to Marta.",
+  "b": "Envie o dataset para Marta ontem.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-009",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envie a fatura amanhã.",
+  "b": "Envía la factura a Beto mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-010",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Send the report to Marta.",
+  "b": "Envie o relatório para Marta ontem.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-011",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía la factura a Ana hoy.",
+  "b": "Envía la factura hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-012",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía el dataset ayer.",
+  "b": "Envía el dataset a Beto ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-013",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Analyze the dataset.",
+  "b": "Analyze the dataset tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-014",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the document to Carlos yesterday.",
+  "b": "Send the document yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-015",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Summarize the sales tomorrow.",
+  "b": "Summarize the sales as CSV tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-016",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the sales tomorrow.",
+  "b": "Envie as vendas para Ana amanhã.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-017",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Genera el documento mañana.",
+  "b": "Genera el documento.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-018",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envie o documento amanhã.",
+  "b": "Envie o documento para Beto amanhã.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-019",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Analiza la factura mañana.",
+  "b": "Analiza la factura.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-020",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Elimine o relatório ontem.",
+  "b": "Delete the report.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-021",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Send the dataset to Marta yesterday.",
+  "b": "Envía el dataset a Marta en JSON ayer.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-022",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Traduza o documento.",
+  "b": "Traduce el documento mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-023",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the dataset today.",
+  "b": "Envie o dataset para Lucía hoje.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-024",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Traduza o dataset ontem.",
+  "b": "Traduza o dataset em CSV ontem.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-025",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Delete the document as a PDF yesterday.",
+  "b": "Delete the document yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-026",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía el dataset a Carlos mañana.",
+  "b": "Send the dataset tomorrow.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-027",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Traduce la factura mañana.",
+  "b": "Traduce la factura en PDF mañana.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-028",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the report today.",
+  "b": "Send the report to Ana today.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-029",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía el informe a Ana ayer.",
+  "b": "Send the report yesterday.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-030",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envie o relatório para Beto hoje.",
+  "b": "Envie o relatório hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-031",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Translate the dataset as CSV today.",
+  "b": "Traduza o dataset hoje.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-032",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envie o documento para Carlos hoje.",
+  "b": "Envía el documento hoy.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-033",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía las ventas mañana.",
+  "b": "Envie as vendas para Pedro amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-034",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Traduce el documento ayer.",
+  "b": "Translate the document as JSON yesterday.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-035",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía el documento mañana.",
+  "b": "Send the document to Lucía tomorrow.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-036",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Summarize the document as CSV yesterday.",
+  "b": "Resume el documento ayer.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-037",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Delete the document yesterday.",
+  "b": "Elimina el documento en JSON ayer.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-038",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Resume el documento mañana.",
+  "b": "Summarize the document as a PDF tomorrow.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-039",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía las ventas hoy.",
+  "b": "Envie as vendas para Carlos hoje.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-040",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Send the document to Marta tomorrow.",
+  "b": "Envie o documento para Marta.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-041",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Send the sales to Carlos tomorrow.",
+  "b": "Send the sales to Carlos as JSON tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-042",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Resume la factura ayer.",
+  "b": "Summarize the invoice as JSON yesterday.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-043",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envie as vendas para Marta hoje.",
+  "b": "Envie as vendas hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-044",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Delete the document today.",
+  "b": "Elimine o documento.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-045",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Elimina el informe.",
+  "b": "Elimine o relatório hoje.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-046",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the invoice to Pedro today.",
+  "b": "Envía la factura hoy.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-047",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Envía el dataset a Pedro hoy.",
+  "b": "Envie o dataset para Pedro em JSON hoje.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-048",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía el dataset a Pedro mañana.",
+  "b": "Send the dataset tomorrow.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-049",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Elimine o documento amanhã.",
+  "b": "Delete the document.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-050",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Send the dataset to Ana as CSV yesterday.",
+  "b": "Send the dataset to Ana yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-051",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Resuma o relatório amanhã.",
+  "b": "Resuma o relatório em PDF amanhã.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-052",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Translate the invoice.",
+  "b": "Traduce la factura ayer.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-053",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Elimina el informe en PDF ayer.",
+  "b": "Elimina el informe ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-054",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Envía las ventas a Carlos mañana.",
+  "b": "Envie as vendas para Carlos.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-055",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Analise o relatório.",
+  "b": "Analiza el informe mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-056",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Genera la factura mañana.",
+  "b": "Generate the invoice as JSON tomorrow.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-057",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envie o documento para Marta hoje.",
+  "b": "Envía el documento hoy.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-058",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Elimina el dataset mañana.",
+  "b": "Delete the dataset.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-059",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Generate the report tomorrow.",
+  "b": "Genera el informe.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-060",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Envie o documento para Marta em PDF hoje.",
+  "b": "Envía el documento a Marta hoy.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-061",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía las ventas a Pedro mañana.",
+  "b": "Envie as vendas amanhã.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-062",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía el documento mañana.",
+  "b": "Envía el documento a Ana mañana.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-063",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía el informe a Lucía hoy.",
+  "b": "Send the report today.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-064",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía el dataset ayer.",
+  "b": "Send the dataset to Ana yesterday.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-065",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envía las ventas a Marta ayer.",
+  "b": "Envía las ventas ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-066",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Envie o relatório para Beto em PDF ontem.",
+  "b": "Envía el informe a Beto ayer.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-067",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the document to Marta yesterday.",
+  "b": "Envía el documento ayer.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-068",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Generate the report as a PDF tomorrow.",
+  "b": "Generate the report tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-069",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Send the invoice to Carlos as JSON yesterday.",
+  "b": "Envía la factura a Carlos ayer.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-070",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the sales tomorrow.",
+  "b": "Send the sales to Ana tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-071",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Resume el informe.",
+  "b": "Resuma o relatório hoje.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-072",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Gere as vendas em PDF hoje.",
+  "b": "Gere as vendas hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-073",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Envía el dataset a Carlos.",
+  "b": "Send the dataset to Carlos tomorrow.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-074",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Send the dataset to Beto yesterday.",
+  "b": "Send the dataset to Beto.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-075",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Envía el informe a Beto.",
+  "b": "Envía el informe a Beto ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-076",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Resume el dataset mañana.",
+  "b": "Resuma o dataset em CSV amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-077",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Envía la factura a Pedro ayer.",
+  "b": "Envie a fatura para Pedro.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-078",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Translate the sales yesterday.",
+  "b": "Traduce las ventas en JSON ayer.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-079",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Send the sales to Pedro as a PDF tomorrow.",
+  "b": "Envía las ventas a Pedro mañana.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-080",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envie o relatório ontem.",
+  "b": "Envie o relatório para Marta ontem.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-081",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Resuma o documento amanhã.",
+  "b": "Resuma o documento em PDF amanhã.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-082",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Elimine o documento hoje.",
+  "b": "Elimine o documento em JSON hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-083",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Envie o dataset para Ana em JSON amanhã.",
+  "b": "Envie o dataset para Ana amanhã.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-084",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Delete the sales yesterday.",
+  "b": "Delete the sales as a PDF yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-085",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Genera el dataset.",
+  "b": "Generate the dataset today.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-086",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envie o dataset para Marta amanhã.",
+  "b": "Envía el dataset mañana.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-087",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the dataset today.",
+  "b": "Envía el dataset a Beto hoy.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-088",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Elimina el documento.",
+  "b": "Elimine o documento amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-089",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Traduce la factura hoy.",
+  "b": "Traduce la factura.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-090",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Traduce la factura en CSV ayer.",
+  "b": "Traduce la factura ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-091",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Envía el documento a Carlos en PDF ayer.",
+  "b": "Envía el documento a Carlos ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-092",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Analiza el dataset mañana.",
+  "b": "Analise o dataset em CSV amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-093",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Envie as vendas para Beto ontem.",
+  "b": "Envía las ventas ayer.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-094",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:time",
+  "a": "Translate the dataset tomorrow.",
+  "b": "Translate the dataset.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-095",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the document to Carlos tomorrow.",
+  "b": "Envía el documento mañana.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-096",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the document to Lucía today.",
+  "b": "Envie o documento hoje.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-097",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:target",
+  "a": "Send the sales to Marta yesterday.",
+  "b": "Send the sales yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-098",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Elimina el documento mañana.",
+  "b": "Elimina el documento en JSON mañana.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "PAR-099",
+  "label": "PARTIALLY_EQUIVALENT",
+  "kind": "extra-slot:format",
+  "a": "Summarize the document tomorrow.",
+  "b": "Summarize the document as JSON tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "AMB-000",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envía aquello.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-001",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Send this.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-002",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analyze it.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-003",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Delete it.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-004",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envía ambos.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-005",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Gere isto para ele.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-006",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Summarize the other ones.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-007",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Send it.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-008",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Traduza isto para ele.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-009",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Generate that.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-010",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Elimina eso.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-011",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Elimine aquilo.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-012",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Summarize both.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-013",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Delete both.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-014",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Traduza aquilo.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-015",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analyze the other ones.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-016",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Genera el archivo viejo.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-017",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analise ambos.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-018",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Send it to him.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-019",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Elimina los otros.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-020",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Resuma aquilo.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-021",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analise isto para ele.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-022",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Gere tudo.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-023",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Genera ambos.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-024",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Gere aquele.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-025",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envie isso.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-026",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Translate everything.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-027",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envie aquilo.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-028",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envie tudo.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-029",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Elimina el archivo viejo.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-030",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analizalo.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-031",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Gere aquilo.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-032",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analyze it to him.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-033",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analiza el archivo viejo.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-034",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Resuma ambos.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-035",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Resume eso.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-036",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Elimine aquele.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-037",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Translate this.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-038",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Send both.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-039",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Send the other ones.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-040",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Delete everything.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-041",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Translate that.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-042",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analyze both.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-043",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Gere os outros.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-044",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Translate it to him.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-045",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Traduza os outros.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-046",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Resumelo.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-047",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Delete those.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-048",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Send that.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-049",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Elimina aquello.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-050",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Send everything.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-051",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Resume todo.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-052",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Generate the other ones.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-053",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Resuma isto para ele.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-054",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Generate this.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-055",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Traduce ambos.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-056",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Traduce eso.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-057",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analyze everything.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-058",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Delete the other ones.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-059",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Summarize those.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-060",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Genera todo.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-061",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analise aquele.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-062",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analise os outros.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-063",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envie aquele.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-064",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Genera aquello.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-065",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analiza los otros.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-066",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Generate everything.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-067",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Delete this.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-068",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envía eso.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-069",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Elimine tudo.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-070",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Resuma isso.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-071",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Elimine ambos.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-072",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Genera los otros.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-073",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Elimina ambos.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-074",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analiza aquello.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-075",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Translate the other ones.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-076",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analiza todo.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-077",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Summarize that.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-078",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Resume los otros.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-079",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envía el archivo viejo.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-080",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Traduce esto a él.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-081",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Traduza aquele.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-082",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Traduza ambos.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-083",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Eliminalo.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-084",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Translate those.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-085",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envía los otros.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-086",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Gere isso.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-087",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Resume aquello.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-088",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Analiza ambos.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-089",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envie isto para ele.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-090",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Traduce los otros.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-091",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Genera eso.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-092",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envie os outros.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-093",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Traduce todo.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-094",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Elimine os outros.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "UNAMBIGUOUS"
+ },
+ {
+  "id": "AMB-095",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Gere ambos.",
+  "langs": [
+   "pt"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-096",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Translate both.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-097",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Translate it.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-098",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Envía esto a él.",
+  "langs": [
+   "es"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "AMB-099",
+  "label": "AMBIGUOUS",
+  "kind": "vague-referent",
+  "a": "Summarize everything.",
+  "langs": [
+   "en"
+  ],
+  "pred": "AMBIGUOUS"
+ },
+ {
+  "id": "CON-000",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Summarize the invoice yesterday.",
+  "b": "Do not summarize the invoice yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-001",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analise as vendas ontem.",
+  "b": "No analices las ventas ayer.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-002",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Genera el dataset ayer.",
+  "b": "No generes el dataset ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-003",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Resuma a fatura hoje.",
+  "b": "Não resuma a fatura hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-004",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analiza la factura antes de 2026-03-15.",
+  "b": "Analiza la factura después de 2026-03-15.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-005",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Resume el dataset mañana.",
+  "b": "Do not summarize the dataset tomorrow.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-006",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Envía el dataset a Ana mañana.",
+  "b": "No envíes el dataset a Ana mañana.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-007",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Resume la factura mañana.",
+  "b": "Do not summarize the invoice tomorrow.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-008",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Ative o painel.",
+  "b": "Desative o painel.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "CON-009",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Send the sales to Marta yesterday.",
+  "b": "No envíes las ventas a Marta ayer.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-010",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analise o relatório antes de 2026-03-15.",
+  "b": "Analyze the report after 2026-03-15.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-011",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Allow deleting the document.",
+  "b": "Forbid deleting the document.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-012",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Generate the invoice today.",
+  "b": "No generes la factura hoy.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-013",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Traduza a fatura amanhã.",
+  "b": "No traduzcas la factura mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-014",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analyze the dataset today.",
+  "b": "Do not analyze the dataset today.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-015",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Allow deleting the sales.",
+  "b": "Forbid deleting the sales.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-016",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Ative o painel.",
+  "b": "Desactiva el panel.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "CON-017",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analiza el informe antes de 2026-12-31.",
+  "b": "Analise o relatório depois de 2026-12-31.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "CON-018",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Delete the invoice yesterday.",
+  "b": "No elimines la factura ayer.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-019",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Traduza o relatório ontem.",
+  "b": "Do not translate the report yesterday.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-020",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Ative o relatório.",
+  "b": "Desative o relatório.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "CON-021",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analyze the sales tomorrow.",
+  "b": "Do not analyze the sales tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-022",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Enable the dashboard.",
+  "b": "Desative o painel.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-023",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Activa el panel.",
+  "b": "Desactiva el panel.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-024",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analise o dataset antes de 2026-06-01.",
+  "b": "Analise o dataset depois de 2026-06-01.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "CON-025",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Permita eliminar o documento.",
+  "b": "Proíba eliminar o documento.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-026",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Translate the dataset tomorrow.",
+  "b": "Do not translate the dataset tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-027",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Enable the dashboard.",
+  "b": "Disable the dashboard.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-028",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Resuma o dataset amanhã.",
+  "b": "No resumas el dataset mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-029",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Elimine o documento amanhã.",
+  "b": "Não elimine o documento amanhã.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-030",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analyze the report yesterday.",
+  "b": "Do not analyze the report yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-031",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Envie o documento para Carlos amanhã.",
+  "b": "No envíes el documento a Carlos mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-032",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analiza el dataset mañana.",
+  "b": "Não analise o dataset amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-033",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Gere o dataset ontem.",
+  "b": "Do not generate the dataset yesterday.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-034",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Traduza o relatório amanhã.",
+  "b": "Do not translate the report tomorrow.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-035",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analise a fatura antes de 2026-06-01.",
+  "b": "Analiza la factura después de 2026-06-01.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-036",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Permita eliminar as vendas.",
+  "b": "Forbid deleting the sales.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-037",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analiza la factura antes de 2026-03-15.",
+  "b": "Analyze the invoice after 2026-03-15.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-038",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analyze the report before 2026-06-01.",
+  "b": "Analise o relatório depois de 2026-06-01.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "CON-039",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Elimina las ventas hoy.",
+  "b": "Do not delete the sales today.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-040",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Enable the alert.",
+  "b": "Disable the alert.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-041",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Permite eliminar el documento.",
+  "b": "Proíba eliminar o documento.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-042",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analiza el dataset hoy.",
+  "b": "No analices el dataset hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-043",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Gere as vendas ontem.",
+  "b": "Não gere as vendas ontem.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-044",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Allow deleting the dataset.",
+  "b": "Proíba eliminar o dataset.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-045",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Elimina las ventas mañana.",
+  "b": "Do not delete the sales tomorrow.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-046",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Send the report to Pedro tomorrow.",
+  "b": "No envíes el informe a Pedro mañana.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-047",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Resuma a fatura hoje.",
+  "b": "No resumas la factura hoy.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-048",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Delete the document yesterday.",
+  "b": "No elimines el documento ayer.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-049",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Traduza a fatura hoje.",
+  "b": "Do not translate the invoice today.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-050",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analiza el documento antes de 2026-06-01.",
+  "b": "Analyze the document after 2026-06-01.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-051",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Send the document to Beto today.",
+  "b": "Do not send the document to Beto today.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-052",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Permita eliminar as vendas.",
+  "b": "Prohíbe eliminar las ventas.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-053",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analyze the dataset before 2026-03-15.",
+  "b": "Analiza el dataset después de 2026-03-15.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-054",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Activa la alerta.",
+  "b": "Desative o alerta.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-055",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Delete the report today.",
+  "b": "Não elimine o relatório hoje.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-056",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Traduce la factura ayer.",
+  "b": "No traduzcas la factura ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-057",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Summarize the sales today.",
+  "b": "Do not summarize the sales today.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-058",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analise o documento amanhã.",
+  "b": "No analices el documento mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-059",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Elimina el dataset mañana.",
+  "b": "No elimines el dataset mañana.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-060",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Traduce la factura ayer.",
+  "b": "Não traduza a fatura ontem.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-061",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Permite eliminar el informe.",
+  "b": "Prohíbe eliminar el informe.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-062",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Permita eliminar o relatório.",
+  "b": "Prohíbe eliminar el informe.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-063",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Translate the report yesterday.",
+  "b": "No traduzcas el informe ayer.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-064",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Resuma o documento amanhã.",
+  "b": "Do not summarize the document tomorrow.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-065",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Permite eliminar el informe.",
+  "b": "Forbid deleting the report.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-066",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Envie o relatório para Pedro hoje.",
+  "b": "Não envie o relatório para Pedro hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-067",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Gere o documento hoje.",
+  "b": "Não gere o documento hoje.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-068",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Translate the document tomorrow.",
+  "b": "Não traduza o documento amanhã.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-069",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Allow deleting the dataset.",
+  "b": "Forbid deleting the dataset.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-070",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Ative o relatório.",
+  "b": "Desactiva el reporte.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "CON-071",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Resuma o relatório amanhã.",
+  "b": "Do not summarize the report tomorrow.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-072",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Enable the dashboard.",
+  "b": "Desactiva el panel.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-073",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analiza las ventas antes de 2026-03-15.",
+  "b": "Analiza las ventas después de 2026-03-15.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-074",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Resuma o documento hoje.",
+  "b": "Do not summarize the document today.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-075",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analyze the document before 2026-06-01.",
+  "b": "Analise o documento depois de 2026-06-01.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "CON-076",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analyze the report tomorrow.",
+  "b": "No analices el informe mañana.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-077",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Allow deleting the invoice.",
+  "b": "Prohíbe eliminar la factura.",
+  "langs": [
+   "en",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-078",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Generate the invoice today.",
+  "b": "Do not generate the invoice today.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-079",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Genera la factura mañana.",
+  "b": "No generes la factura mañana.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-080",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Elimine o documento amanhã.",
+  "b": "No elimines el documento mañana.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-081",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Resume el informe ayer.",
+  "b": "Do not summarize the report yesterday.",
+  "langs": [
+   "es",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-082",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Delete the sales today.",
+  "b": "Do not delete the sales today.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-083",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analiza el documento mañana.",
+  "b": "Não analise o documento amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-084",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analyze the dataset before 2026-06-01.",
+  "b": "Analyze the dataset after 2026-06-01.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-085",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Traduza a fatura amanhã.",
+  "b": "Não traduza a fatura amanhã.",
+  "langs": [
+   "pt",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-086",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Permite eliminar las ventas.",
+  "b": "Prohíbe eliminar las ventas.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-087",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Resume la factura mañana.",
+  "b": "No resumas la factura mañana.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-088",
+  "label": "CONTRADICTORY",
+  "kind": "contra:allow",
+  "a": "Allow deleting the report.",
+  "b": "Proíba eliminar o relatório.",
+  "langs": [
+   "en",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-089",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analiza el dataset ayer.",
+  "b": "No analices el dataset ayer.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-090",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analiza las ventas mañana.",
+  "b": "Não analise as vendas amanhã.",
+  "langs": [
+   "es",
+   "pt"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-091",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analiza el informe hoy.",
+  "b": "No analices el informe hoy.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-092",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Delete the report tomorrow.",
+  "b": "Do not delete the report tomorrow.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-093",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Activa la alerta.",
+  "b": "Desactiva la alerta.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-094",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Analyze the dataset yesterday.",
+  "b": "Do not analyze the dataset yesterday.",
+  "langs": [
+   "en",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-095",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Envía las ventas a Marta mañana.",
+  "b": "No envíes las ventas a Marta mañana.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-096",
+  "label": "CONTRADICTORY",
+  "kind": "contra:enable",
+  "a": "Ative o alerta.",
+  "b": "Disable the alert.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "PARTIALLY_EQUIVALENT"
+ },
+ {
+  "id": "CON-097",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Gere o documento amanhã.",
+  "b": "Do not generate the document tomorrow.",
+  "langs": [
+   "pt",
+   "en"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-098",
+  "label": "CONTRADICTORY",
+  "kind": "contra:negation",
+  "a": "Resuma o documento ontem.",
+  "b": "No resumas el documento ayer.",
+  "langs": [
+   "pt",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ },
+ {
+  "id": "CON-099",
+  "label": "CONTRADICTORY",
+  "kind": "contra:time",
+  "a": "Analiza el documento antes de 2026-03-15.",
+  "b": "Analiza el documento después de 2026-03-15.",
+  "langs": [
+   "es",
+   "es"
+  ],
+  "pred": "CONTRADICTORY"
+ }
+]

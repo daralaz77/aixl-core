@@ -1,0 +1,100 @@
+{"id": "CON-000", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Summarize the invoice yesterday.", "b": "Do not summarize the invoice yesterday.", "langs": ["en", "en"]}
+{"id": "CON-001", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analise as vendas ontem.", "b": "No analices las ventas ayer.", "langs": ["pt", "es"]}
+{"id": "CON-002", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Genera el dataset ayer.", "b": "No generes el dataset ayer.", "langs": ["es", "es"]}
+{"id": "CON-003", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Resuma a fatura hoje.", "b": "Não resuma a fatura hoje.", "langs": ["pt", "pt"]}
+{"id": "CON-004", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analiza la factura antes de 2026-03-15.", "b": "Analiza la factura después de 2026-03-15.", "langs": ["es", "es"]}
+{"id": "CON-005", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Resume el dataset mañana.", "b": "Do not summarize the dataset tomorrow.", "langs": ["es", "en"]}
+{"id": "CON-006", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Envía el dataset a Ana mañana.", "b": "No envíes el dataset a Ana mañana.", "langs": ["es", "es"]}
+{"id": "CON-007", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Resume la factura mañana.", "b": "Do not summarize the invoice tomorrow.", "langs": ["es", "en"]}
+{"id": "CON-008", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Ative o painel.", "b": "Desative o painel.", "langs": ["pt", "pt"]}
+{"id": "CON-009", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Send the sales to Marta yesterday.", "b": "No envíes las ventas a Marta ayer.", "langs": ["en", "es"]}
+{"id": "CON-010", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analise o relatório antes de 2026-03-15.", "b": "Analyze the report after 2026-03-15.", "langs": ["pt", "en"]}
+{"id": "CON-011", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Allow deleting the document.", "b": "Forbid deleting the document.", "langs": ["en", "en"]}
+{"id": "CON-012", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Generate the invoice today.", "b": "No generes la factura hoy.", "langs": ["en", "es"]}
+{"id": "CON-013", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Traduza a fatura amanhã.", "b": "No traduzcas la factura mañana.", "langs": ["pt", "es"]}
+{"id": "CON-014", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analyze the dataset today.", "b": "Do not analyze the dataset today.", "langs": ["en", "en"]}
+{"id": "CON-015", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Allow deleting the sales.", "b": "Forbid deleting the sales.", "langs": ["en", "en"]}
+{"id": "CON-016", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Ative o painel.", "b": "Desactiva el panel.", "langs": ["pt", "es"]}
+{"id": "CON-017", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analiza el informe antes de 2026-12-31.", "b": "Analise o relatório depois de 2026-12-31.", "langs": ["es", "pt"]}
+{"id": "CON-018", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Delete the invoice yesterday.", "b": "No elimines la factura ayer.", "langs": ["en", "es"]}
+{"id": "CON-019", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Traduza o relatório ontem.", "b": "Do not translate the report yesterday.", "langs": ["pt", "en"]}
+{"id": "CON-020", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Ative o relatório.", "b": "Desative o relatório.", "langs": ["pt", "pt"]}
+{"id": "CON-021", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analyze the sales tomorrow.", "b": "Do not analyze the sales tomorrow.", "langs": ["en", "en"]}
+{"id": "CON-022", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Enable the dashboard.", "b": "Desative o painel.", "langs": ["en", "pt"]}
+{"id": "CON-023", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Activa el panel.", "b": "Desactiva el panel.", "langs": ["es", "es"]}
+{"id": "CON-024", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analise o dataset antes de 2026-06-01.", "b": "Analise o dataset depois de 2026-06-01.", "langs": ["pt", "pt"]}
+{"id": "CON-025", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Permita eliminar o documento.", "b": "Proíba eliminar o documento.", "langs": ["pt", "pt"]}
+{"id": "CON-026", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Translate the dataset tomorrow.", "b": "Do not translate the dataset tomorrow.", "langs": ["en", "en"]}
+{"id": "CON-027", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Enable the dashboard.", "b": "Disable the dashboard.", "langs": ["en", "en"]}
+{"id": "CON-028", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Resuma o dataset amanhã.", "b": "No resumas el dataset mañana.", "langs": ["pt", "es"]}
+{"id": "CON-029", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Elimine o documento amanhã.", "b": "Não elimine o documento amanhã.", "langs": ["pt", "pt"]}
+{"id": "CON-030", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analyze the report yesterday.", "b": "Do not analyze the report yesterday.", "langs": ["en", "en"]}
+{"id": "CON-031", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Envie o documento para Carlos amanhã.", "b": "No envíes el documento a Carlos mañana.", "langs": ["pt", "es"]}
+{"id": "CON-032", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analiza el dataset mañana.", "b": "Não analise o dataset amanhã.", "langs": ["es", "pt"]}
+{"id": "CON-033", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Gere o dataset ontem.", "b": "Do not generate the dataset yesterday.", "langs": ["pt", "en"]}
+{"id": "CON-034", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Traduza o relatório amanhã.", "b": "Do not translate the report tomorrow.", "langs": ["pt", "en"]}
+{"id": "CON-035", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analise a fatura antes de 2026-06-01.", "b": "Analiza la factura después de 2026-06-01.", "langs": ["pt", "es"]}
+{"id": "CON-036", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Permita eliminar as vendas.", "b": "Forbid deleting the sales.", "langs": ["pt", "en"]}
+{"id": "CON-037", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analiza la factura antes de 2026-03-15.", "b": "Analyze the invoice after 2026-03-15.", "langs": ["es", "en"]}
+{"id": "CON-038", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analyze the report before 2026-06-01.", "b": "Analise o relatório depois de 2026-06-01.", "langs": ["en", "pt"]}
+{"id": "CON-039", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Elimina las ventas hoy.", "b": "Do not delete the sales today.", "langs": ["es", "en"]}
+{"id": "CON-040", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Enable the alert.", "b": "Disable the alert.", "langs": ["en", "en"]}
+{"id": "CON-041", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Permite eliminar el documento.", "b": "Proíba eliminar o documento.", "langs": ["es", "pt"]}
+{"id": "CON-042", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analiza el dataset hoy.", "b": "No analices el dataset hoy.", "langs": ["es", "es"]}
+{"id": "CON-043", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Gere as vendas ontem.", "b": "Não gere as vendas ontem.", "langs": ["pt", "pt"]}
+{"id": "CON-044", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Allow deleting the dataset.", "b": "Proíba eliminar o dataset.", "langs": ["en", "pt"]}
+{"id": "CON-045", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Elimina las ventas mañana.", "b": "Do not delete the sales tomorrow.", "langs": ["es", "en"]}
+{"id": "CON-046", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Send the report to Pedro tomorrow.", "b": "No envíes el informe a Pedro mañana.", "langs": ["en", "es"]}
+{"id": "CON-047", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Resuma a fatura hoje.", "b": "No resumas la factura hoy.", "langs": ["pt", "es"]}
+{"id": "CON-048", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Delete the document yesterday.", "b": "No elimines el documento ayer.", "langs": ["en", "es"]}
+{"id": "CON-049", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Traduza a fatura hoje.", "b": "Do not translate the invoice today.", "langs": ["pt", "en"]}
+{"id": "CON-050", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analiza el documento antes de 2026-06-01.", "b": "Analyze the document after 2026-06-01.", "langs": ["es", "en"]}
+{"id": "CON-051", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Send the document to Beto today.", "b": "Do not send the document to Beto today.", "langs": ["en", "en"]}
+{"id": "CON-052", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Permita eliminar as vendas.", "b": "Prohíbe eliminar las ventas.", "langs": ["pt", "es"]}
+{"id": "CON-053", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analyze the dataset before 2026-03-15.", "b": "Analiza el dataset después de 2026-03-15.", "langs": ["en", "es"]}
+{"id": "CON-054", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Activa la alerta.", "b": "Desative o alerta.", "langs": ["es", "pt"]}
+{"id": "CON-055", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Delete the report today.", "b": "Não elimine o relatório hoje.", "langs": ["en", "pt"]}
+{"id": "CON-056", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Traduce la factura ayer.", "b": "No traduzcas la factura ayer.", "langs": ["es", "es"]}
+{"id": "CON-057", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Summarize the sales today.", "b": "Do not summarize the sales today.", "langs": ["en", "en"]}
+{"id": "CON-058", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analise o documento amanhã.", "b": "No analices el documento mañana.", "langs": ["pt", "es"]}
+{"id": "CON-059", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Elimina el dataset mañana.", "b": "No elimines el dataset mañana.", "langs": ["es", "es"]}
+{"id": "CON-060", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Traduce la factura ayer.", "b": "Não traduza a fatura ontem.", "langs": ["es", "pt"]}
+{"id": "CON-061", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Permite eliminar el informe.", "b": "Prohíbe eliminar el informe.", "langs": ["es", "es"]}
+{"id": "CON-062", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Permita eliminar o relatório.", "b": "Prohíbe eliminar el informe.", "langs": ["pt", "es"]}
+{"id": "CON-063", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Translate the report yesterday.", "b": "No traduzcas el informe ayer.", "langs": ["en", "es"]}
+{"id": "CON-064", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Resuma o documento amanhã.", "b": "Do not summarize the document tomorrow.", "langs": ["pt", "en"]}
+{"id": "CON-065", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Permite eliminar el informe.", "b": "Forbid deleting the report.", "langs": ["es", "en"]}
+{"id": "CON-066", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Envie o relatório para Pedro hoje.", "b": "Não envie o relatório para Pedro hoje.", "langs": ["pt", "pt"]}
+{"id": "CON-067", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Gere o documento hoje.", "b": "Não gere o documento hoje.", "langs": ["pt", "pt"]}
+{"id": "CON-068", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Translate the document tomorrow.", "b": "Não traduza o documento amanhã.", "langs": ["en", "pt"]}
+{"id": "CON-069", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Allow deleting the dataset.", "b": "Forbid deleting the dataset.", "langs": ["en", "en"]}
+{"id": "CON-070", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Ative o relatório.", "b": "Desactiva el reporte.", "langs": ["pt", "es"]}
+{"id": "CON-071", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Resuma o relatório amanhã.", "b": "Do not summarize the report tomorrow.", "langs": ["pt", "en"]}
+{"id": "CON-072", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Enable the dashboard.", "b": "Desactiva el panel.", "langs": ["en", "es"]}
+{"id": "CON-073", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analiza las ventas antes de 2026-03-15.", "b": "Analiza las ventas después de 2026-03-15.", "langs": ["es", "es"]}
+{"id": "CON-074", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Resuma o documento hoje.", "b": "Do not summarize the document today.", "langs": ["pt", "en"]}
+{"id": "CON-075", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analyze the document before 2026-06-01.", "b": "Analise o documento depois de 2026-06-01.", "langs": ["en", "pt"]}
+{"id": "CON-076", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analyze the report tomorrow.", "b": "No analices el informe mañana.", "langs": ["en", "es"]}
+{"id": "CON-077", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Allow deleting the invoice.", "b": "Prohíbe eliminar la factura.", "langs": ["en", "es"]}
+{"id": "CON-078", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Generate the invoice today.", "b": "Do not generate the invoice today.", "langs": ["en", "en"]}
+{"id": "CON-079", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Genera la factura mañana.", "b": "No generes la factura mañana.", "langs": ["es", "es"]}
+{"id": "CON-080", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Elimine o documento amanhã.", "b": "No elimines el documento mañana.", "langs": ["pt", "es"]}
+{"id": "CON-081", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Resume el informe ayer.", "b": "Do not summarize the report yesterday.", "langs": ["es", "en"]}
+{"id": "CON-082", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Delete the sales today.", "b": "Do not delete the sales today.", "langs": ["en", "en"]}
+{"id": "CON-083", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analiza el documento mañana.", "b": "Não analise o documento amanhã.", "langs": ["es", "pt"]}
+{"id": "CON-084", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analyze the dataset before 2026-06-01.", "b": "Analyze the dataset after 2026-06-01.", "langs": ["en", "en"]}
+{"id": "CON-085", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Traduza a fatura amanhã.", "b": "Não traduza a fatura amanhã.", "langs": ["pt", "pt"]}
+{"id": "CON-086", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Permite eliminar las ventas.", "b": "Prohíbe eliminar las ventas.", "langs": ["es", "es"]}
+{"id": "CON-087", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Resume la factura mañana.", "b": "No resumas la factura mañana.", "langs": ["es", "es"]}
+{"id": "CON-088", "label": "CONTRADICTORY", "kind": "contra:allow", "a": "Allow deleting the report.", "b": "Proíba eliminar o relatório.", "langs": ["en", "pt"]}
+{"id": "CON-089", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analiza el dataset ayer.", "b": "No analices el dataset ayer.", "langs": ["es", "es"]}
+{"id": "CON-090", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analiza las ventas mañana.", "b": "Não analise as vendas amanhã.", "langs": ["es", "pt"]}
+{"id": "CON-091", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analiza el informe hoy.", "b": "No analices el informe hoy.", "langs": ["es", "es"]}
+{"id": "CON-092", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Delete the report tomorrow.", "b": "Do not delete the report tomorrow.", "langs": ["en", "en"]}
+{"id": "CON-093", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Activa la alerta.", "b": "Desactiva la alerta.", "langs": ["es", "es"]}
+{"id": "CON-094", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Analyze the dataset yesterday.", "b": "Do not analyze the dataset yesterday.", "langs": ["en", "en"]}
+{"id": "CON-095", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Envía las ventas a Marta mañana.", "b": "No envíes las ventas a Marta mañana.", "langs": ["es", "es"]}
+{"id": "CON-096", "label": "CONTRADICTORY", "kind": "contra:enable", "a": "Ative o alerta.", "b": "Disable the alert.", "langs": ["pt", "en"]}
+{"id": "CON-097", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Gere o documento amanhã.", "b": "Do not generate the document tomorrow.", "langs": ["pt", "en"]}
+{"id": "CON-098", "label": "CONTRADICTORY", "kind": "contra:negation", "a": "Resuma o documento ontem.", "b": "No resumas el documento ayer.", "langs": ["pt", "es"]}
+{"id": "CON-099", "label": "CONTRADICTORY", "kind": "contra:time", "a": "Analiza el documento antes de 2026-03-15.", "b": "Analiza el documento después de 2026-03-15.", "langs": ["es", "es"]}

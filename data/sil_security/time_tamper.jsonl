@@ -1,0 +1,50 @@
+{"id": "time-000", "family": "time_tamper", "a": "Analyze the dataset before 2026-09-30.", "b": "Analiza el dataset antes de 2026-03-15.", "langs": ["en", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-001", "family": "time_tamper", "a": "Analise o dataset antes de 2026-03-15.", "b": "Analise o dataset antes de 2026-09-30.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-002", "family": "time_tamper", "a": "Analiza el documento antes de 2026-03-15.", "b": "Analyze the document before 2026-09-30.", "langs": ["es", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-003", "family": "time_tamper", "a": "Analise o relatório antes de 2026-03-15.", "b": "Analiza el informe antes de 2026-12-31.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-004", "family": "time_tamper", "a": "Analise o dataset antes de 2026-06-01.", "b": "Analyze the dataset before 2026-09-30.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-005", "family": "time_tamper", "a": "Analyze the document before 2026-03-15.", "b": "Analise o documento antes de 2026-12-31.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-006", "family": "time_tamper", "a": "Analyze the report before 2026-06-01.", "b": "Analise o relatório antes de 2026-03-15.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-007", "family": "time_tamper", "a": "Analiza el documento antes de 2026-09-30.", "b": "Analiza el documento antes de 2026-03-15.", "langs": ["es", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-008", "family": "time_tamper", "a": "Analiza el informe antes de 2026-09-30.", "b": "Analise o relatório antes de 2026-03-15.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-009", "family": "time_tamper", "a": "Analiza el documento antes de 2026-03-15.", "b": "Analiza el documento antes de 2026-09-30.", "langs": ["es", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-010", "family": "time_tamper", "a": "Analise o documento antes de 2026-03-15.", "b": "Analyze the document before 2026-06-01.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-011", "family": "time_tamper", "a": "Analiza el dataset antes de 2026-06-01.", "b": "Analise o dataset antes de 2026-03-15.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-012", "family": "time_tamper", "a": "Analyze the report before 2026-09-30.", "b": "Analiza el informe antes de 2026-12-31.", "langs": ["en", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-013", "family": "time_tamper", "a": "Analise o dataset antes de 2026-12-31.", "b": "Analise o dataset antes de 2026-09-30.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-014", "family": "time_tamper", "a": "Analise o documento antes de 2026-03-15.", "b": "Analyze the document before 2026-12-31.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-015", "family": "time_tamper", "a": "Analyze the document before 2026-03-15.", "b": "Analise o documento antes de 2026-06-01.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-016", "family": "time_tamper", "a": "Analise o relatório antes de 2026-06-01.", "b": "Analyze the report before 2026-12-31.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-017", "family": "time_tamper", "a": "Analise o dataset antes de 2026-06-01.", "b": "Analiza el dataset antes de 2026-12-31.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-018", "family": "time_tamper", "a": "Analiza el documento antes de 2026-12-31.", "b": "Analyze the document before 2026-06-01.", "langs": ["es", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-019", "family": "time_tamper", "a": "Analyze the report before 2026-03-15.", "b": "Analyze the report before 2026-09-30.", "langs": ["en", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-020", "family": "time_tamper", "a": "Analise o dataset antes de 2026-09-30.", "b": "Analiza el dataset antes de 2026-03-15.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-021", "family": "time_tamper", "a": "Analise o dataset antes de 2026-03-15.", "b": "Analise o dataset antes de 2026-06-01.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-022", "family": "time_tamper", "a": "Analise o documento antes de 2026-03-15.", "b": "Analise o documento antes de 2026-09-30.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-023", "family": "time_tamper", "a": "Analyze the dataset before 2026-09-30.", "b": "Analyze the dataset before 2026-06-01.", "langs": ["en", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-024", "family": "time_tamper", "a": "Analise o relatório antes de 2026-09-30.", "b": "Analyze the report before 2026-03-15.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-025", "family": "time_tamper", "a": "Analyze the document before 2026-03-15.", "b": "Analiza el documento antes de 2026-06-01.", "langs": ["en", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-026", "family": "time_tamper", "a": "Analyze the document before 2026-06-01.", "b": "Analise o documento antes de 2026-09-30.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-027", "family": "time_tamper", "a": "Analyze the dataset before 2026-12-31.", "b": "Analyze the dataset before 2026-09-30.", "langs": ["en", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-028", "family": "time_tamper", "a": "Analise o documento antes de 2026-12-31.", "b": "Analyze the document before 2026-06-01.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-029", "family": "time_tamper", "a": "Analyze the report before 2026-09-30.", "b": "Analyze the report before 2026-06-01.", "langs": ["en", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-030", "family": "time_tamper", "a": "Analise o dataset antes de 2026-03-15.", "b": "Analiza el dataset antes de 2026-06-01.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-031", "family": "time_tamper", "a": "Analyze the report before 2026-06-01.", "b": "Analiza el informe antes de 2026-03-15.", "langs": ["en", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-032", "family": "time_tamper", "a": "Analiza el informe antes de 2026-06-01.", "b": "Analise o relatório antes de 2026-03-15.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-033", "family": "time_tamper", "a": "Analiza el informe antes de 2026-03-15.", "b": "Analiza el informe antes de 2026-12-31.", "langs": ["es", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-034", "family": "time_tamper", "a": "Analiza el informe antes de 2026-09-30.", "b": "Analiza el informe antes de 2026-03-15.", "langs": ["es", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-035", "family": "time_tamper", "a": "Analise o documento antes de 2026-09-30.", "b": "Analiza el documento antes de 2026-12-31.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-036", "family": "time_tamper", "a": "Analyze the dataset before 2026-09-30.", "b": "Analise o dataset antes de 2026-06-01.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-037", "family": "time_tamper", "a": "Analise o documento antes de 2026-03-15.", "b": "Analise o documento antes de 2026-12-31.", "langs": ["pt", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-038", "family": "time_tamper", "a": "Analise o relatório antes de 2026-06-01.", "b": "Analyze the report before 2026-09-30.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-039", "family": "time_tamper", "a": "Analise o documento antes de 2026-03-15.", "b": "Analyze the document before 2026-09-30.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-040", "family": "time_tamper", "a": "Analyze the document before 2026-03-15.", "b": "Analyze the document before 2026-06-01.", "langs": ["en", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-041", "family": "time_tamper", "a": "Analyze the document before 2026-09-30.", "b": "Analyze the document before 2026-06-01.", "langs": ["en", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-042", "family": "time_tamper", "a": "Analiza el documento antes de 2026-06-01.", "b": "Analyze the document before 2026-09-30.", "langs": ["es", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-043", "family": "time_tamper", "a": "Analiza el documento antes de 2026-12-31.", "b": "Analise o documento antes de 2026-06-01.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-044", "family": "time_tamper", "a": "Analyze the report before 2026-12-31.", "b": "Analyze the report before 2026-09-30.", "langs": ["en", "en"], "expect": "FLAG", "critical": false}
+{"id": "time-045", "family": "time_tamper", "a": "Analise o dataset antes de 2026-03-15.", "b": "Analiza el dataset antes de 2026-12-31.", "langs": ["pt", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-046", "family": "time_tamper", "a": "Analiza el informe antes de 2026-09-30.", "b": "Analiza el informe antes de 2026-12-31.", "langs": ["es", "es"], "expect": "FLAG", "critical": false}
+{"id": "time-047", "family": "time_tamper", "a": "Analiza el dataset antes de 2026-12-31.", "b": "Analise o dataset antes de 2026-09-30.", "langs": ["es", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-048", "family": "time_tamper", "a": "Analyze the report before 2026-09-30.", "b": "Analise o relatório antes de 2026-06-01.", "langs": ["en", "pt"], "expect": "FLAG", "critical": false}
+{"id": "time-049", "family": "time_tamper", "a": "Analise o dataset antes de 2026-09-30.", "b": "Analyze the dataset before 2026-06-01.", "langs": ["pt", "en"], "expect": "FLAG", "critical": false}

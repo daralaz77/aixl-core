@@ -10,15 +10,45 @@ import unicodedata
 from aixl.legacy02.translators import natural_to_semantic as legacy
 
 
+_INVISIBLE = re.compile("[\u200b-\u200f\u202a-\u202e\u2060-\u2064\ufeff\u00ad]")
+# Cyrillic/Greek letters that render like Latin ones. Only folded INSIDE a word that also has Latin letters
+# (a mixed-script word is the homoglyph-attack signature; ES/EN/PT text never has one legitimately).
+_CONFUSABLE = {"а": "a", "е": "e", "о": "o", "р": "p", "с": "c", "х": "x", "у": "y", "і": "i", "ѕ": "s", "ј": "j", "ԁ": "d", "ɡ": "g",
+               "А": "A", "В": "B", "Е": "E", "К": "K", "М": "M", "Н": "H", "О": "O", "Р": "P", "С": "C", "Т": "T", "Х": "X",
+               "ο": "o", "Ο": "O", "ν": "v", "ι": "i", "α": "a", "ρ": "p"}
+
+
+def sanitize_input(text: str) -> tuple[str, list]:
+    """Defence against invisible-character / lookalike-letter obfuscation (§39). Returns (clean_text, findings);
+    findings is empty for ordinary text, so callers can surface a warning without changing anything else."""
+    findings = []
+    if _INVISIBLE.search(text):
+        findings.append("INVISIBLE_CHARACTERS")
+        text = _INVISIBLE.sub("", text)
+    folded = unicodedata.normalize("NFKC", text)             # fullwidth / compatibility forms -> plain ASCII
+    if folded != text:
+        findings.append("COMPATIBILITY_FORMS")
+        text = folded
+
+    def fix(m):
+        w = m.group(0)
+        if re.search(r"[A-Za-z]", w) and any(c in _CONFUSABLE for c in w):
+            findings.append("MIXED_SCRIPT_HOMOGLYPHS")
+            return "".join(_CONFUSABLE.get(c, c) for c in w)
+        return w
+    text = re.sub(r"[^\W\d_]+", fix, text)
+    return text, findings
+
+
 def strip_accents(s: str) -> str:
     return "".join(unicodedata.normalize("NFD", c)[0] for c in s).lower()
 
 
 # ---- extension actions (verbs the 0.2 lexicon does not cover), matched on accent-stripped lowercase text ----
 EXTRA_ACTION_RX = [
-    ("ENABLE",  r"\b(activ(a|ar|e|es)|habilit(a|ar|e|es)|enable[sd]?|enciende|encender|turn on)\b"),
+    ("ENABLE",  r"\b(activ(a|ar|e|es)|ativ(a|ar|e|es)|habilit(a|ar|e|es)|enable[sd]?|enciende|encender|turn on)\b"),
     ("DISABLE", r"\b(desactiv(a|ar|e|es)|desativ(a|ar|e|es)|deshabilit(a|ar|e|es)|disable[sd]?|apaga|apagar|apagues?|turn off|archiv(a|ar|e|es)|archive[sd]?|suspend(e|es|er)?)\b"),
-    ("SEND",    r"\b(envi(a|ar|e|es|en)|mand(a|ar|es|e)|remit(e|es|ir|a)|send[s]?|sent|notific(a|ar|e|es|ame)|notify|notifies|avis(a|ar|e|es)|alert(s|ed)?)\b"),
+    ("SEND",    r"\b(envi(a|ar|e|es|en)|mand(a|ar|es|e)|remit(e|es|ir|a)|send[s]?|sent|notific(a|ar|e|es|ame)|notify|notifies|e-?mail(s|ed|ing)?|avis(a|ar|e|es)|alert(s|ed)?)\b"),
     ("INCLUDE", r"\b(inclu(ye|yes|ir|ya|yas|a|i|am|em)|include[sd]?|incorpor(a|ar|e|es))\b"),
     ("EXCLUDE", r"\b(exclu(ye|yes|ir|ya|yas|i|is|a)|exclude[sd]?|omit(e|es|ir)|omit|descarta(r)?|descarte|discard[s]?)\b"),
     ("UPDATE",  r"\b(actuali[zc](a|ar|e|es|en)|update[sd]?|modific(a|ar|ue|ues)|modify|edit(a|ar|e|es)?|cierra(s)?|close[sd]?|resuelve(s)?|resolve[sd]?|marc(a|ar|as)|mark(s|ed)?|flag(s|ged|ging)?)\b"),

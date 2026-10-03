@@ -1,0 +1,100 @@
+{"id": "EQU-000", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analiza el documento en CSV ayer.", "b": "Yesterday, examine the document as CSV.", "langs": ["es", "en"]}
+{"id": "EQU-001", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Summarize the invoice yesterday.", "b": "Yesterday, summarize the invoice.", "langs": ["en", "en"]}
+{"id": "EQU-002", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Genera el documento en PDF hoy.", "b": "Gere o documento em PDF hoje.", "langs": ["es", "pt"]}
+{"id": "EQU-003", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analiza el dataset mañana.", "b": "Tomorrow, examine the dataset.", "langs": ["es", "en"]}
+{"id": "EQU-004", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduza as vendas ontem.", "b": "Translate the sales yesterday.", "langs": ["pt", "en"]}
+{"id": "EQU-005", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Resume el documento mañana.", "b": "Mañana, resume el documento.", "langs": ["es", "es"]}
+{"id": "EQU-006", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envie o dataset para Carlos em JSON ontem.", "b": "Envía el dataset a Carlos en JSON ayer.", "langs": ["pt", "es"]}
+{"id": "EQU-007", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Translate the dataset yesterday.", "b": "Ontem, traduza o dataset.", "langs": ["en", "pt"]}
+{"id": "EQU-008", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Resume el informe mañana.", "b": "Resuma o relatório amanhã.", "langs": ["es", "pt"]}
+{"id": "EQU-009", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envía la factura a Ana ayer.", "b": "Yesterday, send the invoice to Ana.", "langs": ["es", "en"]}
+{"id": "EQU-010", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduce el informe en CSV hoy.", "b": "Today, translate the report as CSV.", "langs": ["es", "en"]}
+{"id": "EQU-011", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Summarize the dataset today.", "b": "Resuma o dataset hoje.", "langs": ["en", "pt"]}
+{"id": "EQU-012", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Delete the sales today.", "b": "Borra las ventas hoy.", "langs": ["en", "es"]}
+{"id": "EQU-013", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Genera el informe en CSV ayer.", "b": "Crea el informe en CSV ayer.", "langs": ["es", "es"]}
+{"id": "EQU-014", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Elimine as vendas amanhã.", "b": "Mañana, borra las ventas.", "langs": ["pt", "es"]}
+{"id": "EQU-015", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envie o dataset para Marta hoje.", "b": "Hoy, manda el dataset a Marta.", "langs": ["pt", "es"]}
+{"id": "EQU-016", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analyze the dataset as CSV yesterday.", "b": "Examine o dataset em CSV ontem.", "langs": ["en", "pt"]}
+{"id": "EQU-017", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Send the document to Marta today.", "b": "Hoje, mande o documento para Marta.", "langs": ["en", "pt"]}
+{"id": "EQU-018", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Elimine o documento em CSV hoje.", "b": "Today, remove the document as CSV.", "langs": ["pt", "en"]}
+{"id": "EQU-019", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Resume el documento ayer.", "b": "Summarize the document yesterday.", "langs": ["es", "en"]}
+{"id": "EQU-020", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envie as vendas para Carlos amanhã.", "b": "Mañana, manda las ventas a Carlos.", "langs": ["pt", "es"]}
+{"id": "EQU-021", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Translate the dataset as CSV today.", "b": "Hoje, traduza o dataset em CSV.", "langs": ["en", "pt"]}
+{"id": "EQU-022", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Send the invoice to Marta tomorrow.", "b": "Tomorrow, send the invoice to Marta.", "langs": ["en", "en"]}
+{"id": "EQU-023", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Translate the sales tomorrow.", "b": "Mañana, traduce las ventas.", "langs": ["en", "es"]}
+{"id": "EQU-024", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduza o relatório amanhã.", "b": "Translate the report tomorrow.", "langs": ["pt", "en"]}
+{"id": "EQU-025", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduza a fatura ontem.", "b": "Yesterday, translate the invoice.", "langs": ["pt", "en"]}
+{"id": "EQU-026", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Analise o dataset hoje.", "b": "Hoje, analise o dataset.", "langs": ["pt", "pt"]}
+{"id": "EQU-027", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduza as vendas em JSON amanhã.", "b": "Translate the sales as JSON tomorrow.", "langs": ["pt", "en"]}
+{"id": "EQU-028", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envie as vendas para Ana em JSON hoje.", "b": "Today, send the sales to Ana as JSON.", "langs": ["pt", "en"]}
+{"id": "EQU-029", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Gere o dataset amanhã.", "b": "Create the dataset tomorrow.", "langs": ["pt", "en"]}
+{"id": "EQU-030", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduce el documento hoy.", "b": "Hoje, traduza o documento.", "langs": ["es", "pt"]}
+{"id": "EQU-031", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Elimina las ventas en JSON mañana.", "b": "Mañana, elimina las ventas en JSON.", "langs": ["es", "es"]}
+{"id": "EQU-032", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Translate the report as CSV yesterday.", "b": "Traduza o relatório em CSV ontem.", "langs": ["en", "pt"]}
+{"id": "EQU-033", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envía el dataset a Lucía hoy.", "b": "Today, send the dataset to Lucía.", "langs": ["es", "en"]}
+{"id": "EQU-034", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Genera el documento en CSV mañana.", "b": "Tomorrow, generate the document as CSV.", "langs": ["es", "en"]}
+{"id": "EQU-035", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduce la factura ayer.", "b": "Yesterday, translate the invoice.", "langs": ["es", "en"]}
+{"id": "EQU-036", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Generate the invoice as JSON tomorrow.", "b": "Genera la factura en JSON mañana.", "langs": ["en", "es"]}
+{"id": "EQU-037", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analyze the report as CSV today.", "b": "Analiza el informe en CSV hoy.", "langs": ["en", "es"]}
+{"id": "EQU-038", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Elimina el informe en JSON ayer.", "b": "Yesterday, remove the report as JSON.", "langs": ["es", "en"]}
+{"id": "EQU-039", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analiza el dataset en JSON ayer.", "b": "Yesterday, analyze the dataset as JSON.", "langs": ["es", "en"]}
+{"id": "EQU-040", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analise o relatório hoje.", "b": "Examine the report today.", "langs": ["pt", "en"]}
+{"id": "EQU-041", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Resuma a fatura hoje.", "b": "Resume la factura hoy.", "langs": ["pt", "es"]}
+{"id": "EQU-042", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analyze the dataset as CSV yesterday.", "b": "Ayer, examina el dataset en CSV.", "langs": ["en", "es"]}
+{"id": "EQU-043", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Elimina el documento hoy.", "b": "Hoy, borra el documento.", "langs": ["es", "es"]}
+{"id": "EQU-044", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Genera las ventas en JSON hoy.", "b": "Today, generate the sales as JSON.", "langs": ["es", "en"]}
+{"id": "EQU-045", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Gere o dataset hoje.", "b": "Hoje, crie o dataset.", "langs": ["pt", "pt"]}
+{"id": "EQU-046", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Genera el documento ayer.", "b": "Crie o documento ontem.", "langs": ["es", "pt"]}
+{"id": "EQU-047", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analyze the report as JSON tomorrow.", "b": "Amanhã, analise o relatório em JSON.", "langs": ["en", "pt"]}
+{"id": "EQU-048", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Elimina el documento en CSV hoy.", "b": "Hoy, elimina el documento en CSV.", "langs": ["es", "es"]}
+{"id": "EQU-049", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analyze the document as JSON tomorrow.", "b": "Analiza el documento en JSON mañana.", "langs": ["en", "es"]}
+{"id": "EQU-050", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envie o documento para Pedro amanhã.", "b": "Envía el documento a Pedro mañana.", "langs": ["pt", "es"]}
+{"id": "EQU-051", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Envie o dataset para Marta hoje.", "b": "Mande o dataset para Marta hoje.", "langs": ["pt", "pt"]}
+{"id": "EQU-052", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Elimina el documento hoy.", "b": "Today, remove the document.", "langs": ["es", "en"]}
+{"id": "EQU-053", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Elimine o relatório ontem.", "b": "Yesterday, delete the report.", "langs": ["pt", "en"]}
+{"id": "EQU-054", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Summarize the sales today.", "b": "Hoy, resume las ventas.", "langs": ["en", "es"]}
+{"id": "EQU-055", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Summarize the report yesterday.", "b": "Ontem, resuma o relatório.", "langs": ["en", "pt"]}
+{"id": "EQU-056", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Elimina el documento mañana.", "b": "Tomorrow, delete the document.", "langs": ["es", "en"]}
+{"id": "EQU-057", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envie as vendas para Carlos em CSV amanhã.", "b": "Envía las ventas a Carlos en CSV mañana.", "langs": ["pt", "es"]}
+{"id": "EQU-058", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analyze the invoice as CSV tomorrow.", "b": "Amanhã, analise a fatura em CSV.", "langs": ["en", "pt"]}
+{"id": "EQU-059", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Delete the dataset as CSV yesterday.", "b": "Ayer, borra el dataset en CSV.", "langs": ["en", "es"]}
+{"id": "EQU-060", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Genera el documento mañana.", "b": "Mañana, crea el documento.", "langs": ["es", "es"]}
+{"id": "EQU-061", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envía el informe a Carlos en PDF mañana.", "b": "Amanhã, envie o relatório para Carlos em PDF.", "langs": ["es", "pt"]}
+{"id": "EQU-062", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduza o documento em JSON amanhã.", "b": "Mañana, traduce el documento en JSON.", "langs": ["pt", "es"]}
+{"id": "EQU-063", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envie o documento para Beto em PDF amanhã.", "b": "Manda el documento a Beto en PDF mañana.", "langs": ["pt", "es"]}
+{"id": "EQU-064", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Analyze the sales tomorrow.", "b": "Tomorrow, examine the sales.", "langs": ["en", "en"]}
+{"id": "EQU-065", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Genera el documento ayer.", "b": "Ontem, crie o documento.", "langs": ["es", "pt"]}
+{"id": "EQU-066", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Generate the invoice yesterday.", "b": "Gere a fatura ontem.", "langs": ["en", "pt"]}
+{"id": "EQU-067", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Traduza o documento em JSON hoje.", "b": "Hoje, traduza o documento em JSON.", "langs": ["pt", "pt"]}
+{"id": "EQU-068", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Resuma as vendas amanhã.", "b": "Resume las ventas mañana.", "langs": ["pt", "es"]}
+{"id": "EQU-069", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envie o documento para Lucía em CSV hoje.", "b": "Send the document to Lucía as CSV today.", "langs": ["pt", "en"]}
+{"id": "EQU-070", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Resuma as vendas ontem.", "b": "Yesterday, summarize the sales.", "langs": ["pt", "en"]}
+{"id": "EQU-071", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Elimina la factura en JSON hoy.", "b": "Today, delete the invoice as JSON.", "langs": ["es", "en"]}
+{"id": "EQU-072", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduce las ventas hoy.", "b": "Traduza as vendas hoje.", "langs": ["es", "pt"]}
+{"id": "EQU-073", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envie a fatura para Carlos amanhã.", "b": "Mañana, manda la factura a Carlos.", "langs": ["pt", "es"]}
+{"id": "EQU-074", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Envía el informe a Carlos en JSON ayer.", "b": "Ayer, manda el informe a Carlos en JSON.", "langs": ["es", "es"]}
+{"id": "EQU-075", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Delete the invoice as JSON today.", "b": "Borra la factura en JSON hoy.", "langs": ["en", "es"]}
+{"id": "EQU-076", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analise a fatura amanhã.", "b": "Examina la factura mañana.", "langs": ["pt", "es"]}
+{"id": "EQU-077", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envía las ventas a Ana hoy.", "b": "Today, send the sales to Ana.", "langs": ["es", "en"]}
+{"id": "EQU-078", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Elimine as vendas hoje.", "b": "Remove the sales today.", "langs": ["pt", "en"]}
+{"id": "EQU-079", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envía el dataset a Ana mañana.", "b": "Amanhã, envie o dataset para Ana.", "langs": ["es", "pt"]}
+{"id": "EQU-080", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envie o documento para Marta hoje.", "b": "Hoy, envía el documento a Marta.", "langs": ["pt", "es"]}
+{"id": "EQU-081", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Genera las ventas ayer.", "b": "Yesterday, create the sales.", "langs": ["es", "en"]}
+{"id": "EQU-082", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Gere o relatório em CSV amanhã.", "b": "Mañana, genera el informe en CSV.", "langs": ["pt", "es"]}
+{"id": "EQU-083", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Summarize the document as a PDF today.", "b": "Hoje, resuma o documento em PDF.", "langs": ["en", "pt"]}
+{"id": "EQU-084", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Genera el dataset en CSV mañana.", "b": "Tomorrow, create the dataset as CSV.", "langs": ["es", "en"]}
+{"id": "EQU-085", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Translate the invoice as CSV yesterday.", "b": "Ayer, traduce la factura en CSV.", "langs": ["en", "es"]}
+{"id": "EQU-086", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduza o dataset ontem.", "b": "Translate the dataset yesterday.", "langs": ["pt", "en"]}
+{"id": "EQU-087", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Elimine o dataset amanhã.", "b": "Elimina el dataset mañana.", "langs": ["pt", "es"]}
+{"id": "EQU-088", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduza as vendas em PDF amanhã.", "b": "Tomorrow, translate the sales as a PDF.", "langs": ["pt", "en"]}
+{"id": "EQU-089", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Traduce el informe en JSON mañana.", "b": "Amanhã, traduza o relatório em JSON.", "langs": ["es", "pt"]}
+{"id": "EQU-090", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envía el dataset a Beto en CSV hoy.", "b": "Send the dataset to Beto as CSV today.", "langs": ["es", "en"]}
+{"id": "EQU-091", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Resuma a fatura hoje.", "b": "Hoy, resume la factura.", "langs": ["pt", "es"]}
+{"id": "EQU-092", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analyze the invoice today.", "b": "Examine a fatura hoje.", "langs": ["en", "pt"]}
+{"id": "EQU-093", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Envía el documento a Lucía en CSV mañana.", "b": "Tomorrow, send the document to Lucía as CSV.", "langs": ["es", "en"]}
+{"id": "EQU-094", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Translate the document today.", "b": "Today, translate the document.", "langs": ["en", "en"]}
+{"id": "EQU-095", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analyze the sales tomorrow.", "b": "Examine as vendas amanhã.", "langs": ["en", "pt"]}
+{"id": "EQU-096", "label": "EQUIVALENT", "kind": "paraphrase", "a": "Delete the invoice as CSV tomorrow.", "b": "Tomorrow, delete the invoice as CSV.", "langs": ["en", "en"]}
+{"id": "EQU-097", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Genera la factura hoy.", "b": "Hoje, gere a fatura.", "langs": ["es", "pt"]}
+{"id": "EQU-098", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Analiza el documento en PDF mañana.", "b": "Analise o documento em PDF amanhã.", "langs": ["es", "pt"]}
+{"id": "EQU-099", "label": "EQUIVALENT", "kind": "cross-lingual", "a": "Generate the invoice as CSV yesterday.", "b": "Gere a fatura em CSV ontem.", "langs": ["en", "pt"]}

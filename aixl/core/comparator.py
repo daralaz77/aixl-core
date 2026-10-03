@@ -45,20 +45,31 @@ class ComparisonResult:
     critical_changes: list = field(default_factory=list)
     per_dimension: dict = field(default_factory=dict)
     explanation: str = ""
+    warnings: list = field(default_factory=list)     # §66 transparency: LOSS/UNCERTAINTY that the verdict does not show
 
     @property
     def diff(self) -> list:
         return [d.to_dict() for d in self.differences]
 
     def to_dict(self):
-        return dict(equivalent=self.equivalent, similarity=round(self.similarity, 4), drift=round(self.drift, 4),
-                    drift_level=self.drift_level, differences=self.diff, critical_changes=[d.to_dict() for d in self.critical_changes],
-                    per_dimension={k: (None if v is None else round(v, 3)) for k, v in self.per_dimension.items()}, explanation=self.explanation)
+        d = dict(equivalent=self.equivalent, similarity=round(self.similarity, 4), drift=round(self.drift, 4),
+                 drift_level=self.drift_level, differences=self.diff, critical_changes=[d.to_dict() for d in self.critical_changes],
+                 per_dimension={k: (None if v is None else round(v, 3)) for k, v in self.per_dimension.items()}, explanation=self.explanation)
+        if self.warnings:
+            d["warnings"] = self.warnings
+        return d
 
 
-def _severity(dim: str, a, b, cfg: dict) -> tuple[str, str]:
+def _severity(dim: str, a, b, cfg: dict, acts=frozenset(), kind: str = "changed") -> tuple[str, str]:
     base = cfg["severity"].get(dim, "MAJOR")
     detail = ""
+    # context-sensitive (§39, adversarial suite 2026-10-02): swapping or dropping WHO/WHAT a destructive or external
+    # action applies to (recipient, id, object, "only to X" scope) is as dangerous as flipping the action itself.
+    # Directional: 'added' (original -> narrower) stays at its base severity; 'removed'/'changed' escalate.
+    if dim in ("references", "entities", "data") and kind in ("changed", "removed") and acts & set(cfg.get("destructive_actions", [])):
+        return "CRITICAL", "target/scope of a destructive or external action changed"
+    if dim in ("conditions", "constraints") and kind in ("changed", "removed") and acts & set(cfg.get("destructive_actions", [])):
+        return "CRITICAL", "safeguard (condition/constraint) dropped from a destructive or external action"
     if dim == "negation":
         return "CRITICAL", "prohibition/permission changed"
     if dim == "constraints":
@@ -80,7 +91,17 @@ def _severity(dim: str, a, b, cfg: dict) -> tuple[str, str]:
 def compare_graphs(ga: SemanticGraph, gb: SemanticGraph, config: dict | None = None, today=None) -> ComparisonResult:
     cfg = config or load_config()
     A, B = ga.canonical(today=today), gb.canonical(today=today)
-    return compare_canonical(A, B, cfg)
+    res = compare_canonical(A, B, cfg)
+    for side, g in (("a", ga), ("b", gb)):
+        terms = g.meta.get("unrecognized")
+        if terms:
+            res.warnings.append({"type": "UNRECOGNIZED_TERMS", "side": side, "terms": list(terms),
+                                 "note": "object noun(s) outside the lexicon were NOT represented; equivalence/partial verdicts may overstate agreement"})
+    for side, c in (("a", A), ("b", B)):
+        if not c["actions"]:
+            res.warnings.append({"type": "NO_ACTION_RECOGNIZED", "side": side, "severity": "BLOCKING",
+                                 "note": "no action was recognised in this text, so an 'equivalent' verdict proves nothing (insufficient context)"})
+    return res
 
 
 def compare_canonical(A: dict, B: dict, config: dict | None = None) -> ComparisonResult:
@@ -90,6 +111,7 @@ def compare_canonical(A: dict, B: dict, config: dict | None = None) -> Compariso
     cfg = config or load_config()
     diffs: list[Difference] = []
     per: dict = {}
+    acts = frozenset(A["actions"]) | frozenset(B["actions"])
     for dim in DIMENSIONS:
         va, vb = A[dim], B[dim]
         if not va and not vb:
@@ -100,7 +122,7 @@ def compare_canonical(A: dict, B: dict, config: dict | None = None) -> Compariso
             per[dim] = len(sa & sb) / len(sa | sb) if (sa | sb) else 1.0
             if sa != sb and dim not in DERIVED:
                 kind = "changed" if (sa - sb and sb - sa) else ("removed" if sa - sb else "added")
-                sev, det = _severity(dim, sa, sb, cfg)
+                sev, det = _severity(dim, sa, sb, cfg, acts, kind)
                 diffs.append(Difference(_label(dim), _fmt(va), _fmt(vb), kind, sev, det))
             elif sa == sb and va != vb and dim in ("actions", "location"):
                 per[dim] = 0.5
@@ -109,7 +131,7 @@ def compare_canonical(A: dict, B: dict, config: dict | None = None) -> Compariso
             per[dim] = 1.0 if va == vb else 0.0
             if va != vb and dim not in DERIVED:
                 kind = "changed" if (va and vb) else ("removed" if va else "added")
-                sev, det = _severity(dim, va, vb, cfg)
+                sev, det = _severity(dim, va, vb, cfg, acts, kind)
                 diffs.append(Difference(_label(dim), _fmt(va), _fmt(vb), kind, sev, det))
     w = cfg["weights"]
     num = sum(w[d] * s for d, s in per.items() if s is not None)
