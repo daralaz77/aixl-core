@@ -223,3 +223,22 @@ Sonda de viabilidad (`distill/colab/qwen_gen.py` en Colab + `distill/qwen_probe_
 Lectura honesta: en estas verificaciones Qwen 14B queda **a la par de Haiku** (diferencias dentro del ruido de 80 semillas) para la parte "reescribir sin perder negaciones, condiciones, cantidades ni ids". Límites: (1) las verificaciones son proxies débiles (las reglas aciertan ~80 %, el comparador de pistas es heurístico); (2) solo se probó la generación de paráfrasis, NO el etiquetado ni la generación de pares casi iguales; (3) la prueba definitiva es el efecto en el estudiante (entrenar con datos de Qwen y medir dev/blind5 con semillas repetidas, dado el ruido de ±0.03-0.05 entre corridas). Licencias: verificar antes de uso comercial (Qwen2.5-3B y 72B no son Apache-2.0; 7B/14B/32B sí).
 
 Efecto colateral: el chequeo de pistas del guard tenía falsos positivos en portugués ("no máximo" leído como negación, "antes das" sin reconocer); corregido (`irreversible_guard.py`, +1 test, 462/462). Sigue sin resolverse "no" (= "en el") en portugués como pista de negación (solo causa vetos de más, nunca equivalencias falsas) y numerales en palabras en general.
+
+
+## Décima vuelta (2026-10-03): ¿ayudan los datos gratis de Qwen2.5-14B? A/B con semillas repetidas
+
+Qwen2.5-14B-Instruct (Colab, sin API) reescribió las 1200 semillas (563 s); 1092 grupos con 2960 variantes pasaron el chequeo determinista `facts` (89 %), heredando la etiqueta ya validada de su semilla (sin etiquetado por maestro; `distill/build_qwen_groups.py`). Se excluyeron las 80 semillas de los grupos DEV retenidos y 8 variantes que coincidían con textos de blind5 (la primera versión dejaba pasar 7: frases cortas genéricas colisionan). Brazo base: 11 668 filas (datos actuales); brazo Qwen: 19 503 filas (+1092 grupos, x3 de sobremuestreo). Misma receta (3B, r32, 3 épocas), 2 semillas por brazo, solo adaptador (`pipeline.py --seed --adapter-only`):
+
+| Corrida | F1 blind5 | P | R | Exactitud | Dev (279 textos) |
+|---|---|---|---|---|---|
+| base, semilla 1 | 0.758 | 0.953 | 0.629 | 0.805 | 0.781 |
+| base, semilla 2 | 0.817 | 0.958 | 0.711 | 0.845 | 0.763 |
+| *(base, semilla 0, histórica)* | *0.833* | | | | *0.785* |
+| qwen, semilla 1 | 0.824 | 0.959 | 0.722 | 0.850 | 0.728 |
+| qwen, semilla 2 | 0.753 | 0.939 | 0.629 | 0.800 | 0.731 |
+| **media base (s1,s2)** | **0.787** | 0.956 | 0.670 | **0.825** | **0.772** |
+| **media qwen (s1,s2)** | **0.788** | 0.949 | 0.676 | **0.825** | **0.730** |
+
+Conclusión (con datos): **añadir los grupos de Qwen no mejora blind5** (medias idénticas, 0.787 vs 0.788; el mismo entrenamiento con otra semilla varía hasta ~0.075 de F1) y **empeora el dev en las dos semillas** (-0.054 y -0.032; dev son paráfrasis escritas por Haiku, así que probablemente el estilo de Qwen desplaza la distribución). La sonda de viabilidad (la generación es tan buena como la de Haiku según los chequeos) era correcta, pero "tan buena" no se traduce en mejor estudiante: más paráfrasis del MISMO tipo de semilla no mueven el cuello de botella (recall ~0.67). Nota: `valid_em` (0.26 vs 0.67) NO es comparable: las semillas del valid base entraron al entrenamiento del brazo Qwen (fuga solo en esa métrica; dev y blind5 verificados sin fuga).
+
+Qué NO se probó (y podría cambiar la conclusión): (a) los pares casi iguales NO equivalentes generados por Qwen (para sostener precisión, no recall); (b) etiquetado/consenso con Qwen; (c) semillas NUEVAS (más variedad de instrucciones) en vez de más paráfrasis de las mismas 1200. El recall sigue limitado por la variedad de instrucciones, no por el número de reformulaciones.
