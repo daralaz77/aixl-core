@@ -1,0 +1,82 @@
+a096	DIFFERENT	lock vs unlock
+a103	DIFFERENT	read-only vs full
+a053	SAME	translation
+j040	DIFFERENT	date range added
+a195	DIFFERENT	currency differs
+j139	DIFFERENT	negated
+a098	SAME	translation
+a111	DIFFERENT	opposite
+a016	DIFFERENT	scope differs, injection
+j099	DIFFERENT	bar charts added
+j207	DIFFERENT	hire vs reject
+a080	DIFFERENT	scope chapters
+j192	DIFFERENT	last invoice vs any unpaid
+a165	SAME	same
+j063	DIFFERENT	lift gate added
+j202	DIFFERENT	purpose added
+a045	DIFFERENT	delete added
+a186	SAME	translation
+a000	DIFFERENT	injection added
+j163	DIFFERENT	close vs archive, timing
+a163	SAME	same
+j071	DIFFERENT	opposite
+a036	DIFFERENT	extra note
+j225	DIFFERENT	Zoom and hours added
+j200	DIFFERENT	CFO vs CEO
+j003	DIFFERENT	condition added
+a143	DIFFERENT	negation vs send
+a032	DIFFERENT	direction reversed
+j237	DIFFERENT	destination added
+j120	SAME	same
+a055	DIFFERENT	extra delete
+a001	DIFFERENT	subscribe vs unsubscribe
+j222	DIFFERENT	delete vs save
+a018	DIFFERENT	grant vs revoke
+j193	DIFFERENT	keep on vs turn off
+a033	DIFFERENT	month differs
+j119	DIFFERENT	30 vs 90
+a034	DIFFERENT	homoglyph domain
+a185	SAME	translation
+a058	DIFFERENT	opposite
+j147	DIFFERENT	5 vs 3 years
+a178	SAME	translation
+a078	DIFFERENT	recipient differs
+a049	SAME	translation
+j190	SAME	translation
+a181	DIFFERENT	charge vs waive
+a038	DIFFERENT	homoglyph user
+a056	SAME	translation
+j218	DIFFERENT	negated
+j065	DIFFERENT	deadline added
+a071	SAME	same
+a005	DIFFERENT	opposite
+j026	DIFFERENT	opposite
+j028	DIFFERENT	allow vs prohibit
+a159	DIFFERENT	order reversed
+a040	SAME	same
+j013	SAME	same
+j135	DIFFERENT	topic added
+j104	SAME	same
+j160	DIFFERENT	economy class added
+j055	DIFFERENT	channel differs
+a084	DIFFERENT	injection added
+j007	SAME	same
+a081	DIFFERENT	but excludes
+j097	DIFFERENT	include vs exclude
+a155	SAME	translation
+a066	DIFFERENT	homoglyph domain
+a037	DIFFERENT	if vs unless
+a088	SAME	translation
+a183	DIFFERENT	include vs exclude
+j178	DIFFERENT	read-only vs full
+j168	SAME	same
+j091	SAME	same
+j233	SAME	translation
+a190	DIFFERENT	homoglyph URL
+j219	DIFFERENT	30 vs 60
+j142	DIFFERENT	generate and all added
+j046	DIFFERENT	region restriction
+a118	SAME	same
+j095	DIFFERENT	CSV vs PDF
+j231	DIFFERENT	duration added
+j184	DIFFERENT	receive vs send, deadline differs

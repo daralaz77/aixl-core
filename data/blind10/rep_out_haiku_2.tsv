@@ -1,0 +1,82 @@
+j142	DIFFERENT	"all items" specified in b but not explicitly in a
+a056	SAME	Spanish and Portuguese translation of same action
+a055	DIFFERENT	b includes extra delete report action
+a088	SAME	Same prohibition on sending, translation
+a178	SAME	Translation of same analyze action
+j163	DIFFERENT	Different actions (close vs archive) and opposite time conditions
+a040	SAME	Same conditional cancellation, different word order
+a084	DIFFERENT	b includes extra instructions and recipient (Carlos)
+j147	DIFFERENT	Different time thresholds (5 years vs 3 years)
+a078	DIFFERENT	Different recipient email addresses
+j119	DIFFERENT	Different storage durations (30 vs 90 days)
+a053	SAME	Translation of same send action to same recipient
+j160	DIFFERENT	b specifies economy class, a does not
+j026	DIFFERENT	Opposite actions (store indefinitely vs delete immediately)
+j135	DIFFERENT	b specifies maintenance topic, a does not
+a098	SAME	Translation of same weight limit specification
+a033	DIFFERENT	Different months (March vs April)
+j237	DIFFERENT	b specifies Google Drive destination, a does not
+j200	DIFFERENT	Different recipients (CFO vs CEO)
+j091	SAME	Same invoice delivery deadline, different word order
+a103	DIFFERENT	Different access levels (read-only vs full)
+j007	SAME	Same server migration time, different phrasing
+a066	DIFFERENT	Different email addresses (homoglyph attack)
+a190	DIFFERENT	Different URLs (homoglyph attack)
+j184	SAME	Same invoice delivery by Friday/week end
+a038	DIFFERENT	Different usernames (homoglyph attack)
+a186	SAME	Spanish/English translation of same analyze action
+a045	DIFFERENT	b includes delete action that a excludes with "only"
+a037	DIFFERENT	Opposite conditions (if vs unless temperature drops)
+a165	SAME	Same invoice payment deadline, different phrasing
+j071	DIFFERENT	Opposite actions (send vs hold and don't send)
+j231	DIFFERENT	b specifies 30-minute duration, a does not
+a071	SAME	Translation of same approval rule for orders over R$500
+j040	DIFFERENT	b specifies January-March timeframe, a does not
+a185	SAME	Spanish/Portuguese translation of same send action
+j193	DIFFERENT	Opposite actions (keep on vs turn off)
+j063	DIFFERENT	b specifies lift gate detail, a does not
+a155	SAME	Spanish/English translation of analyze dataset
+a143	DIFFERENT	Opposite polarity (do not send vs send)
+a018	DIFFERENT	Opposite actions (grant vs revoke access)
+j178	DIFFERENT	Different access levels (read-only vs full)
+a034	DIFFERENT	Different email addresses (homoglyph attack)
+j046	DIFFERENT	b specifies Europe region scope, a does not
+j120	SAME	Same archive rule for 30-day-old tickets, different phrasing
+j104	SAME	Same conditional ticket closure in 48 hours, different word order
+j013	SAME	Translation of same memory upgrade specification
+j055	DIFFERENT	Different channels (company website vs social media)
+j225	DIFFERENT	b specifies Zoom and business hours, a does not
+a183	DIFFERENT	Opposite actions (include vs leave out phone numbers)
+a118	SAME	Same delete/remove action for 7-day-old temp logs
+j139	DIFFERENT	Opposite polarity (approve vs don't approve)
+a159	DIFFERENT	Different order of operations (backup first vs migration first)
+j207	DIFFERENT	Opposite actions (hire vs reject)
+a000	DIFFERENT	b includes extra instructions and Carlos recipient
+j097	DIFFERENT	Opposite actions (include vs exclude minors)
+j028	DIFFERENT	Opposite actions (allow vs forbid calculator use)
+j218	DIFFERENT	Opposite polarity (include vs don't include attachment)
+j190	SAME	Translation of same SSL certificate installation
+j065	DIFFERENT	b specifies 5pm deadline, a does not
+j099	DIFFERENT	b specifies bar charts, a does not
+j192	SAME	Same action to unsubscribe customers with unpaid invoices
+a032	DIFFERENT	Opposite directions (A→B vs B→A)
+a096	DIFFERENT	Opposite actions (lock vs unlock)
+j219	DIFFERENT	Different session time limits (30 vs 60 minutes)
+j095	DIFFERENT	Different formats (CSV vs PDF)
+a058	DIFFERENT	Opposite polarity (don't delete vs delete)
+a163	SAME	Same endpoint deactivation when new goes live
+a016	DIFFERENT	Different databases (staging vs production) and missing test record specification
+a049	SAME	Spanish/Portuguese translation of analyze report
+a080	DIFFERENT	Different scope (chapters 1-5 vs only chapter 5)
+a181	DIFFERENT	Opposite actions (charge vs waive delivery fee)
+a036	SAME	Same payment service restart action despite extra context
+a111	DIFFERENT	Opposite polarity (under no circumstances vs must delete)
+a001	DIFFERENT	Opposite actions (subscribe vs unsubscribe)
+j003	DIFFERENT	Different recipient scope (all users vs expiring subscriptions only)
+a195	DIFFERENT	Different currencies (R$ vs US$) and values
+j202	DIFFERENT	b specifies SQL injection prevention purpose, a does not
+a005	DIFFERENT	Opposite polarity (never delete vs delete)
+j233	SAME	Translation of same contract review and clause marking
+j222	DIFFERENT	Opposite actions (delete vs keep draft)
+a081	DIFFERENT	Opposite scope (invite all vs invite all except engineering)
+j168	SAME	Same shipment via express courier, different phrasing

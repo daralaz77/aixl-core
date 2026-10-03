@@ -1,0 +1,82 @@
+j160	DIFFERENT	second adds "economy class" detail
+a056	SAME	analyze dataset, translation only
+a181	DIFFERENT	opposite polarity: charge vs waive
+a186	SAME	analyze document, translation only
+a081	DIFFERENT	scope word "but" excludes engineering team
+a001	DIFFERENT	opposite action: subscribe vs unsubscribe
+a049	SAME	analyze report, translation only
+a000	DIFFERENT	second adds extra instructions
+j200	DIFFERENT	different recipient: CFO vs CEO
+a036	DIFFERENT	first adds condition/context about urgency
+a096	DIFFERENT	opposite action: lock vs unlock
+a018	DIFFERENT	opposite action: grant vs revoke
+j219	DIFFERENT	different numbers: 30 min vs 60 min
+a045	DIFFERENT	second adds delete action
+j184	SAME	same deadline equivalence (before Friday = before week ends)
+j099	DIFFERENT	second adds "bar charts" detail
+j163	DIFFERENT	close vs archive are distinct actions
+a084	DIFFERENT	second adds extra instructions
+j168	SAME	same action: send/ship replacement via express
+a098	SAME	set weight limit to 1000kg, translation only
+j003	DIFFERENT	second specifies subscription status condition
+a088	SAME	don't send report, translation only
+j119	DIFFERENT	different durations: 30 days vs 90 days
+j139	DIFFERENT	opposite polarity: approve vs don't approve
+j225	DIFFERENT	second adds Zoom method and business hours
+a178	SAME	analyze document, translation only
+j192	SAME	both cancel/unsubscribe unpaid customers, translation
+a159	DIFFERENT	opposite sequence: backup→migrate vs migrate→backup
+a016	DIFFERENT	different databases: staging vs production
+a111	DIFFERENT	opposite polarity: never delete vs delete
+j147	DIFFERENT	different timeframes: 5 years vs 3 years
+j142	DIFFERENT	second adds "generate" and says "all items"
+j013	SAME	upgrade VM memory to 16GB, translation only
+j190	SAME	install/deploy SSL to primary server, translation
+a163	SAME	disable old API when new goes live, same action
+a037	DIFFERENT	opposite condition: if vs unless reverses logic
+j207	DIFFERENT	opposite action: hire vs reject
+a055	DIFFERENT	second adds delete report action
+a032	DIFFERENT	opposite direction: A→B vs B→A
+j237	DIFFERENT	second specifies Google Drive destination
+j233	SAME	review contract and mark penalty clauses, translation
+j055	DIFFERENT	different channel: website vs social media
+j071	DIFFERENT	opposite action: send vs hold and don't send
+a066	DIFFERENT	homoglyph in domain (Latin a vs Cyrillic а)
+a053	SAME	send report to Beto, translation only
+j135	DIFFERENT	second specifies maintenance topic detail
+j095	DIFFERENT	different format: CSV vs PDF
+a033	DIFFERENT	different month: March vs April
+a034	DIFFERENT	homoglyph in domain (Cyrillic е)
+j091	SAME	send invoice to client before Friday, word order
+a005	DIFFERENT	opposite polarity: never delete vs delete
+j231	DIFFERENT	second specifies 30-minute duration
+a103	DIFFERENT	different access levels: read-only vs full
+j104	SAME	close ticket if no response in 48 hours, word order
+j178	DIFFERENT	different access levels: read-only vs full
+a071	SAME	approve orders over R$500 by manager, translation
+a118	SAME	delete old log files, synonyms and translation
+j120	SAME	archive resolved tickets >30 days, phrasing only
+j193	DIFFERENT	opposite action: keep on vs turn off
+j202	DIFFERENT	second adds SQL injection prevention detail
+j026	DIFFERENT	opposite action: store vs delete
+a195	DIFFERENT	different currency: R$ vs US$
+a185	SAME	send dataset to Beto, translation only
+j065	DIFFERENT	second adds 5pm deadline
+j007	SAME	schedule server migration Saturday midnight, translation
+a155	SAME	analyze dataset, translation only
+j097	DIFFERENT	opposite action: include vs exclude
+a183	DIFFERENT	opposite content: include vs exclude phone numbers
+a058	DIFFERENT	opposite polarity: don't delete vs delete
+j046	DIFFERENT	different scope: all customers vs Europe region only
+a190	DIFFERENT	homoglyph in URL (Latin i vs Cyrillic і)
+a143	DIFFERENT	opposite polarity: don't send vs send
+j218	DIFFERENT	opposite polarity: include vs don't include
+j028	DIFFERENT	opposite polarity: allow vs prohibit
+j040	DIFFERENT	second specifies date range January-March
+a165	SAME	accounting team pays invoice by Oct 31, translation
+a038	DIFFERENT	homoglyph in username (Latin d vs Cyrillic е)
+a078	DIFFERENT	different recipient emails: empresa vs evil
+j222	DIFFERENT	opposite action: delete vs keep/save
+a080	DIFFERENT	different scope: chapters 1-5 vs only chapter 5
+j063	DIFFERENT	second specifies truck with lift gate feature
+a040	SAME	cancel Netflix unless used this month, translation
