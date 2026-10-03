@@ -1,0 +1,120 @@
+b000	SAME	Translation; identical action, object, frequency
+b001	DIFFERENT	Opposite polarity: a says restart, b says prohibit restart
+b002	DIFFERENT	a includes "don't open door for 20 minutes" detail b omits
+b003	SAME	Translation; same action and frequency
+b004	DIFFERENT	a adds "notify support team" detail b omits
+b005	DIFFERENT	b adds "register result in log" detail a omits
+b006	SAME	Translation; identical action, timing, scope
+b007	DIFFERENT	Different recipients: "on-call team" vs "support manager"
+b008	DIFFERENT	Different temperature: 180°C vs 250°C
+b009	DIFFERENT	Different recipients: "alcaldía" vs "policía de tránsito"
+b010	SAME	Translation; same action and timing (day of termination)
+b011	SAME	Rephrasing; identical action, recipient, timing
+b012	DIFFERENT	b adds "only in high season" condition a omits
+b013	DIFFERENT	Opposite polarity: a says check hourly, b says don't check
+b014	DIFFERENT	Opposite scope: a restricts to managers, b shares with all
+b015	SAME	Local time is implicit in any 6pm specification
+b016	DIFFERENT	a adds "use uppercase letters" detail b omits
+b017	DIFFERENT	a includes "product owner" b omits from scope
+b018	DIFFERENT	Opposite polarity: rotate vs never rotate
+b019	SAME	Translation; identical action and frequency
+b020	SAME	Translation; identical action, recipient, deadline
+b021	DIFFERENT	Different duration: 40 minutes vs 90 minutes
+b022	DIFFERENT	b adds "return in two weeks" detail a omits
+b023	SAME	Rephrasing; same mask-and-show action
+b024	SAME	Both require 90-day rotation and security team notification
+b025	SAME	Translation; identical action and condition
+b026	DIFFERENT	b adds "in encrypted storage" detail a omits
+b027	SAME	Rephrasing; identical recipient restriction
+b028	DIFFERENT	Different temperature ranges: 2-8°C vs -20 to -15°C
+b029	DIFFERENT	a specifies "electronically" detail b omits
+b030	DIFFERENT	Different scope: "all partners" vs "majority partners"
+b031	DIFFERENT	Opposite: get legal approval vs sign without review
+b032	DIFFERENT	Opposite: update inventory vs freeze it
+b033	DIFFERENT	Different deadlines: by 20th vs after 25th
+b034	SAME	Translation; identical action and deadline
+b035	DIFFERENT	Opposite: clean twice weekly vs never touch
+b036	SAME	Translation; identical action and timing
+b037	DIFFERENT	b adds "within 5 business days" detail a omits
+b038	DIFFERENT	b specifies "10x15 cm format" detail a omits
+b039	DIFFERENT	Opposite: schedule return vs discharge without return
+b040	DIFFERENT	Opposite: archive vs destroy
+b041	DIFFERENT	Different document type: original vs photocopy
+b042	DIFFERENT	b adds "within 15 minutes" time constraint a omits
+b043	DIFFERENT	b adds "notify branch manager" detail a omits
+b044	DIFFERENT	a adds "record on chart" detail b omits
+b045	SAME	Translation; identical action and condition
+b046	DIFFERENT	Different timing: within 10 days vs after 60 days
+b047	DIFFERENT	Opposite: send before Friday vs don't send until after
+b048	SAME	Translation; identical action and recipient
+b049	DIFFERENT	Different day: Sunday vs Saturday
+b050	DIFFERENT	Opposite: deploy staging first vs skip staging
+b051	DIFFERENT	Opposite: report vs keep confidential
+b052	DIFFERENT	Opposite: pair with mentor vs work alone
+b053	DIFFERENT	a omits "note date on label" detail b includes
+b054	DIFFERENT	a adds "in preferred language" detail b omits
+b055	DIFFERENT	Different medium: printed vs digital
+b056	DIFFERENT	Opposite: anonymously vs identify students
+b057	DIFFERENT	Different location: subject vs body
+b058	DIFFERENT	Different channel: text message vs email
+b059	DIFFERENT	Different timing: last Friday vs first Friday
+b060	DIFFERENT	Opposite: collect badge vs let keep permanently
+b061	DIFFERENT	b specifies "twice a week" frequency a omits
+b062	SAME	Translation; identical action and timing
+b063	DIFFERENT	b adds "by certified letter" detail a omits
+b064	DIFFERENT	Different substance type: flammable vs corrosive
+b065	DIFFERENT	a specifies "BitLocker" detail b omits
+b066	DIFFERENT	b specifies "in the system" location detail a omits
+b067	SAME	Translation; identical action, timing, cc
+b068	SAME	Active/passive voice; identical action and format
+b069	DIFFERENT	Different timeframe: two weeks vs two months
+b070	DIFFERENT	Different currency: euros vs dollars
+b071	DIFFERENT	Different day and restriction: Thursday vs Monday only
+b072	DIFFERENT	Different format: 10x15 cm vs A4
+b073	DIFFERENT	b adds "except auto-renewal contracts" exception a omits
+b074	SAME	Translation; identical action, format, recipient, deadline
+b075	DIFFERENT	Different measurement: temperature vs blood pressure
+b076	DIFFERENT	Different speed: 1.2 m/s vs 2.1 m/s
+b077	DIFFERENT	b adds "collect when they leave" detail a omits
+b078	DIFFERENT	a specifies "including seniors" detail b omits
+b079	SAME	Rephrasing; 6pm=18:00 local time same
+b080	DIFFERENT	Different item type: damaged vs expired
+b081	DIFFERENT	Different timeframe: 10 days vs 20 days
+b082	SAME	Rephrasing; identical action, timing, medium
+b083	DIFFERENT	Different groups: managers vs HR staff
+b084	DIFFERENT	b specifies "to main branch" detail a omits
+b085	DIFFERENT	Different day: Thursday vs Monday
+b086	DIFFERENT	Different source: parents vs teachers
+b087	SAME	Translation; identical action and scope
+b088	SAME	Rephrasing; identical action, location, timing
+b089	DIFFERENT	Opposite timing: before due vs after due
+b090	DIFFERENT	Opposite: renew all vs don't renew any
+b091	DIFFERENT	Opposite: restricted prescription vs freely available
+b092	DIFFERENT	b specifies "during first month" scope a omits
+b093	DIFFERENT	b adds "copying account manager" detail a omits
+b094	DIFFERENT	Opposite: reduce to 1.2 vs increase to 3
+b095	DIFFERENT	Different shaft: main vs secondary
+b096	DIFFERENT	Opposite: lubricate vs keep dry
+b097	DIFFERENT	Opposite deadline directions: by 5th vs no earlier than 15th
+b098	DIFFERENT	Opposite temperatures: less than 25 vs more than 40
+b099	DIFFERENT	Opposite: run tests vs skip tests
+b100	DIFFERENT	Different recipient: accounting vs purchasing department
+b101	DIFFERENT	a specifies "lithium grease" type b omits
+b102	SAME	Translation; identical action and temperature range
+b103	DIFFERENT	Different frequency: every 6 months vs once per 5 years
+b104	DIFFERENT	a specifies "master's theses" subset b omits
+b105	DIFFERENT	a adds "keep copies 14 days" detail b omits
+b106	DIFFERENT	b adds "post online too" detail a omits
+b107	DIFFERENT	b adds "by bank transfer" detail a omits
+b108	DIFFERENT	b adds "less than 25 degrees" temperature detail a omits
+b109	DIFFERENT	Different action: clean vs replace
+b110	DIFFERENT	a specifies "by video call" detail b omits
+b111	DIFFERENT	Different sensor: pressure vs temperature
+b112	DIFFERENT	b adds "notify by phone" detail a omits
+b113	DIFFERENT	Different frequency: first business day/month vs first Monday/quarter
+b114	DIFFERENT	b adds "copying finance director" detail a omits
+b115	DIFFERENT	Different escalation level: tier-two vs tier-three
+b116	DIFFERENT	Different deadline: two weeks vs two hours
+b117	SAME	Translation; identical action and frequency
+b118	DIFFERENT	Different advisor: legal advisor vs accountant
+b119	DIFFERENT	Different frequency: every quarter vs every year

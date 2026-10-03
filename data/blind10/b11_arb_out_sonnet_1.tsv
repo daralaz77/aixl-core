@@ -1,0 +1,120 @@
+b000	SAME	twice a week filters
+b001	DIFFERENT	opposite
+b002	DIFFERENT	door clause dropped
+b003	SAME	same
+b004	DIFFERENT	notify support added
+b005	DIFFERENT	logging added
+b006	SAME	same
+b007	DIFFERENT	recipient differs
+b008	DIFFERENT	temp differs
+b009	DIFFERENT	recipient differs
+b010	DIFFERENT	deactivate vs delete
+b011	SAME	same
+b012	DIFFERENT	condition added
+b013	DIFFERENT	opposite
+b014	DIFFERENT	opposite
+b015	DIFFERENT	local time added
+b016	DIFFERENT	uppercase added
+b017	DIFFERENT	product owner added
+b018	DIFFERENT	opposite
+b019	SAME	same
+b020	SAME	same
+b021	DIFFERENT	duration differs
+b022	DIFFERENT	deadline added
+b023	SAME	same
+b024	SAME	same
+b025	SAME	same
+b026	DIFFERENT	encrypted storage added
+b027	SAME	same
+b028	DIFFERENT	temp range differs
+b029	DIFFERENT	electronically added
+b030	DIFFERENT	all vs majority partners
+b031	DIFFERENT	opposite
+b032	DIFFERENT	opposite
+b033	DIFFERENT	before vs after
+b034	SAME	same
+b035	DIFFERENT	opposite
+b036	SAME	same
+b037	DIFFERENT	deadline added
+b038	DIFFERENT	format added
+b039	DIFFERENT	opposite
+b040	DIFFERENT	archive vs destroy
+b041	DIFFERENT	original vs photocopy
+b042	DIFFERENT	15 min added
+b043	DIFFERENT	notify manager added
+b044	DIFFERENT	record on chart added
+b045	SAME	same
+b046	DIFFERENT	timing differs
+b047	DIFFERENT	opposite
+b048	SAME	same
+b049	DIFFERENT	day differs
+b050	DIFFERENT	opposite
+b051	DIFFERENT	opposite
+b052	DIFFERENT	opposite
+b053	DIFFERENT	date label dropped
+b054	DIFFERENT	language dropped
+b055	DIFFERENT	printed vs digital
+b056	DIFFERENT	opposite
+b057	DIFFERENT	subject vs body
+b058	DIFFERENT	sms vs email
+b059	DIFFERENT	last vs first Friday
+b060	DIFFERENT	opposite
+b061	DIFFERENT	frequency added
+b062	SAME	same
+b063	DIFFERENT	certified letter added
+b064	DIFFERENT	flammable vs corrosive
+b065	DIFFERENT	BitLocker added
+b066	DIFFERENT	in the system added
+b067	SAME	same
+b068	SAME	same
+b069	DIFFERENT	weeks vs months
+b070	DIFFERENT	currency differs
+b071	DIFFERENT	day differs
+b072	DIFFERENT	format differs
+b073	DIFFERENT	exception added
+b074	SAME	same
+b075	DIFFERENT	temp vs blood pressure
+b076	DIFFERENT	speed differs
+b077	DIFFERENT	collect added
+b078	DIFFERENT	seniors detail
+b079	SAME	same
+b080	DIFFERENT	damaged vs expired
+b081	DIFFERENT	days differ
+b082	SAME	same
+b083	DIFFERENT	managers vs HR
+b084	DIFFERENT	branch scope added
+b085	DIFFERENT	day differs
+b086	DIFFERENT	parents vs teachers
+b087	SAME	same
+b088	SAME	same
+b089	DIFFERENT	timing opposite
+b090	DIFFERENT	opposite
+b091	DIFFERENT	opposite
+b092	DIFFERENT	first month added
+b093	DIFFERENT	cc added
+b094	DIFFERENT	reduce vs increase
+b095	DIFFERENT	main vs secondary shaft
+b096	DIFFERENT	opposite
+b097	DIFFERENT	deadline direction
+b098	DIFFERENT	opposite
+b099	DIFFERENT	opposite
+b100	DIFFERENT	department differs
+b101	DIFFERENT	lithium grease dropped
+b102	SAME	same
+b103	DIFFERENT	frequency differs
+b104	DIFFERENT	masters scope
+b105	DIFFERENT	retention added
+b106	DIFFERENT	online posting added
+b107	DIFFERENT	bank transfer added
+b108	DIFFERENT	temp added
+b109	DIFFERENT	clean vs replace
+b110	DIFFERENT	videocall added
+b111	DIFFERENT	pressure vs temperature sensor
+b112	DIFFERENT	phone notice added
+b113	DIFFERENT	schedule differs
+b114	DIFFERENT	cc added
+b115	DIFFERENT	tier two vs three
+b116	DIFFERENT	weeks vs hours
+b117	SAME	same
+b118	DIFFERENT	legal advisor vs accountant
+b119	DIFFERENT	quarterly vs yearly

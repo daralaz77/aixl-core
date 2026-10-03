@@ -1,0 +1,120 @@
+b120	SAME	same actions
+b121	DIFFERENT	adds deliver to committee
+b122	DIFFERENT	opposite
+b123	DIFFERENT	cancel vs suspend
+b124	DIFFERENT	logging dropped
+b125	DIFFERENT	opposite timing
+b126	DIFFERENT	email vs phone
+b127	DIFFERENT	opposite
+b128	DIFFERENT	adds notify customer
+b129	DIFFERENT	refund vs replace
+b130	DIFFERENT	adds newspaper
+b131	DIFFERENT	adds alarm
+b132	DIFFERENT	opposite
+b133	DIFFERENT	adds Excel format
+b134	SAME	same
+b135	DIFFERENT	90 vs 30
+b136	DIFFERENT	opposite
+b137	DIFFERENT	50,000 vs 5,000
+b138	DIFFERENT	VPN revoke added
+b139	DIFFERENT	ID document dropped
+b140	DIFFERENT	registered mail vs email
+b141	DIFFERENT	opposite
+b142	DIFFERENT	refrigerate vs freeze
+b143	SAME	same
+b144	SAME	same
+b145	SAME	same
+b146	DIFFERENT	opposite
+b147	DIFFERENT	monthly vs weekly
+b148	DIFFERENT	integration vs unit tests
+b149	SAME	same
+b150	SAME	same
+b151	DIFFERENT	adds maintenance condition
+b152	DIFFERENT	quarterly vs annual
+b153	DIFFERENT	adds office computers
+b154	DIFFERENT	phone vs letter
+b155	DIFFERENT	15 days vs 24 hours
+b156	DIFFERENT	visitors vs contractors
+b157	SAME	same
+b158	SAME	same
+b159	SAME	same order
+b160	DIFFERENT	adds debug logs
+b161	SAME	same
+b162	DIFFERENT	nurse vs doctor
+b163	DIFFERENT	adds exception
+b164	SAME	same
+b165	DIFFERENT	last four vs first six
+b166	SAME	same
+b167	SAME	same
+b168	SAME	same
+b169	DIFFERENT	200 vs 20
+b170	SAME	same
+b171	SAME	same
+b172	DIFFERENT	corridor vs whole building
+b173	SAME	same
+b174	DIFFERENT	double vs halve
+b175	DIFFERENT	adds ten days
+b176	SAME	same
+b177	DIFFERENT	opposite
+b178	SAME	same
+b179	DIFFERENT	opposite
+b180	DIFFERENT	full vs incremental
+b181	SAME	same
+b182	SAME	registered/certified letter
+b183	DIFFERENT	opposite
+b184	SAME	same
+b185	SAME	same
+b186	SAME	same
+b187	DIFFERENT	opposite
+b188	DIFFERENT	adds LED
+b189	DIFFERENT	PDF dropped
+b190	SAME	same
+b191	DIFFERENT	adds notify
+b192	DIFFERENT	opposite
+b193	DIFFERENT	encrypt vs wipe
+b194	DIFFERENT	opposite
+b195	SAME	same
+b196	SAME	same
+b197	DIFFERENT	keep vs delete
+b198	DIFFERENT	opposite
+b199	DIFFERENT	local vs UTC
+b200	SAME	same
+b201	DIFFERENT	adds legal advisor
+b202	DIFFERENT	opposite
+b203	SAME	same
+b204	SAME	same
+b205	DIFFERENT	adds Thursday
+b206	DIFFERENT	adds website
+b207	DIFFERENT	opposite
+b208	DIFFERENT	adds alone and witness
+b209	DIFFERENT	transfer vs check
+b210	DIFFERENT	opposite
+b211	DIFFERENT	order swapped
+b212	DIFFERENT	30 vs 10 days
+b213	SAME	same
+b214	SAME	same
+b215	DIFFERENT	quality vs production
+b216	SAME	same
+b217	DIFFERENT	opposite
+b218	DIFFERENT	adds one week
+b219	DIFFERENT	paper basement vs encrypted
+b220	DIFFERENT	opposite
+b221	SAME	same
+b222	DIFFERENT	Excel vs PDF only
+b223	DIFFERENT	opposite
+b224	DIFFERENT	first vs final day
+b225	DIFFERENT	opposite
+b226	DIFFERENT	quarterly vs five years
+b227	DIFFERENT	hydraulic vs pneumatic
+b228	DIFFERENT	adds QA condition
+b229	DIFFERENT	legal vs finance
+b230	DIFFERENT	adds notify nurse
+b231	DIFFERENT	opposite
+b232	DIFFERENT	adds confirmation email
+b233	DIFFERENT	30 vs 90
+b234	DIFFERENT	Friday vs Monday
+b235	DIFFERENT	opposite
+b236	SAME	same
+b237	SAME	same
+b238	DIFFERENT	internal vs external
+b239	DIFFERENT	month vs year

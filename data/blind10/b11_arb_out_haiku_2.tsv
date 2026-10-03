@@ -1,0 +1,120 @@
+b120	SAME	same action and objects, different phrasing and order
+b121	DIFFERENT	b adds delivery to committee requirement
+b122	DIFFERENT	opposite instructions: approval required vs automatic release
+b123	DIFFERENT	different actions: cancel vs suspend
+b124	DIFFERENT	a adds logging every 10 minutes requirement
+b125	DIFFERENT	opposite timing: within 1 day vs at least 5 days
+b126	DIFFERENT	different channel: email vs phone
+b127	DIFFERENT	opposite authority and no amount limit
+b128	DIFFERENT	b adds customer notification requirement
+b129	DIFFERENT	different actions: refund vs replace
+b130	DIFFERENT	a adds publication in local paper requirement
+b131	DIFFERENT	a adds alarm activation requirement
+b132	DIFFERENT	opposite instructions: visible outside vs hidden inside
+b133	DIFFERENT	b adds Excel format specification
+b134	SAME	same action and scope, different phrasing
+b135	DIFFERENT	different frequency: 90 days vs 30 days
+b136	DIFFERENT	opposite instructions: schedule follow-up vs prohibit contact
+b137	DIFFERENT	different threshold: $50,000 vs $5,000
+b138	DIFFERENT	a adds VPN access revocation requirement
+b139	DIFFERENT	a adds ID document requirement
+b140	DIFFERENT	different channel: certified mail vs email
+b141	DIFFERENT	opposite instructions: stop vs keep running
+b142	DIFFERENT	different temperatures and scope: refrigerate vs freeze
+b143	SAME	same action and frequency, different phrasing order
+b144	SAME	same restrictions, different phrasing
+b145	SAME	same action and timeline, translation
+b146	DIFFERENT	opposite timing: immediately vs next morning
+b147	DIFFERENT	different frequency: monthly vs weekly report
+b148	DIFFERENT	different test type: integration vs unit tests
+b149	SAME	same action and location, translation
+b150	SAME	same action and timing, translation
+b151	DIFFERENT	b adds maintenance condition
+b152	DIFFERENT	different frequency: quarterly vs annual
+b153	DIFFERENT	b adds office computers location restriction
+b154	DIFFERENT	different channel: phone vs letter
+b155	DIFFERENT	different notice period: 15 days vs 24 hours
+b156	DIFFERENT	different recipients: visitors vs contractors
+b157	SAME	same action and timing with customer response condition
+b158	SAME	same action and placement, different phrasing
+b159	SAME	same order and QA requirement, different phrasing
+b160	DIFFERENT	b adds debug logs scope requirement
+b161	SAME	same test type and target, translation
+b162	DIFFERENT	different recipients: night nurse vs on-duty doctor
+b163	DIFFERENT	b adds exception for recurring suppliers
+b164	SAME	same payment timing and method, translation
+b165	DIFFERENT	different digits: last 4 vs first 6
+b166	SAME	same storage conditions and temperature, translation
+b167	SAME	same action and condition, different order
+b168	SAME	same requirement and timing, translation
+b169	DIFFERENT	different threshold: 200 units vs 20 units
+b170	SAME	same reporting requirement, translation
+b171	SAME	same follow-up timing (2 weeks = 14 days), translation
+b172	DIFFERENT	different scope: corridor vs whole building
+b173	SAME	same lubrication interval and material, translation
+b174	DIFFERENT	opposite actions: double vs halve
+b175	DIFFERENT	a omits 10-day timeline that b specifies
+b176	SAME	same approval requirement and threshold, different phrasing
+b177	DIFFERENT	opposite instructions: collect forms vs skip forms
+b178	SAME	same badge issuance and collection, translation
+b179	DIFFERENT	opposite actions: write off vs keep as available
+b180	DIFFERENT	different backup type: full vs incremental
+b181	SAME	same format and action, different order
+b182	SAME	same notice and method (certified/registered mail), translation
+b183	DIFFERENT	opposite instructions: cancel vs keep active
+b184	SAME	same pause condition, different phrasing
+b185	SAME	same audit and reporting requirement, different order
+b186	SAME	same write-off and notification, different order
+b187	DIFFERENT	opposite actions: pause vs accelerate
+b188	DIFFERENT	a adds LED specification requirement
+b189	DIFFERENT	a specifies PDF format requirement not stated in b
+b190	SAME	same encryption requirement before issuance
+b191	DIFFERENT	b adds security team notification requirement
+b192	DIFFERENT	opposite polarity: mask vs record full numbers
+b193	DIFFERENT	different actions: encrypt vs wipe
+b194	DIFFERENT	opposite instruction: encrypt vs issue unencrypted
+b195	SAME	same speed limit and maintenance condition
+b196	SAME	same refund amount and no-questions clause
+b197	DIFFERENT	different retention: 14 days vs delete after 3 days
+b198	DIFFERENT	opposite timing: immediately vs end of year
+b199	DIFFERENT	different time reference: local time vs UTC
+b200	SAME	same backup frequency and retention, different order
+b201	DIFFERENT	b adds legal advisor requirement
+b202	DIFFERENT	opposite timing: 10 days before vs after closure
+b203	SAME	same approval requirement and timing, translation
+b204	SAME	same deactivation timing, translation
+b205	DIFFERENT	b specifies every Thursday requirement
+b206	DIFFERENT	b specifies ministry website location requirement
+b207	DIFFERENT	opposite polarity: refund vs refuse refund
+b208	DIFFERENT	b adds witness and sole authority conditions
+b209	DIFFERENT	different payment method: bank transfer vs check
+b210	DIFFERENT	opposite instruction: measure vs omit temperature
+b211	DIFFERENT	opposite order: staging first vs production first
+b212	DIFFERENT	different timeline: 30 days vs 10 days max
+b213	SAME	same comment period and timing, different phrasing
+b214	SAME	same requirements for prescription and ID
+b215	DIFFERENT	different recipient: quality chief vs production chief
+b216	SAME	same restart timing and frequency, translation
+b217	DIFFERENT	opposite polarity: include vs omit order number
+b218	DIFFERENT	b adds one-week deadline not in a
+b219	DIFFERENT	different storage: encrypted cold storage vs paper basement
+b220	DIFFERENT	opposite instruction: escalate vs never escalate
+b221	SAME	same routing and timing requirement
+b222	DIFFERENT	different format: Excel vs PDF, opposite polarity
+b223	DIFFERENT	opposite action: deactivate vs keep active 90 days
+b224	DIFFERENT	different timing: first day vs final day
+b225	DIFFERENT	opposite instruction: open for comment vs adopt immediately
+b226	DIFFERENT	different frequency: quarterly vs every 5 years
+b227	DIFFERENT	different equipment: hydraulic vs pneumatic press
+b228	DIFFERENT	b adds QA sign-off requirement
+b229	DIFFERENT	different approval source: legal vs financial
+b230	DIFFERENT	a adds head nurse notification requirement
+b231	DIFFERENT	opposite instruction: share vs keep secret
+b232	DIFFERENT	b adds confirmation email requirement
+b233	DIFFERENT	different duration: 30 days vs 90 days
+b234	DIFFERENT	opposite days: Friday vs Monday
+b235	DIFFERENT	opposite modes and timing
+b236	SAME	same doubling threshold, different phrasing
+b237	SAME	same temperature and door restriction, different phrasing
+b238	DIFFERENT	different audit type: internal vs external
+b239	DIFFERENT	different duration: first month vs first year

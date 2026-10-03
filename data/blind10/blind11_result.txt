@@ -1,0 +1,18 @@
+[C sonnet] parse/missing failures: 0/240
+[C haiku] parse/missing failures: 0/240
+
+arm                                    EQUIV proven    false-EQUIV (180)   NOT / PARTIAL / CONTRA
+A rules 0.4                           30/60= 50.0%  73/180= 40.6%      32 / 27 / 14
+B rules +inconclusive                  0/60=  0.0%   4/180=  2.2%       3 /  1 /  0
+C AIXL LLM-route (sonnet enc)          0/60=  0.0%   1/180=  0.6%       1 /  0 /  0
+C AIXL LLM-route (haiku enc)           0/60=  0.0%   1/180=  0.6%       1 /  0 /  0
+D arbiter Sonnet                      60/60=100.0%   1/180=  0.6%       1 /  0 /  0
+D arbiter Haiku                       60/60=100.0%   3/180=  1.7%       2 /  1 /  0
+D arbiter 2-of-2                      60/60=100.0%   1/180=  0.6%       1 /  0 /  0
+E arbiter Sonnet + obf. veto          60/60=100.0%   1/180=  0.6%       1 /  0 /  0
+E arbiter Haiku + obf. veto           60/60=100.0%   3/180=  1.7%       2 /  1 /  0
+E arbiter 2-of-2 + obf. veto          60/60=100.0%   1/180=  0.6%       1 /  0 /  0
+F 2-of-2 + C(sonnet)                   0/60=  0.0%   0/180=  0.0%       0 /  0 /  0
+F 2-of-2 + C(haiku)                    0/60=  0.0%   0/180=  0.0%       0 /  0 /  0
+
+AMBIGUOUS (rules detect_ambiguity): detected 10/60 = 16.7% | flagged on 7/60 non-ambiguous a-sides = 11.7%

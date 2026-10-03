@@ -1,0 +1,120 @@
+{"id": "b000", "a": "Limpia los filtros de la campana extractora dos veces por semana.", "b": "Twice a week, clean the extractor hood filters."}
+{"id": "b001", "a": "Reinicia el servidor de correo cada domingo a las 3:00 a. m.", "b": "El servidor de correo debe permanecer encendido sin interrupciones los domingos; prohibido reiniciarlo."}
+{"id": "b002", "a": "Mantenha o forno a 180 graus durante a cura e não abra a porta nos primeiros 20 minutos.", "b": "Mantenha o forno a 180 graus durante a cura."}
+{"id": "b003", "a": "Inspecione os extintores a cada trimestre e anote a data na etiqueta.", "b": "Cada trimestre se inspeccionan los extintores y se anota la fecha en la etiqueta."}
+{"id": "b004", "a": "Reinicia el servidor de correo cada domingo a las 3:00 a. m. y avisa al equipo de soporte.", "b": "Reinicia el servidor de correo cada domingo a las 3:00 a. m."}
+{"id": "b005", "a": "Calibra la prensa hidráulica cada 500 horas de operación.", "b": "Calibra la prensa hidráulica cada 500 horas de operación y registra el resultado en la bitácora."}
+{"id": "b006", "a": "Hold the retrospective on the last Friday of each sprint with the whole team.", "b": "No último sexta-feira de cada sprint, faça a retrospectiva com a equipe inteira."}
+{"id": "b007", "a": "Encaminhe os chamados de alta prioridade ao time de plantão em até 15 minutos.", "b": "Encaminhe os chamados de alta prioridade ao gerente de suporte em até 15 minutos."}
+{"id": "b008", "a": "Mantenha o forno a 180 graus durante a cura.", "b": "Ajuste o forno para 250 graus durante a cura."}
+{"id": "b009", "a": "Notifica a la alcaldía el cierre de la vía con diez días de anticipación.", "b": "Notifica a la policía de tránsito el cierre de la vía con diez días de anticipación."}
+{"id": "b010", "a": "Desative as contas de ex-funcionários no mesmo dia do desligamento.", "b": "Delete former employees' accounts on the day of their termination."}
+{"id": "b011", "a": "Notifica a la alcaldía el cierre de la vía con diez días de anticipación.", "b": "El cierre de la vía debe notificarse a la alcaldía con una antelación de diez días."}
+{"id": "b012", "a": "Dobla el pedido de materia prima si el stock cae por debajo de 200 unidades.", "b": "Dobla el pedido de materia prima si el stock cae por debajo de 200 unidades, solo en temporada alta."}
+{"id": "b013", "a": "Have the nurse check oxygen levels every hour.", "b": "Pide a la enfermera que no revise los niveles de oxígeno hasta la mañana."}
+{"id": "b014", "a": "Only managers may read the salary spreadsheet.", "b": "Share the salary spreadsheet openly with every employee in the company."}
+{"id": "b015", "a": "Switch the support chat to after-hours mode at 6 p.m. on weekdays.", "b": "Switch the support chat to after-hours mode at 6 p.m. local time on weekdays."}
+{"id": "b016", "a": "Inclua o número do pedido no assunto de todo e-mail enviado ao cliente e use letras maiúsculas.", "b": "Inclua o número do pedido no assunto de todo e-mail enviado ao cliente."}
+{"id": "b017", "a": "Hold the retrospective on the last Friday of each sprint, with the whole team and the product owner.", "b": "Faça a retrospectiva na última sexta-feira de cada sprint com a equipe inteira."}
+{"id": "b018", "a": "Rotate the production API keys every 90 days.", "b": "Never rotate the production API keys; keep them fixed for the life of the service."}
+{"id": "b019", "a": "Atualize o inventário de ativos de TI no sistema todo primeiro dia útil do mês.", "b": "No primeiro dia útil de cada mês, o inventário de ativos de TI precisa ser atualizado no sistema."}
+{"id": "b020", "a": "Envía la factura al departamento de contabilidad antes del viernes a las 5 p. m.", "b": "Antes de las 5 p. m. del viernes, manda la factura al área de contabilidad."}
+{"id": "b021", "a": "Mantenha o forno a 180 graus durante a cura por 40 minutos.", "b": "Mantenha o forno a 180 graus durante a cura por 90 minutos."}
+{"id": "b022", "a": "Grade the midterm essays anonymously.", "b": "Corrija as redações da prova intermediária de forma anônima e devolva-as em duas semanas."}
+{"id": "b023", "a": "Mask all but the last four digits of credit card numbers in the logs.", "b": "In the logs, credit card numbers should show only their final four digits; everything else is masked."}
+{"id": "b024", "a": "Rotate the API keys for the production database every 90 days and notify the security team.", "b": "Notify the security team whenever the production database API keys are rotated, which must happen every 90 days."}
+{"id": "b025", "a": "Solicite aprovação do jurídico antes de assinar qualquer contrato com prazo superior a dois anos.", "b": "Pide aprobación del área legal antes de firmar cualquier contrato con duración mayor a dos años."}
+{"id": "b026", "a": "Archive patient intake forms older than seven years.", "b": "Archiva los formularios de admisión de pacientes con más de siete años en almacenamiento cifrado."}
+{"id": "b027", "a": "The finance director alone may authorise wire transfers over 50,000 dollars.", "b": "Wire transfers above 50,000 dollars can be authorised by nobody but the finance director."}
+{"id": "b028", "a": "Keep the cold chain between 2 and 8 degrees Celsius during vaccine transport.", "b": "Durante o transporte de vacinas, mantenha a temperatura entre -20 e -15 graus Celsius."}
+{"id": "b029", "a": "Submit the quarterly VAT return by the 20th of the following month, electronically.", "b": "Submit the quarterly VAT return by the 20th of the following month."}
+{"id": "b030", "a": "Comparte las actas de la junta con todos los socios en un plazo de una semana.", "b": "Share the board minutes with the majority partners within one week."}
+{"id": "b031", "a": "Solicite aprovação do jurídico antes de assinar o contrato.", "b": "Firma el contrato hoy mismo sin esperar ninguna revisión legal."}
+{"id": "b032", "a": "Atualize o inventário todo primeiro dia útil do mês.", "b": "Congele o inventário e não o atualize durante o primeiro trimestre."}
+{"id": "b033", "a": "Submit the VAT return by the 20th of the month.", "b": "Submit the VAT return only after the 25th of the month."}
+{"id": "b034", "a": "Submit the quarterly VAT return to the tax authority by the 20th of the following month.", "b": "By the 20th of the next month, file the quarterly VAT return with the tax authority."}
+{"id": "b035", "a": "Limpia los filtros de la campana dos veces por semana.", "b": "Never touch the extractor hood filters; they must stay untouched for the whole month."}
+{"id": "b036", "a": "Substitua as lâmpadas queimadas do corredor assim que forem reportadas.", "b": "Reemplaza las bombillas quemadas del pasillo apenas se reporten."}
+{"id": "b037", "a": "Refund customers in full if the item arrives damaged.", "b": "Refund customers in full if the item arrives damaged, within 5 business days."}
+{"id": "b038", "a": "Print the shipping labels and attach them to each parcel.", "b": "Print the shipping labels in 10x15 cm format and attach them to each parcel."}
+{"id": "b039", "a": "Marque o retorno em 30 dias.", "b": "Dê alta definitiva à paciente, sem qualquer consulta de retorno."}
+{"id": "b040", "a": "Archive patient intake forms after seven years.", "b": "Destruye de inmediato los formularios de admisión de pacientes al cumplirse siete años; no los conserves."}
+{"id": "b041", "a": "Dispensa los medicamentos controlados únicamente con receta original.", "b": "Controlled medicines are dispensed only with a photocopy of the prescription."}
+{"id": "b042", "a": "Encaminhe os chamados de alta prioridade ao time de plantão.", "b": "Encaminhe os chamados de alta prioridade ao time de plantão em até 15 minutos."}
+{"id": "b043", "a": "Dê baixa nos itens danificados do estoque.", "b": "Dê baixa nos itens danificados do estoque e comunique o gerente da filial."}
+{"id": "b044", "a": "Tell the night nurse to check the oxygen levels hourly and record them on the chart.", "b": "Dile a la enfermera nocturna que revise los niveles de oxígeno cada hora."}
+{"id": "b045", "a": "Collect signed consent forms from parents before any student joins the field trip.", "b": "Recoge los formularios de consentimiento firmados por los padres antes de que cualquier estudiante se una a la excursión."}
+{"id": "b046", "a": "Reimburse travel expenses within ten working days.", "b": "Reembolsa los gastos de viaje solo después de 60 días hábiles."}
+{"id": "b047", "a": "Envía la factura al departamento de contabilidad antes del viernes.", "b": "No envíes la factura al departamento de contabilidad hasta después del viernes."}
+{"id": "b048", "a": "Reporta al comité de ética cualquier hallazgo de plagio detectado en las tesis.", "b": "Any plagiarism found in theses must be reported to the ethics committee."}
+{"id": "b049", "a": "Reinicia el servidor de correo cada domingo a las 3:00 de la madrugada.", "b": "Reinicia el servidor de correo cada sábado a las 3:00 de la madrugada."}
+{"id": "b050", "a": "Deploy to staging first, then to production.", "b": "Deploy straight to production and skip staging entirely."}
+{"id": "b051", "a": "Reporta al comité de ética cualquier hallazgo de plagio.", "b": "Keep plagiarism findings strictly confidential and do not tell the ethics committee."}
+{"id": "b052", "a": "Pair every new volunteer with a mentor.", "b": "Cada novo voluntário deve trabalhar sozinho, sem acompanhamento de ninguém."}
+{"id": "b053", "a": "Inspecione os extintores a cada trimestre.", "b": "Cada trimestre se inspeccionan los extintores y se anota la fecha en la etiqueta."}
+{"id": "b054", "a": "Remind tenants by text message three days before rent is due, in their preferred language.", "b": "Lembre os inquilinos por mensagem de texto três dias antes do vencimento do aluguel."}
+{"id": "b055", "a": "Entrega a los estudiantes la rúbrica impresa el primer día de clase.", "b": "Give students the digital rubric on the first day of class."}
+{"id": "b056", "a": "Grade the essays anonymously.", "b": "Corrija as redações identificando o nome de cada aluno antes de avaliar."}
+{"id": "b057", "a": "Inclua o número do pedido no assunto de todo e-mail enviado ao cliente.", "b": "Inclua o número do pedido no corpo de todo e-mail enviado ao cliente."}
+{"id": "b058", "a": "Remind tenants by text message three days before rent is due.", "b": "Lembre os inquilinos por e-mail três dias antes do vencimento do aluguel."}
+{"id": "b059", "a": "Hold the retrospective on the last Friday of each sprint with the whole team.", "b": "Faça a retrospectiva na primeira sexta-feira de cada sprint com a equipe inteira."}
+{"id": "b060", "a": "Recolha o crachá dos visitantes na saída.", "b": "Let visitors keep their badge permanently and never ask for it back."}
+{"id": "b061", "a": "Limpia los filtros de la campana extractora.", "b": "Clean the extractor hood filters twice a week."}
+{"id": "b062", "a": "Grade the midterm essays anonymously and return them within two weeks.", "b": "Corrija as redações da prova intermediária de forma anônima e devolva-as em duas semanas."}
+{"id": "b063", "a": "Convoque a assembleia de condôminos com quinze dias de antecedência.", "b": "Convoca la asamblea de copropietarios con quince días de anticipación mediante carta certificada."}
+{"id": "b064", "a": "Almacena los reactivos inflamables en el armario ventilado a menos de 25 grados.", "b": "Almacena los reactivos corrosivos en el armario ventilado a menos de 25 grados."}
+{"id": "b065", "a": "Encrypt every laptop hard drive before issuing it to a new hire, using BitLocker.", "b": "Encrypt every laptop hard drive before issuing it to a new hire."}
+{"id": "b066", "a": "Atualize o inventário de ativos de TI todo primeiro dia útil do mês.", "b": "Atualize o inventário de ativos de TI no sistema todo primeiro dia útil do mês."}
+{"id": "b067", "a": "Reply to customer complaints by email within one business day, copying the account manager.", "b": "Responde por correo a las quejas de clientes en un día hábil, con copia al gerente de cuenta."}
+{"id": "b068", "a": "Entrega el informe de laboratorio en formato Excel al jefe de calidad.", "b": "El jefe de calidad debe recibir el informe de laboratorio en formato Excel."}
+{"id": "b069", "a": "Programa una reunión de seguimiento con el paciente dos semanas después del alta.", "b": "Programa una reunión de seguimiento con el paciente dos meses después del alta."}
+{"id": "b070", "a": "The warehouse manager must approve any purchase order above 5,000 euros.", "b": "The warehouse manager must approve any purchase order above 5,000 dollars."}
+{"id": "b071", "a": "Post the weekly shift schedule every Thursday.", "b": "Publish the weekly shift schedule only on Mondays and at no other time."}
+{"id": "b072", "a": "Print the shipping labels in 10x15 cm format.", "b": "Print the shipping labels in A4 format."}
+{"id": "b073", "a": "Solicite aprovação do jurídico antes de assinar qualquer contrato.", "b": "Pide aprobación del área legal antes de firmar cualquier contrato, salvo los de renovación automática."}
+{"id": "b074", "a": "Envie o relatório mensal de vendas em PDF para a diretoria até o dia 5.", "b": "Send the monthly sales report as a PDF to the board by the 5th."}
+{"id": "b075", "a": "Mide la temperatura de los pacientes al ingreso y anótala en su historia clínica.", "b": "Mide la presión arterial de los pacientes al ingreso y anótala en su historia clínica."}
+{"id": "b076", "a": "Limite a velocidade da esteira a 1,2 metros por segundo durante a manutenção.", "b": "Limite a velocidade da esteira a 2,1 metros por segundo durante a manutenção."}
+{"id": "b077", "a": "Entregue o crachá temporário aos visitantes na recepção.", "b": "Give visitors a temporary badge at reception and collect it when they leave."}
+{"id": "b078", "a": "Collect signed consent forms from parents before any student joins the field trip, including seniors.", "b": "Recoge los formularios de consentimiento firmados por los padres antes de la excursión."}
+{"id": "b079", "a": "Switch the support chat to after-hours mode at 6 p.m. local time on weekdays.", "b": "On weekdays at 18:00 local time, put the support chat into after-hours mode."}
+{"id": "b080", "a": "Dê baixa nos itens danificados do estoque e comunique o gerente da filial.", "b": "Dê baixa nos itens vencidos do estoque e comunique o gerente da filial."}
+{"id": "b081", "a": "Reimburse travel expenses within ten working days upon receipt of original invoices.", "b": "Reembolsa los gastos de viaje en veinte días laborables al recibir las facturas originales."}
+{"id": "b082", "a": "Remind tenants by text message three days before rent is due.", "b": "Três dias antes do vencimento do aluguel, lembre os inquilinos por mensagem de texto."}
+{"id": "b083", "a": "Only managers may read the salary spreadsheet.", "b": "Only HR staff may read the salary spreadsheet."}
+{"id": "b084", "a": "Run the integration tests on every pull request.", "b": "Ejecuta las pruebas de integración en cada pull request dirigido a la rama principal."}
+{"id": "b085", "a": "Post the weekly shift schedule on the staff notice board every Thursday.", "b": "Post the weekly shift schedule on the staff notice board every Monday."}
+{"id": "b086", "a": "Collect signed consent forms from parents before any student joins the field trip.", "b": "Recoge los formularios de consentimiento firmados por los profesores antes de la excursión."}
+{"id": "b087", "a": "Comparte las actas de la junta con todos los socios en un plazo de una semana.", "b": "Share the board minutes with all partners within one week."}
+{"id": "b088", "a": "Post the weekly shift schedule on the staff notice board every Thursday.", "b": "Every Thursday, the staff notice board should carry the weekly shift schedule."}
+{"id": "b089", "a": "Remind tenants three days before rent is due.", "b": "Lembre os inquilinos apenas depois que o aluguel estiver vencido."}
+{"id": "b090", "a": "Renueva todos los contratos de arrendamiento este mes.", "b": "Do not renew any lease agreement this month."}
+{"id": "b091", "a": "Dispensa medicamentos controlados solo con receta original.", "b": "Controlled medicines can be handed out freely to anyone who asks."}
+{"id": "b092", "a": "Assign each new volunteer a mentor.", "b": "Durante o primeiro mês, cada novo voluntário deve ter um mentor designado."}
+{"id": "b093", "a": "Reply to customer complaints by email within one business day.", "b": "Responde por correo a las quejas de clientes en un día hábil, con copia al gerente de cuenta."}
+{"id": "b094", "a": "Reduza a velocidade da esteira a 1,2 m/s durante a manutenção.", "b": "Aumente a velocidade da esteira para 3 m/s durante a manutenção."}
+{"id": "b095", "a": "Lubrica los rodamientos del eje principal cada 200 horas con grasa de litio.", "b": "Every 200 hours, grease the secondary shaft bearings with lithium grease."}
+{"id": "b096", "a": "Lubrica los rodamientos cada 200 horas.", "b": "Keep the bearings completely dry; lubricating them is forbidden."}
+{"id": "b097", "a": "Envie o relatório mensal à diretoria até o dia 5.", "b": "Submit the monthly report to the board no earlier than the 15th."}
+{"id": "b098", "a": "Almacena los reactivos inflamables a menos de 25 grados.", "b": "Almacena los reactivos inflamables a más de 40 grados para acelerar su uso."}
+{"id": "b099", "a": "Run integration tests on every pull request.", "b": "Salta las pruebas de integración en todos los pull requests."}
+{"id": "b100", "a": "Envía la factura al departamento de contabilidad antes del viernes a las 5 p. m.", "b": "Envía la factura al departamento de compras antes del viernes a las 5 p. m."}
+{"id": "b101", "a": "Lubrica los rodamientos del eje principal cada 200 horas con grasa de litio.", "b": "Every 200 hours, grease the main shaft bearings."}
+{"id": "b102", "a": "Keep the cold chain between 2 and 8 degrees Celsius during vaccine transport.", "b": "Durante o transporte de vacinas, mantenha a cadeia fria entre 2 e 8 graus Celsius."}
+{"id": "b103", "a": "Realize auditorias de segurança a cada seis meses.", "b": "Realize auditorias de segurança uma única vez a cada cinco anos."}
+{"id": "b104", "a": "Reporta al comité de ética cualquier hallazgo de plagio en las tesis de maestría.", "b": "Report any plagiarism found in theses to the ethics committee."}
+{"id": "b105", "a": "Faça backup completo do banco de dados toda noite e mantenha as cópias por 14 dias.", "b": "Faça backup completo do banco de dados toda noite."}
+{"id": "b106", "a": "Entrega a los estudiantes la rúbrica impresa el primer día de clase.", "b": "Give students the printed rubric on the first day of class and post it online too."}
+{"id": "b107", "a": "Pague o fornecedor em 30 dias após o recebimento da mercadoria.", "b": "Pay the supplier within 30 days of receiving the goods, by bank transfer."}
+{"id": "b108", "a": "Almacena los reactivos inflamables en el armario ventilado.", "b": "Almacena los reactivos inflamables en el armario ventilado a menos de 25 grados."}
+{"id": "b109", "a": "Limpia los filtros de la campana extractora dos veces por semana.", "b": "Replace the extractor hood filters twice a week."}
+{"id": "b110", "a": "Programa una reunión de seguimiento con el paciente dos semanas después del alta, por videollamada.", "b": "Programa una reunión de seguimiento con el paciente dos semanas después del alta."}
+{"id": "b111", "a": "Pausa la línea de ensamblaje si el sensor de presión supera 8 bares.", "b": "Pausa la línea de ensamblaje si el sensor de temperatura supera 8 bares."}
+{"id": "b112", "a": "Marque a consulta de retorno em 30 dias.", "b": "Marque a consulta de retorno em 30 dias e avise a paciente por telefone."}
+{"id": "b113", "a": "Atualize o inventário de ativos de TI no sistema todo primeiro dia útil do mês.", "b": "Atualize o inventário de ativos de TI no sistema toda primeira segunda-feira do trimestre."}
+{"id": "b114", "a": "Envía la factura al departamento de contabilidad antes del viernes.", "b": "Envía la factura al departamento de contabilidad antes del viernes, con copia al director financiero."}
+{"id": "b115", "a": "Escalate unresolved tickets to tier-two support after 48 hours.", "b": "Escala a soporte de tercer nivel los tickets sin resolver tras 48 horas."}
+{"id": "b116", "a": "Grade the midterm essays anonymously and return them within two weeks.", "b": "Corrija as redações da prova intermediária de forma anônima e devolva-as em duas horas."}
+{"id": "b117", "a": "Tell the night nurse to check the oxygen levels hourly.", "b": "Dile a la enfermera nocturna que revise los niveles de oxígeno cada hora."}
+{"id": "b118", "a": "Revisa los contratos de arrendamiento con el asesor jurídico antes de renovarlos.", "b": "Review lease agreements with the accountant before renewing them."}
+{"id": "b119", "a": "Inspecione os extintores a cada trimestre e anote a data na etiqueta.", "b": "Inspeccionan los extintores cada año y se anota la fecha en la etiqueta."}
