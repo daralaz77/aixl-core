@@ -1,0 +1,70 @@
+X035	SAME	same action and condition, different wording
+Y004	DIFFERENT	first mandatory, second optional
+X005	DIFFERENT	first mandatory, second optional
+X002	DIFFERENT	first permits use, second prohibits use
+X027	DIFFERENT	first vague frequency, second specific daily
+X007	SAME	both state all backups unencrypted
+X006	DIFFERENT	first allows some, second allows none
+Y003	SAME	both optional to charge
+Y025	DIFFERENT	first vague soon, second specific 24 hours
+X029	SAME	same refund action and timeframe
+Y011	SAME	same recipients, just different grouping
+Y017	SAME	new vehicles and motorcycles, same scope
+X003	SAME	both mandate locking when leaving
+Y015	SAME	same condition and action
+Y033	SAME	fumigate both locations once weekly
+Y018	SAME	delete old logs and files
+Y016	DIFFERENT	second specifies different year scope for reports
+X004	DIFFERENT	first mandatory, second optional
+X028	SAME	both mandate pharmacist verification
+X010	SAME	not all visitors need badge
+Y007	DIFFERENT	first allows some approvals, second allows none
+X023	DIFFERENT	first conditions both actions, second only notification
+X009	SAME	both prohibit check payments
+Y001	SAME	both mandate registration
+Y029	SAME	pilot submits plan before departure
+Y024	SAME	same condition and both actions
+Y013	SAME	same recipient criteria
+X018	SAME	new vehicles and motorcycles
+Y005	DIFFERENT	first mandatory notification, second optional
+Y032	SAME	both prohibit shipping without address
+X025	DIFFERENT	first vague soon, second specific 24 hours
+X015	SAME	same condition and authorization options
+Y030	SAME	must inform customer of changes
+X022	SAME	if alarm, evacuate and call supervisor
+X001	SAME	both mandate registration
+Y019	DIFFERENT	second omits year for tractors
+X020	SAME	separate damaged boxes and bags
+X014	SAME	call or email, then register
+Y027	DIFFERENT	first vague several, second specific five
+Y014	SAME	same approval conditions
+X033	SAME	players must warm up 15 minutes
+Y002	DIFFERENT	first mandatory, second optional
+Y035	SAME	backup orders nightly
+Y020	SAME	send March invoices and receipts
+Y012	SAME	same alarm conditions for grounding
+X011	DIFFERENT	first applies signature to both, second only to family
+Y034	SAME	deliver grade report on last day
+Y026	DIFFERENT	first vague couple, second specific twice
+Y009	DIFFERENT	first sometimes optional, second never allowed
+X034	SAME	hand hygiene before and after patients
+X021	SAME	if projector fails, cancel and refund
+X008	DIFFERENT	first sometimes optional, second never required
+Y010	DIFFERENT	first allows some deliveries, second allows none
+Y021	DIFFERENT	first conditions both, second only closing
+X013	SAME	helmet with harness or vest
+X017	SAME	delete old logs and files
+Y022	SAME	if delayed over week, notify and refund
+X030	SAME	all visitors must wear helmet
+X019	SAME	review pending invoices and receipts
+Y031	SAME	resolve claims within ten business days
+X012	SAME	block IP or disable and notify SOC
+X032	SAME	rotate all API keys every 90 days
+Y006	DIFFERENT	first allows some batches, second allows none
+Y028	SAME	staff must wash hands before handling
+X026	DIFFERENT	first vague couple, second exact two
+X031	SAME	archive contracts and signed minutes
+Y008	SAME	only send orders with invoice
+Y023	SAME	if minor, verify ID and call guardian
+X016	SAME	digitize reports and contracts from 2024
+X024	SAME	if money missing, close cash and check safe

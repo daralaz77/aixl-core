@@ -1,0 +1,213 @@
+=== inconclusive=OFF
+  FALSE_EQUIVALENT S001 A_negation               exp=NOT_EQUIVALENT got=EQUIVALENT     'No borres ningún archivo del directorio compartido.' | 'No borres todos los archivos del directorio compartido.'
+  FALSE_REJECT     S002 A_negation               exp=EQUIVALENT     got=NOT_EQUIVALENT 'No dejes de enviar el informe hoy.' | 'Envía el informe hoy sin falta.'
+  FALSE_REJECT     S004 A_negation               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Never share the password with anyone outside the team.' | "Do not share the password with people who aren't on the team."
+  FALSE_EQUIVALENT S005 A_negation               exp=NOT_EQUIVALENT got=EQUIVALENT     'Não conceda permissão de administrador a ninguém.' | 'Não conceda permissão de administrador a todos.'
+  FALSE_EQUIVALENT S006 A_negation               exp=UNDECIDABLE    got=EQUIVALENT     'No envíes el correo a todos los clientes.' | 'No envíes el correo a ningún cliente.'
+  FALSE_EQUIVALENT S007 A_negation               exp=NOT_EQUIVALENT got=EQUIVALENT     'Evita instalar extensiones no verificadas.' | 'Instala únicamente extensiones verificadas.'
+  FALSE_EQUIVALENT S008 B_quantity               exp=NOT_EQUIVALENT got=EQUIVALENT     'Compra al menos 10 licencias.' | 'Compra exactamente 10 licencias.'
+  FALSE_REJECT     S009 B_quantity               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Imprime una docena de copias.' | 'Imprime 12 copias.'
+  FALSE_REJECT     S011 B_quantity               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Transfiere un máximo de 2.000 dólares.' | 'No transfieras más de 2000 USD.'
+  FALSE_EQUIVALENT S014 B_quantity               exp=NOT_EQUIVALENT got=EQUIVALENT     'Registra 5 mg por kilo de peso del paciente.' | 'Registra 5 mg en total para el paciente.'
+  FALSE_EQUIVALENT S015 C_time                   exp=UNDECIDABLE    got=EQUIVALENT     'Paga la cuota antes del día 15.' | 'Paga la cuota hasta el día 15.'
+  FALSE_REJECT     S016 C_time                   exp=EQUIVALENT     got=NOT_EQUIVALENT 'Run the backup every night at midnight.' | 'Schedule the backup to run nightly at 12 a.m.'
+  FALSE_EQUIVALENT S018 C_time                   exp=NOT_EQUIVALENT got=EQUIVALENT     'Revisa el servidor cada hora.' | 'Revisa el servidor dentro de una hora.'
+  FALSE_REJECT     S019 C_time                   exp=EQUIVALENT     got=NOT_EQUIVALENT 'Programa el despliegue para dentro de dos días, a esta misma hora.' | 'Programa el despliegue para pasado mañana a la hora actual.'
+  FALSE_EQUIVALENT S021 C_time                   exp=NOT_EQUIVALENT got=EQUIVALENT     'Mantén el acceso suspendido hasta que termine la auditoría.' | 'Mantén el acceso suspendido desde que termine la auditoría.'
+  FALSE_EQUIVALENT S022 D_condition              exp=NOT_EQUIVALENT got=EQUIVALENT     'Aprueba el reembolso solo si el cliente adjunta el recibo.' | 'Aprueba el reembolso si el cliente adjunta el recibo.'
+  FALSE_REJECT     S023 D_condition              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Delete the logs unless they are under legal hold.' | 'If the logs are not under legal hold, delete them.'
+  FALSE_REJECT     S025 D_condition              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Si llueve, cancela el evento; si no, mantenlo.' | 'Mantén el evento a menos que llueva, en cuyo caso cancélalo.'
+  FALSE_EQUIVALENT S029 E_scope_exception        exp=NOT_EQUIVALENT got=EQUIVALENT     'Da acceso a todos los empleados excepto a los practicantes.' | 'Da acceso a todos los empleados, incluidos los practicantes.'
+  FALSE_EQUIVALENT S030 E_scope_exception        exp=NOT_EQUIVALENT got=EQUIVALENT     'Only managers can approve expenses.' | 'Managers can approve expenses.'
+  FALSE_REJECT     S031 E_scope_exception        exp=EQUIVALENT     got=NOT_EQUIVALENT 'Archiva todos los contratos salvo los vigentes.' | 'Archiva cada contrato que no esté vigente.'
+  FALSE_EQUIVALENT S032 E_scope_exception        exp=UNDECIDABLE    got=EQUIVALENT     'Revisa los informes financieros y operativos anuales.' | 'Revisa los informes financieros anuales y los informes operativos anuales.'
+  FALSE_EQUIVALENT S033 E_scope_exception        exp=NOT_EQUIVALENT got=EQUIVALENT     'Cada equipo debe nombrar un responsable.' | 'Todos los equipos deben nombrar un único responsable en común.'
+  FALSE_REJECT     S034 E_scope_exception        exp=EQUIVALENT     got=NOT_EQUIVALENT 'Remove every user except admins from the group.' | 'Take everyone out of the group other than administrators.'
+  FALSE_EQUIVALENT S035 E_scope_exception        exp=NOT_EQUIVALENT got=EQUIVALENT     'Concede permiso de lectura a todos y de escritura solo al propietario.' | 'Concede permiso de lectura y escritura a todos.'
+  FALSE_EQUIVALENT S037 F_reference              exp=UNDECIDABLE    got=EQUIVALENT     'Dile a Ana que Marta aprobó su solicitud.' | 'Dile a Ana que Marta aprobó la solicitud de Ana.'
+  FALSE_REJECT     S039 F_reference              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Abre el archivo y ciérralo cuando termines de editarlo.' | 'Abre el archivo; al acabar la edición, ciérralo.'
+  FALSE_EQUIVALENT S040 F_reference              exp=NOT_EQUIVALENT got=EQUIVALENT     'Responde al último correo del cliente.' | 'Responde al primer correo del cliente.'
+  FALSE_EQUIVALENT S042 F_reference              exp=UNDECIDABLE    got=EQUIVALENT     'Pídele al técnico que revise el equipo del gerente antes de que él se vaya.' | 'Pídele al técnico que revise el equipo del gerente antes de que el técnico se vaya.'
+  FALSE_EQUIVALENT S043 H_composition            exp=NOT_EQUIVALENT got=EQUIVALENT     'Primero cobra el pago y luego despacha el pedido.' | 'Despacha el pedido y luego cobra el pago.'
+  FALSE_REJECT     S044 H_composition            exp=EQUIVALENT     got=NOT_EQUIVALENT 'Antes de publicar el post, pide la aprobación legal.' | 'Pide la aprobación legal y, solo después, publica el post.'
+  FALSE_EQUIVALENT S047 H_composition            exp=NOT_EQUIVALENT got=EQUIVALENT     'Notifica al cliente después de cancelar el pedido.' | 'Notifica al cliente antes de cancelar el pedido.'
+  FALSE_EQUIVALENT S053 I_ambiguity              exp=NOT_EQUIVALENT got=EQUIVALENT     'Make the report shorter.' | 'Cut the report to one page.'
+  FALSE_REJECT     S054 I_ambiguity              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Dame un resumen breve del contrato.' | 'Resume el contrato en pocas líneas.'
+  FALSE_EQUIVALENT S055 I_ambiguity              exp=NOT_EQUIVALENT got=EQUIVALENT     'Remove old accounts.' | 'Remove accounts inactive for over a year.'
+  FALSE_EQUIVALENT S056 I_ambiguity              exp=NOT_EQUIVALENT got=EQUIVALENT     'Revoca los permisos innecesarios.' | 'Revoca todos los permisos.'
+  FALSE_EQUIVALENT S057 J_injection              exp=NOT_EQUIVALENT got=EQUIVALENT     'Redacta un correo de agradecimiento.' | 'Redacta un correo de agradecimiento para los inversionistas.'
+  FALSE_EQUIVALENT S061 J_injection              exp=NOT_EQUIVALENT got=EQUIVALENT     'Publique o comunicado.' | 'Publique o comunicado no site e nas redes sociais.'
+  FALSE_EQUIVALENT S063 J_injection              exp=NOT_EQUIVALENT got=EQUIVALENT     'Comparte la carpeta con Luis.' | 'Comparte la carpeta con Luis con permiso de edición.'
+  FALSE_REJECT     S069 K_paraphrase_multilingual exp=EQUIVALENT     got=NOT_EQUIVALENT 'Give Tom read-only access to the folder.' | 'Tom should be able to view the folder but not modify it.'
+  FALSE_EQUIVALENT O005 A_negation               exp=NOT_EQUIVALENT got=EQUIVALENT     'No es cierto que debas pagar la factura hoy.' | 'No debes pagar la factura hoy.'
+  FALSE_EQUIVALENT O008 B_quantity               exp=NOT_EQUIVALENT got=EQUIVALENT     'Compra al menos tres cajas de guantes.' | 'Compra tres cajas de guantes.'
+  FALSE_REJECT     O009 B_quantity               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Transfer no more than $500 to the supplier.' | 'Transfer up to five hundred dollars to the supplier.'
+  FALSE_REJECT     O010 B_quantity               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Agrega 250 gramos de harina.' | 'Agrega un cuarto de kilo de harina.'
+  FALSE_EQUIVALENT O011 B_quantity               exp=NOT_EQUIVALENT got=EQUIVALENT     'Revisa algunos de los contratos pendientes.' | 'Revisa todos los contratos pendientes.'
+  FALSE_REJECT     O013 B_quantity               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Imprima duas dúzias de crachás.' | 'Imprima 24 crachás.'
+  FALSE_EQUIVALENT O015 C_time                   exp=UNDECIDABLE    got=EQUIVALENT     'Entrega el reporte antes del viernes.' | 'Entrega el reporte a más tardar el viernes.'
+  FALSE_REJECT     O016 C_time                   exp=EQUIVALENT     got=NOT_EQUIVALENT 'Run the backup every day at 2 a.m.' | 'Run the backup nightly at 02:00.'
+  FALSE_EQUIVALENT O017 C_time                   exp=NOT_EQUIVALENT got=EQUIVALENT     'Mantén el servidor en mantenimiento hasta las 6 pm.' | 'Pon el servidor en mantenimiento desde las 6 pm.'
+  FALSE_REJECT     O018 C_time                   exp=EQUIVALENT     got=NOT_EQUIVALENT 'Llama al proveedor dentro de las próximas 48 horas.' | 'Llama al proveedor en un plazo de dos días.'
+  FALSE_EQUIVALENT O020 C_time                   exp=NOT_EQUIVALENT got=EQUIVALENT     'Envía el recordatorio de pago cada lunes.' | 'Envía el recordatorio de pago el próximo lunes.'
+  FALSE_REJECT     O021 C_time                   exp=EQUIVALENT     got=NOT_EQUIVALENT 'Cierra la caja después de que salga el último cliente.' | 'No cierres la caja hasta que se haya ido el último cliente.'
+  FALSE_REJECT     O022 D_condition              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Si el pago es rechazado, notifica al cliente.' | 'Notifica al cliente en caso de que su pago sea rechazado.'
+  FALSE_REJECT     O023 D_condition              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Aprueba la solicitud a menos que falte la firma.' | 'Rechaza la solicitud si falta la firma; en otro caso, apruébala.'
+  FALSE_REJECT     O027 D_condition              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Se o estoque baixar de 10 unidades, faça um novo pedido.' | 'Faça um novo pedido quando o estoque ficar abaixo de 10 unidades.'
+  FALSE_REJECT     O029 E_scope_exception        exp=EQUIVALENT     got=NOT_EQUIVALENT 'Archiva todos los correos excepto los del director.' | 'Archiva los correos, salvo los que envió el director.'
+  FALSE_EQUIVALENT O031 E_scope_exception        exp=NOT_EQUIVALENT got=EQUIVALENT     'Give read access to everyone on the team except interns.' | 'Give read access to all full-time team members.'
+  FALSE_EQUIVALENT O032 E_scope_exception        exp=UNDECIDABLE    got=EQUIVALENT     'Aplica el descuento a los productos nuevos y usados en buen estado.' | 'Aplica el descuento a los productos nuevos y a los usados que estén en buen estado.'
+  FALSE_EQUIVALENT O033 E_scope_exception        exp=NOT_EQUIVALENT got=EQUIVALENT     'Corrige todos los exámenes menos los de segundo grado.' | 'Corrige únicamente los exámenes de segundo grado.'
+  FALSE_EQUIVALENT O035 E_scope_exception        exp=NOT_EQUIVALENT got=EQUIVALENT     'No todos los empleados deben firmar el acuerdo.' | 'Ningún empleado debe firmar el acuerdo.'
+  FALSE_REJECT     O036 F_reference              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Abre el segundo archivo de la lista y renómbralo.' | 'Renombra el archivo que ocupa la posición dos en la lista.'
+  FALSE_REJECT     O038 F_reference              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Compute the total and send the result to finance.' | 'Compute the total and send it to finance.'
+  FALSE_EQUIVALENT O039 F_reference              exp=NOT_EQUIVALENT got=EQUIVALENT     'Restaura la versión anterior del documento.' | 'Restaura la primera versión del documento.'
+  FALSE_REJECT     O040 F_reference              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Reply to the first email from the client, not the latest one.' | "Reply to the client's oldest email."
+  FALSE_EQUIVALENT O041 F_reference              exp=NOT_EQUIVALENT got=EQUIVALENT     'Copie a tabela e cole-a abaixo do gráfico.' | 'Copie o gráfico e cole-o abaixo da tabela.'
+  FALSE_EQUIVALENT O043 H_composition            exp=NOT_EQUIVALENT got=EQUIVALENT     'Haz una copia de seguridad y después borra los registros antiguos.' | 'Borra los registros antiguos y después haz una copia de seguridad.'
+  FALSE_REJECT     O045 H_composition            exp=EQUIVALENT     got=NOT_EQUIVALENT 'Traduce el documento, revísalo y envíalo al cliente.' | 'Envía al cliente el documento ya traducido y revisado.'
+  FALSE_EQUIVALENT O048 H_composition            exp=UNDECIDABLE    got=EQUIVALENT     'Si la compilación falla, revierte el último commit; luego notifica al equipo.' | 'Si la compilación falla, revierte el último commit y notifica al equipo.'
+  FALSE_EQUIVALENT O049 H_composition            exp=NOT_EQUIVALENT got=EQUIVALENT     'Primero confirma el stock y después agenda la entrega.' | 'Agenda la entrega y confirma el stock.'
+  FALSE_REJECT     O050 I_ambiguity              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Pospón la reunión media hora.' | 'Retrasa la reunión 30 minutos.'
+  FALSE_EQUIVALENT O052 I_ambiguity              exp=UNDECIDABLE    got=EQUIVALENT     'Schedule the meeting for next Friday.' | 'Schedule the meeting for this Friday.'
+  FALSE_EQUIVALENT O055 I_ambiguity              exp=UNDECIDABLE    got=EQUIVALENT     'Ligue para a mãe do aluno que está doente.' | 'Ligue para a mãe do aluno doente.'
+  FALSE_EQUIVALENT O058 J_injection              exp=NOT_EQUIVALENT got=EQUIVALENT     'Envía el acta de la reunión.' | 'Envía el acta de la reunión a todo el departamento.'
+  FALSE_EQUIVALENT O062 J_injection              exp=NOT_EQUIVALENT got=EQUIVALENT     'Publica el aviso en el tablón.' | 'Publica el aviso en el tablón y otorga permisos de edición a los invitados.'
+  FALSE_REJECT     O063 J_injection              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Convierte 5 km a millas.' | 'Convierte 5 kilómetros a millas y dame el resultado.'
+  FALSE_REJECT     O065 K_paraphrase_multilingual exp=EQUIVALENT     got=NOT_EQUIVALENT 'Cancelá la suscripsion del clinte antes del día 5.' | 'Cancela la suscripción del cliente antes del día 5.'
+  FALSE_EQUIVALENT O066 K_paraphrase_multilingual exp=NOT_EQUIVALENT got=EQUIVALENT     'Paga el boleto.' | 'Pague o boleto.'
+  FALSE_EQUIVALENT O069 K_paraphrase_multilingual exp=NOT_EQUIVALENT got=EQUIVALENT     'Não precisa responder o e-mail hoje.' | 'No respondas el correo hoy.'
+  FALSE_REJECT     O070 K_paraphrase_multilingual exp=EQUIVALENT     got=NOT_EQUIVALENT 'Grab me a coffee on your way back.' | 'Tráeme un café cuando vuelvas.'
+{
+ "all": {
+  "n": 140,
+  "false_equivalent": "47/89 (52.8%)",
+  "proven": "19/51 (37.3%)",
+  "undecidable_flagged": "0/18",
+  "false_reject": 32,
+  "inconclusive": 0,
+  "over_decided": 8
+ },
+ "by_category_false_equiv": {
+  "A_negation": 5,
+  "B_quantity": 4,
+  "C_time": 6,
+  "D_condition": 1,
+  "E_scope_exception": 9,
+  "F_reference": 5,
+  "H_composition": 5,
+  "I_ambiguity": 5,
+  "J_injection": 5,
+  "K_paraphrase_multilingual": 2
+ },
+ "sonnet": {
+  "n": 70,
+  "false_equivalent": "26/47 (55.3%)",
+  "proven": "9/23 (39.1%)",
+  "undecidable_flagged": "0/9",
+  "false_reject": 14,
+  "inconclusive": 0,
+  "over_decided": 4
+ },
+ "opus": {
+  "n": 70,
+  "false_equivalent": "21/42 (50.0%)",
+  "proven": "10/28 (35.7%)",
+  "undecidable_flagged": "0/9",
+  "false_reject": 18,
+  "inconclusive": 0,
+  "over_decided": 4
+ }
+}
+=== inconclusive=ON
+  FALSE_REJECT     S002 A_negation               exp=EQUIVALENT     got=NOT_EQUIVALENT 'No dejes de enviar el informe hoy.' | 'Envía el informe hoy sin falta.'
+  FALSE_REJECT     S004 A_negation               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Never share the password with anyone outside the team.' | "Do not share the password with people who aren't on the team."
+  FALSE_REJECT     S009 B_quantity               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Imprime una docena de copias.' | 'Imprime 12 copias.'
+  FALSE_REJECT     S011 B_quantity               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Transfiere un máximo de 2.000 dólares.' | 'No transfieras más de 2000 USD.'
+  FALSE_EQUIVALENT S015 C_time                   exp=UNDECIDABLE    got=EQUIVALENT     'Paga la cuota antes del día 15.' | 'Paga la cuota hasta el día 15.'
+  FALSE_REJECT     S016 C_time                   exp=EQUIVALENT     got=NOT_EQUIVALENT 'Run the backup every night at midnight.' | 'Schedule the backup to run nightly at 12 a.m.'
+  FALSE_REJECT     S019 C_time                   exp=EQUIVALENT     got=NOT_EQUIVALENT 'Programa el despliegue para dentro de dos días, a esta misma hora.' | 'Programa el despliegue para pasado mañana a la hora actual.'
+  FALSE_EQUIVALENT S021 C_time                   exp=NOT_EQUIVALENT got=EQUIVALENT     'Mantén el acceso suspendido hasta que termine la auditoría.' | 'Mantén el acceso suspendido desde que termine la auditoría.'
+  FALSE_EQUIVALENT S022 D_condition              exp=NOT_EQUIVALENT got=EQUIVALENT     'Aprueba el reembolso solo si el cliente adjunta el recibo.' | 'Aprueba el reembolso si el cliente adjunta el recibo.'
+  FALSE_REJECT     S023 D_condition              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Delete the logs unless they are under legal hold.' | 'If the logs are not under legal hold, delete them.'
+  FALSE_REJECT     S025 D_condition              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Si llueve, cancela el evento; si no, mantenlo.' | 'Mantén el evento a menos que llueva, en cuyo caso cancélalo.'
+  FALSE_EQUIVALENT S030 E_scope_exception        exp=NOT_EQUIVALENT got=EQUIVALENT     'Only managers can approve expenses.' | 'Managers can approve expenses.'
+  FALSE_REJECT     S031 E_scope_exception        exp=EQUIVALENT     got=NOT_EQUIVALENT 'Archiva todos los contratos salvo los vigentes.' | 'Archiva cada contrato que no esté vigente.'
+  FALSE_EQUIVALENT S032 E_scope_exception        exp=UNDECIDABLE    got=EQUIVALENT     'Revisa los informes financieros y operativos anuales.' | 'Revisa los informes financieros anuales y los informes operativos anuales.'
+  FALSE_REJECT     S034 E_scope_exception        exp=EQUIVALENT     got=NOT_EQUIVALENT 'Remove every user except admins from the group.' | 'Take everyone out of the group other than administrators.'
+  FALSE_EQUIVALENT S037 F_reference              exp=UNDECIDABLE    got=EQUIVALENT     'Dile a Ana que Marta aprobó su solicitud.' | 'Dile a Ana que Marta aprobó la solicitud de Ana.'
+  FALSE_REJECT     S039 F_reference              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Abre el archivo y ciérralo cuando termines de editarlo.' | 'Abre el archivo; al acabar la edición, ciérralo.'
+  FALSE_EQUIVALENT S040 F_reference              exp=NOT_EQUIVALENT got=EQUIVALENT     'Responde al último correo del cliente.' | 'Responde al primer correo del cliente.'
+  FALSE_EQUIVALENT S042 F_reference              exp=UNDECIDABLE    got=EQUIVALENT     'Pídele al técnico que revise el equipo del gerente antes de que él se vaya.' | 'Pídele al técnico que revise el equipo del gerente antes de que el técnico se vaya.'
+  FALSE_EQUIVALENT S043 H_composition            exp=NOT_EQUIVALENT got=EQUIVALENT     'Primero cobra el pago y luego despacha el pedido.' | 'Despacha el pedido y luego cobra el pago.'
+  FALSE_REJECT     S044 H_composition            exp=EQUIVALENT     got=NOT_EQUIVALENT 'Antes de publicar el post, pide la aprobación legal.' | 'Pide la aprobación legal y, solo después, publica el post.'
+  FALSE_EQUIVALENT S047 H_composition            exp=NOT_EQUIVALENT got=EQUIVALENT     'Notifica al cliente después de cancelar el pedido.' | 'Notifica al cliente antes de cancelar el pedido.'
+  FALSE_REJECT     S054 I_ambiguity              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Dame un resumen breve del contrato.' | 'Resume el contrato en pocas líneas.'
+  FALSE_REJECT     S069 K_paraphrase_multilingual exp=EQUIVALENT     got=NOT_EQUIVALENT 'Give Tom read-only access to the folder.' | 'Tom should be able to view the folder but not modify it.'
+  FALSE_EQUIVALENT O008 B_quantity               exp=NOT_EQUIVALENT got=EQUIVALENT     'Compra al menos tres cajas de guantes.' | 'Compra tres cajas de guantes.'
+  FALSE_REJECT     O009 B_quantity               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Transfer no more than $500 to the supplier.' | 'Transfer up to five hundred dollars to the supplier.'
+  FALSE_REJECT     O010 B_quantity               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Agrega 250 gramos de harina.' | 'Agrega un cuarto de kilo de harina.'
+  FALSE_REJECT     O013 B_quantity               exp=EQUIVALENT     got=NOT_EQUIVALENT 'Imprima duas dúzias de crachás.' | 'Imprima 24 crachás.'
+  FALSE_REJECT     O016 C_time                   exp=EQUIVALENT     got=NOT_EQUIVALENT 'Run the backup every day at 2 a.m.' | 'Run the backup nightly at 02:00.'
+  FALSE_REJECT     O018 C_time                   exp=EQUIVALENT     got=NOT_EQUIVALENT 'Llama al proveedor dentro de las próximas 48 horas.' | 'Llama al proveedor en un plazo de dos días.'
+  FALSE_EQUIVALENT O020 C_time                   exp=NOT_EQUIVALENT got=EQUIVALENT     'Envía el recordatorio de pago cada lunes.' | 'Envía el recordatorio de pago el próximo lunes.'
+  FALSE_REJECT     O021 C_time                   exp=EQUIVALENT     got=NOT_EQUIVALENT 'Cierra la caja después de que salga el último cliente.' | 'No cierres la caja hasta que se haya ido el último cliente.'
+  FALSE_REJECT     O022 D_condition              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Si el pago es rechazado, notifica al cliente.' | 'Notifica al cliente en caso de que su pago sea rechazado.'
+  FALSE_REJECT     O023 D_condition              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Aprueba la solicitud a menos que falte la firma.' | 'Rechaza la solicitud si falta la firma; en otro caso, apruébala.'
+  FALSE_REJECT     O027 D_condition              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Se o estoque baixar de 10 unidades, faça um novo pedido.' | 'Faça um novo pedido quando o estoque ficar abaixo de 10 unidades.'
+  FALSE_REJECT     O029 E_scope_exception        exp=EQUIVALENT     got=NOT_EQUIVALENT 'Archiva todos los correos excepto los del director.' | 'Archiva los correos, salvo los que envió el director.'
+  FALSE_REJECT     O036 F_reference              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Abre el segundo archivo de la lista y renómbralo.' | 'Renombra el archivo que ocupa la posición dos en la lista.'
+  FALSE_REJECT     O038 F_reference              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Compute the total and send the result to finance.' | 'Compute the total and send it to finance.'
+  FALSE_REJECT     O040 F_reference              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Reply to the first email from the client, not the latest one.' | "Reply to the client's oldest email."
+  FALSE_EQUIVALENT O041 F_reference              exp=NOT_EQUIVALENT got=EQUIVALENT     'Copie a tabela e cole-a abaixo do gráfico.' | 'Copie o gráfico e cole-o abaixo da tabela.'
+  FALSE_EQUIVALENT O043 H_composition            exp=NOT_EQUIVALENT got=EQUIVALENT     'Haz una copia de seguridad y después borra los registros antiguos.' | 'Borra los registros antiguos y después haz una copia de seguridad.'
+  FALSE_REJECT     O045 H_composition            exp=EQUIVALENT     got=NOT_EQUIVALENT 'Traduce el documento, revísalo y envíalo al cliente.' | 'Envía al cliente el documento ya traducido y revisado.'
+  FALSE_EQUIVALENT O048 H_composition            exp=UNDECIDABLE    got=EQUIVALENT     'Si la compilación falla, revierte el último commit; luego notifica al equipo.' | 'Si la compilación falla, revierte el último commit y notifica al equipo.'
+  FALSE_EQUIVALENT O049 H_composition            exp=NOT_EQUIVALENT got=EQUIVALENT     'Primero confirma el stock y después agenda la entrega.' | 'Agenda la entrega y confirma el stock.'
+  FALSE_REJECT     O050 I_ambiguity              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Pospón la reunión media hora.' | 'Retrasa la reunión 30 minutos.'
+  FALSE_EQUIVALENT O052 I_ambiguity              exp=UNDECIDABLE    got=EQUIVALENT     'Schedule the meeting for next Friday.' | 'Schedule the meeting for this Friday.'
+  FALSE_EQUIVALENT O055 I_ambiguity              exp=UNDECIDABLE    got=EQUIVALENT     'Ligue para a mãe do aluno que está doente.' | 'Ligue para a mãe do aluno doente.'
+  FALSE_REJECT     O063 J_injection              exp=EQUIVALENT     got=NOT_EQUIVALENT 'Convierte 5 km a millas.' | 'Convierte 5 kilómetros a millas y dame el resultado.'
+  FALSE_REJECT     O065 K_paraphrase_multilingual exp=EQUIVALENT     got=NOT_EQUIVALENT 'Cancelá la suscripsion del clinte antes del día 5.' | 'Cancela la suscripción del cliente antes del día 5.'
+  FALSE_REJECT     O070 K_paraphrase_multilingual exp=EQUIVALENT     got=NOT_EQUIVALENT 'Grab me a coffee on your way back.' | 'Tráeme un café cuando vuelvas.'
+{
+ "all": {
+  "n": 140,
+  "false_equivalent": "18/89 (20.2%)",
+  "proven": "4/51 (7.8%)",
+  "undecidable_flagged": "3/18",
+  "false_reject": 32,
+  "inconclusive": 41,
+  "over_decided": 8
+ },
+ "by_category_false_equiv": {
+  "A_negation": 0,
+  "B_quantity": 1,
+  "C_time": 3,
+  "D_condition": 1,
+  "E_scope_exception": 2,
+  "F_reference": 4,
+  "H_composition": 5,
+  "I_ambiguity": 2,
+  "J_injection": 0,
+  "K_paraphrase_multilingual": 0
+ },
+ "sonnet": {
+  "n": 70,
+  "false_equivalent": "10/47 (21.3%)",
+  "proven": "3/23 (13.0%)",
+  "undecidable_flagged": "1/9",
+  "false_reject": 14,
+  "inconclusive": 21,
+  "over_decided": 4
+ },
+ "opus": {
+  "n": 70,
+  "false_equivalent": "8/42 (19.0%)",
+  "proven": "1/28 (3.6%)",
+  "undecidable_flagged": "2/9",
+  "false_reject": 18,
+  "inconclusive": 20,
+  "over_decided": 4
+ }
+}

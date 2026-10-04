@@ -1,0 +1,70 @@
+{"id": "Y034", "a": "Si el cliente cancela con menos de 48 horas de antelación, el hotel cobra la primera noche.", "b": "El hotel cobrará la primera noche al cliente que cancele con menos de 48 horas de antelación."}
+{"id": "X015", "a": "No se permite entrar a la obra sin casco.", "b": "Para entrar a la obra es obligatorio llevar casco."}
+{"id": "Y027", "a": "The promotion applies from 1 March onward.", "b": "The promotion applies until 1 March."}
+{"id": "Y030", "a": "Orders over 100 dollars ship free of charge.", "b": "No shipping fee is charged on any order exceeding $100."}
+{"id": "X003", "a": "Quando o engenheiro e a arquiteta visitarem a obra, entregue as chaves do depósito a ele.", "b": "Quando o engenheiro e a arquiteta visitarem a obra, entregue as chaves do depósito a ela."}
+{"id": "Y022", "a": "No todos los lotes de semilla deben ser tratados con fungicida.", "b": "Ningún lote de semilla debe ser tratado con fungicida."}
+{"id": "Y015", "a": "The refund is issued only if the customer returns the item.", "b": "If the customer does not return the item, no refund is issued."}
+{"id": "Y008", "a": "Primeiro confirme a reserva, depois cobre o depósito.", "b": "Cobre o depósito, depois confirme a reserva."}
+{"id": "X029", "a": "El técnico debe revisar los extintores cada mes.", "b": "La revisión mensual de los extintores le corresponde al técnico."}
+{"id": "Y010", "a": "Primero verifique la identidad del cliente y después apruebe el reembolso.", "b": "Apruebe el reembolso una vez verificada la identidad del cliente."}
+{"id": "X007", "a": "Back up the database, then run the migration.", "b": "Run the migration, then back up the database."}
+{"id": "X030", "a": "Managers must approve every expense report over $500.", "b": "Any expense report exceeding $500 has to be approved by a manager."}
+{"id": "Y007", "a": "Drain the tank, then refill it with the new solution.", "b": "Drain the tank and refill it with the new solution."}
+{"id": "X032", "a": "Nunca compartas contraseñas por correo electrónico.", "b": "Never share passwords over email."}
+{"id": "Y005", "a": "The teacher told the student to submit his essay before the break.", "b": "The teacher told the student to submit her essay before the break."}
+{"id": "X018", "a": "Solo los supervisores pueden aprobar devoluciones.", "b": "Nadie salvo los supervisores puede aprobar devoluciones."}
+{"id": "X019", "a": "Todos los empleados excepto los de bodega deben usar uniforme.", "b": "Solo los empleados de bodega deben usar uniforme."}
+{"id": "Y026", "a": "Entregue el informe antes del viernes.", "b": "Entregue el informe hasta el viernes."}
+{"id": "X012", "a": "Run the unit tests and the linter in parallel.", "b": "Run the unit tests, then the linter."}
+{"id": "X024", "a": "No es cierto que no debas cifrar las copias de seguridad.", "b": "Debes cifrar las copias de seguridad."}
+{"id": "X001", "a": "Cuando el veterinario llegue con la asistente, ella debe pesar al perro antes de la consulta.", "b": "Cuando el veterinario llegue con la asistente, él debe pesar al perro antes de la consulta."}
+{"id": "X011", "a": "Mientras la mezcla hierve, pica la cebolla.", "b": "Cuando la mezcla haya hervido, pica la cebolla."}
+{"id": "X031", "a": "Antes de servir, aqueça o molho até ferver.", "b": "O molho deve ser levado à fervura antes de ser servido."}
+{"id": "Y033", "a": "Passengers may not carry liquids above 100 ml through security.", "b": "Carrying through security any liquid container larger than 100 ml is forbidden to passengers."}
+{"id": "Y031", "a": "O laboratório deve descartar as amostras vencidas imediatamente.", "b": "As amostras com validade expirada têm de ser descartadas pelo laboratório sem demora."}
+{"id": "Y002", "a": "When the manager meets the intern, he must hand over the access badge.", "b": "When the manager meets the intern, she must hand over the access badge."}
+{"id": "X034", "a": "If the forklift alarm sounds, stop the vehicle immediately.", "b": "Whenever its alarm goes off, bring the forklift to a halt at once."}
+{"id": "Y023", "a": "Staff must not only log the incident but also notify the supervisor.", "b": "Staff must log the incident; notifying the supervisor is optional."}
+{"id": "Y025", "a": "Evite compartir las contraseñas con terceros.", "b": "Se prohíbe compartir las contraseñas con terceros."}
+{"id": "X028", "a": "Mantén al paciente en ayunas desde la medianoche hasta la cirugía.", "b": "Mantén al paciente en ayunas hasta la medianoche anterior a la cirugía."}
+{"id": "Y020", "a": "All guests except children under 12 must pay the resort fee.", "b": "Children under 12 are exempt from the resort fee."}
+{"id": "X006", "a": "Desinfecta la herida y luego aplica el vendaje.", "b": "Desinfecta la herida y aplica el vendaje."}
+{"id": "Y021", "a": "Todos os funcionários, exceto os de turno noturno, devem usar o crachá.", "b": "Somente os funcionários do turno noturno estão dispensados do crachá, e os demais devem usá-lo."}
+{"id": "X020", "a": "All drivers except contractors must log their rest hours.", "b": "Contractor drivers are exempt from logging rest hours."}
+{"id": "X005", "a": "Cuando la cocinera hable con el proveedor, revisa su factura antes de pagar.", "b": "Cuando la cocinera hable con el proveedor, revisa la factura de él antes de pagar."}
+{"id": "Y028", "a": "Revise o estoque toda segunda-feira.", "b": "Revise o estoque na próxima segunda-feira."}
+{"id": "Y016", "a": "La aseguradora pagará el siniestro a menos que se compruebe fraude.", "b": "Si se comprueba fraude, la aseguradora pagará el siniestro."}
+{"id": "X022", "a": "No todos los pedidos requieren firma del destinatario.", "b": "Ningún pedido requiere firma del destinatario."}
+{"id": "X014", "a": "Libera el pago solo si el cliente firmó el contrato.", "b": "Si el cliente firmó el contrato, libera el pago."}
+{"id": "Y011", "a": "Mientras el robot ordeña, el operario debe registrar la producción de leche.", "b": "Cuando el robot termine de ordeñar, el operario debe registrar la producción de leche."}
+{"id": "X035", "a": "A equipe de suporte deve responder a cada chamado em até 24 horas.", "b": "Cada chamado tem de ser respondido pela equipe de suporte num prazo máximo de 24 horas."}
+{"id": "X010", "a": "Verify the customer's identity and then reset the password.", "b": "Reset the password only after you have verified the customer's identity."}
+{"id": "X013", "a": "Monitore a pressão arterial enquanto administra a medicação.", "b": "Administre a medicação e, ao mesmo tempo, monitore a pressão arterial."}
+{"id": "Y014", "a": "El estudiante aprueba solo si entrega el proyecto final.", "b": "Si el estudiante entrega el proyecto final, aprueba."}
+{"id": "X004", "a": "Si los enfermeros y las residentes terminan el turno, ellas deben firmar la bitácora de medicamentos.", "b": "Si los enfermeros y las residentes terminan el turno, ellos deben firmar la bitácora de medicamentos."}
+{"id": "Y029", "a": "El técnico debe calibrar los sensores del tractor cada mañana.", "b": "La calibración diaria, por la mañana, de los sensores del tractor corre a cargo del técnico."}
+{"id": "X009", "a": "Pesa la mercancía, etiqueta las cajas y despáchalas.", "b": "Después de etiquetar las cajas, pesa la mercancía y despáchala."}
+{"id": "X026", "a": "Acepta devoluciones hasta el 15 de marzo inclusive.", "b": "Acepta devoluciones antes del 15 de marzo."}
+{"id": "Y035", "a": "La profesora corregirá los exámenes y publicará las notas el lunes.", "b": "Los exámenes serán corregidos por la profesora, y las notas, publicadas por ella el lunes."}
+{"id": "Y009", "a": "Después de fumigar el invernadero, ventile el recinto.", "b": "Ventile el recinto, después de fumigar el invernadero."}
+{"id": "Y006", "a": "Esterilice el instrumental y luego registre el lote en la bitácora.", "b": "Esterilice el instrumental y registre el lote en la bitácora."}
+{"id": "X021", "a": "Solo se puede administrar morfina con orden médica.", "b": "Se puede administrar morfina con orden médica."}
+{"id": "Y017", "a": "Está prohibido despegar sin autorización de la torre.", "b": "Es obligatorio contar con autorización de la torre para despegar."}
+{"id": "X033", "a": "Oye, a los perros no les des chocolate, ¿vale?", "b": "Queda prohibido suministrar chocolate a los perros."}
+{"id": "X017", "a": "Se o animal não estiver em jejum, não aplique a anestesia.", "b": "Aplique a anestesia somente se o animal estiver em jejum."}
+{"id": "X027", "a": "Rotate the API keys every 90 days.", "b": "Rotate the API keys 90 days from now."}
+{"id": "Y013", "a": "Faça o check-in dos hóspedes e a limpeza do quarto ao mesmo tempo.", "b": "Faça o check-in dos hóspedes e simultaneamente a limpeza do quarto."}
+{"id": "Y018", "a": "Solo el personal de laboratorio puede entrar a la cámara fría.", "b": "Todos excepto el personal de laboratorio pueden entrar a la cámara fría."}
+{"id": "X025", "a": "Evite usar a escada pelo lado externo do andaime.", "b": "É proibido usar a escada pelo lado externo do andaime."}
+{"id": "X016", "a": "Do not ship the order unless payment has cleared.", "b": "Ship the order if payment has cleared."}
+{"id": "X002", "a": "When Mark and Julia review the loan file, approve it only after his signature.", "b": "When Mark and Julia review the loan file, approve it only after her signature."}
+{"id": "Y024", "a": "No es inaceptable que el alumno repita el examen una vez.", "b": "Se permite que el alumno repita el examen una vez."}
+{"id": "X008", "a": "Primeiro feche a válvula de gás e depois desligue o disjuntor.", "b": "Desligue o disjuntor depois de fechar a válvula de gás."}
+{"id": "Y001", "a": "Cuando la enfermera avise a la doctora, ella debe firmar el parte de alta.", "b": "Cuando la enfermera avise a la doctora, esta última debe firmar el parte de alta, no la enfermera."}
+{"id": "X023", "a": "Check not only the brakes but also the tire pressure.", "b": "Check both the brakes and the tire pressure."}
+{"id": "Y003", "a": "Quando o hóspede cumprimentar a gerente, ele deve pagar a diária adiantada.", "b": "Quando o hóspede cumprimentar a gerente, ela deve pagar a diária adiantada."}
+{"id": "Y012", "a": "Run the two sample analyses in parallel on separate machines.", "b": "Run the first sample analysis, and once it finishes run the second one."}
+{"id": "Y004", "a": "Si los pilotos informan a las azafatas, ellos deben revisar la lista de verificación.", "b": "Si los pilotos informan a las azafatas, ellas deben revisar la lista de verificación."}
+{"id": "Y019", "a": "Nadie salvo el gerente puede anular un pedido.", "b": "Solo el gerente puede anular un pedido."}
+{"id": "Y032", "a": "Pásale la factura a contabilidad antes de que acabe el mes, porfa.", "b": "Se solicita remitir la factura al departamento de contabilidad antes del cierre del mes."}

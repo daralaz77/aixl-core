@@ -1,0 +1,12 @@
+{
+ "authorX_opus.jsonl": "5855089b901899164b8691f2961b4eeace1601e3ef85c5ac3109b901c7d20830",
+ "authorY_sonnet.jsonl": "3c8798bef5f9cf59fa7cf30be6090f0d29887dad185b30cf61007b212f21e099",
+ "judge_input.jsonl": "8fa29a67d83e78baf827df0d622a2543c041233620875e49c16830ee92af2643",
+ "judge_sonnet.tsv": "ceb0929b6587a1edc2a69837c4212ec367ecc149f4517e69f4b01c0509db667a",
+ "judge_haiku.tsv": "4f19026f1f41db959c95bcb10c404e861e6f700796312bac7ff9512ce9656555",
+ "judge_haiku_RAW_markdown.txt": "02cf27156c3dcd422d3c75a972d7d30c8d2df422ed3009ba19e36cf52ef35d2c",
+ "JUDGE_LOG.md": "c528e5eed2133a3b483548cc6edcd6df1090160a3e579307d9db80fc588e3183",
+ "judge_haiku_b.tsv": "c19aaacbd5ff0b3d9841c3bbf1c11b5b92adbf4e94c26c7601ffcdf932bce651",
+ "RESULT_run1.txt": "4551ad538213d1995a7b4b7396fd3a187c83fd23e8587a85a2e06d463de3a2d2",
+ "RESULT_run2_haiku_b.txt": "4551ad538213d1995a7b4b7396fd3a187c83fd23e8587a85a2e06d463de3a2d2"
+}

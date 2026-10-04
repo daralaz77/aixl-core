@@ -1,0 +1,70 @@
+Y034	SAME	Same action/conditions/parties, structure differs
+X015	SAME	Synonyms (no permission ↔ obligatory)
+Y027	DIFFERENT	Opposite time reference (from onward ↔ until)
+Y030	SAME	Same condition, action, parties
+X003	DIFFERENT	Recipient pronoun differs (él ↔ ella)
+Y022	DIFFERENT	Quantifier changed (not all ↔ none)
+Y015	SAME	Contrapositive equivalence
+Y008	DIFFERENT	Action order reversed
+X029	SAME	Same action/agent/frequency, voice differs
+Y010	SAME	Sequence implied identically
+X007	DIFFERENT	Action order reversed
+X030	SAME	Same condition/action/agent
+Y007	SAME	Logical sequence identical
+X032	SAME	Direct translation
+Y005	DIFFERENT	Subject pronoun differs (his ↔ her)
+X018	SAME	Equivalent formulations
+X019	DIFFERENT	Qualification inverted
+Y026	DIFFERENT	Scope varies (before ↔ until, exclusive vs inclusive)
+X012	DIFFERENT	Timing opposite (parallel ↔ sequential)
+X024	SAME	Double negation resolves same
+X001	DIFFERENT	Agent pronoun differs (ella ↔ él)
+X011	DIFFERENT	Temporal marker changed (while ↔ after)
+X031	SAME	Same action/condition/timing, voice differs
+Y033	SAME	Same prohibition/limit, phrasing differs
+Y031	SAME	Same action/agent/timing
+Y002	DIFFERENT	Agent pronoun differs (he ↔ she)
+X034	SAME	Same condition/action, phrasing differs
+Y023	DIFFERENT	Notification status changed (mandatory ↔ optional)
+Y025	SAME	Equivalent prohibition formulations
+X028	DIFFERENT	Time period altered
+Y020	SAME	Exemption equivalence
+X006	DIFFERENT	Sequence marker added (luego) vs omitted
+Y021	SAME	Equivalent exemption statements
+X020	SAME	Exemption stated equivalently
+X005	SAME	Possessive refers to same party in context
+Y028	DIFFERENT	Frequency changed (every ↔ next)
+Y016	DIFFERENT	Condition inverted (unless ↔ if)
+X022	DIFFERENT	Quantifier changed (not all ↔ none)
+X014	SAME	Conditional equivalence
+Y011	DIFFERENT	Temporal marker changed (while ↔ when finished)
+X035	SAME	Same obligation/timing/agent, voice differs
+X010	SAME	Sequence specified identically
+X013	SAME	Simultaneous action
+Y014	SAME	Conditional equivalence
+X004	DIFFERENT	Agent pronoun differs (ellas ↔ ellos)
+Y029	SAME	Same action/frequency/agent
+X009	DIFFERENT	Action sequence reversed
+X026	DIFFERENT	Date inclusivity differs
+Y035	SAME	Same actions/agent/date, voice differs
+Y009	SAME	Sequence identical
+Y006	DIFFERENT	Sequence explicit (luego) vs implicit
+X021	DIFFERENT	Restriction scope changed (only ↔ with permission)
+Y017	SAME	Prohibition equivalence
+X033	SAME	Prohibition formulated differently
+X017	SAME	Contrapositive equivalence
+X027	DIFFERENT	Frequency changed (every ↔ once in)
+Y013	SAME	Simultaneous action specified
+Y018	DIFFERENT	Access qualification inverted
+X025	SAME	Equivalent prohibition formulations
+X016	SAME	Contrapositive equivalence
+X002	DIFFERENT	Signature source pronoun differs (his ↔ her)
+Y024	SAME	Double negation resolves same
+X008	SAME	Sequence specified identically
+Y001	DIFFERENT	Beneficiary ambiguous (ella) vs explicit (doctora)
+X023	SAME	Both items checked, phrasing differs
+Y003	DIFFERENT	Agent pronoun differs (ele ↔ ela)
+Y012	DIFFERENT	Execution timing opposite (parallel ↔ sequential)
+Y004	DIFFERENT	Agent pronoun differs (ellos ↔ ellas)
+Y019	SAME	Equivalent restriction formulations
+Y032	SAME	Same action/deadline/recipient, tone differs

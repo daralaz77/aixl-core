@@ -1,0 +1,34 @@
+judge haiku: 70/70 valid, missing [], invalid []
+judge sonnet: 70/70 valid, missing [], invalid []
+
+SET: 70 pairs  labels {'EQUIVALENT': 26, 'NOT_EQUIVALENT': 22, 'UNDECIDABLE': 22}
+
+[SEMANTIC alone]
+  false-equivalent: 3/44 (6.8%) ids: ['X022', 'X024', 'Y002']
+  NOT_EQUIVALENT precision: 10/14 (71.4%)  recall: 10/22 (45.5%)  proven equivalent: 0/26 (0.0%)
+
+[ARBITER 2-of-2 alone]
+  false-SAME: 4/44 (9.1%) ids: ['X021', 'X022', 'Y013', 'Y022']
+  SAME on equivalent: 24/26 (92.3%)
+
+[H] HYBRID
+  [H1] false-SAME: 2/44 (4.5%) ids: ['X022', 'Y013']
+  [H2] SAME on equivalent: 21/26 (80.8%)
+  REVIEW: 5 -> truly non-equivalent (veto was right): 2  truly equivalent (FALSE veto): 3
+  verdict x label: {('EQUIV', 'SAME'): 21, ('NOT_E', 'DIFFERENT'): 21, ('EQUIV', 'REVIEW'): 3, ('UNDEC', 'DIFFERENT'): 8, ('UNDEC', 'UNSURE'): 10, ('EQUIV', 'UNSURE'): 1, ('UNDEC', 'REVIEW'): 2, ('UNDEC', 'SAME'): 2, ('EQUIV', 'DIFFERENT'): 1, ('NOT_E', 'UNSURE'): 1}
+
+[RULE] ambiguity veto
+  [R1] hybrid false-SAME 2/44 (4.5%) vs arbiter alone 4/44 (9.1%) -> hybrid <= arbiter: True
+  [R2] hybrid SAME on equivalent: 21/26 (80.8%)
+  [R3] REVIEW caused by the ambiguity rule: 2 -> truly not-equivalent/undecidable: 1 1/2 (50.0%)
+  BENEFIT (arbiter false-SAME turned into REVIEW by any veto): 2 ['X021', 'Y022']
+  COST (true SAME turned into REVIEW): 3 ['X003', 'X010', 'Y001']
+  claim 'hybrid safer than arbiter alone' allowed: True
+   X003 double_negatio lab=EQUIV sem=NOT_EQ arb=SAME hyb=REVIEW | Never fail to lock the server room when you leave. | Always lock the server room when you leave.
+   X010 negated_quanti lab=EQUIV sem=NOT_EQ arb=SAME hyb=REVIEW | Not every museum visitor needs a badge. | Some museum visitors do not need a badge.
+   X022 conditional_sc lab=UNDEC sem=EQUIVA arb=SAME hyb=SAME | Evacuate the tunnel and call the supervisor if the gas alarm sounds. | If the gas alarm sounds, evacuate the tunnel and call the supervisor.
+   X024 conditional_sc lab=UNDEC sem=EQUIVA arb=DIFFE hyb=DIFFERENT | Feche o caixa e confira o cofre se faltar dinheiro. | Se faltar dinheiro, feche o caixa e confira o cofre.
+   X031 true_paraphras lab=EQUIV sem=INCONC arb=DIFFE hyb=DIFFERENT | Archiva los contratos y las actas firmadas. | Archiva todos los contratos, así como las actas que estén firmadas.
+   Y001 double_negatio lab=EQUIV sem=INCONC arb=SAME hyb=REVIEW | No es cierto que no debas registrar cada muestra que ingresa al laboratorio. | Debes registrar cada muestra que ingresa al laboratorio.
+   Y002 double_negatio lab=NOT_E sem=EQUIVA arb=DIFFE hyb=DIFFERENT | No está permitido no registrar la temperatura de la cámara fría al cierre. | Está permitido registrar la temperatura de la cámara fría al cierre.
+   Y013 and_or_groupin lab=UNDEC sem=INCONC arb=SAME hyb=SAME | Ofrece desayuno gratis a huéspedes VIP o a quienes reserven tres noches y paguen por adelantado. | Ofrece desayuno gratis a huéspedes VIP, o a quienes reserven tres noches y además paguen por adelantado.

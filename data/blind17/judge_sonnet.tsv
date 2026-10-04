@@ -1,0 +1,70 @@
+Y034	SAME	cancelación <48h implica cobro de primera noche
+X015	SAME	sin casco no se entra = casco obligatorio
+Y027	DIFFERENT	desde vs hasta 1 marzo
+Y030	SAME	envío gratis en pedidos >100
+X003	DIFFERENT	destinatario él vs ella
+Y022	DIFFERENT	"no todos" vs "ninguno"
+Y015	SAME	reembolso solo si devuelve = sin devolución no hay reembolso
+Y008	DIFFERENT	orden invertido
+X029	SAME	técnico revisa extintores mensualmente
+Y010	SAME	reembolso tras verificar identidad
+X007	DIFFERENT	orden invertido
+X030	SAME	gerente aprueba informes >500
+Y007	DIFFERENT	"then" impone orden, el otro no
+X032	SAME	traducción
+Y005	DIFFERENT	his vs her
+X018	SAME	solo supervisores = nadie salvo supervisores
+X019	DIFFERENT	todos excepto bodega vs solo bodega
+Y026	DIFFERENT	antes del viernes vs hasta el viernes
+X012	DIFFERENT	paralelo vs secuencial
+X024	SAME	doble negación = debes cifrar
+X001	DIFFERENT	ella vs él
+X011	DIFFERENT	mientras hierve vs después de hervir
+X031	SAME	hervir salsa antes de servir
+Y033	SAME	prohibido líquidos >100 ml
+Y031	SAME	descartar muestras vencidas de inmediato
+Y002	DIFFERENT	he vs she
+X034	SAME	alarma del montacargas, detener de inmediato
+Y023	DIFFERENT	notificar obligatorio vs opcional
+Y025	DIFFERENT	evitar vs prohibir
+X028	DIFFERENT	desde vs hasta medianoche
+Y020	DIFFERENT	b omite el resto de huéspedes que pagan
+X006	DIFFERENT	"luego" impone orden, el otro no
+Y021	SAME	exentos los de turno nocturno, demás usan
+X020	DIFFERENT	b omite que los demás deben registrar
+X005	DIFFERENT	su factura ambigua vs factura del proveedor
+Y028	DIFFERENT	cada lunes vs próximo lunes
+Y016	DIFFERENT	pago salvo fraude vs pago si hay fraude
+X022	DIFFERENT	"no todos" vs "ninguno"
+X014	DIFFERENT	solo si vs si
+Y011	DIFFERENT	mientras vs al terminar
+X035	SAME	responder en máx 24 h
+X010	SAME	restablecer tras verificar identidad
+X013	SAME	simultáneo
+Y014	DIFFERENT	solo si vs si
+X004	DIFFERENT	ellas vs ellos
+Y029	SAME	calibración diaria matutina por técnico
+X009	DIFFERENT	orden y pasos distintos
+X026	DIFFERENT	inclusive vs antes del 15
+Y035	SAME	misma acción activa/pasiva
+Y009	SAME	ventilar tras fumigar
+Y006	DIFFERENT	"luego" impone orden, el otro no
+X021	DIFFERENT	solo con orden vs permitido con orden
+Y017	SAME	despegue requiere autorización
+X033	SAME	no dar chocolate a perros
+X017	SAME	anestesia solo si en ayunas
+X027	DIFFERENT	cada 90 días vs una vez en 90 días
+Y013	SAME	simultáneo
+Y018	DIFFERENT	solo lab vs todos excepto lab
+X025	DIFFERENT	evitar vs prohibido
+X016	DIFFERENT	unless (solo si) vs if
+X002	DIFFERENT	his vs her
+Y024	SAME	doble negación = permitido
+X008	SAME	cerrar válvula y luego disyuntor
+Y001	DIFFERENT	b añade "no la enfermera"
+X023	SAME	ambos revisiones
+Y003	DIFFERENT	él vs ella
+Y012	DIFFERENT	paralelo vs secuencial
+Y004	DIFFERENT	ellos vs ellas
+Y019	SAME	solo gerente anula
+Y032	SAME	factura a contabilidad antes de fin de mes

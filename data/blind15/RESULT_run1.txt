@@ -1,0 +1,21 @@
+  over_decided     R019 C_time       exp=UNDECI got=NOT_EQ 'Revisa los extintores de forma bimensual.' | 'Revisa los extintores cada dos meses.'
+  FALSE_REJECT     R035 E_scope_exce exp=EQUIVA got=NOT_EQ 'Everyone except visitors must wear a lab coat in the lab.' | 'In the lab, lab coats are mandatory for all people present, with visitors exempt.'
+  over_decided     R052 I_ambiguity  exp=UNDECI got=NOT_EQ 'Aprueba las reclamaciones de vehículos y motos menores de cinco años.' | 'Aprueba las reclamaciones de vehículos de cualquier antigüedad y de motos menores de cinco años.'
+  over_decided     T019 C_time       exp=UNDECI got=NOT_EQ 'Revisa el tren de aterrizaje cada semana.' | 'Revisa el tren de aterrizaje al final de la semana.'
+  FALSE_REJECT     T027 D_condition  exp=EQUIVA got=NOT_EQ 'Se a pressão cair abaixo de 2 bar, desligue a bomba.' | 'Desligue a bomba caso a pressão fique menor que 2 bar.'
+  FALSE_REJECT     T044 H_compositio exp=EQUIVA got=NOT_EQ 'Antes de abrir la caja fuerte, verifica la identidad del cliente.' | 'Verifica la identidad del cliente; solo después, abre la caja fuerte.'
+  over_decided     T053 I_ambiguity  exp=UNDECI got=NOT_EQ "Ship the older customers' orders first." | 'Ship the orders from long-standing customers first.'
+NOT_EQUIVALENT precision 28/35 (80.0%)  recall 28/58 (48.3%)
+ALL       false_equivalent 0/77 (0.0%)  proven 1/63 (1.6%)  undecidable_flagged 15/19  false_reject 3  inconclusive 89  over_decided 4
+authorR_opus.jsonl     false_equivalent 0/39 (0.0%)  proven 0/31 (0.0%)  undecidable_flagged 8/10  false_reject 1  inconclusive 49  over_decided 2
+authorT_sonnet.jsonl   false_equivalent 0/38 (0.0%)  proven 1/32 (3.1%)  undecidable_flagged 7/9  false_reject 2  inconclusive 40  over_decided 2
+A_negation                 {'inconclusive': 10, 'ok': 4}
+B_quantity                 {'inconclusive': 8, 'ok': 6}
+C_time                     {'ok': 4, 'inconclusive': 8, 'over_decided': 2}
+D_condition                {'ok': 9, 'inconclusive': 4, 'FALSE_REJECT': 1}
+E_scope_exception          {'inconclusive': 9, 'ok': 4, 'FALSE_REJECT': 1}
+F_reference                {'inconclusive': 11, 'ok': 3}
+H_composition              {'ok': 5, 'inconclusive': 8, 'FALSE_REJECT': 1}
+I_ambiguity                {'ok': 4, 'over_decided': 2, 'inconclusive': 8}
+J_injection                {'inconclusive': 9, 'ok': 5}
+K_paraphrase_multilingual  {'inconclusive': 14}

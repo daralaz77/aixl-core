@@ -1,0 +1,10 @@
+{
+ "aixl/semantic/__init__.py": "34e609ece13035e0a5894dd17290f14a2303067a3fad4b3f1ab09cb440bf8491",
+ "aixl/semantic/compare.py": "e5203289d14695d3035e54bb46c3b86576d5eeda58a79b3878fc5c1a32bae5ee",
+ "aixl/semantic/hybrid.py": "2fe73507d816872e0d211b61a396fa49ebe58c8c6a6f672b5d5f8b76bb38dec8",
+ "aixl/semantic/lexicon.py": "7adaec5224a8e2468114da758bf84c1c98756bfbaa2425d6ccd41ec18002709e",
+ "aixl/semantic/model.py": "b17d9867cb83ba1684b863060ea07b214b963c25316ca31074da80c712a48a62",
+ "aixl/semantic/parser.py": "457876d486868b5d4baec0f1e83975cad1d4b7f6fbe19a064340fcd07ac07115",
+ "aixl/arbiter.py": "040e6f36fe5df85d2f6780a7d7b060b3e6eba42e4bcbc7b660624ae345ca89fd",
+ "data/arbiter/rules_v1.txt": "9e63b85575c5caf5a217e9d3c27c32b2be195783a3a157c60ffebb9eb8be85a2"
+}

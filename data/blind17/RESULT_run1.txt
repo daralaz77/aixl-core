@@ -1,0 +1,24 @@
+judge haiku: 70/70 valid, missing [], invalid []
+judge sonnet: 70/70 valid, missing [], invalid []
+
+SET: 70 pairs  labels {'NOT_EQUIVALENT': 39, 'UNDECIDABLE': 3, 'EQUIVALENT': 28}
+
+[S1] SEMANTIC alone
+  false-equivalent: 2/42 (4.8%) ids: ['Y005', 'Y009']
+  family gender_pronoun: false-equivalent 1/10
+  family explicit_vs_bare_order: false-equivalent 1/7
+  NOT_EQUIVALENT precision: 13/15 (86.7%)  recall: 13/39 (33.3%)  proven equivalent: 0/28 (0.0%)
+
+[ARBITER 2-of-2 alone]
+  false-SAME: 2/42 (4.8%) ids: ['X024', 'Y009']
+  SAME on equivalent: 28/28 (100.0%)
+
+[H] HYBRID
+  [H1] false-SAME: 2/42 (4.8%) ids: ['X024', 'Y009']
+  [H2] SAME on equivalent: 27/28 (96.4%)
+  REVIEW: 1 -> truly non-equivalent (veto was right): 0  truly equivalent (FALSE veto): 1
+  verdict x label: {('NOT_E', 'DIFFERENT'): 37, ('UNDEC', 'DIFFERENT'): 3, ('EQUIV', 'SAME'): 27, ('NOT_E', 'SAME'): 2, ('EQUIV', 'REVIEW'): 1}
+   X024 negation_scope lab=NOT_E sem=INCONC arb=SAME hyb=SAME | No es cierto que no debas cifrar las copias de seguridad. | Debes cifrar las copias de seguridad.
+   Y005 gender_pronoun lab=NOT_E sem=EQUIVA arb=DIFFE hyb=DIFFERENT | The teacher told the student to submit his essay before the break. | The teacher told the student to submit her essay before the break.
+   Y009 explicit_vs_ba lab=NOT_E sem=EQUIVA arb=SAME hyb=SAME | Después de fumigar el invernadero, ventile el recinto. | Ventile el recinto, después de fumigar el invernadero.
+   Y017 contraposition lab=EQUIV sem=NOT_EQ arb=SAME hyb=REVIEW | Está prohibido despegar sin autorización de la torre. | Es obligatorio contar con autorización de la torre para despegar.

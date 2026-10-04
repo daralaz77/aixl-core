@@ -1,0 +1,7 @@
+{
+ "aixl/semantic/__init__.py": "32cf30bcbb859a7bc4557826de74dc6158e9ad16a8408174656131b2d1e8841a",
+ "aixl/semantic/compare.py": "62b7d898753aab27924d8ec0a049678f2ab2b977d7602d04218179bf4ee5bfb7",
+ "aixl/semantic/lexicon.py": "371cb76ab968121bd0e798eb13a95bae7a75f26dcfd1fc268be076d4b37684a9",
+ "aixl/semantic/model.py": "5706de2d5656dbc2d87dccf6257276a894a0cc054e485292ecdeff612e8eae80",
+ "aixl/semantic/parser.py": "67778a7645a6d86237617046353ad97e6c34f576816c172e48fd904cfb6d9a3a"
+}

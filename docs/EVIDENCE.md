@@ -60,6 +60,18 @@ lexical stage 1 reduces arbiter calls ~77× at 60 % recall (blind12). Decision m
 * Nothing here is validated with real agent-to-agent traffic or any real organisation.
 * The sanitizer-veto result (Haiku alone 4 → 1 false "same" on blind10-adversarial) was chosen after seeing the data and was neither confirmed nor refuted by blind11/12 (no obfuscation attacks in them).
 
+## 4b. The 0.3-R semantic track (closed controlled domain, 2026-10-03) — what was measured and what it supports
+Code `aixl/semantic/` (model, parser, comparator, hybrid), documented in [SEMANTIC_MODEL_0_3R.md](SEMANTIC_MODEL_0_3R.md). Scope: imperative / rule-style instructions in ES, EN, PT with a closed lexicon; everything else is `INCONCLUSIVE`. All sets below are author-labelled by fresh agents with no access to the repo; each independent set was evaluated once on hash-frozen code and is then spent (data/blind13-18, pre-registrations in each PREREG.md).
+| What | Result (independent sets) | Supports |
+|---|---|---|
+| Old rules route on open text (blind13) | 52.8% false-equivalent | confirms 0.5.0 findings |
+| Semantic track false-equivalent (blind14-18, 5 sets) | 0/85, 0/77, 2/82, 2/42, 3/44 | a **loss/distortion detector** that is usually, not always, safe; never claim "0 errors" |
+| `NOT_EQUIVALENT` precision (gate 90%) | 55% -> 80% -> 87% -> 87% -> 71% across sets | **NOT_EQUIVALENT is a suspicion, not a proof**; two attempts failed the 90% gate |
+| Proven equivalent (gate 70%) | 0-2% | the semantic track cannot prove sameness of paraphrases (closed lexicon) |
+| Hybrid (arbiter proves, semantic vetoes) on ambiguity-heavy text (blind18) | false-SAME 2/44 vs arbiter alone 4/44; SAME on equivalent 80.8% (gate 85%: fail); 1 of 2 ambiguity-REVIEWs right (gate 60%: fail) | a **review queue** for high-stakes cases; the claim "safer than the arbiter alone" is NOT allowed by the pre-registered policy |
+Development sets (golden_r + blind13-18 after fixes, 766 pairs): NOT_EQUIVALENT precision 184/190, false-equivalent 2/464 — tuned on, so not evidence. Every fresh independent set exposed new defect classes (10-20% of NOT_EQUIVALENT verdicts), so the closed lexicon has a long tail.
+**Use:** where a wrong SAME costs more than a human review (destructive / financial instructions), run `aixl.semantic.hybrid_decide` with two judges and treat REVIEW as "a person decides". **Do not use it** to certify that two open-text instructions are equivalent, nor to present NOT_EQUIVALENT as proven.
+
 ## 5. Reproduce
 
 ```bash

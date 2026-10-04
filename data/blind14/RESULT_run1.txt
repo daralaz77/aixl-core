@@ -1,0 +1,45 @@
+  FALSE_REJECT     P003 A_negation   exp=EQUIVA got=NOT_EQ 'Never leave the fryer unattended while it is on.' | 'Whenever the fryer is switched on, someone must be watching it.'
+  FALSE_REJECT     P006 A_negation   exp=EQUIVA got=NOT_EQ 'Não é permitido estacionar empilhadeiras fora da área demarcada.' | 'As empilhadeiras só podem ficar estacionadas dentro da área demarcada.'
+  over_decided     P007 A_negation   exp=UNDECI got=NOT_EQ "Don't share the report with the client and the auditor." | 'Share the report with neither the client nor the auditor.'
+  FALSE_REJECT     P008 B_quantity   exp=EQUIVA got=NOT_EQ 'Cada caja debe llevar como mínimo doce unidades.' | 'Ninguna caja puede salir con menos de una docena de unidades.'
+  over_decided     P013 B_quantity   exp=UNDECI got=NOT_EQ 'Invita a la reunión a los 3 jefes de área.' | 'Invita a la reunión a todos los jefes de área.'
+  FALSE_REJECT     P016 C_time       exp=EQUIVA got=NOT_EQ 'La auditoría de inventario se hace el primer lunes de cada mes.' | 'Una vez al mes, en el primer lunes, toca auditar el inventario.'
+  FALSE_REJECT     P018 C_time       exp=EQUIVA got=NOT_EQ 'No se aceptan cambios de turno con menos de 48 horas de antelación.' | 'Quien quiera cambiar de turno debe pedirlo como mínimo dos días antes.'
+  FALSE_REJECT     P021 C_time       exp=EQUIVA got=NOT_EQ 'Payroll runs on the last business day of every month.' | 'Every month, salaries are processed on the final working day.'
+  FALSE_REJECT     P023 D_condition  exp=EQUIVA got=NOT_EQ 'Unless the patient objects, share the results with the family.' | "Share the results with the family, provided the patient doesn't object."
+  FALSE_REJECT     P032 E_scope_exce exp=EQUIVA got=NOT_EQ 'Desinfecta todas las superficies salvo las de madera.' | 'Exceptuando la madera, no debe quedar ninguna superficie sin desinfectar.'
+  FALSE_REJECT     P036 F_reference  exp=EQUIVA got=NOT_EQ 'Tras recibir los tres presupuestos, compara el segundo con el que llegó antes que él.' | 'Tras recibir los tres presupuestos, compara el segundo con el primero.'
+  FALSE_REJECT     P042 F_reference  exp=EQUIVA got=NOT_EQ 'Open the oldest ticket in the queue and assign it to yourself.' | 'Assign yourself the ticket that has been waiting longest in the queue, after opening it.'
+  FALSE_REJECT     P046 H_compositio exp=EQUIVA got=NOT_EQ 'Mientras se hornea el pan, prepara el relleno.' | 'Prepara el relleno durante la cocción del pan.'
+  over_decided     P051 I_ambiguity  exp=UNDECI got=NOT_EQ 'Book a room for the meeting next Friday.' | 'Book a room for the meeting on the coming Friday.'
+  FALSE_REJECT     P055 I_ambiguity  exp=EQUIVA got=NOT_EQ 'Restock the shelves as needed.' | 'Restock the shelves whenever they run low.'
+  FALSE_REJECT     Q001 A_negation   exp=EQUIVA got=NOT_EQ 'No confirmes la cita si el paciente no ha traído la autorización.' | 'Confirma la cita solo si el paciente ha traído la autorización.'
+  FALSE_REJECT     Q003 A_negation   exp=EQUIVA got=NOT_EQ 'Nadie sin credencial puede entrar al almacén.' | 'Solo las personas con credencial pueden entrar al almacén.'
+  FALSE_REJECT     Q005 A_negation   exp=EQUIVA got=NOT_EQ 'Não é permitido não registrar a entrada do visitante.' | 'É obrigatório registrar a entrada do visitante.'
+  FALSE_REJECT     Q009 B_quantity   exp=EQUIVA got=NOT_EQ 'Each pallet may carry no more than 800 kg.' | "A pallet's load must not exceed 800 kilograms."
+  FALSE_REJECT     Q011 B_quantity   exp=EQUIVA got=NOT_EQ 'Cada pull request debe tener dos revisores.' | 'Para fusionar cualquier pull request se necesita la aprobación de dos personas distintas.'
+  over_decided     Q013 B_quantity   exp=UNDECI got=NOT_EQ 'Envía varios recordatorios al cliente moroso.' | 'Envía tres recordatorios al cliente moroso.'
+  over_decided     Q020 C_time       exp=UNDECI got=NOT_EQ 'Cierra el turno a la medianoche del martes.' | 'Cierra el turno el miércoles a las 00:00.'
+  FALSE_REJECT     Q023 D_condition  exp=EQUIVA got=NOT_EQ 'Unless the customer objects, send the invoice by email.' | "Send the invoice by email provided the customer doesn't object."
+  FALSE_REJECT     Q028 D_condition  exp=EQUIVA got=NOT_EQ 'Se o sistema falhar, reinicie o serviço.' | 'Reinicie o serviço caso o sistema falhe.'
+  FALSE_REJECT     Q040 F_reference  exp=EQUIVA got=NOT_EQ 'Ligue para o cliente e confirme com ele a data.' | 'Ligue para o cliente e confirme a data com o próprio cliente.'
+  FALSE_REJECT     Q044 H_compositio exp=EQUIVA got=NOT_EQ 'Antes de pintar la pieza, lija la superficie.' | 'Lija la superficie y, una vez hecho, pinta la pieza.'
+  over_decided     Q048 H_compositio exp=UNDECI got=NOT_EQ 'Cierra la sesión del cliente y cambia su contraseña.' | 'Cambia la contraseña del cliente y cierra su sesión.'
+  over_decided     Q050 I_ambiguity  exp=UNDECI got=NOT_EQ 'Verifica la cuenta antes del cierre.' | 'Verifica la cuenta bancaria antes del cierre.'
+  over_decided     Q051 I_ambiguity  exp=UNDECI got=NOT_EQ 'Hazlo rápido.' | 'Hazlo en menos de cinco minutos.'
+  over_decided     Q054 I_ambiguity  exp=UNDECI got=NOT_EQ 'Book a room near the conference center.' | 'Book a room within walking distance of the conference center.'
+  FALSE_REJECT     Q064 K_paraphrase exp=EQUIVA got=NOT_EQ 'Oye, no te olvides de apagar las luces al salir.' | 'Se ruega apagar la iluminación al abandonar el local.'
+  FALSE_REJECT     Q066 K_paraphrase exp=EQUIVA got=NOT_EQ 'Keep the door locked at all times.' | 'Mantén la puerta siempre cerrada con llave.'
+ALL       false_equivalent 0/85 (0.0%)  proven 0/55 (0.0%)  undecidable_flagged 11/20  false_reject 23  inconclusive 58  over_decided 9
+authorP_opus.jsonl     false_equivalent 0/42 (0.0%)  proven 0/28 (0.0%)  undecidable_flagged 7/10  false_reject 12  inconclusive 28  over_decided 3
+authorQ_sonnet.jsonl   false_equivalent 0/43 (0.0%)  proven 0/27 (0.0%)  undecidable_flagged 4/10  false_reject 11  inconclusive 30  over_decided 6
+A_negation                 {'inconclusive': 4, 'ok': 4, 'FALSE_REJECT': 5, 'over_decided': 1}
+B_quantity                 {'FALSE_REJECT': 3, 'ok': 6, 'inconclusive': 3, 'over_decided': 2}
+C_time                     {'ok': 6, 'FALSE_REJECT': 3, 'inconclusive': 4, 'over_decided': 1}
+D_condition                {'ok': 7, 'FALSE_REJECT': 3, 'inconclusive': 4}
+E_scope_exception          {'inconclusive': 10, 'FALSE_REJECT': 1, 'ok': 3}
+F_reference                {'FALSE_REJECT': 3, 'ok': 4, 'inconclusive': 7}
+H_composition              {'ok': 4, 'inconclusive': 7, 'FALSE_REJECT': 2, 'over_decided': 1}
+I_ambiguity                {'ok': 5, 'over_decided': 4, 'inconclusive': 4, 'FALSE_REJECT': 1}
+J_injection                {'ok': 10, 'inconclusive': 4}
+K_paraphrase_multilingual  {'inconclusive': 11, 'ok': 1, 'FALSE_REJECT': 2}

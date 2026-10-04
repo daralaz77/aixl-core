@@ -1,0 +1,20 @@
+  FALSE_REJECT     V010 B_quantity   exp=EQUIVA got=NOT_EQ 'Cada bus debe llevar como máximo 40 pasajeros de pie.' | 'Ningún bus puede llevar más de cuarenta pasajeros de pie.'
+  FALSE_EQUIVALENT V036 F_reference  exp=NOT_EQ got=EQUIVA 'Cuando llegue la doctora Ruiz con el paciente, dale a él el informe.' | 'Cuando llegue la doctora Ruiz con el paciente, dale a ella el informe.'
+  FALSE_REJECT     V038 F_reference  exp=EQUIVA got=NOT_EQ 'Pesa la harina y el azúcar; luego tamiza la primera.' | 'Pesa la harina y el azúcar, y después tamiza la harina.'
+  FALSE_REJECT     W022 D_condition  exp=EQUIVA got=NOT_EQ 'Solo se despacha el pedido si el pago está confirmado.' | 'A menos que el pago esté confirmado, no se despacha el pedido.'
+  FALSE_REJECT     W044 H_compositio exp=EQUIVA got=NOT_EQ 'Before shipping, label and weigh the parcel.' | 'Label and weigh the parcel prior to shipment.'
+  FALSE_EQUIVALENT W045 H_compositio exp=UNDECI got=EQUIVA 'Instala el parche y después reinicia el servidor.' | 'Instala el parche y reinicia el servidor.'
+NOT_EQUIVALENT precision 27/31 (87.1%)  recall 27/63 (42.9%)
+ALL       false_equivalent 2/82 (2.4%)  proven 1/58 (1.7%)  undecidable_flagged 18/19  false_reject 4  inconclusive 88  over_decided 0
+authorV_opus.jsonl     false_equivalent 1/41 (2.4%)  proven 0/29 (0.0%)  undecidable_flagged 9/9  false_reject 2  inconclusive 48  over_decided 0
+authorW_sonnet.jsonl   false_equivalent 1/41 (2.4%)  proven 1/29 (3.4%)  undecidable_flagged 9/10  false_reject 2  inconclusive 40  over_decided 0
+A_negation                 {'inconclusive': 11, 'ok': 3}
+B_quantity                 {'inconclusive': 7, 'FALSE_REJECT': 1, 'ok': 6}
+C_time                     {'inconclusive': 8, 'ok': 6}
+D_condition                {'ok': 6, 'inconclusive': 7, 'FALSE_REJECT': 1}
+E_scope_exception          {'inconclusive': 11, 'ok': 3}
+F_reference                {'FALSE_EQUIVALENT': 1, 'inconclusive': 9, 'FALSE_REJECT': 1, 'ok': 3}
+H_composition              {'ok': 2, 'inconclusive': 10, 'FALSE_REJECT': 1, 'FALSE_EQUIVALENT': 1}
+I_ambiguity                {'ok': 9, 'inconclusive': 5}
+J_injection                {'ok': 8, 'inconclusive': 6}
+K_paraphrase_multilingual  {'inconclusive': 14}

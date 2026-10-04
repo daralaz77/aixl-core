@@ -1,0 +1,70 @@
+X035	SAME	misma condicion y acciones
+Y004	DIFFERENT	obligatorio vs opcional
+X005	DIFFERENT	prohibido omitir vs facultativo
+X002	DIFFERENT	permitido vs prohibido
+X027	DIFFERENT	frecuencia vaga vs diaria
+X007	UNSURE	"all not" ambiguo
+X006	DIFFERENT	no todos vs ninguno
+Y003	SAME	ambos: cobrar es opcional
+Y025	DIFFERENT	pronto vs 24 horas
+X029	SAME	mismo plazo y accion
+Y011	UNSURE	alcance de la disyuncion ambiguo en a
+Y017	UNSURE	alcance de nuevos ambiguo en a
+X003	SAME	doble negacion equivale a siempre
+Y015	UNSURE	alcance de o/y ambiguo en a
+Y033	SAME	misma accion y frecuencia
+Y018	UNSURE	old puede aplicar solo a logs
+Y016	DIFFERENT	alcance de años distinto
+X004	SAME	ambos permiten revisar
+X028	SAME	misma condicion
+X010	SAME	no todos equivale a algunos no
+Y007	DIFFERENT	no todos vs ninguno
+X023	DIFFERENT	la condicion cubre distinto alcance
+X009	SAME	misma prohibicion
+Y001	SAME	doble negacion es obligacion
+Y029	SAME	misma obligacion
+Y024	DIFFERENT	recibo condicional vs incondicional
+Y013	SAME	misma estructura de condiciones
+X018	UNSURE	alcance de nuevos ambiguo en a
+Y005	DIFFERENT	avisar obligatorio vs innecesario
+Y032	SAME	no enviar sin direccion
+X025	DIFFERENT	pronto vs menos de 24 horas
+X015	UNSURE	alcance de y/o ambiguo en a
+Y030	SAME	misma obligacion
+X022	SAME	mismo orden condicional
+X001	SAME	mismo requisito de registro
+Y019	DIFFERENT	alcance de tractores distinto
+X020	UNSURE	danificadas puede aplicar solo a sacolas
+X014	DIFFERENT	b añade orden de secuencia
+Y027	DIFFERENT	varios vs cinco
+Y014	UNSURE	alcance de o/y ambiguo en a
+X033	SAME	mismo calentamiento obligatorio
+Y002	DIFFERENT	prohibido omitir vs solo permitido
+Y035	SAME	misma frecuencia nocturna
+Y020	UNSURE	from March puede aplicar solo a invoices
+Y012	DIFFERENT	condicion y alcance distintos
+X011	DIFFERENT	firma y alcance del familiar distintos
+Y034	SAME	misma entrega y fecha
+Y026	DIFFERENT	un par vs exactamente dos
+Y009	DIFFERENT	no siempre vs nunca
+X034	SAME	antes y despues
+X021	SAME	misma condicion y acciones
+X008	DIFFERENT	no siempre vs nunca
+Y010	DIFFERENT	nem todos vs nenhum
+Y021	DIFFERENT	condicion cubre acciones distintas
+X013	SAME	misma combinacion
+X017	UNSURE	old puede aplicar solo a logs
+Y022	SAME	misma condicion para ambas acciones
+X030	SAME	misma obligacion
+X019	UNSURE	pendientes puede aplicar solo a facturas
+Y031	SAME	mismo plazo y responsable
+X012	DIFFERENT	agrupacion distinta de acciones
+X032	SAME	misma rotacion cada 90 dias
+Y006	DIFFERENT	no todos vs ninguno
+Y028	SAME	misma obligacion
+X026	DIFFERENT	un par vs exactamente dos
+X031	DIFFERENT	b añade todos y alcance de firmadas
+Y008	SAME	solo con factura equivale a no sin factura
+Y023	SAME	misma condicion repetida
+X016	DIFFERENT	b añade todos
+X024	DIFFERENT	condicion solo en una accion en a
