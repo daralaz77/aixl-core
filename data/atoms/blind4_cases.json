@@ -1,0 +1,752 @@
+[
+ {
+  "id": "G001",
+  "lang": "es",
+  "text": "Puedes enviar el boletín a los socios, pero no al grupo de proveedores."
+ },
+ {
+  "id": "G002",
+  "lang": "pt",
+  "text": "Fale com o Rodrigo sobre a entrega que ficou atrasada."
+ },
+ {
+  "id": "G003",
+  "lang": "en",
+  "text": "Review the pull request #482 and leave comments on anything that looks unsafe."
+ },
+ {
+  "id": "G004",
+  "lang": "es",
+  "text": "Suspende la suscripción del usuario U-2093 al terminar el periodo actual."
+ },
+ {
+  "id": "G005",
+  "lang": "en",
+  "text": "Please proofread my cover letter and keep it under one page."
+ },
+ {
+  "id": "G006",
+  "lang": "en",
+  "text": "Move my dentist appointment from Tuesday to Thursday at 3:15."
+ },
+ {
+  "id": "G007",
+  "lang": "es",
+  "text": "Hazme un recordatorio para tomar la pastilla de la presión todos los días a las 7."
+ },
+ {
+  "id": "G008",
+  "lang": "es",
+  "text": "Anula la reserva del vuelo AV204 y devuélveme el dinero a la tarjeta original."
+ },
+ {
+  "id": "G009",
+  "lang": "es",
+  "text": "Crea una carpeta compartida para los alumnos del grupo B de quinto grado."
+ },
+ {
+  "id": "G010",
+  "lang": "en",
+  "text": "Walk me through the steps to reset the router, one at a time."
+ },
+ {
+  "id": "G011",
+  "lang": "es",
+  "text": "Si llueve mañana, cancela la excursión y avisa a los padres."
+ },
+ {
+  "id": "G012",
+  "lang": "pt",
+  "text": "Peça ao fornecedor 150 quilos de farinha antes de quinta-feira."
+ },
+ {
+  "id": "G013",
+  "lang": "es",
+  "text": "Programa el riego de los surcos 3 y 4 cada dos días a las 6 de la mañana."
+ },
+ {
+  "id": "G014",
+  "lang": "en",
+  "text": "Make a slide deck for the board meeting with at most eight slides."
+ },
+ {
+  "id": "G015",
+  "lang": "en",
+  "text": "Never share the student roster with anyone outside the school."
+ },
+ {
+  "id": "G016",
+  "lang": "en",
+  "text": "Turn the heating down to 18 degrees at night and back up at 6:30."
+ },
+ {
+  "id": "G017",
+  "lang": "pt",
+  "text": "Quando a aula terminar, publique o material no grupo para que os alunos possam estudar."
+ },
+ {
+  "id": "G018",
+  "lang": "es",
+  "text": "Revisa los ladrillos faltantes en el inventario de la obra y pide el doble."
+ },
+ {
+  "id": "G019",
+  "lang": "en",
+  "text": "Tell the driver to skip the highway and take Route 9 instead."
+ },
+ {
+  "id": "G020",
+  "lang": "pt",
+  "text": "Me leve da rodoviária até o hospital sem passar pela avenida principal."
+ },
+ {
+  "id": "G021",
+  "lang": "en",
+  "text": "Give the new hire read-only access to the sales dashboard."
+ },
+ {
+  "id": "G022",
+  "lang": "es",
+  "text": "Dame un resumen de las citas de hoy en formato de tabla."
+ },
+ {
+  "id": "G023",
+  "lang": "en",
+  "text": "Pull all customer tickets tagged urgent, sort them by age, and assign them to Dana."
+ },
+ {
+  "id": "G024",
+  "lang": "es",
+  "text": "Reenvía la factura del hotel a Camila para que la reembolse."
+ },
+ {
+  "id": "G025",
+  "lang": "es",
+  "text": "Dile a Santiago que reprograme la entrega, la que quedó pendiente desde ayer."
+ },
+ {
+  "id": "G026",
+  "lang": "en",
+  "text": "Flag any expense over $500 that lacks a receipt."
+ },
+ {
+  "id": "G027",
+  "lang": "en",
+  "text": "Draft a polite email declining the vendor's offer without burning the bridge."
+ },
+ {
+  "id": "G028",
+  "lang": "en",
+  "text": "Set my phone to vibrate during lectures, except when my kids call."
+ },
+ {
+  "id": "G029",
+  "lang": "en",
+  "text": "You must log every dose given to the animals, including the time and the weight."
+ },
+ {
+  "id": "G030",
+  "lang": "pt",
+  "text": "Por favor, marque uma consulta com a dermatologista para a próxima semana."
+ },
+ {
+  "id": "G031",
+  "lang": "es",
+  "text": "Revisa si la cláusula de confidencialidad permite compartir datos con filiales."
+ },
+ {
+  "id": "G032",
+  "lang": "es",
+  "text": "Antes de desplegar, ejecuta las pruebas y revisa que no haya errores de lint."
+ },
+ {
+  "id": "G033",
+  "lang": "pt",
+  "text": "Não envie mensagens aos clientes aos domingos."
+ },
+ {
+  "id": "G034",
+  "lang": "es",
+  "text": "Traduce el menú del restaurante al inglés y luego prepáralo en PDF."
+ },
+ {
+  "id": "G035",
+  "lang": "pt",
+  "text": "Crie uma pasta compartilhada para os pais da turma do segundo ano."
+ },
+ {
+  "id": "G036",
+  "lang": "es",
+  "text": "Ordena la lista de estudiantes por apellido, sin incluir a los retirados."
+ },
+ {
+  "id": "G037",
+  "lang": "pt",
+  "text": "Verifique se o prazo do edital permite a entrega de documentos até as 17h."
+ },
+ {
+  "id": "G038",
+  "lang": "en",
+  "text": "Create a polling form for the team lunch, with a vegetarian option."
+ },
+ {
+  "id": "G039",
+  "lang": "es",
+  "text": "Transfiere la llamada de la señora Ortiz al área de cartera."
+ },
+ {
+  "id": "G040",
+  "lang": "en",
+  "text": "If the patient's heart rate exceeds 120 bpm, alert the charge nurse immediately."
+ },
+ {
+  "id": "G041",
+  "lang": "en",
+  "text": "Send the quarterly budget to the finance team by Friday noon."
+ },
+ {
+  "id": "G042",
+  "lang": "en",
+  "text": "Compare last month's electricity bill with the one from a year ago."
+ },
+ {
+  "id": "G043",
+  "lang": "en",
+  "text": "Check whether room 204 is free between noon and 2 pm on October 20."
+ },
+ {
+  "id": "G044",
+  "lang": "en",
+  "text": "Upload the photos from the wedding to the cloud album and share the link with the bride."
+ },
+ {
+  "id": "G045",
+  "lang": "es",
+  "text": "Si el cliente 4471 paga antes del día 15, aplícale un descuento del 3%."
+ },
+ {
+  "id": "G046",
+  "lang": "es",
+  "text": "Cada viernes antes de las 5, envía el resumen de ventas a Marcela."
+ },
+ {
+  "id": "G047",
+  "lang": "en",
+  "text": "List every vaccine due for a child who is 18 months old."
+ },
+ {
+  "id": "G048",
+  "lang": "pt",
+  "text": "Imprima as etiquetas de preço com o código de barras e a data de validade."
+ },
+ {
+  "id": "G049",
+  "lang": "en",
+  "text": "Sync my calendar with my husband's so we can see each other's trips."
+ },
+ {
+  "id": "G050",
+  "lang": "pt",
+  "text": "Traduza o manual do produto para o espanhol e depois envie ao revisor."
+ },
+ {
+  "id": "G051",
+  "lang": "es",
+  "text": "Copia las notas de la reunión desde el correo hacia la carpeta de Proyectos."
+ },
+ {
+  "id": "G052",
+  "lang": "pt",
+  "text": "Liste todas as tarefas que vencem nos próximos sete dias."
+ },
+ {
+  "id": "G053",
+  "lang": "pt",
+  "text": "Envie a planilha de estoque para a Fernanda até o fim do dia."
+ },
+ {
+  "id": "G054",
+  "lang": "en",
+  "text": "Cancel the catering order for Saturday, which we no longer need."
+ },
+ {
+  "id": "G055",
+  "lang": "es",
+  "text": "El conductor no debe superar las ocho horas de manejo seguidas."
+ },
+ {
+  "id": "G056",
+  "lang": "pt",
+  "text": "Desligue o aquecedor às 22h e ligue de novo às 6h30."
+ },
+ {
+  "id": "G057",
+  "lang": "es",
+  "text": "Reserva el salón para el sábado 18 a las 8 de la noche, con capacidad para 120 personas."
+ },
+ {
+  "id": "G058",
+  "lang": "en",
+  "text": "Whenever a new tenant signs up, create a welcome packet and text them the Wi-Fi code."
+ },
+ {
+  "id": "G059",
+  "lang": "es",
+  "text": "No borres ningún archivo de la carpeta Fotos_2024 sin preguntarme primero."
+ },
+ {
+  "id": "G060",
+  "lang": "es",
+  "text": "Llévame desde la estación de Chapinero hasta el aeropuerto evitando peajes."
+ },
+ {
+  "id": "G061",
+  "lang": "pt",
+  "text": "Calcule quantos sacos de adubo preciso para 2 hectares."
+ },
+ {
+  "id": "G062",
+  "lang": "en",
+  "text": "Do not discharge the patient in bed 7 until the physician signs off."
+ },
+ {
+  "id": "G063",
+  "lang": "en",
+  "text": "Convert this recipe from ounces to grams and halve the quantities."
+ },
+ {
+  "id": "G064",
+  "lang": "pt",
+  "text": "Se chover amanhã, adie a colheita e avise os trabalhadores."
+ },
+ {
+  "id": "G065",
+  "lang": "es",
+  "text": "Calcula cuántos litros de pintura necesito para 85 metros cuadrados de pared."
+ },
+ {
+  "id": "G066",
+  "lang": "en",
+  "text": "Find the cheapest flight from Lima to Madrid that leaves after June 3 and has no layover longer than 4 hours."
+ },
+ {
+  "id": "G067",
+  "lang": "es",
+  "text": "Tarda lo que sea necesario, pero no publiques el comunicado sin la aprobación de Luisa."
+ },
+ {
+  "id": "G068",
+  "lang": "pt",
+  "text": "Exporte a tabela para PDF e anexe ao e-mail da professora."
+ },
+ {
+  "id": "G069",
+  "lang": "en",
+  "text": "Order 12 crates of tomatoes from the farm in Salinas for delivery next Monday."
+ },
+ {
+  "id": "G070",
+  "lang": "pt",
+  "text": "Você pode compartilhar o relatório com o diretor, mas não com os clientes."
+ },
+ {
+  "id": "G071",
+  "lang": "en",
+  "text": "Once the exam ends, collect the papers, count them, and lock them in the cabinet."
+ },
+ {
+  "id": "G072",
+  "lang": "pt",
+  "text": "Lembre-me de ligar para o contador na segunda-feira às 10 horas."
+ },
+ {
+  "id": "G073",
+  "lang": "es",
+  "text": "Avísame si la temperatura del invernadero baja de 12 grados."
+ },
+ {
+  "id": "G074",
+  "lang": "es",
+  "text": "Mueve la reunión de equipo dos horas más tarde."
+ },
+ {
+  "id": "G075",
+  "lang": "es",
+  "text": "Cuando termine la clase, sube las calificaciones al portal para que los padres las vean."
+ },
+ {
+  "id": "G076",
+  "lang": "en",
+  "text": "Tell my landlord that the faucet in the kitchen has been leaking since last week."
+ },
+ {
+  "id": "G077",
+  "lang": "en",
+  "text": "Write a short thank-you note for the guests who brought gifts."
+ },
+ {
+  "id": "G078",
+  "lang": "en",
+  "text": "Translate the lease clause into plain English so that my tenant can understand it."
+ },
+ {
+  "id": "G079",
+  "lang": "pt",
+  "text": "Copie as fotos do celular para o computador, mas só as de agosto."
+ },
+ {
+  "id": "G080",
+  "lang": "en",
+  "text": "Don't let the sprinklers run when wind speed is above 15 mph."
+ },
+ {
+  "id": "G081",
+  "lang": "es",
+  "text": "Lee en voz alta el capítulo siguiente mientras manejo."
+ },
+ {
+  "id": "G082",
+  "lang": "en",
+  "text": "Charge the client $85 per hour for anything beyond the first 10 hours."
+ },
+ {
+  "id": "G083",
+  "lang": "es",
+  "text": "Quiero que fotocopies el examen 30 veces, pero solo si hay papel suficiente."
+ },
+ {
+  "id": "G084",
+  "lang": "pt",
+  "text": "Organize a lista de convidados por ordem alfabética, excluindo quem não confirmou."
+ },
+ {
+  "id": "G085",
+  "lang": "es",
+  "text": "Compara las dos propuestas y señala cuál tiene el menor costo total."
+ },
+ {
+  "id": "G086",
+  "lang": "en",
+  "text": "Notify me if any shipment is delayed more than 48 hours."
+ },
+ {
+  "id": "G087",
+  "lang": "es",
+  "text": "Imprime las etiquetas de los frascos con la fecha de vencimiento a seis meses."
+ },
+ {
+  "id": "G088",
+  "lang": "es",
+  "text": "Haz una lista de compras con lo que falta en la despensa."
+ },
+ {
+  "id": "G089",
+  "lang": "es",
+  "text": "Cuando el stock de harina baje de 10 sacos, genera una orden de compra automática."
+ },
+ {
+  "id": "G090",
+  "lang": "es",
+  "text": "Busca estudios sobre el efecto del riego por goteo en cultivos de tomate publicados después de 2019."
+ },
+ {
+  "id": "G091",
+  "lang": "es",
+  "text": "Archiva los casos cerrados antes de 2020 en el depósito digital."
+ },
+ {
+  "id": "G092",
+  "lang": "en",
+  "text": "The shop should close at 7 pm on weekdays and at 5 on Saturdays."
+ },
+ {
+  "id": "G093",
+  "lang": "pt",
+  "text": "Cancele o pedido do cliente 3315 caso o pagamento não seja confirmado em 48 horas."
+ },
+ {
+  "id": "G094",
+  "lang": "es",
+  "text": "Pregúntale a mi mamá a qué hora llega el domingo."
+ },
+ {
+  "id": "G095",
+  "lang": "pt",
+  "text": "Os motoristas devem descansar pelo menos 30 minutos a cada quatro horas."
+ },
+ {
+  "id": "G096",
+  "lang": "en",
+  "text": "Copy the lab results from the shared drive into my folder, then email Dr. Patel."
+ },
+ {
+  "id": "G097",
+  "lang": "pt",
+  "text": "Reserve uma mesa para quatro pessoas no restaurante, sábado às 20h."
+ },
+ {
+  "id": "G098",
+  "lang": "en",
+  "text": "Ask the contractor, Mr. Alvarez, whether he can start earlier."
+ },
+ {
+  "id": "G099",
+  "lang": "en",
+  "text": "Add 2 cups of flour to the shopping list, but only if we are out of it."
+ },
+ {
+  "id": "G100",
+  "lang": "pt",
+  "text": "Não apague nenhum arquivo da pasta Contratos_antigos sem minha autorização."
+ },
+ {
+  "id": "G101",
+  "lang": "es",
+  "text": "Recuérdame llamar al dentista el jueves a las 4 pm."
+ },
+ {
+  "id": "G102",
+  "lang": "es",
+  "text": "Debes verificar la identidad del paciente antes de entregar cualquier resultado."
+ },
+ {
+  "id": "G103",
+  "lang": "pt",
+  "text": "Mude a reunião de equipe para duas horas depois."
+ },
+ {
+  "id": "G104",
+  "lang": "en",
+  "text": "Look for a babysitter who is available Friday evenings and speaks Spanish."
+ },
+ {
+  "id": "G105",
+  "lang": "es",
+  "text": "Activa el modo silencio hasta las 9 de la mañana, excepto para llamadas de mi esposa."
+ },
+ {
+  "id": "G106",
+  "lang": "pt",
+  "text": "Escreva um e-mail educado agradecendo a participação dos palestrantes."
+ },
+ {
+  "id": "G107",
+  "lang": "en",
+  "text": "Subscribe me to the city council newsletter, but unsubscribe me from the promotions."
+ },
+ {
+  "id": "G108",
+  "lang": "es",
+  "text": "Resume este artículo en tres viñetas, con un lenguaje sencillo."
+ },
+ {
+  "id": "G109",
+  "lang": "es",
+  "text": "Cobra a los inquilinos del apartamento 5B el arrendamiento de noviembre."
+ },
+ {
+  "id": "G110",
+  "lang": "en",
+  "text": "Please book me a window seat on the 6:40 am train to Boston."
+ },
+ {
+  "id": "G111",
+  "lang": "es",
+  "text": "Separa las muestras con resultado positivo y envíalas al laboratorio central."
+ },
+ {
+  "id": "G112",
+  "lang": "en",
+  "text": "Print three copies of the seating chart, double-sided, in color."
+ },
+ {
+  "id": "G113",
+  "lang": "es",
+  "text": "Dentro de tres semanas, recuérdame renovar el seguro del camión."
+ },
+ {
+  "id": "G114",
+  "lang": "pt",
+  "text": "Avise-me se o estoque de vacinas cair abaixo de 20 doses."
+ },
+ {
+  "id": "G115",
+  "lang": "en",
+  "text": "Stop the backup job if the disk usage reaches 90 percent."
+ },
+ {
+  "id": "G116",
+  "lang": "es",
+  "text": "Prohíbe el acceso al servidor de pruebas a cualquier usuario externo."
+ },
+ {
+  "id": "G117",
+  "lang": "es",
+  "text": "Corrige la ortografía de este texto, aunque conservando mi estilo."
+ },
+ {
+  "id": "G118",
+  "lang": "en",
+  "text": "Export the grade book as CSV, then delete the local copy."
+ },
+ {
+  "id": "G119",
+  "lang": "en",
+  "text": "Pause the ad campaign on weekends but keep the retargeting running."
+ },
+ {
+  "id": "G120",
+  "lang": "en",
+  "text": "Ask the librarian to hold the book for me until next Wednesday."
+ },
+ {
+  "id": "G121",
+  "lang": "en",
+  "text": "Shred the old tax records, provided they are more than seven years old."
+ },
+ {
+  "id": "G122",
+  "lang": "en",
+  "text": "Wake me up 45 minutes before the first appointment."
+ },
+ {
+  "id": "G123",
+  "lang": "en",
+  "text": "Delete the draft that I wrote last night, the one with the typos."
+ },
+ {
+  "id": "G124",
+  "lang": "es",
+  "text": "Elimina las filas duplicadas de la hoja de contactos y conserva la más reciente."
+ },
+ {
+  "id": "G125",
+  "lang": "pt",
+  "text": "Programe o lembrete do remédio para todos os dias às 8 da manhã."
+ },
+ {
+  "id": "G126",
+  "lang": "es",
+  "text": "Cambia la contraseña del wifi cada primer lunes del mes."
+ },
+ {
+  "id": "G127",
+  "lang": "es",
+  "text": "No contestes los mensajes de clientes fuera del horario de 8 a 6."
+ },
+ {
+  "id": "G128",
+  "lang": "en",
+  "text": "Back up the database every night at 2 am and keep copies for 30 days."
+ },
+ {
+  "id": "G129",
+  "lang": "en",
+  "text": "You may reorder paper towels when we have fewer than five rolls left."
+ },
+ {
+  "id": "G130",
+  "lang": "es",
+  "text": "Por favor, agéndame una cita con el pediatra para mi hijo la semana próxima."
+ },
+ {
+  "id": "G131",
+  "lang": "es",
+  "text": "Los menores de edad pueden entrar, siempre que vayan acompañados."
+ },
+ {
+  "id": "G132",
+  "lang": "en",
+  "text": "Don't schedule anything for me on Sunday afternoons."
+ },
+ {
+  "id": "G133",
+  "lang": "es",
+  "text": "Pídele al proveedor 200 metros de cable calibre 12 antes del miércoles."
+ },
+ {
+  "id": "G134",
+  "lang": "es",
+  "text": "Pon la presentación en modo oscuro y expórtala como imágenes PNG."
+ },
+ {
+  "id": "G135",
+  "lang": "en",
+  "text": "Merge the two feature branches, then run the full test suite before pushing."
+ },
+ {
+  "id": "G136",
+  "lang": "en",
+  "text": "Reschedule the harvest crew for two days after the rain stops."
+ },
+ {
+  "id": "G137",
+  "lang": "pt",
+  "text": "Resuma esta reportagem em cinco linhas, sem usar termos técnicos."
+ },
+ {
+  "id": "G138",
+  "lang": "es",
+  "text": "Pide un pastel de chocolate para veinte invitados y que lo entreguen a las 3 de la tarde."
+ },
+ {
+  "id": "G139",
+  "lang": "es",
+  "text": "Suma los gastos de gasolina de octubre y dime el total en pesos."
+ },
+ {
+  "id": "G140",
+  "lang": "en",
+  "text": "Rename every file in the Receipts folder to start with the month number."
+ },
+ {
+  "id": "G141",
+  "lang": "en",
+  "text": "Email the minutes to everyone who attended, plus the director."
+ },
+ {
+  "id": "G142",
+  "lang": "es",
+  "text": "Los pedidos de más de 50 kg deben salir por transporte refrigerado."
+ },
+ {
+  "id": "G143",
+  "lang": "es",
+  "text": "Anota que la paciente de la cama 12 recibió el medicamento a las 10:30."
+ },
+ {
+  "id": "G144",
+  "lang": "es",
+  "text": "Exporta la tabla de inventario a Excel y envíasela a la contadora."
+ },
+ {
+  "id": "G145",
+  "lang": "es",
+  "text": "Escribe un correo cordial para agradecer a los voluntarios del evento."
+ },
+ {
+  "id": "G146",
+  "lang": "pt",
+  "text": "Se o paciente tiver febre acima de 38 graus, avise a enfermeira responsável."
+ },
+ {
+  "id": "G147",
+  "lang": "en",
+  "text": "Take the average of columns B through F and put the result in G."
+ },
+ {
+  "id": "G148",
+  "lang": "es",
+  "text": "Genera un cronograma de siembra desde marzo hasta junio para el maíz."
+ },
+ {
+  "id": "G149",
+  "lang": "en",
+  "text": "Summarize this research paper in under 150 words, citing the sample size."
+ },
+ {
+  "id": "G150",
+  "lang": "en",
+  "text": "Remind me to call the plumber tomorrow morning before 9."
+ }
+]
