@@ -1,7 +1,7 @@
 """AIXL 0.4 Concept Registry v0.1 (master prompt §10, §17, §47): the closed, versioned set of concepts, atom types and relations.
 A concept is identified by `id`, never by a word. `lex` lists surface forms per language (used by the extractor; they are NOT part of identity).
 Anything outside this registry is an EXTENSION concept `x:<english-lemma>` (never mapped to a nearby concept: §21, §51 NO GUESS)."""
-REGISTRY_VERSION = "0.3.0"
+REGISTRY_VERSION = "0.4.0"
 
 ATOM_TYPES = {
     "ACTION": "an operation to perform (or not). Carries polarity and modality.",
@@ -153,6 +153,23 @@ WEEKDAYS = {"mon": ["lunes", "monday", "segunda"], "tue": ["martes", "tuesday", 
             "thu": ["jueves", "thursday", "quinta"], "fri": ["viernes", "friday", "sexta"], "sat": ["sabado", "saturday"], "sun": ["domingo", "sunday"]}
 RELTIME = {"today": ["hoy", "today", "hoje"], "tomorrow": ["manana", "tomorrow", "amanha"], "yesterday": ["ayer", "yesterday", "ontem"]}
 
+def _load_learned():
+    """concepts promoted from data (benchmarks/atoms_mine.py promote): same shape as curated ones, flagged learned=True, English form only, never used by the rule extractor."""
+    import json
+    import os
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "learned_concepts.json")
+    if not os.path.exists(p): return []
+    out = []
+    for r in json.load(open(p, encoding="utf-8")):
+        words = [w for w in r["lemma"].split("_") if w]
+        c = _c(r["id"], r["type"], r["definition"], dict(es=[], en=[" ".join(words)], pt=[]))
+        c["learned"] = True; c["evidence"] = r.get("evidence", {})
+        out.append(c)
+    return out
+
+
+LEARNED = _load_learned()
+CONCEPTS.extend(LEARNED)
 _BY_ID = {c["id"]: c for c in CONCEPTS}
 
 def concept(cid: str):

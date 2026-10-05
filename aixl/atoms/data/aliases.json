@@ -1,0 +1,65 @@
+{
+ "version": "0.2",
+ "aliases": {
+  "ACTION:x:include": "ACT.INCLUDE",
+  "ACTION:x:open": "ACT.OPEN",
+  "ACTION:x:request": "ACT.REQUEST",
+  "ACTION:x:permit": "x:allow",
+  "ACTION:x:begin": "x:start",
+  "ACTION:x:respond": "x:reply",
+  "ENTITY:x:purchase_order": "ENT.ORDER",
+  "ENTITY:x:churn_figure": "x:churn_number",
+  "ENTITY:x:confidentiality_agreement": "x:nda",
+  "ENTITY:x:maize": "x:corn",
+  "ENTITY:x:expiry_date": "x:expiration_date",
+  "ENTITY:x:frequently_asked_question": "x:faq",
+  "ENTITY:x:human_resource": "x:hr",
+  "ENTITY:x:on_call_physician": "x:on_call_doctor",
+  "ENTITY:x:packing_date": "x:packaging_date",
+  "ENTITY:x:polling_form": "x:poll_form",
+  "ENTITY:x:price_tag": "x:price_label",
+  "ENTITY:x:transportation": "x:transport",
+  "PROPERTY:x:invoiced": "x:billed",
+  "PROPERTY:x:enough": "x:sufficient",
+  "PROPERTY:x:most_recent": "x:latest"
+ },
+ "alias_evidence": {
+  "ACTION:x:include": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ACTION:x:open": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ACTION:x:request": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ACTION:x:permit": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ACTION:x:begin": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ACTION:x:respond": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:purchase_order": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:churn_figure": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:confidentiality_agreement": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:maize": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:expiry_date": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:frequently_asked_question": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:human_resource": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:on_call_physician": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:packing_date": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:polling_form": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:price_tag": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "ENTITY:x:transportation": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "PROPERTY:x:invoiced": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "PROPERTY:x:enough": "2-of-2 judges (Sonnet,Opus): exact synonyms",
+  "PROPERTY:x:most_recent": "2-of-2 judges (Sonnet,Opus): exact synonyms"
+ },
+ "rewrites": [
+  {
+   "name": "compound_collapse",
+   "op": "compound_collapse"
+  },
+  {
+   "name": "unit_alias",
+   "op": "unit_alias",
+   "map": {
+    "x:degree_celsius": "x:celsius",
+    "x:kilogram": "x:kg",
+    "x:usd": "x:dollar"
+   },
+   "evidence": "dev unit disagreements with identical mode and number: celsius~degree_celsius x7, kg~kilogram x1, dollar~usd x1"
+  }
+ ]
+}

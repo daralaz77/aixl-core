@@ -54,6 +54,7 @@ AVOID = set(L.AVOID)
 def _stems():
     st = []
     for c in R.CONCEPTS:
+        if c.get("learned"): continue
         if c["type"] == "ACTION":
             for lang in c["lex"].values():
                 for s in lang: st.append((fold(s), c["id"]))
@@ -63,6 +64,7 @@ def _stems():
 def _lexicon(kind):
     out = {}
     for c in R.CONCEPTS:
+        if c.get("learned"): continue
         if c["type"] == kind:
             for lang in c["lex"].values():
                 for s in lang: out[fold(s)] = c["id"]
@@ -97,6 +99,7 @@ def tokenize(text):
 
 _LANG_LEX = {k: {} for k in ("es", "en", "pt")}
 for _c in R.CONCEPTS:
+    if _c.get("learned"): continue
     for _l, _forms in _c["lex"].items():
         if _c["type"] in ("ENTITY", "PROPERTY"):
             for _f in _forms: _LANG_LEX[_l][fold(_f)] = _c["id"]

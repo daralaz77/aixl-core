@@ -1,0 +1,109 @@
+You are a lexicographer judging SYNONYMY for a semantic interchange language. Below are lists of English lemmas (prefixed x:) that annotators invented for office-instruction concepts, plus the registered concepts (ids with definitions).
+TASK: for each list (ACTION / ENTITY / PROPERTY / LOCATION), output clusters of items that are EXACT synonyms or pure spelling/morphology variants: items that could be swapped in ANY instruction without changing what must be done (same word class, same sense). A cluster may include registry ids when an x: lemma means exactly the registered concept (the definition must fit exactly).
+BE STRICT. Do NOT cluster near-synonyms, hypernyms/hyponyms or items whose sense differs in some contexts (examples that must stay separate: draft vs compile, ask vs request, delete vs discard vs archive, order vs purchase_order only if purchase orders are a subtype, supplier vs customer, urgent vs important, send vs forward). Singleton items are not output. When unsure, leave them out.
+OUTPUT: only one JSON object, no commentary, written to the path given in the final line: {"ACTION": [[...],...], "ENTITY": [[...],...], "PROPERTY": [[...],...], "LOCATION": [[...],...]} where each inner list is a cluster of >= 2 items spelled exactly as given.
+
+REGISTERED CONCEPTS
+
+[ACTION]
+ACT.SUMMARIZE (summariz/summaris: produce a shorter version keeping the main points)
+ACT.TRANSLATE (translat: render text in another language)
+ACT.SEND (send/mail/forward: transmit something to a recipient)
+ACT.DELETE (delet/remov/erase/purg: remove permanently)
+ACT.CREATE (creat/generat/make/draft/write: make something new)
+ACT.UPDATE (updat/modif/edit: modify existing content)
+ACT.VERIFY (verif/check/validat: check that something holds)
+ACT.ANALYZE (analy: examine to extract insight)
+ACT.COMPARE (compar/contrast: contrast two or more things)
+ACT.SEARCH (search/find/look: look for)
+ACT.EXTRACT (extract: pull specific parts out)
+ACT.CLASSIFY (classif/categoriz/categoris: assign categories)
+ACT.CALCULATE (calculat/comput: compute a numeric result)
+ACT.REQUEST (request/ask: ask someone for something)
+ACT.NOTIFY (notif/inform/alert/warn: inform someone)
+ACT.APPROVE (approv/authoriz/authoris: authorize / accept)
+ACT.REJECT (reject/deny/refus/declin: refuse / deny)
+ACT.PUBLISH (publish/post: make publicly available)
+ACT.SAVE (sav/stor: store)
+ACT.COPY (copy/duplicat/clon: duplicate)
+ACT.ARCHIVE (archiv: move to long-term storage)
+ACT.CANCEL (cancel/annul/abort: stop / annul)
+ACT.USE (use/utiliz/employ: employ something)
+ACT.INCLUDE (includ/add: add as part)
+ACT.CALL (call/phone/ring: phone someone)
+ACT.REVIEW (review/proofread: read critically)
+ACT.PAY (pay: transfer money)
+ACT.SCHEDULE (schedul/book: set a time for)
+ACT.EXPORT (export: write data out to a file/format)
+ACT.OPEN (open: open a file or document)
+ACT.KEEP (keep/maintain: maintain a state/limit on something)
+ACT.REFUND (refund/reimburs: return money to someone)
+ACT.ENSURE (: be/have a required property (used when a requirement has no verb: 'the report must be at most 5 pages'))
+ACT.READ (read: read)
+ACT.SIGN (sign: sign)
+ACT.PRINT (print: print)
+
+[ENTITY]
+ENT.SPEAKER (me/my: the person giving the instruction (me, my, nosotros))
+ENT.PERSON (person/people/someone: an unspecified person or people)
+ENT.DOCUMENT (document: a generic written document)
+ENT.REPORT (report: a report)
+ENT.FILE (file: a computer file)
+ENT.EMAIL (email/e-mail/mail: an email message)
+ENT.MESSAGE (message: a message)
+ENT.INVOICE (invoice/bill: an invoice)
+ENT.CUSTOMER (customer/client: a customer / client)
+ENT.USER (user: a user / account)
+ENT.EMPLOYEE (employee/worker/staff: an employee)
+ENT.SOURCE (source: a source of information)
+ENT.TEXT (text: a piece of text)
+ENT.ORDER (order: a purchase order)
+ENT.PAYMENT (payment: a payment)
+ENT.CONTRACT (contract: a contract)
+ENT.TICKET (ticket/issue: a support ticket)
+ENT.RECORD (record/entry: a data record / entry)
+ENT.IMAGE (image/photo/picture: an image)
+ENT.TABLE (table/spreadsheet: a table of data)
+ENT.PAGE (page: a page / web page)
+ENT.PASSWORD (password: a secret credential)
+ENT.MEETING (meeting/appointment: a meeting)
+ENT.BACKUP (backup: a backup copy)
+
+[PROPERTY]
+PRP.CONFIDENTIAL (confidential: marked as not for general disclosure)
+PRP.OFFICIAL (official: issued by an authority)
+PRP.EMPTY (empty/blank: contains nothing)
+PRP.PENDING (pending/outstanding: not yet done)
+PRP.URGENT (urgent: needs immediate attention)
+PRP.PUBLIC (public: open to everyone)
+PRP.PRIVATE (private: restricted to its owner)
+PRP.NEW (new: recently created)
+PRP.OLD (old: created long ago)
+PRP.PAID (paid: payment completed)
+PRP.DUPLICATE (duplicate: repeated copy)
+PRP.SIGNED (signed: bearing a signature)
+PRP.INTERNAL (internal: inside the organization)
+PRP.EXTERNAL (external: outside the organization)
+
+[FORMAT]
+FMT.JSON (json: JSON)
+FMT.CSV (csv: CSV)
+FMT.PDF (pdf: PDF)
+FMT.XLSX (excel/xlsx: Excel)
+FMT.MARKDOWN (markdown: Markdown)
+FMT.HTML (html: HTML)
+
+
+LEMMAS TO CLUSTER
+
+[ACTION] (247)
+x:accept, x:access, x:activate, x:adjust, x:agree, x:allocate, x:allow, x:annotate, x:answer, x:apply, x:arrive, x:ask, x:assign, x:attach, x:attend, x:auto_reply, x:avoid, x:back_up, x:be, x:be_absent, x:be_home, x:be_out_of, x:be_out_of_service, x:begin, x:benchmark, x:block, x:book, x:bookmark, x:break, x:break_down, x:bring, x:burn_bridge, x:cc, x:change, x:charge, x:chart, x:choose, x:cite, x:close, x:collect, x:comment, x:compile, x:compress, x:confirm, x:consult, x:contain, x:convert, x:correct, x:cost, x:count, x:cover, x:deactivate, x:deduct, x:delay, x:deliver, x:depart, x:deploy, x:discard, x:discharge, x:discount, x:dispatch, x:divert, x:divide, x:download, x:draft, x:drift, x:drop, x:eat, x:encrypt, x:end, x:enter, x:escalate, x:evaluate, x:exceed, x:expire, x:explain, x:fail, x:fall, x:fall_on, x:file, x:find_out, x:finish, x:fix, x:flag, x:follow, x:forward, x:freeze, x:give, x:grade, x:grant, x:group, x:halve, x:have, x:help, x:highlight, x:hold, x:identify, x:import, x:include, x:indicate, x:insert, x:install, x:invoice, x:issue, x:jam, x:leak, x:leave, x:list, x:lock, x:log, x:loop_in, x:lose, x:lower, x:mark, x:match, x:mention, x:merge, x:migrate, x:miss_class, x:move, x:mute, x:need, x:note, x:number, x:offer, x:onboard, x:open, x:order, x:organize, x:output, x:pass, x:pass_through, x:pause, x:permit, x:photocopy, x:pick, x:place, x:plan, x:point_out, x:post, x:postpone, x:prepare, x:present, x:prioritize, x:prohibit, x:prune, x:pull, x:purge, x:push, x:put, x:quote, x:rain, x:raise, x:reach, x:receive, x:reconcile, x:record, x:redirect, x:register, x:release, x:remain, x:remind, x:remove, x:rename, x:renew, x:reorder, x:replace, x:reply, x:report, x:request, x:reschedule, x:reserve, x:reset, x:resolve, x:respond, x:rest, x:restart, x:restore, x:retrieve, x:return, x:reveal, x:roll_back, x:rotate, x:round, x:route, x:run, x:run_out, x:sandbox, x:say_otherwise, x:scan, x:scrub, x:see, x:select, x:sell, x:separate, x:set, x:share, x:ship, x:shortlist, x:show, x:shred, x:sign_off, x:sign_up, x:skip, x:solve, x:sort, x:split, x:stagger, x:start, x:stop, x:strip, x:study, x:submit, x:subscribe, x:suggest, x:sum, x:suspend, x:sync, x:tag, x:take, x:talk, x:talk_to, x:tally, x:tell, x:test, x:text, x:thank, x:threaten, x:track, x:transfer, x:try, x:turn_down, x:turn_off, x:turn_on, x:turn_up, x:understand, x:unsubscribe, x:upload, x:vaccinate, x:view, x:wake, x:walk_through, x:warn, x:water, x:weigh, x:write, x:write_down
+
+[ENTITY] (850)
+x:access, x:access_log, x:account, x:accountant, x:accounting, x:accounting_department, x:accounts_receivable_department, x:acronym, x:ad_campaign, x:address_book, x:administrator, x:affiliate, x:age, x:agenda, x:agreement, x:agronomist, x:air_conditioner, x:airport, x:aisle, x:alert, x:allergy, x:alt_text, x:amount, x:amoxicillin, x:animal, x:animal_feed, x:annual_report, x:apartment, x:api, x:api_key, x:appendix, x:appointment_slot, x:approval, x:area, x:array, x:article, x:attachment, x:attendance_data, x:attendance_list, x:attendee, x:audit_log, x:auditor, x:authorization, x:avenue, x:average, x:avocado, x:babysitter, x:backup_job, x:badge, x:bag, x:bakery, x:bank_statement, x:bank_transaction, x:barcode, x:batch, x:beach, x:bed, x:bill, x:billed_hour, x:bimester, x:bio, x:blender, x:blood_pressure, x:board, x:board_meeting, x:board_of_director, x:boleto, x:book, x:booking, x:boss, x:bottling_date, x:box, x:branch, x:brand_manual, x:brand_team, x:breakfast, x:brick, x:bride, x:brochure, x:brother, x:browser, x:budget, x:budget_column, x:budget_draft, x:bug_report, x:build, x:build_server, x:building, x:bullet_point, x:bus, x:bus_station, x:business_hour, x:cabinet, x:cable, x:cake, x:calendar, x:calf, x:call, x:camping_trip, x:candidate, x:cap, x:capacity, x:car, x:card, x:cargo, x:carrier, x:carton, x:cartridge, x:case, x:case_file, x:cash, x:cash_book, x:cash_count, x:cash_register, x:cash_register_system, x:catalog, x:category, x:catering, x:cdn_cache, x:cement, x:certificate, x:cfo, x:change, x:channel, x:chapter, x:charge_nurse, x:chart, x:chat, x:checklist, x:chef, x:child, x:childrens_day, x:chocolate, x:chocolate_cake, x:christmas_bonus, x:churn_figure, x:churn_number, x:city, x:city_council, x:class, x:clause, x:clearance_item, x:cloud_album, x:cnpj, x:code, x:coffee, x:coin, x:cold_room, x:collections_department, x:column, x:combine_harvester, x:comma, x:comment, x:commission, x:communications_department, x:company, x:complaint, x:compliance_handbook, x:computer, x:concentrate, x:condominium, x:conference, x:confidentiality, x:confidentiality_agreement, x:confidentiality_clause, x:confirmation, x:consent_form, x:construction_site, x:consumption, x:contact, x:contact_sheet, x:contact_target, x:contractor, x:controlled_substance, x:controlled_substance_dispense, x:cooperative, x:coordination, x:coordinator, x:copy, x:corn, x:corporate_card, x:corrugated_box, x:cost, x:counsel, x:coupon, x:courier, x:cover_letter, x:cover_page, x:crate, x:crm, x:crop, x:curve, x:customer_portal, x:dark_mode, x:dashboard, x:data, x:data_team, x:database, x:date, x:daughter, x:day_month_year, x:deadline, x:deck, x:decline, x:deductible, x:delivery, x:delivery_address, x:delivery_route, x:delivery_tracking, x:delivery_tracking_event, x:delivery_window, x:dentist, x:department, x:depot, x:dermatologist, x:description, x:diesel, x:dining_table, x:dinner, x:director, x:discount, x:dish, x:dish_name, x:disk_usage, x:dispense, x:dock, x:docker_image, x:doctor, x:domain, x:dose, x:double_charge, x:draft, x:drill, x:drip_irrigation, x:drive, x:driver, x:driving, x:due_date, x:duplicate, x:early_payment, x:early_payment_discount, x:ecommerce, x:effect, x:egg, x:electricity, x:electricity_bill, x:email_address, x:email_campaign, x:emergency, x:employee_id, x:ending, x:engineer, x:english, x:enrollment_code, x:error, x:error_log, x:error_rate, x:essay, x:event, x:event_date, x:exam, x:exam_calendar, x:exam_schedule, x:example, x:excel, x:exclamation_mark, x:excursion, x:expense, x:expense_report, x:expense_tool, x:experience, x:expiration_date, x:expiry, x:expiry_date, x:extension_cord, x:family, x:faq, x:farm, x:faucet, x:favorite, x:feature_branch, x:feed, x:feed_concentrate, x:fertilizer, x:fever, x:field_trip, x:fifth_grade, x:figure, x:file_server, x:filing_portal, x:final_interview, x:finance, x:finance_department, x:finance_director, x:finance_team, x:fire_extinguisher, x:fix, x:flight, x:flock, x:flour, x:folder, x:food, x:forklift, x:forklift_experience, x:forklift_inspection, x:forklift_operator, x:forklift_operator_certificate, x:form, x:form_1099, x:format, x:former_employee, x:fourth_grade, x:fraction, x:freight, x:french, x:frequently_asked_question, x:function, x:furrow, x:gala, x:gallery, x:gallery_folder, x:gasoline, x:gauge, x:general_ledger, x:glossary, x:gluten, x:grade, x:grade_book, x:grade_level, x:gram, x:grandmother, x:greenhouse, x:ground_freight, x:group, x:guardian, x:guest, x:guest_list, x:gym, x:gym_membership, x:haccp, x:haccp_experience, x:hall, x:handout, x:harvest, x:harvest_crew, x:harvest_schedule, x:harvester, x:head_nurse, x:headline, x:headline_idea, x:health_plan, x:heart_rate, x:heater, x:heating, x:help_center, x:help_center_article, x:hen, x:highway, x:hire, x:hiring, x:history, x:holiday, x:home_insurance, x:honey, x:honey_jar, x:hospital, x:hotel, x:hotel_folio, x:hour, x:house, x:hr, x:hr_department, x:hr_folder, x:human_resource, x:husband, x:id, x:id_number, x:idea, x:identity, x:incident, x:incident_postmortem, x:increase, x:initial, x:input, x:inspection, x:instagram, x:instruction_manual, x:insurance, x:intake_log, x:intern, x:internet, x:interview, x:introduction, x:inventory, x:irrigation, x:irrigation_pump, x:it, x:it_on_call_shift, x:item, x:jar, x:jargon, x:jira_access, x:job_opening, x:json_schema, x:kid, x:kitchen, x:lab_result, x:label, x:laboratory, x:lamb, x:land, x:landlord, x:language, x:laptop, x:late_fee, x:late_payer, x:latency, x:layover, x:lead, x:lease, x:lease_agreement, x:lease_clause, x:lease_renewal, x:leave_request, x:ledger, x:legal_action, x:legal_department, x:lesson_plan, x:level, x:librarian, x:library, x:library_return, x:license_plate, x:light, x:link, x:lint_error, x:list, x:liter, x:loading_dock, x:locker, x:lodging, x:log, x:logbook, x:logo, x:lunch, x:m8_screw, x:magazine, x:mailing_tool, x:maintenance, x:maintenance_sheet, x:maize, x:makeup_session, x:management, x:manager, x:manual, x:manufacturer, x:mare, x:marketing, x:marketing_budget, x:material, x:median, x:medical_certificate, x:medical_record, x:medication, x:medicine, x:meeting_minute, x:meeting_note, x:member, x:membership, x:menu, x:merger, x:migration, x:mileage_reimbursement, x:milking, x:milking_schedule, x:milling_machine, x:millisecond, x:minor, x:minute, x:mobile_team, x:model, x:money, x:month, x:month_number, x:mother, x:mri, x:name, x:nda, x:net_30, x:new_hire, x:news_story, x:newsletter, x:night_crew, x:night_shift, x:nit, x:note, x:notice, x:notification, x:novel, x:nurse, x:offer, x:oil_change, x:on_call_doctor, x:on_call_engineer, x:on_call_number, x:on_call_physician, x:on_call_shift, x:onboarding_guide, x:one_star_review, x:operator, x:option, x:org_chart, x:original, x:ounce, x:outage, x:overtime, x:overtime_hour, x:p95_latency, x:packaging, x:packaging_date, x:packing_date, x:packing_list, x:page_number, x:paid_search, x:paint, x:pallet, x:pallet_count, x:paper, x:paper_copy, x:paper_towel, x:parent, x:parent_group, x:participant, x:participation, x:partner, x:patient, x:patient_intake_log, x:pattern, x:paycheck, x:payment_slip, x:payroll, x:payroll_ledger, x:payroll_summary, x:pdf, x:pedagogical_coordination, x:pediatrician, x:penalty, x:penicillin, x:permission, x:permission_slip, x:personal_data, x:personnel_department, x:peso, x:petty_cash, x:petty_cash_box, x:phone, x:phone_number, x:physician, x:picture_day, x:pig, x:pill, x:pix, x:place, x:plant, x:planting, x:planting_schedule, x:plumber, x:png_image, x:poll_form, x:polling_form, x:portal, x:postmortem, x:presentation, x:presenter, x:press, x:press_release, x:price, x:price_label, x:price_tag, x:principal, x:printer, x:printer_toner, x:priority, x:procurement, x:produce, x:product, x:product_description, x:product_manual, x:product_sku, x:production, x:production_database, x:project, x:promotion, x:proposal, x:public_notice, x:pull_request, x:pump, x:purchase, x:purchase_order, x:purchasing_team, x:quadratic_equation, x:quantity, x:question, x:quiz, x:quote, x:reading, x:reason, x:rebrand, x:receipt, x:reception, x:recharge_date, x:recipe, x:redline, x:reference, x:refill_date, x:refrigerated_transport, x:refrigerator, x:refund, x:reimbursement, x:release, x:release_note, x:reminder, x:renewal, x:rent, x:reply, x:repository, x:request, x:research_paper, x:reservation, x:response, x:restaurant, x:restaurant_table, x:restocking_fee, x:result, x:resume, x:retargeting, x:return, x:review, x:reviewer, x:risk_register, x:roll, x:room, x:roster, x:route, x:router, x:row, x:rubric, x:sack, x:safety_briefing, x:sale, x:sales_dashboard, x:sales_leaderboard, x:sales_summary, x:saline_solution, x:sample, x:sample_size, x:sampling, x:sanitary_inspection, x:scale, x:schedule, x:school, x:school_newsletter, x:school_office, x:screenshot, x:screw, x:seal, x:search_endpoint, x:seat, x:seating_chart, x:second_grade, x:secretariat, x:secretary, x:seed, x:seedling, x:sentiment, x:separator, x:server, x:server_room, x:seventh_grade, x:shared_drive, x:shed, x:sheet, x:shelf, x:shift_manager, x:shift_sheet, x:shift_supervisor, x:shipment, x:shipping_cost, x:shipping_label, x:shop, x:shopping_list, x:signature, x:silent_mode, x:site, x:sku, x:slab, x:slack_channel, x:slack_thread, x:slide, x:slide_deck, x:slide_template, x:sms, x:software, x:soil_moisture, x:soil_test, x:soil_test_result, x:solar_system, x:son, x:sow_cap, x:spanish, x:speaker, x:speaking_invitation, x:spelling, x:sponsorship_request, x:spring, x:sprinkler, x:ssl_certificate, x:staging, x:staging_cluster, x:standup, x:statement, x:statement_of_work, x:station, x:status, x:step, x:sticky_note, x:stock, x:stop, x:store, x:store_credit, x:store_manager, x:string, x:student, x:student_roster, x:study, x:style, x:subject_line, x:subscription, x:subsidiary_ledger, x:substitute_teacher, x:summary, x:supervisor, x:supplier, x:supplier_group, x:supplier_list, x:supply_closet, x:support, x:support_call, x:support_team, x:support_transcript, x:surname, x:surplus, x:survey, x:survey_response, x:swimming, x:swimming_class, x:system, x:table, x:tag, x:task, x:tax, x:tax_authority, x:tax_id, x:tax_record, x:taxi_expense, x:teacher, x:team, x:team_channel, x:team_lunch, x:technical_inspection, x:technical_mechanical_inspection, x:technician, x:temperature, x:tenant, x:tender_notice, x:term, x:termination_clause, x:termination_penalty, x:test, x:test_account, x:test_server, x:test_suite, x:thai_place, x:thank_you_letter, x:thank_you_note, x:thermostat, x:thing, x:thread, x:time, x:timesheet, x:tin, x:toddler, x:toll, x:toll_road, x:tomato, x:tomato_crop, x:tone, x:toner, x:total, x:tracking_event, x:tractor, x:train, x:transport, x:transportation, x:travel_expense, x:travel_time, x:trip, x:truck, x:tweet, x:typo, x:uniform, x:uniform_cost, x:unit_test, x:unloading, x:unloading_time, x:vacation, x:vacation_request, x:vaccine, x:vaccine_refrigerator, x:validity, x:variation, x:vat, x:vendor, x:version, x:veterinarian, x:vital_sign, x:volunteer, x:waiting_list, x:walkthrough, x:wall, x:warehouse, x:warehouse_crew, x:warehouse_lead, x:water_tank, x:wedding, x:week, x:weight, x:welcome_packet, x:whatsapp, x:whatsapp_group, x:wife, x:wifi, x:wifi_code, x:wind_speed, x:window_seat, x:withholding_certificate, x:word, x:worker, x:yard, x:year_month_day
+
+[PROPERTY] (158)
+x:abnormal, x:absent, x:accompanied, x:active, x:additional, x:allergic_to_penicillin, x:aloud, x:alphabetical, x:annual, x:anomalous, x:approved, x:attached, x:automatic, x:available, x:away, x:billed, x:bulleted, x:central, x:certified, x:cheapest, x:closed, x:color, x:commented, x:comparative, x:confirmed, x:consecutive, x:continuous, x:cordial, x:corporate, x:corrugated, x:created, x:critical, x:daily, x:dangling, x:dark_mode, x:defective, x:delayed, x:different, x:digital, x:distinct_nit, x:double_sided, x:dry, x:due, x:due_net_30, x:editable, x:electronic, x:encrypted, x:english, x:enough, x:equal, x:expired, x:fast, x:fastest, x:favorite, x:final, x:first, x:foreign, x:formal, x:former, x:free, x:french, x:friendly, x:full, x:high, x:high_priority, x:home_office, x:identical, x:inactive, x:incoming, x:invoiced, x:late, x:latest, x:left, x:local, x:logistic, x:main, x:malformed, x:merged, x:millisecond, x:missing, x:monthly, x:most_recent, x:moved, x:negative, x:next, x:north, x:obsolete, x:oldest_first, x:on_call, x:one_at_a_time, x:one_star, x:open, x:optional, x:original, x:out, x:out_of_service, x:out_of_stock, x:overdue, x:own, x:p95, x:paper, x:partial, x:passed, x:pedagogical, x:per_project, x:personal, x:placed, x:plain, x:plain_english, x:plain_text, x:png, x:polite, x:positive, x:premium, x:prescribed, x:previous, x:project_based, x:published, x:quarterly, x:random, x:read_only, x:real, x:reconciled, x:red, x:refrigerated, x:remote, x:representative, x:resolved, x:responsible, x:running, x:sanitary, x:scanned, x:second, x:seventh_grade, x:shared, x:short, x:simple, x:spanish, x:spring, x:staging, x:string, x:sufficient, x:suspicious, x:tagalog, x:tagged_outage, x:technical, x:temporary, x:thai, x:typical, x:unsafe, x:vegetarian, x:vibrate, x:week_long, x:weekly, x:window, x:withdrawn, x:written, x:yellow
+
+[LOCATION] (35)
+x:beach, x:bus_station, x:crm, x:dock_4, x:drive, x:encrypted_folder, x:gallery_folder, x:home, x:home_office, x:hospital, x:hr, x:intranet, x:job_site, x:kitchen, x:legal_folder, x:lisbon, x:main, x:marketing_folder, x:northeast, x:pantry, x:payroll_folder, x:pdf, x:press_release, x:proposal, x:reception_equipment, x:restaurant, x:safe, x:shared_drive, x:staging, x:staging_server, x:support_page, x:support_queue, x:team_channel, x:test_server, x:thai_restaurant

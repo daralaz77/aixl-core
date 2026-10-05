@@ -21,15 +21,16 @@ _DOC = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.absp
 CORE_KEYS = ("polarity", "quantitative", "temporal", "scope", "constraint")
 
 
-def prompt_id() -> str:
+def prompt_id(learned: bool = True) -> str:
     import hashlib
-    return hashlib.sha256((open(_DOC, encoding="utf-8").read() + R.REGISTRY_VERSION).encode()).hexdigest()[:12]
+    return hashlib.sha256((open(_DOC, encoding="utf-8").read() + registry_digest(learned)).encode()).hexdigest()[:12]
 
 
-def registry_digest() -> str:
+def registry_digest(learned: bool = True) -> str:
     """compact registry listing for the prompt (ids + English forms), so the model uses real concept ids."""
     by = {}
     for c in R.CONCEPTS:
+        if c.get("learned") and not learned: continue
         by.setdefault(c["type"], []).append(f"{c['id']}({'/'.join(c['lex'].get('en', [])[:2])})" if c["lex"].get("en") else c["id"])
     out = [f"registry {R.REGISTRY_VERSION}"]
     for k, v in by.items(): out.append(f"{k}: " + ", ".join(v))
@@ -38,7 +39,7 @@ def registry_digest() -> str:
     return "\n".join(out)
 
 
-def build_prompt(items: list) -> str:
+def build_prompt(items: list, learned: bool = True) -> str:
     """items: [{"id":..., "text":...}, ...] -> one self-contained prompt. The answer must be JSON Lines, one object per id."""
     guide = open(_DOC, encoding="utf-8").read()
     body = "\n".join(json.dumps(dict(id=i["id"], text=i["text"]), ensure_ascii=False) for i in items)
@@ -49,7 +50,7 @@ def build_prompt(items: list) -> str:
         "OUTPUT: JSON Lines only, no commentary, no code fences, exactly one line per input id:\n"
         '{"id": "...", "atoms": [...], "relations": [["src","REL","dst"], ...], "unrepresented": [...]}\n'
         "Atom objects: id, type, concept, value, modality, polarity, scope, status as in the guide. Every relation must respect the endpoint types.\n\n"
-        "=== REGISTRY ===\n" + registry_digest() + "\n\n=== ANNOTATION GUIDE ===\n" + guide + "\n\n=== INSTRUCTIONS TO CONVERT ===\n" + body + "\n"
+        "=== REGISTRY ===\n" + registry_digest(learned) + "\n\n=== ANNOTATION GUIDE ===\n" + guide + "\n\n=== INSTRUCTIONS TO CONVERT ===\n" + body + "\n"
     )
 
 
@@ -107,9 +108,22 @@ class Result:
     agreement: str = ""              # 'exact' | 'core' | ''
 
 
-def decide(graphs: list, policy: str = "exact", errors: list | None = None) -> Result:
+_NORM = None
+
+
+def normalize_graph(g: AtomGraph) -> AtomGraph:
+    """graph normal form (ADR-021): collapses representational alternatives before the calls are compared."""
+    global _NORM
+    if _NORM is None:
+        from aixl.atoms.normalize import Normalizer
+        _NORM = Normalizer()
+    return _NORM(g)
+
+
+def decide(graphs: list, policy: str = "exact", errors: list | None = None, normalize: bool = False) -> Result:
     """combine the (already parsed) graphs of k independent calls. k < 2 can never be accepted."""
     errors = errors or []
+    if normalize: graphs = [normalize_graph(g) if g is not None else None for g in graphs]
     if len(graphs) + len(errors) < 2: return Result("ABSTAIN", None, ["TOO_FEW_CALLS"], list(graphs))
     if errors or any(g is None for g in graphs): return Result("ABSTAIN", None, ["INVALID_CALL"] + [str(e) for e in errors], [g for g in graphs if g is not None])
     first = graphs[0]
@@ -121,7 +135,7 @@ def decide(graphs: list, policy: str = "exact", errors: list | None = None) -> R
     return Result("ABSTAIN", None, ["CALLS_DISAGREE"], list(graphs))
 
 
-def extract_llm(text: str, calls: list, policy: str = "exact", gid: str = "t") -> Result:
+def extract_llm(text: str, calls: list, policy: str = "exact", gid: str = "t", normalize: bool = False) -> Result:
     """k independent callables -> one Result. Each callable gets the prompt and returns the model's raw text."""
     prompt = build_prompt([dict(id=gid, text=text)])
     graphs, errs = [], []
@@ -129,4 +143,4 @@ def extract_llm(text: str, calls: list, policy: str = "exact", gid: str = "t") -
         p = parse_response(c(prompt), [gid], {gid: text})
         if gid in p.graphs: graphs.append(p.graphs[gid])
         else: errs.append(p.errors.get(gid, ["MISSING"]))
-    return decide(graphs, policy, errs)
+    return decide(graphs, policy, errs, normalize)

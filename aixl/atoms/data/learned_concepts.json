@@ -1,0 +1,1118 @@
+[
+ {
+  "id": "ACT.ARRIVE",
+  "type": "ACTION",
+  "lemma": "arrive",
+  "definition": "learned from data (not curated): arrive; seen in 5 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 5,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.ASSIGN",
+  "type": "ACTION",
+  "lemma": "assign",
+  "definition": "learned from data (not curated): assign; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.ATTACH",
+  "type": "ACTION",
+  "lemma": "attach",
+  "definition": "learned from data (not curated): attach; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.BLOCK",
+  "type": "ACTION",
+  "lemma": "block",
+  "definition": "learned from data (not curated): block; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.CLOSE",
+  "type": "ACTION",
+  "lemma": "close",
+  "definition": "learned from data (not curated): close; seen in 6 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 6,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.CONFIRM",
+  "type": "ACTION",
+  "lemma": "confirm",
+  "definition": "learned from data (not curated): confirm; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.CONVERT",
+  "type": "ACTION",
+  "lemma": "convert",
+  "definition": "learned from data (not curated): convert; seen in 9 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 9,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.COUNT",
+  "type": "ACTION",
+  "lemma": "count",
+  "definition": "learned from data (not curated): count; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.DOWNLOAD",
+  "type": "ACTION",
+  "lemma": "download",
+  "definition": "learned from data (not curated): download; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.ESCALATE",
+  "type": "ACTION",
+  "lemma": "escalate",
+  "definition": "learned from data (not curated): escalate; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.FLAG",
+  "type": "ACTION",
+  "lemma": "flag",
+  "definition": "learned from data (not curated): flag; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.GROUP",
+  "type": "ACTION",
+  "lemma": "group",
+  "definition": "learned from data (not curated): group; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.HIGHLIGHT",
+  "type": "ACTION",
+  "lemma": "highlight",
+  "definition": "learned from data (not curated): highlight; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.LIST",
+  "type": "ACTION",
+  "lemma": "list",
+  "definition": "learned from data (not curated): list; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.LOCK",
+  "type": "ACTION",
+  "lemma": "lock",
+  "definition": "learned from data (not curated): lock; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.LOG",
+  "type": "ACTION",
+  "lemma": "log",
+  "definition": "learned from data (not curated): log; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.MARK",
+  "type": "ACTION",
+  "lemma": "mark",
+  "definition": "learned from data (not curated): mark; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.MERGE",
+  "type": "ACTION",
+  "lemma": "merge",
+  "definition": "learned from data (not curated): merge; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.MOVE",
+  "type": "ACTION",
+  "lemma": "move",
+  "definition": "learned from data (not curated): move; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.NEED",
+  "type": "ACTION",
+  "lemma": "need",
+  "definition": "learned from data (not curated): need; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.PLAN",
+  "type": "ACTION",
+  "lemma": "plan",
+  "definition": "learned from data (not curated): plan; seen in 5 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 5,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.PUT",
+  "type": "ACTION",
+  "lemma": "put",
+  "definition": "learned from data (not curated): put; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.RECONCILE",
+  "type": "ACTION",
+  "lemma": "reconcile",
+  "definition": "learned from data (not curated): reconcile; seen in 5 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 5,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.REMIND",
+  "type": "ACTION",
+  "lemma": "remind",
+  "definition": "learned from data (not curated): remind; seen in 11 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 11,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.RENAME",
+  "type": "ACTION",
+  "lemma": "rename",
+  "definition": "learned from data (not curated): rename; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.RENEW",
+  "type": "ACTION",
+  "lemma": "renew",
+  "definition": "learned from data (not curated): renew; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.REPLY",
+  "type": "ACTION",
+  "lemma": "reply",
+  "definition": "learned from data (not curated): reply; seen in 11 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 11,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.RETURN",
+  "type": "ACTION",
+  "lemma": "return",
+  "definition": "learned from data (not curated): return; seen in 6 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 6,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.SCAN",
+  "type": "ACTION",
+  "lemma": "scan",
+  "definition": "learned from data (not curated): scan; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.SEPARATE",
+  "type": "ACTION",
+  "lemma": "separate",
+  "definition": "learned from data (not curated): separate; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.SHARE",
+  "type": "ACTION",
+  "lemma": "share",
+  "definition": "learned from data (not curated): share; seen in 6 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 6,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.SORT",
+  "type": "ACTION",
+  "lemma": "sort",
+  "definition": "learned from data (not curated): sort; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.SUBMIT",
+  "type": "ACTION",
+  "lemma": "submit",
+  "definition": "learned from data (not curated): submit; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.TAG",
+  "type": "ACTION",
+  "lemma": "tag",
+  "definition": "learned from data (not curated): tag; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.UPLOAD",
+  "type": "ACTION",
+  "lemma": "upload",
+  "definition": "learned from data (not curated): upload; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ACT.WATER",
+  "type": "ACTION",
+  "lemma": "water",
+  "definition": "learned from data (not curated): water; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.ACCESS",
+  "type": "ENTITY",
+  "lemma": "access",
+  "definition": "learned from data (not curated): access; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.ACCOUNT",
+  "type": "ENTITY",
+  "lemma": "account",
+  "definition": "learned from data (not curated): account; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.BRANCH",
+  "type": "ENTITY",
+  "lemma": "branch",
+  "definition": "learned from data (not curated): branch; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.BUDGET",
+  "type": "ENTITY",
+  "lemma": "budget",
+  "definition": "learned from data (not curated): budget; seen in 7 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 7,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.CALENDAR",
+  "type": "ENTITY",
+  "lemma": "calendar",
+  "definition": "learned from data (not curated): calendar; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.CARRIER",
+  "type": "ENTITY",
+  "lemma": "carrier",
+  "definition": "learned from data (not curated): carrier; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.CASH_REGISTER",
+  "type": "ENTITY",
+  "lemma": "cash_register",
+  "definition": "learned from data (not curated): cash register; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.CHAPTER",
+  "type": "ENTITY",
+  "lemma": "chapter",
+  "definition": "learned from data (not curated): chapter; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.CLASS",
+  "type": "ENTITY",
+  "lemma": "class",
+  "definition": "learned from data (not curated): class; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.COMPLAINT",
+  "type": "ENTITY",
+  "lemma": "complaint",
+  "definition": "learned from data (not curated): complaint; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.COPY",
+  "type": "ENTITY",
+  "lemma": "copy",
+  "definition": "learned from data (not curated): copy; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.DATABASE",
+  "type": "ENTITY",
+  "lemma": "database",
+  "definition": "learned from data (not curated): database; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.DELIVERY",
+  "type": "ENTITY",
+  "lemma": "delivery",
+  "definition": "learned from data (not curated): delivery; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.DENTIST",
+  "type": "ENTITY",
+  "lemma": "dentist",
+  "definition": "learned from data (not curated): dentist; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.DRAFT",
+  "type": "ENTITY",
+  "lemma": "draft",
+  "definition": "learned from data (not curated): draft; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.DRIVER",
+  "type": "ENTITY",
+  "lemma": "driver",
+  "definition": "learned from data (not curated): driver; seen in 5 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 5,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.EVENT",
+  "type": "ENTITY",
+  "lemma": "event",
+  "definition": "learned from data (not curated): event; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.FOLDER",
+  "type": "ENTITY",
+  "lemma": "folder",
+  "definition": "learned from data (not curated): folder; seen in 6 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 6,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.GRADE",
+  "type": "ENTITY",
+  "lemma": "grade",
+  "definition": "learned from data (not curated): grade; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.GROUP",
+  "type": "ENTITY",
+  "lemma": "group",
+  "definition": "learned from data (not curated): group; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.HR",
+  "type": "ENTITY",
+  "lemma": "hr",
+  "definition": "learned from data (not curated): hr; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.INTERN",
+  "type": "ENTITY",
+  "lemma": "intern",
+  "definition": "learned from data (not curated): intern; seen in 5 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 5,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.INVENTORY",
+  "type": "ENTITY",
+  "lemma": "inventory",
+  "definition": "learned from data (not curated): inventory; seen in 6 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 6,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.LAPTOP",
+  "type": "ENTITY",
+  "lemma": "laptop",
+  "definition": "learned from data (not curated): laptop; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.LEGAL_DEPARTMENT",
+  "type": "ENTITY",
+  "lemma": "legal_department",
+  "definition": "learned from data (not curated): legal department; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.LIST",
+  "type": "ENTITY",
+  "lemma": "list",
+  "definition": "learned from data (not curated): list; seen in 6 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 6,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.MANAGER",
+  "type": "ENTITY",
+  "lemma": "manager",
+  "definition": "learned from data (not curated): manager; seen in 5 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 5,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.MANUAL",
+  "type": "ENTITY",
+  "lemma": "manual",
+  "definition": "learned from data (not curated): manual; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.MENU",
+  "type": "ENTITY",
+  "lemma": "menu",
+  "definition": "learned from data (not curated): menu; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.MINUTE",
+  "type": "ENTITY",
+  "lemma": "minute",
+  "definition": "learned from data (not curated): minute; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.NEWSLETTER",
+  "type": "ENTITY",
+  "lemma": "newsletter",
+  "definition": "learned from data (not curated): newsletter; seen in 5 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 5,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.NOTE",
+  "type": "ENTITY",
+  "lemma": "note",
+  "definition": "learned from data (not curated): note; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.OVERTIME",
+  "type": "ENTITY",
+  "lemma": "overtime",
+  "definition": "learned from data (not curated): overtime; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.PARENT",
+  "type": "ENTITY",
+  "lemma": "parent",
+  "definition": "learned from data (not curated): parent; seen in 6 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 6,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.PATIENT",
+  "type": "ENTITY",
+  "lemma": "patient",
+  "definition": "learned from data (not curated): patient; seen in 9 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 9,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.PETTY_CASH",
+  "type": "ENTITY",
+  "lemma": "petty_cash",
+  "definition": "learned from data (not curated): petty cash; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.PRICE",
+  "type": "ENTITY",
+  "lemma": "price",
+  "definition": "learned from data (not curated): price; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.RECEIPT",
+  "type": "ENTITY",
+  "lemma": "receipt",
+  "definition": "learned from data (not curated): receipt; seen in 9 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 9,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.REFUND",
+  "type": "ENTITY",
+  "lemma": "refund",
+  "definition": "learned from data (not curated): refund; seen in 6 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 6,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.REVIEW",
+  "type": "ENTITY",
+  "lemma": "review",
+  "definition": "learned from data (not curated): review; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.SALE",
+  "type": "ENTITY",
+  "lemma": "sale",
+  "definition": "learned from data (not curated): sale; seen in 5 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 5,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.SHIPMENT",
+  "type": "ENTITY",
+  "lemma": "shipment",
+  "definition": "learned from data (not curated): shipment; seen in 5 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 5,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.SIGNATURE",
+  "type": "ENTITY",
+  "lemma": "signature",
+  "definition": "learned from data (not curated): signature; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.STUDENT",
+  "type": "ENTITY",
+  "lemma": "student",
+  "definition": "learned from data (not curated): student; seen in 9 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 9,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.SUMMARY",
+  "type": "ENTITY",
+  "lemma": "summary",
+  "definition": "learned from data (not curated): summary; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.SUPPLIER",
+  "type": "ENTITY",
+  "lemma": "supplier",
+  "definition": "learned from data (not curated): supplier; seen in 15 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 15,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.SUPPORT_TEAM",
+  "type": "ENTITY",
+  "lemma": "support_team",
+  "definition": "learned from data (not curated): support team; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.TEST",
+  "type": "ENTITY",
+  "lemma": "test",
+  "definition": "learned from data (not curated): test; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.TIMESHEET",
+  "type": "ENTITY",
+  "lemma": "timesheet",
+  "definition": "learned from data (not curated): timesheet; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.TRAVEL_EXPENSE",
+  "type": "ENTITY",
+  "lemma": "travel_expense",
+  "definition": "learned from data (not curated): travel expense; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.TRUCK",
+  "type": "ENTITY",
+  "lemma": "truck",
+  "definition": "learned from data (not curated): truck; seen in 5 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 5,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.VENDOR",
+  "type": "ENTITY",
+  "lemma": "vendor",
+  "definition": "learned from data (not curated): vendor; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "ENT.WAREHOUSE",
+  "type": "ENTITY",
+  "lemma": "warehouse",
+  "definition": "learned from data (not curated): warehouse; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "PRP.CLOSED",
+  "type": "PROPERTY",
+  "lemma": "closed",
+  "definition": "learned from data (not curated): closed; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "PRP.OPEN",
+  "type": "PROPERTY",
+  "lemma": "open",
+  "definition": "learned from data (not curated): open; seen in 3 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 3,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "PRP.OVERDUE",
+  "type": "PROPERTY",
+  "lemma": "overdue",
+  "definition": "learned from data (not curated): overdue; seen in 4 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 4,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ },
+ {
+  "id": "PRP.SHARED",
+  "type": "PROPERTY",
+  "lemma": "shared",
+  "definition": "learned from data (not curated): shared; seen in 6 dev texts by >=2 independent sources",
+  "evidence": {
+   "texts": 6,
+   "sources": "ann-S/ann-O/llm",
+   "mined_from": "blind1v3+blind2+blind3",
+   "rule": ">= 3 texts"
+  }
+ }
+]

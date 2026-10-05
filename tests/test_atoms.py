@@ -41,7 +41,7 @@ def test_registry_ids_unique_and_well_formed():
 
 def test_registry_lexemes_cover_three_languages_for_actions():
     for c in R.CONCEPTS:
-        if c["type"] == "ACTION" and c["id"] != "ACT.ENSURE":
+        if c["type"] == "ACTION" and c["id"] != "ACT.ENSURE" and not c.get("learned"):
             assert all(c["lex"][l] for l in ("es", "en", "pt")), c["id"]
 
 
@@ -258,3 +258,54 @@ def test_core_policy_tolerates_auxiliary_link_differences_only():
     assert r.status == "ACCEPT" and r.agreement == "core"
     neg = dict(_GOOD, atoms=[dict(id="a1", type="ACTION", concept="ACT.SUMMARIZE", modality="DONT"), _GOOD["atoms"][1]])
     assert LX.extract_llm("x", [_call(_GOOD), _call(neg)], policy="core").status == "ABSTAIN"
+
+
+# ---------------------------------------------------------------- normal form + learned registry (ADR-021)
+from aixl.atoms.normalize import Normalizer, lemma, singular
+
+
+def test_learned_concepts_are_well_formed_and_do_not_shadow_curated_ones():
+    assert R.LEARNED, "learned_concepts.json should not be empty"
+    curated = {c["id"] for c in R.CONCEPTS if not c.get("learned")}
+    for c in R.LEARNED:
+        assert c["id"] not in curated and c["evidence"]["texts"] >= 3 and c["lex"]["en"] and c["definition"].startswith("learned from data")
+
+
+def test_rule_extractor_ignores_learned_concepts():
+    g = extract("Reply to the supplier.")          # 'reply'/'supplier' are learned concepts: the rule extractor must still treat them as unknown
+    assert not g.complete
+
+
+def test_normalizer_maps_learned_lemmas_and_leaves_meaning_alone():
+    n = Normalizer()
+    g = AtomGraph([Atom("1", "ACTION", "x:reply"), Atom("2", "ENTITY", "x:suppliers")], [("1", "TARGETS", "2")])
+    h = n(g)
+    assert {a.concept for a in h.atoms} == {"ACT.REPLY", "ENT.SUPPLIER"} and h.validate() == []
+    neg = AtomGraph([Atom("1", "ACTION", "x:reply", modality="DONT"), Atom("2", "ENTITY", "x:supplier")], [("1", "TARGETS", "2")])
+    assert n(neg).fingerprint() != h.fingerprint()                      # negation survives normalization
+
+
+def test_lemma_and_singular():
+    assert lemma("x:Press_Releases") == "x:press_release" and singular("entries") == "entry" and singular("status") == "status" and singular("class") == "class"
+
+
+def test_compound_collapse_merges_split_and_compound_forms():
+    compound = AtomGraph([Atom("1", "ACTION", "ACT.REVIEW"), Atom("2", "ENTITY", "x:corporate_card")], [("1", "TARGETS", "2")])
+    split = AtomGraph([Atom("1", "ACTION", "ACT.REVIEW"), Atom("2", "ENTITY", "x:card"), Atom("3", "PROPERTY", "x:corporate")], [("1", "TARGETS", "2"), ("2", "HAS_PROPERTY", "3")])
+    n = Normalizer()
+    assert n(split).fingerprint() == n(compound).fingerprint()
+    # a modifier that has relations of its own is NOT absorbed (it is not a leaf)
+    busy = AtomGraph([Atom("1", "ACTION", "ACT.REVIEW"), Atom("2", "ENTITY", "x:card"), Atom("3", "PROPERTY", "x:corporate"), Atom("4", "QUANTITY", value=dict(mode="exact", n=2, unit="item"))],
+                     [("1", "TARGETS", "2"), ("2", "HAS_PROPERTY", "3"), ("2", "CONSTRAINED_BY", "4")])
+    assert any(a.concept == "x:corporate_card" for a in n(busy).atoms)   # leaf property absorbed, quantity link kept
+    assert any(a.type == "QUANTITY" for a in n(busy).atoms)
+
+
+def test_alias_table_only_merges_same_atom_type_and_has_evidence():
+    from aixl.atoms.normalize import load_tables
+    t = load_tables()
+    for k, v in t["aliases"].items():
+        typ = k.split(":", 1)[0]
+        c = R.concept(v)
+        assert c is None or c["type"] == typ, (k, v)               # registry canonical must be of the same atom type
+        assert t["alias_evidence"][k]

@@ -15,7 +15,9 @@ def render() -> str:
         s, d = R.RELATION_SIG.get(k, (set(), set()))
         o.append(f"| {k} | {'/'.join(sorted(s))} -> {'/'.join(sorted(d))} | {v} |")
     o += ["\n## Concept registry\n| id | type | definition | near (never auto-promoted) |\n|---|---|---|---|"]
-    o += [f"| {c['id']} | {c['type']} | {c['definition']} | {', '.join(c['near']) or '-'} |" for c in R.CONCEPTS]
+    o += [f"| {c['id']} | {c['type']} | {c['definition']} | {', '.join(c['near']) or '-'} |" for c in R.CONCEPTS if not c.get("learned")]
+    learned = [c for c in R.CONCEPTS if c.get("learned")]
+    o += [f"\n### Learned concepts ({len(learned)}; promoted from data by benchmarks/atoms_mine.py promote, not curated, English form only)\n" + ", ".join(c["id"] for c in learned)]
     o += ["\nUnits: " + ", ".join(sorted(R.UNITS)), "\nAnything outside this registry is an extension `x:<english_lemma>` (never mapped to a nearby concept).",
           "\n## Interoperability profile v0.1 (HELLO of a full-support agent)\n```json\n" + json.dumps({k: (v if k not in ("concepts",) else f"[{len(v)} concepts]") for k, v in Profile("aixl-core").hello().items()}, indent=1) + "\n```"]
     return "\n".join(o) + "\n"
