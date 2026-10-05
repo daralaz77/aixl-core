@@ -4,7 +4,7 @@ description: AIXL experimental Semantic Core (ES/EN/PT) — canonical meaning gr
 ---
 
 # AIXL Semantic Core 0.5.0 (executable) — state 2026-10-03; scope fixed in docs/adr/ADR-018.md
-Root `~/.claude/skills/aixl-core/` (Python ≥ 3.11, `.venv` with pytest + tiktoken for dev). 479 tests. CI (GitHub Actions) runs the suite on Python 3.11 and 3.12.
+Root `~/.claude/skills/aixl-core/` (Python ≥ 3.11, `.venv` with pytest + tiktoken for dev). 610 tests (581 + 29 atom-layer). CI (GitHub Actions) runs the suite on Python 3.11 and 3.12.
 **Read `docs/EVIDENCE.md` before answering any question about accuracy, safety, cost or "does AIXL work".** It is the single source of truth; this file only summarizes it.
 
 ## Use
@@ -15,7 +15,7 @@ cd ~/.claude/skills/aixl-core
 .venv/bin/python cli.py mcp-serve                      # real MCP server over stdio (needs: .venv/bin/pip install .[mcp])
 .venv/bin/python -m aixl.agents.a2a_server 8766        # real A2A agent over HTTP (needs: .venv/bin/pip install .[a2a])
 .venv/bin/python cli.py lab "A" "B"                    # Semantic Lab view; `cli.py serve` = web app
-.venv/bin/python -m pytest -q                          # 479 tests
+.venv/bin/python -m pytest -q                          # 610 tests
 ```
 Python: `import aixl; aixl.compare(a, b)` (returns `.verdict` EQUIVALENT / NOT_EQUIVALENT / INCONCLUSIVE and `.equivalent`), `to_aixl`, `from_aixl`, `translate`, `semantic_diff`, `detect_drift`, `detect_ambiguity`, `detect_contradiction`, `semantic_fingerprint`, `negotiate`, `validate`, `round_trip`. Opt-in safety: `config["inconclusive"] = True` (see docs/COMPARATOR.md). Audit layer around an arbiter (ADR-018): `from aixl import arbiter` → `decide(a, b, judges={name: fn(a,b)->'SAME'|'DIFFERENT'|'UNSURE'}, memo=DecisionMemo(path))`, `consensus`, `parse_judge_lines`, `rules_text/rules_id` — you supply the judges; the core calls no model.
 
@@ -27,6 +27,10 @@ Python: `import aixl; aixl.compare(a, b)` (returns `.verdict` EQUIVALENT / NOT_E
 * **Not shown:** that AIXL adds correctness over the arbiter baseline; cross-vendor judges; real agent-to-agent traffic; embedding-based blocking; ES/EN/PT only, ≤ 360 cases per set, author-assigned labels.
 * Rules-route ambiguity detection on free text: 16.7 % recall, 11.7 % false flags. Contradiction/ambiguity numbers from earlier (90 %/75 % on n = 20) are history only.
 * Engineering facts (MCP/A2A adapters confirmed with Claude Desktop, ChatGPT/Codex and Antigravity; negotiation protocol; deployment and its 6 fixed bugs; CI) are verified and kept in `DEPLOYMENT.md`, `BENCHMARK.md` and the archive `docs/HISTORY.md`.
+
+## AIXL 0.4 atom layer (2026-10-04) — `aixl/atoms/`, docs/ATOMS.md, docs/ATOMS_EVIDENCE.md, ADR-019
+Concept-id atoms + typed relations (enforced endpoint types) + canonical fingerprint + wire format + semantic firewall (`receive`: MALFORMED / UNSUPPORTED_CONCEPT / SEMANTIC_INTEGRITY_FAILURE) + common profile + alignment + `diff` + per-dimension fidelity; `unrepresented` makes loss explicit. CLI: `cli.py atoms-extract|atoms-wire|atoms-receive|atoms-diff`. Annotation guide: docs/ATOM_MODEL.md (later sections win). 610 tests.
+**Say:** verifiable interchange format and measuring instrument; across a 3-model hop F1 0.93 / core 0.97 (n = 40), equal to the floor between two independent readers. **Never say:** free text has a unique atom graph (Sonnet-vs-Opus exact-graph agreement on unseen text is ~35 %, F1 ≈ 0.83; three guide rounds 32.7→35.3→36.0 % = noise), that the rule extractor handles natural text (F1 0.27–0.37, declares 0/450 complete, 0 silent errors), or any dev number (93–98 % are tuning). The 2-of-2 arbiter (ADR-018) stays the baseline for free-text equivalence. Fable was unavailable (credits); a different annotator family on a new blind set is the open test.
 
 ## 0.3-R semantic track (2026-10-03) — separate from the 0.5.0 rules route
 `aixl/semantic/` (`parse`, `compare_texts`, `hybrid_decide`; docs/SEMANTIC_MODEL_0_3R.md, evidence in docs/EVIDENCE.md §4b). A closed-domain loss/distortion detector with explicit ambiguity and a fail-closed three-state verdict, plus a hybrid where the 2-of-2 arbiter proves sameness and the semantic model vetoes (REVIEW). Measured on 6 independent sets: false-equivalent 0-6.8%, NOT_EQUIVALENT precision 55-87% (90% gate failed twice), proven equivalent ~0-2%, hybrid safer-than-arbiter claim NOT allowed. Never present NOT_EQUIVALENT as proven or the track as an equivalence prover. Tests: `tests/test_semantic_r.py`, `test_semantic_hybrid.py`, `test_golden_r_dataset.py`; data: `data/golden_r` (dev), `data/blind13-18` (spent).

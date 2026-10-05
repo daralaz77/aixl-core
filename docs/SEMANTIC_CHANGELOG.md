@@ -26,3 +26,7 @@ Regression tests added for property/invariant behaviour (`test_properties.py`, `
 | `aixl.arbiter` (rules id, 2-of-2 consensus, judge-output validation, `DecisionMemo`, `decide`) + `data/arbiter/rules_v1.txt` | New module; imports no provider and never calls a model | none | `test_arbiter.py` (16) |
 | `canonical()` omits an EMPTY `residue` | Graphs without residue keep their exact 0.4.0 canonical form and fingerprint (golden pin `4d601cd77a368a82`) | none | `test_fingerprint.py` |
 These changes make loss visible and refuse to say "equal" without proof; they do **not** make the comparator prove paraphrase equivalence ([EVIDENCE.md](EVIDENCE.md)).
+
+
+## Unreleased — AIXL 0.4 atom layer (2026-10-04)
+Added `aixl/atoms/` (registry 0.3.0, schema/canonical fingerprint, wire format, firewall/profile/alignment/diff, fidelity, controlled-domain fail-closed extractor), `cli.py atoms-*`, annotation guide v0.2→v0.4, gold + three blind sets, `benchmarks/atoms_report.py`, ADR-019, 29 tests (suite 610). `aixl.compare` and the 0.3-R track are unchanged. Honest status in docs/ATOMS.md.

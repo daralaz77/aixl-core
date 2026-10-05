@@ -85,3 +85,7 @@ cd ~/.claude/skills/aixl-core
 .venv/bin/python -m benchmarks.repeatability_eval data/blind10              # arbiter repeatability
 ```
 Frozen sets carry their sha256 (`data/blind10/blind11.sha256`, `blind12.sha256`); verify with `shasum -a 256 -c`. LLM outputs are stored next to each set so every table can be recomputed without new model calls.
+
+
+## 4d. AIXL 0.4 atom layer (2026-10-04) — see docs/ATOMS.md, docs/ATOMS_EVIDENCE.md, ADR-019
+Two LLMs annotating the same unseen natural instruction agree on the whole atom graph ~35 % of the time (F1 ≈ 0.83) under guides v0.2/v0.3/v0.4 (32.7/35.3/36.0 %, noise ±4); the rule extractor reaches F1 0.27–0.37 on unseen sets and declares 0/450 complete (no silent errors); dev numbers (93–98 %) are tuning artefacts. A cross-model round trip through AIXL (3 models, 40 cases, both directions) keeps F1 0.93 / core 0.97, equal to the two-independent-readers floor. Atoms = verifiable interchange + measuring instrument, not a free-text meaning extractor.

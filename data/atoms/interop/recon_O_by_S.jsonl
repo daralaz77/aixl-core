@@ -1,0 +1,40 @@
+{"id": "B004", "text": "Send Marta the quote from the toner supplier."}
+{"id": "B010", "text": "Cancel my dentist appointment."}
+{"id": "B011", "text": "Scan the petty cash receipts."}
+{"id": "B016", "text": "Review the pending invoices of the Medellín branch."}
+{"id": "B017", "text": "Flag all urgent tickets in the support queue."}
+{"id": "B024", "text": "Classify the emails as internal or external.", "unclear": "unclear whether classify means label each email by category"}
+{"id": "B025", "text": "Search for expired certificates on the staging server."}
+{"id": "B026", "text": "List the inactive employees who still have access to the ERP.", "unclear": "U applied"}
+{"id": "B030", "text": "Return the unsigned NDA to the legal department."}
+{"id": "B031", "text": "Create a 100-word summary of the report."}
+{"id": "B037", "text": "List more than 10 suppliers that ship to Chile.", "unclear": "U applied; 'more than 10' attached to suppliers"}
+{"id": "B038", "text": "Write an introduction of fewer than 50 words."}
+{"id": "B041", "text": "Include about 20 frequently asked questions in the support page."}
+{"id": "B042", "text": "Attach at most 3 images per post.", "unclear": "'per post' in U"}
+{"id": "B048", "text": "Print about 40 copies of the brochure."}
+{"id": "B049", "text": "List more than 8 packaging suppliers."}
+{"id": "B057", "text": "Convert the payroll summary to PDF with page numbers.", "unclear": "RESULTS_IN page_number: wording 'with page numbers' is a guess"}
+{"id": "B060", "text": "Output the error log as a JSON array."}
+{"id": "B064", "text": "You may approve refunds under 50 dollars without needing to ask me.", "unclear": "unit x:dollar; 'without asking me' reading of NOT_REQUIRED+RECIPIENT"}
+{"id": "B067", "text": "Do not delete the audit log."}
+{"id": "B076", "text": "If the payment does not arrive, send the customer a reminder."}
+{"id": "B077", "text": "Approve the expense report only if all receipts are attached."}
+{"id": "B078", "text": "Notify the driver if the flight is delayed."}
+{"id": "B082", "text": "If the build fails, roll back to the previous release."}
+{"id": "B100", "text": "Respond to new tickets within 4 hours."}
+{"id": "B102", "text": "Pull all orders placed since January."}
+{"id": "B108", "text": "Respond to the legal department's email within 24 hours.", "unclear": "OF between email and legal department: direction (to/from) unknown"}
+{"id": "B113", "text": "I liked it; create another slide template identical to it.", "unclear": "U fragment 'Gostei' (I liked it) is unrepresented text"}
+{"id": "B115", "text": "Search for the latest draft of the budget and share it with Lena.", "unclear": "no PRECEDES between search and share; order inferred"}
+{"id": "B116", "text": "Put a sticky note on the Ruiz case file and bring me the case file.", "unclear": "LOCATED_AT a reference: 'on' is a guess; sticky note placement preposition unknown"}
+{"id": "B120", "text": "Create another reminder email for late payers."}
+{"id": "B122", "text": "Tag each image with the event date."}
+{"id": "B131", "text": "Review some random invoices from each branch.", "unclear": "'de cada sucursal' in U (applied)"}
+{"id": "B132", "text": "Approve all pending leave requests except Maria's."}
+{"id": "B140", "text": "Review the brochure, then send it to the printer."}
+{"id": "B144", "text": "Scan the form, collect the signature, and file the form with human resources."}
+{"id": "B146", "text": "Request approval from the communications department, then publish the newsletter."}
+{"id": "B147", "text": "Export the leads as CSV, then import them into the mailing tool."}
+{"id": "B149", "text": "Update the risk register after the audit."}
+{"id": "B150", "text": "Test the new wifi password, then update the reception notice.", "unclear": "notice/reception link guessed as 'reception notice'; wifi OF password"}

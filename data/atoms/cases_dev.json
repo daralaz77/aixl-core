@@ -1,0 +1,742 @@
+[
+{
+"id": "D001",
+"lang": "es",
+"text": "Resume el informe."
+},
+{
+"id": "D002",
+"lang": "en",
+"text": "Translate the contract."
+},
+{
+"id": "D003",
+"lang": "pt",
+"text": "Apague o arquivo."
+},
+{
+"id": "D004",
+"lang": "es",
+"text": "Elimina el registro duplicado."
+},
+{
+"id": "D005",
+"lang": "en",
+"text": "Send the invoice to the customer."
+},
+{
+"id": "D006",
+"lang": "pt",
+"text": "Atualize o relatório."
+},
+{
+"id": "D007",
+"lang": "es",
+"text": "Verifica la factura."
+},
+{
+"id": "D008",
+"lang": "en",
+"text": "Archive the old tickets."
+},
+{
+"id": "D009",
+"lang": "es",
+"text": "Cancela el pedido."
+},
+{
+"id": "D010",
+"lang": "en",
+"text": "Call the employee."
+},
+{
+"id": "D011",
+"lang": "pt",
+"text": "Imprima o documento."
+},
+{
+"id": "D012",
+"lang": "en",
+"text": "Review the contract."
+},
+{
+"id": "D013",
+"lang": "es",
+"text": "Firma el contrato."
+},
+{
+"id": "D014",
+"lang": "en",
+"text": "Schedule a meeting."
+},
+{
+"id": "D015",
+"lang": "pt",
+"text": "Copie o arquivo."
+},
+{
+"id": "D016",
+"lang": "es",
+"text": "Envía los correos pendientes."
+},
+{
+"id": "D017",
+"lang": "en",
+"text": "Delete the empty files."
+},
+{
+"id": "D018",
+"lang": "pt",
+"text": "Revise os contratos assinados."
+},
+{
+"id": "D019",
+"lang": "es",
+"text": "Archiva las facturas pagadas."
+},
+{
+"id": "D020",
+"lang": "en",
+"text": "Summarize the confidential documents."
+},
+{
+"id": "D021",
+"lang": "es",
+"text": "Revisa los pedidos urgentes."
+},
+{
+"id": "D022",
+"lang": "en",
+"text": "Send the report to Maria Lopez."
+},
+{
+"id": "D023",
+"lang": "pt",
+"text": "Envie a fatura para o cliente."
+},
+{
+"id": "D024",
+"lang": "es",
+"text": "Borra la contraseña antigua."
+},
+{
+"id": "D025",
+"lang": "en",
+"text": "Publish the new page."
+},
+{
+"id": "D026",
+"lang": "es",
+"text": "Traduce el texto oficial."
+},
+{
+"id": "D027",
+"lang": "en",
+"text": "Copy the internal records."
+},
+{
+"id": "D028",
+"lang": "pt",
+"text": "Cancele os pedidos pendentes."
+},
+{
+"id": "D029",
+"lang": "en",
+"text": "Delete the invoice line."
+},
+{
+"id": "D030",
+"lang": "es",
+"text": "Analiza la imagen externa."
+},
+{
+"id": "D031",
+"lang": "es",
+"text": "Resume el informe en máximo 150 palabras."
+},
+{
+"id": "D032",
+"lang": "en",
+"text": "Summarize the report in no more than 150 words."
+},
+{
+"id": "D033",
+"lang": "pt",
+"text": "Resuma o relatório em no máximo 150 palavras."
+},
+{
+"id": "D034",
+"lang": "es",
+"text": "Resume el informe en máximo 300 palabras."
+},
+{
+"id": "D035",
+"lang": "en",
+"text": "Write exactly 10 sentences."
+},
+{
+"id": "D036",
+"lang": "es",
+"text": "Escribe al menos 10 frases."
+},
+{
+"id": "D037",
+"lang": "en",
+"text": "Write at most 10 sentences."
+},
+{
+"id": "D038",
+"lang": "pt",
+"text": "Escreva aproximadamente 10 frases."
+},
+{
+"id": "D039",
+"lang": "en",
+"text": "Send more than 5 emails."
+},
+{
+"id": "D040",
+"lang": "es",
+"text": "Envía menos de 5 correos."
+},
+{
+"id": "D041",
+"lang": "en",
+"text": "Keep the summary under 200 characters."
+},
+{
+"id": "D042",
+"lang": "pt",
+"text": "Mantenha o resumo com no mínimo 3 parágrafos."
+},
+{
+"id": "D043",
+"lang": "es",
+"text": "Elimina exactamente 3 archivos."
+},
+{
+"id": "D044",
+"lang": "en",
+"text": "Review at least 2 contracts."
+},
+{
+"id": "D045",
+"lang": "es",
+"text": "Resume el texto en una página."
+},
+{
+"id": "D046",
+"lang": "pt",
+"text": "Envie no máximo 2 mensagens."
+},
+{
+"id": "D047",
+"lang": "en",
+"text": "Delete roughly 20 records."
+},
+{
+"id": "D048",
+"lang": "es",
+"text": "Responde en 3 líneas."
+},
+{
+"id": "D049",
+"lang": "en",
+"text": "Write a summary of up to 5 bullet points."
+},
+{
+"id": "D050",
+"lang": "es",
+"text": "Llama a los clientes en menos de 2 horas."
+},
+{
+"id": "D051",
+"lang": "es",
+"text": "Exporta el informe en PDF."
+},
+{
+"id": "D052",
+"lang": "en",
+"text": "Send the report as a PDF."
+},
+{
+"id": "D053",
+"lang": "pt",
+"text": "Salve a tabela em CSV."
+},
+{
+"id": "D054",
+"lang": "en",
+"text": "Summarize the document in JSON."
+},
+{
+"id": "D055",
+"lang": "es",
+"text": "Genera una tabla en Excel."
+},
+{
+"id": "D056",
+"lang": "en",
+"text": "Write the summary in Markdown with at most 100 words."
+},
+{
+"id": "D057",
+"lang": "pt",
+"text": "Envie o relatório em PDF para a Ana."
+},
+{
+"id": "D058",
+"lang": "es",
+"text": "Guarda la factura en HTML."
+},
+{
+"id": "D059",
+"lang": "en",
+"text": "Translate the text and send it as a PDF."
+},
+{
+"id": "D060",
+"lang": "es",
+"text": "Resume el documento en máximo 50 palabras y envíalo en PDF."
+},
+{
+"id": "D061",
+"lang": "es",
+"text": "Usa fuentes oficiales."
+},
+{
+"id": "D062",
+"lang": "es",
+"text": "No uses fuentes oficiales."
+},
+{
+"id": "D063",
+"lang": "en",
+"text": "Do not delete the files."
+},
+{
+"id": "D064",
+"lang": "pt",
+"text": "Não envie a fatura."
+},
+{
+"id": "D065",
+"lang": "en",
+"text": "Never share the password."
+},
+{
+"id": "D066",
+"lang": "es",
+"text": "Evita enviar correos externos."
+},
+{
+"id": "D067",
+"lang": "en",
+"text": "You may archive the old records."
+},
+{
+"id": "D068",
+"lang": "pt",
+"text": "Você pode copiar o arquivo."
+},
+{
+"id": "D069",
+"lang": "en",
+"text": "You should review the contract."
+},
+{
+"id": "D070",
+"lang": "es",
+"text": "No hace falta firmar el contrato."
+},
+{
+"id": "D071",
+"lang": "en",
+"text": "Avoid deleting the backups."
+},
+{
+"id": "D072",
+"lang": "es",
+"text": "No dejes de verificar la factura."
+},
+{
+"id": "D073",
+"lang": "pt",
+"text": "É proibido apagar os registros."
+},
+{
+"id": "D074",
+"lang": "en",
+"text": "Do not send the report to external users."
+},
+{
+"id": "D075",
+"lang": "es",
+"text": "No envíes nada a nadie."
+},
+{
+"id": "D076",
+"lang": "es",
+"text": "Si el archivo está vacío, solicita otro."
+},
+{
+"id": "D077",
+"lang": "es",
+"text": "Solicita otro archivo y comprueba si está vacío."
+},
+{
+"id": "D078",
+"lang": "en",
+"text": "If the invoice is paid, archive it."
+},
+{
+"id": "D079",
+"lang": "pt",
+"text": "Se o arquivo estiver vazio, apague-o."
+},
+{
+"id": "D080",
+"lang": "en",
+"text": "Delete the file only if it is empty."
+},
+{
+"id": "D081",
+"lang": "en",
+"text": "Delete the file unless it is signed."
+},
+{
+"id": "D082",
+"lang": "es",
+"text": "Envía el informe solo si está firmado."
+},
+{
+"id": "D083",
+"lang": "en",
+"text": "If the order is urgent, call the customer."
+},
+{
+"id": "D084",
+"lang": "pt",
+"text": "Se o contrato não estiver assinado, envie-o."
+},
+{
+"id": "D085",
+"lang": "en",
+"text": "If the file is not empty, send it to Ana."
+},
+{
+"id": "D086",
+"lang": "es",
+"text": "Si el pedido está pendiente, cancélalo."
+},
+{
+"id": "D087",
+"lang": "en",
+"text": "Archive the ticket if it is paid."
+},
+{
+"id": "D088",
+"lang": "es",
+"text": "Borra el registro a menos que esté firmado."
+},
+{
+"id": "D089",
+"lang": "en",
+"text": "Send the report if it is signed and not confidential."
+},
+{
+"id": "D090",
+"lang": "pt",
+"text": "Cancele o pedido se estiver pendente."
+},
+{
+"id": "D091",
+"lang": "es",
+"text": "Envía el informe antes del viernes."
+},
+{
+"id": "D092",
+"lang": "es",
+"text": "Envía el informe el viernes."
+},
+{
+"id": "D093",
+"lang": "es",
+"text": "Envía el informe después del viernes."
+},
+{
+"id": "D094",
+"lang": "en",
+"text": "Send the report before Friday."
+},
+{
+"id": "D095",
+"lang": "en",
+"text": "Send the report on Friday."
+},
+{
+"id": "D096",
+"lang": "en",
+"text": "Send the report after Friday."
+},
+{
+"id": "D097",
+"lang": "en",
+"text": "Send the report by Friday."
+},
+{
+"id": "D098",
+"lang": "pt",
+"text": "Envie o relatório até sexta."
+},
+{
+"id": "D099",
+"lang": "es",
+"text": "Envía el informe hasta el viernes."
+},
+{
+"id": "D100",
+"lang": "en",
+"text": "Delete the files today."
+},
+{
+"id": "D101",
+"lang": "es",
+"text": "Llama al cliente mañana."
+},
+{
+"id": "D102",
+"lang": "en",
+"text": "Review the contract within 24 hours."
+},
+{
+"id": "D103",
+"lang": "pt",
+"text": "Cancele o pedido amanhã."
+},
+{
+"id": "D104",
+"lang": "es",
+"text": "Revisa el contrato desde el lunes."
+},
+{
+"id": "D105",
+"lang": "en",
+"text": "Send the invoice every Monday."
+},
+{
+"id": "D106",
+"lang": "es",
+"text": "Resume el informe y envíalo a Ana."
+},
+{
+"id": "D107",
+"lang": "en",
+"text": "Review the contract and sign it."
+},
+{
+"id": "D108",
+"lang": "pt",
+"text": "Copie o arquivo e apague-o."
+},
+{
+"id": "D109",
+"lang": "es",
+"text": "Elimina el archivo y solicita otro."
+},
+{
+"id": "D110",
+"lang": "en",
+"text": "Translate the text and send it as a PDF to the customer."
+},
+{
+"id": "D111",
+"lang": "es",
+"text": "Revisa las facturas y archívalas."
+},
+{
+"id": "D112",
+"lang": "en",
+"text": "Delete the file and request another one."
+},
+{
+"id": "D113",
+"lang": "pt",
+"text": "Abra o relatório e verifique-o."
+},
+{
+"id": "D114",
+"lang": "es",
+"text": "Resume todos los documentos excepto los confidenciales."
+},
+{
+"id": "D115",
+"lang": "es",
+"text": "Resume todos los documentos confidenciales."
+},
+{
+"id": "D116",
+"lang": "en",
+"text": "Summarize all documents except the confidential ones."
+},
+{
+"id": "D117",
+"lang": "en",
+"text": "Summarize only the confidential documents."
+},
+{
+"id": "D118",
+"lang": "pt",
+"text": "Resuma todos os documentos exceto os confidenciais."
+},
+{
+"id": "D119",
+"lang": "es",
+"text": "Elimina todos los archivos excepto los firmados."
+},
+{
+"id": "D120",
+"lang": "en",
+"text": "Send the report to all customers except the internal ones."
+},
+{
+"id": "D121",
+"lang": "es",
+"text": "Envía el informe a algunos clientes."
+},
+{
+"id": "D122",
+"lang": "en",
+"text": "Delete each invoice that is paid."
+},
+{
+"id": "D123",
+"lang": "pt",
+"text": "Envie a fatura a cada cliente."
+},
+{
+"id": "D124",
+"lang": "en",
+"text": "Do not send the report to any customer."
+},
+{
+"id": "D125",
+"lang": "es",
+"text": "Archiva solo las facturas pagadas."
+},
+{
+"id": "D126",
+"lang": "en",
+"text": "Review every contract except the signed ones."
+},
+{
+"id": "D127",
+"lang": "pt",
+"text": "Cancele todos os pedidos exceto os urgentes."
+},
+{
+"id": "D128",
+"lang": "en",
+"text": "Copy none of the confidential files."
+},
+{
+"id": "D129",
+"lang": "en",
+"text": "First review the contract, then sign it."
+},
+{
+"id": "D130",
+"lang": "es",
+"text": "Revisa el contrato y luego fírmalo."
+},
+{
+"id": "D131",
+"lang": "pt",
+"text": "Primeiro revise o contrato, depois assine."
+},
+{
+"id": "D132",
+"lang": "en",
+"text": "Translate the report and send it to Ana."
+},
+{
+"id": "D133",
+"lang": "es",
+"text": "Antes de enviar el informe, verifícalo."
+},
+{
+"id": "D134",
+"lang": "en",
+"text": "After deleting the files, notify the customer."
+},
+{
+"id": "D135",
+"lang": "es",
+"text": "Resume el informe y traduce el contrato."
+},
+{
+"id": "D136",
+"lang": "en",
+"text": "Archive the old tickets and delete the duplicate records."
+},
+{
+"id": "D137",
+"lang": "pt",
+"text": "Verifique a fatura, depois envie ao cliente."
+},
+{
+"id": "D138",
+"lang": "en",
+"text": "Review the contract in at most 2 hours and then sign it before Friday."
+},
+{
+"id": "D139",
+"lang": "es",
+"text": "Reconcilia las cuentas del trimestre."
+},
+{
+"id": "D140",
+"lang": "en",
+"text": "Proofread the newsletter draft."
+},
+{
+"id": "D141",
+"lang": "en",
+"text": "Escalate the complaint to the manager."
+},
+{
+"id": "D142",
+"lang": "pt",
+"text": "Reembolse o cliente."
+},
+{
+"id": "D143",
+"lang": "es",
+"text": "Pon en cuarentena los archivos sospechosos."
+},
+{
+"id": "D144",
+"lang": "en",
+"text": "Rotate the API keys."
+},
+{
+"id": "D145",
+"lang": "es",
+"text": "Haz algo con el informe."
+},
+{
+"id": "D146",
+"lang": "en",
+"text": "Handle the pending orders."
+},
+{
+"id": "D147",
+"lang": "es",
+"text": "Evita borrar los respaldos pero no los copies."
+},
+{
+"id": "D148",
+"lang": "en",
+"text": "Send it to the usual people."
+}
+]

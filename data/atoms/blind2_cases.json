@@ -1,0 +1,752 @@
+[
+ {
+  "id": "C001",
+  "lang": "en",
+  "text": "Return defective blenders to the supplier and request store credit, not cash."
+ },
+ {
+  "id": "C002",
+  "lang": "en",
+  "text": "Remind parents that picture day is October 17 and uniforms are optional."
+ },
+ {
+  "id": "C003",
+  "lang": "es",
+  "text": "Envíame cada viernes antes de las 5 p. m. un resumen de las facturas vencidas en PDF."
+ },
+ {
+  "id": "C004",
+  "lang": "pt",
+  "text": "Não apague os logs do servidor antes de 90 dias."
+ },
+ {
+  "id": "C005",
+  "lang": "pt",
+  "text": "Envie aos pais o calendário de provas do segundo bimestre."
+ },
+ {
+  "id": "C006",
+  "lang": "es",
+  "text": "Los pedidos de más de 30 kg se despachan solo por carga terrestre."
+ },
+ {
+  "id": "C007",
+  "lang": "es",
+  "text": "Redacta un correo amable para recordarle a Andrés que debe entregar el informe trimestral."
+ },
+ {
+  "id": "C008",
+  "lang": "en",
+  "text": "Keep the newsletter under 600 words and avoid exclamation marks."
+ },
+ {
+  "id": "C009",
+  "lang": "es",
+  "text": "Quiero que me ayudes a planear el menú semanal de mi casa con un presupuesto de 300.000 pesos."
+ },
+ {
+  "id": "C010",
+  "lang": "en",
+  "text": "Should a customer threaten legal action, stop replying and forward the thread to counsel."
+ },
+ {
+  "id": "C011",
+  "lang": "es",
+  "text": "Desglosa los gastos de viaje de Paola por categoría: transporte, hospedaje y alimentación."
+ },
+ {
+  "id": "C012",
+  "lang": "en",
+  "text": "Could you draft a polite decline for the speaking invitation from the Denver conference?"
+ },
+ {
+  "id": "C013",
+  "lang": "en",
+  "text": "Do not discount clearance items any further this weekend."
+ },
+ {
+  "id": "C014",
+  "lang": "en",
+  "text": "Fact-check the press release against last year's annual report."
+ },
+ {
+  "id": "C015",
+  "lang": "es",
+  "text": "Corrige la ortografía del boletín escolar sin cambiar el tono de la directora."
+ },
+ {
+  "id": "C016",
+  "lang": "pt",
+  "text": "Verifique se o paciente tem autorização do convênio antes de marcar a ressonância."
+ },
+ {
+  "id": "C017",
+  "lang": "en",
+  "text": "Pull last quarter's churn numbers and drop them into a slide for Monday's standup."
+ },
+ {
+  "id": "C018",
+  "lang": "en",
+  "text": "Students who miss two labs must schedule a makeup session with Ms. Patel."
+ },
+ {
+  "id": "C019",
+  "lang": "es",
+  "text": "Clasifica los tickets abiertos por prioridad y asigna los críticos a Mateo."
+ },
+ {
+  "id": "C020",
+  "lang": "en",
+  "text": "Interns can view the shared calendar but cannot edit it."
+ },
+ {
+  "id": "C021",
+  "lang": "en",
+  "text": "Cancel my gym membership renewal but keep the locker until December."
+ },
+ {
+  "id": "C022",
+  "lang": "en",
+  "text": "Deduct the uniform cost from the first paycheck only if the employee agreed in writing."
+ },
+ {
+  "id": "C023",
+  "lang": "es",
+  "text": "Mi jefa necesita el reporte de ventas por región en CSV antes del mediodía."
+ },
+ {
+  "id": "C024",
+  "lang": "en",
+  "text": "Freeze hiring for the support team until the Q1 forecast is approved."
+ },
+ {
+  "id": "C025",
+  "lang": "en",
+  "text": "Unless the client asks otherwise, invoices are due net 30."
+ },
+ {
+  "id": "C026",
+  "lang": "pt",
+  "text": "Por favor, monte uma planilha com os custos de frete por estado."
+ },
+ {
+  "id": "C027",
+  "lang": "es",
+  "text": "Después de cerrar la caja, imprime el arqueo y guárdalo en la caja fuerte."
+ },
+ {
+  "id": "C028",
+  "lang": "en",
+  "text": "Benchmark the new search endpoint and report p95 latency in milliseconds."
+ },
+ {
+  "id": "C029",
+  "lang": "en",
+  "text": "Before you file the 1099s, verify every contractor's TIN."
+ },
+ {
+  "id": "C030",
+  "lang": "pt",
+  "text": "Exceto em feriados, o plantão de TI começa às 7h."
+ },
+ {
+  "id": "C031",
+  "lang": "es",
+  "text": "Si Joaquín no ha devuelto el portátil, bloquéalo de forma remota."
+ },
+ {
+  "id": "C032",
+  "lang": "es",
+  "text": "Si la factura no trae orden de compra, devuélvela al proveedor con una nota."
+ },
+ {
+  "id": "C033",
+  "lang": "en",
+  "text": "Please check whether invoice INV-20931 was paid twice."
+ },
+ {
+  "id": "C034",
+  "lang": "es",
+  "text": "No apruebes reembolsos superiores a 200 euros sin la firma de Lucía Márquez."
+ },
+ {
+  "id": "C035",
+  "lang": "es",
+  "text": "Fusiona la rama de pagos solo cuando pasen todas las pruebas."
+ },
+ {
+  "id": "C036",
+  "lang": "en",
+  "text": "Allocate the marketing budget 60/40 between paid search and events."
+ },
+ {
+  "id": "C037",
+  "lang": "en",
+  "text": "Vendors may not invoice for travel time unless it's in the contract."
+ },
+ {
+  "id": "C038",
+  "lang": "pt",
+  "text": "Se o aluno faltar três vezes seguidas, avise a coordenação pedagógica."
+ },
+ {
+  "id": "C039",
+  "lang": "es",
+  "text": "Haz un inventario de los extintores del edificio con su fecha de recarga."
+ },
+ {
+  "id": "C040",
+  "lang": "en",
+  "text": "Water the tomatoes every other evening while I'm in Lisbon."
+ },
+ {
+  "id": "C041",
+  "lang": "es",
+  "text": "Archiva los contratos firmados en la carpeta de Legal y luego avisa a recursos humanos."
+ },
+ {
+  "id": "C042",
+  "lang": "es",
+  "text": "Redondea los importes a dos decimales y usa coma como separador."
+ },
+ {
+  "id": "C043",
+  "lang": "es",
+  "text": "Cotiza el envío de 12 palés de Medellín a Cartagena para la primera semana de noviembre."
+ },
+ {
+  "id": "C044",
+  "lang": "en",
+  "text": "Lock the shared budget spreadsheet after the CFO reviews it on the 28th."
+ },
+ {
+  "id": "C045",
+  "lang": "pt",
+  "text": "Não libere o pedido sem a confirmação do pagamento via Pix."
+ },
+ {
+  "id": "C046",
+  "lang": "en",
+  "text": "Patients under 18 need a guardian's signature on the consent form."
+ },
+ {
+  "id": "C047",
+  "lang": "es",
+  "text": "Resume en cinco viñetas lo que se acordó en la junta de socios del 3 de octubre."
+ },
+ {
+  "id": "C048",
+  "lang": "en",
+  "text": "Tag every complaint about late delivery with \"logistics\" and count them by week."
+ },
+ {
+  "id": "C049",
+  "lang": "en",
+  "text": "Translate the safety briefing into Spanish and Tagalog for the warehouse crew."
+ },
+ {
+  "id": "C050",
+  "lang": "en",
+  "text": "Tally the hours each contractor billed in August and compare them with the SOW caps."
+ },
+ {
+  "id": "C051",
+  "lang": "pt",
+  "text": "Traduza o cardápio para o inglês, mas mantenha os nomes dos pratos típicos."
+ },
+ {
+  "id": "C052",
+  "lang": "es",
+  "text": "No respondas reseñas negativas en Google sin consultarme primero."
+ },
+ {
+  "id": "C053",
+  "lang": "en",
+  "text": "Archive Slack channels that have had no activity since January."
+ },
+ {
+  "id": "C054",
+  "lang": "es",
+  "text": "Sube las fotos del evento al Drive compartido, pero no etiquetes a menores de edad."
+ },
+ {
+  "id": "C055",
+  "lang": "es",
+  "text": "Convierte las actas escaneadas en texto editable y súbelas a la intranet."
+ },
+ {
+  "id": "C056",
+  "lang": "pt",
+  "text": "Os atestados médicos devem ser entregues em até 48 horas."
+ },
+ {
+  "id": "C057",
+  "lang": "en",
+  "text": "Ping me when the pallet count at Dock 4 drops below twelve."
+ },
+ {
+  "id": "C058",
+  "lang": "es",
+  "text": "Escribe la descripción de la licuadora XR-200 en menos de 80 palabras."
+ },
+ {
+  "id": "C059",
+  "lang": "es",
+  "text": "Asigna a cada repartidor un máximo de 25 paradas por turno."
+ },
+ {
+  "id": "C060",
+  "lang": "es",
+  "text": "Por favor, traduce el manual del montacargas al inglés conservando las tablas."
+ },
+ {
+  "id": "C061",
+  "lang": "es",
+  "text": "Programa la renovación del dominio con un mes de anticipación al vencimiento."
+ },
+ {
+  "id": "C062",
+  "lang": "pt",
+  "text": "Quando o caminhão da Rodolog chegar, confira os lacres antes de abrir."
+ },
+ {
+  "id": "C063",
+  "lang": "es",
+  "text": "Si un cliente escribe por WhatsApp fuera del horario, respóndele que lo atenderemos el siguiente día hábil."
+ },
+ {
+  "id": "C064",
+  "lang": "en",
+  "text": "Escalate any ticket tagged \"outage\" to the on-call engineer within five minutes."
+ },
+ {
+  "id": "C065",
+  "lang": "en",
+  "text": "Please rotate the staging API keys every 90 days."
+ },
+ {
+  "id": "C066",
+  "lang": "es",
+  "text": "Si el paciente no confirma 24 horas antes, libera el turno para la lista de espera."
+ },
+ {
+  "id": "C067",
+  "lang": "en",
+  "text": "Onboard Priya with a laptop, a badge, and Jira access by her start date."
+ },
+ {
+  "id": "C068",
+  "lang": "es",
+  "text": "Genera un JSON con los nombres, correos y departamentos de los empleados nuevos."
+ },
+ {
+  "id": "C069",
+  "lang": "en",
+  "text": "Draft release notes for version 4.2 from the merged pull requests."
+ },
+ {
+  "id": "C070",
+  "lang": "en",
+  "text": "Reconcile petty cash against the receipts and flag anything over $50 without a receipt."
+ },
+ {
+  "id": "C071",
+  "lang": "en",
+  "text": "Compile a glossary of the acronyms used in the compliance handbook."
+ },
+ {
+  "id": "C072",
+  "lang": "pt",
+  "text": "Peça ao Rafael que revise a cláusula de multa rescisória antes da assinatura."
+ },
+ {
+  "id": "C073",
+  "lang": "es",
+  "text": "Los estudiantes de séptimo pueden entregar el ensayo hasta el lunes sin penalización."
+ },
+ {
+  "id": "C074",
+  "lang": "pt",
+  "text": "Me lembre de renovar o seguro do carro no dia 12 de novembro."
+ },
+ {
+  "id": "C075",
+  "lang": "es",
+  "text": "Anota en el expediente del paciente que es alérgico a la penicilina."
+ },
+ {
+  "id": "C076",
+  "lang": "en",
+  "text": "I need a packing list for a week-long camping trip with two toddlers."
+ },
+ {
+  "id": "C077",
+  "lang": "en",
+  "text": "Only managers may approve overtime beyond 10 hours per week."
+ },
+ {
+  "id": "C078",
+  "lang": "en",
+  "text": "Group the survey responses by sentiment and pull three representative quotes."
+ },
+ {
+  "id": "C079",
+  "lang": "en",
+  "text": "Give each new hire a 30-minute walkthrough of the expense tool during their first week."
+ },
+ {
+  "id": "C080",
+  "lang": "es",
+  "text": "Cuando llegue el camión de Transportes Ríos, registra la hora de descarga en la bitácora."
+ },
+ {
+  "id": "C081",
+  "lang": "pt",
+  "text": "Revise as permissões das pastas compartilhadas e remova quem saiu do projeto."
+ },
+ {
+  "id": "C082",
+  "lang": "pt",
+  "text": "Agende a manutenção do ar-condicionado da recepção para sábado de manhã."
+ },
+ {
+  "id": "C083",
+  "lang": "pt",
+  "text": "Crie uma campanha de e-mail para o Dia das Crianças com três variações de assunto."
+ },
+ {
+  "id": "C084",
+  "lang": "pt",
+  "text": "Funcionários em home office podem pedir reembolso de internet de até R$ 100 por mês."
+ },
+ {
+  "id": "C085",
+  "lang": "es",
+  "text": "Comprueba que el certificado SSL del portal de clientes no caduque este mes."
+ },
+ {
+  "id": "C086",
+  "lang": "es",
+  "text": "Guarda los recibos de caja menor durante al menos cinco años."
+ },
+ {
+  "id": "C087",
+  "lang": "en",
+  "text": "Log every forklift inspection in the maintenance sheet, including the operator's initials."
+ },
+ {
+  "id": "C088",
+  "lang": "es",
+  "text": "Entre el 20 y el 31 de diciembre, desvía las llamadas de soporte al número de guardia."
+ },
+ {
+  "id": "C089",
+  "lang": "es",
+  "text": "Ordena alfabéticamente la lista de invitados y marca a quienes son vegetarianos."
+ },
+ {
+  "id": "C090",
+  "lang": "pt",
+  "text": "Os reembolsos de quilometragem são pagos a R$ 1,20 por quilômetro rodado."
+ },
+ {
+  "id": "C091",
+  "lang": "en",
+  "text": "Export all open purchase orders to a CSV and send it to procurement."
+ },
+ {
+  "id": "C092",
+  "lang": "pt",
+  "text": "Faça um resumo em tópicos da ata da reunião de condomínio."
+ },
+ {
+  "id": "C093",
+  "lang": "en",
+  "text": "If a shipment is delayed more than 48 hours, notify the customer and offer free returns."
+ },
+ {
+  "id": "C094",
+  "lang": "es",
+  "text": "Avísame por SMS si la temperatura de la cámara frigorífica supera los 8 °C."
+ },
+ {
+  "id": "C095",
+  "lang": "en",
+  "text": "Prune dangling Docker images on the build server once a week."
+ },
+ {
+  "id": "C096",
+  "lang": "es",
+  "text": "Reprograma la cita de la señora Gómez para el martes 14 a las 9:30."
+ },
+ {
+  "id": "C097",
+  "lang": "en",
+  "text": "Summarize the attached lease agreement and highlight the termination clauses."
+ },
+ {
+  "id": "C098",
+  "lang": "es",
+  "text": "Nunca compartas las calificaciones de un alumno con otro padre de familia."
+ },
+ {
+  "id": "C099",
+  "lang": "en",
+  "text": "Rename the product SKUs so they follow the new BRAND-COLOR-SIZE pattern."
+ },
+ {
+  "id": "C100",
+  "lang": "en",
+  "text": "Never store patient records on personal laptops."
+ },
+ {
+  "id": "C101",
+  "lang": "pt",
+  "text": "Divida a conta do jantar igualmente entre os oito participantes."
+ },
+ {
+  "id": "C102",
+  "lang": "es",
+  "text": "Envía el cronograma de exámenes a los acudientes por correo, no por el grupo de WhatsApp."
+ },
+ {
+  "id": "C103",
+  "lang": "pt",
+  "text": "Organize as caixas do depósito por corredor e numere as prateleiras."
+ },
+ {
+  "id": "C104",
+  "lang": "en",
+  "text": "Set the thermostat in the server room to 18 degrees and alert me if it drifts."
+ },
+ {
+  "id": "C105",
+  "lang": "en",
+  "text": "Stagger the delivery windows so no two drivers arrive at the Elm Street site together."
+ },
+ {
+  "id": "C106",
+  "lang": "pt",
+  "text": "Atualize o cadastro do fornecedor Laticínios Serra Azul com o novo CNPJ."
+ },
+ {
+  "id": "C107",
+  "lang": "es",
+  "text": "Está prohibido modificar la base de datos de producción sin un ticket aprobado."
+ },
+ {
+  "id": "C108",
+  "lang": "pt",
+  "text": "Bloqueie o acesso ao Wi-Fi da loja depois das 22h."
+ },
+ {
+  "id": "C109",
+  "lang": "en",
+  "text": "Convert the payroll ledger from Excel to JSON, keeping the employee IDs as strings."
+ },
+ {
+  "id": "C110",
+  "lang": "en",
+  "text": "Prepare a seating chart for the gala that keeps the two board factions apart."
+ },
+ {
+  "id": "C111",
+  "lang": "pt",
+  "text": "Envie a folha de ponto de setembro para o departamento pessoal até quarta-feira."
+ },
+ {
+  "id": "C112",
+  "lang": "es",
+  "text": "Rechaza cualquier pago con tarjeta extranjera que no pase la verificación 3-D Secure."
+ },
+ {
+  "id": "C113",
+  "lang": "pt",
+  "text": "Depois de conferir as notas fiscais, lance-as no sistema e arquive os originais."
+ },
+ {
+  "id": "C114",
+  "lang": "pt",
+  "text": "Responda aos clientes do e-commerce em no máximo duas horas úteis."
+ },
+ {
+  "id": "C115",
+  "lang": "en",
+  "text": "Book a refrigerated truck for 3 tonnes of produce leaving Fresno on Thursday at dawn."
+ },
+ {
+  "id": "C116",
+  "lang": "pt",
+  "text": "Se a impressora travar de novo, abra um chamado com o fabricante."
+ },
+ {
+  "id": "C117",
+  "lang": "es",
+  "text": "Recuérdame pagar el arriendo el día 5 de cada mes."
+ },
+ {
+  "id": "C118",
+  "lang": "es",
+  "text": "Migra los usuarios del CRM viejo al nuevo y verifica que no se pierdan las notas."
+ },
+ {
+  "id": "C119",
+  "lang": "pt",
+  "text": "Calcule a média final de cada turma e gere um PDF por professor."
+ },
+ {
+  "id": "C120",
+  "lang": "en",
+  "text": "Sandbox the suspicious attachment and tell me what it tries to contact."
+ },
+ {
+  "id": "C121",
+  "lang": "en",
+  "text": "After the deploy finishes, purge the CDN cache and check the error rate."
+ },
+ {
+  "id": "C122",
+  "lang": "es",
+  "text": "Las solicitudes de vacaciones deben presentarse con al menos 15 días de anticipación."
+ },
+ {
+  "id": "C123",
+  "lang": "es",
+  "text": "Ningún practicante puede acceder a la nómina, ni siquiera en modo lectura."
+ },
+ {
+  "id": "C124",
+  "lang": "es",
+  "text": "Calcula el IVA de las compras de septiembre y exporta el resultado a Excel."
+ },
+ {
+  "id": "C125",
+  "lang": "es",
+  "text": "Hasta nuevo aviso, suspende los descuentos por pronto pago."
+ },
+ {
+  "id": "C126",
+  "lang": "en",
+  "text": "Write alt text for every image on the spring catalog page."
+ },
+ {
+  "id": "C127",
+  "lang": "en",
+  "text": "My dentist appointment moved to 3:15 tomorrow, so push my call with Kevin to Friday."
+ },
+ {
+  "id": "C128",
+  "lang": "pt",
+  "text": "Separe os produtos com validade inferior a 30 dias e coloque-os em promoção."
+ },
+ {
+  "id": "C129",
+  "lang": "es",
+  "text": "Contesta en tono formal la queja del cliente y ofrécele un cupón del 10 %."
+ },
+ {
+  "id": "C130",
+  "lang": "es",
+  "text": "Desactiva las cuentas de los exempleados que salieron este trimestre."
+ },
+ {
+  "id": "C131",
+  "lang": "es",
+  "text": "Antes de publicar la promoción en Instagram, pásala por el equipo de marca."
+ },
+ {
+  "id": "C132",
+  "lang": "en",
+  "text": "Reorder printer toner whenever fewer than three cartridges remain in the supply closet."
+ },
+ {
+  "id": "C133",
+  "lang": "es",
+  "text": "Busca en el historial del cliente 88213 por qué se le cobró dos veces."
+ },
+ {
+  "id": "C134",
+  "lang": "en",
+  "text": "Don't email the vendor until legal has signed off on the NDA."
+ },
+ {
+  "id": "C135",
+  "lang": "es",
+  "text": "¿Podrías agendar una reunión de 45 minutos con el equipo de soporte para la próxima semana?"
+ },
+ {
+  "id": "C136",
+  "lang": "en",
+  "text": "Grade the quizzes on a curve so the median lands at a B."
+ },
+ {
+  "id": "C137",
+  "lang": "en",
+  "text": "Mark Tom's expense report as pending because the hotel folio is missing."
+ },
+ {
+  "id": "C138",
+  "lang": "es",
+  "text": "Los viernes la tienda cierra a las 6, así que ajusta el mensaje automático del chat."
+ },
+ {
+  "id": "C139",
+  "lang": "es",
+  "text": "Revisa el inventario de tornillos M8 y pide 500 unidades si quedan menos de 100."
+ },
+ {
+  "id": "C140",
+  "lang": "es",
+  "text": "Los empleados con contrato por obra no reciben bono navideño."
+ },
+ {
+  "id": "C141",
+  "lang": "pt",
+  "text": "Nenhum estagiário pode emitir boletos em nome da empresa."
+ },
+ {
+  "id": "C142",
+  "lang": "es",
+  "text": "Prepárame una tabla comparativa de tres seguros de hogar con precio mensual y deducible."
+ },
+ {
+  "id": "C143",
+  "lang": "en",
+  "text": "Annotate the contract redlines so the client sees why each change was made."
+ },
+ {
+  "id": "C144",
+  "lang": "es",
+  "text": "Haz una copia de seguridad del servidor de archivos todas las noches a las 2 a. m."
+ },
+ {
+  "id": "C145",
+  "lang": "pt",
+  "text": "Converta o relatório de estoque para JSON e mande para a equipe de dados."
+ },
+ {
+  "id": "C146",
+  "lang": "es",
+  "text": "Concilia los movimientos bancarios de la cuenta 4471 con el libro auxiliar de octubre."
+ },
+ {
+  "id": "C147",
+  "lang": "es",
+  "text": "Elimina los duplicados de la lista de proveedores, salvo los que tengan NIT distinto."
+ },
+ {
+  "id": "C148",
+  "lang": "en",
+  "text": "Scrub personal data from the support transcripts before sharing them with the vendor."
+ },
+ {
+  "id": "C149",
+  "lang": "es",
+  "text": "Pídele a contabilidad el certificado de retención de Ferretería El Clavo."
+ },
+ {
+  "id": "C150",
+  "lang": "en",
+  "text": "Whenever a refund exceeds $1,000, loop in the finance director."
+ }
+]

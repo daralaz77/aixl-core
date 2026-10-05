@@ -46,8 +46,22 @@ def main(argv=None):
         p = sub.add_parser(name)
         p.add_argument("a"); p.add_argument("b"); p.add_argument("--rounds", type=int, default=3)
         p.add_argument("--json", action="store_true")
+    for name, n in (("atoms-extract", 1), ("atoms-wire", 1), ("atoms-receive", 1), ("atoms-diff", 2)):   # AIXL 0.4 atom layer (aixl.atoms)
+        p = sub.add_parser(name); p.add_argument("a"); n == 2 and p.add_argument("b")
     sv = sub.add_parser("serve"); sv.add_argument("port", nargs="?", type=int, default=8765)
     a = ap.parse_args(argv)
+    if a.cmd.startswith("atoms-"):
+        from aixl.atoms.extract import extract
+        from aixl.atoms.wire import encode
+        from aixl.atoms.firewall import receive, Profile, diff as adiff
+        if a.cmd == "atoms-extract":                       # rule extractor: controlled domain only; unrepresented lists what it could NOT place
+            g = extract(a.a); return dump(dict(g.to_dict(), fingerprint=g.fingerprint(), complete=g.complete))
+        if a.cmd == "atoms-wire": return print(encode(extract(a.a)), end="")
+        if a.cmd == "atoms-diff": return dump(adiff(extract(a.a), extract(a.b)))
+        msg = open(a.a).read() if os.path.exists(a.a) else a.a.replace("\\n", "\n")   # atoms-receive: validate a wire message (file path or string)
+        v = receive(msg, Profile("cli", accept_extensions=True))
+        dump(dict(accepted=v.accepted, reasons=v.reasons, unsupported=v.unsupported))
+        raise SystemExit(0 if v.accepted else 1)
     if a.cmd == "translate":
         t = aixl.translate(a.a)
         return dump(t) if a.json else (print("AIXL:", t["aixl"]), dump({"semantic": t["semantic"], "ambiguity": t["ambiguity"]["ambiguous"]}))
