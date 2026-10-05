@@ -208,3 +208,53 @@ def test_generated_registry_doc_is_fresh():
     sys.path.insert(0, os.path.join(ROOT, "scripts"))
     import gen_atoms_docs
     assert open(os.path.join(ROOT, "docs", "ATOMS_REGISTRY.md"), encoding="utf-8").read() == gen_atoms_docs.render(), "run: python scripts/gen_atoms_docs.py"
+
+
+# ---------------------------------------------------------------- LLM wrapper (mock callables: the core calls no model)
+from aixl.atoms import llm_extract as LX
+
+_GOOD = {"id": "t", "atoms": [dict(id="a1", type="ACTION", concept="ACT.SUMMARIZE", modality="DO"), dict(id="a2", type="ENTITY", concept="ENT.REPORT")],
+         "relations": [["a1", "TARGETS", "a2"]]}
+
+
+def _call(d):
+    return lambda prompt: json.dumps(d)
+
+
+def test_prompt_is_self_contained_and_versioned():
+    p = LX.build_prompt([dict(id="x1", text="Resume el informe.")])
+    assert "ACT.SUMMARIZE" in p and "RELATIONS (source -> target)" in p and "Guide v0.4" in p and "Resume el informe." in p and len(LX.prompt_id()) == 12
+
+
+def test_parse_tolerates_fences_and_reports_invalid_and_missing():
+    bad = dict(_GOOD, id="b", relations=[["a2", "TARGETS", "a1"]])         # entity cannot TARGET an action: endpoint violation
+    raw = "```json\n" + json.dumps(dict(_GOOD, id="a")) + "\n" + json.dumps(bad) + "\n```"
+    p = LX.parse_response(raw, ["a", "b", "c"])
+    assert set(p.graphs) == {"a"} and "b" in p.errors and p.errors["c"] == ["MISSING"]
+
+
+def test_lemma_canonicalization():
+    d = dict(_GOOD, atoms=_GOOD["atoms"] + [dict(id="a3", type="ENTITY", concept="x:Press Release")])
+    assert any(a.concept == "x:press_release" for a in LX.parse_response(json.dumps(d), ["t"]).graphs["t"].atoms)
+
+
+def test_wrapper_accepts_only_when_calls_agree_and_abstains_otherwise():
+    ok = LX.extract_llm("Resume el informe.", [_call(_GOOD), _call(_GOOD)])
+    assert ok.status == "ACCEPT" and ok.agreement == "exact"
+    other = dict(_GOOD, atoms=[dict(id="a1", type="ACTION", concept="ACT.SUMMARIZE", modality="DONT"), _GOOD["atoms"][1]])
+    r = LX.extract_llm("Resume el informe.", [_call(_GOOD), _call(other)])
+    assert r.status == "ABSTAIN" and r.reasons == ["CALLS_DISAGREE"] and len(r.candidates) == 2
+
+
+def test_wrapper_never_accepts_with_one_call_or_an_invalid_call():
+    assert LX.extract_llm("x", [_call(_GOOD)]).status == "ABSTAIN"
+    assert LX.extract_llm("x", [_call(_GOOD), lambda p: "not json"]).status == "ABSTAIN"
+
+
+def test_core_policy_tolerates_auxiliary_link_differences_only():
+    with_prop = dict(_GOOD, atoms=_GOOD["atoms"] + [dict(id="a3", type="PROPERTY", concept="PRP.OFFICIAL")], relations=_GOOD["relations"] + [["a2", "HAS_PROPERTY", "a3"]])
+    assert LX.extract_llm("x", [_call(_GOOD), _call(with_prop)], policy="exact").status == "ABSTAIN"
+    r = LX.extract_llm("x", [_call(_GOOD), _call(with_prop)], policy="core")
+    assert r.status == "ACCEPT" and r.agreement == "core"
+    neg = dict(_GOOD, atoms=[dict(id="a1", type="ACTION", concept="ACT.SUMMARIZE", modality="DONT"), _GOOD["atoms"][1]])
+    assert LX.extract_llm("x", [_call(_GOOD), _call(neg)], policy="core").status == "ABSTAIN"
