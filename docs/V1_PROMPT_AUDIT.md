@@ -108,3 +108,18 @@ Scripts: `benchmarks/v1_refquality_build.py` (12 real tool-output pairs, seed 11
 - Failures: full text missed 1 (case 1, line 3); legend missed case 4 lines 46 and 52 (answered a different nearby line — line-counting across a pointer is the observable risk).
 - A grading bug of mine (truth lines carried a `N<tab>` prefix) initially showed 12/24 for everything; fixed by normalizing both sides before comparing.
 - Not tested: reasoning tasks over pointed content (summaries, edits), models other than Sonnet, long chains of pointers (pointer → message that itself holds pointers), weaker models. Only lookups by exact line were measured.
+
+### Option C reasoning test: questions that need the pointed content (2026-10-08)
+Scripts: `benchmarks/v1_refreason_build.py` (20 real tool-output pairs, seed 21, secrets filtered; mean message 1194 chars full vs 483 with pointers, −60%), `benchmarks/v1_refreason_grade.py` (answers transcribed from the 6 subagents).
+3 questions per case on MESSAGE 1, each needing the span a pointer replaces: Q1 count lines containing WORD, Q2 number of the first such line, Q3 number of the longest line. Truth computed from the full text. 60 answers per cell; subagents used only the Read tool (2 calls each), told not to run code.
+
+| Model | full text | pointers + legend | pointers, no legend |
+|---|---|---|---|
+| Sonnet | 52/60 | **59/60** | **59/60** |
+| Haiku | 27/60 | 14/60 | 18/60 |
+
+Per question (legend condition / no-legend): Sonnet Q1 20/20, Q2 20/20, Q3 19/20. Haiku with pointers: Q2 1/20 and 4/20, Q3 3/20 and 4/20 vs 10/20 and 5/20 in full text; Q1 (count) held at 10/20 vs 12/20.
+- **Strong model (Sonnet): no degradation; pointers scored higher than full text** (59 vs 52). Likely cause: the shorter message is easier to count over — NOT evidence that pointers add information. The two Sonnet pointer runs gave byte-identical answers (two separate agents), so treat them as one sample, not two.
+- **Weak model (Haiku): pointers HURT** (27 → 14–18). Failure mode = line numbering through a pointer (Q2/Q3 collapse), exactly the risk seen in the lookup test. Haiku was also weak in full text (27/60), so the absolute task is hard for it.
+- Verdict: pointers are safe for a strong reader on these tasks; do NOT use them for weaker models or for tasks needing absolute line numbers through a pointer. A deployment would need a capability gate, or an expand-on-demand tool for the receiver.
+- Limits: 2 models, 1 run each, 20 cases, three synthetic question types, no chains of pointers, no editing/summarizing tasks.
