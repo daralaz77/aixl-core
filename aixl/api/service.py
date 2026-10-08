@@ -34,14 +34,19 @@ def translate(text: str) -> dict:
 def compare(text_a: str, text_b: str, config: dict | None = None) -> ComparisonResult:
     if config is not None:
         return compare_graphs(to_graph(text_a), to_graph(text_b), config)
-    from aixl.core.completeness import annotate, marker_conflicts
+    from aixl.core.completeness import annotate, marker_conflicts, names_reordered, BOUNDARY
     ga, gb = annotate(to_graph(text_a), text_a), annotate(to_graph(text_b), text_b)
     res = compare_graphs(ga, gb, config)
     if res.equivalent:
         ca, cb = ga.meta['completeness'], gb.meta['completeness']
         opposed, other = marker_conflicts(set(ca['markers']), set(cb['markers']))
         lost = bool(ca['unreflected_markers'] or cb['unreflected_markers'])
-        if opposed or (other and lost):
+        boundary = [m for m in other if any(m in pr for pr in BOUNDARY)]            # at least vs more than: inclusive vs strict bound
+        if not (opposed or (other and lost) or boundary) and names_reordered(text_a, text_b):
+            res.equivalent, res.verdict = False, 'INCONCLUSIVE'
+            res.warnings.append({'type': 'ENTITY_ORDER_MISMATCH', 'note': 'same proper names in a different order; roles (who does what to whom) not proven equal'})
+            return res
+        if opposed or (other and lost) or boundary:
             res.equivalent, res.verdict = False, ('NOT_EQUIVALENT' if opposed else 'INCONCLUSIVE')
             res.warnings.append({'type': 'STRUCTURAL_MARKER_MISMATCH', 'opposed': [list(p) for p in opposed], 'other': list(other),
                                  'note': 'canonical forms agree but the texts carry different structural markers the graph does not reflect; equality not proven'})

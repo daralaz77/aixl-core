@@ -60,9 +60,9 @@ def test_complete_and_equal_stays_equivalent():
 
 def test_negated_comparators_are_the_opposite_comparator():
     """Found by blind_markers (P022): 'no fewer than 3' was read as LESS+NEG, so it separated from 'at least 3'."""
-    assert extract_markers("Remove no fewer than three drafts") == {"MORE"} == extract_markers("Delete at least three drafts")
-    assert extract_markers("Delete no more than 3 records") == {"LESS"}
-    assert extract_markers("Borra no menos de tres") == {"MORE"} and extract_markers("Apague nao mais de tres") == {"LESS"}
+    assert extract_markers("Remove no fewer than three drafts") == {"MORE_EQ"} == extract_markers("Delete at least three drafts")
+    assert extract_markers("Delete no more than 3 records") == {"LESS_EQ"}
+    assert extract_markers("Borra no menos de tres") == {"MORE_EQ"} and extract_markers("Apague nao mais de tres") == {"LESS_EQ"}
     assert extract_markers("Delete fewer than three") == {"LESS"}                      # un-negated unchanged
     assert extract_markers("Don't delete anything") == {"NEG"}                         # plain negation unchanged
 
@@ -71,3 +71,23 @@ def test_negated_comparator_pair_is_not_separated_but_real_opposites_are():
     from aixl.api.service import compare
     assert compare("Delete at least three old drafts from the shared folder.", "Remove no fewer than three old drafts from the shared folder.").verdict != "NOT_EQUIVALENT"
     assert compare("Delete at least three drafts.", "Delete no more than three drafts.").verdict != "EQUIVALENT"
+
+
+def test_closed_lexicon_synonyms_and_every_all():
+    assert extract_markers("Archive every email apart from the finance ones") >= {"EXCEPT"}
+    assert extract_markers("Send it ahead of Friday") == {"BEFORE"}
+    assert extract_markers("Approve requests exceeding 500 dollars") == {"MORE"}
+    opposed, other = marker_conflicts(extract_markers("Archive all emails except finance"), extract_markers("Archive every email apart from finance"))
+    assert not opposed and not other                                                    # same exception, different words
+    assert marker_conflicts({"EVERY"}, set())[1] == ["EVERY"]                          # 'every Monday' vs 'next Monday' still not proven equal
+
+
+def test_inclusive_vs_strict_bound_and_name_order():
+    from aixl.api.service import compare
+    from aixl.core.completeness import names_reordered
+    assert compare("Reserva una sala para al menos diez personas.", "Reserva una sala para más de diez personas.").verdict != "EQUIVALENT"
+    assert compare("Book a room for at least ten people.", "Book a room that fits ten people or more.").verdict != "NOT_EQUIVALENT"
+    assert names_reordered("Ask Luis to send the budget to Sara.", "Ask Sara to send the budget to Luis.")
+    assert not names_reordered("Send it to Ana and Luis.", "Send it to Ana and also Luis.")
+    assert not names_reordered("Send the report on Friday to Ana.", "Send the report on Monday to Ana.")           # days are not names
+    assert compare("Pide a Luis que envíe el presupuesto a Sara.", "Pide a Sara que envíe el presupuesto a Luis.").verdict != "EQUIVALENT"

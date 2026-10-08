@@ -23,16 +23,20 @@ SHORT_FUNCTION = set("a o e y u de en el la lo le les se me te un ya al do da ni
 # class -> words/phrases (accent-stripped, lowercase, apostrophes removed). Closed list.
 MARKERS = {
     "NEG": "not never no nunca nao jamais nem without sin sem prohibido prohibited forbidden proibido avoid evita evite dont doesnt cannot cant mustnt wont".split(),
-    "BEFORE": "before prior antes until hasta ate".split(),
+    "BEFORE": "before prior antes until hasta ate".split() + ["ahead of"],
     "AFTER": "after afterwards following despues depois luego apos tras".split(),
     "ONLY": "only solely solo solamente unicamente apenas somente exclusively exclusivamente".split(),
     "ALL": "all todos todas todo toda tudo".split(),
-    "EXCEPT": "except excepto exceto salvo excluding excluyendo excluindo".split(),
-    "MORE": "over above greater mayor superior acima exceed minimum min".split() + ["more than", "at least", "mas de", "mais de", "al menos", "pelo menos"],
-    "LESS": "under below fewer menor inferior abaixo maximum max".split() + ["less than", "at most", "up to", "menos de", "no mas de"],
+    "EXCEPT": "except excepto exceto salvo excluding excluyendo excluindo exceptuando".split() + ["apart from", "other than", "aside from", "but for", "con excepcion de", "a excepcion de", "com excecao de", "com excecao", "excepto por"],
+    "MORE": "over above greater mayor superior acima exceed exceeding exceeds".split() + ["more than", "mas de", "mais de"],
+    "LESS": "under below fewer menor inferior abaixo".split() + ["less than", "menos de"],
+    # INCLUSIVE bounds ('at least 10' includes 10; 'more than 10' does not) are a different claim from the strict ones
+    "MORE_EQ": "minimum min".split() + ["at least", "al menos", "pelo menos", "or more", "ou mais", "o mas"],
+    "LESS_EQ": "maximum max".split() + ["at most", "up to", "no mas de", "como maximo", "no maximo", "or less", "ou menos", "o menos", "nao mais de"],
     "EVERY": "every each cada daily weekly monthly yearly annually quarterly hourly diario diaria semanal mensual anual trimestral mensal diariamente semanalmente mensalmente anualmente".split(),
 }
-OPPOSED = [("BEFORE", "AFTER"), ("MORE", "LESS")]
+OPPOSED = [("BEFORE", "AFTER"), ("MORE", "LESS"), ("MORE", "LESS_EQ"), ("MORE_EQ", "LESS"), ("MORE_EQ", "LESS_EQ")]
+BOUNDARY = [("MORE", "MORE_EQ"), ("LESS", "LESS_EQ")]
 _CLASS_OF = {w: c for c, ws in MARKERS.items() for w in ws if " " not in w}
 _PHRASES = [(w, c) for c, ws in MARKERS.items() for w in ws if " " in w]
 _ALLTOK = re.compile(r"\d+(?:[.,]\d+)?|[a-z]+")
@@ -45,8 +49,8 @@ def _norm(text: str) -> str:
 # A NEGATED comparator is the OPPOSITE comparator, not "NEG + comparator": 'no fewer than 3' = at least 3 (MORE), 'no more than 3' = at most 3 (LESS).
 # Matched spans are consumed so neither the negation nor the comparator word is counted again (fixes 'no fewer than' read as LESS+NEG).
 _NEG_COMPARATORS = [
-    (re.compile(r"\b(?:no|not|nao)\s+(?:fewer|less|menos|minus)\s+(?:than\s+|de\s+|do\s+que\s+|que\s+)?"), "MORE"),
-    (re.compile(r"\b(?:no|not|nao)\s+(?:more|greater|mas|mais)\s+(?:than\s+|de\s+|do\s+que\s+|que\s+)?"), "LESS"),
+    (re.compile(r"\b(?:no|not|nao)\s+(?:fewer|less|menos|minus)\s+(?:than\s+|de\s+|do\s+que\s+|que\s+)?"), "MORE_EQ"),
+    (re.compile(r"\b(?:no|not|nao)\s+(?:more|greater|mas|mais)\s+(?:than\s+|de\s+|do\s+que\s+|que\s+)?"), "LESS_EQ"),
 ]
 
 
@@ -66,12 +70,16 @@ def extract_markers(text: str) -> set:
     neg_cls, s, _ = _split_neg_comparators(s)
     out = {c for p, c in _PHRASES if re.search(r"\b" + re.escape(p) + r"\b", s)}
     out |= {_CLASS_OF[w] for w in _ALLTOK.findall(s) if w in _CLASS_OF}
+    if {"every", "each", "cada"} & set(_ALLTOK.findall(s)):      # 'every X' is also universal; 'daily/weekly' stay periodic-only
+        out.add("ALL")
     return out | neg_cls
 
 
 def marker_conflicts(ma: set, mb: set) -> tuple:
     """(opposed, other): opposed = markers that contradict each other (before vs after, more vs less) — evidence to SEPARATE;
     other = any remaining symmetric difference — evidence that equality is NOT PROVEN."""
+    if "ALL" in ma and "ALL" in mb:                  # 'every' is both universal ('every request') and periodic ('every Monday'); with ALL on both sides it is no evidence
+        ma, mb = ma - {"EVERY"}, mb - {"EVERY"}
     opposed = [(x, y) for x, y in OPPOSED if (x in ma and y in mb and x not in mb and y not in ma) or (y in ma and x in mb and y not in mb and x not in ma)]
     used = {c for p in opposed for c in p}
     other = sorted((ma ^ mb) - used)
@@ -93,7 +101,7 @@ def _reflected(cls: str, graph, ev: set) -> bool:
         return True
     if cls == "NEG":
         return bool(c["negation"]) or any(n.attributes.get("modality") == "FORBID" for n in graph.by_type("ACTION"))
-    if cls in ("MORE", "LESS"):
+    if cls in ("MORE", "LESS", "MORE_EQ", "LESS_EQ"):
         return bool(c["quantities"] or c["constraints"])
     return False
 
@@ -125,3 +133,25 @@ def annotate(graph, text: str):
     r = check_completeness(text, graph)
     graph.meta["completeness"] = r
     return graph
+
+
+_NOT_NAMES = set("""january february march april may june july august september october november december monday tuesday wednesday thursday friday saturday sunday
+ enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre lunes martes miercoles jueves viernes sabado domingo
+ janeiro fevereiro marco maio junho julho setembro outubro novembro dezembro segunda terca quarta quinta sexta sabado domingo""".split())
+_CAP = re.compile(r"\b[A-ZÁÉÍÓÚÑÀ-Ý][a-záéíóúñà-ÿ]{1,}\b")
+
+
+def name_sequence(text: str) -> list:
+    """Capitalised words that are not the first word and not a day/month: proper names in order of appearance (heuristic, per text)."""
+    toks = list(_CAP.finditer(text)); out = []
+    for m in toks:
+        if m.start() == 0 or text[:m.start()].rstrip().endswith((".", "!", "?")) or strip_accents(m.group(0)).lower() in _NOT_NAMES:
+            continue
+        out.append(m.group(0))
+    return out
+
+
+def names_reordered(a: str, b: str) -> bool:
+    """Same proper names, different order -> roles may be swapped (single-action graphs cannot bind who-does-what-to-whom). Safe side: callers say INCONCLUSIVE."""
+    na, nb = name_sequence(a), name_sequence(b)
+    return len(na) >= 2 and sorted(na) == sorted(nb) and na != nb
