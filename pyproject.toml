@@ -23,6 +23,7 @@ pythonpath = ["."]
 line-length = 200          # the codebase uses long lines on purpose (regex tables, lexicons); E501 is not a goal
 target-version = "py311"
 extend-exclude = [".venv", ".venv-mlx", "distill"]
+force-exclude = true       # honour the exclusions even when files are passed explicitly (CI / git ls-files)
 
 [tool.ruff.lint]
 # Phase 0 of docs/CLEANUP_ROADMAP.md: correctness-class rules only. Style families (SIM, C4, UP, FURB, PERF, RUF...) are NOT enabled on purpose.
@@ -34,6 +35,9 @@ ignore = ["B905"]
 # deliberate one-line style (`import os, sys; sys.path.insert(...)`, `import x; return f(x)`) that the import sorter cannot rewrite
 "examples/*.py" = ["I001"]
 "cli.py" = ["I001"]
+# bare `from atoms_sources import *` is intentional: these scripts run as `python benchmarks/<x>.py` (sys.path points at benchmarks/)
+"benchmarks/atoms_mine.py" = ["F403", "F405"]
+"benchmarks/atoms_norm_eval.py" = ["F403", "F405"]
 
 [tool.setuptools.packages.find]
 include = ["aixl*"]

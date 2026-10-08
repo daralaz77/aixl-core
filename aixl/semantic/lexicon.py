@@ -41,7 +41,7 @@ QTY_PHRASES = [  # (token tuple, mode); longest first
     (("menos", "de"), "less_than"), (("menor", "de"), "less_than"), (("menores", "de"), "less_than"), (("menor", "que"), "less_than"), (("less", "than"), "less_than"),
     (("fewer", "than"), "less_than"), (("under",), "less_than"), (("below",), "less_than"), (("abaixo", "de"), "less_than"), (("menos", "que"), "less_than"),
 ]
-QUANTIFIERS = {"todos": "all", "todas": "all", "todo": "all", "toda": "all", "all": "all", "every": "all", "everyone": "all", "everybody": "all", "todo": "all",
+QUANTIFIERS = {"todos": "all", "todas": "all", "todo": "all", "toda": "all", "all": "all", "every": "all", "everyone": "all", "everybody": "all", 
                "tudo": "all", "cada": "each", "each": "each",
                "algunos": "some", "algunas": "some", "some": "some", "alguns": "some", "algumas": "some", "varios": "some", "several": "some",
                "ningun": "none", "ninguno": "none", "ninguna": "none", "ningunos": "none", "none": "none", "nenhum": "none", "nenhuma": "none",
@@ -56,7 +56,7 @@ NUM_WORDS = {"cero": 0, "zero": 0, "uno": 1, "one": 1, "um": 1, "dos": 2, "two":
 MULTIPLIERS = {"docena": 12, "docenas": 12, "dozen": 12, "dozens": 12, "duzia": 12, "duzias": 12, "hundred": 100, "thousand": 1000}
 PAIR_WORDS = {("un", "par"), ("a", "couple"), ("um", "par"), ("a", "pair")}
 UNITS = {"palabra": "words", "palabras": "words", "word": "words", "words": "words", "palavra": "words", "palavras": "words",
-         "caracter": "characters", "caracteres": "characters", "character": "characters", "characters": "characters", "caractere": "characters", "caracteres": "characters",
+         "caracter": "characters", "caracteres": "characters", "character": "characters", "characters": "characters", "caractere": "characters", 
          "dia": "days", "dias": "days", "day": "days", "days": "days", "hora": "hours", "horas": "hours", "hour": "hours", "hours": "hours",
          "minuto": "minutes", "minutos": "minutes", "minute": "minutes", "minutes": "minutes", "semana": "weeks", "semanas": "weeks", "week": "weeks", "weeks": "weeks",
          "mes": "months", "meses": "months", "month": "months", "months": "months", "ano": "years", "anos": "years", "year": "years", "years": "years",
@@ -235,7 +235,7 @@ SYNONYMS = {  # content-noun classes (folded, singular). Deliberately small: a m
     "correo": "email", "email": "email", "mail": "email", "e-mail": "email", "emailes": "email",
     "factura": "invoice", "invoice": "invoice", "fatura": "invoice",
     "contrato": "contract", "contract": "contract", "documento": "document", "document": "document",
-    "cliente": "client", "client": "client", "customer": "client", "cliente": "client",
+    "cliente": "client", "client": "client", "customer": "client", 
     "equipo": "team", "team": "team", "equipe": "team",
     "contrasena": "password", "password": "password", "senha": "password", "clave": "password",
     "servidor": "server", "server": "server", "cache": "cache", "pedido": "order", "order": "order", "pedidos": "order",

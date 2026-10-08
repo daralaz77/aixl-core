@@ -78,7 +78,7 @@ REL_RX = [
  ("NEXT_YEAR", r"\b(proximo ano|next year)\b"), ("NEXT_MONTH", r"\b(proximo mes|next month)\b"),
  ("NEXT_WEEK", r"\b(proxima semana|next week)\b"),
 ]
-LANGS = {"espanol": "ES", "spanish": "ES", "espanhol": "ES", "ingles": "EN", "english": "EN", "ingles": "EN",
+LANGS = {"espanol": "ES", "spanish": "ES", "espanhol": "ES", "ingles": "EN", "english": "EN", 
          "frances": "FR", "french": "FR", "portugues": "PT", "portuguese": "PT", "aleman": "DE",
          "german": "DE", "italiano": "IT", "italian": "IT"}
 COUNTRIES = {"COLOMBIA": "CO", "ESPANA": "ES", "SPAIN": "ES", "MEXICO": "MX", "ARGENTINA": "AR", "CHILE": "CL",

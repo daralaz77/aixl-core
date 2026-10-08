@@ -83,7 +83,7 @@ def main(argv=None):
             aixl.from_aixl(a.a)
         except AixlError as e:
             print(f"INVALID {e.code}: {e}")
-            raise SystemExit(1)
+            raise SystemExit(1) from e
         return print("VALID")
     if a.cmd in ("aixl", "decode"):
         g = aixl.from_aixl(a.a); dump({k: (list(v) if isinstance(v, tuple) else v) for k, v in g.canonical().items()}); return

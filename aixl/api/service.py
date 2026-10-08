@@ -1,6 +1,8 @@
 """Public API (spec §28). Pure Python, no external service required by default (AIXL_TRANSLATOR_MODE,
 see aixl/translators/auto.py, is 'rule_based' unless explicitly changed — this module behaves exactly
 as it did before the LLM-translator route existed, for every caller that doesn't opt in)."""
+from typing import TYPE_CHECKING
+
 from aixl.core.ambiguity import AmbiguityResult, detect_ambiguity_graph
 from aixl.core.comparator import ComparisonResult, compare_graphs, format_diff
 from aixl.core.contradiction import ContradictionResult, detect_contradiction_graphs
@@ -10,6 +12,10 @@ from aixl.negotiation import NegotiationOutcome
 from aixl.negotiation import negotiate as _negotiate
 from aixl.serialization import aixl_codec
 from aixl.translators.auto import to_graph_auto as to_graph
+
+if TYPE_CHECKING:
+    from aixl.core.roundtrip import RoundTripResult
+    from aixl.core.validator import ValidationResult
 
 
 def to_semantic(text: str) -> SemanticGraph:

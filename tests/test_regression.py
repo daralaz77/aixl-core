@@ -166,7 +166,7 @@ def test_bug022_codec_merges_repeated_list_atom_instead_of_rejecting():
     assert set(g.canonical()["entities"]) == {"COMPANY", "ANOMALY"}
     try:
         aixl_codec.decode("V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE H:>.5 H:>.9")
-        assert False, "duplicate scalar atom must still raise"
+        raise AssertionError("duplicate scalar atom must still raise")
     except AixlError as e:
         assert e.code == "INVALID_AIXL"
 
