@@ -16,3 +16,9 @@ def test_short_repeats_not_referenced():
 
 def test_text_containing_marker_sent_raw():
     s = RefStore(); s.encode(BIG); t = BIG + "\n⟦=0:0-1⟧ literal"; assert s.encode(t) == t
+
+
+def test_annotated_pointer_roundtrips_and_states_length():
+    s = RefStore(annotate=True); s.encode(BIG)
+    e = s.encode("x\n" + BIG)
+    assert "(12 lines)" in e and s.decode(e) == "x\n" + BIG

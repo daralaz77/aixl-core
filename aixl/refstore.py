@@ -7,11 +7,12 @@ from collections import defaultdict
 MIN_CHARS = 200      # a run must be at least this long (~50 tokens) to be worth a pointer
 MIN_LINE = 12        # shorter lines ('}', 'end', blanks) are neutral: they never start a run
 MARK = "⟦="
-_REF = re.compile(r"⟦=(\d+):(\d+)-(\d+)⟧")
+_REF = re.compile(r"⟦=(\d+):(\d+)-(\d+)(?: \(\d+ lines\))?⟧")
 
 
 class RefStore:
-    def __init__(self):
+    def __init__(self, annotate: bool = False):
+        self.annotate = annotate                 # pointer also states how many lines it stands for: '⟦=0:3-9 (7 lines)⟧'
         self.msgs: list[list[str]] = []          # original lines of every message sent so far
         self.idx = defaultdict(list)             # line -> [(msg, lineno)] (most recent last, capped)
 
@@ -43,7 +44,7 @@ class RefStore:
                             best = (span, m, n, k)
                 if best:
                     _, m, n, k = best
-                    out.append(f"{MARK}{m}:{n}-{n + k - 1}⟧"); i += k; used = True
+                    out.append(f"{MARK}{m}:{n}-{n + k - 1}" + (f" ({k} lines)" if self.annotate else "") + "⟧"); i += k; used = True
                 else:
                     out.append(lines[i]); i += 1
         enc = "\n".join(out) if used else text

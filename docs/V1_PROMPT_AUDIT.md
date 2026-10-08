@@ -133,3 +133,14 @@ Rule: a claim (MATCH or MISMATCH) is made only when BOTH sides pass `check_compl
 - Coverage: dev set 128/143 verifiable (90%); **real traffic 19/1645 (1.2%)**.
 - Verdict: inside the translator's domain, E is precise (no false alarms, no silent misses in this run) and cheap (8 hex chars). It does nothing for the 98.8% of real messages that are conversational/outside the ontology: there the honest answer is UNVERIFIED.
 - Limits: dev-set, own-author mutations; fingerprint equality is only as good as the translator's graph; not tested against adversarial rewrites or other authors' texts (earlier blind sets showed open-text equivalence is weak).
+
+## Next step 2: capability gate for pointers (2026-10-08)
+Hypothesis tested first: Haiku fails with pointers because a pointer does not say how many lines it covers. Variant `RefStore(annotate=True)`: `⟦=0:3-9 (7 lines)⟧` (decode accepts both forms; tests in `tests/test_refstore.py`). Same 20 reasoning cases:
+
+| Model | full | pointers+legend | pointers no legend | **annotated pointers** |
+|---|---|---|---|---|
+| Sonnet | 52/60 | 59/60 | 59/60 | **60/60** |
+| Haiku | 27/60 | 14/60 | 18/60 | **14/60** |
+
+Hypothesis rejected for Haiku: annotation does not rescue it (Q3 1/20). Sonnet is perfect with annotation (1 sample; legend and no-legend runs were identical, so independent evidence is thin).
+Consequence: `aixl/refpolicy.py` — `PolicyStore(receiver_model)` emits pointers only for receivers MEASURED safe (`sonnet`); `haiku` and every unmeasured model (opus, fable, others) get plain text — fail closed. Tests: `tests/test_refpolicy.py` (3). Extending the whitelist requires running the reasoning test on that model first.
