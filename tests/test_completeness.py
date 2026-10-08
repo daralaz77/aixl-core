@@ -91,3 +91,20 @@ def test_inclusive_vs_strict_bound_and_name_order():
     assert not names_reordered("Send it to Ana and Luis.", "Send it to Ana and also Luis.")
     assert not names_reordered("Send the report on Friday to Ana.", "Send the report on Monday to Ana.")           # days are not names
     assert compare("Pide a Luis que envíe el presupuesto a Sara.", "Pide a Sara que envíe el presupuesto a Luis.").verdict != "EQUIVALENT"
+
+
+def test_until_is_not_before():
+    """blind_markers3 T013/U012: 'until' was BEFORE, so 'don't X until Y' was definitively NOT_EQUIVALENT to 'X only after Y'."""
+    from aixl.api.service import compare
+    assert extract_markers("Don't publish the draft until Imani has reviewed it.") >= {"UNTIL"} and "BEFORE" not in extract_markers("Wait until Wei approves")
+    assert compare("Don't publish the draft until Imani has reviewed it.", "Publish the draft only after Imani has reviewed it.").verdict != "NOT_EQUIVALENT"
+    assert compare("Delete the draft only after Wei has approved the final version.", "Wait until Wei has approved the final version, then delete the draft.").verdict != "NOT_EQUIVALENT"
+    assert compare("Send the report before Friday.", "Send the report after Friday.").verdict == "NOT_EQUIVALENT"      # real opposites still separate
+
+
+def test_negated_temporal_order_is_the_opposite_order():
+    from aixl.api.service import compare
+    assert extract_markers("Update the page, but not before the audit is finished") == {"AFTER"}
+    assert extract_markers("Envíalo, pero no después del lunes") == {"BEFORE"}
+    assert compare("Wait until after the audit to update the pricing page.", "Update the pricing page, but not before the audit is finished.").verdict != "NOT_EQUIVALENT"
+    assert compare("Send it before Friday.", "Send it after Friday.").verdict == "NOT_EQUIVALENT"

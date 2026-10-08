@@ -23,7 +23,9 @@ SHORT_FUNCTION = set("a o e y u de en el la lo le les se me te un ya al do da ni
 # class -> words/phrases (accent-stripped, lowercase, apostrophes removed). Closed list.
 MARKERS = {
     "NEG": "not never no nunca nao jamais nem without sin sem prohibido prohibited forbidden proibido avoid evita evite dont doesnt cannot cant mustnt wont".split(),
-    "BEFORE": "before prior antes until hasta ate".split() + ["ahead of"],
+    "BEFORE": "before prior antes".split() + ["ahead of"],
+    # 'until' is NOT 'before': "don't publish until X" = "publish only after X" = "wait until X, then publish". Own class, never definitively opposed to AFTER.
+    "UNTIL": "until till hasta ate".split(),
     "AFTER": "after afterwards following despues depois luego apos tras".split(),
     "ONLY": "only solely solo solamente unicamente apenas somente exclusively exclusivamente".split(),
     "ALL": "all todos todas todo toda tudo".split(),
@@ -51,6 +53,9 @@ def _norm(text: str) -> str:
 _NEG_COMPARATORS = [
     (re.compile(r"\b(?:no|not|nao)\s+(?:fewer|less|menos|minus)\s+(?:than\s+|de\s+|do\s+que\s+|que\s+)?"), "MORE_EQ"),
     (re.compile(r"\b(?:no|not|nao)\s+(?:more|greater|mas|mais)\s+(?:than\s+|de\s+|do\s+que\s+|que\s+)?"), "LESS_EQ"),
+    # negated temporal order: 'not before X' = at/after X; 'not after X' = at/before X ('wait ... but not before the audit ends')
+    (re.compile(r"\b(?:no|not|nao)\s+(?:before|prior\s+to|antes\s+d[eo]s?|antes)\b"), "AFTER"),
+    (re.compile(r"\b(?:no|not|nao)\s+(?:after|despues\s+d[eo]s?|depois\s+d[eo]s?|despues|depois)\b"), "BEFORE"),
 ]
 
 
