@@ -69,11 +69,14 @@ def _split_neg_comparators(s: str):
     return classes, s, consumed
 
 
+_PHRASE_RX = [(re.compile(r"\b" + re.escape(p) + r"\b"), c) for p, c in _PHRASES]   # compiled once instead of per call
+
+
 def extract_markers(text: str) -> set:
     """Closed-class structural markers present in `text` (deterministic, per text)."""
     s = _norm(text)
     neg_cls, s, _ = _split_neg_comparators(s)
-    out = {c for p, c in _PHRASES if re.search(r"\b" + re.escape(p) + r"\b", s)}
+    out = {c for rx, c in _PHRASE_RX if rx.search(s)}
     out |= {_CLASS_OF[w] for w in _ALLTOK.findall(s) if w in _CLASS_OF}
     if {"every", "each", "cada"} & set(_ALLTOK.findall(s)):      # 'every X' is also universal; 'daily/weekly' stay periodic-only
         out.add("ALL")
