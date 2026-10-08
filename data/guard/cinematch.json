@@ -1,0 +1,314 @@
+{
+ "description": "CineMatch: backend validator message (EN) vs the Spanish text shown to the user (packages/api-client/src/error-messages.ts). Closed grammar => exact canonical-form comparison. AIXL is advisory only (measured: it cannot read the EN validator phrasing against ES).",
+ "aixl_mode": "advisory",
+ "use_common_classes": false,
+ "check_numbers": true,
+ "canon_required": true,
+ "canon": [
+  [
+   "must be an email",
+   "R:EMAIL"
+  ],
+  [
+   "debe ser un correo valido",
+   "R:EMAIL"
+  ],
+  [
+   "should not be empty",
+   "R:REQUIRED"
+  ],
+  [
+   "es requerido",
+   "R:REQUIRED"
+  ],
+  [
+   "longer than or equal to (\\d+) and shorter than or equal to (\\d+) characters",
+   "R:BETWEEN:\\1:\\2"
+  ],
+  [
+   "entre (\\d+) y (\\d+) caracteres",
+   "R:BETWEEN:\\1:\\2"
+  ],
+  [
+   "longer than or equal to (\\d+) characters",
+   "R:LEN_GE:\\1"
+  ],
+  [
+   "al menos (\\d+) caracteres",
+   "R:LEN_GE:\\1"
+  ],
+  [
+   "(?<!and )shorter than or equal to (\\d+) characters",
+   "R:LEN_LE:\\1"
+  ],
+  [
+   "no puede superar (\\d+) caracteres",
+   "R:LEN_LE:\\1"
+  ],
+  [
+   "must not be greater than (\\d+)",
+   "R:LE:\\1"
+  ],
+  [
+   "no puede ser mayor a (\\d+)",
+   "R:LE:\\1"
+  ],
+  [
+   "must not be less than (\\d+)",
+   "R:GE:\\1"
+  ],
+  [
+   "no puede ser menor a (\\d+)",
+   "R:GE:\\1"
+  ],
+  [
+   "must be a positive number",
+   "R:POSITIVE"
+  ],
+  [
+   "debe ser un numero positivo",
+   "R:POSITIVE"
+  ],
+  [
+   "must be an integer number",
+   "R:INT"
+  ],
+  [
+   "debe ser un numero entero",
+   "R:INT"
+  ],
+  [
+   "must be a number conforming",
+   "R:NUMBER"
+  ],
+  [
+   "debe ser un numero valido",
+   "R:NUMBER"
+  ],
+  [
+   "valid iso 8601 date",
+   "R:DATE"
+  ],
+  [
+   "debe ser una fecha valida",
+   "R:DATE"
+  ],
+  [
+   "must be a url address",
+   "R:URL"
+  ],
+  [
+   "debe ser una url valida",
+   "R:URL"
+  ],
+  [
+   "must be (a string|a boolean value|a uuid|an array|one of the following)",
+   "R:INVALID"
+  ],
+  [
+   "no es valido",
+   "R:INVALID"
+  ],
+  [
+   "^unauthorized$",
+   "R:UNAUTH"
+  ],
+  [
+   "^tu sesion expiro\\. inicia sesion de nuevo\\.$",
+   "R:UNAUTH"
+  ],
+  [
+   "^forbidden$",
+   "R:FORBID"
+  ],
+  [
+   "^no tienes permiso para hacer esto\\.$",
+   "R:FORBID"
+  ],
+  [
+   "^too many requests$",
+   "R:RATE"
+  ],
+  [
+   "^hiciste demasiadas solicitudes\\. espera un momento e intenta de nuevo\\.$",
+   "R:RATE"
+  ],
+  [
+   "^not found$",
+   "R:NOTFOUND"
+  ],
+  [
+   "^no encontramos lo que buscabas\\.$",
+   "R:NOTFOUND"
+  ],
+  [
+   "^internal server error$",
+   "R:SERVER"
+  ],
+  [
+   "^algo salio mal en el servidor\\. intenta de nuevo en un momento\\.$",
+   "R:SERVER"
+  ],
+  [
+   "^bad request$",
+   "R:BAD"
+  ],
+  [
+   "^revisa los datos ingresados e intenta de nuevo\\.$",
+   "R:BAD"
+  ],
+  [
+   "campo \\\"(correo)\\\"",
+   "F:email"
+  ],
+  [
+   "campo \\\"(contrasena)\\\"",
+   "F:password"
+  ],
+  [
+   "campo \\\"(telefono)\\\"",
+   "F:phone"
+  ],
+  [
+   "campo \\\"(fecha de nacimiento)\\\"",
+   "F:birthdate"
+  ],
+  [
+   "campo \\\"(nombre)\\\"",
+   "F:name"
+  ],
+  [
+   "campo \\\"(biografia)\\\"",
+   "F:bio"
+  ],
+  [
+   "campo \\\"(titulo)\\\"",
+   "F:title"
+  ],
+  [
+   "campo \\\"(descripcion)\\\"",
+   "F:description"
+  ],
+  [
+   "campo \\\"(cine)\\\"",
+   "F:cinemaname"
+  ],
+  [
+   "campo \\\"(ciudad)\\\"",
+   "F:cinemacity"
+  ],
+  [
+   "campo \\\"(direccion)\\\"",
+   "F:cinemaaddress"
+  ],
+  [
+   "campo \\\"(cupo)\\\"",
+   "F:capacity"
+  ],
+  [
+   "campo \\\"(fecha del evento)\\\"",
+   "F:eventdate"
+  ],
+  [
+   "campo \\\"(evidencia)\\\"",
+   "F:evidence"
+  ],
+  [
+   "campo \\\"(comentario)\\\"",
+   "F:comment"
+  ],
+  [
+   "campo \\\"(mensaje)\\\"",
+   "F:message"
+  ],
+  [
+   "campo \\\"(motivo)\\\"",
+   "F:reason"
+  ],
+  [
+   "campo \\\"(fotos)\\\"",
+   "F:photos"
+  ],
+  [
+   "^(?:each value in )?(email|password|phone|birthdate|bio|title|description|cinemaname|cinemacity|cinemaaddress|capacity|eventdate|evidence|comment|message|reason|photos) ",
+   "F:\\1"
+  ],
+  [
+   "^(?:each value in )?(displayname|name) ",
+   "F:name"
+  ],
+  [
+   "^(?:each value in )?content ",
+   "F:message"
+  ],
+  [
+   "^(?:each value in )?matchid ",
+   "F:chat"
+  ],
+  [
+   "^(?:each value in )?eventid ",
+   "F:event"
+  ],
+  [
+   "^(?:each value in )?trustedcontactid ",
+   "F:trusted"
+  ],
+  [
+   "^(?:each value in )?(targetuserid|reporteduserid) ",
+   "F:user"
+  ],
+  [
+   "^(?:each value in )?movietmdbid ",
+   "F:movie"
+  ],
+  [
+   "campo \\\"(chat)\\\"",
+   "F:chat"
+  ],
+  [
+   "campo \\\"(evento)\\\"",
+   "F:event"
+  ],
+  [
+   "campo \\\"(contacto de confianza)\\\"",
+   "F:trusted"
+  ],
+  [
+   "campo \\\"(usuario)\\\"",
+   "F:user"
+  ],
+  [
+   "campo \\\"(pelicula)\\\"",
+   "F:movie"
+  ]
+ ],
+ "ignore_numbers": [
+  "8601"
+ ],
+ "canon_leftover": [
+  "campo",
+  "el",
+  "la",
+  "los",
+  "las",
+  "de",
+  "del",
+  "debe",
+  "ser",
+  "tener",
+  "un",
+  "una",
+  "al",
+  "menos",
+  "entre",
+  "y",
+  "no",
+  "puede",
+  "superar",
+  "mayor",
+  "menor",
+  "a",
+  "ha",
+  "con"
+ ]
+}

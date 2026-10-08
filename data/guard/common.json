@@ -1,0 +1,24 @@
+{
+ "classes": {
+  "NEG_NO": "(?<![a-z])(no|nunca|jamas|tampoco|ningun[oa]?|nadie|not|never|without)(?![a-z])|(?<![a-z])sin\\s+(?!costo|cargo)",
+  "Q_TOTAL": "\\b(total(mente)?|complet[oa]s?|entero|enteros|integral|todo\\s+el|todos?|todas?|full|whole)\\b",
+  "Q_PARTIAL": "\\b(parcial(mente)?|mitad|parte\\s+del|fraccion|porcion|algunos?|algunas?|partial|half)\\b",
+  "Q_ONE": "\\b(unic[oa]s?|solo|sola|solamente|uno\\s+solo|un\\s+solo|una\\s+sola|single|only)\\b",
+  "Q_MANY": "\\b(vari[oa]s|multiples?|muchos?|several|many)\\b",
+  "Q_ANY": "\\b(cualquier(a)?|alguno?)\\b",
+  "Q_SPECIFIC": "\\b(especific[oa]s?|determinad[oa]s?|concret[oa]s?)\\b",
+  "T_IMMEDIATE": "\\b(inmediat[oa](mente)?|de\\s+inmediato|urgente)\\b",
+  "T_DEADLINE": "\\b(plazo|dias?|semanas?|mes(es)?|horas?)\\b",
+  "Q_OTHER": "\\b(otr[oa]s?|distint[oa]s?\\s+(de|al|a)\\b|diferente\\s+(de|al|a)\\b)",
+  "Q_SAME": "\\bmism[oa]s?\\b",
+  "T_BEFORE": "\\bantes\\b",
+  "T_AFTER": "\\b(despues|tras\\b|luego|al\\s+(terminar|finalizar|cumplir))",
+  "L_UNDER": "\\b(debajo|bajo\\s+(el|la)|abajo)\\b",
+  "L_ON": "\\b(sobre|encima)\\b",
+  "L_FLOOR": "\\b(suelo|piso)\\b",
+  "M_ATONCE": "\\b(de\\s+golpe|simultane|al\\s+mismo\\s+tiempo|a\\s+la\\s+vez|de\\s+una\\s+vez)",
+  "M_ONEBYONE": "\\buno\\s+por\\s+uno\\b|\\bpaso\\s+a\\s+paso\\b",
+  "A_PUSH": "\\b(empuj)",
+  "A_THROW": "\\b(lanz|arroj|tira\\b|tirar)"
+ }
+}

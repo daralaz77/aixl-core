@@ -35,6 +35,9 @@ Concept-id atoms + typed relations (enforced endpoint types) + canonical fingerp
 ## 0.3-R semantic track (2026-10-03) — separate from the 0.5.0 rules route
 `aixl/semantic/` (`parse`, `compare_texts`, `hybrid_decide`; docs/SEMANTIC_MODEL_0_3R.md, evidence in docs/EVIDENCE.md §4b). A closed-domain loss/distortion detector with explicit ambiguity and a fail-closed three-state verdict, plus a hybrid where the 2-of-2 arbiter proves sameness and the semantic model vetoes (REVIEW). Measured on 6 independent sets: false-equivalent 0-6.8%, NOT_EQUIVALENT precision 55-87% (90% gate failed twice), proven equivalent ~0-2%, hybrid safer-than-arbiter claim NOT allowed. Never present NOT_EQUIVALENT as proven or the track as an equivalence prover. Tests: `tests/test_semantic_r.py`, `test_semantic_hybrid.py`, `test_golden_r_dataset.py`; data: `data/golden_r` (dev), `data/blind13-18` (spent).
 
+## Internal guard (2026-10-07) — `aixl/guard`, docs/GUARD.md
+Fail-closed PASS/REVIEW check for ReclamaYa petitions, CineMatch EN→ES error messages and Robot School instruction-vs-actions (`cli.py guard <profile> A B`). Measured: AIXL comparator ALONE lets 45-50 % of distortions through on open text; the rules layer makes it 0/183 on author-written sets (95 % bound ≈ 2 %; first-contact misses 0-4 per fresh set), and AIXL added no unique catches (advisory). Deployed in code (uncommitted) in all three projects; Robot School is shadow-mode only.
+
 ## Where things are
 `docs/EVIDENCE.md` (evidence + what to use for what) · `docs/adr/ADR-016.md`, `ADR-017.md` (designs, experiments, pre-registrations, results) · `LIMITATIONS.md` · `docs/HISTORY.md` (superseded status text, verbatim) · `data/blind10/` (frozen sets with sha256, all LLM outputs, so every table recomputes without new model calls) · `benchmarks/*_eval.py`.
 

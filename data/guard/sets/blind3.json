@@ -1,0 +1,603 @@
+{
+ "reclamaya": [
+  {
+   "source": "Solicito la devolución de los $189.900 pagados por los audífonos que nunca recibí.",
+   "candidate": "Pido que me devuelvan los $189.900 que pagué por los audífonos que nunca recibí.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito que Avianca me reembolse el tiquete del vuelo AV123 cancelado el 15 de agosto.",
+   "candidate": "Pido que Avianca me reembolse el tiquete del vuelo AV123, que cancelaron el 15 de agosto.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito la reparación inmediata de la nevera sin ningún costo para mí.",
+   "candidate": "Pido que reparen de inmediato la nevera sin ningún costo para mí.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito que se elimine el reporte negativo en las centrales de riesgo.",
+   "candidate": "Pido que eliminen el reporte negativo que aparece en las centrales de riesgo.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito que me entreguen copia del contrato firmado.",
+   "candidate": "Pido que me entreguen una copia del contrato que firmé.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito que Movistar cancele el cobro de $89.900 y me devuelva lo ya pagado.",
+   "candidate": "Solicito que Movistar cancele el cobro de $89.900 y me devuelva lo que ya pagué.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito la devolución total del dinero porque el producto llegó dañado.",
+   "candidate": "Pido que me devuelvan todo el dinero, ya que el producto llegó dañado.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito que me respondan en el plazo legal de quince días hábiles.",
+   "candidate": "Pido que me respondan dentro del plazo legal de quince días hábiles.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito un descuento proporcional por los diez días sin internet.",
+   "candidate": "Pido un descuento proporcional por los diez días en que estuve sin internet.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito que el arrendador repare la filtración del baño.",
+   "candidate": "Pido que el arrendador arregle la filtración del baño.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito la devolución del depósito de $1.500.000 al terminar el contrato.",
+   "candidate": "Pido que al terminar el contrato me devuelvan el depósito de $1.500.000.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito que se corrija mi nombre en la factura.",
+   "candidate": "Pido que corrijan mi nombre en la factura.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Solicito la devolución de los $189.900 pagados por los audífonos que nunca recibí.",
+   "candidate": "Pido la devolución de los $189.900 pagados por los audífonos que recibí rotos.",
+   "label": "D",
+   "kind": "hecho",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito que Avianca me reembolse el tiquete del vuelo AV123 cancelado el 15 de agosto.",
+   "candidate": "Pido que Avianca me reembolse el tiquete del vuelo AV321 cancelado el 15 de agosto.",
+   "label": "D",
+   "kind": "codigo",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito la reparación inmediata de la nevera sin ningún costo para mí.",
+   "candidate": "Pido la reparación de la nevera, descontando el costo de la mano de obra.",
+   "label": "D",
+   "kind": "costo",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito que se elimine el reporte negativo en las centrales de riesgo.",
+   "candidate": "Pido que se mantenga el reporte negativo en las centrales de riesgo.",
+   "label": "D",
+   "kind": "opuesto",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito que me entreguen copia del contrato firmado.",
+   "candidate": "Pido que me entreguen copia del contrato sin firmar.",
+   "label": "D",
+   "kind": "estado",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito que Movistar cancele el cobro de $89.900 y me devuelva lo ya pagado.",
+   "candidate": "Solicito que Movistar cancele el cobro de $89.900 pero no me devuelva lo ya pagado.",
+   "label": "D",
+   "kind": "negacion",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito la devolución total del dinero porque el producto llegó dañado.",
+   "candidate": "Pido la devolución total del dinero porque cambié de opinión.",
+   "label": "D",
+   "kind": "motivo",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito que me respondan en el plazo legal de quince días hábiles.",
+   "candidate": "Pido que me respondan en un plazo de quince días calendario.",
+   "label": "D",
+   "kind": "tipo_dias",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito un descuento proporcional por los diez días sin internet.",
+   "candidate": "Pido un descuento del cien por ciento de la factura por los diez días sin internet.",
+   "label": "D",
+   "kind": "magnitud",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito que el arrendador repare la filtración del baño.",
+   "candidate": "Pido que el arrendador repare la filtración de la cocina.",
+   "label": "D",
+   "kind": "lugar",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito la devolución del depósito de $1.500.000 al terminar el contrato.",
+   "candidate": "Pido la devolución del depósito de $1.500.000 antes de terminar el contrato.",
+   "label": "D",
+   "kind": "tiempo",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito que se corrija mi nombre en la factura.",
+   "candidate": "Pido que se corrija mi dirección en la factura.",
+   "label": "D",
+   "kind": "dato",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito que la tienda me devuelva el dinero de las dos camisas.",
+   "candidate": "Solicito que la tienda me devuelva el dinero de una de las camisas.",
+   "label": "D",
+   "kind": "cantidad",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito el reembolso inmediato del servicio que no se prestó.",
+   "candidate": "Solicito el reembolso del servicio que se prestó parcialmente.",
+   "label": "D",
+   "kind": "hecho",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito que me devuelvan el dinero a la misma tarjeta con la que pagué.",
+   "candidate": "Solicito que me devuelvan el dinero a una tarjeta distinta de la que usé para pagar.",
+   "label": "D",
+   "kind": "medio",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito que el operador instale el servicio en mi casa.",
+   "candidate": "Solicito que el operador instale el servicio en mi oficina.",
+   "label": "D",
+   "kind": "lugar",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito que Éxito reemplace la lavadora por una de la misma marca.",
+   "candidate": "Solicito que Éxito reemplace la lavadora por una de otra marca.",
+   "label": "D",
+   "kind": "marca",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Solicito la devolución del dinero cobrado en exceso.",
+   "candidate": "Solicito la devolución del dinero cobrado en exceso​, excepto el cargo administrativo.",
+   "label": "D",
+   "kind": "oculto_y_excepto",
+   "decision": "REVIEW"
+  }
+ ],
+ "robot_school": [
+  {
+   "source": "Muestra varios objetos distintos frente a la cámara y nómbralos uno por uno.",
+   "candidate": "El trainer muestra frente a la cámara varios objetos distintos y los nombra uno por uno.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Mueve un objeto de una posición A a una posición B sobre la mesa.",
+   "candidate": "El trainer mueve un objeto de la posición A a la posición B sobre la mesa.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Sigue en voz alta una instrucción hablada y ejecútala con las manos mientras narras lo que haces.",
+   "candidate": "El trainer sigue en voz alta la instrucción hablada, la ejecuta con las manos y narra lo que hace.",
+   "label": "F",
+   "kind": "para",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Cierra el recipiente que acabas de abrir y verifica que quedó cerrado.",
+   "candidate": "El trainer cierra el recipiente que acaba de abrir y verifica que quedó cerrado.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Abre un recipiente cerrado (frasco, caja, bolsa) con las manos.",
+   "candidate": "El trainer abre con las manos un frasco cerrado.",
+   "label": "F",
+   "kind": "para",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Introduce un objeto pequeño dentro de un recipiente, con precisión.",
+   "candidate": "El trainer introduce con precisión un objeto pequeño dentro de un recipiente.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Completa la tarea sorteando un obstáculo físico colocado deliberadamente en el camino.",
+   "candidate": "El trainer completa la tarea sorteando el obstáculo físico colocado deliberadamente en el camino.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Alcanza y toma un objeto de la mesa con una sola mano.",
+   "candidate": "El trainer alcanza un objeto de la mesa y lo toma con una sola mano.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Ordena varios objetos dispersos sobre la mesa siguiendo un criterio.",
+   "candidate": "El trainer ordena varios objetos dispersos sobre la mesa siguiendo un criterio.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Guarda una secuencia de objetos en su lugar correspondiente, uno por uno.",
+   "candidate": "El trainer guarda una secuencia de objetos en su lugar correspondiente, uno por uno.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  },
+  {
+   "source": "Apila varios objetos de distinto tamaño manteniendo el equilibrio.",
+   "candidate": "El trainer apila varios objetos de distinto tamaño sin perder el equilibrio.",
+   "label": "F",
+   "kind": "para",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Localiza y extrae un objeto específico desde dentro de un recipiente.",
+   "candidate": "El trainer localiza y extrae del recipiente un objeto específico.",
+   "label": "F",
+   "kind": "para",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Muestra varios objetos distintos frente a la cámara y nómbralos uno por uno.",
+   "candidate": "El trainer muestra varios objetos distintos y los nombra todos al mismo tiempo.",
+   "label": "D",
+   "kind": "simultaneo",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Mueve un objeto de una posición A a una posición B sobre la mesa.",
+   "candidate": "El trainer mueve un objeto de la posición A a la posición B debajo de la mesa.",
+   "label": "D",
+   "kind": "lugar",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Sigue en voz alta una instrucción hablada y ejecútala con las manos mientras narras lo que haces.",
+   "candidate": "El trainer ejecuta la instrucción con las manos pero no narra lo que hace.",
+   "label": "D",
+   "kind": "narrar",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Cierra el recipiente que acabas de abrir y verifica que quedó cerrado.",
+   "candidate": "El trainer cierra otro recipiente distinto y verifica que quedó cerrado.",
+   "label": "D",
+   "kind": "otro",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Abre un recipiente cerrado (frasco, caja, bolsa) con las manos.",
+   "candidate": "El trainer abre una bolsa con unas tijeras.",
+   "label": "D",
+   "kind": "herramienta",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Introduce un objeto pequeño dentro de un recipiente, con precisión.",
+   "candidate": "El trainer introduce un objeto pequeño en un recipiente y se le cae afuera.",
+   "label": "D",
+   "kind": "resultado",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Completa la tarea sorteando un obstáculo físico colocado deliberadamente en el camino.",
+   "candidate": "El trainer completa la tarea sorteando un obstáculo imaginario que no existe.",
+   "label": "D",
+   "kind": "imaginario",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Alcanza y toma un objeto de la mesa con una sola mano.",
+   "candidate": "El trainer alcanza un objeto de la mesa y lo empuja con una sola mano.",
+   "label": "D",
+   "kind": "verbo",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Ordena varios objetos dispersos sobre la mesa siguiendo un criterio.",
+   "candidate": "El trainer dispersa varios objetos sobre la mesa sin seguir un criterio.",
+   "label": "D",
+   "kind": "opuesto",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Guarda una secuencia de objetos en su lugar correspondiente, uno por uno.",
+   "candidate": "El trainer guarda una secuencia de objetos en su lugar correspondiente, de golpe.",
+   "label": "D",
+   "kind": "modo",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Apila varios objetos de distinto tamaño manteniendo el equilibrio.",
+   "candidate": "El trainer pone un objeto al lado de otro en el suelo.",
+   "label": "D",
+   "kind": "accion",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Localiza y extrae un objeto específico desde dentro de un recipiente.",
+   "candidate": "El trainer localiza un objeto específico pero lo deja dentro del recipiente.",
+   "label": "D",
+   "kind": "resultado",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Señala con la mano el objeto que se te indique, dejando manos y objeto visibles.",
+   "candidate": "El trainer señala con el pie el objeto que se le indicó.",
+   "label": "D",
+   "kind": "parte_cuerpo",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Dobla una tela o prenda sobre la mesa en pasos claros.",
+   "candidate": "El trainer dobla una tela sobre la mesa en un único paso.",
+   "label": "D",
+   "kind": "pasos",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Limpia la superficie de la mesa retirando todos los objetos y residuos.",
+   "candidate": "El trainer limpia el piso retirando todos los objetos y residuos.",
+   "label": "D",
+   "kind": "superficie",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Suelta el objeto en una zona marcada, controlando dónde y cómo cae.",
+   "candidate": "El trainer lanza el objeto desde lejos hacia la zona marcada.",
+   "label": "D",
+   "kind": "modo",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Clasifica varios objetos en distintos recipientes según un criterio (color, tamaño, tipo).",
+   "candidate": "El trainer clasifica varios objetos en distintos recipientes según un criterio.",
+   "label": "F",
+   "kind": "para",
+   "decision": "PASS"
+  }
+ ],
+ "cinematch": [
+  {
+   "source": "bio must be longer than or equal to 20 characters",
+   "candidate": "El campo \"biografía\" debe tener al menos 20 caracteres.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "cinemaName should not be empty",
+   "candidate": "El campo \"cine\" es requerido.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "capacity must not be greater than 2000",
+   "candidate": "El campo \"cupo\" no puede ser mayor a 2000.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "phone must be a string",
+   "candidate": "El campo \"teléfono\" no es válido.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "movieTmdbId must be an integer number",
+   "candidate": "El campo \"película\" debe ser un número entero.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "description must be shorter than or equal to 1000 characters",
+   "candidate": "El campo \"descripción\" no puede superar 1000 caracteres.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "eventId must be a UUID",
+   "candidate": "El campo \"evento\" no es válido.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "matchId should not be empty",
+   "candidate": "El campo \"chat\" es requerido.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "Bad Request",
+   "candidate": "Revisa los datos ingresados e intenta de nuevo.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "Too Many Requests",
+   "candidate": "Hiciste demasiadas solicitudes. Espera un momento e intenta de nuevo.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "bio must be longer than or equal to 20 characters",
+   "candidate": "El campo \"biografía\" debe tener a lo sumo 20 caracteres.",
+   "label": "D",
+   "kind": "limite",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "cinemaName should not be empty",
+   "candidate": "El campo \"cine\" es opcional.",
+   "label": "D",
+   "kind": "opuesto",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "capacity must not be greater than 2000",
+   "candidate": "El campo \"cupo\" no puede ser mayor a 200.",
+   "label": "D",
+   "kind": "numero",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "phone must be a string",
+   "candidate": "El campo \"correo\" no es válido.",
+   "label": "D",
+   "kind": "campo",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "movieTmdbId must be an integer number",
+   "candidate": "El campo \"película\" debe ser un número positivo.",
+   "label": "D",
+   "kind": "regla",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "description must be shorter than or equal to 1000 characters",
+   "candidate": "El campo \"descripción\" debe tener al menos 1000 caracteres.",
+   "label": "D",
+   "kind": "limite",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "eventId must be a UUID",
+   "candidate": "El campo \"evento\" debe ser una URL válida.",
+   "label": "D",
+   "kind": "regla",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "matchId should not be empty",
+   "candidate": "El campo \"usuario\" es requerido.",
+   "label": "D",
+   "kind": "campo",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Bad Request",
+   "candidate": "Tu sesión expiró. Inicia sesión de nuevo.",
+   "label": "D",
+   "kind": "swap",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Too Many Requests",
+   "candidate": "No tienes permiso para hacer esto.",
+   "label": "D",
+   "kind": "swap",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "Internal Server Error",
+   "candidate": "Algo salió mal en el servidor. Intenta de nuevo en un momento.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "comment must not be greater than 10",
+   "candidate": "El campo \"comentario\" no puede ser mayor a 10. Contacta a soporte.",
+   "label": "D",
+   "kind": "agrega",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "reason must be an email",
+   "candidate": "El campo \"motivo\" debe ser un correo válido.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "content must be longer than or equal to 1 and shorter than or equal to 500 characters",
+   "candidate": "El campo \"mensaje\" debe tener entre 1 y 500 caracteres.",
+   "label": "F",
+   "kind": "real",
+   "decision": "PASS"
+  },
+  {
+   "source": "content must be longer than or equal to 1 and shorter than or equal to 500 characters",
+   "candidate": "El campo \"mensaje\" debe tener entre 1 y 5000 caracteres.",
+   "label": "D",
+   "kind": "numero",
+   "decision": "REVIEW"
+  },
+  {
+   "source": "email must be an email",
+   "candidate": "El campo \"correo\" debe ser un correo v​alido.",
+   "label": "D",
+   "kind": "oculto",
+   "decision": "REVIEW"
+  }
+ ]
+}

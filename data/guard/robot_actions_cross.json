@@ -1,0 +1,227 @@
+{
+ "instructions": {
+  "1": "Muestra varios objetos distintos frente a la cámara y nómbralos uno por uno.",
+  "2": "Señala con la mano el objeto que se te indique, dejando manos y objeto visibles.",
+  "3": "Alcanza y toma un objeto de la mesa con una sola mano.",
+  "4": "Suelta el objeto en una zona marcada, controlando dónde y cómo cae.",
+  "5": "Mueve un objeto de una posición A a una posición B sobre la mesa.",
+  "6": "Clasifica varios objetos en distintos recipientes según un criterio (color, tamaño, tipo).",
+  "7": "Abre un recipiente cerrado (frasco, caja, bolsa) con las manos.",
+  "8": "Cierra el recipiente que acabas de abrir y verifica que quedó cerrado.",
+  "9": "Introduce un objeto pequeño dentro de un recipiente, con precisión.",
+  "10": "Localiza y extrae un objeto específico desde dentro de un recipiente.",
+  "11": "Apila varios objetos de distinto tamaño manteniendo el equilibrio.",
+  "12": "Ordena varios objetos dispersos sobre la mesa siguiendo un criterio.",
+  "13": "Limpia la superficie de la mesa retirando todos los objetos y residuos.",
+  "14": "Dobla una tela o prenda sobre la mesa en pasos claros.",
+  "15": "Guarda una secuencia de objetos en su lugar correspondiente, uno por uno."
+ },
+ "actions": {
+  "1": [
+   {
+    "verb": "display",
+    "description": "Hand holds up a mug toward the camera"
+   },
+   {
+    "verb": "name",
+    "description": "Speaker says the object is a mug"
+   },
+   {
+    "verb": "display",
+    "description": "Hand holds up a book toward the camera"
+   },
+   {
+    "verb": "name",
+    "description": "Speaker says the object is a book"
+   }
+  ],
+  "2": [
+   {
+    "verb": "point",
+    "description": "Index finger points at the apple on the table"
+   },
+   {
+    "verb": "point",
+    "description": "Index finger points at the cup"
+   }
+  ],
+  "3": [
+   {
+    "verb": "reach",
+    "description": "Hand extends toward the cup"
+   },
+   {
+    "verb": "grasp",
+    "description": "Fingers close around the cup"
+   },
+   {
+    "verb": "lift",
+    "description": "Cup is lifted off the table"
+   }
+  ],
+  "4": [
+   {
+    "verb": "reach",
+    "description": "Hand carries the cube above the marked square"
+   },
+   {
+    "verb": "release",
+    "description": "Fingers open and the cube drops onto the marked zone"
+   }
+  ],
+  "5": [
+   {
+    "verb": "pick_up",
+    "description": "Hand grasps the block at position A"
+   },
+   {
+    "verb": "move",
+    "description": "Block is transported across the table"
+   },
+   {
+    "verb": "place",
+    "description": "Block set down at position B"
+   }
+  ],
+  "6": [
+   {
+    "verb": "pick_up",
+    "description": "Hand picks a red ball"
+   },
+   {
+    "verb": "sort",
+    "description": "Red ball put into the red bowl"
+   },
+   {
+    "verb": "pick_up",
+    "description": "Hand picks a blue cube"
+   },
+   {
+    "verb": "sort",
+    "description": "Blue cube put into the blue bowl"
+   }
+  ],
+  "7": [
+   {
+    "verb": "grasp",
+    "description": "Left hand holds the jar steady"
+   },
+   {
+    "verb": "open",
+    "description": "Right hand unscrews the lid and removes it"
+   }
+  ],
+  "8": [
+   {
+    "verb": "grasp",
+    "description": "Hand picks up the lid"
+   },
+   {
+    "verb": "close",
+    "description": "Lid is screwed back onto the jar"
+   },
+   {
+    "verb": "check",
+    "description": "Hand tilts the jar to confirm it is sealed"
+   }
+  ],
+  "9": [
+   {
+    "verb": "grasp",
+    "description": "Hand picks up a small bead"
+   },
+   {
+    "verb": "insert",
+    "description": "Bead is dropped into the narrow container opening"
+   }
+  ],
+  "10": [
+   {
+    "verb": "locate",
+    "description": "Eyes scan the box contents to find the red pen"
+   },
+   {
+    "verb": "reach",
+    "description": "Hand reaches into the box"
+   },
+   {
+    "verb": "extract",
+    "description": "Red pen is pulled out of the box"
+   }
+  ],
+  "11": [
+   {
+    "verb": "grasp",
+    "description": "Hand picks up the large block"
+   },
+   {
+    "verb": "stack",
+    "description": "Large block placed on the table"
+   },
+   {
+    "verb": "stack",
+    "description": "Medium block stacked on top"
+   },
+   {
+    "verb": "stack",
+    "description": "Small block stacked on top of the pile"
+   }
+  ],
+  "12": [
+   {
+    "verb": "pick_up",
+    "description": "Hand picks scattered pens"
+   },
+   {
+    "verb": "arrange",
+    "description": "Pens are arranged in a row by length"
+   }
+  ],
+  "13": [
+   {
+    "verb": "wipe",
+    "description": "Cloth wipes crumbs from the table"
+   },
+   {
+    "verb": "remove",
+    "description": "Cup removed from the surface"
+   },
+   {
+    "verb": "clean",
+    "description": "Surface cleaned with the cloth"
+   }
+  ],
+  "14": [
+   {
+    "verb": "fold",
+    "description": "Cloth folded in half"
+   },
+   {
+    "verb": "fold",
+    "description": "Cloth folded in half again"
+   },
+   {
+    "verb": "fold",
+    "description": "Cloth folded into a final square"
+   }
+  ],
+  "15": [
+   {
+    "verb": "pick_up",
+    "description": "Hand picks the spoon"
+   },
+   {
+    "verb": "store",
+    "description": "Spoon put away in the drawer"
+   },
+   {
+    "verb": "pick_up",
+    "description": "Hand picks the fork"
+   },
+   {
+    "verb": "store",
+    "description": "Fork put away in the drawer"
+   }
+  ]
+ }
+}

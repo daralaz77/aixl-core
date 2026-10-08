@@ -1,0 +1,40 @@
+{
+ "description": "ReclamaYa: user's requested remedy (peticion) vs the AI-polished peticion.",
+ "aixl_mode": "advisory",
+ "check_proper_nouns": true,
+ "classes": {
+  "R_REFUND": "\\b(reembols|devol|devuelv|restitu|reintegr|regres[ae]\\w*\\s+(el\\s+)?dinero)",
+  "R_REPAIR": "\\b(repar|arregl)",
+  "R_REPLACE": "\\b(reemplaz|sustitu|cambi(o|e|en|ar)\\b)",
+  "R_DELIVER": "\\bentreg",
+  "R_CANCEL": "\\b(cancel|revi?ert|revers|anul|revoc)",
+  "R_COMPENSATE": "\\b(compens|indemniz|resarc)",
+  "R_DISCOUNT": "\\b(descuent|rebaj|abon[oa])",
+  "R_CREDIT": "\\b(bono|credito|vale\\b|saldo\\s+a\\s+favor|cupon)",
+  "R_COLLECT": "\\b(cobr(o|ar|e|en)\\b|pago\\s+pendiente|pendiente)",
+  "P_FREE": "\\b(gratuit|gratis|sin\\s+(costo|cargo))",
+  "P_PAID": "\\b(con\\s+costo|a\\s+mi\\s+cargo|a\\s+cargo\\s+del|asum(o|ir)\\s+el\\s+costo)",
+  "S_NEW": "\\bnuev[oa]s?\\b",
+  "S_USED": "\\b(usad|segunda\\s+mano|reacondicion|reparad[oa]\\s+previ)",
+  "C_WRITTEN": "\\b(escrit|por\\s+escrito|correo|carta|radicad)",
+  "C_VERBAL": "\\b(verbal|oral|telefon|llamad|llamar)",
+  "M_INTEREST": "\\binteres",
+  "M_DEPOSIT": "\\b(deposit|fianza|garantia\\s+de\\s+arriendo)",
+  "M_EXTRA": "\\b(adicional|de\\s+mas|indebid|excedente)",
+  "M_ACCOUNT": "\\b(cuenta|tarjeta|factura|pasaje|tiquete|boleto)\\w*",
+  "D_FROM_USER": "\\b(yo\\s+le\\b|yo\\s+les\\b|\\b(le|les)\\s+(devuelva|devuelvo|pague|pago|entregue|entrego|reembolse))",
+  "Q_TOTAL": "\\b(total(mente)?|complet[oa]s?|integr\\w*|entero|enteros|todo\\s+el|todos?|todas?)\\b",
+  "L_LEGAL": "\\blegal",
+  "L_COMMERCIAL": "\\bcomercial"
+ },
+ "check_coverage": true,
+ "strict_added": [
+  "D_FROM_USER"
+ ],
+ "coverage_allow": [
+  "valo",
+  "dine",
+  "paga",
+  "pagu"
+ ]
+}

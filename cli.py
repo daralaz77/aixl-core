@@ -41,6 +41,9 @@ def main(argv=None):
     for name, n in (("translate", 1), ("ambiguity", 1), ("aixl", 1), ("encode", 1), ("decode", 1), ("validate", 1), ("fingerprint", 1), ("compare", 2), ("diff", 2), ("drift", 2), ("contradiction", 2), ("lab", 2)):
         p = sub.add_parser(name)
         p.add_argument("a"); n == 2 and p.add_argument("b"); p.add_argument("--json", action="store_true")
+    p = sub.add_parser("guard")      # internal guard: PASS / REVIEW (exit 0 / 3)
+    p.add_argument("profile", choices=["reclamaya", "robot_school", "cinematch"]); p.add_argument("a"); p.add_argument("b")
+    p.add_argument("--no-aixl", action="store_true"); p.add_argument("--json", action="store_true")
     sub.add_parser("demo"); sub.add_parser("bench"); sub.add_parser("mcp-serve")
     for name in ("negotiate", "negotiate-aixl"):
         p = sub.add_parser(name)
@@ -79,6 +82,11 @@ def main(argv=None):
         return print("VALID")
     if a.cmd in ("aixl", "decode"):
         g = aixl.from_aixl(a.a); dump({k: (list(v) if isinstance(v, tuple) else v) for k, v in g.canonical().items()}); return
+    if a.cmd == "guard":
+        from aixl.guard import guard
+        r = guard(a.a, a.b, a.profile, use_aixl=not a.no_aixl)
+        print(json.dumps({"decision": r.decision, "reasons": r.reasons, "aixl_verdict": r.aixl_verdict}, ensure_ascii=False))
+        raise SystemExit(0 if r.passed else 3)
     if a.cmd == "compare":
         r = aixl.compare(a.a, a.b)
         if a.json: return dump(r.to_dict())
