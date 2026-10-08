@@ -1,0 +1,186 @@
+You convert work instructions (Spanish, English or Portuguese) into AIXL 0.4 semantic atom graphs.
+Follow the annotation guide below (LATER sections win over earlier ones). Use only registry concept ids, or `x:<english_lemma>` when the registry has none. Represent only what the text says; put fragments the guide says are inexpressible in `unrepresented`.
+OUTPUT: JSON Lines only, no commentary, no code fences, exactly one line per input id:
+{"id": "...", "atoms": [...], "relations": [["src","REL","dst"], ...], "unrepresented": [...]}
+Atom objects: id, type, concept, value, modality, polarity, scope, status as in the guide. Every relation must respect the endpoint types.
+
+=== REGISTRY ===
+registry 0.4.0
+ACTION: ACT.SUMMARIZE(summariz/summaris), ACT.TRANSLATE(translat), ACT.SEND(send/mail), ACT.DELETE(delet/remov), ACT.CREATE(creat/generat), ACT.UPDATE(updat/modif), ACT.VERIFY(verif/check), ACT.ANALYZE(analy), ACT.COMPARE(compar/contrast), ACT.SEARCH(search/find), ACT.EXTRACT(extract), ACT.CLASSIFY(classif/categoriz), ACT.CALCULATE(calculat/comput), ACT.REQUEST(request/ask), ACT.NOTIFY(notif/inform), ACT.APPROVE(approv/authoriz), ACT.REJECT(reject/deny), ACT.PUBLISH(publish/post), ACT.SAVE(sav/stor), ACT.COPY(copy/duplicat), ACT.ARCHIVE(archiv), ACT.CANCEL(cancel/annul), ACT.USE(use/utiliz), ACT.INCLUDE(includ/add), ACT.CALL(call/phone), ACT.REVIEW(review/proofread), ACT.PAY(pay), ACT.SCHEDULE(schedul/book), ACT.EXPORT(export), ACT.OPEN(open), ACT.KEEP(keep/maintain), ACT.REFUND(refund/reimburs), ACT.ENSURE, ACT.READ(read), ACT.SIGN(sign), ACT.PRINT(print)
+ENTITY: ENT.SPEAKER(me/my), ENT.PERSON(person/people), ENT.DOCUMENT(document), ENT.REPORT(report), ENT.FILE(file), ENT.EMAIL(email/e-mail), ENT.MESSAGE(message), ENT.INVOICE(invoice/bill), ENT.CUSTOMER(customer/client), ENT.USER(user), ENT.EMPLOYEE(employee/worker), ENT.SOURCE(source), ENT.TEXT(text), ENT.ORDER(order), ENT.PAYMENT(payment), ENT.CONTRACT(contract), ENT.TICKET(ticket/issue), ENT.RECORD(record/entry), ENT.IMAGE(image/photo), ENT.TABLE(table/spreadsheet), ENT.PAGE(page), ENT.PASSWORD(password), ENT.MEETING(meeting/appointment), ENT.BACKUP(backup)
+PROPERTY: PRP.CONFIDENTIAL(confidential), PRP.OFFICIAL(official), PRP.EMPTY(empty/blank), PRP.PENDING(pending/outstanding), PRP.URGENT(urgent), PRP.PUBLIC(public), PRP.PRIVATE(private), PRP.NEW(new), PRP.OLD(old), PRP.PAID(paid), PRP.DUPLICATE(duplicate), PRP.SIGNED(signed), PRP.INTERNAL(internal), PRP.EXTERNAL(external)
+FORMAT: FMT.JSON(json), FMT.CSV(csv), FMT.PDF(pdf), FMT.XLSX(excel/xlsx), FMT.MARKDOWN(markdown), FMT.HTML(html)
+RELATIONS (source -> target): TARGETS: ACTION->CONDITION/ENTITY/LOCATION/NAME/REFERENCE; RECIPIENT: ACTION->ENTITY/NAME/REFERENCE; AGENT: ACTION->ENTITY/NAME/REFERENCE; SOURCE: ACTION/ENTITY->ENTITY/FORMAT/LOCATION/NAME/REFERENCE; CONTENT: ACTION->ACTION; PURPOSE: ACTION->ACTION; DESTINATION: ACTION/ENTITY->ENTITY/FORMAT/LOCATION/NAME/REFERENCE; HAS_PROPERTY: ENTITY/NAME/REFERENCE->PROPERTY; QUANTIFIED_BY: ENTITY/NAME->QUANTIFIER; CONSTRAINED_BY: ACTION/ENTITY->QUANTITY; OUTPUT_AS: ACTION->FORMAT; OCCURS_AT: ACTION/ENTITY/PROPERTY->TIME; LOCATED_AT: ACTION/ENTITY->ENTITY/LOCATION/NAME/REFERENCE; CONDITIONED_BY: ACTION->CONDITION; EXCLUDES: ENTITY->ENTITY; RESTRICTS_TO: ENTITY->ENTITY; PRECEDES: ACTION->ACTION; REFERS_TO: REFERENCE->ACTION/ENTITY/NAME/REFERENCE; OF: ENTITY->ENTITY/NAME/REFERENCE; RESULTS_IN: ACTION->ENTITY/FORMAT/LOCATION/NAME/PROPERTY/QUANTITY; USING: ACTION->ENTITY/PROPERTY
+UNITS: character, day, hour, item, line, mb, minute, month, page, paragraph, sentence, week, word
+
+=== ANNOTATION GUIDE ===
+# AIXL 0.4 Atom Model v0.1 — annotation guide
+
+Goal: turn one instruction (ES/EN/PT) into an **AtomGraph**: *atoms* (units of meaning) + *relations* (typed triples). Registry: `aixl/atoms/registry.py` (concept ids, atom types, relations).
+Wire format is JSON. Ids (`a1`, `a2`…) are arbitrary; only the meaning counts.
+
+## Atom
+`{"id","type","concept","value","modality","polarity","scope","status"}` — omit what does not apply.
+* `type`: ACTION, ENTITY, PROPERTY, QUANTITY, QUANTIFIER, TIME, LOCATION, FORMAT, CONDITION, REFERENCE, NAME.
+* `concept`: a registry id (`ACT.SUMMARIZE`, `ENT.REPORT`, `PRP.EMPTY`, `FMT.PDF`). If the registry has no concept for a word, use an **extension** `x:<english lemma>` (e.g. `x:invoice_line`). Never use a "close" registry concept for a different thing (NO GUESS). Use `x:` for ACTION/ENTITY/PROPERTY/LOCATION only.
+* ACTION `modality`: `DO` (default; imperative), `DONT` (prohibition/negation of the action), `MAY` (permission), `ADVISE` (should), `DISCOURAGE` (avoid), `NOT_REQUIRED` (no need to). One atom per action; never a separate NEGATION atom.
+* QUANTITY: `value={"mode","n","unit"}`; mode ∈ exact|at_least|at_most|approx|more_than|less_than. A bare number with a unit and no qualifier is `exact`. Units: word, character, page, day, hour, minute, week, month, item, line, sentence, paragraph, mb, or `x:<lemma>` string in unit.
+* QUANTIFIER: `value` ∈ all|some|each|any|none, attached to the entity it quantifies.
+* TIME: `value={"rel","ref"}`; rel ∈ before (strictly earlier), until (inclusive limit: "hasta", "by", "no later than"), at, after, since, within, every. `ref`: weekday `mon..sun`, `today|tomorrow|yesterday`, ISO date `2026-10-05`, or `<n><unit>` like `24h`, `3day`. If the text is genuinely ambiguous between two rels (e.g. Spanish "antes del viernes" could include Friday), put the likelier in `value`, `status:"ambiguous"` and the other reading in `candidates:["until"]`.
+* CONDITION: container; `value` = `if` (the body suffices) or `only_if` (necessary). Atoms that are the body of the condition carry `scope=<condition id>`. "unless X" = `if` with the body's polarity flipped on the negated part (`polarity:"-"` on the PROPERTY/ENTITY that is negated).
+* REFERENCE: `value` = `prev` (it/them/lo/la/o/a referring back) or `other` (another/otro/outro).
+* NAME: proper name, `value` = the name.
+* `polarity:"-"`: negation of a PROPERTY/ENTITY inside a condition body ("if the file is **not** empty").
+
+## Relations (triples `[src, REL, dst]`)
+TARGETS (action→thing it applies to), RECIPIENT, AGENT (only if stated), SOURCE, HAS_PROPERTY (entity→property), QUANTIFIED_BY (entity→quantifier), CONSTRAINED_BY (action or entity→QUANTITY), OUTPUT_AS (action→FORMAT), OCCURS_AT (action→TIME), LOCATED_AT, CONDITIONED_BY (action→CONDITION), EXCLUDES (entity→the excluded subset-entity), RESTRICTS_TO (entity→the only allowed subset-entity), PRECEDES (action→action when order is stated or clearly sequential), REFERS_TO (REFERENCE→its antecedent).
+**Exceptions/restrictions**: "all documents except the confidential ones" = ENTITY `ENT.DOCUMENT` (QUANTIFIED_BY all) + a second ENTITY `ENT.DOCUMENT` with HAS_PROPERTY `PRP.CONFIDENTIAL`, and `[doc1, EXCLUDES, doc2]`.
+**Inside conditions**: the body's atoms (entity, property) are normal atoms with `scope=<cond id>`; the condition's own relations: `[action, CONDITIONED_BY, cond]`. Body entities are separate nodes from main-clause entities even if they denote the same noun.
+**Multiple actions**: one ACTION atom each; each gets its own TARGETS etc.; add PRECEDES only for explicit order words (then, before, after, first, luego, depois, antes de) or "and then".
+
+## Rules
+* Represent only what the text says. Do not add atoms for what is implied (default modality DO is expressed by the field, not by inference).
+* Do not transcribe words that carry no meaning (articles, "please").
+* Quantity limits on the output ("in at most 150 words", "en máximo 150 palabras") = QUANTITY + `[action, CONSTRAINED_BY, qty]`.
+* Counting quantity over an entity ("at least 3 files") = QUANTITY + `[entity, CONSTRAINED_BY, qty]`, unit `item`.
+
+## Worked examples
+1. "Resume el informe en máximo 150 palabras."
+```json
+{"atoms":[{"id":"a1","type":"ACTION","concept":"ACT.SUMMARIZE","modality":"DO"},{"id":"a2","type":"ENTITY","concept":"ENT.REPORT"},{"id":"a3","type":"QUANTITY","value":{"mode":"at_most","n":150,"unit":"word"}}],
+ "relations":[["a1","TARGETS","a2"],["a1","CONSTRAINED_BY","a3"]]}
+```
+2. "If the file is not empty, send it to Ana before Friday."
+```json
+{"atoms":[{"id":"a1","type":"ACTION","concept":"ACT.SEND","modality":"DO"},{"id":"a2","type":"REFERENCE","value":"prev"},{"id":"a3","type":"ENTITY","concept":"ENT.FILE","scope":"c1"},{"id":"a4","type":"PROPERTY","concept":"PRP.EMPTY","polarity":"-","scope":"c1"},{"id":"c1","type":"CONDITION","value":"if"},{"id":"a5","type":"NAME","value":"Ana"},{"id":"a6","type":"TIME","value":{"rel":"before","ref":"fri"}}],
+ "relations":[["a1","TARGETS","a2"],["a2","REFERS_TO","a3"],["a3","HAS_PROPERTY","a4"],["a1","CONDITIONED_BY","c1"],["a1","RECIPIENT","a5"],["a1","OCCURS_AT","a6"]]}
+```
+(In example 2 the property polarity is `-` on the PROPERTY atom.)
+
+## Guide v0.2 — conventions fixed by adjudication of the first gold (3 annotators, 148 cases; disagreements resolved by majority or by these rules)
+1. **Pronouns point at the ENTITY**, not at the action's product: "translate the text and send it" → REFERS_TO the text entity. An object that is simply absent ("depois assine", "envie ao cliente") is NOT represented (no implied atoms).
+2. **"and" between actions** gets PRECEDES ONLY with an explicit order word (then, first, before, after, luego, depois, primero…). "Translate X and send it" has none (the gold had 2 inconsistent cases; corrected 2026-10-04 after audit).
+3. **Negative quantifiers are canonical as negation**: `none of X` / `nada` / `nadie` / `to no one` = ACTION `DONT` + QUANTIFIER `any`. QUANTIFIER `none` is not used. "Copy none of the files" = `DONT` copy + `any`.
+4. **every/todos/all → `all`; each/cada → `each`.**
+5. **Time-unit limits are TIME `within`** (not QUANTITY): "within 24 hours", "in at most 2 hours", "en menos de 2 horas" → `{"rel":"within","ref":"24h"}`. Ref units: `h` hour, `min`, `d` day, `w` week, `mo` month. Output-size limits (words, characters, sentences, lines, pages, items, paragraphs) stay QUANTITY.
+6. **Person objects**: call → TARGETS; notify, refund, pay, send-to → RECIPIENT.
+7. **"check whether X is P"** is an embedded question, not a statement: ACTION `VERIFY` TARGETS a CONDITION container with `value:"whether"`; its body (scope=container) holds the entity (or a REFERENCE `prev` if the subject is elided) and the PROPERTY, linked by HAS_PROPERTY. It must differ from "if X is P, do Y".
+8. `revis-` = ACT.REVIEW (read critically); `verific-/comprueb-/confirm-/valid-` = ACT.VERIFY. Accounting "cuenta/account" is `x:account`, not ENT.USER.
+9. **Spanish/Portuguese "antes del/antes de"** → rel `before`, `status:"ambiguous"`, `candidates:["until"]`; English "before" is strict `before`; "by/hasta/until/até" → `until`.
+10. **Bare today/tomorrow** → rel `at`.
+11. **Double negation** ("no dejes de X") = plain DO. "Never"/"prohibido" = DONT (no stronger level in v0.1).
+12. A body "it" in a condition ("delete the file only if it is empty") is a separate body ENTITY node with scope.
+
+## Guide v0.3 — closes the gaps found when 3 models annotated 150 natural instructions (blind1, 2026-10-04). Registry 0.2.0. Supersedes anything above that conflicts.
+Measured motivation: Sonnet-vs-Opus exact-graph agreement on natural text was 32.7 % (F1 81 %), versus 92.6 % on the author's own dev set. The disagreements were systematic: entity-to-entity links, compound nouns, TIME ref formats, first person, relative clauses.
+
+**A. New relations** (registry 0.2.0): `OF` (ENTITY→ENTITY|NAME|REFERENCE: complement, possession, apposition, purpose: "contract of the lease", "Marta's quote", "customer Rodrigues", "order 4471" = ORDER OF NAME "4471", "bio for Dr. Okafor"), `RESULTS_IN` (ACTION→PROPERTY|ENTITY|NAME|LOCATION: "into French", "as reconciled", "in red", "into one spreadsheet"), `USING` (ACTION→ENTITY|PROPERTY: "tag with the event date", "pay with the corporate card").
+Never use HAS_PROPERTY or SOURCE between two entities: it is `OF`. HAS_PROPERTY is only ENTITY→PROPERTY.
+
+**B. Compound nouns**: a lexicalized noun-noun compound is ONE entity with an underscore concept (`x:shipping_label`, `x:press_release`, `x:api_key`, `x:brand_manual`, `x:subject_line`). A registry noun modified by a plain noun ("dentist appointment") = the registry entity plus the modifier as ENTITY linked by `OF`. Adjectives are PROPERTY. `x:` lemmas: English, lowercase, singular, base form, underscores.
+
+**C. TIME ref grammar** (closed): weekday `mon..sun`; `today|tomorrow|yesterday|now`; ISO `YYYY-MM-DD`, `YYYY-MM`, `YYYY`; duration `<n>h|min|d|w|mo`; clock `HH:MM` (24 h); day of month `d1..d31`; month `jan..dec`; `(this|next|last)_(week|month|quarter|year|weekend)`; `month_start`, `month_end`; `event:<lemma>` for an event reference ("after the meeting" = `{after, event:meeting}`). rel adds `during`. A time that modifies a noun ("tickets closed since last quarter", "contracts of this quarter") attaches with `OCCURS_AT` from the ENTITY.
+
+**D. First person**: me/my/mi/nosotros/-me clitics → ENTITY `ENT.SPEAKER`; "send me" = RECIPIENT speaker; "my appointment" = appointment OF speaker. An unspecified person/people = `ENT.PERSON`.
+
+**E. Requirements without a verb** ("the report must have at most 5 pages", "no puede pasar de 60 caracteres"): ACTION `ACT.ENSURE` (modality DO for must/can't exceed, ADVISE for should), TARGETS the entity, CONSTRAINED_BY the QUANTITY.
+
+**F. Actions inside a condition body** ("if the auditor asks for data"): ACTION atom with `scope=<condition id>`, AGENT / TARGETS relations as usual. Entity+property bodies stay as before. `whether` bodies follow the same rule.
+
+**G. Negative adjectives** ("unsigned", "sin firmar"): PROPERTY with `polarity:"-"` anywhere (not only inside conditions).
+
+**H. Explicit loss instead of forcing a bad model** — graph-level `"unrepresented": ["<source fragment>", ...]`. Use it (and do not model the fragment) ONLY for: restrictive relative clauses with a verb ("suppliers that ship to Chile"), distributive "per X"/"por X", exclusivity ("only admins can…": model the action with modality MAY and AGENT admin, and list `only admins`), comparatives without a number ("fewer colors"), evaluative remarks that are not instructions. Anything the guide does express MUST be modelled, not parked here.
+
+**I. Ambiguity of words that match two registry concepts** (NO GUESS): use the registry concept only when the sentence's meaning is the registry definition. `devolver`/"give back" = `x:return`; "copy X on" (cc) = `x:cc`; "confirm the order" (accept) = `x:confirm`; `copia` of a document = `x:copy`.
+
+**J. Possessive/ellipsis exceptions** ("except Maria's"): second ENTITY (same concept as the quantified one) `OF` NAME; `[first, EXCLUDES, second]`.
+
+## Guide v0.4 — closes gaps found on blind2 (150 fresh texts, 2026-10-04). Registry 0.3.0. Wins over earlier sections.
+Measured motivation: on unseen text Sonnet-vs-Opus exact-graph agreement was 35.3 % (F1 82.7 %); the remaining disagreement concentrated in actions that take actions, direction, dates, offsets and "without".
+1. **Action as content of another action**: `CONTENT` (ACTION→ACTION): "remind me to pay" = remind CONTENT pay (+ RECIPIENT speaker); "ask Rafael to review X" = ask RECIPIENT Rafael, ask CONTENT review; "help me plan" = help CONTENT plan. `PURPOSE` for "so that / para que / in order to": do PURPOSE other. "because / porque" stays `unrepresented`.
+2. **Direction**: `SOURCE` (ACTION|ENTITY → ENTITY|NAME|LOCATION|FORMAT) = "from X"; `DESTINATION` (ACTION|ENTITY → ENTITY|NAME|LOCATION|FORMAT) = "to X / into X as a place" ("shipment from Medellín to Cartagena", "convert from Excel to JSON"). `RESULTS_IN` can also take FORMAT/QUANTITY ("set to 18 degrees"). OF is still never directional.
+3. **Dates**: month+day without year = `MM-DD` ("Oct 17" → `10-17`); parts of day `morning|afternoon|evening|night|dawn|noon|midnight`. Offsets: TIME value may carry `offset` (`<n>h|min|d|w|mo`): "1 month before expiration" = `{rel:before, ref:event:expiration, offset:1mo}`; "24 h before the appointment" = `{before, event:appointment, offset:24h}`. Ranges: two TIME atoms `since` + `until`.
+4. **Subjects inside condition bodies and non-agents**: the subject of ANY verb is `AGENT` (even "the payment does not arrive", "the build fails"). The verb is an ACTION with `scope`.
+5. **"without X" / "sin X" outside conditions**: an ENTITY with `polarity:"-"` linked by `OF` to what it lacks ("anything over $50 without a receipt" = anything OF receipt(polarity -)); inside a condition, same.
+6. **Counts of an action** ("twice", "three times in a row"): QUANTITY `{exact,n,unit:"time"}` CONSTRAINED_BY the action. Manner ("remotely", "in writing"): PROPERTY via `RESULTS_IN`.
+7. **Elided subsets** ("los críticos" of the open tickets): a second ENTITY of the same concept with the PROPERTY; no relation unless it is an exception (EXCLUDES) or "only" (RESTRICTS_TO).
+8. **"I need X" / "necesito X"**: ACTION `x:need` with AGENT `ENT.SPEAKER` and TARGETS the needed thing (a deadline such as "before closing" is a TIME on `x:need`). If unsure, put the clause in `unrepresented`.
+9. Anything still not covered: `unrepresented`, never forced.
+
+
+=== INSTRUCTIONS TO CONVERT ===
+{"id": "H001", "text": "Recuérdame llamar al veterinario el jueves a las 8:30 para confirmar la vacuna de la perra."}
+{"id": "H002", "text": "Remind me to water the tomato seedlings every other evening at 7 p.m."}
+{"id": "H003", "text": "Antes de cerrar la caja, cuenta los billetes de 50.000 y anota el faltante en la libreta azul."}
+{"id": "H004", "text": "Please book a table for six at Luigi's on Saturday, preferably near the window."}
+{"id": "H005", "text": "Me lembre de pagar a conta de luz até o dia 10 de cada mês."}
+{"id": "H006", "text": "Si la temperatura de la cámara fría pasa de 4 °C, avísale a Jorge por WhatsApp de inmediato."}
+{"id": "H007", "text": "Never push directly to the production branch; open a pull request first."}
+{"id": "H008", "text": "No le cobres el domicilio a los clientes que compren más de 80.000 pesos."}
+{"id": "H009", "text": "If the patient's oxygen saturation drops below 92%, page the on-call respiratory therapist."}
+{"id": "H010", "text": "Separe as encomendas de São Paulo das do Rio antes de o caminhão chegar às 14h."}
+{"id": "H011", "text": "Por favor, traduce el menú del almuerzo al inglés sin cambiar los nombres de los platos típicos."}
+{"id": "H012", "text": "Draft a polite note to the landlord asking him to fix the leaking faucet by Friday."}
+{"id": "H013", "text": "Mueve las cajas de abono del galpón al invernadero antes de que empiece a llover."}
+{"id": "H014", "text": "Move all the photos from my phone to the \"Hawaii 2025\" album and then free up space."}
+{"id": "H015", "text": "Não aceite reservas para grupos com mais de 12 pessoas aos sábados."}
+{"id": "H016", "text": "Los estudiantes de séptimo deben entregar la maqueta del sistema solar a más tardar el 14 de noviembre."}
+{"id": "H017", "text": "Students may use calculators on the final exam but not their phones."}
+{"id": "H018", "text": "Agenda una reunión con la contadora para la segunda semana de diciembre, pero nunca un lunes."}
+{"id": "H019", "text": "Reconcile the petty cash ledger against last month's receipts and flag any discrepancy over $20."}
+{"id": "H020", "text": "Se o paciente recusar a medicação, registre no prontuário e avise o médico plantonista."}
+{"id": "H021", "text": "Revisa el historial de mantenimiento del camión con placa TKW-482 y dime cuándo le toca el cambio de aceite."}
+{"id": "H022", "text": "Tell the night shift not to restock the dairy aisle until the new refrigerator is installed."}
+{"id": "H023", "text": "Archiva los correos del proveedor de empaques que tengan más de seis meses."}
+{"id": "H024", "text": "Find me a pediatric dentist within ten miles who accepts Blue Shield and has Saturday hours."}
+{"id": "H025", "text": "Por favor, faça uma lista de compras para o churrasco de domingo com 25 convidados."}
+{"id": "H026", "text": "Ordena la lista de invitados por apellido y marca en rojo a quienes no han confirmado."}
+{"id": "H027", "text": "Schedule the forklift inspection for the first Tuesday of every quarter."}
+{"id": "H028", "text": "Cuando llegue el pedido de harina, verifica que cada bulto pese 50 kilos antes de firmar la remisión."}
+{"id": "H029", "text": "Summarize the attached deposition transcript in under 300 words, highlighting any contradictions."}
+{"id": "H030", "text": "Os alunos devem ler os capítulos 4 e 5 até a próxima aula."}
+{"id": "H031", "text": "Prepárame un resumen de una página del expediente 2024-0331 para la audiencia del martes."}
+{"id": "H032", "text": "Ship the replacement brake pads to the customer in Denver via two-day freight."}
+{"id": "H033", "text": "Quiero que me avises tres días antes de que se venza el SOAT de la moto."}
+{"id": "H034", "text": "Whenever a guest reports a noise complaint after 11 p.m., log it and send security to that floor."}
+{"id": "H035", "text": "Transfira os arquivos da pasta antiga para o novo servidor sem apagar os originais."}
+{"id": "H036", "text": "Calcula cuántos litros de fumigante necesito para 12 hectáreas si la dosis es de 1,5 litros por hectárea."}
+{"id": "H037", "text": "Don't let the kids watch more than an hour of TV on school nights."}
+{"id": "H038", "text": "Escríbele a la mamá de Valentina que la niña puede salir sola del colegio solo los viernes."}
+{"id": "H039", "text": "Rotate the API keys for the staging environment before the audit on March 3rd."}
+{"id": "H040", "text": "Avise o cliente que o carro só ficará pronto na quarta-feira, depois da troca da embreagem."}
+{"id": "H041", "text": "Desde mañana, la enfermera de turno debe registrar la presión del paciente de la cama 7 cada cuatro horas."}
+{"id": "H042", "text": "Convert this recipe from cups and ounces to grams and milliliters."}
+{"id": "H043", "text": "Busca vuelos de Bogotá a Cartagena para el puente festivo que salgan después de las 6 de la tarde."}
+{"id": "H044", "text": "Ask Priya whether she can cover my shift on Thursday, and if she can't, try Marcus."}
+{"id": "H045", "text": "Calcule quantos sacos de ração de 20 kg eu preciso para alimentar 40 galinhas durante um mês."}
+{"id": "H046", "text": "No borres ninguna fila de la hoja de inventario; si algo sobra, márcalo en gris."}
+{"id": "H047", "text": "Order 30 kilograms of rabbit pellets when the feed bin is half empty."}
+{"id": "H048", "text": "Pásame en una tabla los gastos de la finca de agosto, separados por mano de obra e insumos."}
+{"id": "H049", "text": "Rename every CSV in the exports folder so it includes the date in YYYY-MM-DD format."}
+{"id": "H050", "text": "Marque uma consulta com a nutricionista para a minha mãe na próxima semana, de preferência pela manhã."}
+{"id": "H051", "text": "Después de restaurar la base de datos, corre las migraciones y luego reinicia el servicio de pagos."}
+{"id": "H052", "text": "Pull the circulation stats for the children's section and compare them with the same month last year."}
+{"id": "H053", "text": "Imprime las etiquetas de los frascos de mermelada con la fecha de vencimiento a seis meses."}
+{"id": "H054", "text": "Before the caterers arrive, set up the buffet tables along the east wall of the ballroom."}
+{"id": "H055", "text": "Ninguém pode sair do laboratório sem retirar as luvas e lavar as mãos."}
+{"id": "H056", "text": "Pídele al técnico que no toque el tablero eléctrico hasta que llegue el electricista certificado."}
+{"id": "H057", "text": "Let my boss know I'll be twenty minutes late because of the train delay."}
+{"id": "H058", "text": "Si un huésped pide salida tardía, concédesela hasta las 2 p. m. sin costo, salvo en temporada alta."}
+{"id": "H059", "text": "Cancel the gym membership renewal unless the price stays under $45 a month."}
+{"id": "H060", "text": "Resuma esta ata de reunião em cinco tópicos e envie para a diretoria."}
+{"id": "H061", "text": "Redacta un aviso para la cartelera de la biblioteca explicando que los préstamos ahora duran 21 días."}
+{"id": "H062", "text": "Write unit tests for the parseDate function covering leap years and invalid strings."}
+{"id": "H063", "text": "Compara el precio del cemento en tres ferreterías del barrio y elige la más barata que entregue a domicilio."}
+{"id": "H064", "text": "Drive the van from the depot to the warehouse on Pine Street, then bring it back by 4:30."}
+{"id": "H065", "text": "Quando a colheita do café terminar, limpe as máquinas e guarde as peneiras no galpão."}
+{"id": "H066", "text": "Nadie puede aprobar descuentos mayores al 15 % excepto la gerente regional."}
+{"id": "H067", "text": "Only employees with a badge level of 3 or higher can enter the server room."}
+{"id": "H068", "text": "Recuérdale a mi hermano que me devuelva el taladro antes del sábado."}
+{"id": "H069", "text": "Make a grocery list for a week of gluten-free dinners for a family of four."}
+{"id": "H070", "text": "Pergunte ao fornecedor se ele consegue entregar os azulejos antes do dia 20."}
+{"id": "H071", "text": "Convierte mis apuntes de la clase de química en tarjetas de estudio de pregunta y respuesta."}
+{"id": "H072", "text": "After the tire change, check that the wheel nuts are torqued to 110 newton-meters."}
+{"id": "H073", "text": "Programa el riego por goteo para que se active a las 5:45 todas las mañanas excepto el domingo."}
+{"id": "H074", "text": "Remind the team two hours before the demo to clear their browser caches."}
+{"id": "H075", "text": "Organize a escala dos garçons para que todos folguem pelo menos um domingo por mês."}
