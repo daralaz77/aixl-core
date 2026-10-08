@@ -39,8 +39,13 @@ def sanitize_input(text: str) -> tuple[str, list]:
     return text, findings
 
 
-def strip_accents(s: str) -> str:
+def _strip_accents_slow(s: str) -> str:
     return "".join(unicodedata.normalize("NFD", c)[0] for c in s).lower()
+
+
+def strip_accents(s: str) -> str:
+    # ASCII fast path: NFD of an ASCII char is the char itself, so the per-character normalisation is the identity (proved exhaustively in tests/test_normalizer_fastpath.py)
+    return s.lower() if s.isascii() else _strip_accents_slow(s)
 
 
 # ---- extension actions (verbs the 0.2 lexicon does not cover), matched on accent-stripped lowercase text ----
