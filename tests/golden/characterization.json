@@ -1,0 +1,3404 @@
+{
+ "Activa la alerta.": {
+  "compact": "A:ENABLE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "88976e3a231b2de0",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   4
+  ],
+  "tele": "enable"
+ },
+ "Actualiza el modelo #3.": {
+  "compact": "A:UPDATE E:MODEL Y:#3",
+  "env": [
+   true,
+   "d7cfa0f9"
+  ],
+  "fp": "d7cfa0f9662d4340",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "update model #3"
+ },
+ "Actualiza el producto #5.": {
+  "compact": "A:UPDATE E:PRODUCT Y:#5",
+  "env": [
+   true,
+   "1a5a663d"
+  ],
+  "fp": "1a5a663dda9855a4",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "update product #5"
+ },
+ "Allow deleting the report.": {
+  "compact": "A:DELETE E:REPORT K:ALLOW_DELETE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "3024261bcc4b411b",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   13
+  ],
+  "tele": "delete report allow_delete"
+ },
+ "Analise as vendas do primeiro trimestre de 2026.": {
+  "compact": "A:ANALYZE D:SALES T:Q1-2026",
+  "env": [
+   true,
+   "62ceecf4"
+  ],
+  "fp": "62ceecf4fc2e2663",
+  "gate": [
+   "AIXL",
+   "ok",
+   13
+  ],
+  "tele": "analyze sales q1-2026"
+ },
+ "Analiza 1.000 registros.": {
+  "compact": "A:ANALYZE K:QTY=1000:RECORDS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "a3d575f01eab3c40",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   12
+  ],
+  "tele": "analyze qty=1000:records"
+ },
+ "Analiza 1.000 usuarios.": {
+  "compact": "A:ANALYZE D:USERS K:QTY=1000:USERS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "d9d156bcc0429a94",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   16
+  ],
+  "tele": "analyze users qty=1000:users"
+ },
+ "Analiza 100 clientes.": {
+  "compact": "A:ANALYZE D:CUSTOMERS K:QTY=100:CUSTOMERS",
+  "env": [
+   true,
+   "f9b4a9cb"
+  ],
+  "fp": "f9b4a9cbcb50bf10",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   18
+  ],
+  "tele": "analyze customers qty=100:customers"
+ },
+ "Analiza 100 registros.": {
+  "compact": "A:ANALYZE K:QTY=100:RECORDS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "bc4025a32bb50c55",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   12
+  ],
+  "tele": "analyze qty=100:records"
+ },
+ "Analiza 100 usuarios.": {
+  "compact": "A:ANALYZE D:USERS K:QTY=100:USERS",
+  "env": [
+   true,
+   "965c6c80"
+  ],
+  "fp": "965c6c80a4c24fa0",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   16
+  ],
+  "tele": "analyze users qty=100:users"
+ },
+ "Analiza 1000 registros.": {
+  "compact": "A:ANALYZE K:QTY=1000:RECORDS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "a3d575f01eab3c40",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   12
+  ],
+  "tele": "analyze qty=1000:records"
+ },
+ "Analiza 1000 usuarios.": {
+  "compact": "A:ANALYZE D:USERS K:QTY=1000:USERS",
+  "env": [
+   true,
+   "d9d156bc"
+  ],
+  "fp": "d9d156bcc0429a94",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   16
+  ],
+  "tele": "analyze users qty=1000:users"
+ },
+ "Analiza 20 clientes.": {
+  "compact": "A:ANALYZE D:CUSTOMERS K:QTY=20:CUSTOMERS",
+  "env": [
+   true,
+   "79b24ccc"
+  ],
+  "fp": "79b24ccc8edf48f2",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   18
+  ],
+  "tele": "analyze customers qty=20:customers"
+ },
+ "Analiza 200 registros.": {
+  "compact": "A:ANALYZE K:QTY=200:RECORDS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "24ca314d4baad45b",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   12
+  ],
+  "tele": "analyze qty=200:records"
+ },
+ "Analiza 2026 Q3.": {
+  "compact": "A:ANALYZE T:Q3-2026",
+  "env": [
+   true,
+   "f8cf32f6"
+  ],
+  "fp": "f8cf32f605a444d1",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze q3-2026"
+ },
+ "Analiza 2026-03.": {
+  "compact": "A:ANALYZE T:2026-03",
+  "env": [
+   true,
+   "16f9b49a"
+  ],
+  "fp": "16f9b49aeb204b2c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze 2026-03"
+ },
+ "Analiza Q1 2026.": {
+  "compact": "A:ANALYZE T:Q1-2026",
+  "env": [
+   true,
+   "0640b361"
+  ],
+  "fp": "0640b361728005f9",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze q1-2026"
+ },
+ "Analiza Q3 2026.": {
+  "compact": "A:ANALYZE T:Q3-2026",
+  "env": [
+   true,
+   "f8cf32f6"
+  ],
+  "fp": "f8cf32f605a444d1",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze q3-2026"
+ },
+ "Analiza Q4 2025.": {
+  "compact": "A:ANALYZE T:Q4-2025",
+  "env": [
+   true,
+   "0dd38e29"
+  ],
+  "fp": "0dd38e29363d4c76",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze q4-2025"
+ },
+ "Analiza abril de 2026.": {
+  "compact": "A:ANALYZE T:2026-04",
+  "env": [
+   true,
+   "7aa66a1b"
+  ],
+  "fp": "7aa66a1b36f41f8c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze 2026-04"
+ },
+ "Analiza cien registros.": {
+  "compact": "A:ANALYZE K:QTY=100:RECORDS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "bc4025a32bb50c55",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   12
+  ],
+  "tele": "analyze qty=100:records"
+ },
+ "Analiza el 2026-03-15.": {
+  "compact": "A:ANALYZE T:2026-03-15",
+  "env": [
+   true,
+   "25830f03"
+  ],
+  "fp": "25830f030da18ede",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "analyze 2026-03-15"
+ },
+ "Analiza el 2026-03-16.": {
+  "compact": "A:ANALYZE T:2026-03-16",
+  "env": [
+   true,
+   "ed8728fe"
+  ],
+  "fp": "ed8728fec4c58a82",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "analyze 2026-03-16"
+ },
+ "Analiza el audio.": {
+  "compact": "A:ANALYZE D:AUDIO",
+  "env": [
+   true,
+   "568aaede"
+  ],
+  "fp": "568aaedebf001459",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "analyze audio"
+ },
+ "Analiza el año 2025.": {
+  "compact": "A:ANALYZE T:2025",
+  "env": [
+   true,
+   "ad4c0162"
+  ],
+  "fp": "ad4c01622483c59d",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "analyze 2025"
+ },
+ "Analiza el cuarto trimestre de 2025.": {
+  "compact": "A:ANALYZE T:Q4-2025",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "0dd38e29363d4c76",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   9
+  ],
+  "tele": "analyze q4-2025"
+ },
+ "Analiza el total de ventas.": {
+  "compact": "A:ANALYZE D:TOTAL_SALES",
+  "env": [
+   true,
+   "d1cf3b1e"
+  ],
+  "fp": "d1cf3b1e7f062d5f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze total_sales"
+ },
+ "Analiza el video.": {
+  "compact": "A:ANALYZE D:VIDEO",
+  "env": [
+   true,
+   "2ba62c1d"
+  ],
+  "fp": "2ba62c1d159535c6",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "analyze video"
+ },
+ "Analiza las imágenes.": {
+  "compact": "A:ANALYZE D:IMAGE",
+  "env": [
+   true,
+   "30b8d3d7"
+  ],
+  "fp": "30b8d3d78f22e892",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "analyze image"
+ },
+ "Analiza las ventas de Q1 2026.": {
+  "compact": "A:ANALYZE D:SALES T:Q1-2026",
+  "env": [
+   true,
+   "62ceecf4"
+  ],
+  "fp": "62ceecf4fc2e2663",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze sales q1-2026"
+ },
+ "Analiza las ventas de Q2 2026.": {
+  "compact": "A:ANALYZE D:SALES T:Q2-2026",
+  "env": [
+   true,
+   "d85e3684"
+  ],
+  "fp": "d85e36842383ee0c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze sales q2-2026"
+ },
+ "Analiza las ventas de ayer.": {
+  "compact": "A:ANALYZE D:SALES T:2026-10-07",
+  "env": [
+   true,
+   "e29dcdd8"
+  ],
+  "fp": "e29dcdd8d3f2ed7e",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   15
+  ],
+  "tele": "analyze sales 2026-10-07"
+ },
+ "Analiza las ventas de enero de 2026.": {
+  "compact": "A:ANALYZE D:SALES T:2026-01",
+  "env": [
+   true,
+   "ed2b2b34"
+  ],
+  "fp": "ed2b2b34d66d96bd",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze sales 2026-01"
+ },
+ "Analiza las ventas de hoy.": {
+  "compact": "A:ANALYZE D:SALES T:2026-10-08",
+  "env": [
+   true,
+   "f54a4aa2"
+  ],
+  "fp": "f54a4aa20af87b00",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   15
+  ],
+  "tele": "analyze sales 2026-10-08"
+ },
+ "Analiza las ventas de marzo de 2026.": {
+  "compact": "A:ANALYZE D:SALES T:2026-03",
+  "env": [
+   true,
+   "ce5f8027"
+  ],
+  "fp": "ce5f802758509046",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze sales 2026-03"
+ },
+ "Analiza las ventas del mes pasado.": {
+  "compact": "A:ANALYZE D:SALES T:2026-09",
+  "env": [
+   true,
+   "2aaea5af"
+  ],
+  "fp": "2aaea5afc0ca7ac6",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze sales 2026-09"
+ },
+ "Analiza las ventas del primer trimestre de 2026.": {
+  "compact": "A:ANALYZE D:SALES T:Q1-2026",
+  "env": [
+   true,
+   "62ceecf4"
+  ],
+  "fp": "62ceecf4fc2e2663",
+  "gate": [
+   "AIXL",
+   "ok",
+   13
+  ],
+  "tele": "analyze sales q1-2026"
+ },
+ "Analiza las ventas en CSV.": {
+  "compact": "A:ANALYZE D:SALES O:CSV",
+  "env": [
+   true,
+   "feedf62f"
+  ],
+  "fp": "feedf62fe7f0987a",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "analyze sales csv"
+ },
+ "Analiza las ventas en tabla.": {
+  "compact": "A:ANALYZE D:SALES O:TABLE",
+  "env": [
+   true,
+   "92888e93"
+  ],
+  "fp": "92888e93586ddc5f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "analyze sales table"
+ },
+ "Analiza las ventas.": {
+  "compact": "A:ANALYZE D:SALES",
+  "env": [
+   true,
+   "49c6301f"
+  ],
+  "fp": "49c6301f4074f9c5",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "analyze sales"
+ },
+ "Analiza los clientes del mes pasado.": {
+  "compact": "A:ANALYZE D:CUSTOMERS T:2026-09",
+  "env": [
+   true,
+   "fc2819f3"
+  ],
+  "fp": "fc2819f303095125",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   14
+  ],
+  "tele": "analyze customers 2026-09"
+ },
+ "Analiza los clientes.": {
+  "compact": "A:ANALYZE D:CUSTOMERS",
+  "env": [
+   true,
+   "a2c1cdbd"
+  ],
+  "fp": "a2c1cdbdd6c09cde",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze customers"
+ },
+ "Analiza los datos de los clientes.": {
+  "compact": "A:ANALYZE D:DATA,CUSTOMERS",
+  "env": [
+   true,
+   "a2c1cdbd"
+  ],
+  "fp": "a2c1cdbdd6c09cde",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "analyze data customers"
+ },
+ "Analiza los usuarios.": {
+  "compact": "A:ANALYZE D:USERS",
+  "env": [
+   true,
+   "c7437539"
+  ],
+  "fp": "c74375397bfc858e",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "analyze users"
+ },
+ "Analiza los videos de esta semana.": {
+  "compact": "A:ANALYZE D:VIDEO T:THIS_WEEK",
+  "env": [
+   true,
+   "ee36e567"
+  ],
+  "fp": "ee36e567fd4f5c52",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze video this_week"
+ },
+ "Analiza marzo de 2026.": {
+  "compact": "A:ANALYZE T:2026-03",
+  "env": [
+   true,
+   "16f9b49a"
+  ],
+  "fp": "16f9b49aeb204b2c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze 2026-03"
+ },
+ "Analyze 1,000 records.": {
+  "compact": "A:ANALYZE K:QTY=1000:RECORDS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "a3d575f01eab3c40",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   12
+  ],
+  "tele": "analyze qty=1000:records"
+ },
+ "Analyze 1,000 users.": {
+  "compact": "A:ANALYZE D:USERS K:QTY=1000:USERS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "d9d156bcc0429a94",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   16
+  ],
+  "tele": "analyze users qty=1000:users"
+ },
+ "Analyze 10 records.": {
+  "compact": "A:ANALYZE K:QTY=10:RECORDS",
+  "env": [
+   true,
+   "ef87e03a"
+  ],
+  "fp": "ef87e03a97bd3f73",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "analyze qty=10:records"
+ },
+ "Analyze 10,000 users.": {
+  "compact": "A:ANALYZE D:USERS K:QTY=10000:USERS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "18cbc7f17c7ea646",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   17
+  ],
+  "tele": "analyze users qty=10000:users"
+ },
+ "Analyze 100 records.": {
+  "compact": "A:ANALYZE K:QTY=100:RECORDS",
+  "env": [
+   true,
+   "bc4025a3"
+  ],
+  "fp": "bc4025a32bb50c55",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "analyze qty=100:records"
+ },
+ "Analyze 100 users.": {
+  "compact": "A:ANALYZE D:USERS K:QTY=100:USERS",
+  "env": [
+   true,
+   "965c6c80"
+  ],
+  "fp": "965c6c80a4c24fa0",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   16
+  ],
+  "tele": "analyze users qty=100:users"
+ },
+ "Analyze 1000 records.": {
+  "compact": "A:ANALYZE K:QTY=1000:RECORDS",
+  "env": [
+   true,
+   "a3d575f0"
+  ],
+  "fp": "a3d575f01eab3c40",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "analyze qty=1000:records"
+ },
+ "Analyze 20 customers.": {
+  "compact": "A:ANALYZE D:CUSTOMERS K:QTY=20:CUSTOMERS",
+  "env": [
+   true,
+   "79b24ccc"
+  ],
+  "fp": "79b24ccc8edf48f2",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   18
+  ],
+  "tele": "analyze customers qty=20:customers"
+ },
+ "Analyze 2026-03-15.": {
+  "compact": "A:ANALYZE T:2026-03-15",
+  "env": [
+   true,
+   "25830f03"
+  ],
+  "fp": "25830f030da18ede",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "analyze 2026-03-15"
+ },
+ "Analyze January 2025.": {
+  "compact": "A:ANALYZE T:2025-01",
+  "env": [
+   true,
+   "577f1c85"
+  ],
+  "fp": "577f1c85dd6a152a",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze 2025-01"
+ },
+ "Analyze January 2026.": {
+  "compact": "A:ANALYZE T:2026-01",
+  "env": [
+   true,
+   "a7cc3bee"
+  ],
+  "fp": "a7cc3bee1ceaac7f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze 2026-01"
+ },
+ "Analyze Q1 2026 sales.": {
+  "compact": "A:ANALYZE D:SALES T:Q1-2026",
+  "env": [
+   true,
+   "62ceecf4"
+  ],
+  "fp": "62ceecf4fc2e2663",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze sales q1-2026"
+ },
+ "Analyze Q3 2025.": {
+  "compact": "A:ANALYZE T:Q3-2025",
+  "env": [
+   true,
+   "5af3dfc2"
+  ],
+  "fp": "5af3dfc23f696d69",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze q3-2025"
+ },
+ "Analyze Q3 2026.": {
+  "compact": "A:ANALYZE T:Q3-2026",
+  "env": [
+   true,
+   "f8cf32f6"
+  ],
+  "fp": "f8cf32f605a444d1",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze q3-2026"
+ },
+ "Analyze Q4 2025.": {
+  "compact": "A:ANALYZE T:Q4-2025",
+  "env": [
+   true,
+   "0dd38e29"
+  ],
+  "fp": "0dd38e29363d4c76",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze q4-2025"
+ },
+ "Analyze customers from last month.": {
+  "compact": "A:ANALYZE D:CUSTOMERS T:2026-09",
+  "env": [
+   true,
+   "fc2819f3"
+  ],
+  "fp": "fc2819f303095125",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   14
+  ],
+  "tele": "analyze customers 2026-09"
+ },
+ "Analyze first quarter of 2026 sales.": {
+  "compact": "A:ANALYZE D:SALES T:Q1-2026",
+  "env": [
+   true,
+   "62ceecf4"
+  ],
+  "fp": "62ceecf4fc2e2663",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze sales q1-2026"
+ },
+ "Analyze last month.": {
+  "compact": "A:ANALYZE T:2026-09",
+  "env": [
+   true,
+   "75c47a29"
+  ],
+  "fp": "75c47a2904d1789c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze 2026-09"
+ },
+ "Analyze sales for 2025.": {
+  "compact": "A:ANALYZE D:SALES T:2025",
+  "env": [
+   true,
+   "c4e9a448"
+  ],
+  "fp": "c4e9a448b854d2e9",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "analyze sales 2025"
+ },
+ "Analyze sales for 2026-03.": {
+  "compact": "A:ANALYZE D:SALES T:2026-03",
+  "env": [
+   true,
+   "ce5f8027"
+  ],
+  "fp": "ce5f802758509046",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze sales 2026-03"
+ },
+ "Analyze sales for 2026.": {
+  "compact": "A:ANALYZE D:SALES T:2026",
+  "env": [
+   true,
+   "7a357196"
+  ],
+  "fp": "7a357196974e63b5",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "analyze sales 2026"
+ },
+ "Analyze sales for January 2026.": {
+  "compact": "A:ANALYZE D:SALES T:2026-01",
+  "env": [
+   true,
+   "ed2b2b34"
+  ],
+  "fp": "ed2b2b34d66d96bd",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze sales 2026-01"
+ },
+ "Analyze sales.": {
+  "compact": "A:ANALYZE D:SALES",
+  "env": [
+   true,
+   "49c6301f"
+  ],
+  "fp": "49c6301f4074f9c5",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "analyze sales"
+ },
+ "Analyze the customers report.": {
+  "compact": "A:ANALYZE D:CUSTOMERS E:REPORT",
+  "env": [
+   true,
+   "2e069cbf"
+  ],
+  "fp": "2e069cbf42d1410c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze customers report"
+ },
+ "Analyze the images.": {
+  "compact": "A:ANALYZE D:IMAGE",
+  "env": [
+   true,
+   "30b8d3d7"
+  ],
+  "fp": "30b8d3d78f22e892",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "analyze image"
+ },
+ "Analyze the sales report.": {
+  "compact": "A:ANALYZE D:SALES E:REPORT",
+  "env": [
+   true,
+   "89464704"
+  ],
+  "fp": "894647045724a521",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "analyze sales report"
+ },
+ "Analyze the sales.": {
+  "compact": "A:ANALYZE D:SALES",
+  "env": [
+   true,
+   "49c6301f"
+  ],
+  "fp": "49c6301f4074f9c5",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "analyze sales"
+ },
+ "Analyze the year 2025.": {
+  "compact": "A:ANALYZE T:2025",
+  "env": [
+   true,
+   "ad4c0162"
+  ],
+  "fp": "ad4c01622483c59d",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "analyze 2025"
+ },
+ "Analyze this month.": {
+  "compact": "A:ANALYZE T:2026-10",
+  "env": [
+   true,
+   "36c5bf23"
+  ],
+  "fp": "36c5bf23a2c73541",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "analyze 2026-10"
+ },
+ "Analyze this week's videos.": {
+  "compact": "A:ANALYZE D:VIDEO T:THIS_WEEK",
+  "env": [
+   true,
+   "ee36e567"
+  ],
+  "fp": "ee36e567fd4f5c52",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze video this_week"
+ },
+ "Analyze yesterday's sales.": {
+  "compact": "A:ANALYZE D:SALES T:2026-10-07",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "e29dcdd8d3f2ed7e",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   15
+  ],
+  "tele": "analyze sales 2026-10-07"
+ },
+ "Borra los archivos temporales #4.": {
+  "compact": "A:DELETE Y:#4",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "9fadfa8a14027fc3",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   8
+  ],
+  "tele": "delete #4"
+ },
+ "Busca empresas.": {
+  "compact": "A:SEARCH E:COMPANY",
+  "env": [
+   true,
+   "da650e54"
+  ],
+  "fp": "da650e54f40979b0",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "search company"
+ },
+ "Busca en el dataset de audio.": {
+  "compact": "A:SEARCH D:DATASET,AUDIO",
+  "env": [
+   true,
+   "7fd60398"
+  ],
+  "fp": "7fd60398f26043e8",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "search dataset audio"
+ },
+ "Busca eventos.": {
+  "compact": "A:SEARCH E:EVENT",
+  "env": [
+   true,
+   "10b240eb"
+  ],
+  "fp": "10b240eb181ec511",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "search event"
+ },
+ "Busca los eventos de hoy.": {
+  "compact": "A:SEARCH E:EVENT T:2026-10-08",
+  "env": [
+   true,
+   "abe45a3d"
+  ],
+  "fp": "abe45a3dda08da26",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   15
+  ],
+  "tele": "search event 2026-10-08"
+ },
+ "Busca personas.": {
+  "compact": "A:SEARCH E:PERSON",
+  "env": [
+   true,
+   "f101f190"
+  ],
+  "fp": "f101f190a7a3f385",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "search person"
+ },
+ "Calcula el total de ventas de 2025.": {
+  "compact": "A:CALCULATE D:TOTAL_SALES T:2025",
+  "env": [
+   true,
+   "c16ee85b"
+  ],
+  "fp": "c16ee85b88712e7f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "calculate total_sales 2025"
+ },
+ "Calcula las ventas de 2024.": {
+  "compact": "A:CALCULATE D:SALES T:2024",
+  "env": [
+   true,
+   "93620038"
+  ],
+  "fp": "93620038492d9904",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "calculate sales 2024"
+ },
+ "Calcula las ventas.": {
+  "compact": "A:CALCULATE D:SALES",
+  "env": [
+   true,
+   "2fa0d5cf"
+  ],
+  "fp": "2fa0d5cffc0bf867",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "calculate sales"
+ },
+ "Calcula los clientes.": {
+  "compact": "A:CALCULATE D:CUSTOMERS",
+  "env": [
+   true,
+   "d94c9517"
+  ],
+  "fp": "d94c9517347211df",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   10
+  ],
+  "tele": "calculate customers"
+ },
+ "Calculate the 2024 sales.": {
+  "compact": "A:CALCULATE D:SALES T:2024",
+  "env": [
+   true,
+   "93620038"
+  ],
+  "fp": "93620038492d9904",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "calculate sales 2024"
+ },
+ "Check the dataset.": {
+  "compact": "A:CHECK D:DATASET",
+  "env": [
+   true,
+   "801b40e5"
+  ],
+  "fp": "801b40e518b364cd",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "check dataset"
+ },
+ "Check the result.": {
+  "compact": "A:CHECK E:RESULT",
+  "env": [
+   true,
+   "c3c14d19"
+  ],
+  "fp": "c3c14d1994bfa521",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "check result"
+ },
+ "Compara el dataset #77 con el dataset #81.": {
+  "compact": "A:CMP D:DATASET Y:#77,#81",
+  "env": [
+   true,
+   "91f7525e"
+  ],
+  "fp": "91f7525ef115f5ae",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   14
+  ],
+  "tele": "cmp dataset #77 #81"
+ },
+ "Compara el reporte de ventas de Q1 2026 con el de Q2 2026 y genera un informe en PDF para la empresa Acme.": {
+  "compact": "A:COMPARE,GENERATE D:SALES E:REPORT,COMPANY T:Q1-2026,Q2-2026 Y:@ACME K:BIND=COMPARE>REPORT,BIND=COMPARE>SALES,BIND=GENERATE>@ACME,BIND=GENERATE>COMPANY,BIND=GENERATE>REPORT O:PDF",
+  "env": [
+   true,
+   "55a97a37"
+  ],
+  "fp": "55a97a37498a7694",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   75
+  ],
+  "tele": "compare generate sales report company q1-2026 q2-2026 @acme bind=compare>report bind=compare>sales bind=generate>@acme bind=generate>company bind=generate>report pdf"
+ },
+ "Compara las ventas de Q1 2026 con las de Q2 2026.": {
+  "compact": "A:CMP D:SALES T:Q1-2026,Q2-2026",
+  "env": [
+   true,
+   "43244a87"
+  ],
+  "fp": "43244a87a4f4898c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   16
+  ],
+  "tele": "cmp sales q1-2026 q2-2026"
+ },
+ "Compara las ventas.": {
+  "compact": "A:CMP D:SALES",
+  "env": [
+   true,
+   "75ce9139"
+  ],
+  "fp": "75ce913951525a59",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "cmp sales"
+ },
+ "Compara los clientes.": {
+  "compact": "A:CMP D:CUSTOMERS",
+  "env": [
+   true,
+   "02b3e53c"
+  ],
+  "fp": "02b3e53cdc5ec43a",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "cmp customers"
+ },
+ "Compara los datasets.": {
+  "compact": "A:CMP D:DATASET",
+  "env": [
+   true,
+   "5bcc41fd"
+  ],
+  "fp": "5bcc41fd50ea4ea0",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "cmp dataset"
+ },
+ "Compare Q1 2026 sales with Q2 2026 sales.": {
+  "compact": "A:CMP D:SALES T:Q1-2026,Q2-2026",
+  "env": [
+   true,
+   "43244a87"
+  ],
+  "fp": "43244a87a4f4898c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   16
+  ],
+  "tele": "cmp sales q1-2026 q2-2026"
+ },
+ "Compare dataset #77 with dataset #81.": {
+  "compact": "A:CMP D:DATASET Y:#77,#81",
+  "env": [
+   true,
+   "91f7525e"
+  ],
+  "fp": "91f7525ef115f5ae",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   14
+  ],
+  "tele": "cmp dataset #77 #81"
+ },
+ "Compute total sales for 2025.": {
+  "compact": "A:CALCULATE D:TOTAL_SALES T:2025",
+  "env": [
+   true,
+   "c16ee85b"
+  ],
+  "fp": "c16ee85b88712e7f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "calculate total_sales 2025"
+ },
+ "Crea un documento sobre el producto #9.": {
+  "compact": "A:CREATE E:DOCUMENT,PRODUCT Y:#9",
+  "env": [
+   true,
+   "d20cd7f5"
+  ],
+  "fp": "d20cd7f561bbbbb9",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   15
+  ],
+  "tele": "create document product #9"
+ },
+ "Crea un reporte en formato JSON.": {
+  "compact": "A:CREATE E:REPORT O:JSON",
+  "env": [
+   true,
+   "bc40d6b7"
+  ],
+  "fp": "bc40d6b7e676ab1d",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "create report json"
+ },
+ "Delete the customers.": {
+  "compact": "A:DELETE D:CUSTOMERS",
+  "env": [
+   true,
+   "76278df8"
+  ],
+  "fp": "76278df8f38d0db2",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   9
+  ],
+  "tele": "delete customers"
+ },
+ "Delete the report.": {
+  "compact": "A:DELETE E:REPORT",
+  "env": [
+   true,
+   "d3bcb473"
+  ],
+  "fp": "d3bcb473cda36644",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "delete report"
+ },
+ "Delete users.": {
+  "compact": "A:DELETE D:USERS",
+  "env": [
+   true,
+   "aeafef67"
+  ],
+  "fp": "aeafef67f84cc757",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "delete users"
+ },
+ "Deleting users is forbidden.": {
+  "compact": "A:DELETE D:USERS N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "839b5cfd1860be37",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   19
+  ],
+  "tele": "delete users no_delete forbid_delete"
+ },
+ "Deshabilita la alerta.": {
+  "compact": "A:DISABLE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "e956b4fbcefb8077",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   4
+  ],
+  "tele": "disable"
+ },
+ "Detecta anomalías en las ventas.": {
+  "compact": "A:FIND D:SALES E:ANOMALY",
+  "env": [
+   true,
+   "b58b35d4"
+  ],
+  "fp": "b58b35d4d12d8335",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "find sales anomaly"
+ },
+ "Do not delete the report.": {
+  "compact": "A:DELETE E:REPORT N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   true,
+   "9d40d07a"
+  ],
+  "fp": "9d40d07aaedc4df8",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "delete report no_delete forbid_delete"
+ },
+ "Do not include the images.": {
+  "compact": "A:INCLUDE D:IMAGE N:NO_INCLUDE K:FORBID_INCLUDE",
+  "env": [
+   true,
+   "3c0176fc"
+  ],
+  "fp": "3c0176fcb816e6c3",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "include image no_include forbid_include"
+ },
+ "Do not run the model.": {
+  "compact": "A:EXECUTE E:MODEL N:NO_EXECUTE K:FORBID_EXECUTE",
+  "env": [
+   true,
+   "e5d6e56c"
+  ],
+  "fp": "e5d6e56c3932bc5c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "execute model no_execute forbid_execute"
+ },
+ "Do not translate the report.": {
+  "compact": "A:TRN E:REPORT N:NO_TRANSLATE K:FORBID_TRANSLATE",
+  "env": [
+   true,
+   "d90c8d18"
+  ],
+  "fp": "d90c8d18b3b6d8db",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   18
+  ],
+  "tele": "trn report no_translate forbid_translate"
+ },
+ "Do not update the record.": {
+  "compact": "A:UPDATE N:NO_UPDATE K:FORBID_UPDATE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "01b44ea0c40d2e0f",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   15
+  ],
+  "tele": "update no_update forbid_update"
+ },
+ "Don't analyze the sales.": {
+  "compact": "A:ANALYZE D:SALES N:NO_ANALYZE K:FORBID_ANALYZE",
+  "env": [
+   true,
+   "5456c9fd"
+  ],
+  "fp": "5456c9fd12de682b",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "analyze sales no_analyze forbid_analyze"
+ },
+ "Don't send the file.": {
+  "compact": "A:SEND N:NO_SEND K:FORBID_SEND",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "cbb1d4c5f9f0c118",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   12
+  ],
+  "tele": "send no_send forbid_send"
+ },
+ "Ejecuta el modelo #3.": {
+  "compact": "A:EXECUTE E:MODEL Y:#3",
+  "env": [
+   true,
+   "97bd2547"
+  ],
+  "fp": "97bd2547787655d6",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "execute model #3"
+ },
+ "Ejecuta el modelo.": {
+  "compact": "A:EXECUTE E:MODEL",
+  "env": [
+   true,
+   "8c8c4cd6"
+  ],
+  "fp": "8c8c4cd6dd18e6fb",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "execute model"
+ },
+ "Elimina el reporte.": {
+  "compact": "A:DELETE E:REPORT",
+  "env": [
+   true,
+   "d3bcb473"
+  ],
+  "fp": "d3bcb473cda36644",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "delete report"
+ },
+ "Elimina eventos.": {
+  "compact": "A:DELETE E:EVENT",
+  "env": [
+   true,
+   "fd0ad69e"
+  ],
+  "fp": "fd0ad69e610dec63",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "delete event"
+ },
+ "Elimina las ventas.": {
+  "compact": "A:DELETE D:SALES",
+  "env": [
+   true,
+   "0f93af0b"
+  ],
+  "fp": "0f93af0b1646ee6f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "delete sales"
+ },
+ "Elimina los usuarios.": {
+  "compact": "A:DELETE D:USERS",
+  "env": [
+   true,
+   "aeafef67"
+  ],
+  "fp": "aeafef67f84cc757",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "delete users"
+ },
+ "Encuentra anomalías en las ventas.": {
+  "compact": "A:FIND D:SALES E:ANOMALY",
+  "env": [
+   true,
+   "b58b35d4"
+  ],
+  "fp": "b58b35d4d12d8335",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "find sales anomaly"
+ },
+ "Encuentra los eventos del 2026-03-15.": {
+  "compact": "A:FIND E:EVENT T:2026-03-15",
+  "env": [
+   true,
+   "01812d90"
+  ],
+  "fp": "01812d905d80b183",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   14
+  ],
+  "tele": "find event 2026-03-15"
+ },
+ "Envía el reporte a ana@example.com mañana.": {
+  "compact": "A:SEND E:REPORT T:2026-10-09",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "ba0bf21eb4b882cd",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   14
+  ],
+  "tele": "send report 2026-10-09"
+ },
+ "Envía el reporte hoy.": {
+  "compact": "A:SEND E:REPORT T:2026-10-08",
+  "env": [
+   true,
+   "6427d5ea"
+  ],
+  "fp": "6427d5ea1e73df00",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   14
+  ],
+  "tele": "send report 2026-10-08"
+ },
+ "Envía el reporte.": {
+  "compact": "A:SEND E:REPORT",
+  "env": [
+   true,
+   "8fd06fe1"
+  ],
+  "fp": "8fd06fe16e7513c6",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "send report"
+ },
+ "Envía el resultado a la empresa Acme.": {
+  "compact": "A:SEND E:RESULT,COMPANY Y:@ACME",
+  "env": [
+   true,
+   "27b696a0"
+  ],
+  "fp": "27b696a0af0eb503",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   14
+  ],
+  "tele": "send result company @acme"
+ },
+ "Envía el resultado.": {
+  "compact": "A:SEND E:RESULT",
+  "env": [
+   true,
+   "ef41f881"
+  ],
+  "fp": "ef41f8811e0bc8c7",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "send result"
+ },
+ "Estudia los datos de clientes.": {
+  "compact": "A:ANALYZE D:DATA,CUSTOMERS",
+  "env": [
+   true,
+   "a2c1cdbd"
+  ],
+  "fp": "a2c1cdbdd6c09cde",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "analyze data customers"
+ },
+ "Está prohibido enviar el reporte.": {
+  "compact": "A:SEND E:REPORT N:NO_SEND K:FORBID_SEND",
+  "env": [
+   true,
+   "00de6d77"
+  ],
+  "fp": "00de6d7772f67398",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   16
+  ],
+  "tele": "send report no_send forbid_send"
+ },
+ "Está prohibido traducir el documento.": {
+  "compact": "A:TRN E:DOC N:NO_TRANSLATE K:FORBID_TRANSLATE",
+  "env": [
+   true,
+   "b56b30fb"
+  ],
+  "fp": "b56b30fb1b1fb3ec",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   17
+  ],
+  "tele": "trn doc no_translate forbid_translate"
+ },
+ "Examina las ventas de Q1 2026.": {
+  "compact": "A:ANALYZE D:SALES T:Q1-2026",
+  "env": [
+   true,
+   "62ceecf4"
+  ],
+  "fp": "62ceecf4fc2e2663",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "analyze sales q1-2026"
+ },
+ "Examina las ventas.": {
+  "compact": "A:ANALYZE D:SALES",
+  "env": [
+   true,
+   "49c6301f"
+  ],
+  "fp": "49c6301f4074f9c5",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "analyze sales"
+ },
+ "Examine the images.": {
+  "compact": "A:ANALYZE D:IMAGE",
+  "env": [
+   true,
+   "30b8d3d7"
+  ],
+  "fp": "30b8d3d78f22e892",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "analyze image"
+ },
+ "Exclude the images.": {
+  "compact": "A:EXCLUDE D:IMAGE",
+  "env": [
+   true,
+   "3c0176fc"
+  ],
+  "fp": "3c0176fcb816e6c3",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "exclude image"
+ },
+ "Excluye los usuarios.": {
+  "compact": "A:EXCLUDE D:USERS",
+  "env": [
+   true,
+   "16480134"
+  ],
+  "fp": "1648013493d64e8d",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "exclude users"
+ },
+ "Executa o modelo #3.": {
+  "compact": "A:EXECUTE E:MODEL Y:#3",
+  "env": [
+   true,
+   "97bd2547"
+  ],
+  "fp": "97bd2547787655d6",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "execute model #3"
+ },
+ "Find anomalies.": {
+  "compact": "A:FIND E:ANOMALY",
+  "env": [
+   true,
+   "f9018c23"
+  ],
+  "fp": "f9018c231946d95f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "find anomaly"
+ },
+ "Find events.": {
+  "compact": "A:FIND E:EVENT",
+  "env": [
+   true,
+   "10b240eb"
+  ],
+  "fp": "10b240eb181ec511",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "find event"
+ },
+ "Find the events of 2026-03-15.": {
+  "compact": "A:FIND E:EVENT T:2026-03-15",
+  "env": [
+   true,
+   "01812d90"
+  ],
+  "fp": "01812d905d80b183",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   14
+  ],
+  "tele": "find event 2026-03-15"
+ },
+ "Forbid deleting the report.": {
+  "compact": "A:DELETE E:REPORT N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "9d40d07aaedc4df8",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   19
+  ],
+  "tele": "delete report no_delete forbid_delete"
+ },
+ "Genera 5 informes.": {
+  "compact": "A:GENERATE E:REPORT K:QTY=5:REPORTS",
+  "env": [
+   true,
+   "23579b64"
+  ],
+  "fp": "23579b6450102a7d",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   16
+  ],
+  "tele": "generate report qty=5:reports"
+ },
+ "Genera 6 informes.": {
+  "compact": "A:GENERATE E:REPORT K:QTY=6:REPORTS",
+  "env": [
+   true,
+   "fdc134a7"
+  ],
+  "fp": "fdc134a7ad0a3cb7",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   16
+  ],
+  "tele": "generate report qty=6:reports"
+ },
+ "Genera el informe.": {
+  "compact": "A:GENERATE E:REPORT",
+  "env": [
+   true,
+   "62f248d7"
+  ],
+  "fp": "62f248d7edaf9761",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "generate report"
+ },
+ "Genera un CSV de los clientes.": {
+  "compact": "A:GENERATE D:CUSTOMERS O:CSV",
+  "env": [
+   true,
+   "9f5ae777"
+  ],
+  "fp": "9f5ae777e6dc76f3",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "generate customers csv"
+ },
+ "Genera un CSV.": {
+  "compact": "A:GENERATE O:CSV",
+  "env": [
+   true,
+   "62cb9dc4"
+  ],
+  "fp": "62cb9dc444a81546",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "generate csv"
+ },
+ "Genera un PDF.": {
+  "compact": "A:GENERATE",
+  "env": [
+   true,
+   "46a205aa"
+  ],
+  "fp": "46a205aa87a0926f",
+  "gate": [
+   "AIXL",
+   "ok",
+   4
+  ],
+  "tele": "generate"
+ },
+ "Genera un dataset.": {
+  "compact": "A:GENERATE D:DATASET",
+  "env": [
+   true,
+   "7f7986d6"
+  ],
+  "fp": "7f7986d66edc17fe",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "generate dataset"
+ },
+ "Genera un documento.": {
+  "compact": "A:GENERATE E:DOC",
+  "env": [
+   true,
+   "13f67a66"
+  ],
+  "fp": "13f67a66dea81d64",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "generate doc"
+ },
+ "Genera un informe de clientes.": {
+  "compact": "A:GENERATE D:CUSTOMERS E:REPORT",
+  "env": [
+   true,
+   "1af9fd28"
+  ],
+  "fp": "1af9fd2854659ef5",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "generate customers report"
+ },
+ "Genera un informe de ventas.": {
+  "compact": "A:GENERATE D:SALES E:REPORT",
+  "env": [
+   true,
+   "9ace19ff"
+  ],
+  "fp": "9ace19ff62604696",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "generate sales report"
+ },
+ "Genera un informe en JSON.": {
+  "compact": "A:GENERATE E:REPORT O:JSON",
+  "env": [
+   true,
+   "bc40d6b7"
+  ],
+  "fp": "bc40d6b7e676ab1d",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "generate report json"
+ },
+ "Genera un informe en PDF.": {
+  "compact": "A:GENERATE E:REPORT O:PDF",
+  "env": [
+   true,
+   "a28b9098"
+  ],
+  "fp": "a28b9098fe39d735",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "generate report pdf"
+ },
+ "Genera un reporte.": {
+  "compact": "A:GENERATE E:REPORT",
+  "env": [
+   true,
+   "62f248d7"
+  ],
+  "fp": "62f248d7edaf9761",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "generate report"
+ },
+ "Generate a CSV of the customers.": {
+  "compact": "A:GENERATE D:CUSTOMERS O:CSV",
+  "env": [
+   true,
+   "9f5ae777"
+  ],
+  "fp": "9f5ae777e6dc76f3",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "generate customers csv"
+ },
+ "Get 3 documents.": {
+  "compact": "A:GET E:DOC K:QTY=3:DOCUMENTS",
+  "env": [
+   true,
+   "0725ace0"
+  ],
+  "fp": "0725ace0ff1b981c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   15
+  ],
+  "tele": "get doc qty=3:documents"
+ },
+ "Get 30 documents.": {
+  "compact": "A:GET E:DOC K:QTY=30:DOCUMENTS",
+  "env": [
+   true,
+   "d82896d1"
+  ],
+  "fp": "d82896d1d0951c55",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   15
+  ],
+  "tele": "get doc qty=30:documents"
+ },
+ "Get 5 documents.": {
+  "compact": "A:GET E:DOC K:QTY=5:DOCUMENTS",
+  "env": [
+   true,
+   "f0bf6eb8"
+  ],
+  "fp": "f0bf6eb84a0f7678",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   15
+  ],
+  "tele": "get doc qty=5:documents"
+ },
+ "Get five documents.": {
+  "compact": "A:GET E:DOC K:QTY=5:DOCUMENTS",
+  "env": [
+   true,
+   "f0bf6eb8"
+  ],
+  "fp": "f0bf6eb84a0f7678",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   15
+  ],
+  "tele": "get doc qty=5:documents"
+ },
+ "Get the customers dataset.": {
+  "compact": "A:GET D:CUSTOMERS,DATASET",
+  "env": [
+   true,
+   "c84f0a3d"
+  ],
+  "fp": "c84f0a3d445486d6",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "get customers dataset"
+ },
+ "Get the customers.": {
+  "compact": "A:GET D:CUSTOMERS",
+  "env": [
+   true,
+   "52ba04db"
+  ],
+  "fp": "52ba04db476958d7",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "get customers"
+ },
+ "Habilita la alerta.": {
+  "compact": "A:ENABLE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "88976e3a231b2de0",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   4
+  ],
+  "tele": "enable"
+ },
+ "Hola": {
+  "compact": "",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "a745d2dd499d4e92",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   0
+  ],
+  "tele": ""
+ },
+ "Include the images.": {
+  "compact": "A:INCLUDE D:IMAGE",
+  "env": [
+   true,
+   "82300b9d"
+  ],
+  "fp": "82300b9dedd42df1",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "include image"
+ },
+ "Incluye los usuarios.": {
+  "compact": "A:INCLUDE D:USERS",
+  "env": [
+   true,
+   "3de80d25"
+  ],
+  "fp": "3de80d257b8bacb9",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "include users"
+ },
+ "Localiza los eventos de hoy.": {
+  "compact": "A:FIND E:EVENT T:2026-10-08",
+  "env": [
+   true,
+   "abe45a3d"
+  ],
+  "fp": "abe45a3dda08da26",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   14
+  ],
+  "tele": "find event 2026-10-08"
+ },
+ "Modifica el producto #5.": {
+  "compact": "A:UPDATE E:PRODUCT Y:#5",
+  "env": [
+   true,
+   "1a5a663d"
+  ],
+  "fp": "1a5a663dda9855a4",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "update product #5"
+ },
+ "Never delete the report.": {
+  "compact": "A:DELETE E:REPORT N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   true,
+   "9d40d07a"
+  ],
+  "fp": "9d40d07aaedc4df8",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "delete report no_delete forbid_delete"
+ },
+ "Never execute the model.": {
+  "compact": "A:EXECUTE E:MODEL N:NO_EXECUTE K:FORBID_EXECUTE",
+  "env": [
+   true,
+   "e5d6e56c"
+  ],
+  "fp": "e5d6e56c3932bc5c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "execute model no_execute forbid_execute"
+ },
+ "Never run the model.": {
+  "compact": "A:EXECUTE E:MODEL N:NO_EXECUTE K:FORBID_EXECUTE",
+  "env": [
+   true,
+   "e5d6e56c"
+  ],
+  "fp": "e5d6e56c3932bc5c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "execute model no_execute forbid_execute"
+ },
+ "Never send the file to Ana.": {
+  "compact": "A:SEND Y:@ANA N:NO_SEND K:FORBID_SEND",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "bf59471258166301",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   16
+  ],
+  "tele": "send @ana no_send forbid_send"
+ },
+ "No actives la alerta.": {
+  "compact": "A:ENABLE N:NO_ENABLE K:FORBID_ENABLE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "c185435f999bc58f",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   15
+  ],
+  "tele": "enable no_enable forbid_enable"
+ },
+ "No borres los archivos temporales #4.": {
+  "compact": "A:DELETE Y:#4 N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "b11ac5a7543685f1",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   19
+  ],
+  "tele": "delete #4 no_delete forbid_delete"
+ },
+ "No compares los datasets.": {
+  "compact": "A:CMP D:DATASET N:NO_COMPARE K:FORBID_COMPARE",
+  "env": [
+   true,
+   "b16593d4"
+  ],
+  "fp": "b16593d43e8ebfb0",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   18
+  ],
+  "tele": "cmp dataset no_compare forbid_compare"
+ },
+ "No corras el modelo.": {
+  "compact": "A:EXECUTE E:MODEL N:NO_EXECUTE K:FORBID_EXECUTE",
+  "env": [
+   true,
+   "e5d6e56c"
+  ],
+  "fp": "e5d6e56c3932bc5c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "execute model no_execute forbid_execute"
+ },
+ "No ejecutes el modelo.": {
+  "compact": "A:EXECUTE E:MODEL N:NO_EXECUTE K:FORBID_EXECUTE",
+  "env": [
+   true,
+   "e5d6e56c"
+  ],
+  "fp": "e5d6e56c3932bc5c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "execute model no_execute forbid_execute"
+ },
+ "No elimines el reporte.": {
+  "compact": "A:DELETE E:REPORT N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   true,
+   "9d40d07a"
+  ],
+  "fp": "9d40d07aaedc4df8",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "delete report no_delete forbid_delete"
+ },
+ "No elimines los datos originales.": {
+  "compact": "A:DELETE D:DATA N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "433e539846a8a2dc",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   18
+  ],
+  "tele": "delete data no_delete forbid_delete"
+ },
+ "No envíes el resultado.": {
+  "compact": "A:SEND E:RESULT N:NO_SEND K:FORBID_SEND",
+  "env": [
+   true,
+   "dc59ec18"
+  ],
+  "fp": "dc59ec18e47f763a",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   16
+  ],
+  "tele": "send result no_send forbid_send"
+ },
+ "No generes el informe.": {
+  "compact": "A:GENERATE E:REPORT N:NO_GENERATE K:FORBID_GENERATE",
+  "env": [
+   true,
+   "d288aa71"
+  ],
+  "fp": "d288aa71b7274ec7",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "generate report no_generate forbid_generate"
+ },
+ "No incluyas los usuarios.": {
+  "compact": "A:INCLUDE D:USERS N:NO_INCLUDE K:FORBID_INCLUDE",
+  "env": [
+   true,
+   "16480134"
+  ],
+  "fp": "1648013493d64e8d",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "include users no_include forbid_include"
+ },
+ "No traduzcas el documento.": {
+  "compact": "A:TRN E:DOC N:NO_TRANSLATE K:FORBID_TRANSLATE",
+  "env": [
+   true,
+   "b56b30fb"
+  ],
+  "fp": "b56b30fb1b1fb3ec",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   17
+  ],
+  "tele": "trn doc no_translate forbid_translate"
+ },
+ "Nunca ejecutes el modelo.": {
+  "compact": "A:EXECUTE E:MODEL N:NO_EXECUTE K:FORBID_EXECUTE",
+  "env": [
+   true,
+   "e5d6e56c"
+  ],
+  "fp": "e5d6e56c3932bc5c",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "execute model no_execute forbid_execute"
+ },
+ "Nunca elimines el reporte.": {
+  "compact": "A:DELETE E:REPORT N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   true,
+   "9d40d07a"
+  ],
+  "fp": "9d40d07aaedc4df8",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   19
+  ],
+  "tele": "delete report no_delete forbid_delete"
+ },
+ "Nunca envíes el resultado.": {
+  "compact": "A:SEND E:RESULT N:NO_SEND K:FORBID_SEND",
+  "env": [
+   true,
+   "dc59ec18"
+  ],
+  "fp": "dc59ec18e47f763a",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   16
+  ],
+  "tele": "send result no_send forbid_send"
+ },
+ "Nunca remova os registros.": {
+  "compact": "A:DELETE N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "b495721d25a61dbf",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   15
+  ],
+  "tele": "delete no_delete forbid_delete"
+ },
+ "Não exclua os registros.": {
+  "compact": "A:DELETE N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "b495721d25a61dbf",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   15
+  ],
+  "tele": "delete no_delete forbid_delete"
+ },
+ "Permite eliminar el reporte.": {
+  "compact": "A:DELETE E:REPORT K:ALLOW_DELETE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "3024261bcc4b411b",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   13
+  ],
+  "tele": "delete report allow_delete"
+ },
+ "Please translate the attached quarterly report into English, keep all numbers unchanged, and return the result as JSON.": {
+  "compact": "A:TRN E:REPORT,RESULT K:LANG=EN O:JSON",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "697f7004871ffbaf",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   18
+  ],
+  "tele": "trn report result lang=en json"
+ },
+ "Procesa 1.000 registros.": {
+  "compact": "K:QTY=1000:RECORDS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "9e27c7b628a4bed5",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   8
+  ],
+  "tele": "qty=1000:records"
+ },
+ "Procesa 100 registros.": {
+  "compact": "K:QTY=100:RECORDS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "a13d3f7fecc53fb3",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   8
+  ],
+  "tele": "qty=100:records"
+ },
+ "Procesa 50 usuarios.": {
+  "compact": "D:USERS K:QTY=50:USERS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "46591fd4eed9fa87",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   12
+  ],
+  "tele": "users qty=50:users"
+ },
+ "Procesa 500 usuarios.": {
+  "compact": "D:USERS K:QTY=500:USERS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "a3f1213b0fd16cf0",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   12
+  ],
+  "tele": "users qty=500:users"
+ },
+ "Process 500 users.": {
+  "compact": "D:USERS K:QTY=500:USERS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "a3f1213b0fd16cf0",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   12
+  ],
+  "tele": "users qty=500:users"
+ },
+ "Prohíbe eliminar el reporte.": {
+  "compact": "A:DELETE E:REPORT N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "9d40d07aaedc4df8",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   19
+  ],
+  "tele": "delete report no_delete forbid_delete"
+ },
+ "Prohíbe eliminar los usuarios.": {
+  "compact": "A:DELETE D:USERS N:NO_DELETE K:FORBID_DELETE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "839b5cfd1860be37",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   19
+  ],
+  "tele": "delete users no_delete forbid_delete"
+ },
+ "Prohíbe enviar el resultado.": {
+  "compact": "A:SEND E:RESULT N:NO_SEND K:FORBID_SEND",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "dc59ec18e47f763a",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   16
+  ],
+  "tele": "send result no_send forbid_send"
+ },
+ "Resume el reporte #12.": {
+  "compact": "A:SUM E:REPORT Y:#12",
+  "env": [
+   true,
+   "2c593a36"
+  ],
+  "fp": "2c593a3638a3444d",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "sum report #12"
+ },
+ "Resume este documento en cinco puntos y conserva solamente la información más importante.": {
+  "compact": "A:SUM E:DOC K:QTY=5:PUNTOS",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "427bb8850840c530",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   14
+  ],
+  "tele": "sum doc qty=5:puntos"
+ },
+ "Retrieve 20 customers.": {
+  "compact": "A:RETRIEVE D:CUSTOMERS K:QTY=20:CUSTOMERS",
+  "env": [
+   true,
+   "512e75b1"
+  ],
+  "fp": "512e75b1ff15207f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   18
+  ],
+  "tele": "retrieve customers qty=20:customers"
+ },
+ "Retrieve 25 customers.": {
+  "compact": "A:RETRIEVE D:CUSTOMERS K:QTY=25:CUSTOMERS",
+  "env": [
+   true,
+   "e680c1af"
+  ],
+  "fp": "e680c1af0699cb0f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   18
+  ],
+  "tele": "retrieve customers qty=25:customers"
+ },
+ "Retrieve the audio.": {
+  "compact": "A:RETRIEVE D:AUDIO",
+  "env": [
+   true,
+   "2bc5ec41"
+  ],
+  "fp": "2bc5ec4149a9a0db",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "retrieve audio"
+ },
+ "Retrieve the customers dataset.": {
+  "compact": "A:RETRIEVE D:CUSTOMERS,DATASET",
+  "env": [
+   true,
+   "c84f0a3d"
+  ],
+  "fp": "c84f0a3d445486d6",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "retrieve customers dataset"
+ },
+ "Retrieve the images.": {
+  "compact": "A:RETRIEVE D:IMAGE",
+  "env": [
+   true,
+   "21e70ad2"
+  ],
+  "fp": "21e70ad21eca2b5a",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "retrieve image"
+ },
+ "Run the model.": {
+  "compact": "A:EXECUTE E:MODEL",
+  "env": [
+   true,
+   "8c8c4cd6"
+  ],
+  "fp": "8c8c4cd6dd18e6fb",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "execute model"
+ },
+ "Search the audio dataset.": {
+  "compact": "A:SEARCH D:AUDIO,DATASET",
+  "env": [
+   true,
+   "7fd60398"
+  ],
+  "fp": "7fd60398f26043e8",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "search audio dataset"
+ },
+ "Send the file to Ana.": {
+  "compact": "A:SEND Y:@ANA",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "780190f19e23e269",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   7
+  ],
+  "tele": "send @ana"
+ },
+ "Send the report today.": {
+  "compact": "A:SEND E:REPORT T:2026-10-08",
+  "env": [
+   true,
+   "6427d5ea"
+  ],
+  "fp": "6427d5ea1e73df00",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   14
+  ],
+  "tele": "send report 2026-10-08"
+ },
+ "Send the result to the company Acme.": {
+  "compact": "A:SEND E:RESULT,COMPANY Y:@ACME",
+  "env": [
+   true,
+   "27b696a0"
+  ],
+  "fp": "27b696a0af0eb503",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   14
+  ],
+  "tele": "send result company @acme"
+ },
+ "Sending the file is forbidden.": {
+  "compact": "A:SEND N:NO_SEND K:FORBID_SEND",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "cbb1d4c5f9f0c118",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   12
+  ],
+  "tele": "send no_send forbid_send"
+ },
+ "Summarize report #12.": {
+  "compact": "A:SUM E:REPORT Y:#12",
+  "env": [
+   true,
+   "2c593a36"
+  ],
+  "fp": "2c593a3638a3444d",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "sum report #12"
+ },
+ "Summarize the report.": {
+  "compact": "A:SUM E:REPORT",
+  "env": [
+   true,
+   "e4feb42d"
+  ],
+  "fp": "e4feb42d93a24d6a",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "sum report"
+ },
+ "Traduce 2 documentos.": {
+  "compact": "A:TRN E:DOC K:QTY=2:DOCUMENTS",
+  "env": [
+   true,
+   "ba63a587"
+  ],
+  "fp": "ba63a587dad4dbac",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   15
+  ],
+  "tele": "trn doc qty=2:documents"
+ },
+ "Traduce 3 documentos.": {
+  "compact": "A:TRN E:DOC K:QTY=3:DOCUMENTS",
+  "env": [
+   true,
+   "41d86917"
+  ],
+  "fp": "41d86917a732251f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   15
+  ],
+  "tele": "trn doc qty=3:documents"
+ },
+ "Traduce el documento al francés.": {
+  "compact": "A:TRN E:DOC K:LANG=FR",
+  "env": [
+   true,
+   "1e3ebc04"
+  ],
+  "fp": "1e3ebc042eddcbdd",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "trn doc lang=fr"
+ },
+ "Traduce el documento al inglés.": {
+  "compact": "A:TRN E:DOC K:LANG=EN",
+  "env": [
+   true,
+   "cc911de3"
+  ],
+  "fp": "cc911de39ba2a701",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "trn doc lang=en"
+ },
+ "Traduce el documento.": {
+  "compact": "A:TRN E:DOC",
+  "env": [
+   true,
+   "d3d9cada"
+  ],
+  "fp": "d3d9cada42676701",
+  "gate": [
+   "AIXL",
+   "ok",
+   6
+  ],
+  "tele": "trn doc"
+ },
+ "Traduce el reporte al francés.": {
+  "compact": "A:TRN E:REPORT K:LANG=FR",
+  "env": [
+   true,
+   "cdd31a9e"
+  ],
+  "fp": "cdd31a9e265c9e4f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "trn report lang=fr"
+ },
+ "Traduce un reporte.": {
+  "compact": "A:TRN E:REPORT",
+  "env": [
+   true,
+   "650623fb"
+  ],
+  "fp": "650623fb91f4b0e2",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "trn report"
+ },
+ "Traduza este documento para inglês.": {
+  "compact": "A:TRN E:DOC K:LANG=EN",
+  "env": [
+   true,
+   "cc911de3"
+  ],
+  "fp": "cc911de39ba2a701",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "trn doc lang=en"
+ },
+ "Traduza o relatório para o francês.": {
+  "compact": "A:TRN E:REPORT K:LANG=FR",
+  "env": [
+   true,
+   "cdd31a9e"
+  ],
+  "fp": "cdd31a9e265c9e4f",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   12
+  ],
+  "tele": "trn report lang=fr"
+ },
+ "Translate the document into English.": {
+  "compact": "A:TRN E:DOC K:LANG=EN",
+  "env": [
+   true,
+   "cc911de3"
+  ],
+  "fp": "cc911de39ba2a701",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "trn doc lang=en"
+ },
+ "Translate the document to Portuguese.": {
+  "compact": "A:TRN E:DOC K:LANG=PT",
+  "env": [
+   true,
+   "42e9da02"
+  ],
+  "fp": "42e9da02eb0ae6ce",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "trn doc lang=pt"
+ },
+ "Translate the document to Spanish.": {
+  "compact": "A:TRN E:DOC K:LANG=ES",
+  "env": [
+   true,
+   "dcf24e44"
+  ],
+  "fp": "dcf24e448baa52ca",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   11
+  ],
+  "tele": "trn doc lang=es"
+ },
+ "Translate the report.": {
+  "compact": "A:TRN E:REPORT",
+  "env": [
+   true,
+   "650623fb"
+  ],
+  "fp": "650623fb91f4b0e2",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   7
+  ],
+  "tele": "trn report"
+ },
+ "Update the dataset.": {
+  "compact": "A:UPDATE D:DATASET",
+  "env": [
+   true,
+   "ceaa6160"
+  ],
+  "fp": "ceaa6160fe990d9b",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "update dataset"
+ },
+ "Update the record.": {
+  "compact": "A:UPDATE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "16e9b48390aee3f1",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   4
+  ],
+  "tele": "update"
+ },
+ "Valida los datos de los usuarios.": {
+  "compact": "A:VALIDATE D:DATA,USERS",
+  "env": [
+   true,
+   "7445094d"
+  ],
+  "fp": "7445094db6df7cd5",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   10
+  ],
+  "tele": "validate data users"
+ },
+ "Ventas de Q2-2026.": {
+  "compact": "D:SALES T:Q2-2026",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "12fa20fbfc7be070",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   9
+  ],
+  "tele": "sales q2-2026"
+ },
+ "Ventas de esta semana.": {
+  "compact": "D:SALES T:THIS_WEEK",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "71c8fe88b18809fb",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   9
+  ],
+  "tele": "sales this_week"
+ },
+ "Ventas de la semana pasada.": {
+  "compact": "D:SALES T:LAST_WEEK",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "e8384b092171fdea",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   9
+  ],
+  "tele": "sales last_week"
+ },
+ "Ventas del segundo trimestre de 2026.": {
+  "compact": "D:SALES T:Q2-2026",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "12fa20fbfc7be070",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   9
+  ],
+  "tele": "sales q2-2026"
+ },
+ "Verifica el resultado.": {
+  "compact": "A:CHECK E:RESULT",
+  "env": [
+   true,
+   "c3c14d19"
+  ],
+  "fp": "c3c14d1994bfa521",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "check result"
+ },
+ "Verifica los datos de usuarios.": {
+  "compact": "A:CHECK D:DATA,USERS",
+  "env": [
+   true,
+   "7445094d"
+  ],
+  "fp": "7445094db6df7cd5",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   10
+  ],
+  "tele": "check data users"
+ },
+ "Verifica los usuarios.": {
+  "compact": "A:CHECK D:USERS",
+  "env": [
+   true,
+   "7445094d"
+  ],
+  "fp": "7445094db6df7cd5",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   8
+  ],
+  "tele": "check users"
+ },
+ "Write a document about product #9.": {
+  "compact": "A:GENERATE E:DOCUMENT,PRODUCT Y:#9",
+  "env": [
+   true,
+   "d20cd7f5"
+  ],
+  "fp": "d20cd7f561bbbbb9",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   15
+  ],
+  "tele": "generate document product #9"
+ },
+ "borra el modelo de Ollama": {
+  "compact": "A:DELETE E:MODEL Y:@OLLAMA",
+  "env": [
+   true,
+   "74983e17"
+  ],
+  "fp": "74983e17076b8288",
+  "gate": [
+   "NATURAL",
+   "no_token_saving",
+   13
+  ],
+  "tele": "delete model @ollama"
+ },
+ "creo que ya revisa": {
+  "compact": "A:CHECK",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "e1d1b70d3c508255",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   4
+  ],
+  "tele": "check"
+ },
+ "listo revisa": {
+  "compact": "A:CHECK",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "e1d1b70d3c508255",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   4
+  ],
+  "tele": "check"
+ },
+ "ok revisa": {
+  "compact": "A:CHECK",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "e1d1b70d3c508255",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   4
+  ],
+  "tele": "check"
+ },
+ "redacta el correo": {
+  "compact": "A:GENERATE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "46a205aa87a0926f",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   4
+  ],
+  "tele": "generate"
+ },
+ "si muestrame": {
+  "compact": "A:GET",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "179c22daafdfef91",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   3
+  ],
+  "tele": "get"
+ },
+ "ya me logee por favor correlo tu": {
+  "compact": "A:EXECUTE",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "91cd91daacb490c1",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   4
+  ],
+  "tele": "execute"
+ },
+ "yes show me": {
+  "compact": "A:GET",
+  "env": [
+   false,
+   null
+  ],
+  "fp": "179c22daafdfef91",
+  "gate": [
+   "NATURAL",
+   "incomplete_encoding",
+   3
+  ],
+  "tele": "get"
+ }
+}

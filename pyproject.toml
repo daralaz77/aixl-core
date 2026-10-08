@@ -19,5 +19,14 @@ llm = ["httpx"]
 testpaths = ["tests"]
 pythonpath = ["."]
 
+[tool.ruff]
+line-length = 200          # the codebase uses long lines on purpose (regex tables, lexicons); E501 is not a goal
+target-version = "py311"
+extend-exclude = [".venv", ".venv-mlx", "distill"]
+
+[tool.ruff.lint]
+# Phase 0 of docs/CLEANUP_ROADMAP.md: correctness-class rules only. Style families (SIM, C4, UP, FURB, PERF, RUF...) are NOT enabled on purpose.
+select = ["F", "E9", "B", "I"]
+
 [tool.setuptools.packages.find]
 include = ["aixl*"]

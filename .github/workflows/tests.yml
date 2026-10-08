@@ -35,3 +35,15 @@ jobs:
 
       - name: Run test suite
         run: pytest -q
+
+  lint:
+    # Informative while the baseline is being cleaned (docs/CLEANUP_ROADMAP.md, phases 1-2). Flip continue-on-error to false when it reaches 0.
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff
+      - run: ruff check aixl benchmarks tests --statistics

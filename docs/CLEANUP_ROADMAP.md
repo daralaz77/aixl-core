@@ -51,3 +51,10 @@ Fases 0 → 1 → 2 → 3 → 4 en ≈3 días de trabajo dejan el código sin mu
 - No reescribir `atoms/extract.py` ni el traductor: tienen cobertura por tests golden y reescribirlos arriesga la equivalencia medida.
 - No optimizar rendimiento antes de la Fase 0: sin red de seguridad no se puede demostrar que el resultado no cambió.
 - No borrar `legacy02` antes de mover las tablas que aún se usan.
+
+## 6. Estado de ejecución
+### Fase 0 — HECHA (2026-10-08)
+- **Prueba de caracterización:** `benchmarks/characterization.py` + `tests/test_characterization.py` + `tests/golden/characterization.json`. Fija, para 243 textos (dev set + 25 casos borde; sin mensajes de usuario reales), el fingerprint, la forma compacta, el resultado del gate, la forma telegráfica y el sobre de integridad, con la fecha congelada (`2026-10-08`). Verificado: es determinista entre corridas; el parche de fecha surte efecto; el test **falla** si se altera el golden y vuelve a pasar al restaurarlo. Para un cambio intencional: `python -m benchmarks.characterization --write` y revisar el diff.
+- **Lint fijado:** `[tool.ruff]` en `pyproject.toml` con solo reglas de corrección (`F`, `E9`, `B`, `I`) y `line-length = 200`. Línea base: **aixl 106 · benchmarks 132 · tests 51** avisos (los avisos de la sección 2 contaban con un conjunto de reglas más amplio, por eso las cifras difieren). Paso `lint` en CI **informativo** (`continue-on-error`); pasar a bloqueante al llegar a 0.
+- **Línea base de rendimiento:** `benchmarks/perf_baseline.py` (243 textos): importar traductor 55 ms · `to_graph` 0.33 ms/texto · `translate_gated` 0.64 ms/texto · `seal` 0.56 ms/texto · suite 14.4 s (1093 tests + 1 de caracterización).
+- **Hallazgo lateral:** `gate.fingerprint_graph` y `envelope` usan la fecha del sistema para textos con tiempo relativo ("hoy", "esta semana"), así que `seal` hoy y `verify` mañana pueden dar MISMATCH. Es semánticamente defendible (el "hoy" cambió) pero conviene decidirlo: pasar `today` explícito en el sobre.
