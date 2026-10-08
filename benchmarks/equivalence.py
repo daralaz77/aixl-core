@@ -1,5 +1,5 @@
 """Equivalence / ambiguity / contradiction metrics on the 200-case DEV dataset (DEMO set: same author as the code)."""
-import json, time, sys
+import json, time
 from aixl import compare, detect_ambiguity, detect_contradiction
 from benchmarks.dataset import load
 from benchmarks.metrics import prf

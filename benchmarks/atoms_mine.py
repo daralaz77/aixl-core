@@ -2,7 +2,7 @@
   alias : in a text where two independent extractions differ in exactly one concept of the same atom type (one each), that pair is a candidate alias.
           Accepted when it is seen in >= MIN_TEXTS distinct texts. Canonical = the registry id if any, else the most frequent concept in dev.
   python benchmarks/atoms_mine.py alias [--min 2] [--write]"""
-import sys, os, json, collections, itertools
+import sys, os, json, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from atoms_sources import *
 from atoms_norm_eval import PAIRS

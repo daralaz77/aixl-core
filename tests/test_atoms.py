@@ -1,13 +1,12 @@
 """AIXL 0.4 atom layer: registry integrity, schema, wire, firewall, alignment, diff, the master-prompt critical tests (§33-39),
 and the invariant that a COMPLETE extraction on the dev gold is always exact (the extractor must declare what it cannot place)."""
 import json, os, sys
-import pytest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from aixl.atoms import registry as R, fidelity
 from aixl.atoms.schema import Atom, AtomGraph
-from aixl.atoms.wire import encode, decode, DecodeError
+from aixl.atoms.wire import encode, decode
 from aixl.atoms.firewall import Profile, receive, check, common_profile, align, diff
 from aixl.atoms.extract import extract
 

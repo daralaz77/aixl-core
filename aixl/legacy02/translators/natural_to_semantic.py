@@ -8,7 +8,6 @@ import re
 import unicodedata
 from aixl.legacy02.core.semantic_frame import SemanticFrame
 from aixl.legacy02.core.normalizer import norm_decimal
-from aixl.legacy02.protocol.atoms import ACTION_TO_INTENT
 
 # ---------------------------------------------------------------- lexicons
 ACTION_RX = [  # (canonical action, regex on accent-stripped lowercase text)

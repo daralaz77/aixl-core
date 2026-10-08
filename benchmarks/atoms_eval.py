@@ -1,5 +1,5 @@
 """Evaluate the atom extractor against a gold set: per-dimension fidelity, exact-graph rate, failures listed."""
-import sys, json, os, traceback
+import sys, json, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from aixl.atoms.schema import AtomGraph
 from aixl.atoms import fidelity

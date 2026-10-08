@@ -5,7 +5,7 @@ CRITICAL covers: negation/permission flips, quantity changes, destructive/opposi
 (visibility, before/after). A drift report always carries the concrete differences (never just a label)."""
 from dataclasses import dataclass, field
 
-from aixl.core.comparator import compare_graphs, Difference
+from aixl.core.comparator import compare_graphs
 from aixl.core.semantic_graph import SemanticGraph
 
 

@@ -1,9 +1,8 @@
 """Validate Option A: (1) fingerprint round-trip telegraph->graph on dev set; (2) real tokenizer saving; (3) real traffic."""
-import sys, glob, json, statistics as st, collections, tiktoken
+import glob, json, statistics as st, collections, tiktoken
 import benchmarks.dataset as d
-import aixl.gate as G
 from aixl.gate import compact, strict_complete
-from aixl.telegraph import to_telegraph, from_telegraph, TelegraphError
+from aixl.telegraph import to_telegraph, from_telegraph
 from aixl.translators.natural_to_semantic import to_graph
 from aixl.serialization.aixl_codec import encode, decode
 from aixl.core.fingerprint import fingerprint_graph as fp

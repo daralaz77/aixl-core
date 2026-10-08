@@ -5,7 +5,7 @@ compare().equivalent; else PARTIALLY_EQUIVALENT if ALL differences are 'added' (
 else NOT_EQUIVALENT. Single text -> AMBIGUOUS if detect_ambiguity, else (not a class of its own) UNAMBIGUOUS.
 Also reports the ambiguity FALSE-POSITIVE rate on the unambiguous A-sides of the EQUIVALENT set.
 usage: python -m benchmarks.sil5x100_eval [--out results.json] [--show N]"""
-import json, os, sys, argparse, collections
+import json, os, argparse, collections
 from aixl import compare, detect_ambiguity, detect_contradiction
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

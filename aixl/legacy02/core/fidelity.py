@@ -1,5 +1,5 @@
 """Semantic layer: fidelity between an original and a reconstructed frame (spec §24)."""
-from aixl.legacy02.core.semantic_frame import SemanticFrame, LIST_FIELDS, FIELDS
+from aixl.legacy02.core.semantic_frame import SemanticFrame, FIELDS
 from aixl.legacy02.core.normalizer import normalize
 
 # critical fields (spec §25, §44): losing them can change what is done

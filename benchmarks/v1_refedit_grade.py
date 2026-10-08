@@ -1,5 +1,5 @@
 """Grades step 4 (edit / extract / chain). Answers are extracted programmatically from each subagent's final hand-back into /private/tmp/claude-501/rr/s4_<model>_<cond>.json."""
-import json, os, sys, difflib
+import json, os
 truth = json.load(open("/private/tmp/claude-501/refs4_truth.json"))
 def grade(d):
     edit_exact = sum(a == b for a, b in zip(d["edit"], truth["edit"]))

@@ -3,7 +3,7 @@ Nothing here guesses: an unsupported concept is reported as UNSUPPORTED_CONCEPT,
 from dataclasses import dataclass, field
 from aixl.atoms import registry as R
 from aixl.atoms.schema import AtomGraph
-from aixl.atoms.wire import decode, DecodeError, encode
+from aixl.atoms.wire import decode, DecodeError
 
 
 @dataclass

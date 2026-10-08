@@ -1,5 +1,5 @@
 """Step 4: pointers on EDIT, EXTRACT and CHAINED pointers. Ground truth computed from the full text. Cases = the 20 real pairs of the reasoning test (seed 21)."""
-import json, random, re
+import json, random
 from aixl.refstore import RefStore
 cases = json.load(open("/private/tmp/claude-501/refreason_cases.json"))
 random.seed(5)

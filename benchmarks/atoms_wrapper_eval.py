@@ -6,7 +6,6 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from atoms_gold import load, D
 from aixl.atoms import fidelity, llm_extract as LX
-from aixl.atoms.schema import AtomGraph
 
 def load_set(SET):
     cases = json.load(open(os.path.join(D, f"{SET}_cases.json"), encoding="utf-8"))

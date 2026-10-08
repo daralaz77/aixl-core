@@ -13,7 +13,7 @@ from aixl.legacy02.core.semantic_frame import SemanticFrame
 from aixl.legacy02.core.normalizer import normalize as _norm_frame
 from aixl.legacy02.protocol.atoms import derive_intent, derive_goal
 from aixl.core.normalizer import (SemanticNormalizer, EXTRA_ACTION_RX, ALL_ACTION_RX, FORBID_CUE, ALLOW_CUE, AGG_MAP,
-                                  OUTPUT_ALIASES, strip_accents, UNIT_MAP, STOP)
+                                  OUTPUT_ALIASES, strip_accents, UNIT_MAP)
 from aixl.core.ontology import resolve_relative_time_str
 from aixl.core.semantic_graph import SemanticGraph
 

@@ -1,4 +1,3 @@
-import pytest
 from aixl.translators.natural_to_semantic import to_graph
 
 

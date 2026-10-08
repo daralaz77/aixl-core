@@ -1,6 +1,6 @@
 """Real user messages (local Claude Code transcripts, never leave the machine) + real BPE tokenizer (tiktoken o200k_base,
 NOT Claude's tokenizer). Question: does the AIXL gate ever pick AIXL, and how much does it save?"""
-import glob, json, re, statistics as st, collections, sys
+import glob, json, statistics as st, collections
 import tiktoken
 import aixl.gate as G
 enc = tiktoken.get_encoding("o200k_base")

@@ -99,7 +99,7 @@ class AmbiguityResult:
                     findings=[f.to_dict() for f in self.findings], notes=self.notes)
 
 
-PLURAL_PRON = {"them", "they", "los", "las", "ellos", "ellas", "ambos", "ambas", "those", "these", "both", "eles", "elas", "them"}
+PLURAL_PRON = {"them", "they", "los", "las", "ellos", "ellas", "ambos", "ambas", "those", "these", "both", "eles", "elas"}
 
 
 _PLURAL: dict = {}

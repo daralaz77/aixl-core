@@ -9,7 +9,7 @@ that the AIXL codec serializes. Contract of the frame encoding of the 0.3 extens
 import re
 from aixl.core.semantic_object import SemanticObject
 from aixl.core.semantic_relation import SemanticRelation
-from aixl.core.ontology import type_of, ENTITIES, DATA
+from aixl.core.ontology import ENTITIES, DATA
 from aixl.legacy02.core.semantic_frame import SemanticFrame
 from aixl.legacy02.protocol.atoms import derive_intent, derive_goal
 
@@ -232,7 +232,7 @@ class SemanticGraph:
             data.remove("DATA")
         entities = tuple(sorted(n.value for n in self.by_type("ENTITY")))
         negated = [x.split(":")[1] for x in neg if x.startswith("FORBID")]
-        from aixl.legacy02.protocol.atoms import derive_intent, derive_goal
+        from aixl.legacy02.protocol.atoms import derive_intent
         cons = []
         for n in self.by_type("CONSTRAINT"):
             v = n.value

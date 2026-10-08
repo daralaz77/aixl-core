@@ -20,7 +20,6 @@ import json
 import os
 import time
 from dataclasses import dataclass, field
-from typing import Callable
 
 from aixl.core.normalizer import sanitize_input
 

@@ -1,5 +1,5 @@
 """Recompute EVERY number of the AIXL 0.4 atom-layer evidence from the stored annotation files (no model calls).  python benchmarks/atoms_report.py > docs/ATOMS_EVIDENCE.generated.md"""
-import sys, os, json, glob
+import sys, os, json
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from atoms_gold import load, D

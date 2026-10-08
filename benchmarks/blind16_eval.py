@@ -1,6 +1,6 @@
 """blind16 ONE-SHOT evaluation of the 0.3-R semantic track (see data/blind16/PREREG.md). Refuses to run if the code changed since freezing.
 usage: python -m benchmarks.blind16_eval [--show]"""
-import json, os, sys, glob, hashlib, collections
+import json, os, sys, hashlib, collections
 D = os.path.join(os.path.dirname(__file__), "..", "data", "blind16")
 frozen = json.load(open(os.path.join(D, "CODE_FREEZE.json")))
 for f, h in frozen.items():

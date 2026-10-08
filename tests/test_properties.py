@@ -3,7 +3,6 @@ import datetime
 import pytest
 from aixl.api import service as S
 from aixl.serialization import aixl_codec, json_codec
-from aixl.core.semantic_graph import SemanticGraph
 from aixl.core.fingerprint import fingerprint_graph
 from aixl.core.comparator import compare_graphs
 

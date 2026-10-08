@@ -1,5 +1,5 @@
 """§10 adaptive dictionary + §21 vocabulary evolution: do they save tokens? (dev-set, own-author; proxy tokenizer)"""
-import collections, itertools, random, statistics as st
+import collections, random, statistics as st
 import benchmarks.dataset as d
 from aixl.gate import translate_gated, compact, count_tokens, ABBR
 from aixl.translators.natural_to_semantic import to_graph

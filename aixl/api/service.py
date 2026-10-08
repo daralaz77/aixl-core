@@ -2,7 +2,7 @@
 see aixl/translators/auto.py, is 'rule_based' unless explicitly changed — this module behaves exactly
 as it did before the LLM-translator route existed, for every caller that doesn't opt in)."""
 from aixl.translators.auto import to_graph_auto as to_graph
-from aixl.serialization import aixl_codec, json_codec
+from aixl.serialization import aixl_codec
 from aixl.core.semantic_graph import SemanticGraph
 from aixl.core.comparator import compare_graphs, format_diff, ComparisonResult
 from aixl.core.drift import detect_drift_graphs, DriftReport

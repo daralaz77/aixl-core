@@ -11,7 +11,6 @@ import json
 import os
 import re
 from dataclasses import dataclass, field
-from typing import Callable
 
 from aixl.atoms import registry as R
 from aixl.atoms import fidelity

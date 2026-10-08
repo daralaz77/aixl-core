@@ -1,7 +1,6 @@
 """LIMITATIONS #3: action<->argument binding in the canonical form and AIXL (K:BIND=ACTION>ARG). 2026-10-02."""
 import datetime
 from aixl.api import service as S
-from aixl.core.fingerprint import fingerprint_graph
 
 T = datetime.date(2026, 10, 2)
 b = lambda t: S.to_semantic(t).canonical()["bindings"]

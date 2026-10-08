@@ -1,6 +1,5 @@
 """AIXL 0.5 arbiter audit layer (ADR-018): rules identity, consensus, judge-output validation, decision memo. No model is ever called."""
 import hashlib
-import json
 import os
 
 import pytest

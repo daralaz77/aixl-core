@@ -1,6 +1,6 @@
 """Evaluate the code on the BLIND dataset (authors never saw the code). Positive class = EQUIVALENT.
 usage: python -m benchmarks.blind_eval [--out results.json]"""
-import json, os, sys, time, argparse
+import json, os, time, argparse
 from aixl import compare, detect_ambiguity, detect_contradiction
 from aixl.translators.natural_to_semantic import to_graph
 from aixl.serialization import aixl_codec

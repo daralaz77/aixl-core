@@ -21,7 +21,7 @@ MODAL_MAY = {"puedes", "puede", "pueden", "podes", "pode", "podem", "podemos", "
 MODAL_MUST = {"debes", "debe", "deben", "debas", "deba", "deban", "debera", "deve", "devem", "deves", "must", "shall", "need", "needs", "necesitas", "necesita", "precisa", "precisam", "tienes", "tiene"}
 MODAL_ADVISE = {"recomienda", "recomendado", "recomendable", "conviene", "should", "recommended", "aconselha", "recomenda", "deberias", "deberia", "convem"}
 PROHIBITED = {"prohibido", "prohibida", "prohibe", "prohibidos", "forbidden", "prohibited", "proibido", "proibida", "vedado"}
-AVOID = {"evita", "evite", "evitar", "evitas", "evitem", "avoid", "evitar", "evitem"}
+AVOID = {"evita", "evite", "evitar", "evitas", "evitem", "avoid"}
 NOT_TRUE = [("no", "es", "cierto", "que"), ("no", "es", "verdad", "que"), ("it", "is", "not", "true", "that"), ("nao", "e", "verdade", "que"), ("no", "es", "cierto"), ]
 LITOTES = [("no", "dejes", "de"), ("no", "deje", "de"), ("nao", "deixe", "de"), ("do", "not", "fail", "to"), ("never", "fail", "to"), ("no", "dejen", "de")]
 NOT_REQUIRED = [("no", "hace", "falta"), ("no", "necesitas"), ("no", "necesita"), ("nao", "precisa"), ("nao", "precisam"), ("no", "precisa"),
@@ -253,7 +253,7 @@ SYNONYMS = {  # content-noun classes (folded, singular). Deliberately small: a m
 PREP_MAP = {"es": {"a": "TO", "al": "TO", "para": "FOR", "en": "IN", "de": "OF", "del": "OF", "con": "WITH", "por": "BY", "sobre": "ON", "desde": "FROM"},
             "pt": {"para": "TO", "a": "TO", "ao": "TO", "em": "IN", "no": "IN", "na": "IN", "de": "OF", "do": "OF", "da": "OF", "dos": "OF", "das": "OF", "com": "WITH", "por": "BY", "sobre": "ON"},
             "en": {"to": "TO", "for": "FOR", "in": "IN", "on": "ON", "of": "OF", "with": "WITH", "by": "BY", "from": "FROM", "at": "AT"}}
-PREPS_ALL = set().union(*[set(v) for v in PREP_MAP.values()]) | {"como", "as", "like", "que", "que"}
+PREPS_ALL = set().union(*[set(v) for v in PREP_MAP.values()]) | {"como", "as", "like", "que"}
 
 _SUFFIX = r"(?:a|e|o|as|es|an|en|ar|er|ir|ad|ed|id|ado|ido|ando|iendo|ing|ed|s|ando|ed|em|ou|ei|ava|aba|emos|amos|ais|eis|ando|ei|ia|ie|ue|ua|ue|eu|ei)?"
 _CLITIC = r"(?:(?:me|te|le|les|se|lo|la|los|las|nos)){0,2}"

@@ -2,7 +2,7 @@
 decode(encode(g)) has the same fingerprint as g; decode never guesses: unknown types/relations/concepts are reported, not mapped."""
 import json
 from aixl.atoms.schema import Atom, AtomGraph
-from aixl.atoms.registry import REGISTRY_VERSION, ATOM_TYPES, RELATIONS
+from aixl.atoms.registry import ATOM_TYPES, RELATIONS
 
 MAGIC = "AIXL 0.4"
 

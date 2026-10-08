@@ -1,6 +1,6 @@
 """Does the normal form raise agreement between independent extractions of the same text, without collapsing different texts?
   python benchmarks/atoms_norm_eval.py [--stages lemma,alias,rewrite] [--tables path]   (dev = blind1v3,2,3 ; held-out = blind4)"""
-import sys, os, json, itertools, collections
+import sys, os, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from atoms_sources import *
 from aixl.atoms import fidelity

@@ -8,7 +8,7 @@ The marker lexicon is closed and small (ES/EN/PT); a language outside it yields 
 import re
 
 from aixl.core.normalizer import strip_accents
-from aixl.core.lexicon_gaps import (FUNCTION_WORDS, _known, _forms, _TOKEN, _CONCEPT, stem)
+from aixl.core.lexicon_gaps import (FUNCTION_WORDS, _known, _forms, _CONCEPT, stem)
 from aixl.core.normalizer import STOP
 
 # 1-2 character function words that are NOT content (everything else short, like 'b', 'c', 'x', is content).
