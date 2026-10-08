@@ -20,7 +20,7 @@ Format: Problem / Decision / Alternatives / Reasoning / Consequences / Compatibi
 | 015 | Fingerprints: canonical, version-bound, conservative |
 | 016 | Open role slots + explicit residue + INCONCLUSIVE verdict (AIXL 0.5, DESIGN ONLY) |
 | 018 | AIXL 0.5 scope: exact engine (controlled vocabulary) + loss detector + interchange/audit layer around a full-text arbiter (ACCEPTED 2026-10-03) |
-| 022 | Package layering: `legacy02` is the foundation (not dead), `semantic`/`atoms` are isolated experiments; enforce with a fitness test (PROPOSED — options A/B/C) |
+| 022 | Package layering: `legacy02` is the foundation (not dead), `semantic`/`atoms` are isolated experiments; enforce with a fitness test (ACCEPTED, option A applied; B/C open) |
 | 017 | Residue canonicalizer (independent per-side keys) + per-side completeness check (DESIGN) |
 
 ADRs 001–008, 014 and 015 record decisions made earlier in the project, written down on 2026-10-02 from the code, tests and the benchmark notes; the evidence they cite is in BENCHMARK.md and LIMITATIONS.md. ADRs 009–013 were decided and measured on the same day.

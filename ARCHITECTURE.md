@@ -15,6 +15,21 @@ EXECUTION  — out of scope for 0.3 (nothing here executes an action)
 ```
 Rule: the **Semantic Core is the graph**. AIXL is only a serialization of it; changing the AIXL syntax must not change meaning.
 
+## Package layering and status (ADR-022, enforced by `tests/test_architecture.py`)
+Measured 2026-10-08; the rules below are tests, not intentions.
+```
+ STABLE FOUNDATION   aixl/legacy02/      0.2 wire syntax (encoder/parser), SemanticFrame, normalizer, rule tables.  A LEAF: imports nothing from aixl.
+                     (historical name; NOT dead code -- `import aixl` loads 8 of its 14 files)
+ PRODUCT             aixl/core, translators, serialization, api, adapters, agents, guard,
+                     gate.py, envelope.py, telegraph.py, refstore.py, refpolicy.py, negotiation*.py, arbiter.py, mcp_server.py
+                     May import the foundation and each other; NEVER semantic/ or atoms/.
+ EXPERIMENTAL        aixl/semantic/      0.3-R track.  May import only core + the root API.
+                     aixl/atoms/         atoms layer.  May import only semantic.
+                     aixl/hybrid_protocol.py = the one declared bridge from the product surface (the published hybrid MCP tool) to semantic/.
+```
+Consequences you can rely on: `import aixl` never loads `semantic/` or `atoms/` (checked at runtime in a clean interpreter); there are no import-time cycles across packages;
+the only cycle left is `core` <-> `translators` through 3 lazy (function-level) imports.
+
 ## Modules (aixl/)
 | Module | Role |
 |---|---|
