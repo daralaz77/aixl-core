@@ -1,10 +1,13 @@
 """AIXL 0.4 AtomGraph: atoms + typed relations, canonical form independent of atom ids, semantic fingerprint (§3-5, §13, §43)."""
-import hashlib, json
+import hashlib
+import json
 from dataclasses import dataclass, field
-from aixl.atoms.registry import REGISTRY_VERSION, ATOM_TYPES, RELATIONS, RELATION_SIG, MODALITIES, POLARITIES, is_known
+
+from aixl.atoms.registry import ATOM_TYPES, MODALITIES, POLARITIES, REGISTRY_VERSION, RELATION_SIG, RELATIONS, is_known
 
 STATUS = ("explicit", "inferred", "ambiguous", "unsupported")
 import re
+
 TIME_RELS = ("before", "until", "at", "after", "since", "within", "every", "during")
 TIME_REF_RE = re.compile(r"mon|tue|wed|thu|fri|sat|sun|today|tomorrow|yesterday|now|\d{4}-\d{2}-\d{2}|\d{4}-\d{2}|\d{4}|\d+(h|min|d|w|mo)|\d{1,2}:\d{2}|d([1-9]|[12]\d|3[01])|"
                          r"jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|(this|next|last)_(week|month|quarter|year|weekend)|event:[a-z0-9_]+|month_start|month_end|(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])|morning|afternoon|evening|night|dawn|noon|midnight")

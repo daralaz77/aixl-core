@@ -1,7 +1,8 @@
 import pytest
-from aixl.translators.natural_to_semantic import to_graph
+
 from aixl.serialization import aixl_codec, json_codec
 from aixl.serialization.aixl_codec import AixlError
+from aixl.translators.natural_to_semantic import to_graph
 
 SAMPLES = [
     "Analiza las ventas del primer trimestre de 2026", "No elimines el reporte #81.", "Analiza 1.000 registros.",

@@ -8,14 +8,13 @@ import functools
 import re
 from datetime import date
 
-from aixl.legacy02.translators import natural_to_semantic as legacy
-from aixl.legacy02.core.semantic_frame import SemanticFrame
-from aixl.legacy02.core.normalizer import normalize as _norm_frame
-from aixl.legacy02.protocol.atoms import derive_intent, derive_goal
-from aixl.core.normalizer import (SemanticNormalizer, EXTRA_ACTION_RX, ALL_ACTION_RX, FORBID_CUE, ALLOW_CUE, AGG_MAP,
-                                  OUTPUT_ALIASES, strip_accents, UNIT_MAP)
+from aixl.core.normalizer import AGG_MAP, ALL_ACTION_RX, ALLOW_CUE, EXTRA_ACTION_RX, FORBID_CUE, OUTPUT_ALIASES, UNIT_MAP, SemanticNormalizer, strip_accents
 from aixl.core.ontology import resolve_relative_time_str
 from aixl.core.semantic_graph import SemanticGraph
+from aixl.legacy02.core.normalizer import normalize as _norm_frame
+from aixl.legacy02.core.semantic_frame import SemanticFrame
+from aixl.legacy02.protocol.atoms import derive_goal, derive_intent
+from aixl.legacy02.translators import natural_to_semantic as legacy
 
 NORM = SemanticNormalizer()
 

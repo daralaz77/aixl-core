@@ -1,10 +1,12 @@
 """Property + invariant tests (master prompt §62-64). Run over a fixed ES/EN/PT corpus; `today` is pinned."""
 import datetime
+
 import pytest
+
 from aixl.api import service as S
-from aixl.serialization import aixl_codec, json_codec
-from aixl.core.fingerprint import fingerprint_graph
 from aixl.core.comparator import compare_graphs
+from aixl.core.fingerprint import fingerprint_graph
+from aixl.serialization import aixl_codec, json_codec
 
 TODAY = datetime.date(2026, 10, 2)
 CORPUS = [

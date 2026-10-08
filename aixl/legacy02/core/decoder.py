@@ -1,5 +1,6 @@
 """Encoding layer: AIXL -> SemanticFrame -> natural-language reconstruction (spec §30-31)."""
 import re
+
 from aixl.legacy02.core.parser import parse
 from aixl.legacy02.core.semantic_frame import SemanticFrame
 

@@ -27,6 +27,13 @@ extend-exclude = [".venv", ".venv-mlx", "distill"]
 [tool.ruff.lint]
 # Phase 0 of docs/CLEANUP_ROADMAP.md: correctness-class rules only. Style families (SIM, C4, UP, FURB, PERF, RUF...) are NOT enabled on purpose.
 select = ["F", "E9", "B", "I"]
+# B905: zip() without strict= keeps today's behaviour; adding strict=True would change semantics, strict=False everywhere is noise.
+ignore = ["B905"]
+
+[tool.ruff.lint.per-file-ignores]
+# deliberate one-line style (`import os, sys; sys.path.insert(...)`, `import x; return f(x)`) that the import sorter cannot rewrite
+"examples/*.py" = ["I001"]
+"cli.py" = ["I001"]
 
 [tool.setuptools.packages.find]
 include = ["aixl*"]

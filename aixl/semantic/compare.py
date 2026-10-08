@@ -8,9 +8,10 @@
 Equivalence is NEVER derived from a score or from similar wording (master prompt §2, §27)."""
 import itertools
 from collections import Counter
-from aixl.semantic.model import Atom, Diff, Verdict
-from aixl.semantic.parser import parse, FUNCTIONAL
+
 from aixl.semantic import lexicon as L
+from aixl.semantic.model import Atom, Diff, Verdict
+from aixl.semantic.parser import FUNCTIONAL, parse
 
 SEVERITY = {"DEONTIC": "CRITICAL", "COND": "CRITICAL", "EXCEPT": "CRITICAL", "WITHOUT": "CRITICAL", "ACTION": "CRITICAL", "ONLY": "MAJOR", "TIME": "MAJOR",
             "QTY": "MAJOR", "ORD": "MAJOR", "QUANT": "MAJOR", "RECIPIENT": "MAJOR", "SEQUENCE": "MAJOR", "STEP": "MAJOR", "ITEMS": "MODERATE"}

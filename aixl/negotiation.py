@@ -24,11 +24,11 @@ Design choices, each deliberate:
   to 79 % before diminishing returns set in): a REJECT after the cap is an honest, reportable outcome,
   never an infinite loop or a silent guess.
 """
-from dataclasses import dataclass, field
 import asyncio
 import re
+from dataclasses import dataclass, field
 
-from aixl.core.comparator import compare_canonical, Difference
+from aixl.core.comparator import Difference, compare_canonical
 from aixl.core.ontology import DIMENSIONS, load_config, rank
 
 TURN_TYPES = {"REQUEST", "CLARIFY", "ANSWER", "ACCEPT", "REJECT"}

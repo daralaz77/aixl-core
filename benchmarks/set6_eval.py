@@ -2,12 +2,15 @@
 texts_set<n>.json). usage: python -m benchmarks.set6_eval rule [--set7] | python -m benchmarks.set6_eval
 <encoder> <answers.txt>... [--set7]. Parse failures count as NOT_EQUIVALENT (same convention as
 llm_translator_eval / xv_eval). Default set is 6; pass --set7 (or edit SET_NO) for later ones."""
-import json, os, sys
+import json
+import os
+import sys
 from datetime import date
-from aixl.serialization import aixl_codec
+
 from aixl.core.comparator import compare_graphs
+from aixl.serialization import aixl_codec
 from aixl.translators.natural_to_semantic import to_graph
-from benchmarks.llm_translator_eval import read, ROOT, CRIT
+from benchmarks.llm_translator_eval import CRIT, ROOT, read
 from benchmarks.metrics import prf
 
 REFERENCE_TODAY = date(2026, 9, 27)  # pinned: the date these blind sets were authored/encoded against

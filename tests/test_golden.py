@@ -1,5 +1,6 @@
 """Golden cases (§61): critical expected canonical fields, pinned. Any change here is a semantic change (§83)."""
 import datetime
+
 from aixl.api import service as S
 
 T = datetime.date(2026, 10, 2)

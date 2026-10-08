@@ -1,14 +1,21 @@
 """blind12 funnel test, exactly as pre-registered in ADR-017. Stage 1 (deterministic): K1 canonical equality (rules route, inconclusive off),
 K2 semantic_fingerprint equality, K3 lexical Jaccard baseline (>=0.1/0.2/0.3), K4 all pairs.  Stage 2: arbiter 2-of-2 on 360 equivalent + 480 near-miss pairs.
 usage: python -m benchmarks.funnel_eval stage1 | stage2 DIR"""
-import json, re, sys, itertools, collections, glob, os
+import collections
+import glob
+import itertools
+import json
+import os
+import re
+import sys
+
 from aixl import semantic_fingerprint
 from aixl.api.service import to_semantic
 from aixl.core.comparator import compare_graphs
-from aixl.core.ontology import load_config
-from aixl.core.normalizer import strip_accents, STOP
+from aixl.core.completeness import _CLOSED, SHORT_FUNCTION
 from aixl.core.lexicon_gaps import FUNCTION_WORDS
-from aixl.core.completeness import SHORT_FUNCTION, _CLOSED
+from aixl.core.normalizer import STOP, strip_accents
+from aixl.core.ontology import load_config
 
 TOK = re.compile(r"\d+(?:[.,]\d+)?|[a-z]+")
 STOPALL = STOP | FUNCTION_WORDS | SHORT_FUNCTION | _CLOSED

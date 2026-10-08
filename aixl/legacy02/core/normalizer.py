@@ -1,6 +1,7 @@
 """Semantic layer: normalization of frames (spec §8-§13, §28)."""
 import re
-from aixl.legacy02.core.semantic_frame import SemanticFrame, LIST_FIELDS
+
+from aixl.legacy02.core.semantic_frame import LIST_FIELDS, SemanticFrame
 
 _LEAD0 = re.compile(r"(?<![\d.])0\.(\d)")
 

@@ -9,7 +9,6 @@ import unicodedata
 
 from aixl.legacy02.translators import natural_to_semantic as legacy
 
-
 _INVISIBLE = re.compile("[\u200b-\u200f\u202a-\u202e\u2060-\u2064\ufeff\u00ad]")
 # Cyrillic/Greek letters that render like Latin ones. Only folded INSIDE a word that also has Latin letters
 # (a mixed-script word is the homoglyph-attack signature; ES/EN/PT text never has one legitimately).

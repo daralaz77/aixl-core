@@ -15,10 +15,10 @@ import time
 import pytest
 
 a2a = pytest.importorskip("a2a")
-import httpx                                                        # noqa: E402
-from a2a.client.client_factory import ClientFactory                  # noqa: E402
+import httpx  # noqa: E402
+from a2a.client.client_factory import ClientFactory  # noqa: E402
 from a2a.helpers.proto_helpers import get_data_parts, new_data_message  # noqa: E402
-from a2a.types.a2a_pb2 import Role, SendMessageRequest, TaskState     # noqa: E402
+from a2a.types.a2a_pb2 import Role, SendMessageRequest, TaskState  # noqa: E402
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

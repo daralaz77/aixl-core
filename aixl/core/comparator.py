@@ -5,8 +5,8 @@ is a weighted, configurable, experimental metric for graded reporting; it is not
 """
 from dataclasses import dataclass, field
 
+from aixl.core.ontology import ANTONYM_ACTIONS, DIMENSIONS, load_config, rank
 from aixl.core.semantic_graph import SemanticGraph
-from aixl.core.ontology import DIMENSIONS, ANTONYM_ACTIONS, load_config, rank
 
 DERIVED = {"intent", "goal"}      # derived from actions/negation/entities: scored, never reported as an independent difference
 DIM_LABEL = {"negation": "NEGATION", "actions": "ACTION", "quantities": "QUANTITY"}

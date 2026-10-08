@@ -1,9 +1,11 @@
 """Ratchet for the §39 adversarial suite (benchmarks/sil_security_*). Floors = measured values 2026-10-02.
 Known, declared limitations (NOT hidden by these floors): 3 hard cases flagged but not CRITICAL — see BENCHMARK.md."""
 import pytest
-from benchmarks import sil_security_eval as ev, sil_security_gen as gen
+
 from aixl import compare, to_semantic
 from aixl.core.normalizer import sanitize_input
+from benchmarks import sil_security_eval as ev
+from benchmarks import sil_security_gen as gen
 
 
 @pytest.fixture(scope="module")

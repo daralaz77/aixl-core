@@ -1,9 +1,12 @@
 """Generate docs/ATOMS_REGISTRY.md (ATOM TAXONOMY, RELATION TAXONOMY, CONCEPT REGISTRY, INTEROPERABILITY PROFILE) from aixl/atoms/registry.py. A test checks it is fresh."""
-import os, sys
+import os
+import sys
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import json
+
 from aixl.atoms import registry as R
 from aixl.atoms.firewall import Profile
-import json
 
 
 def render() -> str:

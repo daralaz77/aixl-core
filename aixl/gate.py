@@ -4,14 +4,15 @@ safe tags. Output is AIXL only if (a) tokens(compact) < tokens(natural), (b) exp
 form gives the SAME semantic fingerprint as the source graph, (c) no completeness/ambiguity warning.
 Otherwise MODE=NATURAL. Token counting is a deterministic PROXY (no tokenizer dependency); see LIMITATIONS."""
 import re
-from aixl.translators.natural_to_semantic import to_graph
-from aixl.serialization.aixl_codec import encode, decode
+
+from aixl.core.completeness import _ALLTOK, _CLOSED, _CONCEPT, FUNCTION_WORDS, MARKERS, SHORT_FUNCTION, STOP, _evidence_tokens, _forms, _norm, check_completeness
 from aixl.core.fingerprint import fingerprint_graph
-from aixl.core.completeness import (check_completeness, _evidence_tokens, _ALLTOK, _norm, _CLOSED, SHORT_FUNCTION, MARKERS,
-                                    FUNCTION_WORDS, STOP, _forms, _CONCEPT)
-from aixl.core.lexicon_gaps import stem as _stem, _known
-from aixl.legacy02.translators import natural_to_semantic as legacy
+from aixl.core.lexicon_gaps import _known
+from aixl.core.lexicon_gaps import stem as _stem
 from aixl.core.normalizer import ALL_ACTION_RX, strip_accents
+from aixl.legacy02.translators import natural_to_semantic as legacy
+from aixl.serialization.aixl_codec import decode, encode
+from aixl.translators.natural_to_semantic import to_graph
 
 ABBR = {"A:TRANSLATE": "A:TRN", "A:SUMMARIZE": "A:SUM", "A:COMPARE": "A:CMP", "E:DOCUMENT": "E:DOC"}
 _REV = {v: k for k, v in ABBR.items()}

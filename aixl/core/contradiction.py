@@ -5,8 +5,8 @@ opposition: request vs prohibition of the same action, allow vs forbid, enable/d
 public/private, before/after the same moment."""
 from dataclasses import dataclass, field
 
-from aixl.core.semantic_graph import SemanticGraph
 from aixl.core.ontology import ANTONYM_ACTIONS
+from aixl.core.semantic_graph import SemanticGraph
 
 
 @dataclass

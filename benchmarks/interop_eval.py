@@ -2,10 +2,13 @@
 (Sonnet, Gemini) each encode the SAME 100 standalone texts with the SAME frozen card; for each text
 we compare their two AIXL outputs to each other. No gold label is involved -- this measures whether
 two vendors converge, not whether either is "right"."""
-import json, os, re
+import json
+import os
+import re
 from collections import Counter
-from aixl.serialization import aixl_codec
+
 from aixl.core.comparator import compare_graphs
+from aixl.serialization import aixl_codec
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

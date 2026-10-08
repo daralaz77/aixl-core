@@ -45,7 +45,8 @@ def aixl_negotiate(sender_text: str, receiver_text: str, max_rounds: int = 3) ->
                           "sender-agent subprocess holding sender_text and negotiates with it over "
                           "real MCP stdio JSON-RPC. Returns ACCEPT (converged) or REJECT.")
 async def aixl_negotiate_autonomous(sender_text: str, receiver_text: str, max_rounds: int = 3) -> dict:
-    import sys, traceback
+    import sys
+    import traceback
     receiver_canonical = aixl.to_semantic(receiver_text).canonical()
     sender_cmd = [sys.executable, "-m", "aixl.agents.sender_agent", "--text", sender_text]
     try:

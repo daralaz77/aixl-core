@@ -1,5 +1,10 @@
 """blind13 one-shot evaluation (see data/blind13/PREREG.md). usage: python -m benchmarks.blind13_eval [--show]"""
-import json, sys, collections, hashlib, os
+import collections
+import hashlib
+import json
+import os
+import sys
+
 import aixl
 from aixl.core.ontology import load_config
 from benchmarks.golden_r_eval import outcome

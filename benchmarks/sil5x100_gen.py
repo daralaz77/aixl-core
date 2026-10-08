@@ -12,7 +12,9 @@ lexicon (so failures measure real coverage). Label definitions (declared before 
 v1.1 (2026-10-02): dropped "Forward" as a synonym of "Send" (not a strict synonym -> 8 doubtful EQUIVALENT labels
 found after the first run; v1 scored 447/500 = 89.4%). Labels are otherwise unchanged.
 Note (§65 overlap): a pure negation flip is labelled CONTRADICTORY here, not NOT_EQUIVALENT."""
-import json, os, random
+import json
+import os
+import random
 
 SEED = 20261002
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

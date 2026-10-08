@@ -1,7 +1,9 @@
 """Ratchet for the §42 5x100 benchmark (rule-based pipeline). Floors = measured values (v1.2 after the PT lexicon + §66 warning fixes) (2026-10-02);
 raise them when the system improves, never lower them silently. Known gaps live in BENCHMARK.md §5x100."""
 import pytest
-from benchmarks import sil5x100_eval as ev, sil5x100_gen as gen
+
+from benchmarks import sil5x100_eval as ev
+from benchmarks import sil5x100_gen as gen
 
 FLOOR = {"EQUIVALENT": 100, "NOT_EQUIVALENT": 97, "PARTIALLY_EQUIVALENT": 100, "AMBIGUOUS": 100, "CONTRADICTORY": 100}   # v1.2: PT lexicons
 

@@ -1,8 +1,9 @@
 """AIXL 0.4 wire format: a line-oriented, transport-independent serialization of an AtomGraph (master prompt §15, §16, §44).
 decode(encode(g)) has the same fingerprint as g; decode never guesses: unknown types/relations/concepts are reported, not mapped."""
 import json
-from aixl.atoms.schema import Atom, AtomGraph
+
 from aixl.atoms.registry import ATOM_TYPES, RELATIONS
+from aixl.atoms.schema import Atom, AtomGraph
 
 MAGIC = "AIXL 0.4"
 

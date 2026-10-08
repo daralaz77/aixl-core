@@ -12,8 +12,8 @@ import sys
 import pytest
 
 mcp = pytest.importorskip("mcp")
-from mcp import ClientSession                                   # noqa: E402
-from mcp.client.stdio import stdio_client, StdioServerParameters  # noqa: E402
+from mcp import ClientSession  # noqa: E402
+from mcp.client.stdio import StdioServerParameters, stdio_client  # noqa: E402
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

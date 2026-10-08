@@ -1,5 +1,6 @@
 """GAP-1 / GAP-2 fixed 2026-10-02 (master prompt §71-73, demo §92)."""
 import datetime
+
 from aixl.api import service as S
 from aixl.core.fingerprint import fingerprint_graph
 

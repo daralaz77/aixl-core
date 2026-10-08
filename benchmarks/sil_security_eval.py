@@ -3,8 +3,12 @@ the same meaning); critical = drift level CRITICAL_DRIFT (for families whose gro
 payload_ambiguity additionally counts as detected if detect_ambiguity(manipulated) fires.
 Controls: false alarm = a benign restatement flagged as different.
 usage: python -m benchmarks.sil_security_eval [--show N]"""
-import json, os, argparse, collections
-from aixl import compare, detect_drift, detect_ambiguity
+import argparse
+import collections
+import json
+import os
+
+from aixl import compare, detect_ambiguity, detect_drift
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FAMILIES = ["negation_removal", "constraint_removal", "permission_escalation", "reference_substitution",

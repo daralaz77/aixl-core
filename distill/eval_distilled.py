@@ -9,7 +9,12 @@ at inference time; that's the whole point of distillation.
 usage: python distill/eval_distilled.py <ollama-model-name> [--limit N]
 Then: python -m benchmarks.llm_translator_eval <model-name> distill/answers_<model>.txt --set5
 """
-import json, os, re, sys, time, urllib.request
+import json
+import os
+import re
+import sys
+import time
+import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

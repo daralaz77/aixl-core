@@ -1,9 +1,14 @@
 """ADR-016 step 1 gate metrics: for pair sets, how often a NON-equivalent pair is judged EQUIVALENT (false-EQUIVALENT, the
 dangerous error) and how often a truly EQUIVALENT pair is judged EQUIVALENT / INCONCLUSIVE / NOT_EQUIVALENT.
 usage: python -m benchmarks.inconclusive_eval [--off]   (--off disables INCONCLUSIVE = the 0.4 behaviour, for A/B)"""
-import json, sys, glob, collections
+import collections
+import glob
+import json
+import sys
+
 from aixl import compare
 from aixl.core.ontology import load_config
+
 
 def sets():
     out = {}

@@ -1,5 +1,8 @@
 """The six mandatory demos of the master prompt (DEMO level: same author as the code, see BENCHMARK.md)."""
-import subprocess, sys, os
+import os
+import subprocess
+import sys
+
 import aixl
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

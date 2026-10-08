@@ -2,8 +2,12 @@
 Cost units (relative to 1 fresh input token): cache write 1.25, cache read 0.10, output 5.0 (published Anthropic ratios; ASSUMPTION, prices change).
 Pointer saving model per encoded block of d chars in call i of N: tokens = d*r ; cost saved = tokens*(1.25 + 0.10*(N-i))  (written once, then re-read every later call).
 Ignores: cache TTL expiry, context compaction (both make the real saving different), thinking blocks."""
-import glob, json, collections
+import collections
+import glob
+import json
+
 from aixl.refstore import RefStore
+
 W = {"fresh": 1.0, "cw": 1.25, "cr": 0.10, "out": 5.0}
 
 def parse(path):

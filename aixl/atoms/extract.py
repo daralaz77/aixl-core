@@ -5,6 +5,7 @@ quantity, time, format, recipient, exception) -> reference resolution -> validat
 aixl.semantic.lexicon (shared closed-class lists, not duplicated)."""
 import re
 import unicodedata
+
 from aixl.atoms import registry as R
 from aixl.atoms.schema import Atom, AtomGraph
 from aixl.semantic import lexicon as L

@@ -1,8 +1,12 @@
 """E-LLM: LLM encoder (card 0.3) -> AIXL -> SAME codec + comparator. usage: python -m benchmarks.llm_translator_eval <model> <chunk1.txt> <chunk2.txt> [--fallback]
 Parse failures count as errors (pair judged NOT_EQUIVALENT); with --fallback the rule-based translator is used for texts whose AIXL does not parse."""
-import json, os, re, sys
-from aixl.serialization import aixl_codec
+import json
+import os
+import re
+import sys
+
 from aixl.core.comparator import compare_graphs
+from aixl.serialization import aixl_codec
 from aixl.translators.natural_to_semantic import to_graph
 from benchmarks.metrics import prf
 

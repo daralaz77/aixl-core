@@ -1,6 +1,14 @@
 """Option C on REAL agent traffic: all text blocks (user, assistant text, tool results) of local Claude Code sessions, in order, one RefStore per session."""
-import glob, json, time, collections, random, tiktoken
+import collections
+import glob
+import json
+import random
+import time
+
+import tiktoken
+
 from aixl.refstore import RefStore
+
 enc = tiktoken.get_encoding("o200k_base")
 
 def blocks(path):

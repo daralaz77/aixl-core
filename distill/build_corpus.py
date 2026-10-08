@@ -11,7 +11,10 @@ contributed 0 pairs — harmless, just unused, not worth chasing given 1417 pair
 
 usage: python distill/build_corpus.py
 """
-import json, os, re, sys
+import json
+import os
+import re
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)

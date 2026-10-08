@@ -18,11 +18,11 @@ import asyncio
 import json
 
 from mcp import ClientSession
-from mcp.client.stdio import stdio_client, StdioServerParameters
+from mcp.client.stdio import StdioServerParameters, stdio_client
 
 from aixl.core.ontology import load_config
-from aixl.serialization import aixl_codec
 from aixl.negotiation import NegotiationOutcome, _negotiate_core
+from aixl.serialization import aixl_codec
 
 
 def _coerce(receiver_value_before, wire_value):

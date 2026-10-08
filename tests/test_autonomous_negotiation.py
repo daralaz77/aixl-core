@@ -9,8 +9,8 @@ import pytest
 
 mcp = pytest.importorskip("mcp")
 
-from aixl import negotiation as neg                       # noqa: E402
-from aixl.autonomous_negotiation import negotiate_autonomous, _sender_env_and_cwd  # noqa: E402
+from aixl import negotiation as neg  # noqa: E402
+from aixl.autonomous_negotiation import _sender_env_and_cwd, negotiate_autonomous  # noqa: E402
 from aixl.translators.natural_to_semantic import to_graph  # noqa: E402
 
 

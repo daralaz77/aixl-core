@@ -2,12 +2,18 @@
  A rules 0.4 (inconclusive off) | B rules (inconclusive on) | C AIXL LLM route (card 0.6, per encoder; completeness+markers, inconclusive on)
  D arbiter (Sonnet, Haiku, 2-of-2) | E D + obfuscation veto | F D + C must prove EQUIVALENT.   AMBIGUOUS: rules detect_ambiguity only.
 usage: python -m benchmarks.blind11_eval DIR"""
-import json, re, glob, sys, os, collections
+import collections
+import glob
+import json
+import os
+import re
+import sys
+
 from aixl import compare, detect_ambiguity
-from aixl.core.ontology import load_config
-from aixl.core.normalizer import sanitize_input
 from aixl.core.comparator import compare_graphs
 from aixl.core.completeness import annotate
+from aixl.core.normalizer import sanitize_input
+from aixl.core.ontology import load_config
 from aixl.serialization import aixl_codec
 
 CLS = ("EQUIVALENT", "NOT_EQUIVALENT", "PARTIALLY_EQUIVALENT", "CONTRADICTORY")

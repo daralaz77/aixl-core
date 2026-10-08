@@ -1,7 +1,10 @@
 """Two-step hybrid protocol (aixl/hybrid_protocol.py): the core combines judge verdicts supplied by the caller; it calls no model."""
 import json
+
 import pytest
-from aixl import hybrid_protocol as hp, arbiter
+
+from aixl import arbiter
+from aixl import hybrid_protocol as hp
 
 A, B = "Generate the sales report", "Create the sales report"
 

@@ -1,14 +1,15 @@
 """Public API (spec §28). Pure Python, no external service required by default (AIXL_TRANSLATOR_MODE,
 see aixl/translators/auto.py, is 'rule_based' unless explicitly changed — this module behaves exactly
 as it did before the LLM-translator route existed, for every caller that doesn't opt in)."""
-from aixl.translators.auto import to_graph_auto as to_graph
-from aixl.serialization import aixl_codec
+from aixl.core.ambiguity import AmbiguityResult, detect_ambiguity_graph
+from aixl.core.comparator import ComparisonResult, compare_graphs, format_diff
+from aixl.core.contradiction import ContradictionResult, detect_contradiction_graphs
+from aixl.core.drift import DriftReport, detect_drift_graphs
 from aixl.core.semantic_graph import SemanticGraph
-from aixl.core.comparator import compare_graphs, format_diff, ComparisonResult
-from aixl.core.drift import detect_drift_graphs, DriftReport
-from aixl.core.ambiguity import detect_ambiguity_graph, AmbiguityResult
-from aixl.core.contradiction import detect_contradiction_graphs, ContradictionResult
-from aixl.negotiation import negotiate as _negotiate, NegotiationOutcome
+from aixl.negotiation import NegotiationOutcome
+from aixl.negotiation import negotiate as _negotiate
+from aixl.serialization import aixl_codec
+from aixl.translators.auto import to_graph_auto as to_graph
 
 
 def to_semantic(text: str) -> SemanticGraph:
@@ -34,7 +35,7 @@ def translate(text: str) -> dict:
 def compare(text_a: str, text_b: str, config: dict | None = None) -> ComparisonResult:
     if config is not None:
         return compare_graphs(to_graph(text_a), to_graph(text_b), config)
-    from aixl.core.completeness import annotate, marker_conflicts, names_reordered, BOUNDARY
+    from aixl.core.completeness import BOUNDARY, annotate, marker_conflicts, names_reordered
     ga, gb = annotate(to_graph(text_a), text_a), annotate(to_graph(text_b), text_b)
     res = compare_graphs(ga, gb, config)
     if res.equivalent:

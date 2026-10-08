@@ -9,7 +9,7 @@ Skipped automatically if `httpx` (an optional dependency, see pyproject.toml's `
 installed — found the hard way: without this guard, a clean venv with only `mcp` installed (which does
 NOT pull in httpx, unlike `a2a-sdk[http-server]`) failed 7 of these tests with ModuleNotFoundError at
 collection time, not a clean skip."""
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
 import pytest
 

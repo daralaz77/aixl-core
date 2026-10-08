@@ -16,17 +16,20 @@ Reuses aixl.negotiation's own tested helpers (compare_canonical, worst_dimension
 _is_empty, _involves_irreversible_action) — imported, not reimplemented; aixl/negotiation.py itself is
 untouched. Ordinary (non-irreversible) disagreements still auto-resolve in a single pass, exactly like
 `negotiate()` — only an irreversible-action disagreement ever pauses the task."""
-from google.protobuf.json_format import MessageToDict
-
 from a2a.helpers.proto_helpers import new_data_message, new_task_from_user_message
 from a2a.server.tasks import TaskUpdater
 from a2a.types.a2a_pb2 import Role, TaskState
+from google.protobuf.json_format import MessageToDict
 
 from aixl.agents.concurrency import run_cpu_bound
 from aixl.agents.observability import inc
 from aixl.core.ontology import load_config
 from aixl.negotiation import (
-    compare_canonical, worst_dimension, _dim_of_label, _is_empty, _involves_irreversible_action,
+    _dim_of_label,
+    _involves_irreversible_action,
+    _is_empty,
+    compare_canonical,
+    worst_dimension,
 )
 
 TUPLE_DIMS = {"actions", "entities", "data", "time", "location", "constraints", "conditions",

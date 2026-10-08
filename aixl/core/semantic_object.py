@@ -1,5 +1,5 @@
 """FASE 2 — SemanticObject: one unit of meaning (an action, a datum, a quantity, ...)."""
-from dataclasses import dataclass, field, asdict
+from dataclasses import asdict, dataclass, field
 
 
 @dataclass

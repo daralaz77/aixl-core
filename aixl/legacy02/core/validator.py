@@ -1,10 +1,11 @@
 """Semantic layer: the 10 pre-emit checks (spec §34)."""
 import re
-from aixl.legacy02.core.semantic_frame import SemanticFrame
+
 from aixl.legacy02.core.encoder import encode
-from aixl.legacy02.core.parser import parse, AixlError
-from aixl.legacy02.core.normalizer import normalize, norm_decimal
-from aixl.legacy02.protocol.atoms import INTENTS, ACTIONS
+from aixl.legacy02.core.normalizer import norm_decimal, normalize
+from aixl.legacy02.core.parser import AixlError, parse
+from aixl.legacy02.core.semantic_frame import SemanticFrame
+from aixl.legacy02.protocol.atoms import ACTIONS, INTENTS
 from aixl.legacy02.protocol.versions import check_version
 
 NEG_CUE = re.compile(r"\b(no|nunca|jam[aá]s|sin|don'?t|do not|never|not|n[aã]o|without)\b", re.I)

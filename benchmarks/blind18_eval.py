@@ -2,7 +2,13 @@
 Refuses to run if the frozen code/rules changed or the pair files changed. Judge verdicts come from stored TSVs (data/blind18/judge_<name>.tsv),
 produced by two independent agents that saw only rules_v1.txt and (id, a, b).
 usage: python -m benchmarks.blind18_eval [--show]"""
-import json, os, sys, glob, hashlib, collections
+import collections
+import glob
+import hashlib
+import json
+import os
+import sys
+
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 D = os.path.join(ROOT, "data", "blind18")
 for f, h in json.load(open(os.path.join(D, "CODE_FREEZE.json"))).items():

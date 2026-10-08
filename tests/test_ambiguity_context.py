@@ -1,5 +1,6 @@
 """Context-aware ambiguity (§24, §35, §91), added 2026-10-02. The Core never picks a candidate."""
 import inspect
+
 from aixl.api import service as S
 
 CTX = {"entities": [{"id": "juan_a", "name": "Juan Pérez"}, {"id": "juan_b", "name": "Juan Gómez"},

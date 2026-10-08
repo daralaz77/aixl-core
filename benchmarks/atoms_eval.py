@@ -1,11 +1,16 @@
 """Evaluate the atom extractor against a gold set: per-dimension fidelity, exact-graph rate, failures listed."""
-import sys, json, os
+import json
+import os
+import sys
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from aixl.atoms.schema import AtomGraph
 from aixl.atoms import fidelity
 from aixl.atoms.extract import extract
+from aixl.atoms.schema import AtomGraph
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from atoms_show import brief
+
 D = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "atoms")
 
 def run(gold_file="gold_dev.jsonl", cases_file="cases_dev.json", verbose=False, extractor=extract):

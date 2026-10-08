@@ -5,6 +5,7 @@ Stages: 1 lemma normalization of `x:` concepts, 2 alias table (concept -> canoni
 import json
 import os
 import re
+
 from aixl.atoms.schema import AtomGraph
 
 _DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "aliases.json")

@@ -4,10 +4,16 @@ Arms per pair: ARB = 2-of-2 consensus of the full-text arbiter (Sonnet, Haiku); 
 VETO = ARB says SAME and AIXL gives no SEPARATING evidence (verdict NOT_EQUIVALENT, contradiction, or input-obfuscation findings) -> still SAME;
 STRICT = ARB says SAME and AIXL proves EQUIVALENT.  False-SAME on ATK/HARD is the dangerous error; SAME on controls is recall.
 usage: python -m benchmarks.adversarial_eval DIR"""
-import json, glob, sys, os, collections
+import collections
+import glob
+import json
+import os
+import sys
+
 from aixl import compare, detect_contradiction
-from aixl.core.ontology import load_config
 from aixl.core.normalizer import sanitize_input
+from aixl.core.ontology import load_config
+
 
 def verdicts(d, model):
     v = {}

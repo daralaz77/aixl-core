@@ -1,5 +1,6 @@
 """validate() §43-44, round_trip() §38, provenance §68 — added 2026-10-02."""
 import pytest
+
 from aixl.api import service as S
 from aixl.core.semantic_graph import SemanticGraph
 from aixl.core.semantic_object import SemanticObject

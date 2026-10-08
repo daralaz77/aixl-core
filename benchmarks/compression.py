@@ -1,6 +1,7 @@
 """STRUCTURAL compression: text vs AIXL vs canonical JSON. Tokens use tiktoken cl100k_base (OpenAI tokenizer) when installed;
 that is a PROXY for LLM tokens (not Claude's tokenizer) and is labelled as such. Without tiktoken only structural metrics are printed."""
 import json
+
 from aixl import to_aixl, to_semantic
 from aixl.serialization import json_codec
 from benchmarks.dataset import load

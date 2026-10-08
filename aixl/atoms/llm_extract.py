@@ -12,8 +12,8 @@ import os
 import re
 from dataclasses import dataclass, field
 
-from aixl.atoms import registry as R
 from aixl.atoms import fidelity
+from aixl.atoms import registry as R
 from aixl.atoms.schema import AtomGraph
 
 _DOC = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "docs", "ATOM_MODEL.md")

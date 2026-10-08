@@ -1,8 +1,11 @@
 """Semantic Lab web app (stdlib only). python lab/server.py [port]  ->  http://localhost:8765"""
-import json, os, sys
+import json
+import os
+import sys
 from http.server import BaseHTTPRequestHandler, HTTPServer
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from aixl import compare, detect_ambiguity, detect_contradiction, to_aixl, semantic_diff, detect_drift  # noqa: E402
+from aixl import compare, detect_ambiguity, detect_contradiction, detect_drift, semantic_diff, to_aixl  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 

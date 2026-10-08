@@ -4,10 +4,10 @@ actually holds (or from its own paraphrase/interpretation) and compares. Three h
   MISMATCH    both complete and fingerprints differ  (meaning drift detected)
   UNVERIFIED  at least one side is outside what the translator fully encodes (completeness fails) -> NO claim either way
 Nothing here compresses; it only detects."""
-from aixl.translators.natural_to_semantic import to_graph
+from aixl.core.completeness import check_completeness
 from aixl.core.fingerprint import fingerprint_graph
 from aixl.gate import strict_complete
-from aixl.core.completeness import check_completeness
+from aixl.translators.natural_to_semantic import to_graph
 
 
 def _fp(text):

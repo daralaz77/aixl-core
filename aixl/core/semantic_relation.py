@@ -1,5 +1,5 @@
 """FASE 2 — SemanticRelation: a typed edge between two SemanticObjects."""
-from dataclasses import dataclass, field, asdict
+from dataclasses import asdict, dataclass, field
 
 RELATIONS = ["TARGET", "ACTOR", "OBJECT", "SOURCE", "RESULT", "CAUSE", "CONDITION", "CONSTRAINT", "REFERENCE",
              "DEPENDS_ON", "BEFORE", "AFTER", "EQUIVALENT", "CONTRADICTS",

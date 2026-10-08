@@ -1,6 +1,6 @@
 """Every bug found becomes a test here (spec §32). Format: BUG-NNN, how it was found, what it broke."""
-from aixl.translators.natural_to_semantic import to_graph
 from aixl.core.comparator import compare_graphs
+from aixl.translators.natural_to_semantic import to_graph
 
 
 def eq(a, b):
@@ -160,8 +160,8 @@ def test_bug022_codec_merges_repeated_list_atom_instead_of_rejecting():
     # merging into one comma-separated token (e.g. two `E:` tokens); the codec used to reject the
     # whole line. Merging is safe (union of values); a repeated SCALAR atom (e.g. two `H:` or two
     # `V:`) is still a real conflict and must still raise.
-    from aixl.serialization import aixl_codec
     from aixl.legacy02.core.parser import AixlError
+    from aixl.serialization import aixl_codec
     g = aixl_codec.decode("V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE,FIND E:COMPANY D:IMAGE E:ANOMALY G:ANOMALY_DETECTION")
     assert set(g.canonical()["entities"]) == {"COMPANY", "ANOMALY"}
     try:
@@ -172,8 +172,10 @@ def test_bug022_codec_merges_repeated_list_atom_instead_of_rejecting():
 
 
 # ---- E-DATE: reference clock + duration/time-of-day extensions (2026-09-27, closing set-6 gaps) ----
-from datetime import date as _date                          # noqa: E402
+from datetime import date as _date  # noqa: E402
+
 from aixl.translators.natural_to_semantic import to_graph as _tg  # noqa: E402
+
 _T = _date(2026, 9, 27)
 
 
@@ -241,8 +243,8 @@ def test_bug029_duration_unit_conversion_year_equals_twelve_months():
     assert not _eqd("Delete images older than one year.", "Delete images older than two years.")
     # "tenure" isn't in the AGE_RX cue phrases (a different vocabulary gap, documented, not fixed here)
     assert not _eqd("Flag customers older than one year.", "Flag customers with more than 12 months of tenure.")
-    from aixl.serialization import aixl_codec
     from aixl.core.comparator import compare_graphs
+    from aixl.serialization import aixl_codec
     a = aixl_codec.decode("V:AIXL-0.3 I:REQUEST_ANALYSIS A:FIND D:CUSTOMERS F:COUNT>1:YEARS")
     b = aixl_codec.decode("V:AIXL-0.3 I:REQUEST_ANALYSIS A:FIND D:CUSTOMERS F:COUNT>12:MONTHS")
     assert compare_graphs(a, b).equivalent
@@ -262,9 +264,10 @@ def test_bug031_reference_time_reused_for_relative_date_at_comparator_level():
     # found by set 7 (E-DATE round 2): the round-1 reference-clock fix lived only in the rule-based
     # translator, so an LLM-encoded 'T:TODAY' never matched a literal date decoded from its own AIXL
     # line. Moved to SemanticGraph.canonical()/compare_graphs(today=...) so it covers BOTH routes.
-    from aixl.serialization import aixl_codec
-    from aixl.core.comparator import compare_graphs
     from datetime import date as _d
+
+    from aixl.core.comparator import compare_graphs
+    from aixl.serialization import aixl_codec
     a = aixl_codec.decode("V:AIXL-0.3 I:REQUEST_RETRIEVAL A:GET D:SALES T:TODAY")
     b = aixl_codec.decode("V:AIXL-0.3 I:REQUEST_RETRIEVAL A:GET D:SALES T:2026-09-27")
     assert compare_graphs(a, b, today=_d(2026, 9, 27)).equivalent
@@ -277,8 +280,8 @@ def test_bug032_unknown_action_value_does_not_crash_the_comparator():
     # ACTION_TO_INTENT, and derive_intent's bare dict lookup raised an uncaught KeyError, crashing the
     # WHOLE comparison instead of just judging that one line not-equivalent. A protocol must degrade
     # gracefully on a value it doesn't recognize (that's the interoperability requirement), not crash.
-    from aixl.serialization import aixl_codec
     from aixl.core.comparator import compare_graphs
+    from aixl.serialization import aixl_codec
     a = aixl_codec.decode("V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYSIS D:DATA T:THIS_YEAR")
     b = aixl_codec.decode("V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE D:DATA T:THIS_YEAR")
     r = compare_graphs(a, b)          # must not raise

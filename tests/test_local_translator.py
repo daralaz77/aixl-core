@@ -5,7 +5,7 @@ accuracy route. No real Ollama server is used here — `httpx.post` is mocked so
 deterministic, and run in CI without a local model pulled.
 
 Skipped automatically if `httpx` is not installed, same guard and same reason as test_llm_translator.py."""
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
 import pytest
 

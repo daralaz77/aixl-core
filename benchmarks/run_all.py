@@ -1,7 +1,8 @@
 """Run every benchmark and write BENCHMARK/results_dev_latest.json. Usage: python -m benchmarks.run_all"""
-import json, os
-from benchmarks import equivalence, compression
-from benchmarks import blind_eval
+import json
+import os
+
+from benchmarks import blind_eval, compression, equivalence
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

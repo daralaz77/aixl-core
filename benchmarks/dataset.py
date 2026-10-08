@@ -1,6 +1,8 @@
 """200-case DEV benchmark (spec §30). Hand-authored, reproducible (no randomness), SAME AUTHOR as the code:
 this is a DEMO/dev set, not independent evidence (see BENCHMARK.md)."""
-import json, os
+import json
+import os
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 EQ = [  # (a, b) equivalent paraphrases, mixed ES/EN/PT

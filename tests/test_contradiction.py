@@ -1,5 +1,5 @@
-from aixl.translators.natural_to_semantic import to_graph
 from aixl.core.contradiction import detect_contradiction_graphs
+from aixl.translators.natural_to_semantic import to_graph
 
 
 def con(a, b):

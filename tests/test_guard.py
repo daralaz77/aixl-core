@@ -1,7 +1,11 @@
 """Guard ratchet: zero false-pass on every frozen set, and the regression for each bug blind testing found.
 Sets: data/guard/sets/*.json (dev = tuning data, blind1-4 = fresh sets written by the same author, spent). Labels are author-assigned."""
-import glob, json, os
+import glob
+import json
+import os
+
 import pytest
+
 from aixl.guard import guard
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

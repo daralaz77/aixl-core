@@ -1,7 +1,8 @@
-from aixl.translators.natural_to_semantic import to_graph
+import copy
+
 from aixl.core.drift import detect_drift_graphs
 from aixl.core.ontology import load_config
-import copy
+from aixl.translators.natural_to_semantic import to_graph
 
 
 def d(a, b, cfg=None):

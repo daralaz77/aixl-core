@@ -2,7 +2,10 @@
 background pairs), SAME rules, 5 independent passes per model (fresh agent each, line order shuffled per pass).
 Reports per model: pairs with unanimous verdict over 5 passes, flip rate, per-pass accuracy spread, unstable pairs; and the 2-of-2
 consensus per pass (SAME only if both models say SAME in that pass) with its own stability.  usage: python -m benchmarks.repeatability_eval DIR"""
-import json, os, sys
+import json
+import os
+import sys
+
 
 def load(d, model):
     runs = []

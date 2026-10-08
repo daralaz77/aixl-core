@@ -3,9 +3,15 @@
   - each judge alone, 2-of-2 consensus (SAME only if both say SAME),
   - PIPELINE = per-side completeness (card 0.6 encodings) + marker check + consensus SAME  ->  EQUIVALENT proven.
 usage: python -m benchmarks.arbiter_eval DIR"""
-import json, re, glob, sys, collections, os
-from aixl.serialization import aixl_codec
+import collections
+import glob
+import json
+import os
+import re
+import sys
+
 from aixl.core.completeness import annotate, marker_conflicts
+from aixl.serialization import aixl_codec
 
 LABELS = ("EQUIVALENT", "NOT_EQUIVALENT", "PARTIALLY_EQUIVALENT", "CONTRADICTORY")
 

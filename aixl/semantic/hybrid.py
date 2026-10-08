@@ -13,6 +13,7 @@
 precision is 80-87% on independent sets, so those DIFFERENT verdicts are SUSPECTED, not proven, and `proven_by` says so).
 The core calls no model: judges are callables supplied by the caller, exactly as in aixl.arbiter.decide."""
 from dataclasses import dataclass, field
+
 from aixl import arbiter
 from aixl.semantic.compare import compare_texts
 from aixl.semantic.model import Verdict

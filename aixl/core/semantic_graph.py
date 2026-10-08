@@ -7,11 +7,12 @@ that the AIXL codec serializes. Contract of the frame encoding of the 0.3 extens
   count condition F:COUNT>100:RECORDS       flags (ambiguity) are kept in `meta["flags"]`, not in meaning.
 """
 import re
+
+from aixl.core.ontology import DATA, ENTITIES
 from aixl.core.semantic_object import SemanticObject
 from aixl.core.semantic_relation import SemanticRelation
-from aixl.core.ontology import ENTITIES, DATA
 from aixl.legacy02.core.semantic_frame import SemanticFrame
-from aixl.legacy02.protocol.atoms import derive_intent, derive_goal
+from aixl.legacy02.protocol.atoms import derive_goal, derive_intent
 
 AGG = ("TOTAL", "AVERAGE", "COUNT")
 FLAGS = {"AMBIGUOUS_YEAR", "AMBIGUOUS_MODALITY"}
@@ -210,8 +211,9 @@ class SemanticGraph:
         covers TIME nodes decoded from an LLM-encoded AIXL line (found missing by set 7 / E-DATE round 2:
         the translator-only fix left the LLM route unable to match 'T:TODAY' against a literal date).
         Defaults to the real system date; pass an explicit date for deterministic tests/reproductions."""
-        from aixl.core.ontology import load_config, resolve_relative_time_token
         import datetime as _dt
+
+        from aixl.core.ontology import load_config, resolve_relative_time_token
         cfg = config or load_config()
         today = today or _dt.date.today()
         rep = {}

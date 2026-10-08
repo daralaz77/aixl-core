@@ -7,8 +7,8 @@ after a definite/indefinite article and flags it when no lexicon (nouns, units, 
 number words, formats, verbs) accounts for it. It never changes the graph or the meaning; it only reports."""
 import re
 
+from aixl.core.normalizer import ALL_ACTION_RX, OUTPUT_ALIASES, STOP, UNIT_MAP, strip_accents
 from aixl.legacy02.translators import natural_to_semantic as legacy
-from aixl.core.normalizer import ALL_ACTION_RX, strip_accents, UNIT_MAP, OUTPUT_ALIASES, STOP
 
 ARTICLE_NOUN = re.compile(r"\b(?:el|la|los|las|un|una|unos|unas|o|os|a|as|um|uma|the|an)\s+([a-z]{4,})\b")
 _ORD_AND_TIME = {"primer", "primero", "primera", "segundo", "tercer", "ultimo", "ultima", "proximo", "proxima", "pasado", "pasada",

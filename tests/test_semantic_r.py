@@ -1,7 +1,10 @@
 """0.3-R semantic track: model invariants + one regression per defect found while building it (master prompt §39)."""
-import json, os
+import json
+import os
+
 import pytest
-from aixl.semantic import parse, compare_texts
+
+from aixl.semantic import compare_texts, parse
 
 V = lambda a, b: compare_texts(a, b).verdict
 

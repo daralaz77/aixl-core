@@ -1,6 +1,11 @@
-import sys, json, os
+import json
+import os
+import sys
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from aixl.atoms.schema import AtomGraph
+
+
 def brief(g):
     s=[]
     for a in g.atoms:

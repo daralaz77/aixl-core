@@ -1,9 +1,13 @@
 """Uniform access to every stored annotation/LLM response set: sources[(set)][name] = {id: AtomGraph}.
 dev sets (rules may be mined from them): blind1v3, blind2, blind3.  Held-out: blind4 (never mined)."""
-import os, sys, json
+import json
+import os
+import sys
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from atoms_gold import load, D
+from atoms_gold import D, load
+
 from aixl.atoms import llm_extract as LX
 
 DEV = ("blind1v3", "blind2", "blind3")

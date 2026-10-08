@@ -1,9 +1,10 @@
 """Semantic firewall + capability handshake + concept alignment + graph diff (master prompt §18-23, §38-43, §51).
 Nothing here guesses: an unsupported concept is reported as UNSUPPORTED_CONCEPT, never mapped to a near one."""
 from dataclasses import dataclass, field
+
 from aixl.atoms import registry as R
 from aixl.atoms.schema import AtomGraph
-from aixl.atoms.wire import decode, DecodeError
+from aixl.atoms.wire import DecodeError, decode
 
 
 @dataclass

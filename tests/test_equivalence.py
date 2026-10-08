@@ -1,5 +1,5 @@
-from aixl.translators.natural_to_semantic import to_graph
 from aixl.core.comparator import compare_graphs, format_diff
+from aixl.translators.natural_to_semantic import to_graph
 
 
 def cmp(a, b):

@@ -1,11 +1,14 @@
 """E-XV: cross-vendor evaluation on set 5 (pairs authored by Gemini [A5] and ChatGPT [B5]).
 usage: python -m benchmarks.xv_eval rule | python -m benchmarks.xv_eval <encoder> <answers.txt>...
 Reports overall and per author family. Parse failures count as NOT_EQUIVALENT."""
-import json, os, sys
-from aixl.serialization import aixl_codec
+import json
+import os
+import sys
+
 from aixl.core.comparator import compare_graphs
+from aixl.serialization import aixl_codec
 from aixl.translators.natural_to_semantic import to_graph
-from benchmarks.llm_translator_eval import read, ROOT, CRIT
+from benchmarks.llm_translator_eval import CRIT, ROOT, read
 from benchmarks.metrics import prf
 
 

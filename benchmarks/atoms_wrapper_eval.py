@@ -1,11 +1,17 @@
 """Evaluate the LLM wrapper with abstention (aixl.atoms.llm_extract) on blind3. No model calls: reads stored responses.
 New runs (resp_blind3_{sonnet,opus}_{1,2}.txt, produced from build_prompt) are the two 'calls'; the OLD annotations
 (annot_blind3_S / annot_blind3_O, read the guide from disk) are independent references.  python benchmarks/atoms_wrapper_eval.py"""
-import sys, os, json
+import json
+import os
+import sys
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from atoms_gold import load, D
-from aixl.atoms import fidelity, llm_extract as LX
+from atoms_gold import D, load
+
+from aixl.atoms import fidelity
+from aixl.atoms import llm_extract as LX
+
 
 def load_set(SET):
     cases = json.load(open(os.path.join(D, f"{SET}_cases.json"), encoding="utf-8"))

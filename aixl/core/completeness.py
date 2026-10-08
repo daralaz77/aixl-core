@@ -7,9 +7,8 @@ the two texts. No tolerance parameter: any unaccounted content word or unreflect
 The marker lexicon is closed and small (ES/EN/PT); a language outside it yields unaccounted words, hence INCOMPLETE (safe)."""
 import re
 
-from aixl.core.normalizer import strip_accents
-from aixl.core.lexicon_gaps import (FUNCTION_WORDS, _known, _forms, _CONCEPT, stem)
-from aixl.core.normalizer import STOP
+from aixl.core.lexicon_gaps import _CONCEPT, FUNCTION_WORDS, _forms, _known, stem
+from aixl.core.normalizer import STOP, strip_accents
 
 # 1-2 character function words that are NOT content (everything else short, like 'b', 'c', 'x', is content).
 # Closed-class function words of ES/EN/PT beyond the 1-2 character set (articles, contractions, pronouns, prepositions):

@@ -1,6 +1,10 @@
 import datetime
+
 import pytest
-from aixl import semantic_fingerprint as fp, semantic_fingerprint_aixl as fpa, to_aixl
+
+from aixl import semantic_fingerprint as fp
+from aixl import semantic_fingerprint_aixl as fpa
+from aixl import to_aixl
 
 D = datetime.date(2026, 10, 2)
 
@@ -44,7 +48,8 @@ def test_aixl_roundtrip_same_fingerprint():
 def test_fingerprint_of_a_graph_without_residue_is_the_0_4_0_value():
     """Adding the `residue` dimension (0.5) must not change any fingerprint stored under 0.4.0: an empty residue is omitted from canonical()."""
     import datetime
-    from aixl import semantic_fingerprint, from_aixl
+
+    from aixl import from_aixl, semantic_fingerprint
     assert semantic_fingerprint("Envía el informe a Ana en PDF.", today=datetime.date(2026, 10, 3)) == "4d601cd77a368a82"
     g = from_aixl('V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND E:REPORT Y:@ANA O:PDF R:"every week"')
     assert "residue" in g.canonical() and "residue" not in from_aixl("V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND E:REPORT").canonical()

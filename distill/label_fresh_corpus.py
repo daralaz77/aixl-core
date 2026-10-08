@@ -16,8 +16,8 @@ import time
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
-from aixl.translators.llm_translator import translate_via_llm
 from aixl.serialization import aixl_codec
+from aixl.translators.llm_translator import translate_via_llm
 
 
 def label(text, api_key):

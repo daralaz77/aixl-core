@@ -1,5 +1,7 @@
 """Integrity of the 0.3-R golden set (NOT a test of AIXL accuracy): schema, references, label logic, frozen hashes."""
-import hashlib, json, os
+import hashlib
+import json
+import os
 from collections import Counter
 
 D = os.path.join(os.path.dirname(__file__), "..", "data", "golden_r")

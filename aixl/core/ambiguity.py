@@ -5,9 +5,9 @@ Each finding carries an extraction confidence (how sure the rule is), never a tr
 import re
 from dataclasses import dataclass, field
 
-from aixl.legacy02.translators import natural_to_semantic as legacy
-from aixl.core.normalizer import strip_accents, ALL_ACTION_RX
+from aixl.core.normalizer import ALL_ACTION_RX, strip_accents
 from aixl.core.semantic_graph import SemanticGraph
+from aixl.legacy02.translators import natural_to_semantic as legacy
 from aixl.translators.natural_to_semantic import to_graph
 
 PRONOUNS = (r"\b(eso|esto|aquello|ello|el otro|la otra|los otros|las otras|ambos|ambas|el mismo|la misma|"

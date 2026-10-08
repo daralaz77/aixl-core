@@ -15,7 +15,9 @@ teaches the invariance the model is currently missing. Consistency pairs are als
 
 usage: python distill/build_consistency_corpus.py
 """
-import json, os, sys
+import json
+import os
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)

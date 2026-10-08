@@ -1,6 +1,10 @@
 """Build quality cases for Option C: real (src, repeat) message pairs; questions whose answers sit INSIDE the pointed span. Ground truth is computed, not judged."""
-import glob, json, random, re
-from aixl.refstore import RefStore, _REF
+import glob
+import json
+import random
+import re
+
+from aixl.refstore import _REF, RefStore
 
 SECRET = re.compile(r"(?i)(api[_-]?key|token|passw|secret|sk-|eyJ|bearer|private key|authorization)")
 

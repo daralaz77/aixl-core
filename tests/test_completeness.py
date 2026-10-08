@@ -1,6 +1,6 @@
 """ADR-017 step 1: per-side completeness + structural markers (no tolerance parameter)."""
-from aixl import from_aixl, compare_aixl
-from aixl.core.completeness import check_completeness, extract_markers, marker_conflicts, annotate
+from aixl import compare_aixl, from_aixl
+from aixl.core.completeness import annotate, check_completeness, extract_markers, marker_conflicts
 from aixl.core.ontology import load_config
 
 ON = {**load_config(), "inconclusive": True}

@@ -1,8 +1,8 @@
 """AIXL v1.0 prompt audit (docs/V1_PROMPT_AUDIT.md): one test per prompt section that has a testable claim."""
-from aixl.gate import translate_gated, count_tokens, compact, expand
-from aixl.translators.natural_to_semantic import to_graph
-from aixl.serialization.aixl_codec import encode, decode
 from aixl.core.fingerprint import fingerprint_graph as fp
+from aixl.gate import compact, count_tokens, expand, translate_gated
+from aixl.serialization.aixl_codec import decode, encode
+from aixl.translators.natural_to_semantic import to_graph
 
 
 def test_s1_no_saving_means_natural():  # §1

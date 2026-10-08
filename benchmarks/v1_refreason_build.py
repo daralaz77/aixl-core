@@ -1,7 +1,11 @@
 """Option C reasoning test: questions that need the WHOLE message 1 (incl. the span a pointer replaces). Ground truth computed from the full text."""
-import glob, json, random, re
-from aixl.refstore import RefStore, _REF
-from benchmarks.v1_refquality_build import blocks, SECRET  # reuse extraction (builder module runs once on import; fine)
+import glob
+import json
+import random
+import re
+
+from aixl.refstore import _REF, RefStore
+from benchmarks.v1_refquality_build import SECRET, blocks  # reuse extraction (builder module runs once on import; fine)
 
 random.seed(21)
 files = glob.glob("/Users/darwingperez/.claude/projects/*/*.jsonl"); random.shuffle(files)

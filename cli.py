@@ -3,7 +3,11 @@
    compare A B | diff A B | drift A B | ambiguity TEXT | contradiction A B | aixl AIXL | lab A B | demo | serve [port] | bench
    negotiate SENDER_TEXT RECEIVER_TEXT [--rounds N] | negotiate-aixl SENDER_AIXL RECEIVER_AIXL [--rounds N]
    mcp-serve   # real MCP server over stdio (needs the optional `mcp` dependency: pip install .[mcp])"""
-import argparse, json, os, sys
+import argparse
+import json
+import os
+import sys
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import aixl  # noqa: E402
 
@@ -55,8 +59,9 @@ def main(argv=None):
     a = ap.parse_args(argv)
     if a.cmd.startswith("atoms-"):
         from aixl.atoms.extract import extract
+        from aixl.atoms.firewall import Profile, receive
+        from aixl.atoms.firewall import diff as adiff
         from aixl.atoms.wire import encode
-        from aixl.atoms.firewall import receive, Profile, diff as adiff
         if a.cmd == "atoms-extract":                       # rule extractor: controlled domain only; unrepresented lists what it could NOT place
             g = extract(a.a); return dump(dict(g.to_dict(), fingerprint=g.fingerprint(), complete=g.complete))
         if a.cmd == "atoms-wire": return print(encode(extract(a.a)), end="")
@@ -114,7 +119,9 @@ def main(argv=None):
         print(f"\nDEMO 6 — ambigüedad\n  {t}\n  expected: AMBIGUOUS\n  got:      {'AMBIGUOUS' if amb.ambiguous else 'NOT AMBIGUOUS'} ({amb.reason}, fields={amb.fields})")
         return
     if a.cmd == "serve":
-        from lab.server import H; from http.server import HTTPServer
+        from http.server import HTTPServer
+
+        from lab.server import H
         print(f"AIXL Semantic Lab on http://localhost:{a.port}", flush=True); HTTPServer(("127.0.0.1", a.port), H).serve_forever()
     if a.cmd == "bench":
         from benchmarks import equivalence; s, *_ = equivalence.run(); return dump(s)

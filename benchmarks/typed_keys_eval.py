@@ -4,9 +4,13 @@ the Core VERIFIES deterministically and compares the keys. Verification (no LLM 
   V3 every declared marker has textual evidence, and every marker the deterministic extractor finds is declared (alias ALL~EVERY).
 A side failing any check is INVALID -> the pair is INCONCLUSIVE.  Keys equal -> EQUIVALENT; opposed markers -> NOT_EQUIVALENT; else DIFFERENT.
 usage: python -m benchmarks.typed_keys_eval 'data/blind10/ex2_out_*.jsonl'"""
-import json, glob, sys, collections
-from aixl.core.completeness import extract_markers, MARKERS, SHORT_FUNCTION, _CLOSED, marker_conflicts, _norm, _ALLTOK
-from aixl.core.lexicon_gaps import FUNCTION_WORDS, _known, _forms
+import collections
+import glob
+import json
+import sys
+
+from aixl.core.completeness import _ALLTOK, _CLOSED, MARKERS, SHORT_FUNCTION, _norm, extract_markers, marker_conflicts
+from aixl.core.lexicon_gaps import FUNCTION_WORDS, _forms, _known
 from aixl.core.normalizer import STOP
 
 ALIAS = {"ALL": {"ALL", "EVERY"}, "EVERY": {"ALL", "EVERY"}}

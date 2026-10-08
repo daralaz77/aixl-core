@@ -9,9 +9,9 @@ import os
 import re
 import sys
 
-from aixl.serialization import aixl_codec
-from aixl.core.comparator import compare_canonical
 from aixl.autonomous_negotiation import negotiate_autonomous
+from aixl.core.comparator import compare_canonical
+from aixl.serialization import aixl_codec
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

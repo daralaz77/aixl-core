@@ -1,7 +1,11 @@
 """ADR-017 experiments on real residues (blind10, card 0.5). 120 pairs: 60 EQUIVALENT (should be SAME) / 60 NOT_EQUIVALENT (should be DIFFERENT).
 A = each side canonicalized independently, then key equality;  B = a judge decides per pair.
 usage: python -m benchmarks.residue_canon_eval DIR   (DIR has rj_gold.json, rc_out.tsv, rj_out.tsv)"""
-import json, sys, os, collections
+import collections
+import json
+import os
+import sys
+
 
 def main():
     d = sys.argv[1]

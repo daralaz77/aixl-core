@@ -1,14 +1,19 @@
 """E-BLIND10 LLM route: AIXL lines written by an LLM encoder (card 0.3) for data/blind10/texts.json, decoded with the SAME codec,
 classified with the SAME mapping as sil5x100_eval.predict but on graphs. usage: python -m benchmarks.blind10_llm_eval ANS1 [ANS2...] [--show N]
 Parse failures: pair judged NOT_EQUIVALENT (conservative); AMBIGUOUS single judged by detect_ambiguity_graph on text+graph."""
-import json, os, re, sys, collections
-from aixl.serialization import aixl_codec
+import collections
+import json
+import os
+import re
+import sys
+
+from aixl.core.ambiguity import detect_ambiguity_graph
 from aixl.core.comparator import compare_graphs
 from aixl.core.contradiction import detect_contradiction_graphs
-from aixl.core.ambiguity import detect_ambiguity_graph
-from benchmarks.sil5x100_eval import LABELS
 from aixl.core.lexicon_gaps import unaccounted_content
 from aixl.core.ontology import load_config
+from aixl.serialization import aixl_codec
+from benchmarks.sil5x100_eval import LABELS
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

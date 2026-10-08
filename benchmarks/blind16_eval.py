@@ -1,6 +1,11 @@
 """blind16 ONE-SHOT evaluation of the 0.3-R semantic track (see data/blind16/PREREG.md). Refuses to run if the code changed since freezing.
 usage: python -m benchmarks.blind16_eval [--show]"""
-import json, os, sys, hashlib, collections
+import collections
+import hashlib
+import json
+import os
+import sys
+
 D = os.path.join(os.path.dirname(__file__), "..", "data", "blind16")
 frozen = json.load(open(os.path.join(D, "CODE_FREEZE.json")))
 for f, h in frozen.items():
@@ -10,6 +15,7 @@ for n, h in man.items():
     if n.endswith(".jsonl"): assert hashlib.sha256(open(os.path.join(D, n), "rb").read()).hexdigest() == h, f"{n} changed"
 from aixl.semantic import compare_texts
 from benchmarks.golden_r_eval import outcome
+
 rows = [dict(json.loads(l), file=f) for f in man if f.endswith(".jsonl") for l in open(os.path.join(D, f), encoding="utf-8")]
 c, cat, by = collections.Counter(), collections.defaultdict(collections.Counter), collections.defaultdict(collections.Counter)
 for r in rows:

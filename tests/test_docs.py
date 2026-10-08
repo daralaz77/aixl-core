@@ -1,6 +1,11 @@
 """The docs cannot drift from the code: every `aixl-example` line, every CLI command named, every required file."""
-import os, re, subprocess, sys
+import os
+import re
+import subprocess
+import sys
+
 import pytest
+
 import aixl
 from aixl.legacy02.translators import natural_to_semantic as L
 

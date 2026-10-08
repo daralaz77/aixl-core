@@ -1,10 +1,16 @@
 """ADR-017 step 1 gate metrics on the 120 blind10 EQUIVALENT/NOT_EQUIVALENT pairs (LLM route), with per-side completeness and
 NO tolerance parameter. usage: python -m benchmarks.completeness_eval ANS_GLOB [--keys]   (--keys: replace R literals by the experiment-A canonical keys)"""
-import json, re, glob, sys, collections
-from aixl.serialization import aixl_codec
+import collections
+import glob
+import json
+import re
+import sys
+
 from aixl.core.comparator import compare_graphs
 from aixl.core.completeness import annotate
 from aixl.core.ontology import load_config
+from aixl.serialization import aixl_codec
+
 
 def main():
     pattern = sys.argv[1]; use_keys = "--keys" in sys.argv

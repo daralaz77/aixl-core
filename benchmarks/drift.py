@@ -1,5 +1,6 @@
 """Drift benchmark: distribution of drift levels per pair type + the spec §40 critical pairs."""
 import json
+
 from aixl import detect_drift
 
 CRITICAL_PAIRS = [("Elimina el reporte.", "No elimines el reporte."), ("Permite eliminar el reporte.", "Prohíbe eliminar el reporte."),

@@ -1,7 +1,12 @@
 """DIAGNOSTIC ONLY: the 0.3-R semantic track on blind13 after blind13 was spent and seen. Not independent evidence (see data/blind13/PREREG.md)."""
-import json, os, sys, collections
+import collections
+import json
+import os
+import sys
+
 from aixl.semantic import compare_texts
 from benchmarks.golden_r_eval import outcome
+
 D = os.path.join(os.path.dirname(__file__), "..", "data", "blind13")
 rows = [json.loads(l) for f in ("authorS_sonnet.jsonl", "authorO_opus.jsonl") for l in open(os.path.join(D, f), encoding="utf-8")]
 c, cat = collections.Counter(), collections.defaultdict(collections.Counter)

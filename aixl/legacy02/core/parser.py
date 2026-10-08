@@ -1,5 +1,6 @@
 """Encoding layer: AIXL text -> SemanticFrame, with syntax errors (spec §34-35)."""
 import re
+
 from aixl.legacy02.core.semantic_frame import SemanticFrame
 from aixl.legacy02.protocol.atoms import ATOMS
 

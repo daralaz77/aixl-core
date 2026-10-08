@@ -5,7 +5,11 @@ agrees (EQUIVALENT) when the profile requires it. Everything else is REVIEW (sen
 docs/EVIDENCE.md). PASS is *not* a proof of equivalence: it means "no known loss signal was found".
 """
 from __future__ import annotations
-import json, os, re, unicodedata
+
+import json
+import os
+import re
+import unicodedata
 from dataclasses import dataclass, field
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

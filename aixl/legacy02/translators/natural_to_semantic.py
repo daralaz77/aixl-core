@@ -6,8 +6,9 @@ matched so later extractors cannot double-count it.
 """
 import re
 import unicodedata
-from aixl.legacy02.core.semantic_frame import SemanticFrame
+
 from aixl.legacy02.core.normalizer import norm_decimal
+from aixl.legacy02.core.semantic_frame import SemanticFrame
 
 # ---------------------------------------------------------------- lexicons
 ACTION_RX = [  # (canonical action, regex on accent-stripped lowercase text)

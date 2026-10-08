@@ -1,5 +1,6 @@
 """JSON = debug/interchange representation of the SemanticGraph."""
 import json
+
 from aixl.core.semantic_graph import SemanticGraph
 
 

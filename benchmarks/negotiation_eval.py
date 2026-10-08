@@ -2,10 +2,13 @@
 disagreements? Reuses the genuine E-INTEROP round-3 data (Sonnet vs Gemini, real independent encodings
 of the same 100 texts, 21 of which disagreed) rather than synthetic examples.
 usage: python -m benchmarks.negotiation_eval"""
-import json, os, re
-from aixl.serialization import aixl_codec
+import json
+import os
+import re
+
 from aixl import negotiation as neg
 from aixl.core.comparator import compare_canonical
+from aixl.serialization import aixl_codec
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

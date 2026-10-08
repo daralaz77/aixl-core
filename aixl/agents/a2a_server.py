@@ -28,12 +28,16 @@ from a2a.server.request_handlers import DefaultRequestHandler
 from a2a.server.routes.agent_card_routes import create_agent_card_routes
 from a2a.server.routes.jsonrpc_routes import create_jsonrpc_routes
 from a2a.types.a2a_pb2 import (
-    AgentCapabilities, AgentCard, AgentInterface, AgentSkill, Role,
+    AgentCapabilities,
+    AgentCard,
+    AgentInterface,
+    AgentSkill,
+    Role,
 )
 from a2a.utils.errors import UnsupportedOperationError
 
 import aixl
-from aixl.agents.a2a_negotiate import start_negotiation, resume_negotiation
+from aixl.agents.a2a_negotiate import resume_negotiation, start_negotiation
 from aixl.agents.concurrency import run_cpu_bound
 from aixl.agents.expiring_task_store import ExpiringTaskStore
 from aixl.agents.observability import configure_logging, inc, observability_routes

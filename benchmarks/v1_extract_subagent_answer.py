@@ -1,4 +1,7 @@
-import json,sys,re
+import json
+import re
+import sys
+
 src,dst=sys.argv[1],sys.argv[2]
 cand=[]
 for l in open(src,errors="ignore"):

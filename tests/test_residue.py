@@ -1,8 +1,8 @@
 """ADR-016 step 2: R: residue atom (details no slot can express are kept, never dropped)."""
 from aixl import compare_aixl, from_aixl
-from aixl.serialization import aixl_codec
+from aixl.core.lexicon_gaps import residue_key, unaccounted_content
 from aixl.core.ontology import load_config
-from aixl.core.lexicon_gaps import unaccounted_content, residue_key
+from aixl.serialization import aixl_codec
 
 ON = {**load_config(), "inconclusive": True}
 BASE = "V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:REPORT"

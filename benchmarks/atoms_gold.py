@@ -2,10 +2,14 @@
   agreement A B   : inter-annotator agreement between two annotation sets (per-dimension F1 + exact-graph rate)
   show ID...      : print the texts and both annotations side by side for adjudication
 """
-import glob, json, sys, os
+import glob
+import json
+import os
+import sys
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from aixl.atoms.schema import AtomGraph
 from aixl.atoms import fidelity
+from aixl.atoms.schema import AtomGraph
 
 D = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "atoms")
 

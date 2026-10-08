@@ -1,8 +1,9 @@
 import pytest
+
+from aixl.core.ontology import ACTIONS, load_config, type_of
+from aixl.core.semantic_graph import SemanticGraph
 from aixl.core.semantic_object import SemanticObject
 from aixl.core.semantic_relation import SemanticRelation
-from aixl.core.semantic_graph import SemanticGraph
-from aixl.core.ontology import type_of, load_config, ACTIONS
 from aixl.legacy02.core.semantic_frame import SemanticFrame
 
 

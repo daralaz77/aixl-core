@@ -1,7 +1,11 @@
 """Score a system against the 0.3-R golden set (data/golden_r). Reports SAFETY first (false-equivalent), then utility.
 usage: python -m benchmarks.golden_r_eval [--inconclusive] [--show]
 A system is any fn(text_a, text_b) -> 'EQUIVALENT' | 'NOT_EQUIVALENT' | 'INCONCLUSIVE'; default = aixl.compare."""
-import json, os, sys, collections
+import collections
+import json
+import os
+import sys
+
 D = os.path.join(os.path.dirname(__file__), "..", "data", "golden_r")
 
 

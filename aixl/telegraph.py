@@ -1,9 +1,10 @@
 """Option A (V1 audit): TELEGRAPHIC L1 form = compact AIXL with tags removed, values lowercase, decoded by a CLOSED vocabulary
 taken from the ontology (not from any test corpus). Unknown word -> TelegraphError (fail closed). Validated by fingerprint round-trip."""
 import re
+
 from aixl.core.normalizer import ALL_ACTION_RX, OUTPUT_ALIASES
-from aixl.legacy02.translators import natural_to_semantic as L
 from aixl.gate import ABBR, expand
+from aixl.legacy02.translators import natural_to_semantic as L
 
 
 class TelegraphError(ValueError):

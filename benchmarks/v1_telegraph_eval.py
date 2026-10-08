@@ -1,12 +1,19 @@
 """Validate Option A: (1) fingerprint round-trip telegraph->graph on dev set; (2) real tokenizer saving; (3) real traffic."""
-import glob, json, statistics as st, collections, tiktoken
+import collections
+import glob
+import json
+import statistics as st
+
+import tiktoken
+
 import benchmarks.dataset as d
-from aixl.gate import compact, strict_complete
-from aixl.telegraph import to_telegraph, from_telegraph
-from aixl.translators.natural_to_semantic import to_graph
-from aixl.serialization.aixl_codec import encode, decode
-from aixl.core.fingerprint import fingerprint_graph as fp
 from aixl.core.completeness import check_completeness
+from aixl.core.fingerprint import fingerprint_graph as fp
+from aixl.gate import compact, strict_complete
+from aixl.serialization.aixl_codec import decode, encode
+from aixl.telegraph import from_telegraph, to_telegraph
+from aixl.translators.natural_to_semantic import to_graph
+
 enc = tiktoken.get_encoding("o200k_base"); T = lambda s: len(enc.encode(s))
 
 def run(texts, label):

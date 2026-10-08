@@ -18,12 +18,12 @@ def _ms_per_text(fn, texts, repeat=5):
 
 def main():
     t = time.perf_counter()
-    import aixl.translators.natural_to_semantic as n   # noqa: F401  (cold import of the heaviest module)
+    import aixl.translators.natural_to_semantic as n  # noqa: F401  (cold import of the heaviest module)
     import_ms = round((time.perf_counter() - t) * 1000)
-    from benchmarks.characterization import corpus, frozen_today
     from aixl.envelope import seal
     from aixl.gate import translate_gated
     from aixl.translators.natural_to_semantic import to_graph
+    from benchmarks.characterization import corpus, frozen_today
     texts = corpus()
     out = {"corpus_texts": len(texts), "import_translator_ms": import_ms}
     with frozen_today():

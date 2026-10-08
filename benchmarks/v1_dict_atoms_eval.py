@@ -1,9 +1,12 @@
 """§10 adaptive dictionary + §21 vocabulary evolution: do they save tokens? (dev-set, own-author; proxy tokenizer)"""
-import collections, random, statistics as st
+import collections
+import random
+import statistics as st
+
 import benchmarks.dataset as d
-from aixl.gate import translate_gated, compact, count_tokens, ABBR
-from aixl.translators.natural_to_semantic import to_graph
+from aixl.gate import ABBR, compact, count_tokens, translate_gated
 from aixl.serialization.aixl_codec import encode
+from aixl.translators.natural_to_semantic import to_graph
 
 texts = sorted({x for n in ["EQ","DIFF","QTY_EQ","DATE_EQ"] for a, b in getattr(d, n) for x in (a, b)})
 comp = {t: compact(encode(to_graph(t))) for t in texts}
@@ -58,6 +61,7 @@ print("§10b dictionary on NATURAL text, 10-msg sessions, mean saving:", round(s
 
 # ---- §21: evolve atoms = abbreviate the most frequent long tags; measure gate AIXL-rate and saving
 import aixl.gate as G
+
 base = [translate_gated(t) for t in texts]
 freq = collections.Counter(p for c in comp.values() for p in c.split() if count_tokens(p) >= 2 and p not in ABBR)
 print("most frequent unabbreviated tags:", freq.most_common(8))

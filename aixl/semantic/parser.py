@@ -3,9 +3,10 @@ every content token that is not turned into a typed atom is kept as an ordered `
 (the failure mode of the 0.3 frame: no slot -> meaning disappears). Constructs the parser cannot represent raise flags."""
 import re
 import unicodedata
+
 from aixl.core.normalizer import sanitize_input
 from aixl.semantic import lexicon as L
-from aixl.semantic.model import Atom, Step, SemanticObject
+from aixl.semantic.model import Atom, SemanticObject, Step
 
 PUNCT = {",", ";", ":", ".", "!", "?", "(", ")", "¿", "¡"}
 _TOKEN_RX = re.compile(r"T\d{4}|ORD\d+|[A-Za-zÀ-ÿñÑ]+(?:[-'][A-Za-zÀ-ÿñÑ]+)*|\d+(?:[.,]\d+)*|[,;:.!?¿¡()]")

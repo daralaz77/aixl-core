@@ -1,9 +1,14 @@
 """Step 5 potential: how much MORE do pointers save if the store spans sessions? Scopes: session | same project | all projects.
 Sessions are replayed in chronological order (first record timestamp). Also: cost-weighted estimate for sessions with usage data (same model as v1_billing_eval).
 CAVEAT measured here is only the CHARS that could be pointed at; a fresh session does not contain earlier sessions, so every pointer needs an expand tool."""
-import glob, os, json, collections
+import collections
+import glob
+import json
+import os
+
 from aixl.refstore import RefStore
-from benchmarks.v1_billing_eval import parse, W   # noqa  (the module prints its report on import; fine)
+from benchmarks.v1_billing_eval import W, parse  # noqa  (the module prints its report on import; fine)
+
 
 def first_ts(p):
     for l in open(p, errors="ignore"):

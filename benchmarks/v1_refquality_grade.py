@@ -1,5 +1,7 @@
 """Grades the 3 quality conditions of Option C. Answers are the subagents' replies transcribed; cases come from v1_refquality_build.py (seed 11)."""
-import json,re
+import json
+import re
+
 cases=json.load(open("/private/tmp/claude-501/refquality_cases.json"))
 A={}  # condition -> {(case,line): text}
 def mk(items): return {(c,l):t for c,l,t in items}

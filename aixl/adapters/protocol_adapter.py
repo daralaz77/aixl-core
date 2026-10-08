@@ -7,6 +7,7 @@ A2AAdapter (2026-09-30, E-A2A) is the second REAL one, over Google's official `a
 aixl/agents/a2a_server.py for a real running HTTP agent and tests/test_a2a_integration.py for a real
 subprocess + real client round-trip over actual JSON-RPC/HTTP."""
 from abc import ABC, abstractmethod
+
 from aixl.core.semantic_graph import SemanticGraph
 from aixl.serialization import aixl_codec, json_codec
 
@@ -138,8 +139,8 @@ class A2AAdapter(ProtocolAdapter):
     name = "a2a"
 
     def encode(self, graph: SemanticGraph) -> dict:
-        from google.protobuf.json_format import MessageToDict
         from a2a.helpers.proto_helpers import new_text_message
+        from google.protobuf.json_format import MessageToDict
         aixl_line = aixl_codec.encode(graph)
         return MessageToDict(new_text_message(aixl_line))
 
@@ -150,8 +151,8 @@ class A2AAdapter(ProtocolAdapter):
         return aixl_codec.decode(aixl_line)
 
     def validate(self, payload) -> list:
-        from google.protobuf.json_format import ParseDict, ParseError
         from a2a.types.a2a_pb2 import Message
+        from google.protobuf.json_format import ParseDict, ParseError
         if not isinstance(payload, dict):
             return [f"payload must be a dict, got {type(payload).__name__}"]
         try:

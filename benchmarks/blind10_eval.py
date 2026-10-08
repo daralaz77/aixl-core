@@ -1,7 +1,11 @@
 """Evaluate the rule-based pipeline on blind case sets written by OTHER models (no access to the repo).
 Same predict() as sil5x100_eval. usage: python -m benchmarks.blind10_eval FILE.jsonl [--show N]"""
-import json, sys, collections
-from benchmarks.sil5x100_eval import predict, LABELS
+import collections
+import json
+import sys
+
+from benchmarks.sil5x100_eval import LABELS, predict
+
 
 def main():
     path = sys.argv[1]; show = int(sys.argv[sys.argv.index("--show") + 1]) if "--show" in sys.argv else 0

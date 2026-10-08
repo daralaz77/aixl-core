@@ -1,5 +1,6 @@
 """LIMITATIONS #3: action<->argument binding in the canonical form and AIXL (K:BIND=ACTION>ARG). 2026-10-02."""
 import datetime
+
 from aixl.api import service as S
 
 T = datetime.date(2026, 10, 2)
@@ -72,6 +73,7 @@ def test_output_and_dependencies_stay_out_of_bindings():
 def test_config_without_bindings_keys_still_works():
     """SEMANTIC_CHANGELOG 0.4.0 promises custom configs written before the dimension existed keep working."""
     import json
+
     from aixl.core.ontology import load_config
     c = json.loads(json.dumps(load_config()))
     c["weights"].pop("bindings"); c["severity"].pop("bindings")

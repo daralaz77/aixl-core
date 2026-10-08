@@ -1,6 +1,9 @@
 """Packs everything the Colab pipeline needs into one small zip: the project's real codec/comparator (so F1 is
 computed by the SAME code as every other route), blind5 texts + gold pairs, the training data and pipeline.py."""
-import os, sys, zipfile
+import os
+import sys
+import zipfile
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(ROOT, "distill", "colab", "bundle.zip")
 

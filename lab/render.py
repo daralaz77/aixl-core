@@ -1,5 +1,5 @@
 """Semantic Lab text rendering (CLI + shared by the web server). Presentation only: no semantics here."""
-from aixl import compare, semantic_diff, detect_ambiguity, to_aixl
+from aixl import compare, detect_ambiguity, semantic_diff, to_aixl
 from aixl.core.comparator import DIM_LABEL
 
 DIMS = ["actions", "entities", "data", "time", "location", "constraints", "conditions", "negation", "references", "quantities", "output", "modifiers"]

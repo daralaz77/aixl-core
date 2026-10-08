@@ -1,5 +1,5 @@
 """Semantic layer: the SemanticFrame (spec §4)."""
-from dataclasses import dataclass, field, asdict
+from dataclasses import asdict, dataclass, field
 
 LIST_FIELDS = ["actions", "entities", "data", "location", "constraints",
                "conditions", "references", "negations", "output", "residue"]

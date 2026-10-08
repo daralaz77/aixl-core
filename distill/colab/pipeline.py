@@ -54,8 +54,8 @@ def main():
     args = ap.parse_args()
 
     import torch
-    from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments
     from peft import LoraConfig, get_peft_model
+    from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments
 
     out_dir = os.path.join(ROOT, f"out_{args.tag}")
     os.makedirs(out_dir, exist_ok=True)
