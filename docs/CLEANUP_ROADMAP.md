@@ -92,3 +92,21 @@ Puerta aplicada en cada subpaso: 1094 tests (incluida la caracterización) + `be
 - **Rondas ciegas congeladas (`blind14`–`blind18`):** su `CODE_FREEZE.json` comprueba hashes de `aixl/semantic/*`. De 28 hashes que hoy no coinciden, **25 ya eran distintos antes de la limpieza** (el código evolucionó tras cada congelación); 3 coincidían y los rompí yo (`semantic/__init__.py` en blind17/18 y `hybrid.py` en blind18), pero ambas rondas ya estaban invalidadas por otros archivos. No se reparan: son verificaciones históricas por diseño.
 - **Aviso:** mi primer barrido transformó `benchmarks/atoms_ab_eval.py`, que no está versionado y no es mío (de otra sesión). Su comportamiento al ejecutarse es el mismo, pero quedó con su código bajo `main` y no se puede restaurar a su forma exacta.
 - Puerta: 1107 tests + `check_imports` (611 imports) + lint en 0.
+
+### Fase 5 — HECHA (2026-10-08), solo cambios con ganancia medida
+Regla: cada cambio entra solo si mejora ≥5% en la medición **en frío** (`perf_baseline --cold`: una pasada por proceso nuevo, para que una caché no se vea mejor de lo que es) y pasa la puerta (tests + caracterización + `check_imports` + lint). Ruido de medición ≈ ±1.5%.
+
+| Cambio | Gate ms/texto (frío) | Sobre ms/texto (frío) | Ganancia |
+|---|---|---|---|
+| línea base (Fase 0–4) | 0.649 | 0.569 | — |
+| 5a caché acotada y **consciente de la versión del léxico** en `lexicon_gaps._known` | 0.598 | 0.515 | −8% / −10% |
+| 5b `_evidence_tokens` una vez por `is_complete` (antes hasta 3 veces, cada una recalculando `canonical()`) | 0.568 | 0.487 | −5% / −5% |
+| 5c camino rápido ASCII en `strip_accents` (equivalencia comprobada en todo el rango latino y 2000 cadenas aleatorias) | 0.530 | 0.445 | −7% / −9% |
+| 5d frases de marcadores precompiladas en `completeness` | 0.502 | 0.422 | −5% / −5% |
+| **Total** | **0.504 (−22%)** | **0.418 (−26%)** | |
+
+Mismo método que la línea base de la Fase 0 (en caliente, mínimo de 5): `to_graph` 0.327 → 0.276 ms (−16%), gate 0.638 → 0.499 (−22%), sobre 0.556 → 0.420 (−24%); importar el traductor 55 → 43 ms.
+- **Suite:** `tests/test_mcp_integration.py` marcado `slow` (levanta servidores MCP reales): `pytest -m "not slow"` corre en 9.4 s frente a 15.3 s; CI sigue corriendo todo. 1111 tests.
+- **Lección de la fase:** mi primera caché de `_known` hizo fallar 2 tests, y mi comando encadenado hizo un commit igualmente porque el script de puerta no devolvía error (ya devuelve `GATE FAILED` y código 1). Causa real: el mecanismo de extensiones documentado **añade palabras a los léxicos cerrados en tiempo de ejecución** (`docs/EXTENSION_GUIDE.md`, probado en `test_docs.py`), así que una caché ingenua devolvía respuestas viejas. Se arregló con una clave que incluye el tamaño de cada tabla consultada; limitación declarada: un reemplazo en sitio que conserve el tamaño de una tabla no se vería. Test de regresión: `tests/test_lexicon_cache.py`.
+- **Descartado a propósito:** memoizar `canonical()` (el grafo es mutable; riesgo de resultados viejos) y precompilar los ~25 patrones en línea de `legacy02.analyze` (ganancia estimada <5%, edición grande en código que se retirará en la Fase 6).
+- Ruido real vs. ganancia práctica: el gate pasó de 0.65 a 0.50 ms; en términos absolutos sigue siendo irrelevante frente al costo de tokens (el motivo por el que se midió desde el principio).

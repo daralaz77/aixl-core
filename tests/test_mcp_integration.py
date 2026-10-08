@@ -11,6 +11,7 @@ import sys
 
 import pytest
 
+pytestmark = pytest.mark.slow          # spawns real MCP server subprocesses; skip locally with: pytest -m "not slow" (CI runs everything)
 mcp = pytest.importorskip("mcp")
 from mcp import ClientSession  # noqa: E402
 from mcp.client.stdio import StdioServerParameters, stdio_client  # noqa: E402

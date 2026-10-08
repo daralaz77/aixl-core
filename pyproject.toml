@@ -18,6 +18,7 @@ llm = ["httpx"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+markers = ["slow: spawns real subprocesses (MCP servers); deselect with -m 'not slow'"]
 
 [tool.ruff]
 line-length = 200          # the codebase uses long lines on purpose (regex tables, lexicons); E501 is not a goal
