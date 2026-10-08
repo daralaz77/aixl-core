@@ -65,3 +65,20 @@ Fix (`gate.strict_complete`): the exempt verb is the span the action regex reall
 `si muestrame` ("yes, show me") → `A:GET` dropped the affirmation because it sits in the function-word list. `gate.AFFIRM` (si/yes/ok/vale/claro/dale/listo/sim/...)
 now blocks AIXL when such a word is present and not carried by the graph. Real messages (1468): **AIXL 0 / 1468**; dev set unchanged (3 / 10 with evolved atoms); 1073 tests pass.
 Caveat: the list is closed and small (ES/EN/PT); an affirmation outside it would still be dropped. Ambiguous `si` (yes vs if) is treated conservatively as content.
+
+## Option A validated: telegraphic form (2026-10-08)
+Code: `aixl/telegraph.py` (closed vocabulary from the ontology, NOT from the test corpus; unknown word → `TelegraphError`, fail closed),
+`benchmarks/v1_telegraph_eval.py`, `tests/test_telegraph.py` (suite 1081 pass). Example: `Analiza las ventas del primer trimestre de 2026` → `analyze sales q1-2026`.
+Pipeline per text: graph → compact → telegraph → (decode telegraph → graph) must have the SAME fingerprint, then `check_completeness` + `strict_complete`, then tokens(tele) < tokens(natural) (o200k_base).
+
+| Corpus | n | usable (AIXL-telegraph) | mean saving when used | fingerprint mismatches |
+|---|---|---|---|---|
+| dev set (own-author) | 225 | **128 (57%)** | **40.8%** | 0 |
+| real user traffic | 1629 | **4 (0.25%)** | 48.8% | 0 |
+
+- First run showed 35 mismatches: all were MY decoder bugs (abbreviations `cmp/trn/doc` not expanded, `@acme` case). The fingerprint check caught them; fixed, then 0.
+- 4 dev codec failures (`this_week`, `last_week`) = vocabulary gap, closed by adding relative-time words.
+- Real traffic: 1220 incomplete (the ontology doesn't cover conversational messages), 402 codec failures (free-text residue `F:` can't be expressed), 4 usable:
+  `borra el modelo de Ollama`→`delete model @ollama`, `revisa`/`verifica`→`check`, `verifica tu`→`check` (drops "tu"; weak, function word).
+- **Verdict:** Option A is a real syntax win (≈41% fewer tokens, lossless by fingerprint) for the structured instructions the ontology covers, but it does not change the
+  real-traffic picture: 95.6% of tokens sit in long pasted messages and 98% of messages fall outside the ontology. Fidelity is only relative to the translator's graph.
