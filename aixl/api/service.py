@@ -32,7 +32,20 @@ def translate(text: str) -> dict:
 
 
 def compare(text_a: str, text_b: str, config: dict | None = None) -> ComparisonResult:
-    return compare_graphs(to_graph(text_a), to_graph(text_b), config)
+    if config is not None:
+        return compare_graphs(to_graph(text_a), to_graph(text_b), config)
+    from aixl.core.completeness import annotate, marker_conflicts
+    ga, gb = annotate(to_graph(text_a), text_a), annotate(to_graph(text_b), text_b)
+    res = compare_graphs(ga, gb, config)
+    if res.equivalent:
+        ca, cb = ga.meta['completeness'], gb.meta['completeness']
+        opposed, other = marker_conflicts(set(ca['markers']), set(cb['markers']))
+        lost = bool(ca['unreflected_markers'] or cb['unreflected_markers'])
+        if opposed or (other and lost):
+            res.equivalent, res.verdict = False, ('NOT_EQUIVALENT' if opposed else 'INCONCLUSIVE')
+            res.warnings.append({'type': 'STRUCTURAL_MARKER_MISMATCH', 'opposed': [list(p) for p in opposed], 'other': list(other),
+                                 'note': 'canonical forms agree but the texts carry different structural markers the graph does not reflect; equality not proven'})
+    return res
 
 
 def compare_aixl(aixl_a: str, aixl_b: str, config: dict | None = None) -> ComparisonResult:
