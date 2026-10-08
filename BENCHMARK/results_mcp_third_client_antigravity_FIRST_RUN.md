@@ -16,8 +16,8 @@ and has its own `agy mcp` command.
 curl -fsSL https://antigravity.google/cli/install.sh | bash   # user ran this themselves (blocked for
                                                                 # this session by the auto-mode
                                                                 # classifier as a curl|bash pattern)
-~/.local/bin/agy mcp add --env PYTHONPATH=/Users/darwingperez/.claude/skills/aixl-core \
-    aixl-core /Users/darwingperez/.claude/skills/aixl-core/.venv/bin/python -- -m aixl.mcp_server
+~/.local/bin/agy mcp add --env PYTHONPATH=$HOME/.claude/skills/aixl-core \
+    aixl-core $HOME/.claude/skills/aixl-core/.venv/bin/python -- -m aixl.mcp_server
 ```
 `agy mcp list` confirmed: `aixl-core  stdio  enabled  .../.venv/bin/python -m aixl.mcp_server`.
 

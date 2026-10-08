@@ -8,12 +8,12 @@ separate codebase from Claude Desktop's `claude_desktop_config.json`.
 ## Registration
 ```toml
 [mcp_servers.aixl-core]
-command = "/Users/darwingperez/.claude/skills/aixl-core/.venv/bin/python"
+command = "$HOME/.claude/skills/aixl-core/.venv/bin/python"
 args = ["-m", "aixl.mcp_server"]
-cwd = "/Users/darwingperez/.claude/skills/aixl-core"
+cwd = "$HOME/.claude/skills/aixl-core"
 
 [mcp_servers.aixl-core.env]
-PYTHONPATH = "/Users/darwingperez/.claude/skills/aixl-core"
+PYTHONPATH = "$HOME/.claude/skills/aixl-core"
 ```
 Config backed up first (`config.toml.bak.20260929232812`); the exact entry was dry-run-verified with
 the official `mcp` SDK's own client before asking the user to restart ChatGPT/Codex.
