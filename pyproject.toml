@@ -42,3 +42,6 @@ ignore = ["B905"]
 
 [tool.setuptools.packages.find]
 include = ["aixl*"]
+
+[tool.setuptools.package-data]
+"aixl.atoms" = ["data/*.json"]      # registry.py reads data/learned_concepts.json relative to its own file; without this an installed wheel loses it SILENTLY
