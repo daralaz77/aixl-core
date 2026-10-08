@@ -82,3 +82,14 @@ Pipeline per text: graph → compact → telegraph → (decode telegraph → gra
   `borra el modelo de Ollama`→`delete model @ollama`, `revisa`/`verifica`→`check`, `verifica tu`→`check` (drops "tu"; weak, function word).
 - **Verdict:** Option A is a real syntax win (≈41% fewer tokens, lossless by fingerprint) for the structured instructions the ontology covers, but it does not change the
   real-traffic picture: 95.6% of tokens sit in long pasted messages and 98% of messages fall outside the ontology. Fidelity is only relative to the translator's graph.
+
+## Option C: content references instead of resending (2026-10-08)
+Code: `aixl/refstore.py` (RefStore: runs of ≥200 chars of lines already sent in the SAME conversation become `⟦=msg:first-last⟧`; every encode is verified by decode()==original, else sent raw),
+`tests/test_refstore.py` (3), `benchmarks/v1_refstore_eval.py`. Corpus: all text blocks (user, assistant text, tool results) of 409 real local Claude Code sessions, 43.7M chars.
+- Where the volume is: **tool results 79.0%**, user text 13.1%, assistant text 8.0%.
+- Saved by within-session pointers: **17.3% of all chars** (tool results 19.9%, user text 11.6%, assistant text 1.7%). 7,899 blocks encoded, 0 round-trip failures (guarded).
+- Exact o200k tokens on a sample of the ENCODED blocks only: 913,898 → 481,097 (−47.4%). This is per encoded block, not overall; the overall saving is the 17.3% char figure.
+- Biggest sessions: 16–38% saved.
+- Not measured / caveats: (1) a pointer is only useful if the model reads it correctly — answer quality with pointers is UNTESTED; (2) in real API use previous turns are often prompt-cached, so the billing effect
+  is smaller than the token effect; (3) cross-session dedupe needs a shared store (not built); (4) 681 .jsonl files, 409 contributed blocks (others empty/sub-agent logs).
+- Verdict: unlike A (tiny share of traffic), C addresses the part of the traffic that is actually big (tool output) and works on every message regardless of language/ontology.
