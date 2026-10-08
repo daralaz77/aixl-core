@@ -111,8 +111,8 @@ def _reflected(cls: str, graph, ev: set) -> bool:
     return False
 
 
-def check_completeness(text: str, graph) -> dict:
-    ev = _evidence_tokens(graph)
+def check_completeness(text: str, graph, _ev=None) -> dict:
+    ev = _ev if _ev is not None else _evidence_tokens(graph)
     markers = extract_markers(text)
     unreflected = sorted(m for m in markers if not _reflected(m, graph, ev))
     skip = set(_split_neg_comparators(_norm(text))[2])
@@ -167,7 +167,7 @@ def names_reordered(a: str, b: str) -> bool:
 AFFIRM = {"si", "yes", "yeah", "yep", "ok", "okay", "vale", "claro", "dale", "listo", "bueno", "sim", "certo", "perfecto", "adelante"}
 
 
-def strict_complete(text: str, g) -> bool:
+def strict_complete(text: str, g, _ev=None) -> bool:
     """check_completeness exempts the FIRST content word as 'the verb', so 'creo que ya revisa' passed with 'creo' dropped.
     Strict: the exempt verb is the word the action regex really matched; every other content word must be accounted for."""
     s = strip_accents(text.lower())
@@ -176,10 +176,10 @@ def strict_complete(text: str, g) -> bool:
         return False
     a, b = min(spans)
     rest = s[:a] + " " + s[b:]
-    if not check_completeness("verbo " + rest, g).get("complete", False):
+    ev = _ev if _ev is not None else _evidence_tokens(g)
+    if not check_completeness("verbo " + rest, g, ev).get("complete", False):
         return False
     # lexicon-'known' is not enough to ship in AIXL: each remaining content word must be IN the graph ('redacta el correo' -> A:GENERATE lost 'correo')
-    ev = _evidence_tokens(g)
     skip = {w for ws in MARKERS.values() for p in ws for w in p.split()}
     for w in _ALLTOK.findall(_norm(rest)):
         if w in AFFIRM and w not in ev:
@@ -201,4 +201,5 @@ def strict_complete(text: str, g) -> bool:
 def is_complete(text: str, graph) -> bool:
     """PUBLIC API. True only if the encoding accounts for the whole text: the base completeness check AND the strict check
     (no content word may be silently dropped, even a short message's 'verb'). This is the condition under which AIXL may replace natural text."""
-    return bool(check_completeness(text, graph).get("complete", False)) and strict_complete(text, graph)
+    ev = _evidence_tokens(graph)          # computed once: it re-derives graph.canonical(), and both checks need it
+    return bool(check_completeness(text, graph, ev).get("complete", False)) and strict_complete(text, graph, ev)
