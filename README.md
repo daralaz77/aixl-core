@@ -9,7 +9,7 @@
 > without proof; and an interchange format with real MCP/A2A servers. Everything is in [`docs/EVIDENCE.md`](docs/EVIDENCE.md); the earlier headline
 > numbers (99.4 %, 95 %+) are kept as history because they come from sets that share the translator's own vocabulary.
 >
-> **616 tests** pass (`.venv/bin/python -m pytest -q`). Not a standard; no production use; nothing in it executes an action.
+> **1062 tests** pass (`.venv/bin/python -m pytest -q`). Not a standard; no production use; nothing in it executes an action.
 > **AIXL 0.4 atom layer** (concept-id atoms, wire format, firewall, fidelity): [docs/ATOMS.md](docs/ATOMS.md) — evidence and limits in [docs/ATOMS_EVIDENCE.md](docs/ATOMS_EVIDENCE.md).
 
 [![tests](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml/badge.svg)](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml)
