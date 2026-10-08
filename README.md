@@ -13,6 +13,10 @@
 > **AIXL 0.4 atom layer** (concept-id atoms, wire format, firewall, fidelity): [docs/ATOMS.md](docs/ATOMS.md) — evidence and limits in [docs/ATOMS_EVIDENCE.md](docs/ATOMS_EVIDENCE.md).
 
 [![tests](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml/badge.svg)](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml)
+[![Paper DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23227169.svg)](https://doi.org/10.5281/zenodo.23227169)
+[![Code DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23226946.svg)](https://doi.org/10.5281/zenodo.23226946)
+
+**Paper:** *When 99% Means Nothing: Negative Results from Measuring Semantic Equivalence Between Agent Instructions* — [doi:10.5281/zenodo.23227169](https://doi.org/10.5281/zenodo.23227169). This repository at tag `v1.0.0-paper` is the code and data behind it ([archived copy](https://doi.org/10.5281/zenodo.23226946)).
 
 ## 0. Scope of AIXL 0.5 (decided 2026-10-03, [ADR-018](docs/adr/ADR-018.md))
 AIXL 0.5 is: **(1)** an exact, offline, free comparison engine *inside a controlled vocabulary*; **(2)** a loss detector that refuses to say "equal" without proof (opt-in `inconclusive`, `R:` residue, completeness); **(3)** deterministic input hygiene (`sanitize_input`); **(4)** an interchange format with real MCP/A2A servers and a bounded negotiation protocol; **(5)** an **audit layer around a full-text arbiter** (`aixl.arbiter`: versioned rules, 2-of-2 consensus, output validation, a decision memo — judges are functions you supply; the core never calls a model).
