@@ -109,7 +109,7 @@ ORDINALS = {"primer": 1, "primero": 1, "primera": 1, "primeiro": 1, "primeira": 
             "tercera": 3, "terceiro": 3, "third": 3, "cuarto": 4, "fourth": 4, "quarto": 4, "quinto": 5, "fifth": 5,
             "ultimo": "last", "ultima": "last", "ultimos": "last", "last": "last", "latest": "most_recent", "newest": "most_recent", "ultimo-": "last",
             "reciente": "most_recent", "recientes": "most_recent", "recent": "most_recent", "recente": "most_recent",
-            "antiguo": "oldest", "oldest": "oldest", "earliest": "oldest", "antigo": "oldest",
+            "antiguo": "oldest", "antiguos": "oldest", "oldest": "oldest", "earliest": "oldest", "antigo": "oldest", "antigos": "oldest", "recentes": "most_recent",
             "anterior": "previous", "previous": "previous", "siguiente": "next_item", "seguinte": "next_item"}
 NEXT_WORDS = {"proximo", "proxima", "next", "proximos", "seguinte", "coming", "upcoming"}
 

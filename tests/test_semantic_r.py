@@ -234,3 +234,21 @@ def test_never_fail_to_equals_always():                                         
 
 def test_not_every_equals_some_do_not():                                         # blind18 X010
     assert V("Not every museum visitor needs a badge.", "Some museum visitors do not need a badge.") != "NOT_EQUIVALENT"
+
+
+def test_negated_until_vs_only_after_is_not_a_definitive_difference():
+    """Found by the real-judge MCP hybrid test: 'don't X until Y' vs 'X only after Y' was a definitive NOT_EQUIVALENT (time DISTORTION) although the parser itself flags the
+    reading as AMBIGUOUS_NEGATED_TEMPORAL. The ambiguity now covers the relation difference; real differences (other operand, before/after) stay definitive."""
+    from aixl.semantic import compare_texts
+    v = compare_texts("Don't publish the draft until Imani has reviewed it.", "Publish the draft only after Imani has reviewed it.")
+    assert v.verdict == "INCONCLUSIVE" and "AMBIGUOUS_NEGATED_TEMPORAL" in v.flags
+    assert compare_texts("Send the report before Friday.", "Send the report after Friday.").verdict == "NOT_EQUIVALENT"
+    assert compare_texts("Don't publish until Friday.", "Don't publish until Monday.").verdict == "NOT_EQUIVALENT"
+
+
+def test_plural_oldest_never_crashes_the_parser():
+    """'los tres archivos más antiguos' raised KeyError('antiguos'): the parser listed the form, the ordinal lexicon did not have it."""
+    from aixl.semantic import compare_texts, parse
+    compare_texts("Borra los tres archivos más antiguos de la carpeta de pruebas.", "Delete the three oldest files in the test folder.")
+    for w in ("antiguos", "antigos", "recentes", "recientes"):
+        parse(f"Borra los archivos más {w} de la carpeta.")

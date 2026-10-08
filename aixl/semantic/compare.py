@@ -343,8 +343,11 @@ def compare(A, B) -> Verdict:
         if len(keep) != len(acc.diffs): acc.unres.append("time differences suppressed: 'midnight of <day>' is ambiguous")
         acc.diffs = keep
     if "AMBIGUOUS_NEGATED_TEMPORAL" in flags_all:
-        keep = [d for d in acc.diffs if "deontic" not in d.path]
-        if len(keep) != len(acc.diffs): acc.unres.append("deontic differences suppressed: negation over 'until' is ambiguous")
+        def rel_only(d):        # same operand, different relation among until/before/after: exactly the reading the flag declares ambiguous (not-until = after?)
+            o, n = d.original, d.new
+            return "time" in d.path and isinstance(o, tuple) and isinstance(n, tuple) and len(o) == 2 == len(n) and o[1] == n[1] and {o[0], n[0]} <= {"until", "after", "before"}
+        keep = [d for d in acc.diffs if "deontic" not in d.path and not rel_only(d)]
+        if len(keep) != len(acc.diffs): acc.unres.append("deontic/relation differences suppressed: negation over 'until' is ambiguous (not-until = after?)")
         acc.diffs = keep
     if "AMBIGUOUS_COND_SCOPE" in flags_all:
         keep = [d for d in acc.diffs if not d.path.startswith("cond")]

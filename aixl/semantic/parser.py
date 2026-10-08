@@ -496,7 +496,7 @@ def _parse_step(toks, ctx) -> Step:
         if f in L.MODAL_MUST: prev_modalish = True; i += 1; continue
         if f in L.MODAL_ADVISE: deontic = "ADVISE"; prev_modalish = True; i += 1; continue
         # --- ordinals (adverb 'primero' already removed during step splitting)
-        if f in ("mas", "more") and i + 1 < n and fs[i + 1] in ("reciente", "recientes", "recent", "antiguo", "antigo", "antiguos"):
+        if f in ("mas", "more") and i + 1 < n and fs[i + 1] in ("reciente", "recientes", "recent", "antiguo", "antigo", "antiguos") and fs[i + 1] in L.ORDINALS:
             A.append(Atom("ORD", L.ORDINALS[fs[i + 1]], (i, i + 2), "EXPLICIT")); items.append(("ORD", L.ORDINALS[fs[i + 1]])); i += 2; continue
         if f in L.FIRST_ADVERBS and (i + 1 >= n or fs[i + 1] in PUNCT or fs[i + 1] in L.CONJ) and not (i > 0 and fs[i - 1] in ctx.arts):
             items.append(("TOK", "FIRST")); i += 1; continue                  # 'ship X first' = priority adverb, not the ordinal 'first'
