@@ -8,7 +8,8 @@ The marker lexicon is closed and small (ES/EN/PT); a language outside it yields 
 import re
 
 from aixl.core.lexicon_gaps import _CONCEPT, FUNCTION_WORDS, _forms, _known, stem
-from aixl.core.normalizer import STOP, strip_accents
+from aixl.core.normalizer import ALL_ACTION_RX, STOP, strip_accents
+from aixl.legacy02.translators import natural_to_semantic as legacy
 
 # 1-2 character function words that are NOT content (everything else short, like 'b', 'c', 'x', is content).
 # Closed-class function words of ES/EN/PT beyond the 1-2 character set (articles, contractions, pronouns, prepositions):
@@ -159,3 +160,45 @@ def names_reordered(a: str, b: str) -> bool:
     """Same proper names, different order -> roles may be swapped (single-action graphs cannot bind who-does-what-to-whom). Safe side: callers say INCONCLUSIVE."""
     na, nb = name_sequence(a), name_sequence(b)
     return len(na) >= 2 and sorted(na) == sorted(nb) and na != nb
+
+
+# Affirmations/discourse answers are in FUNCTION_WORDS (so they never count as content) but dropping them changes the message:
+# 'si muestrame' ('yes, show me') -> A:GET lost the 'yes'. If one is present and not carried by the graph, don't ship AIXL.
+AFFIRM = {"si", "yes", "yeah", "yep", "ok", "okay", "vale", "claro", "dale", "listo", "bueno", "sim", "certo", "perfecto", "adelante"}
+
+
+def strict_complete(text: str, g) -> bool:
+    """check_completeness exempts the FIRST content word as 'the verb', so 'creo que ya revisa' passed with 'creo' dropped.
+    Strict: the exempt verb is the word the action regex really matched; every other content word must be accounted for."""
+    s = strip_accents(text.lower())
+    spans = [m.span() for _, rx in ALL_ACTION_RX for m in re.finditer(rx, s)]
+    if not spans:
+        return False
+    a, b = min(spans)
+    rest = s[:a] + " " + s[b:]
+    if not check_completeness("verbo " + rest, g).get("complete", False):
+        return False
+    # lexicon-'known' is not enough to ship in AIXL: each remaining content word must be IN the graph ('redacta el correo' -> A:GENERATE lost 'correo')
+    ev = _evidence_tokens(g)
+    skip = {w for ws in MARKERS.values() for p in ws for w in p.split()}
+    for w in _ALLTOK.findall(_norm(rest)):
+        if w in AFFIRM and w not in ev:
+            return False
+        if w in skip or w in FUNCTION_WORDS or w in STOP or w in SHORT_FUNCTION or w in _CLOSED or w[0].isdigit():
+            continue
+        if any(f in ev or stem(f) in ev for f in _forms(w) | {stem(_CONCEPT.get(w, w))}):
+            continue
+        # not literally in the graph: OK only if the word is a surface form of a data/entity class AND that class is in the graph
+        classes = [c.lower() for c, rx in legacy.DATA_RX + legacy.ENTITY_RX if re.search(rx, w)]
+        if classes and any(c in ev for c in classes):
+            continue
+        if not classes and _known(w) and w not in _CONCEPT:  # units, months, languages, numbers, output aliases: handled by the graph's own atoms
+            continue
+        return False
+    return True
+
+
+def is_complete(text: str, graph) -> bool:
+    """PUBLIC API. True only if the encoding accounts for the whole text: the base completeness check AND the strict check
+    (no content word may be silently dropped, even a short message's 'verb'). This is the condition under which AIXL may replace natural text."""
+    return bool(check_completeness(text, graph).get("complete", False)) and strict_complete(text, graph)

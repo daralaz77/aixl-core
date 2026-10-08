@@ -5,12 +5,8 @@ form gives the SAME semantic fingerprint as the source graph, (c) no completenes
 Otherwise MODE=NATURAL. Token counting is a deterministic PROXY (no tokenizer dependency); see LIMITATIONS."""
 import re
 
-from aixl.core.completeness import _ALLTOK, _CLOSED, _CONCEPT, FUNCTION_WORDS, MARKERS, SHORT_FUNCTION, STOP, _evidence_tokens, _forms, _norm, check_completeness
+from aixl.core.completeness import is_complete
 from aixl.core.fingerprint import fingerprint_graph
-from aixl.core.lexicon_gaps import _known
-from aixl.core.lexicon_gaps import stem as _stem
-from aixl.core.normalizer import ALL_ACTION_RX, strip_accents
-from aixl.legacy02.translators import natural_to_semantic as legacy
 from aixl.serialization.aixl_codec import decode, encode
 from aixl.translators.natural_to_semantic import to_graph
 
@@ -35,42 +31,6 @@ def expand(c: str) -> str:
     return "V:AIXL-0.3 " + " ".join(_REV.get(p, p) for p in c.split())
 
 
-# Affirmations/discourse answers are in FUNCTION_WORDS (so they never count as content) but dropping them changes the message:
-# 'si muestrame' ('yes, show me') -> A:GET lost the 'yes'. If one is present and not carried by the graph, don't ship AIXL.
-AFFIRM = {"si", "yes", "yeah", "yep", "ok", "okay", "vale", "claro", "dale", "listo", "bueno", "sim", "certo", "perfecto", "adelante"}
-
-
-def strict_complete(text: str, g) -> bool:
-    """check_completeness exempts the FIRST content word as 'the verb', so 'creo que ya revisa' passed with 'creo' dropped.
-    Strict: the exempt verb is the word the action regex really matched; every other content word must be accounted for."""
-    s = strip_accents(text.lower())
-    spans = [m.span() for _, rx in ALL_ACTION_RX for m in re.finditer(rx, s)]
-    if not spans:
-        return False
-    a, b = min(spans)
-    rest = s[:a] + " " + s[b:]
-    if not check_completeness("verbo " + rest, g).get("complete", False):
-        return False
-    # lexicon-'known' is not enough to ship in AIXL: each remaining content word must be IN the graph ('redacta el correo' -> A:GENERATE lost 'correo')
-    ev = _evidence_tokens(g)
-    skip = {w for ws in MARKERS.values() for p in ws for w in p.split()}
-    for w in _ALLTOK.findall(_norm(rest)):
-        if w in AFFIRM and w not in ev:
-            return False
-        if w in skip or w in FUNCTION_WORDS or w in STOP or w in SHORT_FUNCTION or w in _CLOSED or w[0].isdigit():
-            continue
-        if any(f in ev or _stem(f) in ev for f in _forms(w) | {_stem(_CONCEPT.get(w, w))}):
-            continue
-        # not literally in the graph: OK only if the word is a surface form of a data/entity class AND that class is in the graph
-        classes = [c.lower() for c, rx in legacy.DATA_RX + legacy.ENTITY_RX if re.search(rx, w)]
-        if classes and any(c in ev for c in classes):
-            continue
-        if not classes and _known(w) and w not in _CONCEPT:  # units, months, languages, numbers, output aliases: handled by the graph's own atoms
-            continue
-        return False
-    return True
-
-
 def translate_gated(text: str) -> dict:
     g = to_graph(text)
     wire = encode(g)
@@ -82,8 +42,7 @@ def translate_gated(text: str) -> dict:
     except Exception:
         ok_fp = False
     save = 1 - aix / nat if nat else 0.0
-    comp = check_completeness(text, g)
-    complete = bool(comp.get("complete", False)) and strict_complete(text, g)
+    complete = is_complete(text, g)
     has_action = bool(re.search(r"\bA:", c))
     use = ok_fp and complete and has_action and aix < nat
     reason = ("ok" if use else "incomplete_encoding" if not complete else "no_action" if not has_action

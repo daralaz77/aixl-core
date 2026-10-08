@@ -7,9 +7,9 @@ import statistics as st
 import tiktoken
 
 import benchmarks.dataset as d
-from aixl.core.completeness import check_completeness
+from aixl.core.completeness import is_complete
 from aixl.core.fingerprint import fingerprint_graph as fp
-from aixl.gate import compact, strict_complete
+from aixl.gate import compact
 from aixl.serialization.aixl_codec import decode, encode
 from aixl.telegraph import from_telegraph, to_telegraph
 from aixl.translators.natural_to_semantic import to_graph
@@ -26,7 +26,7 @@ def run(texts, label):
         except Exception as e:
             c["codec_fail:" + type(e).__name__] += 1; continue
         if not ok: c["fp_mismatch"] += 1; bad.append((t, tg)); continue
-        complete = bool(check_completeness(t, g).get("complete")) and strict_complete(t, g)
+        complete = is_complete(t, g)
         if not complete: c["incomplete"] += 1; continue
         if T(tg) < T(t): c["AIXL_TELEGRAPH"] += 1; sav.append(1 - T(tg) / T(t))
         else: c["no_saving"] += 1
