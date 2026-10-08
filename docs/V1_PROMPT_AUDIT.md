@@ -93,3 +93,18 @@ Code: `aixl/refstore.py` (RefStore: runs of ≥200 chars of lines already sent i
 - Not measured / caveats: (1) a pointer is only useful if the model reads it correctly — answer quality with pointers is UNTESTED; (2) in real API use previous turns are often prompt-cached, so the billing effect
   is smaller than the token effect; (3) cross-session dedupe needs a shared store (not built); (4) 681 .jsonl files, 409 contributed blocks (others empty/sub-agent logs).
 - Verdict: unlike A (tiny share of traffic), C addresses the part of the traffic that is actually big (tool output) and works on every message regardless of language/ontology.
+
+### Option C quality test: can a model use pointers? (2026-10-08)
+Scripts: `benchmarks/v1_refquality_build.py` (12 real tool-output pairs, seed 11, secrets filtered; 2 questions each = 24: "exact text of line N of MESSAGE 1", where line N lies INSIDE the span a pointer replaces; truth computed, not judged),
+`benchmarks/v1_refquality_grade.py`. Model: Sonnet (one subagent per condition, Read tool only, told not to run code). Mean message: 2028 chars full vs 956 chars with pointers (−53% on these pairs).
+
+| Condition | Exact-line accuracy |
+|---|---|
+| full text | 23/24 |
+| pointers + 1-line legend | 22/24 |
+| pointers, no legend | 24/24 |
+
+- Differences are within noise (n=24, one model, one run). No evidence of degradation; no evidence of improvement either.
+- Failures: full text missed 1 (case 1, line 3); legend missed case 4 lines 46 and 52 (answered a different nearby line — line-counting across a pointer is the observable risk).
+- A grading bug of mine (truth lines carried a `N<tab>` prefix) initially showed 12/24 for everything; fixed by normalizing both sides before comparing.
+- Not tested: reasoning tasks over pointed content (summaries, edits), models other than Sonnet, long chains of pointers (pointer → message that itself holds pointers), weaker models. Only lookups by exact line were measured.
