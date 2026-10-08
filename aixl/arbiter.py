@@ -51,7 +51,7 @@ def pair_key(a: str, b: str, judges, rules: str | None = None) -> str:
 
 
 def normalize_verdict(raw: str) -> str | None:
-    v = (raw or "").strip().upper()
+    v = (raw if isinstance(raw, str) else "").strip().upper()          # a judge returning a non-string is an INVALID answer, never a crash
     return v if v in VERDICTS else None
 
 

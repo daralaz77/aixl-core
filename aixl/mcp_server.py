@@ -4,7 +4,7 @@ Run it directly: `python -m aixl.mcp_server`. Any real MCP client (Claude Deskto
 agent) can then call these tools over stdin/stdout using the genuine JSON-RPC 2.0 MCP wire format — this is
 the piece that used to be `NotImplementedError` in aixl/adapters/protocol_adapter.py (E-MCP, 2026-09-30).
 
-Exposes: aixl_translate, aixl_compare, aixl_negotiate — thin wrappers around the existing, already-tested
+Exposes: aixl_translate, aixl_compare, aixl_negotiate, aixl_hybrid_prepare/aixl_hybrid_decide (2026-10-08: the arbiter+semantic-veto HYBRID as a two-step protocol; the server still calls no model, the caller brings the judges — see aixl/hybrid_protocol.py) — thin wrappers around the existing, already-tested
 aixl.api.service functions. Also aixl_negotiate_autonomous (E-AUTONOMOUS, 2026-09-30): calling it makes
 THIS server spawn a genuinely separate sender-agent OS process and negotiate with it over real MCP
 stdio, with zero human relay — so a real third-party MCP client can trigger the autonomous 2-process
@@ -12,6 +12,7 @@ exchange itself, not just a script. No new semantics are introduced here; this m
 from mcp.server.mcpserver import MCPServer
 
 import aixl
+from aixl import hybrid_protocol
 from aixl.autonomous_negotiation import negotiate_autonomous_async
 
 server = MCPServer(name="aixl-core", version=aixl.__version__,
@@ -55,6 +56,19 @@ async def aixl_negotiate_autonomous(sender_text: str, receiver_text: str, max_ro
     return {"converged": out.converged, "rounds": out.rounds,
             "transcript": [t.encode() for t in out.transcript],
             "remaining_differences": [d.to_dict() for d in out.remaining_differences]}
+
+
+@server.tool(description="HYBRID step 1/2: for two instructions return the versioned arbiter rules (judge_system_prompt), the exact judge_input line, "
+                          "and the semantic track's cheap verdict. The CALLER then runs two independent judges (this server calls no model) and sends their "
+                          "verdicts to aixl_hybrid_decide.")
+def aixl_hybrid_prepare(a: str, b: str) -> dict:
+    return hybrid_protocol.prepare(a, b)
+
+
+@server.tool(description="HYBRID step 2/2: combine the verdicts of >= 2 independent judges (SAME|DIFFERENT|UNSURE) with the semantic veto. Returns SAME only if every "
+                          "judge says SAME and the semantic track does not veto; DIFFERENT on any dissent; REVIEW on judge/semantic conflict; else UNSURE.")
+def aixl_hybrid_decide(a: str, b: str, judge_verdicts: dict[str, str]) -> dict:
+    return hybrid_protocol.decide(a, b, judge_verdicts)
 
 
 def main():

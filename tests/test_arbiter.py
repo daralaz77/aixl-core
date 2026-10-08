@@ -96,3 +96,10 @@ def test_obfuscation_is_recorded_for_audit_but_does_not_change_the_verdict():
     lookalike = "Do n" + chr(0x043E) + "t send it"                                               # Cyrillic 'o' inside 'not'
     d = A.decide("Do not send it", lookalike, {"s": lambda a, b: "SAME", "h": lambda a, b: "SAME"})
     assert d.verdict == "SAME" and d.obfuscation == ["MIXED_SCRIPT_HOMOGLYPHS"]                  # recorded, not decided on (ADR-018)
+
+
+def test_non_string_judge_answers_are_invalid_not_crashes():
+    from aixl import arbiter
+    assert arbiter.normalize_verdict(5) is None and arbiter.normalize_verdict(["SAME"]) is None and arbiter.normalize_verdict(None) is None
+    d = arbiter.decide("a b c", "a b d", {"j1": lambda a, b: 5, "j2": lambda a, b: "SAME"}, retries=0)
+    assert d.verdict != "SAME" and not d.ok

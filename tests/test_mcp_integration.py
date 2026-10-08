@@ -29,10 +29,22 @@ async def _call(tool: str, args: dict) -> dict:
                     "text": result.content[0].text if result.content else None}
 
 
-def test_server_lists_the_four_aixl_tools():
+def test_server_lists_the_aixl_tools():
     out = asyncio.run(_call("aixl_translate", {"text": "Analiza las ventas de Q1 2026."}))
     assert set(out["tool_names"]) == {"aixl_translate", "aixl_compare", "aixl_negotiate",
-                                       "aixl_negotiate_autonomous"}
+                                       "aixl_negotiate_autonomous", "aixl_hybrid_prepare", "aixl_hybrid_decide"}
+
+
+def test_hybrid_two_step_over_real_mcp_stdio_transport():
+    """2026-10-08: the arbiter+semantic-veto HYBRID as an MCP mode. The server calls no model: the client brings the judges."""
+    a, b = "Delete all files except the logs", "Delete all files"
+    prep = json.loads(asyncio.run(_call("aixl_hybrid_prepare", {"a": a, "b": b}))["text"])
+    assert prep["judge_system_prompt"].startswith("You are an arbiter") and json.loads(prep["judge_input"])["a"] == a
+    dec = json.loads(asyncio.run(_call("aixl_hybrid_decide", {"a": a, "b": b, "judge_verdicts": {"j1": "SAME", "j2": "SAME"}}))["text"])
+    assert dec["verdict"] == "REVIEW" and dec["rules_id"] == prep["rules_id"]          # unanimous SAME is vetoed by the semantic track
+    dec2 = json.loads(asyncio.run(_call("aixl_hybrid_decide", {"a": "Generate the sales report", "b": "Create the sales report",
+                                                              "judge_verdicts": {"j1": "SAME", "j2": "SAME"}}))["text"])
+    assert dec2["verdict"] == "SAME"
 
 
 def test_aixl_translate_over_real_mcp_stdio_transport():
