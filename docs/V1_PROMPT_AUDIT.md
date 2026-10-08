@@ -123,3 +123,13 @@ Per question (legend condition / no-legend): Sonnet Q1 20/20, Q2 20/20, Q3 19/20
 - **Weak model (Haiku): pointers HURT** (27 → 14–18). Failure mode = line numbering through a pointer (Q2/Q3 collapse), exactly the risk seen in the lookup test. Haiku was also weak in full text (27/60), so the absolute task is hard for it.
 - Verdict: pointers are safe for a strong reader on these tasks; do NOT use them for weaker models or for tasks needing absolute line numbers through a pointer. A deployment would need a capability gate, or an expand-on-demand tool for the receiver.
 - Limits: 2 models, 1 run each, 20 cases, three synthetic question types, no chains of pointers, no editing/summarizing tasks.
+
+## Option E: integrity envelope (2026-10-08)
+Code: `aixl/envelope.py` (`seal(text)` → natural text + 8-hex semantic fingerprint; `verify(env, received_text)` → MATCH / MISMATCH / UNVERIFIED), `tests/test_envelope.py` (4), `benchmarks/v1_envelope_eval.py`.
+Rule: a claim (MATCH or MISMATCH) is made only when BOTH sides pass `check_completeness` + `strict_complete`; otherwise UNVERIFIED (no claim). Nothing is compressed; it only detects.
+- Benign paraphrases (58 equivalent pairs, ES/EN/PT): **46 MATCH, 12 UNVERIFIED, 0 false alarms**.
+- Different-meaning pairs (72): **57 MISMATCH, 15 UNVERIFIED, 0 wrongly MATCH**.
+- Rule-made corruptions of 128 verifiable dev texts: negation inserted 128/128 detected; action swapped to *delete* 89/89; number changed 32/43 (11 UNVERIFIED, 0 missed); last word dropped 69/71 detected + 1 UNVERIFIED + 1 MATCH (`…Q1 2026 sales with Q2 2026 sales.` → `…with Q2 2026.`, which is arguably still equivalent — redundant word).
+- Coverage: dev set 128/143 verifiable (90%); **real traffic 19/1645 (1.2%)**.
+- Verdict: inside the translator's domain, E is precise (no false alarms, no silent misses in this run) and cheap (8 hex chars). It does nothing for the 98.8% of real messages that are conversational/outside the ontology: there the honest answer is UNVERIFIED.
+- Limits: dev-set, own-author mutations; fingerprint equality is only as good as the translator's graph; not tested against adversarial rewrites or other authors' texts (earlier blind sets showed open-text equivalence is weak).
