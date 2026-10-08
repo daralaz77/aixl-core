@@ -56,3 +56,18 @@ def test_complete_and_equal_stays_equivalent():
     from aixl.core.comparator import compare_graphs
     mk = lambda t: annotate(from_aixl('V:AIXL-0.3 I:REQUEST_EXECUTION A:SEND D:REPORT R:"CFO"'), t)
     assert compare_graphs(mk("Send the report to the CFO"), mk("Send the report to the CFO"), ON).verdict == "EQUIVALENT"
+
+
+def test_negated_comparators_are_the_opposite_comparator():
+    """Found by blind_markers (P022): 'no fewer than 3' was read as LESS+NEG, so it separated from 'at least 3'."""
+    assert extract_markers("Remove no fewer than three drafts") == {"MORE"} == extract_markers("Delete at least three drafts")
+    assert extract_markers("Delete no more than 3 records") == {"LESS"}
+    assert extract_markers("Borra no menos de tres") == {"MORE"} and extract_markers("Apague nao mais de tres") == {"LESS"}
+    assert extract_markers("Delete fewer than three") == {"LESS"}                      # un-negated unchanged
+    assert extract_markers("Don't delete anything") == {"NEG"}                         # plain negation unchanged
+
+
+def test_negated_comparator_pair_is_not_separated_but_real_opposites_are():
+    from aixl.api.service import compare
+    assert compare("Delete at least three old drafts from the shared folder.", "Remove no fewer than three old drafts from the shared folder.").verdict != "NOT_EQUIVALENT"
+    assert compare("Delete at least three drafts.", "Delete no more than three drafts.").verdict != "EQUIVALENT"

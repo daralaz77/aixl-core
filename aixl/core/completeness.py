@@ -42,12 +42,31 @@ def _norm(text: str) -> str:
     return strip_accents(str(text)).lower().replace("'", "").replace("’", "")
 
 
+# A NEGATED comparator is the OPPOSITE comparator, not "NEG + comparator": 'no fewer than 3' = at least 3 (MORE), 'no more than 3' = at most 3 (LESS).
+# Matched spans are consumed so neither the negation nor the comparator word is counted again (fixes 'no fewer than' read as LESS+NEG).
+_NEG_COMPARATORS = [
+    (re.compile(r"\b(?:no|not|nao)\s+(?:fewer|less|menos|minus)\s+(?:than\s+|de\s+|do\s+que\s+|que\s+)?"), "MORE"),
+    (re.compile(r"\b(?:no|not|nao)\s+(?:more|greater|mas|mais)\s+(?:than\s+|de\s+|do\s+que\s+|que\s+)?"), "LESS"),
+]
+
+
+def _split_neg_comparators(s: str):
+    """(classes, remaining text, consumed words) for negated comparators in normalized text `s`."""
+    classes, consumed = set(), set()
+    for rx, cls in _NEG_COMPARATORS:
+        for m in rx.finditer(s):
+            classes.add(cls); consumed |= set(_ALLTOK.findall(m.group(0)))
+        s = rx.sub(" ", s)
+    return classes, s, consumed
+
+
 def extract_markers(text: str) -> set:
     """Closed-class structural markers present in `text` (deterministic, per text)."""
     s = _norm(text)
+    neg_cls, s, _ = _split_neg_comparators(s)
     out = {c for p, c in _PHRASES if re.search(r"\b" + re.escape(p) + r"\b", s)}
     out |= {_CLASS_OF[w] for w in _ALLTOK.findall(s) if w in _CLASS_OF}
-    return out
+    return out | neg_cls
 
 
 def marker_conflicts(ma: set, mb: set) -> tuple:
@@ -83,7 +102,7 @@ def check_completeness(text: str, graph) -> dict:
     ev = _evidence_tokens(graph)
     markers = extract_markers(text)
     unreflected = sorted(m for m in markers if not _reflected(m, graph, ev))
-    skip = set()
+    skip = set(_split_neg_comparators(_norm(text))[2])
     for c in markers:
         skip |= {w for w in MARKERS[c]} | {t for p in MARKERS[c] if " " in p for t in p.split()}
     missing = []
