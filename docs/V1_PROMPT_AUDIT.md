@@ -153,3 +153,19 @@ Script: `benchmarks/v1_billing_eval.py`. Source: the `usage` the API returned fo
 - **Modeled effect of pointers on cost** (each saved block pays once to be written and is re-read on every later call, so it saves 1.25 + 0.10×calls_remaining per token): **26.8% of weighted session cost** with the calibrated ratio, **17.0%** with 0.30 tok/char. Dominated by cache-read savings on long sessions.
 - This is a MODEL, not an invoice: it assumes the cache never expires (expiry turns reads into writes → saving would be larger per token but the model would be off) and no context compaction (compaction would shrink it); it counts only the exact-repeat blocks found by `RefStore`; and the quality tests covered only line lookups/counting on a strong reader (Sonnet), not editing or summarizing.
 - Not measured: an actual A/B on real invoices. The honest claim is "up to ~17–27% of cost for long agent sessions on a pointer-safe receiver, if quality holds on the task", not a guaranteed saving.
+
+## Next step 4: pointers on edit, extract, chained pointers; Opus added to the whitelist (2026-10-08)
+Scripts: `benchmarks/v1_refedit_build.py` (10 real pairs of the reasoning test; per case: EDIT = rewrite MESSAGE 1 with WORD→ZZZ, full text; EXTRACT = the exact lines containing WORD; CHAIN = MESSAGE 2 repeats MESSAGE 1 + 2 appended lines, MESSAGE 1 itself shown with a pointer to MESSAGE 0, so a line lookup in MESSAGE 2 needs two-level expansion; 8/10 cases are real two-level chains), `benchmarks/v1_refedit_grade.py` (exact-match grading against computed truth), `benchmarks/v1_extract_subagent_answer.py` (pulls each subagent's final JSON out of its transcript so long answers are not hand-copied).
+
+| Run | edit exact | edit lines | extract exact | chain lines |
+|---|---|---|---|---|
+| Opus, full text | 10/10 | 100% | 10/10 | 20/20 |
+| **Opus, pointers** | **10/10** | **100%** | **10/10** | **20/20** |
+| Sonnet, full text | blocked | | | |
+| Sonnet, pointers | blocked | | | |
+
+- **Opus: no degradation at all, including through a two-level pointer chain.** Plus 59/60 on the line-reasoning test with annotated pointers (Q1 20/20, Q2 20/20, Q3 19/20).
+- **Sonnet could not be evaluated on this test.** Both Sonnet agents were stopped by the model's safety classifier (`reasoning_extraction`) while writing the long verbatim output; the pointers run produced nothing and the full-text run was cut partway and declined to retry. Opus completed the identical files. I did not rephrase the task to get around the block, so Sonnet's step-4 result is UNKNOWN (not "pass", not "fail"). Its whitelist entry remains based on the lookup and reasoning tests only (24/24 lines; 59–60/60 reasoning).
+- Haiku was excluded (policy says no pointers; earlier results 14–18/60).
+- `aixl/refpolicy.py`: `MEASURED = {sonnet: True, opus: True, haiku: False}`; fable and any unmeasured model still fail closed. Tests: 1093 pass.
+- Limits: one run per cell, 10 cases, exact-copy tasks (no judgement-based summarization, which has no objective grader), chains of depth 2 only.

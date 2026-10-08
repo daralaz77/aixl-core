@@ -3,7 +3,7 @@ import json, glob, os, collections
 cases = json.load(open("/private/tmp/claude-501/refreason_cases.json"))
 truth = [t for c in cases for t in c["truth"]]
 QN = {0: "Q1 count lines with WORD", 1: "Q2 first line with WORD", 2: "Q3 longest line"}
-for model in ("sonnet", "haiku"):
+for model in ("sonnet", "opus", "haiku"):
     for cond in ("full", "legend", "nolegend", "annot"):
         p = f"/private/tmp/claude-501/rr/{model}_{cond}.txt"
         if not os.path.exists(p): continue

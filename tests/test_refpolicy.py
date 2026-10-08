@@ -4,11 +4,11 @@ BIG = "\n".join(f"def function_number_{i}(argument): return argument * {i}" for 
 
 
 def test_measured_families():
-    assert pointers_allowed("claude-sonnet-5-5") and not pointers_allowed("claude-haiku-4-5-20251001")
+    assert pointers_allowed("claude-sonnet-5-5") and pointers_allowed("claude-opus-5-5") and not pointers_allowed("claude-haiku-4-5-20251001")
 
 
 def test_unknown_receiver_fails_closed():
-    assert not pointers_allowed("claude-opus-5-5") and not pointers_allowed("some-other-model")
+    assert not pointers_allowed("claude-fable-5-1") and not pointers_allowed("some-other-model")
 
 
 def test_weak_receiver_gets_plain_text_strong_gets_pointer():
