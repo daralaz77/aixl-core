@@ -179,7 +179,7 @@ def _reliable_filter(x, y, acc):
     def unexplained(with_ord):
         gx, gy = getattr(x, 'global_content', set()), getattr(y, 'global_content', set())
         return (_content(x, with_ord) - _content(y, with_ord) - _slot_tokens(y) - gy, _content(y, with_ord) - _content(x, with_ord) - _slot_tokens(x) - gx)
-    keep, shown = [], set()
+    keep, _shown = [], set()
     paths = [d.path for d in acc.diffs]
     contraposition = any(p.endswith("deontic") for p in paths) and any(p.startswith("cond") for p in paths)
     gx_all, gy_all = getattr(x, "global_content", set()), getattr(y, "global_content", set())

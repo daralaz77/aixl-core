@@ -36,5 +36,5 @@ if __name__ == "__main__":
     print({k: (v if not isinstance(v, dict) else v["f1"]) for k, v in agg.items()}); print("cases", len(scores), "exact", len(scores) - len(fails), "errors", len(errs))
     for i, e in errs[:10]: print("ERR", i, e)
     if verbose:
-        for i, t, g, got, s in fails:
+        for i, t, g, got, _s in fails:
             print(i, t); print("   G", brief(g)); print("   X", brief(got))

@@ -16,7 +16,6 @@ def test_short_value_is_content_not_noise():
 
 
 def test_residue_key_separates_room_b_from_room_c():
-    a = from_aixl(MOVE + ' R:"sala B"'); b = from_aixl(MOVE + ' R:"sala C"')
     assert not compare_aixl(MOVE + ' R:"sala B"', MOVE + ' R:"sala C"').equivalent
 
 

@@ -134,7 +134,6 @@ def detect_ambiguity_graph(text: str, graph: SemanticGraph | None = None, contex
     findings: list[Finding] = []
     notes: list = []
     nouns = _noun_positions(s)
-    acts = _action_positions(s)
     canon = g.canonical()
 
     # 1. pronouns without (or with several) antecedents

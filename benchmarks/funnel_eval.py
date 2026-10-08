@@ -27,7 +27,7 @@ def pairs_truth(rows):
     by = collections.defaultdict(list)
     for r in rows: by[r["cluster"]].append(r["id"])
     eq = {frozenset(p) for ids in by.values() for p in itertools.combinations(ids, 2)}
-    par = {r["id"] for r in rows if r["kind"] == "paraphrase"}
+    {r["id"] for r in rows if r["kind"] == "paraphrase"}
     nm = {frozenset((r["id"], p)) for r in rows if r["kind"] == "near_miss" for p in by[r["of"]]}
     return eq, nm
 
@@ -73,7 +73,7 @@ def stage1():
     return rows, eq, nm, cand
 
 def stage2(d):
-    rows = load(); txt = {r["id"]: r for r in rows}
+    rows = load(); {r["id"]: r for r in rows}
     eq, nm = pairs_truth(rows)
     gold = json.load(open("data/blind10/b12_stage2_gold.json"))
     cands = {k: {frozenset(p) for p in v} for k, v in json.load(open("data/blind10/b12_stage1_candidates.json")).items()}

@@ -20,7 +20,7 @@ Revisión con mediciones (ruff, vulture, cProfile, pytest --durations, grafo de 
 | H8 | Parámetro muerto `min_sim_fp` en `translate_gated`; imports sin uso (`Callable`, `type_of`, …) | vulture/ruff F401 | confunde a quien lee la API |
 | H9 | Micro-rendimiento: 41 473 búsquedas `re._compile` por 110 textos (regex construidas en la llamada), `strip_accents` con generador (66 659 pasos/110 textos), `canonical()` recalculada 656 veces/110 textos | cProfile | solo velocidad; irrelevante en absoluto |
 | H10 | Suite: 14.6 s, ~5 s son 3 tests de MCP con subprocesos reales | `--durations` | lento en CI, no crítico |
-| H11 | `aixl/adapters/` sin referencias desde `aixl/`, `cli.py` ni tests (stubs A2A/REST/GraphQL) | grep | posible código muerto, a confirmar |
+| H11 | ~~`aixl/adapters/` sin uso~~ **REFUTADO en la Fase 2**: lo usan `tests/test_a2a_adapter.py` y `tests/test_mcp_adapter.py` y contiene los adaptadores MCP y A2A reales. Mi búsqueda inicial miró solo `aixl/` y el CLI, no los tests. | grep ampliado | ninguno: NO se retira |
 | H12 | Tres representaciones semánticas conviven (`core/`, `semantic/` 1462 líneas, `atoms/` 1636 líneas) | LOC + imports (`semantic` solo lo usan `hybrid_protocol`, `atoms/extract`, `cli`) | decisión de arquitectura pendiente |
 
 ## 3. El camino (de menor a mayor riesgo; cada fase tiene su puerta)
@@ -66,3 +66,12 @@ Puerta aplicada en cada subpaso: 1094 tests (incluida la caracterización) + `be
 - **1c:** claves duplicadas con valor idéntico (`todo`, `caracteres`, `cliente`, `ingles`), anotaciones sin definir en `api/service.py` (`TYPE_CHECKING`), re-export explícito de `HybridDecision`, `raise … from e` en `cli.py`, `raise AssertionError` en un test, 2 imports sin uso en `lab/render.py`, `force-exclude` para `distill/`, y `F403/F405` permitidos en 2 scripts de benchmarks que usan `import *` a propósito.
 - **Resultado:** avisos de lint **253 → 36** (todos F841 variables sin uso ×28 y B007 ×8, que son de la Fase 2 porque quitar una asignación puede quitar un efecto secundario).
 - Lección registrada: `ruff --fix` se ejecuta solo sobre archivos versionados (`git ls-files`) para no tocar trabajo ajeno sin commit.
+
+### Fase 2 — HECHA (2026-10-08)
+- **Lint: 36 → 0 avisos** (`ruff check` limpio sobre todos los archivos versionados). Se aplicó el arreglo "inseguro" de ruff para F841/B007 y se revisó el diff a mano: ruff había dejado expresiones puras sueltas (`[t.f for t in toks]`, `getattr(…)`, `re.findall(…)`, `self.by_id()`, `_action_positions(s)`), que se borraron tras comprobar que no tienen efectos; y 3 variables de bucle se simplificaron (`enumerate` innecesario) o renombraron (`_act`).
+- **Ramas muertas de `atoms/extract.py` (H2) eliminadas:** `… if True else None`, `… if False else None` (×2) y el bucle protegido por `… and False`. Con la salida de vulture como justificación; la prueba de caracterización confirma que el comportamiento no cambió.
+- **Trampa evitada:** `elif f in ("it", "ele", "ela"): pass` parecía código muerto tras quitar `ref_subject`, pero **la rama hay que conservarla**: consume el caso e impide que ramas posteriores de la cadena `elif` lo traten. Quedó con un comentario que lo explica.
+- `min_sim_fp` (parámetro muerto de `translate_gated`) eliminado; ningún llamador lo usaba.
+- **H11 refutado** (ver tabla): `aixl/adapters/` se queda.
+- Puerta: 1094 tests (incluida la caracterización) + `check_imports` (621 imports, 0 sin resolver).
+- **Residual consciente (vulture al 100%):** 3 parámetros `request` de manejadores HTTP (los exige el framework: falso positivo) y 3 parámetros no usados de firmas internas (`_is_prop_like(f, pend)`, `_items_cmp(…, act_a, …)`, `anchored(extra, ctx_items)`). Se dejan: quitarlos obliga a tocar a todos los llamadores, con riesgo y sin ganancia medible.

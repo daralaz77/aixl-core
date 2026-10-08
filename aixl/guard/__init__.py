@@ -61,7 +61,6 @@ def _numbers(t: str, minlen: int, ignore=()) -> list:
 
 
 def _proper(text: str) -> set:
-    words = re.findall(r"[^\W\d_]+", text)
     out = set()
     for m in re.finditer(r"(?<![.!?]\s)(?<!^)\b([A-Z\u00c1\u00c9\u00cd\u00d3\u00da\u00d1][a-zA-Z\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1]+)", text):
         out.add(_norm(m.group(1)))

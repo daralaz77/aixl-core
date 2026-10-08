@@ -28,7 +28,7 @@ def validate(frame: SemanticFrame, raw: str = "") -> list:
     chk(3, "acciones válidas", not bad, ",".join(bad))
     try:
         parse(aixl); syn = True
-    except AixlError as e:
+    except AixlError:
         syn = False
     chk(4, "sintaxis válida", syn)
     if raw:

@@ -185,7 +185,7 @@ def gen_ambiguous(rng):
                 pool.append((lang, act, t.format(V=v)))
     rng.shuffle(pool)
     out, seen = [], set()
-    for lang, act, text in pool:
+    for lang, _act, text in pool:
         if text in seen:
             continue
         seen.add(text)
@@ -205,7 +205,7 @@ def gen_contradictory(rng):
             s = slots(rng)
             a = render(l1, **s)
             act = s["act"]
-            rest = a.split(" ", 1)[1]
+            a.split(" ", 1)[1]
             b = NEG[act][l2] + " " + render(l2, **s).split(" ", 1)[1]
         elif k == "enable":
             obj = rng.choice(["alert", "report", "dashboard"])

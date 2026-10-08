@@ -129,7 +129,6 @@ class AtomGraph:
 
     def canonical(self, include_unrepresented=True):
         lab = self.labels()
-        ids = self.by_id()
         atoms = sorted(lab.values())
         rels = sorted(f"{lab[s]}-{r}->{lab[d]}" for s, r, d in self.relations if s in lab and d in lab)
         d = dict(v=self.registry_version, atoms=atoms, relations=rels)

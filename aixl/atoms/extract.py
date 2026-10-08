@@ -209,7 +209,6 @@ def extract(text: str, lang: str | None = None) -> AtomGraph:
     toks = [t for t in toks if not (t.f in (".",) )]
     lang = lang or detect_lang(toks)
     b = Builder()
-    g_conds = []   # (container atom, body tokens, kind)
     toks, cond = _split_condition(toks)
     steps = _split_steps(toks)
     for st in steps: _parse_step(st, b, lang)
@@ -226,7 +225,6 @@ def extract(text: str, lang: str | None = None) -> AtomGraph:
 # ---------------------------------------------------------------- conditions
 def _split_condition(toks):
     # (conditions with an action inside the body are not representable in v0.2: the body parser flags them via cond_body:*)
-    fs = [t.f for t in toks]
     # leading: if X, MAIN
     if toks and (toks[0].f,) in COND_IF:
         k = next((j for j, t in enumerate(toks) if t.f == ","), None)
@@ -340,7 +338,6 @@ def _parse_step(st: Step, b: Builder, lang: str):
     # action
     t = toks[i]
     cid = _verb(t.f)
-    clit = False
     if cid is None:
         if t.f in STOP or _num(t.f) is not None: cid = None
         else: cid = "x:" + t.f
@@ -447,9 +444,7 @@ def _parse_np(toks, i, st, b, clit_ref, lang="en"):
     pending_props = []
     pending_other = False
     last_unknown = []
-    exc_mode = None          # 'except' | 'only'
     recip_next = False
-    in_prep = None
     restrict_next = False
     st.after = []
     if clit_ref is not None:
@@ -470,7 +465,7 @@ def _parse_np(toks, i, st, b, clit_ref, lang="en"):
         # exception
         tup = _match_seq(toks, i, EXC_WORDS)
         if tup and ents:
-            flush_unknown(); exc_mode = "except"; i += len(tup); excl_start = True
+            flush_unknown(); i += len(tup)
             base = ents[-1] if ents else None
             # parse the excluded NP: properties and optionally a noun
             props, noun = [], None
@@ -559,7 +554,7 @@ def _parse_np(toks, i, st, b, clit_ref, lang="en"):
             while j < n and toks[j].raw[:1].isupper() and not toks[j].raw.isupper() and toks[j].f not in DAYS:
                 name.append(toks[j].raw); j += 1
             na = b.add("NAME", value=" ".join(name))
-            _target(b, act, na, True if recip_next or True else False) if True else None
+            _target(b, act, na, True)
             recip_next = False; i = j; continue
         pe = _entity(f)
         if pe and not _prop(f):
@@ -621,11 +616,9 @@ def _target(b, act, node, recip):
 
 
 def _place_entity(e, act, b, st, recip_next, quant, pending_props, ents, other=False, restrict=False, qty=None):
-    holder = e
     if restrict:
         e2 = b.add("ENTITY", concept=e.concept)       # the restricted subset node carries the properties
         b.rel(e, "RESTRICTS_TO", e2)
-        object.__setattr__(e, "_prop_holder", e2) if False else None
         e._prop_holder = e2
     for p in pending_props:
         b.rel(e._prop_holder if restrict else e, "HAS_PROPERTY", b.add("PROPERTY", concept=p))
@@ -653,9 +646,7 @@ def _link_sequence(steps, b):
     for k in range(1, len(steps)):
         a, c = steps[k - 1], steps[k]
         if a.action is None or c.action is None: continue
-        tc = getattr(c, "temporal_clause", None)
         ta = getattr(a, "temporal_clause", None)
-        if ta == "before": b.rel(c.action, "PRECEDES", a.action) if False else None
         if ta == "before" and k == 1:
             b.rel(c.action, "PRECEDES", a.action)          # 'before V1, V2': V2 happens first? -> see below
         elif ta == "after":
@@ -673,12 +664,10 @@ def _attach_condition(cond, steps, b):
     body = cond["body"]
     sc = c.id
     main_ent = next((x for x in first.targets if x.type == "ENTITY"), None)
-    others = [x for s in acts if s is not first for x in s.targets if x.type in ("ENTITY",)]
     # subject + properties
     subj = None; neg = False; props = []
     i = 0
     n = len(body)
-    ref_subject = False
     while i < n:
         f = body[i].f
         if f in ("not", "no", "nao", "nunca", "never", "n't"): neg = True
@@ -688,7 +677,7 @@ def _attach_condition(cond, steps, b):
         elif _prop(f):
             pol = "-" if (neg != cond["neg"]) else "+"
             props.append((_prop(f), pol))
-        elif f in ("it", "ele", "ela") : ref_subject = True
+        elif f in ("it", "ele", "ela"): pass      # pronoun is consumed on purpose: no later branch may treat it
         elif f in STOP or f in L.COPULA["es"] | L.COPULA["pt"] | L.COPULA["en"] or f in (",", "."): pass
         elif subj is None and not props and _verb(f) is None and not _num(f):
             props.append(("x:" + f, "-" if (neg != cond["neg"]) else "+"))
@@ -709,7 +698,7 @@ def _attach_condition(cond, steps, b):
     if kind == "whether":
         b.rel(first.action, "TARGETS", c)
         first.whether = c
-        for rr in list(b.rels):                       # the question replaces the verb's plain target
+        for _rr in list(b.rels):                       # the question replaces the verb's plain target
             pass
         b.rels[:] = [r for r in b.rels if not (r[0] == first.action.id and r[1] == "TARGETS" and r[2] != c.id)]
         first.targets = []
@@ -717,10 +706,6 @@ def _attach_condition(cond, steps, b):
     else:
         for s in acts:
             b.rel(s.action, "CONDITIONED_BY", c)
-        # a trailing condition governs the whole clause; apply to every step for a trailing/leading condition of a single-action text
-        for s in steps[1:]:
-            if s.action is not None and len([x for x in steps if x.action is not None]) > 1 and False:
-                b.rel(s.action, "CONDITIONED_BY", c)
     first.cond_subject = subj
     first.cond_entity = subj if subj.type == "ENTITY" else None
 
@@ -728,8 +713,6 @@ def _attach_condition(cond, steps, b):
 def _resolve_refs(steps, b):
     ids = b.by_id() if hasattr(b, "by_id") else {a.id: a for a in b.atoms}
     # entities that can be antecedents, in textual order (condition-body entities included)
-    ents = [a for a in b.atoms if a.type == "ENTITY" and a.scope is None]
-    body_ents = [a for a in b.atoms if a.type == "ENTITY" and a.scope]
     def antecedent(ref, step_idx):
         # prefer an entity targeted in an earlier step; then one in a later step; then a condition-body entity
         for s in reversed(steps[:step_idx]):
@@ -753,6 +736,6 @@ def _resolve_refs(steps, b):
             if ant is not None: b.rel(x, "REFERS_TO", ant)
     for a in b.atoms:
         if a.type == "REFERENCE" and a.scope and not any(r[0] == a.id and r[1] == "REFERS_TO" for r in b.rels):
-            for k, s in enumerate(steps):
+            for s in steps:
                 ant = antecedent(a, 0) if s is steps[0] else None
                 if ant is not None: b.rel(a, "REFERS_TO", ant); break

@@ -71,7 +71,7 @@ def strict_complete(text: str, g) -> bool:
     return True
 
 
-def translate_gated(text: str, min_sim_fp: bool = True) -> dict:
+def translate_gated(text: str) -> dict:
     g = to_graph(text)
     wire = encode(g)
     c = compact(wire)

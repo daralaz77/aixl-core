@@ -28,7 +28,7 @@ def main():
     cons = [dict() for _ in range(5)]
     for m, runs in R.items():
         unstable = []; acc = []
-        for i, v in enumerate(runs):
+        for v in runs:
             acc.append(sum(v.get(r["key"]) == exp(r) for r in sel))
         for r in sel:
             vs = [v.get(r["key"], "MISSING") for v in runs]

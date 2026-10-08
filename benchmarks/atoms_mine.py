@@ -25,7 +25,7 @@ def mine_alias(min_texts=2):
     pair_texts = collections.defaultdict(set); freq = collections.Counter()
     for s in DEV:
         src = sources(s)
-        for name, G in src.items():
+        for _name, G in src.items():
             for g in G.values():
                 for t in TYPES:
                     for c, n in concepts(g, t).items(): freq[(t, c)] += n
@@ -53,7 +53,7 @@ def build_aliases(cands, freq):
     groups = collections.defaultdict(list)
     for node in list(parent): groups[find(node)].append(node)
     aliases, report = {}, []
-    for root, nodes in groups.items():
+    for _root, nodes in groups.items():
         t = nodes[0][0]
         members = [c for _, c in nodes]
         reg = [c for c in members if not c.startswith("x:")]

@@ -66,7 +66,7 @@ base = [translate_gated(t) for t in texts]
 freq = collections.Counter(p for c in comp.values() for p in c.split() if count_tokens(p) >= 2 and p not in ABBR)
 print("most frequent unabbreviated tags:", freq.most_common(8))
 new = {}
-for p, n in freq.most_common(12):
+for p, _n in freq.most_common(12):
     k, v = p.split(":", 1)
     cand = k + ":" + v[:3].upper()
     if cand not in new.values() and cand not in G._REV: new[p] = cand

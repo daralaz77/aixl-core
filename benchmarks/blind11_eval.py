@@ -50,7 +50,6 @@ def main():
         r = rows[g["pid"]]
         said["A rules 0.4"][g["pid"]] = compare(r["a"], r["b"], off).verdict == "EQUIVALENT"
         said["B rules +inconclusive"][g["pid"]] = compare(r["a"], r["b"], on).verdict == "EQUIVALENT"
-    cj = {}
     for m in ("sonnet", "haiku"):
         enc = read_enc(d, m); bad = 0
         for g in gold:

@@ -241,7 +241,7 @@ def _cond_bag(toks, ctx, neg):
 def _parse_sentence(sent, ctx, base):
     toks = list(sent)
     cond = _find_cond(toks, ctx)
-    cond_atom, before_tokens, after_tokens, mode = None, toks, [], None
+    cond_atom, _before_tokens, _after_tokens, _mode = None, toks, [], None
     if cond:
         ctoks = toks[cond["mstart"]:cond["end"]]
         if not ctoks:
@@ -252,7 +252,7 @@ def _parse_sentence(sent, ctx, base):
         cond_atom = Atom("COND", (cond["kind"], neg, bag))
         pre, post = toks[:cond["start"]], toks[cond["end"] + 1:] if cond["bounded"] else []
         if cond["start"] == 0:
-            main_scope, rest = post, []          # leading condition: guards everything after the comma
+            main_scope, _rest = post, []          # leading condition: guards everything after the comma
             groups = [(main_scope, True)]
         elif cond["bounded"] and post:
             groups = [(pre, False), (post, True)]  # '... y, si X, haz Y': guards only what follows
@@ -288,7 +288,7 @@ def _parse_step(toks, ctx) -> Step:
     st = Step(0)
     A, items = st.atoms, st.items
     lang, n, i = ctx.lang, len(toks), 0
-    neg = 0; deontic = "DO"; avoid = False; adv_fillers = False
+    neg = 0; deontic = "DO"; avoid = False
     not_true = litotes = not_required = False
     qty_acc = []          # (mode, value, unit, prov)
     quant = []
