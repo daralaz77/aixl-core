@@ -42,3 +42,12 @@ def test_s17_multilingual_same_graph():  # §17
 
 def test_token_proxy_monotonic():
     assert count_tokens("a b c") < count_tokens("a b c d e f")
+
+
+def test_short_message_dropped_context_blocked():  # real-traffic defect (V1_PROMPT_AUDIT.md): 'creo que' was silently dropped
+    for t in ["creo que ya revisa", "listo revisa", "ya me logee por favor correlo tu"]:
+        assert translate_gated(t)["mode"] == "NATURAL", t
+
+
+def test_known_but_unencoded_object_blocked():  # 'redacta el correo' -> A:GENERATE dropped the object
+    assert translate_gated("redacta el correo")["mode"] == "NATURAL"

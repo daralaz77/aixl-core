@@ -41,3 +41,22 @@ Script: `benchmarks/v1_dict_atoms_eval.py` (+ a 5-seed held-out split run inline
   NOT merged into `ABBR`: promoting them needs a corpus from real traffic, not this dev set.
 
 **Verdict:** both mechanisms help marginally and are safe (the fingerprint gate caught nothing because nothing broke), but neither changes the main conclusion: single human instructions rarely compress with AIXL; the stack's measured value is equivalence/loss detection.
+
+## Real messages + real BPE tokenizer (2026-10-08)
+Script: `benchmarks/v1_real_eval.py`. Corpus: 1449 unique real user messages from the owner's local Claude Code transcripts
+(read locally, never sent anywhere). Tokenizer: tiktoken o200k_base (real BPE, **not Claude's tokenizer**).
+- Gate result: AIXL 6 / 1449 (0.4%); NATURAL 1443. Reasons: incomplete_encoding 1347, no_token_saving 50, no_action 42, fingerprint_mismatch 4.
+- By length (tokens): ≤15 → 980 msgs, 6 AIXL; 16–60 → 351, 0; 61–250 → 36, 0; >250 → 82, 0.
+- **The 6 "wins" are not real wins.** They are 1-verb outputs from conversational filler: "creo que ya revisa" → `A:CHECK`,
+  "si muestrame" → `A:GET`, "ya me logee por favor correlo tu" → `A:EXECUTE`. The saving comes from dropping context ("creo que", "ya me logee")
+  that `check_completeness` does not flag. **Open defect:** the completeness check is too permissive for very short messages.
+- Domain mismatch: real messages are conversational, mostly replies/bug reports, not the structured instructions AIXL targets.
+
+### Fix for the short-message hole + re-measurement (2026-10-08)
+Cause: `check_completeness` exempts the FIRST content word as "the verb", so in "creo que ya revisa" the verb was `creo` and the real verb `revisa`
+carried the action while "creo que" vanished; and any lexicon-known word counted as accounted even when absent from the graph ("redacta el correo" → `A:GENERATE`, object lost).
+Fix (`gate.strict_complete`): the exempt verb is the span the action regex really matched; no action span → NATURAL; every other content word must be in the graph
+(or be a surface form of an entity/data class that IS in the graph, or a unit/month/language/number atom). Tests: 1072 pass (+2 regression tests).
+- Real messages (1452, o200k_base): AIXL **6 → 1** (0.07%). The 5 removed were all lossy. The remaining one, `si muestrame` → `A:GET` (5 → 3 tokens), drops the affirmation "si" ("yes, show me").
+  Residual weakness: affirmation/discourse markers are in the function-word list, so they are not treated as content.
+- Dev set (228 texts): AIXL uses unchanged (3 base, 10 with evolved atoms) → the fix removed false wins without hurting the structured cases.
