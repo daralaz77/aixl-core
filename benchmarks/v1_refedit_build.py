@@ -4,9 +4,6 @@ import random
 
 from aixl.refstore import RefStore
 
-cases = json.load(open("/private/tmp/claude-501/refreason_cases.json"))
-random.seed(5)
-sel = cases[:10]
 LEG = ("Note: a line of the form ⟦=M:A-B (N lines)⟧ is a pointer meaning 'lines A through B (0-indexed, inclusive) of message M, N lines in total, repeated verbatim here'. "
        "Message M is the COMPLETE original message M, even if message M is shown to you with pointers itself. Treat every pointer as if it were replaced by the N lines it points to.\n\n")
 HEAD = ("Three tasks. Do not run any program or tool to expand, search or count; answer purely by reading. Reply with ONE JSON object and nothing else:\n"
@@ -36,6 +33,13 @@ def build(ptr):
         m1c, m2c = (e1, e2) if ptr else (c["full"], full2)
         out += f"=== C{i} ===\n--- MESSAGE 0 ---\n{c['src']}\n--- MESSAGE 1 ---\n{m1c}\n--- MESSAGE 2 ---\n{m2c}\n--- QUESTION --- lines {pick[0][0]} and {pick[1][0]} of MESSAGE 2\n\n"
     return out
-for ptr, name in ((False, "full"), (True, "ptr")):
-    t = build(ptr); open(f"/private/tmp/claude-501/refs4_{name}.txt", "w").write(t); print(name, len(t))
-json.dump(truth, open("/private/tmp/claude-501/refs4_truth.json", "w"))
+
+
+if __name__ == "__main__":
+
+    cases = json.load(open("/private/tmp/claude-501/refreason_cases.json"))
+    random.seed(5)
+    sel = cases[:10]
+    for ptr, name in ((False, "full"), (True, "ptr")):
+        t = build(ptr); open(f"/private/tmp/claude-501/refs4_{name}.txt", "w").write(t); print(name, len(t))
+    json.dump(truth, open("/private/tmp/claude-501/refs4_truth.json", "w"))

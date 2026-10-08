@@ -3,13 +3,12 @@ import collections
 import random
 import statistics as st
 
+import aixl.gate as G
 import benchmarks.dataset as d
 from aixl.gate import ABBR, compact, count_tokens, translate_gated
 from aixl.serialization.aixl_codec import encode
 from aixl.translators.natural_to_semantic import to_graph
 
-texts = sorted({x for n in ["EQ","DIFF","QTY_EQ","DATE_EQ"] for a, b in getattr(d, n) for x in (a, b)})
-comp = {t: compact(encode(to_graph(t))) for t in texts}
 
 # ---- §10: session dictionary. Sessions = k messages sharing the same target (BEST case for a dictionary).
 def dict_session(msgs):
@@ -27,22 +26,7 @@ def dict_session(msgs):
             defs.append(f"D{i}={tag}"); i += 1
     after = sum(count_tokens(" ".join(ts)) for ts in out) + sum(count_tokens(x) for x in defs)
     return before, after, len(defs)
-
-random.seed(7)
-by_target = collections.defaultdict(list)
-for t in texts:
-    tg = [p for p in comp[t].split() if p.startswith("E:")]
-    by_target[tg[0] if tg else None].append(t)
 res = {}
-for k in (3, 5, 10, 20):
-    gains = []
-    for tg, ms in by_target.items():
-        if tg is None or len(ms) < k: continue
-        for _ in range(20):
-            b, a, nd = dict_session([comp[m] for m in random.sample(ms, k)])
-            gains.append(1 - a / b)
-    res[k] = (round(st.mean(gains), 3), len(gains)) if gains else None
-print("§10 dictionary on compact AIXL msgs, saving by session length (mean, n):", res)
 
 # ---- §10b: dictionary applied to NATURAL text (what the prompt literally asks: D1=DOCUMENTO)
 def nat_dict(msgs):
@@ -54,24 +38,44 @@ def nat_dict(msgs):
             ms = [" ".join(f"D{i}" if x.rstrip('.') == w else x for x in m.split()) for m in ms]; defs.append(f"D{i}={w}"); i += 1
     return before, sum(count_tokens(m) for m in ms) + sum(count_tokens(x) for x in defs)
 g = []
-for tg, ms in by_target.items():
-    if tg and len(ms) >= 10:
-        b, a = nat_dict(random.sample(ms, 10)); g.append(1 - a / b)
-print("§10b dictionary on NATURAL text, 10-msg sessions, mean saving:", round(st.mean(g), 3), "n=", len(g))
-
-# ---- §21: evolve atoms = abbreviate the most frequent long tags; measure gate AIXL-rate and saving
-import aixl.gate as G
-
-base = [translate_gated(t) for t in texts]
-freq = collections.Counter(p for c in comp.values() for p in c.split() if count_tokens(p) >= 2 and p not in ABBR)
-print("most frequent unabbreviated tags:", freq.most_common(8))
 new = {}
-for p, _n in freq.most_common(12):
-    k, v = p.split(":", 1)
-    cand = k + ":" + v[:3].upper()
-    if cand not in new.values() and cand not in G._REV: new[p] = cand
-G.ABBR.update(new); G._REV.update({v: k for k, v in new.items()})
-after = [translate_gated(t) for t in texts]
-f = lambda R: (sum(r["mode"] == "AIXL" for r in R), round(st.mean([r["saving"] for r in R if r["mode"] == "AIXL"] or [0]), 3), sum(not r["roundtrip_fingerprint_ok"] for r in R))
-print("gate base  (AIXL used, mean saving, fp failures):", f(base))
-print("gate +12 evolved atoms                           :", f(after), "added:", new)
+
+
+if __name__ == "__main__":
+
+    texts = sorted({x for n in ["EQ","DIFF","QTY_EQ","DATE_EQ"] for a, b in getattr(d, n) for x in (a, b)})
+    comp = {t: compact(encode(to_graph(t))) for t in texts}
+
+    random.seed(7)
+    by_target = collections.defaultdict(list)
+    for t in texts:
+        tg = [p for p in comp[t].split() if p.startswith("E:")]
+        by_target[tg[0] if tg else None].append(t)
+    for k in (3, 5, 10, 20):
+        gains = []
+        for tg, ms in by_target.items():
+            if tg is None or len(ms) < k: continue
+            for _ in range(20):
+                b, a, nd = dict_session([comp[m] for m in random.sample(ms, k)])
+                gains.append(1 - a / b)
+        res[k] = (round(st.mean(gains), 3), len(gains)) if gains else None
+    print("§10 dictionary on compact AIXL msgs, saving by session length (mean, n):", res)
+    for tg, ms in by_target.items():
+        if tg and len(ms) >= 10:
+            b, a = nat_dict(random.sample(ms, 10)); g.append(1 - a / b)
+    print("§10b dictionary on NATURAL text, 10-msg sessions, mean saving:", round(st.mean(g), 3), "n=", len(g))
+
+    # ---- §21: evolve atoms = abbreviate the most frequent long tags; measure gate AIXL-rate and saving
+
+    base = [translate_gated(t) for t in texts]
+    freq = collections.Counter(p for c in comp.values() for p in c.split() if count_tokens(p) >= 2 and p not in ABBR)
+    print("most frequent unabbreviated tags:", freq.most_common(8))
+    for p, _n in freq.most_common(12):
+        k, v = p.split(":", 1)
+        cand = k + ":" + v[:3].upper()
+        if cand not in new.values() and cand not in G._REV: new[p] = cand
+    G.ABBR.update(new); G._REV.update({v: k for k, v in new.items()})
+    after = [translate_gated(t) for t in texts]
+    f = lambda R: (sum(r["mode"] == "AIXL" for r in R), round(st.mean([r["saving"] for r in R if r["mode"] == "AIXL"] or [0]), 3), sum(not r["roundtrip_fingerprint_ok"] for r in R))
+    print("gate base  (AIXL used, mean saving, fp failures):", f(base))
+    print("gate +12 evolved atoms                           :", f(after), "added:", new)

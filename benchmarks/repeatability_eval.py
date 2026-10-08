@@ -46,4 +46,7 @@ def main():
     print(f"consensus wrong in ALL 5 passes: {len(wrong_all)}", [(r['key'], r['label']) for r in wrong_all])
     fs = [sum(cons[i][r["key"]] == "SAME" and r["label"] != "EQUIVALENT" for r in sel) for i in range(5)]
     print("consensus false-SAME per pass:", fs)
-main()
+
+
+if __name__ == "__main__":
+    main()

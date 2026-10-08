@@ -49,4 +49,7 @@ def main():
         print(f"{name:20s} " + " | ".join(f"{g}: {c[(g, True)]}" for g in groups))
     print("\nARB consensus false-SAME on non-equivalent pairs:")
     for m in miss: print("  ", m)
-main()
+
+
+if __name__ == "__main__":
+    main()

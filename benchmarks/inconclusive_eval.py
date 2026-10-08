@@ -35,4 +35,7 @@ def main():
         ne_n, eq_n = sum(ne.values()), sum(eq.values())
         print(f"{name:14s} false-EQUIVALENT {ne['EQUIVALENT']:3d}/{ne_n} = {100*ne['EQUIVALENT']/max(1,ne_n):5.1f}%   "
               f"| true EQUIV -> EQ {eq['EQUIVALENT']}/{eq_n} = {100*eq['EQUIVALENT']/max(1,eq_n):5.1f}%, INCONCL {eq['INCONCLUSIVE']}, NOT {eq['NOT_EQUIVALENT']}")
-main()
+
+
+if __name__ == "__main__":
+    main()

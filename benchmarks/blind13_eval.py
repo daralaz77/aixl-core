@@ -9,14 +9,7 @@ import aixl
 from aixl.core.ontology import load_config
 from benchmarks.golden_r_eval import outcome
 
-D = os.path.join(os.path.dirname(__file__), "..", "data", "blind13")
-man = json.load(open(os.path.join(D, "MANIFEST.json")))
-for n, h in man.items():
-    assert hashlib.sha256(open(os.path.join(D, n), "rb").read()).hexdigest() == h, f"{n} changed since freezing"
 rows = []
-for f, a in (("authorS_sonnet.jsonl", "sonnet"), ("authorO_opus.jsonl", "opus")):
-    for l in open(os.path.join(D, f), encoding="utf-8"):
-        r = json.loads(l); r["author"] = a; rows.append(r)
 
 
 def run(inconclusive, show):
@@ -39,6 +32,17 @@ def run(inconclusive, show):
         if scope == "all": out["by_category_false_equiv"] = {k: v["FALSE_EQUIVALENT"] for k, v in sorted(cat.items())}
     return out
 
-for flag in (False, True):
-    print(f"=== inconclusive={'ON' if flag else 'OFF'}")
-    print(json.dumps(run(flag, "--show" in sys.argv), ensure_ascii=False, indent=1))
+
+if __name__ == "__main__":
+
+    D = os.path.join(os.path.dirname(__file__), "..", "data", "blind13")
+    man = json.load(open(os.path.join(D, "MANIFEST.json")))
+    for n, h in man.items():
+        assert hashlib.sha256(open(os.path.join(D, n), "rb").read()).hexdigest() == h, f"{n} changed since freezing"
+    for f, a in (("authorS_sonnet.jsonl", "sonnet"), ("authorO_opus.jsonl", "opus")):
+        for l in open(os.path.join(D, f), encoding="utf-8"):
+            r = json.loads(l); r["author"] = a; rows.append(r)
+
+    for flag in (False, True):
+        print(f"=== inconclusive={'ON' if flag else 'OFF'}")
+        print(json.dumps(run(flag, "--show" in sys.argv), ensure_ascii=False, indent=1))

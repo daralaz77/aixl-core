@@ -1,7 +1,5 @@
 """Validate Option A: (1) fingerprint round-trip telegraph->graph on dev set; (2) real tokenizer saving; (3) real traffic."""
 import collections
-import glob
-import json
 import statistics as st
 
 import tiktoken
@@ -13,6 +11,7 @@ from aixl.gate import compact
 from aixl.serialization.aixl_codec import decode, encode
 from aixl.telegraph import from_telegraph, to_telegraph
 from aixl.translators.natural_to_semantic import to_graph
+from benchmarks._corpus import real_user_messages
 
 enc = tiktoken.get_encoding("o200k_base"); T = lambda s: len(enc.encode(s))
 
@@ -32,17 +31,13 @@ def run(texts, label):
         else: c["no_saving"] += 1
     print(f"== {label}: n={len(texts)}", dict(c), "| mean saving when used:", round(st.mean(sav), 3) if sav else "-")
     return bad
-
-dev = sorted({x for n in ["EQ", "DIFF", "QTY_EQ", "DATE_EQ", "NEG_EQ", "NEG_NEQ", "QTY_NEQ", "DATE_NEQ"] for a, b in getattr(d, n) for x in (a, b)})
-bad = run(dev, "dev set")
-for t, tg in bad[:8]: print("   MISMATCH:", t, "=>", tg)
 ms = set()
-for f in glob.glob("/Users/darwingperez/.claude/projects/*/*.jsonl"):
-    for l in open(f, errors="ignore"):
-        try: o = json.loads(l)
-        except Exception: continue
-        c = o.get("message", {}).get("content") if o.get("type") == "user" else None
-        if isinstance(c, str):
-            c = c.strip()
-            if c and not c.startswith(("<", "[", "/")) and "system-reminder" not in c and "pasted_content" not in c: ms.add(c)
-run(sorted(ms), "real traffic")
+
+
+if __name__ == "__main__":
+
+    dev = sorted({x for n in ["EQ", "DIFF", "QTY_EQ", "DATE_EQ", "NEG_EQ", "NEG_NEQ", "QTY_NEQ", "DATE_NEQ"] for a, b in getattr(d, n) for x in (a, b)})
+    bad = run(dev, "dev set")
+    for t, tg in bad[:8]: print("   MISMATCH:", t, "=>", tg)
+    ms = real_user_messages()
+    run(sorted(ms), "real traffic")

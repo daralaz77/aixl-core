@@ -15,7 +15,6 @@ from aixl.core.ontology import load_config
 from aixl.serialization import aixl_codec
 from benchmarks.sil5x100_eval import LABELS
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def main():
     cfg = dict(load_config()); cfg['inconclusive'] = '--inconclusive' in sys.argv
@@ -75,4 +74,9 @@ def main():
     for r in [r for r in rows if r["pred"] != r["label"]][:show]:
         print(f'[{r["label"]}->{r["pred"]}] {r["a"]} || {r.get("b","")}')
 
-main()
+
+if __name__ == "__main__":
+
+    ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    main()

@@ -97,6 +97,9 @@ def stage2(d):
             print(f"  {name:28s} {lab:7s} equivalent SAME {a:3d}/{len(e)} = {100*a/max(1,len(e)):5.1f}% | near-miss SAME {b:3d}/{len(n)} = {100*b/max(1,len(n)):5.1f}%")
     stats(set(same), "arbiter alone (all 840)")
     for k, c in cands.items(): stats(set(same) & c, f"funnel {k}")
-main_stage = sys.argv[1] if len(sys.argv) > 1 else "stage1"
-if main_stage == "stage1": stage1()
-else: stage2(sys.argv[2])
+
+
+if __name__ == "__main__":
+    main_stage = sys.argv[1] if len(sys.argv) > 1 else "stage1"
+    if main_stage == "stage1": stage1()
+    else: stage2(sys.argv[2])

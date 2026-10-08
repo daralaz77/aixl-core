@@ -14,7 +14,6 @@ from aixl.core.lexicon_gaps import FUNCTION_WORDS, _forms, _known
 from aixl.core.normalizer import STOP
 
 ALIAS = {"ALL": {"ALL", "EVERY"}, "EVERY": {"ALL", "EVERY"}}
-EXTRA_EVIDENCE = {"ALL": "all every each cada todos todas todo toda tudo whole entire".split(), "NEG": "not no never nunca nao without sin sem nor neither ni dont doesnt cannot prohibido forbidden prohibited proibido unpaid unable".split()}
 
 def evidence_ok(m, toks):
     words = set(w for w in MARKERS.get(m, []) if " " not in w) | set(EXTRA_EVIDENCE.get(m, []))
@@ -91,4 +90,8 @@ def main():
     print("invalid reasons:", why.most_common(8))
     for f in false_eq[:12]: print("  false-EQ:", f)
 
-main()
+
+if __name__ == "__main__":
+    EXTRA_EVIDENCE = {"ALL": "all every each cada todos todas todo toda tudo whole entire".split(), "NEG": "not no never nunca nao without sin sem nor neither ni dont doesnt cannot prohibido forbidden prohibited proibido unpaid unable".split()}
+
+    main()

@@ -26,4 +26,7 @@ def main():
                 print(f'[{r["label"]}->{r["pred"]}] {r["a"]} || {r.get("b","")}'); show -= 1
                 if not show: break
 
-main()
+
+if __name__ == "__main__":
+
+    main()

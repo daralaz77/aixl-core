@@ -26,4 +26,7 @@ def main():
         c = collections.Counter((p["label"], v.get(f"p{i:03d}", "MISSING")) for i, p in enumerate(gold))
         print(f"B (judge): EQUIVALENT->SAME {c[('EQUIVALENT','SAME')]}/60 (UNSURE {c[('EQUIVALENT','UNSURE')]}, DIFFERENT {c[('EQUIVALENT','DIFFERENT')]}) | "
               f"NOT_EQUIVALENT->DIFFERENT {c[('NOT_EQUIVALENT','DIFFERENT')]}/60 (false-SAME {c[('NOT_EQUIVALENT','SAME')]}, UNSURE {c[('NOT_EQUIVALENT','UNSURE')]})")
-main()
+
+
+if __name__ == "__main__":
+    main()

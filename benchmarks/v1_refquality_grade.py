@@ -2,7 +2,6 @@
 import json
 import re
 
-cases=json.load(open("/private/tmp/claude-501/refquality_cases.json"))
 A={}  # condition -> {(case,line): text}
 def mk(items): return {(c,l):t for c,l,t in items}
 D='description: "Status and architecture of the Kálix videogame project (Godot top-down action game, narrative system archived)"'
@@ -22,13 +21,18 @@ common={
 full=dict(common); full.update({(1,3):"## dejar el mapa con solo un punto navegable) pero no hace nada al",(4,46):"daralaz-project-1-key afbbb0b4d5774a00e238ce0d691866e8 d Today, 16:25:09",(4,52):"- Executed on tabId: 1439533014"})
 leg=dict(common); leg.update({(1,3):"## location_scene_path está vacío, el marcador existe visualmente (para no",(4,46):"NAME HMAC KEY CREATED BY CREATED DEVELOPMENT KEY",(4,52):"Tab Context:"})
 nol=dict(common); nol.update({(1,3):"## location_scene_path está vacío, el marcador existe visualmente (para no",(4,46):"daralaz-project-1-key afbbb0b4d5774a00e238ce0d691866e8 d Today, 16:25:09",(4,52):"- Executed on tabId: 1439533014"})
-norm=lambda s:re.sub(r"^\d+\t","",s).strip()
-for name,ans in [("full text",full),("pointers + legend",leg),("pointers, no legend",nol)]:
-    ok=0;bad=[]
-    for i,c in enumerate(cases):
-        for q in c["qs"]:
-            truth=norm(q["answer"])
-            if norm(ans[(i,q["line"])])==truth.strip(): ok+=1
-            else: bad.append((i,q["line"],truth.strip()[:60],norm(ans[(i,q["line"])])[:60]))
-    print(f"{name:22} {ok}/24")
-    for b in bad: print("   miss",b)
+
+
+if __name__ == "__main__":
+
+    cases=json.load(open("/private/tmp/claude-501/refquality_cases.json"))
+    norm=lambda s:re.sub(r"^\d+\t","",s).strip()
+    for name,ans in [("full text",full),("pointers + legend",leg),("pointers, no legend",nol)]:
+        ok=0;bad=[]
+        for i,c in enumerate(cases):
+            for q in c["qs"]:
+                truth=norm(q["answer"])
+                if norm(ans[(i,q["line"])])==truth.strip(): ok+=1
+                else: bad.append((i,q["line"],truth.strip()[:60],norm(ans[(i,q["line"])])[:60]))
+        print(f"{name:22} {ok}/24")
+        for b in bad: print("   miss",b)

@@ -55,4 +55,7 @@ def main():
         fe = sum(c[(l, "SAME")] for l in LABELS[1:])
         per = {l: c[(l, "SAME")] for l in LABELS[1:]}
         print(f"{name:26s} EQUIVALENT proven {eq:2d}/60 = {100*eq/60:4.1f}% | false-EQUIVALENT {fe:2d}/180 = {100*fe/180:4.1f}%  {per}")
-main()
+
+
+if __name__ == "__main__":
+    main()

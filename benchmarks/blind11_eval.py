@@ -86,4 +86,7 @@ def main():
     non = [rows[g["pid"]] for g in gold if g["label"] == "EQUIVALENT"]
     d1 = sum(detect_ambiguity(r["a"]).ambiguous for r in amb); d2 = sum(detect_ambiguity(r["a"]).ambiguous for r in non)
     print(f"\nAMBIGUOUS (rules detect_ambiguity): detected {d1}/{len(amb)} = {100*d1/len(amb):.1f}% | flagged on {d2}/{len(non)} non-ambiguous a-sides = {100*d2/len(non):.1f}%")
-main()
+
+
+if __name__ == "__main__":
+    main()

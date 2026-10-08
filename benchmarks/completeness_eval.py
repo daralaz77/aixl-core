@@ -39,4 +39,7 @@ def main():
         res[(p["label"], compare_graphs(gs["a"], gs["b"], cfg).verdict)] += 1
     print(f"false-EQUIVALENT {res[('NOT_EQUIVALENT','EQUIVALENT')]}/60 | EQUIV proven {res[('EQUIVALENT','EQUIVALENT')]}/60, INCONCLUSIVE {res[('EQUIVALENT','INCONCLUSIVE')]}, NOT {res[('EQUIVALENT','NOT_EQUIVALENT')]} | "
           f"NOT_EQUIV: INCONCLUSIVE {res[('NOT_EQUIVALENT','INCONCLUSIVE')]}, NOT {res[('NOT_EQUIVALENT','NOT_EQUIVALENT')]} | sides complete {comp[True]}/{sum(comp.values())}")
-main()
+
+
+if __name__ == "__main__":
+    main()
