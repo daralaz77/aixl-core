@@ -66,3 +66,14 @@ Corpus de dev propio (mismo autor que el código); tokenizador de OpenAI como ap
 3. Medir con el **tokenizador y la facturación reales** (caché incluida) antes de prometer ahorro.
 4. Probar punteros en **tareas de edición/resumen** y con cadenas de punteros.
 5. Opcional: almacén compartido entre sesiones (hoy solo dentro de una conversación).
+
+## 8. Addendum: next steps 1–5 (completed 2026-10-08)
+| Paso | Resultado | Archivo |
+|---|---|---|
+| 1. Opción E (sobre de integridad) | 0 falsas alarmas en 58 paráfrasis; negación 128/128, acción 89/89 detectadas; verificable solo en 1.2% del tráfico real | `aixl/envelope.py` |
+| 2. Compuerta por capacidad | Punteros anotados no rescatan a Haiku (14/60); Sonnet 60/60; política que falla cerrado | `aixl/refpolicy.py` |
+| 3. Tokens/facturación reales | 98.7% de tokens son lecturas de caché (82.8% del costo); Claude ≈ 0.47 tok/carácter; punteros ≈ 17–27% del costo ponderado (modelo, no factura) | `benchmarks/v1_billing_eval.py` |
+| 4. Edición, extracción, cadenas | Opus 40/40 con punteros (edit 10/10, extract 10/10, cadenas 20/20); **Sonnet bloqueado por un clasificador de seguridad → desconocido**; Opus agregado a la lista | `benchmarks/v1_refedit_*.py` |
+| 5. Almacén entre sesiones (potencial) | mismo proyecto +7.3 pts de caracteres (+2.8 pts de costo); entre proyectos solo +0.4 pts → no construir un almacén global | `benchmarks/v1_crosssession_eval.py` |
+
+Receptores con punteros permitidos: Sonnet, Opus (medidos). Haiku: no. Fable y modelos no medidos: texto plano (falla cerrado).

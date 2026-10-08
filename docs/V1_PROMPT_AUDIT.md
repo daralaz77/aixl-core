@@ -169,3 +169,18 @@ Scripts: `benchmarks/v1_refedit_build.py` (10 real pairs of the reasoning test; 
 - Haiku was excluded (policy says no pointers; earlier results 14–18/60).
 - `aixl/refpolicy.py`: `MEASURED = {sonnet: True, opus: True, haiku: False}`; fable and any unmeasured model still fail closed. Tests: 1093 pass.
 - Limits: one run per cell, 10 cases, exact-copy tasks (no judgement-based summarization, which has no objective grader), chains of depth 2 only.
+
+## Next step 5: potential of a store shared across sessions (2026-10-08)
+Script: `benchmarks/v1_crosssession_eval.py` (409 real sessions replayed in chronological order; 40.5M chars; 5 project folders). Nothing was built — this only measures the ceiling.
+
+| Store scope | chars that could become pointers | cost-weighted saving (0.30 tok/char, 70 sessions with usage) |
+|---|---|---|
+| inside one session | 18.5% | 17.1% |
+| across sessions of the same project | **25.8%** (+7.3 pts) | **19.9%** (+2.8 pts) |
+| across ALL projects | 26.2% (+0.4 pts) | 20.0% (+0.1 pts) |
+
+- Almost all extra potential comes from sessions of the SAME project (the Kálix folder alone: 7.4M → 10.0M chars). Crossing projects adds only +0.4 pts of characters.
+- **Conclusion: a global cross-project store is not worth building** — +0.4 pts for the privacy cost of mixing content from unrelated projects. A project-scoped store would add ≈ +7 pts of characters (≈ +3 pts of weighted cost).
+- Big practical caveat NOT in the numbers: a fresh session does not contain earlier sessions, so a cross-session pointer cannot be resolved by reading context; the receiver would need an expand tool (an extra call) or the store would have to re-inject the content. The measured saving is therefore a ceiling, reduced by every expansion call. Only the session scope (pointer resolves from context already present) is free of this problem.
+- Cost-weighted gain is smaller than the character gain because cross-session savings land mostly in sessions without usage data / short sessions, and early-in-session content is re-read by few later calls.
+- Limits: replay order = first timestamp; own sessions of one user; line-run matching only (exact repeats).
