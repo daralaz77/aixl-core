@@ -144,3 +144,12 @@ Hypothesis tested first: Haiku fails with pointers because a pointer does not sa
 
 Hypothesis rejected for Haiku: annotation does not rescue it (Q3 1/20). Sonnet is perfect with annotation (1 sample; legend and no-legend runs were identical, so independent evidence is thin).
 Consequence: `aixl/refpolicy.py` — `PolicyStore(receiver_model)` emits pointers only for receivers MEASURED safe (`sonnet`); `haiku` and every unmeasured model (opus, fable, others) get plain text — fail closed. Tests: `tests/test_refpolicy.py` (3). Extending the whitelist requires running the reasoning test on that model first.
+
+## Next step 3: real Claude token counts and billing-weighted effect (2026-10-08)
+Script: `benchmarks/v1_billing_eval.py`. Source: the `usage` the API returned for 42,240 unique calls in 70 local sessions (≥5 calls, all `claude-sonnet-5`). Nothing sent anywhere.
+- **Where tokens/cost really go** (real usage): cache reads 98.7% of tokens → **82.8% of weighted cost**; cache writes 11.7%; output 5.4%; fresh input 0.1%. (Weights relative to a fresh input token: write 1.25, read 0.10, output 5.0 — published ratios, an ASSUMPTION.)
+- **Tokens per char of Claude** from per-step context growth (steps with ≥2000 chars added): **0.472 tok/char** vs ≈0.28–0.33 for tiktoken o200k on the same kind of blocks → o200k UNDER-counts Claude tokens on this content by ≈1.5×; the earlier token percentages are therefore conservative in absolute terms but percentage savings are roughly unaffected.
+  (A first calibration, total cache writes ÷ chars = 5.66, was invalid — cache writes repeat when the cache expires — and was discarded.)
+- **Modeled effect of pointers on cost** (each saved block pays once to be written and is re-read on every later call, so it saves 1.25 + 0.10×calls_remaining per token): **26.8% of weighted session cost** with the calibrated ratio, **17.0%** with 0.30 tok/char. Dominated by cache-read savings on long sessions.
+- This is a MODEL, not an invoice: it assumes the cache never expires (expiry turns reads into writes → saving would be larger per token but the model would be off) and no context compaction (compaction would shrink it); it counts only the exact-repeat blocks found by `RefStore`; and the quality tests covered only line lookups/counting on a strong reader (Sonnet), not editing or summarizing.
+- Not measured: an actual A/B on real invoices. The honest claim is "up to ~17–27% of cost for long agent sessions on a pointer-safe receiver, if quality holds on the task", not a guaranteed saving.
