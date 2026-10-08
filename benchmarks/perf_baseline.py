@@ -7,6 +7,8 @@ import time
 
 
 def _ms_per_text(fn, texts, repeat=5):
+    if "--cold" in sys.argv:      # single pass in a fresh process: no cache carried over from earlier passes over the same texts
+        repeat = 1
     best = []
     for _ in range(repeat):
         t = time.perf_counter()

@@ -6,6 +6,7 @@ finds those nouns so callers can WARN. It is deliberately narrow to stay quiet: 
 after a definite/indefinite article and flags it when no lexicon (nouns, units, time, months, languages, places,
 number words, formats, verbs) accounts for it. It never changes the graph or the meaning; it only reports."""
 import re
+from functools import lru_cache
 
 from aixl.core.normalizer import ALL_ACTION_RX, OUTPUT_ALIASES, STOP, UNIT_MAP, strip_accents
 from aixl.legacy02.translators import natural_to_semantic as legacy
@@ -19,7 +20,16 @@ _ORD_AND_TIME = {"primer", "primero", "primera", "segundo", "tercer", "ultimo", 
                  "confianza", "confidence", "confianca", "total", "maximo", "minimo", "ultimos", "primeros", "otros", "outros", "high", "low", "urgent"}
 
 
-def _known(w: str) -> bool:
+def _lexicon_version() -> tuple:
+    """Sizes of every table `_known` consults. Extensions work by appending to these closed lexicons at runtime (docs/EXTENSION_GUIDE.md),
+    so any add/remove changes this tuple and therefore misses the cache below. (An in-place replacement that keeps a table's size would NOT be seen.)"""
+    from aixl.translators.natural_to_semantic import NONNAME, NUMBER_WORDS
+    return (len(STOP), len(UNIT_MAP), len(OUTPUT_ALIASES), len(_ORD_AND_TIME), len(NONNAME), len(NUMBER_WORDS), len(legacy.MONTHS), len(legacy.LANGS),
+            len(ALL_ACTION_RX), len(legacy.DATA_RX), len(legacy.ENTITY_RX), len(legacy.REL_RX))
+
+
+@lru_cache(maxsize=65536)   # bounded so a long-running server cannot grow without limit
+def _known_at(w: str, _version: tuple) -> bool:
     if w in STOP or w in UNIT_MAP or w in OUTPUT_ALIASES or w in _ORD_AND_TIME:
         return True
     from aixl.translators.natural_to_semantic import NONNAME, NUMBER_WORDS
@@ -32,6 +42,10 @@ def _known(w: str) -> bool:
         if re.search(rx, w):
             return True
     return False
+
+
+def _known(w: str) -> bool:
+    return _known_at(w, _lexicon_version())
 
 
 def unrecognized_terms(text: str, graph=None) -> list[str]:
