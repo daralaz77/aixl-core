@@ -34,6 +34,11 @@ def expand(c: str) -> str:
     return "V:AIXL-0.3 " + " ".join(_REV.get(p, p) for p in c.split())
 
 
+# Affirmations/discourse answers are in FUNCTION_WORDS (so they never count as content) but dropping them changes the message:
+# 'si muestrame' ('yes, show me') -> A:GET lost the 'yes'. If one is present and not carried by the graph, don't ship AIXL.
+AFFIRM = {"si", "yes", "yeah", "yep", "ok", "okay", "vale", "claro", "dale", "listo", "bueno", "sim", "certo", "perfecto", "adelante"}
+
+
 def strict_complete(text: str, g) -> bool:
     """check_completeness exempts the FIRST content word as 'the verb', so 'creo que ya revisa' passed with 'creo' dropped.
     Strict: the exempt verb is the word the action regex really matched; every other content word must be accounted for."""
@@ -49,6 +54,8 @@ def strict_complete(text: str, g) -> bool:
     ev = _evidence_tokens(g)
     skip = {w for ws in MARKERS.values() for p in ws for w in p.split()}
     for w in _ALLTOK.findall(_norm(rest)):
+        if w in AFFIRM and w not in ev:
+            return False
         if w in skip or w in FUNCTION_WORDS or w in STOP or w in SHORT_FUNCTION or w in _CLOSED or w[0].isdigit():
             continue
         if any(f in ev or _stem(f) in ev for f in _forms(w) | {_stem(_CONCEPT.get(w, w))}):

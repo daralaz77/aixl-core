@@ -51,3 +51,8 @@ def test_short_message_dropped_context_blocked():  # real-traffic defect (V1_PRO
 
 def test_known_but_unencoded_object_blocked():  # 'redacta el correo' -> A:GENERATE dropped the object
     assert translate_gated("redacta el correo")["mode"] == "NATURAL"
+
+
+def test_affirmation_not_dropped():  # 'si muestrame' ('yes, show me') -> A:GET lost the 'yes'
+    for t in ["si muestrame", "yes show me", "ok revisa"]:
+        assert translate_gated(t)["mode"] == "NATURAL", t

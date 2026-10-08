@@ -60,3 +60,8 @@ Fix (`gate.strict_complete`): the exempt verb is the span the action regex reall
 - Real messages (1452, o200k_base): AIXL **6 → 1** (0.07%). The 5 removed were all lossy. The remaining one, `si muestrame` → `A:GET` (5 → 3 tokens), drops the affirmation "si" ("yes, show me").
   Residual weakness: affirmation/discourse markers are in the function-word list, so they are not treated as content.
 - Dev set (228 texts): AIXL uses unchanged (3 base, 10 with evolved atoms) → the fix removed false wins without hurting the structured cases.
+
+### Affirmations as content (2026-10-08)
+`si muestrame` ("yes, show me") → `A:GET` dropped the affirmation because it sits in the function-word list. `gate.AFFIRM` (si/yes/ok/vale/claro/dale/listo/sim/...)
+now blocks AIXL when such a word is present and not carried by the graph. Real messages (1468): **AIXL 0 / 1468**; dev set unchanged (3 / 10 with evolved atoms); 1073 tests pass.
+Caveat: the list is closed and small (ES/EN/PT); an affirmation outside it would still be dropped. Ambiguous `si` (yes vs if) is treated conservatively as content.
