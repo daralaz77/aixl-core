@@ -10,7 +10,14 @@ Oracles never use the system under test to define "correct":
   COSM-*   cosmetic edits (case/space/final punctuation) must keep the semantic fingerprint
 Limits: seeds are own-author; the oracles cover only the mutations listed; a clean arena is NOT proof of correctness."""
 from __future__ import annotations
-import argparse, json, random, re, signal, sys, time
+
+import argparse
+import json
+import random
+import re
+import signal
+import sys
+import time
 from pathlib import Path
 
 HERE = Path(__file__).parent
@@ -138,8 +145,8 @@ def _alarm(sec):
 
 def judge_meta(orig: str, mut: str) -> str | None:
     """Return a defect code or None. Mutation changed meaning, so EQUIVALENT / lossless-gate is the unsafe answer."""
-    from aixl.semantic.compare import compare_texts
     from aixl.gate import translate_gated
+    from aixl.semantic.compare import compare_texts
     try:
         v = compare_texts(orig, mut)
     except Exception as e:
@@ -161,8 +168,8 @@ def judge_meta(orig: str, mut: str) -> str | None:
 
 def judge_cosm(orig: str, mut: str) -> str | None:
     from aixl.core.fingerprint import fingerprint_graph as fp
-    from aixl.translators.natural_to_semantic import to_graph
     from aixl.gate import translate_gated
+    from aixl.translators.natural_to_semantic import to_graph
     try:
         if fp(to_graph(orig)) == fp(to_graph(mut)): return None
         # translator-level miss is CONTAINED if the gate refuses the mutant (NATURAL); only an uncontained one ships a lossy AIXL
@@ -172,7 +179,7 @@ def judge_cosm(orig: str, mut: str) -> str | None:
 
 
 def judge_wire(orig: str, mut: str) -> str | None:
-    from aixl.serialization.aixl_codec import decode, AixlError
+    from aixl.serialization.aixl_codec import AixlError, decode
     try:
         _alarm(3)
         try:
@@ -257,7 +264,6 @@ def run(rounds: int, seed: int, per_round: int = 60):
             if code is None:
                 st["weights"][op] = max(0.2, st["weights"][op] * 0.995); continue
             mbase, mmut = minimize(kind, fn, base, aseed, code)
-            mn = mmut
             s = sig(kind, code, mbase + "=>" + mmut)
             st["hits"][op] = st["hits"].get(op, 0) + 1
             if s in seen:
@@ -272,18 +278,38 @@ def run(rounds: int, seed: int, per_round: int = 60):
     return new
 
 
+# every defect code the CURRENT oracles can emit; a stored record with any other code was written by an older oracle
+EMITTED = {"META-FALSE-EQUIVALENT", "META-GATE-DROPPED-NUMBER", "META-GATE-DROPPED-NEGATION", "COSM-UNCONTAINED-LOSS",
+           "WIRE-HANG", "WIRE-SILENT-DROP"}
+
+
+def _status(c) -> str:
+    code = judge(c["kind"], c["original"], c["mutated"])
+    if code == c["code"]:
+        return "STILL_FAILS"
+    if c["code"] in EMITTED or c["code"].split(":")[0] in {"META-CRASH", "META-GATE-CRASH", "COSM-CRASH", "WIRE-CRASH"}:
+        return "FIXED" if code is None else f"CHANGED->{code}"
+    # stored code is not one the oracle emits any more (older oracle): do NOT claim it was fixed
+    if c["kind"] == "COSM":
+        from aixl.core.fingerprint import fingerprint_graph as fp
+        from aixl.translators.natural_to_semantic import to_graph
+        if fp(to_graph(c["original"])) == fp(to_graph(c["mutated"])):
+            return "FIXED"
+        return "CONTAINED" if code is None else f"CHANGED->{code}"       # translator still differs; gate falls back to NATURAL
+    return "RECLASSIFIED" if code is None else f"CHANGED->{code}"
+
+
 def replay():
-    out = []
-    for c in load_corpus():
-        code = judge(c["kind"], c["original"], c["mutated"])
-        out.append((c["sig"], c["code"], "STILL_FAILS" if code == c["code"] else "FIXED" if code is None else f"CHANGED->{code}"))
-    return out
+    return [(c["sig"], c["code"], _status(c)) for c in load_corpus()]
 
 
 def selftest() -> list:
     """An arena that cannot catch a planted bug proves nothing. Plant 3 bugs, require each to be flagged."""
-    import sys, aixl.gate as G, aixl.serialization.aixl_codec as K
-    import importlib; importlib.import_module("aixl.semantic.compare")
+    import importlib
+
+    import aixl.gate as G
+    import aixl.serialization.aixl_codec as K
+    importlib.import_module("aixl.semantic.compare")
     cmp_mod = sys.modules["aixl.semantic.compare"]
     res = []
     class V: verdict, diffs, unresolved = "EQUIVALENT", [], []

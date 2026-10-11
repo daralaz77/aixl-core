@@ -19,6 +19,8 @@ EXTRA = [
     "Analiza las ventas de hoy.", "Analyze this week's videos.", "Ventas de la semana pasada.", "Analiza las ventas del mes pasado.",
     "Traduza este documento para inglês.", "Compare dataset #77 with dataset #81.", "Envía el reporte a ana@example.com mañana.",
     "borra el modelo de Ollama", "Analiza 100 usuarios.", "Analiza 1000 usuarios.", "Procesa 50 usuarios.", "yes show me", "ok revisa",
+    # whitespace is content for the NATURAL passthrough (arena regression 2026-10-10): indentation, tabs, runs of spaces, trailing newline
+    "Revisa este bloque:\n    def f(x):\n        return x  # dos niveles\n", "col1\tcol2\tcol3", "  Analiza   los videos de   esta   semana. ", "Hola   ",
 ]
 
 
@@ -68,7 +70,9 @@ def snapshot_one(text):
     except TelegraphError as e:
         tele = "ERR:" + str(e)
     env = seal(text)
+    passthrough = gate["output"] == text if gate["mode"] == "NATURAL" else None      # NATURAL must hand the caller's text back byte-for-byte
     return {"compact": wire, "fp": gate["fingerprint"], "gate": [gate["mode"], gate["reason"], gate["tokens_aixl"]],
+            "passthrough": passthrough,
             "tele": tele, "env": [env["verifiable"], env["fp"]]}
 
 

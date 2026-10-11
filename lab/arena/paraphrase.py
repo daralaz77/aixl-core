@@ -1,7 +1,10 @@
 """Paraphrase attack: pairs written BEFORE running, labelled SAME / DIFFERENT by construction (data/arena/paraphrase_pairs.jsonl).
 Reports the rules route's confusion matrix. Critical defect = DIFFERENT pair judged EQUIVALENT (false-same)."""
-import json, collections, sys
+import collections
+import json
+import sys
 from pathlib import Path
+
 from aixl.semantic.compare import compare_texts
 
 P = Path(__file__).resolve().parents[2] / "data" / "arena" / "paraphrase_pairs.jsonl"

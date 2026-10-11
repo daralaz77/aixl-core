@@ -1,8 +1,10 @@
 """Arena regressions: defects the arena found (fixed) + arena self-test so a blind oracle can't pass silently."""
-import subprocess, sys
+import subprocess
+import sys
+
 from aixl.gate import translate_gated
-from aixl.translators.natural_to_semantic import to_graph
 from aixl.serialization.aixl_codec import encode
+from aixl.translators.natural_to_semantic import to_graph
 
 
 def test_multi_space_does_not_drop_temporal_term():       # arena finding 2026-10-10 (COSM via `space`)
@@ -30,7 +32,9 @@ def test_paraphrase_pairs_rules_route_never_false_same():
 
 def test_paraphrase_hybrid_with_stored_blind_judges_never_false_same():
     """Judges were two blind subagents (haiku, sonnet) under rules_v1, ids shuffled (data/arena/judges). Replayed, not re-judged."""
-    import json, pathlib
+    import json
+    import pathlib
+
     from aixl.semantic.hybrid import decide
     root = pathlib.Path(__file__).resolve().parents[1] / "data" / "arena"
     rows = [json.loads(l) for l in open(root / "paraphrase_pairs.jsonl", encoding="utf-8")]
@@ -40,3 +44,22 @@ def test_paraphrase_hybrid_with_stored_blind_judges_never_false_same():
         d = decide(r["a"], r["b"], {n: (lambda a, b, n=n, k=inv[i]: J[n][k]) for n in J})
         if r["expected"] == "DIFFERENT":
             assert d.verdict != "SAME", r
+
+
+def test_natural_passthrough_is_byte_identical():          # regression of the multi-space fix: it must not rewrite the caller's text
+    for t in ["Revisa este bloque:\n    def f(x):\n        return x  # dos niveles\n", "col1\tcol2\tcol3", "Hola   ", "   Analiza las ventas."]:
+        g = translate_gated(t)
+        assert g["mode"] == "NATURAL" and g["output"] == t, (t, g["output"])
+
+
+def test_multi_space_text_is_still_analysed_normalised():   # ...while the ANALYSIS copy keeps the arena fix
+    a = translate_gated("Compara el documento 1 con el documento 2.")
+    b = translate_gated("Compara   el documento 1   con el documento 2.")
+    assert (a["mode"], a["fingerprint"]) == (b["mode"], b["fingerprint"])
+
+
+def test_replay_does_not_call_a_contained_failure_fixed():
+    from lab.arena.arena import replay
+    st = {sig.split("|")[2]: status for sig, code, status in replay()}
+    assert st["paramariaparamaria"] == "CONTAINED"           # translator still loses the capital, gate falls back to NATURAL
+    assert st["estasemanaestasemana"] == "FIXED"             # the multi-space defect really is fixed

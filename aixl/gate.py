@@ -32,11 +32,14 @@ def expand(c: str) -> str:
 
 
 def translate_gated(text: str) -> dict:
+    original = text
+    # whitespace runs break multi-word terms ('esta   semana', arena finding), so ANALYSE a normalised copy; but the NATURAL passthrough must be the
+    # caller's text byte-for-byte (indentation, tabs, trailing newline are content: code, YAML, tables)
     text = re.sub(r"[ \t]+", " ", text).strip()
     g = to_graph(text)
     wire = encode(g)
     c = compact(wire)
-    nat, aix = count_tokens(text), count_tokens(c)
+    nat, aix = count_tokens(original), count_tokens(c)
     fp0 = fingerprint_graph(g)
     try:
         ok_fp = fingerprint_graph(decode(expand(c))) == fp0
@@ -48,6 +51,6 @@ def translate_gated(text: str) -> dict:
     use = ok_fp and complete and has_action and aix < nat
     reason = ("ok" if use else "incomplete_encoding" if not complete else "no_action" if not has_action
               else "fingerprint_mismatch" if not ok_fp else "no_token_saving")
-    return {"mode": "AIXL" if use else "NATURAL", "output": c if use else text, "aixl": c,
+    return {"mode": "AIXL" if use else "NATURAL", "output": c if use else original, "aixl": c,
             "tokens_natural": nat, "tokens_aixl": aix, "saving": round(save, 3),
             "roundtrip_fingerprint_ok": ok_fp, "complete": complete, "reason": reason, "fingerprint": fp0}
