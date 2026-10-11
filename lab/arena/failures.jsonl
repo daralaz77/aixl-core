@@ -1,0 +1,4 @@
+{"sig": "COSM|COSM-FINGERPRINT-CHANGED|paramariaparamaria", "kind": "COSM", "code": "COSM-FINGERPRINT-CHANGED", "op": "case", "original": "para Maria.", "mutated": "PARA MARIA.", "minimized": "para Maria.", "ts": 1791684626.5023239}
+{"sig": "COSM|COSM-FINGERPRINT-CHANGED|toacmetoacme", "kind": "COSM", "code": "COSM-FINGERPRINT-CHANGED", "op": "case", "original": "to Acme.", "mutated": "to acme.", "minimized": "to Acme.", "ts": 1791684627.2820191}
+{"sig": "COSM|COSM-FINGERPRINT-CHANGED|aanaaana", "kind": "COSM", "code": "COSM-FINGERPRINT-CHANGED", "op": "case", "original": "a Ana.", "mutated": "a ana.", "minimized": "a Ana.", "ts": 1791684628.7760441}
+{"sig": "COSM|COSM-FINGERPRINT-CHANGED|estasemanaestasemana", "kind": "COSM", "code": "COSM-FINGERPRINT-CHANGED", "op": "space", "original": "esta semana.", "mutated": "  esta   semana. ", "minimized": "esta semana.", "ts": 1791684633.429037}

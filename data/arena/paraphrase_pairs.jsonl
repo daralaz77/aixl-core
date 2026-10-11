@@ -1,0 +1,48 @@
+{"a": "Envía el informe de ventas a Ana antes del viernes.", "b": "Antes del viernes, mándale a Ana el informe de ventas.", "expected": "SAME"}
+{"a": "Genera un resumen de la reunión en tres viñetas.", "b": "Redacta un resumen de la reunión usando tres viñetas.", "expected": "SAME"}
+{"a": "Borra los archivos temporales del servidor.", "b": "Elimina del servidor los archivos temporales.", "expected": "SAME"}
+{"a": "Translate the contract into Spanish.", "b": "Please render the contract in Spanish.", "expected": "SAME"}
+{"a": "List the five largest customers by revenue.", "b": "Show the top five customers ranked by revenue.", "expected": "SAME"}
+{"a": "Archive the tickets that were closed last month.", "b": "Move last month's closed tickets to the archive.", "expected": "SAME"}
+{"a": "Exporta la tabla de usuarios a CSV.", "b": "Guarda la tabla de usuarios en formato CSV.", "expected": "SAME"}
+{"a": "Notifica a todo el equipo cuando termine el despliegue.", "b": "Cuando el despliegue termine, avisa a todo el equipo.", "expected": "SAME"}
+{"a": "Compare the Q1 and Q2 budgets.", "b": "Contrast the budget for Q1 with the budget for Q2.", "expected": "SAME"}
+{"a": "Resume o contrato em duas frases.", "b": "Faça um resumo do contrato em duas frases.", "expected": "SAME"}
+{"a": "Do not share the file with anyone.", "b": "Never give anyone access to the file.", "expected": "SAME"}
+{"a": "No envíes el correo hasta que Luis lo apruebe.", "b": "Espera a que Luis apruebe el correo antes de enviarlo.", "expected": "SAME"}
+{"a": "Calculate the average salary of the engineering team.", "b": "Compute the mean salary for the engineering team.", "expected": "SAME"}
+{"a": "Traduce el manual al francés y al alemán.", "b": "Pasa el manual al francés y también al alemán.", "expected": "SAME"}
+{"a": "Delete duplicate rows from the orders table.", "b": "Remove repeated rows from the orders table.", "expected": "SAME"}
+{"a": "Cuenta cuántos pedidos hubo en marzo de 2026.", "b": "¿Cuántos pedidos se hicieron en marzo de 2026? Cuéntalos.", "expected": "SAME"}
+{"a": "Create a backup of the database every night.", "b": "Each night, make a backup of the database.", "expected": "SAME"}
+{"a": "Dime los tres productos más vendidos de la semana pasada.", "b": "Cuáles fueron los tres productos que más se vendieron la semana pasada, dímelos.", "expected": "SAME"}
+{"a": "Update the price of item 42 to 15 dollars.", "b": "Set the price of item 42 to $15.", "expected": "SAME"}
+{"a": "Revisa el código y reporta los errores de seguridad.", "b": "Inspecciona el código e informa de los fallos de seguridad.", "expected": "SAME"}
+{"a": "Send the invoice to Acme only if it is above 500.", "b": "If the invoice is above 500, send it to Acme; otherwise do not send it.", "expected": "SAME"}
+{"a": "Disable notifications for all users.", "b": "Turn off notifications for every user.", "expected": "SAME"}
+{"a": "Busca los clientes que no han comprado en un año.", "b": "Encuentra los clientes sin ninguna compra en los últimos doce meses.", "expected": "SAME"}
+{"a": "Summarize the email thread in one paragraph.", "b": "Write a one-paragraph summary of the email thread.", "expected": "SAME"}
+{"a": "Envía el informe a Ana y a Luis.", "b": "Envía el informe a Ana o a Luis.", "expected": "DIFFERENT"}
+{"a": "Borra los archivos más antiguos de 30 días.", "b": "Borra los archivos más recientes de 30 días.", "expected": "DIFFERENT"}
+{"a": "Notifica al equipo cuando el despliegue termine bien.", "b": "Notifica al equipo cuando el despliegue falle.", "expected": "DIFFERENT"}
+{"a": "Approve all pending requests.", "b": "Approve pending requests, except the ones above 1000.", "expected": "DIFFERENT"}
+{"a": "Send the report to the client.", "b": "Send a draft of the report to the client.", "expected": "DIFFERENT"}
+{"a": "Resume el contrato en máximo cinco líneas.", "b": "Resume el contrato en al menos cinco líneas.", "expected": "DIFFERENT"}
+{"a": "Delete the user's account.", "b": "Deactivate the user's account.", "expected": "DIFFERENT"}
+{"a": "Publica el artículo hoy.", "b": "Programa el artículo para publicarse mañana.", "expected": "DIFFERENT"}
+{"a": "Grant read access to the finance team.", "b": "Grant write access to the finance team.", "expected": "DIFFERENT"}
+{"a": "Compara los precios de enero con los de febrero.", "b": "Compara los precios de febrero con los de marzo.", "expected": "DIFFERENT"}
+{"a": "Reject any invoice without a purchase order.", "b": "Reject any invoice that has a purchase order.", "expected": "DIFFERENT"}
+{"a": "Muestra los pedidos pagados.", "b": "Muestra los pedidos pendientes de pago.", "expected": "DIFFERENT"}
+{"a": "Back up the database before the migration.", "b": "Back up the database after the migration.", "expected": "DIFFERENT"}
+{"a": "Charge the customer 40 dollars.", "b": "Refund the customer 40 dollars.", "expected": "DIFFERENT"}
+{"a": "Habilita el modo oscuro para los administradores.", "b": "Habilita el modo oscuro para todos los usuarios.", "expected": "DIFFERENT"}
+{"a": "Include inactive accounts in the count.", "b": "Count only the active accounts.", "expected": "DIFFERENT"}
+{"a": "Copy the file to the staging server.", "b": "Move the file to the staging server.", "expected": "DIFFERENT"}
+{"a": "Llama al cliente si el pedido se retrasa más de dos días.", "b": "Llama al cliente si el pedido se retrasa más de tres días.", "expected": "DIFFERENT"}
+{"a": "Hire the candidate who scored highest.", "b": "Hire the candidate who scored lowest.", "expected": "DIFFERENT"}
+{"a": "Cierra el ticket cuando el cliente confirme.", "b": "Cierra el ticket aunque el cliente no confirme.", "expected": "DIFFERENT"}
+{"a": "Share the document with the whole company.", "b": "Share the document with the legal team only.", "expected": "DIFFERENT"}
+{"a": "Pausa la campaña de anuncios.", "b": "Cancela la campaña de anuncios.", "expected": "DIFFERENT"}
+{"a": "Run the test suite on every commit.", "b": "Run the test suite on every release.", "expected": "DIFFERENT"}
+{"a": "Aprueba el presupuesto si supera el mínimo.", "b": "Aprueba el presupuesto si no supera el mínimo.", "expected": "DIFFERENT"}

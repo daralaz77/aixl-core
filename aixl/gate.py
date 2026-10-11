@@ -32,6 +32,7 @@ def expand(c: str) -> str:
 
 
 def translate_gated(text: str) -> dict:
+    text = re.sub(r"[ \t]+", " ", text).strip()
     g = to_graph(text)
     wire = encode(g)
     c = compact(wire)

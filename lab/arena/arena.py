@@ -1,0 +1,317 @@
+"""Adversarial arena: attackers mutate seeds, oracles (ground truth BY CONSTRUCTION) judge, failures are minimized,
+stored, and fed back as new seeds; attacker weights adapt to what actually breaks the code.
+
+  python -m lab.arena.arena run --rounds 30 --seed 1     # attack, learn, persist state
+  python -m lab.arena.arena replay                       # re-run stored failures: which are fixed / still open
+
+Oracles never use the system under test to define "correct":
+  META-*   a meaning-changing mutation must NOT be judged EQUIVALENT / must not pass the gate as lossless (unsafe = defect)
+  WIRE-*   malformed AIXL must raise AixlError only (any other exception / hang = defect), never decode silently lossy
+  COSM-*   cosmetic edits (case/space/final punctuation) must keep the semantic fingerprint
+Limits: seeds are own-author; the oracles cover only the mutations listed; a clean arena is NOT proof of correctness."""
+from __future__ import annotations
+import argparse, json, random, re, signal, sys, time
+from pathlib import Path
+
+HERE = Path(__file__).parent
+STATE, CORPUS = HERE / "state.json", HERE / "failures.jsonl"
+
+SEEDS = [
+ "Resume el informe en cinco puntos.", "Analiza las ventas de Q1 2026.", "Compara el dataset #77 con el dataset #81.",
+ "Traduce el documento al inglés.", "Envía el informe a Ana.", "Elimina los registros duplicados.",
+ "Borra el archivo temporal.", "Genera un reporte en JSON con los 10 clientes principales.",
+ "Summarize the report in five bullet points.", "Delete the old backups.", "Send the invoice to Acme.",
+ "Translate the text into English.", "Compare the two documents and list the differences.",
+ "Analyze the sales for March 2026.", "Create a summary of 3 paragraphs.", "Export the data to CSV.",
+ "Resuma o relatório em cinco pontos.", "Envie o relatório para Maria.", "Exclua os arquivos antigos.",
+ "Analiza los videos de esta semana.", "Actualiza el precio de los 20 productos.", "Enable the notifications for all users.",
+]
+
+# ---- attackers: (name, kind, fn(text, rng)->text|None) ; kind META = meaning-changing, COSM = cosmetic ----------------
+NEG_PRE = ["Never ", "Do not ", "Nunca ", "No quiero que "]
+SWAP_NAMES = [("Ana", "Luis"), ("Maria", "Joao"), ("Acme", "Globex"), ("Q1", "Q2"), ("March", "April"), ("JSON", "CSV"), ("CSV", "JSON")]
+ANTONYM = [("Elimina", "Crea"), ("Borra", "Guarda"), ("Delete", "Create"), ("Exclua", "Crie"), ("Enable", "Disable"),
+           ("Envía", "Cancela"), ("Send", "Cancel"), ("Resume", "Amplía"), ("Summarize", "Expand")]
+EXTRA = [" solo si el cliente lo aprueba", " only if the manager approves", " antes del viernes", " sin usar datos personales",
+         " and notify the whole team", " y avisa a todo el equipo"]
+
+
+def lc(t): return t[:1].lower() + t[1:]
+
+
+def a_neg_prefix(t, r): return r.choice(NEG_PRE) + lc(t)
+def a_neg_suffix(t, r): return t.rstrip(".") + r.choice([", pero no lo hagas.", ", but do not do it.", " (no hacerlo)."])
+def a_num(t, r):
+    m = list(re.finditer(r"\d+", t))
+    if not m: return None
+    x = r.choice(m); n = int(x.group()); return t[:x.start()] + str(n + r.choice([1, 9, 90])) + t[x.end():]
+def a_name(t, r):
+    c = [(a, b) for a, b in SWAP_NAMES if re.search(rf"\b{a}\b", t)]
+    if not c: return None
+    a, b = r.choice(c); return re.sub(rf"\b{a}\b", b, t, count=1)
+def a_antonym(t, r):
+    c = [(a, b) for a, b in ANTONYM if t.startswith(a)]
+    if not c: return None
+    a, b = r.choice(c); return b + t[len(a):]
+def a_add_constraint(t, r): return t.rstrip(".") + r.choice(EXTRA) + "."
+def a_drop_tail(t, r):
+    m = re.search(r"\s(y|and|e|pero|but|con|with|en|in|a|to|para|for)\s", t)
+    return t[:m.start()] + "." if m else None
+LEX = [("todos", "algunos"), ("todas", "algunas"), ("all", "some"), ("antes", "después"), ("before", "after"), ("más de", "menos de"),
+       ("more than", "less than"), ("con ", "sin "), ("with ", "without "), ("ayer", "mañana"), ("yesterday", "tomorrow"),
+       ("lunes", "martes"), ("Monday", "Tuesday"), ("al menos", "como máximo"), ("at least", "at most"), ("kg", "g"),
+       ("principales", "últimos"), ("top", "bottom"), ("first", "last"), ("primer", "último"), ("old", "new"), ("antiguos", "nuevos"),
+       ("viejos", "nuevos"), ("duplicados", "únicos"), ("temporal", "permanente"), ("two", "three"), ("dos", "tres"), ("10", "1.0")]
+def a_lex(t, r):
+    c = [(a, b) for a, b in LEX if a in t]
+    if not c: return None
+    a, b = r.choice(c); return t.replace(a, b, 1)
+def a_quantifier_add(t, r):
+    return t.rstrip(".") + r.choice([", excepto los de 2025.", ", except the ones from 2025.", ", pero solo los de Colombia.", ", only for admins."])
+def a_compose(t, r):
+    fns = [a_num, a_name, a_antonym, a_lex, a_add_constraint, a_neg_prefix]
+    out = t
+    for f in r.sample(fns, 2):
+        o = f(out, r)
+        if o: out = o
+    return out if out != t else None
+WORDNUM = {"1": "uno", "2": "dos", "3": "tres", "5": "cinco", "10": "diez", "20": "veinte"}
+def a_nbsp(t, r): return t.replace(" ", "\u00a0")
+def a_quotes(t, r): return r.choice(['"', "'", "“"]) + t + r.choice(['"', "'", "”"])
+def a_please(t, r): return r.choice(["Por favor, ", "Please, ", "Por favor "]) + lc(t)
+def a_tab_nl(t, r): return t.replace(" ", "\t", 1) + "\n"
+def a_wordnum(t, r):
+    for d, w in WORDNUM.items():
+        if re.search(rf"\b{d}\b", t): return re.sub(rf"\b{d}\b", w, t, count=1)
+    return None
+def a_case(t, r): return t.upper() if r.random() < .5 else t.lower()
+def a_space(t, r): return "  " + t.replace(" ", "   ") + " "
+def a_punct(t, r): return t.rstrip(".") + r.choice(["", ".", "..", " ."])
+
+NL_ATTACKERS = [("neg_prefix", "META", a_neg_prefix), ("neg_suffix", "META", a_neg_suffix), ("num_change", "META", a_num),
+                ("name_swap", "META", a_name), ("antonym", "META", a_antonym), ("add_constraint", "META", a_add_constraint),
+                ("drop_tail", "META", a_drop_tail), ("lex_swap", "META", a_lex), ("quantifier_add", "META", a_quantifier_add), ("compose", "META", a_compose), ("case", "COSM", a_case), ("nbsp", "COSM", a_nbsp), ("quotes", "COSM", a_quotes), ("please", "COSM", a_please), ("tab_nl", "COSM", a_tab_nl), ("wordnum", "COSM", a_wordnum), ("space", "COSM", a_space), ("punct", "COSM", a_punct)]
+
+WIRE_BASE = ["V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE D:SALES T:Q1-2026",
+             "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE,SEND E:REPORT Y:@ANA N:NO_DELETE K:FORBID_DELETE,BIND=DELETE>REPORT",
+             "V:AIXL-0.3 I:REQUEST_COMPARISON A:COMPARE E:DATASET#77,DATASET#81",
+             "V:AIXL-0.3 I:REQUEST_TRANSLATION A:TRANSLATE E:DOCUMENT L:EN"]
+HOMO = {"A": "А", "E": "Е", "O": "О", "S": "Ѕ", "T": "Т"}
+
+
+def w_del(l, r):
+    p = l.split(); 
+    if len(p) < 2: return None
+    p.pop(r.randrange(len(p))); return " ".join(p)
+def w_dup(l, r):
+    p = l.split(); i = r.randrange(len(p)); p.insert(i, p[i]); return " ".join(p)
+def w_shuffle(l, r):
+    p = l.split(); r.shuffle(p); return " ".join(p)
+def w_homoglyph(l, r):
+    i = [k for k, ch in enumerate(l) if ch in HOMO and k > 12]
+    if not i: return None
+    k = r.choice(i); return l[:k] + HOMO[l[k]] + l[k + 1:]
+def w_empty_value(l, r):
+    return re.sub(r"\b([ADENKTYL]):\S+", r"\1:", l, count=1)
+def w_zero_width(l, r):
+    k = r.randrange(len(l)); return l[:k] + "​" + l[k:]
+def w_newline(l, r): return l.replace(" ", "\n", 1)
+def w_long(l, r): return l + " " + ",".join(["X"] * r.choice([2000, 20000]))
+def w_quote(l, r): return l + ' K:"unclosed'
+def w_neg_orphan(l, r): return l + r.choice([" N:NO_PUBLISH", " K:FORBID_MERGE", " N:NO_ARCHIVE K:FORBID_ARCHIVE"])
+def w_dup_field(l, r): return l + " A:DELETE"
+def w_lower(l, r): return l.lower()
+def w_version(l, r): return l.replace("AIXL-0.3", r.choice(["AIXL-0.30", "AIXL-1.0", "AIXL-0.3.1", "AIXL-"]))
+
+WIRE_ATTACKERS = [("w_del", w_del), ("w_dup", w_dup), ("w_shuffle", w_shuffle), ("w_homoglyph", w_homoglyph),
+                  ("w_empty_value", w_empty_value), ("w_zero_width", w_zero_width), ("w_newline", w_newline),
+                  ("w_long", w_long), ("w_quote", w_quote), ("w_neg_orphan", w_neg_orphan), ("w_dup_field", w_dup_field),
+                  ("w_lower", w_lower), ("w_version", w_version)]
+
+
+# ---- oracles -----------------------------------------------------------------------------------------------------
+class _Timeout(Exception): ...
+def _alarm(sec):
+    signal.signal(signal.SIGALRM, lambda *a: (_ for _ in ()).throw(_Timeout()))
+    signal.alarm(sec)
+
+
+def judge_meta(orig: str, mut: str) -> str | None:
+    """Return a defect code or None. Mutation changed meaning, so EQUIVALENT / lossless-gate is the unsafe answer."""
+    from aixl.semantic.compare import compare_texts
+    from aixl.gate import translate_gated
+    try:
+        v = compare_texts(orig, mut)
+    except Exception as e:
+        return f"META-CRASH:{type(e).__name__}"
+    if v.verdict == "EQUIVALENT":
+        return "META-FALSE-EQUIVALENT"
+    try:
+        g = translate_gated(mut)
+        if g["mode"] == "AIXL":
+            # AIXL claims a lossless compact form of `mut`: numbers and negation cues must still be in it.
+            nums = re.findall(r"\d+", mut)
+            if any(n not in g["output"] for n in nums): return "META-GATE-DROPPED-NUMBER"
+            if re.search(r"\b(no|not|never|nunca|n[aã]o|sin|without)\b", mut, re.I) and not re.search(r"\b[NK]:", g["output"]):
+                return "META-GATE-DROPPED-NEGATION"
+    except Exception as e:
+        return f"META-GATE-CRASH:{type(e).__name__}"
+    return None
+
+
+def judge_cosm(orig: str, mut: str) -> str | None:
+    from aixl.core.fingerprint import fingerprint_graph as fp
+    from aixl.translators.natural_to_semantic import to_graph
+    from aixl.gate import translate_gated
+    try:
+        if fp(to_graph(orig)) == fp(to_graph(mut)): return None
+        # translator-level miss is CONTAINED if the gate refuses the mutant (NATURAL); only an uncontained one ships a lossy AIXL
+        return "COSM-UNCONTAINED-LOSS" if translate_gated(mut)["mode"] == "AIXL" else None
+    except Exception as e:
+        return f"COSM-CRASH:{type(e).__name__}"
+
+
+def judge_wire(orig: str, mut: str) -> str | None:
+    from aixl.serialization.aixl_codec import decode, AixlError
+    try:
+        _alarm(3)
+        try:
+            decode(mut)
+        finally:
+            signal.alarm(0)
+    except AixlError:
+        return None
+    except _Timeout:
+        return "WIRE-HANG"
+    except Exception as e:
+        return f"WIRE-CRASH:{type(e).__name__}"
+    # decoded OK: if the mutation inserted a prohibition, it must be visible in the decoded frame (no silent drop)
+    m = re.search(r"\b([NK]):((?:NO|FORBID)_[A-Z_]+)", mut)
+    if m and m.group(0) not in orig:
+        try:
+            f = decode(mut).to_frame()
+            if m.group(2) not in list(f.negations) + list(f.constraints): return "WIRE-SILENT-DROP"
+        except AixlError:
+            return None
+    return None
+
+
+def judge(kind: str, orig: str, mut: str) -> str | None:
+    return {"META": judge_meta, "COSM": judge_cosm, "WIRE": judge_wire}[kind](orig, mut)
+
+
+# ---- minimizer (word-level ddmin, keeps the SAME defect code) ----------------------------------------------------
+def minimize(kind, fn, base, aseed, code):
+    """Shrink `base`; every candidate is re-attacked with the same operator+seed. Returns (min_base, min_mutant)."""
+    toks = base.split(); n = 2
+    def attempt(t):
+        try: m = fn(t, random.Random(aseed))
+        except Exception: return None
+        return m if m and m != t and judge(kind, t, m) == code else None
+    while len(toks) >= 2:
+        chunk = max(1, len(toks) // n); done = False
+        for i in range(0, len(toks), chunk):
+            cand = toks[:i] + toks[i + chunk:]
+            if cand and attempt(" ".join(cand)):
+                toks, n, done = cand, max(n - 1, 2), True; break
+        if not done:
+            if chunk == 1: break
+            n = min(len(toks), n * 2)
+    b = " ".join(toks)
+    return b, fn(b, random.Random(aseed))
+
+
+# ---- learning loop ------------------------------------------------------------------------------------------------
+def load_state():
+    if STATE.exists(): return json.loads(STATE.read_text())
+    return {"weights": {n: 1.0 for n, *_ in NL_ATTACKERS} | {n: 1.0 for n, _ in WIRE_ATTACKERS}, "rounds": 0, "hits": {}}
+
+
+def load_corpus():
+    return [json.loads(l) for l in CORPUS.read_text().splitlines() if l.strip()] if CORPUS.exists() else []
+
+
+def sig(kind, code, text): return f"{kind}|{code}|{re.sub(r'[^a-z:_@#]', '', text.lower())[:60]}"
+
+
+def run(rounds: int, seed: int, per_round: int = 60):
+    rng = random.Random(seed); st = load_state(); corpus = load_corpus()
+    seen = {c["sig"] for c in corpus}
+    # evolution: previously failing minimized inputs become seeds for further mutation (attacks compound)
+    nl_seeds = SEEDS + [c["minimized"] for c in corpus if c["kind"] in ("META", "COSM")][:40]
+    wire_seeds = WIRE_BASE + [c["minimized"] for c in corpus if c["kind"] == "WIRE"][:20]
+    new = []
+    for _ in range(rounds):
+        names = list(st["weights"]); ws = [st["weights"][n] for n in names]
+        for _ in range(per_round):
+            op = rng.choices(names, ws)[0]
+            if op.startswith("w_"):
+                fn = dict(WIRE_ATTACKERS)[op]; base = rng.choice(wire_seeds); kind = "WIRE"
+            else:
+                _, kind, fn = next(a for a in NL_ATTACKERS if a[0] == op); base = rng.choice(nl_seeds)
+            aseed = rng.randrange(1 << 30)
+            try: mut = fn(base, random.Random(aseed))
+            except Exception: mut = None
+            if not mut or mut == base: continue
+            code = judge(kind, base, mut)
+            if code is None:
+                st["weights"][op] = max(0.2, st["weights"][op] * 0.995); continue
+            mbase, mmut = minimize(kind, fn, base, aseed, code)
+            mn = mmut
+            s = sig(kind, code, mbase + "=>" + mmut)
+            st["hits"][op] = st["hits"].get(op, 0) + 1
+            if s in seen:
+                st["weights"][op] = max(0.2, st["weights"][op] * 0.9); continue
+            st["weights"][op] = min(8.0, st["weights"][op] * 1.5)
+            seen.add(s)
+            rec = dict(sig=s, kind=kind, code=code, op=op, original=mbase, mutated=mmut, minimized=mbase, ts=time.time())
+            new.append(rec)
+            with CORPUS.open("a") as f: f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        st["rounds"] += 1
+    STATE.write_text(json.dumps(st, indent=1))
+    return new
+
+
+def replay():
+    out = []
+    for c in load_corpus():
+        code = judge(c["kind"], c["original"], c["mutated"])
+        out.append((c["sig"], c["code"], "STILL_FAILS" if code == c["code"] else "FIXED" if code is None else f"CHANGED->{code}"))
+    return out
+
+
+def selftest() -> list:
+    """An arena that cannot catch a planted bug proves nothing. Plant 3 bugs, require each to be flagged."""
+    import sys, aixl.gate as G, aixl.serialization.aixl_codec as K
+    import importlib; importlib.import_module("aixl.semantic.compare")
+    cmp_mod = sys.modules["aixl.semantic.compare"]
+    res = []
+    class V: verdict, diffs, unresolved = "EQUIVALENT", [], []
+    o = cmp_mod.compare_texts; cmp_mod.compare_texts = lambda a, b: V()
+    try: res.append(("comparator says EQUIVALENT to everything", judge_meta("Borra el archivo.", "Nunca borres el archivo.") == "META-FALSE-EQUIVALENT"))
+    finally: cmp_mod.compare_texts = o
+    oc = K._check; K._check = lambda f, s: None
+    try: res.append(("decoder silently drops orphan prohibition", judge_wire("", "V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE D:SALES N:NO_PUBLISH") == "WIRE-SILENT-DROP"))
+    finally: K._check = oc
+    og = G.translate_gated
+    G.translate_gated = lambda t: {"mode": "AIXL", "output": "A:ANALYZE D:SALES"}
+    try: res.append(("gate ships AIXL that dropped the number", judge_meta("Analiza 5 ventas.", "Analiza 6 ventas.") == "META-GATE-DROPPED-NUMBER"))
+    finally: G.translate_gated = og
+    return res
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser(); ap.add_argument("cmd", choices=["run", "replay", "selftest"])
+    ap.add_argument("--rounds", type=int, default=20); ap.add_argument("--seed", type=int, default=1)
+    a = ap.parse_args()
+    if a.cmd == "run":
+        new = run(a.rounds, a.seed)
+        print(f"new distinct defects: {len(new)}")
+        for r in new: print(f"  [{r['code']}] via {r['op']}: {r['original']!r} -> {r['mutated']!r}")
+        st = load_state(); print("weights:", {k: round(v, 2) for k, v in sorted(st['weights'].items(), key=lambda x: -x[1])[:6]})
+    elif a.cmd == "selftest":
+        r = selftest()
+        for n, ok in r: print("CAUGHT" if ok else "MISSED", "-", n)
+        sys.exit(0 if all(ok for _, ok in r) else 1)
+    else:
+        for s, c, status in replay(): print(status, c, s)

@@ -601,6 +601,7 @@ def _looks_portuguese(lang: str, raw: str, s: str) -> bool:
 def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     from aixl.core.normalizer import sanitize_input
     text, obfuscation = sanitize_input(text)               # §39: strip invisible chars / fold lookalike letters BEFORE any rule runs
+    text = re.sub(r"[ \t]+", " ", text).strip()              # arena finding: runs of spaces broke multi-word terms ('esta   semana') silently
     frame, pre, s, conds, passives, warns, conf = _prepare_frame(text, today)
     pos: dict = {}
     for act, rx in legacy.ACTION_RX:
