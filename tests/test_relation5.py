@@ -1,7 +1,8 @@
 """Prompt 1.1 own examples. Expected labels fixed BEFORE running (Módulo 9). `SAFE_MISS` = engine is allowed to answer
 UNDETERMINED (fail-closed) but must never answer EQUIVALENT when expected is not."""
 import pytest
-from aixl.relation5 import classify, error_from_relation, RELATIONS
+
+from aixl.relation5 import RELATIONS, classify, error_from_relation
 from aixl.semantic.compare import compare_texts
 
 

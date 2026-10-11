@@ -1,6 +1,7 @@
 """Evolution Engine §7: no silent guess / silent drop at decode. Failing-before cases written first (orphan negation fingerprint-equal to no negation)."""
 import pytest
-from aixl.serialization.aixl_codec import decode, AixlError
+
+from aixl.serialization.aixl_codec import AixlError, decode
 
 BASE = "V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE D:SALES"
 

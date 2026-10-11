@@ -4,8 +4,10 @@ No new semantics: this only RELABELS what `compare_texts` already proved. It nev
 EQUIVALENT is emitted iff the underlying verdict is EQUIVALENT. Anything not derivable is UNDETERMINED (fail-closed).
 """
 from __future__ import annotations
-import json, time
-from dataclasses import dataclass, field, asdict
+
+import json
+import time
+from dataclasses import asdict, dataclass, field
 
 RELATIONS = ("EQUIVALENT", "COMPATIBLE", "PARTIAL", "CONTRADICTORY", "UNDETERMINED")
 
