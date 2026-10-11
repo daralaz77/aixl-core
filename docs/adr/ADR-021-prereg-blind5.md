@@ -26,3 +26,7 @@ parsed and normalised: 8/8 identical. Not covered: inputs outside those 1,648 te
 the 150 cases, the two batches and the four prompts), written by `benchmarks/atoms_freeze.py`. `atoms_ab_eval.py` now verifies it first and exits with code 2 if anything changed ("blind5 is VOID"),
 and it reports exactly which of the 8 response files and the reference annotations are still missing instead of failing with a TypeError. Consequence: any later edit to those files (including a
 cleanup of `aixl/semantic/`) voids blind5 until the results are produced; run blind5 first, clean afterwards.
+
+## Result (2026-10-10) — see `docs/ATOMS_AB_EVIDENCE_blind5.md`
+H1 MET (+6.7 pts exact agreement from the normal form, core F1 not lowered). H2 NOT MET (exposing the 93 learned concepts: exact agreement 0.349 -> 0.300, core acceptance 58.7% -> 51.3%; paired flips 16 vs 23, p = 0.34: no benefit detected, point estimate negative).
+H3 MET (no harm detected on the accepted subset; not evidence of improvement because the accepted subsets differ). H4 NOT MET (acceptance 51.3% < 60%). Per the rule fixed above, the claims tied to H2 and H4 are withdrawn.
