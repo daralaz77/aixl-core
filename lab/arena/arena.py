@@ -33,6 +33,10 @@ SEEDS = [
  "Resuma o relatório em cinco pontos.", "Envie o relatório para Maria.", "Exclua os arquivos antigos.",
  "Analiza los videos de esta semana.", "Actualiza el precio de los 20 productos.", "Enable the notifications for all users.",
 ]
+# Seeds that really TAKE the AIXL path of the gate (found by scanning the characterization corpus: only these 4 do). Without them the gate's AIXL
+# branch -- the one oracles META-GATE-* guard -- was never executed by any attack (0 of the 22 seeds above reach it).
+GATE_SEEDS = ["Analiza las ventas del primer trimestre de 2026.", "Analise as vendas do primeiro trimestre de 2026.", "Genera un PDF.", "Traduce el documento."]
+SEEDS += GATE_SEEDS
 
 # ---- attackers: (name, kind, fn(text, rng)->text|None) ; kind META = meaning-changing, COSM = cosmetic ----------------
 NEG_PRE = ["Never ", "Do not ", "Nunca ", "No quiero que "]
@@ -144,7 +148,10 @@ def _alarm(sec):
 
 
 def judge_meta(orig: str, mut: str) -> str | None:
-    """Return a defect code or None. Mutation changed meaning, so EQUIVALENT / lossless-gate is the unsafe answer."""
+    """Return a defect code or None. Mutation changed meaning, so EQUIVALENT / MATCH / a lossless gate are the unsafe answers.
+    Layers attacked: the experimental comparator (aixl.semantic), the integrity envelope and the token gate (the layers that SHIP).
+    The core comparator (aixl.compare) is deliberately NOT a defect source here: its closed-lexicon limits are known and are measured by `scope`."""
+    from aixl.envelope import seal, verify
     from aixl.gate import translate_gated
     from aixl.semantic.compare import compare_texts
     try:
@@ -154,6 +161,11 @@ def judge_meta(orig: str, mut: str) -> str | None:
     if v.verdict == "EQUIVALENT":
         return "META-FALSE-EQUIVALENT"
     try:
+        if verify(seal(orig), mut) == "MATCH":                     # envelope says the received text means what was sealed
+            return "META-ENVELOPE-FALSE-MATCH"
+    except Exception as e:
+        return f"META-ENVELOPE-CRASH:{type(e).__name__}"
+    try:
         g = translate_gated(mut)
         if g["mode"] == "AIXL":
             # AIXL claims a lossless compact form of `mut`: numbers and negation cues must still be in it.
@@ -161,6 +173,9 @@ def judge_meta(orig: str, mut: str) -> str | None:
             if any(n not in g["output"] for n in nums): return "META-GATE-DROPPED-NUMBER"
             if re.search(r"\b(no|not|never|nunca|n[aã]o|sin|without)\b", mut, re.I) and not re.search(r"\b[NK]:", g["output"]):
                 return "META-GATE-DROPPED-NEGATION"
+            go = translate_gated(orig)
+            if go["mode"] == "AIXL" and go["output"] == g["output"]:   # two different meanings compressed to the SAME AIXL
+                return "META-GATE-COLLAPSE"
     except Exception as e:
         return f"META-GATE-CRASH:{type(e).__name__}"
     return None
@@ -279,15 +294,15 @@ def run(rounds: int, seed: int, per_round: int = 60):
 
 
 # every defect code the CURRENT oracles can emit; a stored record with any other code was written by an older oracle
-EMITTED = {"META-FALSE-EQUIVALENT", "META-GATE-DROPPED-NUMBER", "META-GATE-DROPPED-NEGATION", "COSM-UNCONTAINED-LOSS",
-           "WIRE-HANG", "WIRE-SILENT-DROP"}
+EMITTED = {"META-FALSE-EQUIVALENT", "META-ENVELOPE-FALSE-MATCH", "META-GATE-DROPPED-NUMBER", "META-GATE-DROPPED-NEGATION",
+           "META-GATE-COLLAPSE", "COSM-UNCONTAINED-LOSS", "WIRE-HANG", "WIRE-SILENT-DROP"}
 
 
 def _status(c) -> str:
     code = judge(c["kind"], c["original"], c["mutated"])
     if code == c["code"]:
         return "STILL_FAILS"
-    if c["code"] in EMITTED or c["code"].split(":")[0] in {"META-CRASH", "META-GATE-CRASH", "COSM-CRASH", "WIRE-CRASH"}:
+    if c["code"] in EMITTED or c["code"].split(":")[0] in {"META-CRASH", "META-ENVELOPE-CRASH", "META-GATE-CRASH", "COSM-CRASH", "WIRE-CRASH"}:
         return "FIXED" if code is None else f"CHANGED->{code}"
     # stored code is not one the oracle emits any more (older oracle): do NOT claim it was fixed
     if c["kind"] == "COSM":
@@ -323,11 +338,50 @@ def selftest() -> list:
     G.translate_gated = lambda t: {"mode": "AIXL", "output": "A:ANALYZE D:SALES"}
     try: res.append(("gate ships AIXL that dropped the number", judge_meta("Analiza 5 ventas.", "Analiza 6 ventas.") == "META-GATE-DROPPED-NUMBER"))
     finally: G.translate_gated = og
+    import aixl.envelope as EV
+    ov = EV.verify; EV.verify = lambda env, t: "MATCH"
+    try: res.append(("envelope MATCHes a meaning change", judge_meta("Borra el archivo.", "Nunca borres el archivo.") == "META-ENVELOPE-FALSE-MATCH"))
+    finally: EV.verify = ov
+    G.translate_gated = lambda t: {"mode": "AIXL", "output": "A:DELETE E:FILE"}
+    try: res.append(("gate compresses two different meanings to the same AIXL", judge_meta("Borra el archivo.", "Crea el archivo.") == "META-GATE-COLLAPSE"))
+    finally: G.translate_gated = og
     return res
 
 
+def scope(seed: int = 7, reps: int = 5) -> dict:
+    """Fixed-seed sweep of every META attacker against EVERY layer, one verdict per layer. Writes nothing.
+    `core_compare_equivalent` is a KNOWN LIMIT of the closed lexicons (the core comparator is not what protects a message in production: the envelope and
+    the gate abstain instead). The other counters are defects when non-zero."""
+    import collections
+
+    import aixl
+    from aixl.envelope import seal, verify
+    from aixl.gate import translate_gated
+    from aixl.semantic.compare import compare_texts
+    rng, c, known = random.Random(seed), collections.Counter(), []
+    for name, kind, fn in NL_ATTACKERS:
+        if kind != "META":
+            continue
+        for base in SEEDS:
+            for _ in range(reps):
+                try: m = fn(base, random.Random(rng.randrange(1 << 30)))
+                except Exception: m = None
+                if not m or m == base:
+                    continue
+                c["mutants"] += 1
+                if compare_texts(base, m).verdict == "EQUIVALENT": c["semantic_equivalent"] += 1
+                if aixl.compare(base, m).equivalent:
+                    c["core_compare_equivalent"] += 1; known.append((name, base, m))
+                v = verify(seal(base), m); c["envelope_" + v] += 1
+                g = translate_gated(m); c["gate_" + g["mode"]] += 1
+                if g["mode"] == "AIXL":
+                    go = translate_gated(base)
+                    if go["mode"] == "AIXL" and go["output"] == g["output"]: c["gate_collapse"] += 1
+    return {"counts": dict(c), "known_limits": known}
+
+
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("cmd", choices=["run", "replay", "selftest"])
+    ap = argparse.ArgumentParser(); ap.add_argument("cmd", choices=["run", "replay", "selftest", "scope"])
     ap.add_argument("--rounds", type=int, default=20); ap.add_argument("--seed", type=int, default=1)
     a = ap.parse_args()
     if a.cmd == "run":
@@ -335,6 +389,15 @@ if __name__ == "__main__":
         print(f"new distinct defects: {len(new)}")
         for r in new: print(f"  [{r['code']}] via {r['op']}: {r['original']!r} -> {r['mutated']!r}")
         st = load_state(); print("weights:", {k: round(v, 2) for k, v in sorted(st['weights'].items(), key=lambda x: -x[1])[:6]})
+    elif a.cmd == "scope":
+        r = scope(); k = r["counts"]
+        print(f"mutants (meaning-changing, fixed seed): {k.get('mutants', 0)}")
+        print(f"  semantic comparator EQUIVALENT      : {k.get('semantic_equivalent', 0)}   (defect if > 0)")
+        print(f"  integrity envelope MATCH            : {k.get('envelope_MATCH', 0)}   (defect if > 0; MISMATCH {k.get('envelope_MISMATCH', 0)}, UNVERIFIED {k.get('envelope_UNVERIFIED', 0)})")
+        print(f"  gate AIXL (lossy or collapsed)      : {k.get('gate_AIXL', 0)} AIXL / {k.get('gate_NATURAL', 0)} NATURAL, collapse {k.get('gate_collapse', 0)}")
+        print(f"  core comparator EQUIVALENT (known)  : {k.get('core_compare_equivalent', 0)}   (documented limit, not a defect)")
+        for n, b0, m in r["known_limits"][:30]: print(f"      [{n}] {b0!r} -> {m!r}")
+        sys.exit(1 if k.get("semantic_equivalent") or k.get("envelope_MATCH") or k.get("gate_collapse") else 0)
     elif a.cmd == "selftest":
         r = selftest()
         for n, ok in r: print("CAUGHT" if ok else "MISSED", "-", n)

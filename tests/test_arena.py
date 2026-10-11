@@ -2,6 +2,8 @@
 import subprocess
 import sys
 
+import pytest
+
 from aixl.gate import translate_gated
 from aixl.serialization.aixl_codec import encode
 from aixl.translators.natural_to_semantic import to_graph
@@ -63,3 +65,26 @@ def test_replay_does_not_call_a_contained_failure_fixed():
     st = {sig.split("|")[2]: status for sig, code, status in replay()}
     assert st["paramariaparamaria"] == "CONTAINED"           # translator still loses the capital, gate falls back to NATURAL
     assert st["estasemanaestasemana"] == "FIXED"             # the multi-space defect really is fixed
+
+
+def test_gate_seeds_really_take_the_aixl_path():           # if they stop doing so the META-GATE-* oracles silently go back to being vacuous
+    from lab.arena.arena import GATE_SEEDS
+    assert GATE_SEEDS and all(translate_gated(s)["mode"] == "AIXL" for s in GATE_SEEDS)
+
+
+def test_selftest_plants_a_bug_for_every_oracle_family():
+    from lab.arena.arena import selftest
+    r = selftest()
+    names = " | ".join(n for n, _ in r)
+    assert all(ok for _, ok in r) and len(r) >= 5
+    for word in ("comparator", "decoder", "number", "envelope", "same AIXL"):
+        assert word in names, word
+
+
+@pytest.mark.slow                                          # ~10 s: the experimental comparator costs ~50 ms per mutant; CI runs it, `-m "not slow"` skips it
+def test_scope_shipped_layers_have_no_defects_and_the_aixl_path_is_exercised():
+    from lab.arena.arena import scope
+    k = scope(reps=1)["counts"]                               # the full 5-rep sweep (844 mutants) is `python -m lab.arena.arena scope`
+    assert k["mutants"] > 100
+    assert k.get("semantic_equivalent", 0) == 0 and k.get("envelope_MATCH", 0) == 0 and k.get("gate_collapse", 0) == 0
+    assert k.get("gate_AIXL", 0) > 0                          # not vacuous: some mutants did reach the AIXL branch
