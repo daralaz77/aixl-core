@@ -7,7 +7,8 @@ Resume todo el trabajo hecho en esta sesión sobre `aixl-core`: la auditoría de
 2. **Los punteros solo son seguros para receptores medidos:** Sonnet y Opus sin pérdida; Haiku empeora (27 → 14–18 de 60). La política falla cerrado para modelos no medidos.
 3. **El código quedó más limpio y más barato de mantener:** lint de 289 avisos a 0, 36 scripts que ejecutaban al importarse a 0, una red de seguridad por caracterización, y la arquitectura convertida en pruebas.
 4. **blind5 (preregistrado) dio 2 hipótesis cumplidas y 2 no:** la forma normal sube el acuerdo entre modelos (+6.7 pts); exponer los 93 conceptos aprendidos **no** lo mejora (estimación puntual negativa) y el pipeline combinado no llega al 60% de aceptación. Las afirmaciones ligadas a H2 y H4 quedan retiradas.
-5. **Errores míos hubo varios, y las propias verificaciones los atraparon:** están listados en la sección 5 con su corrección.
+5. **Errores míos hubo varios, y las propias verificaciones los atraparon:** están listados en la sección 6 con su corrección.
+6. **La revisión de la sesión arena** (otra sesión) encontró y corrigió una regresión real del gate que ya estaba publicada, y acotó el alcance de su afirmación principal (sección 10).
 
 ## 2. Auditoría AIXL v1.0 y pasos 1–5 (detalle: `docs/V1_FINAL_REPORT.md`, `docs/V1_PROMPT_AUDIT.md`)
 | Tema | Resultado medido |
@@ -55,16 +56,18 @@ Retiradas por la regla fijada de antemano: "los conceptos aprendidos mejoran acu
 | Una caché de `_known` rompió 2 tests (el mecanismo de extensiones muta los léxicos) y un commit salió con tests rojos porque el script de puerta no devolvía error | suite completa | clave por versión del léxico; el script ya devuelve código 1 |
 | `git add -A` preparó archivos ajenos | `git status` | deshecho antes de commitear |
 | Transformé `benchmarks/atoms_ab_eval.py` (no versionado, de otra sesión) | revisión conjunta | comportamiento verificado igual; luego congelado y versionado |
+| La red de seguridad de la Fase 0 no registraba la salida natural ni tenía textos con sangría: dejó pasar la regresión del arreglo de espacios de la arena | revisión de la arena | campo `passthrough` y 4 textos nuevos en la caracterización; comprobado que ahora falla con el comportamiento antiguo |
+| Mi primera prueba de sensibilidad de esa red estaba mal ordenada (generé el golden con el comportamiento roto y por eso pasaba) | resultado sospechosamente verde | repetida en el orden correcto |
 | Código de `atoms/` editado tras el preregistro de blind5 | revisión conjunta | evidencia de equivalencia (1.648/1.648 textos, 4/4 prompts, 8/8 respuestas) y addendum en ADR-021 |
 
 ## 7. Incidentes y cosas ajenas
 - **Clasificador de seguridad:** cortó dos corridas de Sonnet (edición/extracción/cadenas) al escribir salidas largas. No reformulé la tarea para esquivarlo; el resultado de Sonnet en esa prueba es **desconocido**.
 - **Límite de sesión:** los 12 agentes de blind5 fallaron a la primera (429); se relanzaron por tandas tras el reinicio. No quedaron archivos parciales.
-- **Otra sesión trabaja en este repo** (`lab/arena`, relation5, decodificación estricta). Un `git push` mío subió dos commits suyos (`96eb618`, `720b062`) que ya estaban en la rama local; dejaron 3 avisos de lint, corregidos en `f7e0d59` sin cambio de comportamiento. Sus cambios sin commitear (`aixl/gate.py`, `aixl/translators/natural_to_semantic.py`, `lab/arena/`, `data/arena/`, `tests/test_arena.py`) siguen intactos y fuera de mis commits.
+- **Otra sesión trabaja en este repo** (arena, relation5, decodificación estricta). Un `git push` mío subió dos commits suyos (`96eb618`, `720b062`) que ya estaban en la rama local; dejaron 3 avisos de lint, corregidos en `f7e0d59` sin cambio de comportamiento. Su trabajo de arena se commiteó y publicó después (`0b5df17`) y se revisó en la sección 10.
 
 ## 8. Estado final
-- Remoto (`main`) en `f7e0d59`; este documento está en el commit local siguiente. El rango `c171498` … `f7e0d59` tiene **36 commits: 34 míos y 2 de la otra sesión**; 207 archivos tocados.
-- **1129 tests pasan** en el estado commiteado, 627 imports resueltos, lint en 0.
+- Remoto (`main`) en `f2b2d7c` al momento de la sección 10 (más el commit de este documento). El rango `c171498` … `f7e0d59` tiene 36 commits (34 míos y 2 de la otra sesión); después vinieron el informe, el commit de la arena y mis dos de revisión (`0efbbb5`, `f2b2d7c`).
+- **1140 tests pasan** en el estado commiteado, 651 imports resueltos, lint en 0.
 - blind5: congelamiento íntegro; resultados versionados.
 
 ## 9. Pendientes y decisiones abiertas
@@ -73,8 +76,22 @@ Retiradas por la regla fijada de antemano: "los conceptos aprendidos mejoran acu
 3. **Un A/B real sobre facturas** (caché y compactación incluidas) antes de prometer ahorro en dinero.
 4. **Resumen con criterio** y **cadenas de punteros profundas** sin probar.
 5. **blind5 tras la limpieza:** cualquier edición de los 30 archivos congelados lo anula; si hay que limpiar `aixl/semantic/`, regenerar el congelamiento con un addendum.
-6. **Integrar o descartar el trabajo de `lab/arena`** (otra sesión): hoy está sin commitear.
+6. **Ampliar la arena:** más semillas que lleguen a la rama AIXL del gate (hoy solo 4 textos del corpus llegan), semillas de otros autores, y atacar el comparador del producto como defecto una vez haya un criterio de qué es aceptable.
 7. **Construir y probar un wheel completo** antes del próximo release (verificado el contenido de `atoms`, no una instalación limpia de extremo a extremo).
 
-## 10. Mapa de documentos
-`docs/V1_FINAL_REPORT.md` (auditoría v1.0), `docs/V1_PROMPT_AUDIT.md` (mediciones por paso), `docs/CLEANUP_ROADMAP.md` (fases 0–6), `docs/adr/ADR-022.md` (capas), `docs/adr/ADR-021-prereg-blind5.md` (preregistro, addendum y resultado), `docs/ATOMS_AB_EVIDENCE_blind5.md` (evidencia blind5), `ARCHITECTURE.md` (capas y estados).
+## 10. Revisión de la sesión arena (otra sesión; commit `0b5df17`)
+La arena es un bucle adversarial: atacantes mutan semillas, oráculos con verdad por construcción juzgan, los fallos se minimizan y se reutilizan. Revisada leyendo el código y **ejecutando** sus comandos (no solo los tests).
+**Lo que estaba bien:** diseño sano; `selftest` que planta errores y exige detectarlos; el ataque de paráfrasis se recomputó desde los jueces guardados y coincide con el README (47/48 con los dos jueces de acuerdo, 0 falsos "igual", 1 falso "distinto"); límites declarados.
+| # | Hallazgo | Gravedad | Resolución |
+|---|---|---|---|
+| 1 | El arreglo de espacios repetidos se aplicaba al inicio de `translate_gated` y **también alteraba la salida natural**: destruía la sangría de código, aplanaba tabuladores y quitaba saltos de línea finales | regresión real, ya publicada | `0efbbb5`: se normaliza solo una copia para analizar; la salida es el texto original byte a byte. Test nuevo y campo `passthrough` en la caracterización |
+| 2 | "0 falsos equivalentes" valía solo para el comparador **experimental**; el comparador del producto da "equivalente" en 24 de 844 mutaciones que cambian el significado | alcance de una afirmación | `f2b2d7c`: tabla por capa en el README y sección E-ARENA-SCOPE en `LIMITATIONS.md` |
+| 3 | `replay` marcaba "FIXED" 3 fallos que seguían sin arreglar (el oráculo había dejado de emitir ese código) | informe engañoso | `0efbbb5`: estados `CONTAINED` / `RECLASSIFIED` / `FIXED` |
+| 4 | **Ninguna de las 22 semillas llegaba nunca a la rama AIXL del gate**: los oráculos `META-GATE-*` jamás se habían disparado en una corrida real | cobertura vacía | `f2b2d7c`: 4 `GATE_SEEDS` (solo 4 textos del corpus llegan) y un test que falla si dejan de llegar |
+| 5 | La arena no atacaba el sobre de integridad ni el colapso del gate | hueco de cobertura | `f2b2d7c`: oráculos `META-ENVELOPE-FALSE-MATCH` y `META-GATE-COLLAPSE`, comando `scope`, 2 errores plantados más en `selftest` (5 en total, los 5 detectados) |
+| 6 | 7 avisos de lint (puerta en rojo) | higiene | `0efbbb5` |
+**Resultado del barrido final** (`python -m lab.arena.arena scope`, semilla fija, 844 mutaciones): comparador experimental 0 equivalentes; **sobre de integridad 0 MATCH** (205 MISMATCH, 639 sin verificar); **gate 0 colapsados** (8 pasaron por AIXL, 836 a lenguaje natural); comparador del producto 24 equivalentes (límite conocido: cláusulas añadidas fuera del léxico, cláusulas finales eliminadas y antónimos de modificadores fuera del léxico).
+**Lectura honesta:** las capas que protegen un mensaje en producción (sobre y gate) resisten; el comparador crudo no, y por diseño no es lo que decide. La comprobación del gate es fina (8 mutantes en la rama AIXL, todos de cambio de número). Pendiente de la propia arena, sin tocar: `run` escribe `state.json` y `failures.jsonl` versionados; los pesos de los atacantes solo bajan porque no aparecen defectos nuevos; la firma de deduplicación descarta dígitos y trunca a 60 caracteres.
+
+## 11. Mapa de documentos
+`docs/V1_FINAL_REPORT.md` (auditoría v1.0), `docs/V1_PROMPT_AUDIT.md` (mediciones por paso), `docs/CLEANUP_ROADMAP.md` (fases 0–6), `docs/adr/ADR-022.md` (capas), `docs/adr/ADR-021-prereg-blind5.md` (preregistro, addendum y resultado), `docs/ATOMS_AB_EVIDENCE_blind5.md` (evidencia blind5), `ARCHITECTURE.md` (capas y estados), `lab/arena/README.md` y `LIMITATIONS.md` § E-ARENA-SCOPE (arena y su alcance).
