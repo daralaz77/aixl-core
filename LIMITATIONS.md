@@ -170,3 +170,15 @@ Ceiling analysis, selection corpus 4160 texts / 2399 distinct unaccounted words,
 50 words -> 2% of seeds fully accounted, 200 -> 3%, 800 -> 10%, ALL 2399 -> 22%. The long tail is the problem: a 36-noun block moved the
 own-author arena share but cannot move realistic text. Decision: no more hand blocks of nouns; the decided share on realistic instructions
 needs a different mechanism (an arbiter that checks the *residue* only, or open-vocabulary verification), not a bigger table.
+
+## E-OPEN-VOCAB (2026-10-13): proving unknown words "the same" on both sides does NOT work safely — negative result, not shipped
+Rule (aixl/core/open_vocab.py): core graphs equivalent + no unreflected marker + identical ordered sequence of unaccounted tokens
+(+ rule 4: every differing token is accounted content, never an operator/function word). Measured by `benchmarks/open_vocab_eval.py`:
+- v1 (rules 1-3): rescued 231 of 3957 meaning-changing mutants as EQUIVALENT (`Never if ...` vs `if ...`: marker reflection is per class, not per
+  occurrence, so an existing negation "reflects" an added one) and 5 labelled DIFF pairs of other authors. Unsafe.
+- v2 (+ rule 4): 0 false on own-author mutants, 2 of 3957 on other-author mutants (`Monday` -> `Tuesday`: weekday names are accounted but the core
+  does not compare them) and 1 labelled DIFF pair; recall gained: 2 of ~40 SAME pairs. Fails the zero-false-EQUIVALENT requirement for a ~5% gain.
+- Root cause is the base, not the rule: the core comparator is permissive on exactly the words it "knows" (weekday names, ordering words,
+  per-class marker reflection), so any scheme of "core equal + residue equal" inherits those blind spots.
+- Decision: `compare_verified` stays as is. Next real levers: harden the core where it is permissive (per-occurrence marker reflection,
+  weekday/ordinal comparison), each with its own arena family; or an arbiter over the residue only.
