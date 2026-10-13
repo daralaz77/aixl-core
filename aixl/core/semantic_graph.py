@@ -52,7 +52,17 @@ def _cond_canon(c: str) -> str:
     m = re.match(r"^(H|CONF\w*)\s*(>=|<=|!=|>|<|=)\s*(.+)$", c)
     if m:
         return f"H{m.group(2)}{_num(m.group(3))}"
-    return _unit_canon(c)
+    if _STRUCT_COND.match(c.strip()):          # structured COUNT>N:UNIT form: keep its upper-case canonical spelling, whatever the source case
+        return _unit_canon(c.strip().upper())
+    from aixl.core.normalizer import strip_accents
+    t = re.sub(r"\s+", " ", strip_accents(c).lower()).strip(" .,;:")
+    t = _COND_LEAD.sub("", t)                  # `if` / `unless` / `si` ...: carried by the structured COND constraint, not by the prose
+    return _unit_canon(t)
+
+
+_STRUCT_COND = re.compile(r"^[A-Za-z_]+\s*(?:>=|<=|!=|>|<|=)\s*\d+(?:\.\d+)?:[A-Za-z_]+$")
+_COND_LEAD = re.compile(r"^(?:only if|only when|solamente si|unicamente si|solo si|somente se|apenas se|so se|a menos que|a no ser que|salvo que|excepto si|"
+                        r"exceto se|salvo se|unless|except if|whenever|when|cuando|quando|if|si|se)\s+")
 
 
 from aixl.core.lexicon_gaps import residue_key

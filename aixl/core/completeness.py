@@ -26,12 +26,13 @@ MARKERS = {
     "BEFORE": "before prior antes".split() + ["ahead of"],
     # 'until' is NOT 'before': "don't publish until X" = "publish only after X" = "wait until X, then publish". Own class, never definitively opposed to AFTER.
     "UNTIL": "until till hasta ate".split(),
+    "EXACT": "exactly exactamente exatamente precisely precisamente".split(),
     "AFTER": "after afterwards following despues depois luego apos tras".split(),
     "ONLY": "only solely solo solamente unicamente apenas somente exclusively exclusivamente".split(),
     "ALL": "all todos todas todo toda tudo".split(),
     "EXCEPT": "except excepto exceto salvo excluding excluyendo excluindo exceptuando".split() + ["apart from", "other than", "aside from", "but for", "con excepcion de", "a excepcion de", "com excecao de", "com excecao", "excepto por"],
-    "MORE": "over above greater mayor superior acima exceed exceeding exceeds".split() + ["more than", "mas de", "mais de"],
-    "LESS": "under below fewer menor inferior abaixo".split() + ["less than", "menos de"],
+    "MORE": "over above greater mayor superior acima encima exceed exceeding exceeds".split() + ["more than", "por encima de", "mas de", "mais de"],
+    "LESS": "under below fewer menor inferior abaixo debajo".split() + ["less than", "por debajo de", "menos de"],
     # INCLUSIVE bounds ('at least 10' includes 10; 'more than 10' does not) are a different claim from the strict ones
     "MORE_EQ": "minimum min".split() + ["at least", "al menos", "pelo menos", "or more", "ou mais", "o mas"],
     "LESS_EQ": "maximum max".split() + ["at most", "up to", "no mas de", "como maximo", "no maximo", "or less", "ou menos", "o menos", "nao mais de"],
@@ -53,6 +54,8 @@ def _norm(text: str) -> str:
 _NEG_COMPARATORS = [
     (re.compile(r"\b(?:no|not|nao)\s+(?:fewer|less|menos|minus)\s+(?:than\s+|de\s+|do\s+que\s+|que\s+)?"), "MORE_EQ"),
     (re.compile(r"\b(?:no|not|nao)\s+(?:more|greater|mas|mais)\s+(?:than\s+|de\s+|do\s+que\s+|que\s+)?"), "LESS_EQ"),
+    (re.compile(r"\bno\s+maximo\b"), "LESS_EQ"),                       # PT 'no maximo 10' = at most 10, not a negation
+    (re.compile(r"\bno\s+minimo\b"), "MORE_EQ"),
     # negated temporal order: 'not before X' = at/after X; 'not after X' = at/before X ('wait ... but not before the audit ends')
     (re.compile(r"\b(?:no|not|nao)\s+(?:before|prior\s+to|antes\s+d[eo]s?|antes)\b"), "AFTER"),
     (re.compile(r"\b(?:no|not|nao)\s+(?:after|despues\s+d[eo]s?|depois\s+d[eo]s?|despues|depois)\b"), "BEFORE"),
@@ -103,14 +106,20 @@ def _evidence_tokens(graph) -> set:
     return toks
 
 
+_CMP_OF = {"MORE": "GT", "LESS": "LT", "MORE_EQ": "GE", "LESS_EQ": "LE", "EXACT": "EQ"}
+
+
 def _reflected(cls: str, graph, ev: set) -> bool:
     c = graph.canonical()
     if any(w in ev for w in MARKERS[cls] if " " not in w) or any(all(t in ev for t in p.split()) for p in MARKERS[cls] if " " in p):
         return True
     if cls == "NEG":
         return bool(c["negation"]) or any(n.attributes.get("modality") == "FORBID" for n in graph.by_type("ACTION"))
-    if cls in ("MORE", "LESS", "MORE_EQ", "LESS_EQ"):
-        return bool(c["quantities"] or c["constraints"])
+    cmps = [k for k in c["constraints"] if k.startswith("CMP=")]
+    if cls in _CMP_OF:                    # 2026-10-13: was `bool(quantities or constraints)`, i.e. ANY number counted as "reflecting" `more than`
+        return any(k.startswith(f"CMP={_CMP_OF[cls]}:") for k in cmps)
+    if cls == "UNTIL":                    # `hasta 10 clientes` = up to 10; a temporal `until` is reflected by the words check above
+        return any(k.startswith("CMP=LE:") for k in cmps)
     return False
 
 

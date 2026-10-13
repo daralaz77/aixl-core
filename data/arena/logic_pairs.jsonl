@@ -1,0 +1,75 @@
+{"id": "L001", "family": "comparator", "lang": "en", "label": "SAME", "a": "Export at least 10 customers.", "b": "Export 10 or more customers."}
+{"id": "L002", "family": "comparator", "lang": "en", "label": "SAME", "a": "Export at most 10 customers.", "b": "Export no more than 10 customers."}
+{"id": "L003", "family": "comparator", "lang": "en", "label": "SAME", "a": "Export at most 10 customers.", "b": "Export up to 10 customers."}
+{"id": "L004", "family": "comparator", "lang": "en", "label": "SAME", "a": "Export more than 10 customers.", "b": "Export over 10 customers."}
+{"id": "L005", "family": "comparator", "lang": "en", "label": "SAME", "a": "Export more than 10 customers.", "b": "Export above 10 customers."}
+{"id": "L006", "family": "comparator", "lang": "en", "label": "SAME", "a": "Export fewer than 10 customers.", "b": "Export under 10 customers."}
+{"id": "L007", "family": "comparator", "lang": "en", "label": "SAME", "a": "Export at least 10 customers.", "b": "Export no fewer than 10 customers."}
+{"id": "L008", "family": "comparator", "lang": "en", "label": "DIFF", "a": "Export at least 10 customers.", "b": "Export at most 10 customers."}
+{"id": "L009", "family": "comparator", "lang": "en", "label": "DIFF", "a": "Export at least 10 customers.", "b": "Export more than 10 customers."}
+{"id": "L010", "family": "comparator", "lang": "en", "label": "DIFF", "a": "Export at most 10 customers.", "b": "Export fewer than 10 customers."}
+{"id": "L011", "family": "comparator", "lang": "en", "label": "DIFF", "a": "Export more than 10 customers.", "b": "Export fewer than 10 customers."}
+{"id": "L012", "family": "comparator", "lang": "en", "label": "DIFF", "a": "Export at least 10 customers.", "b": "Export exactly 10 customers."}
+{"id": "L013", "family": "comparator", "lang": "en", "label": "DIFF", "a": "Export at most 10 customers.", "b": "Export exactly 10 customers."}
+{"id": "L014", "family": "comparator", "lang": "en", "label": "DIFF", "a": "Export more than 10 customers.", "b": "Export exactly 10 customers."}
+{"id": "L015", "family": "comparator", "lang": "en", "label": "DIFF", "a": "Export more than 10 customers.", "b": "Export at most 10 customers."}
+{"id": "L016", "family": "comparator", "lang": "en", "label": "DIFF", "a": "Export at least 10 customers.", "b": "Export fewer than 10 customers."}
+{"id": "L017", "family": "comparator", "lang": "en", "label": "DIFF", "a": "Export more than 10 customers.", "b": "Export more than 10100 customers."}
+{"id": "L018", "family": "comparator", "lang": "es", "label": "SAME", "a": "Exporta como máximo 10 clientes.", "b": "Exporta no más de 10 clientes."}
+{"id": "L019", "family": "comparator", "lang": "es", "label": "SAME", "a": "Exporta como máximo 10 clientes.", "b": "Exporta hasta 10 clientes."}
+{"id": "L020", "family": "comparator", "lang": "es", "label": "SAME", "a": "Exporta más de 10 clientes.", "b": "Exporta por encima de 10 clientes."}
+{"id": "L021", "family": "comparator", "lang": "es", "label": "SAME", "a": "Exporta menos de 10 clientes.", "b": "Exporta por debajo de 10 clientes."}
+{"id": "L022", "family": "comparator", "lang": "es", "label": "DIFF", "a": "Exporta al menos 10 clientes.", "b": "Exporta como máximo 10 clientes."}
+{"id": "L023", "family": "comparator", "lang": "es", "label": "DIFF", "a": "Exporta al menos 10 clientes.", "b": "Exporta más de 10 clientes."}
+{"id": "L024", "family": "comparator", "lang": "es", "label": "DIFF", "a": "Exporta como máximo 10 clientes.", "b": "Exporta menos de 10 clientes."}
+{"id": "L025", "family": "comparator", "lang": "es", "label": "DIFF", "a": "Exporta más de 10 clientes.", "b": "Exporta menos de 10 clientes."}
+{"id": "L026", "family": "comparator", "lang": "es", "label": "DIFF", "a": "Exporta al menos 10 clientes.", "b": "Exporta exactamente 10 clientes."}
+{"id": "L027", "family": "comparator", "lang": "es", "label": "DIFF", "a": "Exporta como máximo 10 clientes.", "b": "Exporta exactamente 10 clientes."}
+{"id": "L028", "family": "comparator", "lang": "es", "label": "DIFF", "a": "Exporta más de 10 clientes.", "b": "Exporta exactamente 10 clientes."}
+{"id": "L029", "family": "comparator", "lang": "es", "label": "DIFF", "a": "Exporta más de 10 clientes.", "b": "Exporta como máximo 10 clientes."}
+{"id": "L030", "family": "comparator", "lang": "es", "label": "DIFF", "a": "Exporta al menos 10 clientes.", "b": "Exporta menos de 10 clientes."}
+{"id": "L031", "family": "comparator", "lang": "es", "label": "DIFF", "a": "Exporta más de 10 clientes.", "b": "Exporta más de 10100 clientes."}
+{"id": "L032", "family": "comparator", "lang": "pt", "label": "SAME", "a": "Exporte no máximo 10 clientes.", "b": "Exporte não mais de 10 clientes."}
+{"id": "L033", "family": "comparator", "lang": "pt", "label": "SAME", "a": "Exporte no máximo 10 clientes.", "b": "Exporte até 10 clientes."}
+{"id": "L034", "family": "comparator", "lang": "pt", "label": "SAME", "a": "Exporte mais de 10 clientes.", "b": "Exporte acima de 10 clientes."}
+{"id": "L035", "family": "comparator", "lang": "pt", "label": "SAME", "a": "Exporte menos de 10 clientes.", "b": "Exporte abaixo de 10 clientes."}
+{"id": "L036", "family": "comparator", "lang": "pt", "label": "DIFF", "a": "Exporte pelo menos 10 clientes.", "b": "Exporte no máximo 10 clientes."}
+{"id": "L037", "family": "comparator", "lang": "pt", "label": "DIFF", "a": "Exporte pelo menos 10 clientes.", "b": "Exporte mais de 10 clientes."}
+{"id": "L038", "family": "comparator", "lang": "pt", "label": "DIFF", "a": "Exporte no máximo 10 clientes.", "b": "Exporte menos de 10 clientes."}
+{"id": "L039", "family": "comparator", "lang": "pt", "label": "DIFF", "a": "Exporte mais de 10 clientes.", "b": "Exporte menos de 10 clientes."}
+{"id": "L040", "family": "comparator", "lang": "pt", "label": "DIFF", "a": "Exporte pelo menos 10 clientes.", "b": "Exporte exatamente 10 clientes."}
+{"id": "L041", "family": "comparator", "lang": "pt", "label": "DIFF", "a": "Exporte no máximo 10 clientes.", "b": "Exporte exatamente 10 clientes."}
+{"id": "L042", "family": "comparator", "lang": "pt", "label": "DIFF", "a": "Exporte mais de 10 clientes.", "b": "Exporte exatamente 10 clientes."}
+{"id": "L043", "family": "comparator", "lang": "pt", "label": "DIFF", "a": "Exporte mais de 10 clientes.", "b": "Exporte no máximo 10 clientes."}
+{"id": "L044", "family": "comparator", "lang": "pt", "label": "DIFF", "a": "Exporte pelo menos 10 clientes.", "b": "Exporte menos de 10 clientes."}
+{"id": "L045", "family": "comparator", "lang": "pt", "label": "DIFF", "a": "Exporte mais de 10 clientes.", "b": "Exporte mais de 10100 clientes."}
+{"id": "L046", "family": "conditional", "lang": "en", "label": "SAME", "a": "Delete the report if the document exists.", "b": "If the document exists, delete the report."}
+{"id": "L047", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Delete the report if the document exists.", "b": "Delete the report unless the document exists."}
+{"id": "L048", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Delete the report if the document exists.", "b": "Delete the report if the document does not exist."}
+{"id": "L049", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Delete the report if the document exists.", "b": "Delete the report."}
+{"id": "L050", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Delete the report if the document exists.", "b": "Delete the report only if the document exists."}
+{"id": "L051", "family": "conditional", "lang": "en", "label": "SAME", "a": "Send the document if the customer approves.", "b": "If the customer approves, send the document."}
+{"id": "L052", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Send the document if the customer approves.", "b": "Send the document unless the customer approves."}
+{"id": "L053", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Send the document if the customer approves.", "b": "Send the document if the customer does not approve."}
+{"id": "L054", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Send the document if the customer approves.", "b": "Send the document."}
+{"id": "L055", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Send the document if the customer approves.", "b": "Send the document only if the customer approves."}
+{"id": "L056", "family": "conditional", "lang": "en", "label": "SAME", "a": "Archive the sales report if the user is an admin.", "b": "If the user is an admin, archive the sales report."}
+{"id": "L057", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Archive the sales report if the user is an admin.", "b": "Archive the sales report unless the user is an admin."}
+{"id": "L058", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Archive the sales report if the user is an admin.", "b": "Archive the sales report if the user is not an admin."}
+{"id": "L059", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Archive the sales report if the user is an admin.", "b": "Archive the sales report."}
+{"id": "L060", "family": "conditional", "lang": "en", "label": "DIFF", "a": "Archive the sales report if the user is an admin.", "b": "Archive the sales report only if the user is an admin."}
+{"id": "L061", "family": "conditional", "lang": "es", "label": "SAME", "a": "Elimina el reporte si el documento existe.", "b": "Si el documento existe, elimina el reporte."}
+{"id": "L062", "family": "conditional", "lang": "es", "label": "DIFF", "a": "Elimina el reporte si el documento existe.", "b": "Elimina el reporte a menos que el documento existe."}
+{"id": "L063", "family": "conditional", "lang": "es", "label": "DIFF", "a": "Elimina el reporte si el documento existe.", "b": "Elimina el reporte si el documento no existe."}
+{"id": "L064", "family": "conditional", "lang": "es", "label": "DIFF", "a": "Elimina el reporte si el documento existe.", "b": "Elimina el reporte."}
+{"id": "L065", "family": "conditional", "lang": "es", "label": "DIFF", "a": "Elimina el reporte si el documento existe.", "b": "Elimina el reporte solo si el documento existe."}
+{"id": "L066", "family": "conditional", "lang": "es", "label": "SAME", "a": "Envía el documento si el cliente aprueba.", "b": "Si el cliente aprueba, envía el documento."}
+{"id": "L067", "family": "conditional", "lang": "es", "label": "DIFF", "a": "Envía el documento si el cliente aprueba.", "b": "Envía el documento a menos que el cliente aprueba."}
+{"id": "L068", "family": "conditional", "lang": "es", "label": "DIFF", "a": "Envía el documento si el cliente aprueba.", "b": "Envía el documento si el cliente no aprueba."}
+{"id": "L069", "family": "conditional", "lang": "es", "label": "DIFF", "a": "Envía el documento si el cliente aprueba.", "b": "Envía el documento."}
+{"id": "L070", "family": "conditional", "lang": "es", "label": "DIFF", "a": "Envía el documento si el cliente aprueba.", "b": "Envía el documento solo si el cliente aprueba."}
+{"id": "L071", "family": "conditional", "lang": "pt", "label": "SAME", "a": "Elimine o relatório se o documento existir.", "b": "Se o documento existir, elimine o relatório."}
+{"id": "L072", "family": "conditional", "lang": "pt", "label": "DIFF", "a": "Elimine o relatório se o documento existir.", "b": "Elimine o relatório a menos que o documento existir."}
+{"id": "L073", "family": "conditional", "lang": "pt", "label": "DIFF", "a": "Elimine o relatório se o documento existir.", "b": "Elimine o relatório se o documento não existir."}
+{"id": "L074", "family": "conditional", "lang": "pt", "label": "DIFF", "a": "Elimine o relatório se o documento existir.", "b": "Elimine o relatório."}
+{"id": "L075", "family": "conditional", "lang": "pt", "label": "DIFF", "a": "Elimine o relatório se o documento existir.", "b": "Elimine o relatório somente se o documento existir."}

@@ -426,6 +426,93 @@ _NOUN_RX = "(?:" + "|".join(rx for _, rx in legacy.DATA_RX + legacy.ENTITY_RX) +
 LAST_NOUN_RX = re.compile(r"\bultim[oa]\s+" + _NOUN_RX)      # singular 'último documento' == 'documento más reciente' (blind A043)
 
 
+# ---- comparators and condition connectives as STRUCTURED constraints (2026-10-13, "extend the vocabulary" request) -------------------------------------
+# Before: `at least 10`, `more than 10`, `10 or more` and `fewer than 10` all encoded as the same QTY=10, so the integrity envelope answered MATCH for
+# 'Export at least 10 customers' vs 'Export fewer than 10 customers' (9 of 30 meaning-changing pairs in data/arena/logic_pairs.jsonl).
+_CMP_PREFIX = {
+    "GE": r"mayor o igual a|mayor o igual que|igual o mayor que|maior ou igual a|at least|no fewer than|not fewer than|no less than|not less than|a minimum of|minimum of|minimum|al menos|como minimo|no menos de|minimo de|pelo menos|no minimo|nao menos de",
+    "GT": r"mayor a|mayor de|maior a|more than|greater than|in excess of|exceeding|over|above|mas de|mayor que|superior a|por encima de|encima de|mais de|maior que|acima de",
+    "LE": r"menor o igual a|menor o igual que|igual o menor que|menor ou igual a|at most|no more than|not more than|up to|a maximum of|maximum of|maximum|as many as|como maximo|no mas de|a lo sumo|hasta|maximo de|no maximo|nao mais de|ate",
+    "LT": r"menor a|menor de|fewer than|less than|lower than|under|below|menos de|menos que|por debajo de|inferior a|menor que|abaixo de",
+    "EQ": r"exactly|precisely|exactamente|exacto|exatamente",
+}
+_CMP_SUFFIX = {
+    "GE": r"or more|or above|or higher|and above|and more|\+|o mas|o superior|y mas|ou mais|ou superior|e mais",
+    "LE": r"or fewer|or less|or lower|or below|and below|o menos|o inferior|y menos|ou menos|ou inferior|e menos",
+}
+_NUM = r"(\d{1,3}(?:[.,]\d{3})+|\d*[.,]\d+|\d+)"
+_CMP_RX = [(op, re.compile(rf"(?<![a-z])(?:{ph})\s+(?:de\s+|the\s+)?{_NUM}(?![\d])")) for op, ph in _CMP_PREFIX.items()]
+_CMP_RX += [(op, re.compile(rf"(?<![\d.,]){_NUM}\s*(?:[a-z]+\s+){{0,2}}?(?:{ph})(?![a-z])")) for op, ph in _CMP_SUFFIX.items()]   # `10 clientes o mas`: a noun may sit between
+
+
+def _canon_num(x: str) -> str:
+    """0.90 -> 0.9, 10.0 -> 10: a comparator bound must compare equal however the number was written."""
+    if x.startswith("."):
+        x = "0" + x
+    return (x.rstrip("0").rstrip(".") if "." in x else x) or "0"
+
+
+_CMP_SYMBOL = [("GE", re.compile(r"(?:>=|=>|\u2265)\s*" + _NUM)), ("LE", re.compile(r"(?:<=|=<|\u2264)\s*" + _NUM)),
+               ("GT", re.compile(r"(?<![<>=-])>(?![=>])\s*" + _NUM)), ("LT", re.compile(r"(?<![<>=-])<(?![=<])\s*" + _NUM))]
+
+
+def _apply_comparators(frame, s: str) -> None:
+    """Direction AND strictness of a numeric bound, bound to its number: CMP=GE:10 (>=), GT:10 (>), LE:10 (<=), LT:10 (<), EQ:10 (exactly).
+    Overlaps are resolved to the LONGEST phrase: `no fewer than 3` is GE, not GE plus the `fewer than 3` (LT) it contains."""
+    hits = []
+    for op, rx in _CMP_RX + _CMP_SYMBOL:
+        for m in rx.finditer(s):
+            hits.append((m.start(), m.end(), op, m.group(1)))
+    hits.sort(key=lambda h: (h[0], -(h[1] - h[0])))
+    kept = []
+    for st, en, op, num in hits:
+        if re.search(r"confianz|confidence|confianc|certeza|certainty|certidumbre", s[max(0, st - 28):en + 28]):
+            continue                                                    # a confidence threshold: modelled as H>= / CONFIDENCE>=, do not duplicate it
+        if any(k_st <= st and en <= k_en for k_st, k_en, _, _ in kept):       # contained in a longer phrase already kept
+            continue
+        kept.append((st, en, op, num))
+    for _st, _en, op, num in sorted(kept):
+        c = f"CMP={op}:{_canon_num(NORM.normalize_number(num))}"
+        if c not in frame.constraints:
+            frame.constraints.append(c)
+
+
+_COND_RX = [("UNLESS", re.compile(r"(?<![a-z])(?:unless|except if|except when|a menos que|a no ser que|salvo que|excepto si|exceto se|salvo se)(?![a-z])")),
+            ("ONLY_IF", re.compile(r"(?<![a-z])(?:only if|only when|solo si|solamente si|unicamente si|somente se|apenas se|so se)(?![a-z])")),
+            ("WHEN", re.compile(r"(?<![a-z])(?:when|whenever|cuando|quando)(?![a-z])")),
+            ("IF", re.compile(r"(?<![a-z])(?:if|si|in case|en caso de que|caso)(?![a-z])")),
+            ("IF", re.compile(r"(?:^|[,;]\s*|\s)se\s+(?:o|a|os|as|um|uma|nao|ha)(?![a-z])"))]
+
+
+_WHETHER = re.compile(r"(?:check|verify|validate|see|ask|know|determine|confirm|test|wonder|decide|tell|find out|figure out|verifica|verificar|verifique|comprueba|comprobar|"
+                      r"revisa|revisar|confirma|confirmar|confirme|valida|validar|averigua|averiguar|pregunta|preguntar|descubre|veja|veja|vê|descubra|saber|sabe)\s+(?:que\s+)?$")
+
+
+def _apply_condition_connectives(frame, s: str, text: str) -> None:
+    """Which connective introduces the condition, structurally: COND=IF | UNLESS | ONLY_IF | WHEN. The free-text residue stays as it was; this is the
+    part that survives paraphrase ('X if Y' / 'If Y, X') and that distinguishes `if` from `unless` without comparing prose.
+    Not conditions: `verify if / check whether ...` (an interrogative object of the action), and a bare Spanish `si` with no clause after it (`si muestrame`
+    = 'yes, show me'); the accented `sí` (yes) is read from the ORIGINAL text."""
+    work = s
+    low = text.lower()
+    for name, rx in _COND_RX:
+        for m in rx.finditer(work):
+            tok = m.group(0).strip(" ,;")
+            if name == "IF":
+                if _WHETHER.search(work[:m.start()]):
+                    continue                                   # 'verify if the report has anomalies'
+                if tok == "si":
+                    after = work[m.end():]
+                    if len(re.findall(r"[a-z]+", after.split(",")[0])) < 2 or work[m.end():m.end() + 1] == ",":
+                        continue                                # 'si muestrame' / 'si, muestrame': an affirmation, not 'if <clause>'
+                    if not re.search(r"(?<![a-z\u00f1\u00e1\u00e9\u00ed\u00f3\u00fa])si(?![a-z\u00f1\u00e1\u00e9\u00ed\u00f3\u00fa])", low):
+                        continue                                # the accented `sí` (yes)
+            c = f"COND={name}"
+            if c not in frame.constraints:
+                frame.constraints.append(c)
+            work = work[:m.start()] + " " * (m.end() - m.start()) + work[m.end():]      # `only if` must not also count as `if`
+
+
 def _apply_recency_order(frame, s: str) -> None:
     """'el informe más reciente' / 'the latest report' = ORDER=MOST_RECENT (GAP-1, §92). A superlative that selects
     WHICH object; it is not a time period, and 'latest N' is already SELECT=LAST (handled upstream)."""
@@ -685,6 +772,8 @@ def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     _apply_forbidden_allowed(frame, forbidden, allowed)
     ordered = _apply_step_order(frame, s)
     _apply_quantities_and_selection(frame, pre, s, conf)
+    _apply_comparators(frame, s)
+    _apply_condition_connectives(frame, s, text)
     frame.conditions += conds
     _apply_recency_order(frame, s)
     _apply_aggregate_qualifiers(frame, s)
