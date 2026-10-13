@@ -164,3 +164,9 @@ This is the same closed-vocabulary ceiling already documented above (open-text e
   (root cause + fail-closed flags AMBIGUOUS_MAY_NOT / AMBIGUOUS_EMBEDDED_NEGATION / UNREPRESENTABLE_EXCEPTION); now 0.
 - The published `compare_verified` and the envelope were already 0. DECIDED share on these seeds is **0.2% (15 of 6569)**: on realistic, longer
   instructions the closed vocabulary abstains almost always (own-author seeds: 23%). This is the real coverage number to quote, not the 23%.
+
+### Update 2026-10-13: how far a hand-extended lexicon can go (`benchmarks/lexicon_coverage_curve.py`)
+Ceiling analysis, selection corpus 4160 texts / 2399 distinct unaccounted words, evaluated on the held-out other-author seeds: knowing the top
+50 words -> 2% of seeds fully accounted, 200 -> 3%, 800 -> 10%, ALL 2399 -> 22%. The long tail is the problem: a 36-noun block moved the
+own-author arena share but cannot move realistic text. Decision: no more hand blocks of nouns; the decided share on realistic instructions
+needs a different mechanism (an arbiter that checks the *residue* only, or open-vocabulary verification), not a bigger table.
