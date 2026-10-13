@@ -197,3 +197,12 @@ unaccounted; the core alone cannot see it (documented limit).
 Deliberately not in the table (already modelled; a second path broke convergence tests): older/newer than, recent, public/private, urgent, open/closed.
 Core-EQUIVALENT on meaning-changing mutants: own seeds 82 -> 25, other-author 321 -> 279; arena decided share 23% -> 30% (own seeds), published layers 0
 defects, SAME recall of the core unchanged on every corpus (after adding repeated/redundant to DUP: one paraphrase pair had split).
+
+### Update 2026-10-13: compose residue — three real silent drops found and fixed
+Reading the core-EQUIVALENT `compose` mutants (not just counting them) found three genuine gaps, not arena artefacts:
+- the DAY of a month was dropped (`March 3rd` == `March 4th`, `after August 1st` == `after August 2nd`): now `DAYM=MAR-03`, unless a full ISO date
+  already carries it;
+- a hyphenated duration was dropped (`45-minute sync` == `54-minute sync`): `45-minute` is normalised to `45 minute`;
+- `older`/`newer` without `than` (`keep the older record`): comparative modifiers OLD/NEW, while `older than N` stays the AGE constraint.
+Still open and documented: an appended clause whose verb folds into an existing action (`copy the team on the email` + `and notify the whole team`
+stays SEND), and unknown-word typos (the core cannot see them; the published layers abstain). Core-EQUIVALENT on mutants (other authors) 279 -> 259.

@@ -484,6 +484,23 @@ _VERB_NEG = re.compile(r"(?<![a-z])(?:not|no|nao|never|nunca|jamais|jamas|don't|
 _N_WORD = re.compile(r"(?<![a-z])(?:ninguno|ninguna|ningun|nadie|nada|nenhum|nenhuma|ninguem|nobody|nothing|none|neither|nor|ni|nem)(?![a-z])|(?<![a-z])no\s+(?:one|body)(?![a-z])")
 
 
+_HYPHEN_UNIT = re.compile(r"(?<![\w.])(\d+(?:[.,]\d+)?)-(?=(?:second|minute|hour|day|week|month|year|segundo|minuto|hora|dia|d\u00eda|semana|mes|ano|a\u00f1o)s?\b)(?=[a-z\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1]+)([a-z\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1]+)", re.I)
+_MONTH_ALT = "|".join(sorted((m for m in legacy.MONTHS), key=len, reverse=True))
+_MON3 = {i + 1: c for i, c in enumerate("JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC".split())}
+_DAY_AFTER_MONTH = re.compile(r"(?<![a-z0-9])(" + _MONTH_ALT + r")\s+(\d{1,2})(?:st|nd|rd|th|o)?(?![0-9a-z:/-])(?!\.\d)(?!\s*(?:%|percent|por ciento))")
+_DAY_BEFORE_MONTH = re.compile(r"(?<![0-9a-z:/.-])(\d{1,2})(?:st|nd|rd|th|o)?\s+(?:of\s+|de\s+|do\s+)?(" + _MONTH_ALT + r")(?![a-z])")
+
+
+def _day_of_month(s: str) -> list:
+    """`March 3rd` / `3 de marzo` / `3rd of March` -> MAR-03: the day was silently dropped (only the month survived), so `March 3rd` == `March 4th`."""
+    out = set()
+    for m in _DAY_AFTER_MONTH.finditer(s):
+        out.add((legacy.MONTHS[m.group(1)][1], int(m.group(2))))
+    for m in _DAY_BEFORE_MONTH.finditer(s):
+        out.add((legacy.MONTHS[m.group(2)][1], int(m.group(1))))
+    return sorted(f"{mon}-{d:02d}" for mon, d in out if 1 <= d <= 31)
+
+
 def _clauses(s: str):
     return [c for c in re.split(r"[,;:.!?]|\b(?:and then|y luego|e depois|then|luego|depois|but|pero|mas)\b", s) if c.strip()]
 
@@ -505,6 +522,10 @@ def _apply_surface_operators(frame, s: str, text: str) -> None:
     days = sorted(c for c, rx in _DOW_RX if rx.search(s))
     if days:
         frame.constraints.append("DOW=" + ",".join(days))
+    full = {f"{_MON3[int(i[5:7])]}-{i[8:10]}" for i in re.findall(r"\d{4}-\d{2}-\d{2}", frame.time or "")}      # day already carried by a resolved full date
+    days_m = [d for d in _day_of_month(s) if d not in full]
+    if days_m:
+        frame.constraints.append("DAYM=" + ",".join(days_m))
     from aixl.core.modifiers import codes_in
     mods = codes_in(text)
     if mods:
@@ -734,6 +755,7 @@ def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     check_size(text)                                         # O(n^2) analysis: refuse before any rule runs
     text, obfuscation = sanitize_input(text)               # §39: strip invisible chars / fold lookalike letters BEFORE any rule runs
     text = re.sub(r"[ \t]+", " ", text).strip()              # arena finding: runs of spaces broke multi-word terms ('esta   semana') silently
+    text = _HYPHEN_UNIT.sub(r"\1 \2", text)               # `45-minute sync` was dropped: the number-unit pair is a duration like `45 minutes`
     frame, pre, s, conds, passives, warns, conf = _prepare_frame(text, today)
     pos: dict = {}
     for act, rx in legacy.ACTION_RX:

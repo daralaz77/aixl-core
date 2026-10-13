@@ -32,6 +32,7 @@ _RAW = {
     "PROD": "production|produccion|producao",
     "STAGING": "staging|preproduccion|homologacao",
 }
+_COMPARATIVE = {"older": "OLD", "oldest": "OLD", "newer": "NEW", "newest": "NEW"}
 _STRIP = lambda w: strip_accents(w).lower()      # noqa: E731
 WORD_CODE = {w: code for code, ws in _RAW.items() for w in ws.split("|")}
 _TOK = re.compile(r"(?<![a-z0-9])[a-z]+(?:-[a-z]+)?(?![a-z0-9])")
@@ -39,7 +40,12 @@ _TOK = re.compile(r"(?<![a-z0-9])[a-z]+(?:-[a-z]+)?(?![a-z0-9])")
 
 def codes_in(text: str) -> list:
     """Sorted unique canonical modifier codes mentioned in `text`."""
-    return sorted({WORD_CODE[t] for t in _TOK.findall(strip_accents(text).lower()) if t in WORD_CODE})
+    toks = _TOK.findall(strip_accents(text).lower())
+    out = {WORD_CODE[t] for t in toks if t in WORD_CODE}
+    for i, t in enumerate(toks):         # `keep the older record` is a modifier; `older than 1 year` is the AGE constraint (modelled elsewhere)
+        if t in _COMPARATIVE and not (i + 1 < len(toks) and toks[i + 1] in ("than", "que", "do")):
+            out.add(_COMPARATIVE[t])
+    return sorted(out)
 
 
 def accounted_words(constraints) -> set:

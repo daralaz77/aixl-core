@@ -124,3 +124,23 @@ def test_contrast_modifiers_reach_the_graph(a, b):
 ])
 def test_contrast_modifier_synonyms_converge(a, b):
     assert aixl.compare(a, b).equivalent is True
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Delete invoices from March 3rd.", "Delete invoices from March 4th."),
+    ("Send it to employees who joined after August 1st.", "Send it to employees who joined after August 2nd."),
+    ("Schedule a 45-minute sync.", "Schedule a 54-minute sync."),
+    ("Keep the older record as the primary one.", "Keep the newer record as the primary one."),
+])
+def test_compose_findings_day_of_month_hyphen_duration_comparative(a, b):
+    """arena `compose` residue (2026-10-13): the day of a month, a `45-minute` duration and `older`/`newer` (without `than`) were silently dropped."""
+    assert aixl.compare(a, b).equivalent is False
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Elimina las facturas del 3 de marzo.", "Delete invoices from March 3rd."),
+    ("Schedule a 45-minute sync.", "Schedule a 45 minute sync."),
+    ("Calcula las ventas totales entre el 1 y el 15 de agosto de 2026.", "Calcula las ventas totales del 01/08/2026 al 15/08/2026."),
+])
+def test_compose_findings_do_not_split_true_paraphrases(a, b):
+    assert aixl.compare(a, b).equivalent is True
