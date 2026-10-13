@@ -10,7 +10,11 @@ from aixl.translators.natural_to_semantic import to_graph
 
 
 def _fp(text):
-    g = to_graph(text)
+    from aixl.core.limits import InputTooLarge
+    try:
+        g = to_graph(text)
+    except InputTooLarge:
+        return None, False                                  # too large to analyse: no claim either way
     complete = is_complete(text, g)
     return fingerprint_graph(g, length=8), complete
 

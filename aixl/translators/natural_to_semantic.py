@@ -223,7 +223,7 @@ def _quantities(pre: str, frame: SemanticFrame):
     spans += _spans(rf"\b(?:{MONTHS_RX})\s+\d{{1,2}}(?:st|nd|rd|th)?,?\s+(?:19|20)\d\d\b", s)
     spans += _spans(r"\b\d{1,2}/\d{1,2}/(?:19|20)\d\d\b", s)                                                             # DD/MM/YYYY (0.3)
     spans += _spans(rf"\b\d{{1,2}}\s+(?:y|al|a|and|to)\s+(?:el\s+)?\d{{1,2}}\s+(?:de\s+)?(?:{MONTHS_RX})\s*(?:de\s+)?(?:19|20)\d\d\b", s)  # 'del 1 al 15 de agosto de 2026' (0.3)
-    for y in re.findall(r"(?:19|20)\d\d", frame.time or ""):
+    for y in dict.fromkeys(re.findall(r"(?:19|20)\d\d", frame.time or "")):      # DISTINCT years: one scan per year, not per occurrence (was O(n^2))
         spans += _spans(rf"\b{y}\b", s)
     spans += _spans(r"\b(?:confianza|confidence|confianca|certeza|certainty)\b[^0-9;]{0,40}?\d+(?:[.,]\d+)?\s*%?", s)
     spans += _spans(r"\d+(?:[.,]\d+)?\s*%\s*(?:de\s+|of\s+)?(?:confianza|confidence|confianca)", s)
@@ -539,10 +539,13 @@ def _apply_visibility(frame, s: str) -> None:
 
 def _apply_date_relation_constraints(frame, s: str) -> None:
     """before / after a date or period already extracted."""
+    found: dict = {}                      # one scan per DISTINCT date (a repeated date used to cost two full-text scans per occurrence: O(n^2))
     for t in (frame.time.split(",") if frame.time else []):
-        for kw, con in ((r"antes de(?:l| la| el)?|before|prior to", "BEFORE"), (r"despues de(?:l| la| el)?|depois de|after|later than", "AFTER")):
-            if re.search(rf"\b(?:{kw})\s+(?:el\s+)?{re.escape(t.lower())}", s):
-                frame.constraints.append(f"{con}={t}")
+        if t not in found:
+            found[t] = [con for kw, con in ((r"antes de(?:l| la| el)?|before|prior to", "BEFORE"), (r"despues de(?:l| la| el)?|depois de|after|later than", "AFTER"))
+                        if re.search(rf"\b(?:{kw})\s+(?:el\s+)?{re.escape(t.lower())}", s)]
+        for con in found[t]:              # same output as before, duplicates included
+            frame.constraints.append(f"{con}={t}")
 
 
 def _collapse_date_range_to_period(frame) -> None:
@@ -599,7 +602,9 @@ def _looks_portuguese(lang: str, raw: str, s: str) -> bool:
 
 
 def to_graph(text: str, today: date | None = None) -> SemanticGraph:
+    from aixl.core.limits import check_size
     from aixl.core.normalizer import sanitize_input
+    check_size(text)                                         # O(n^2) analysis: refuse before any rule runs
     text, obfuscation = sanitize_input(text)               # §39: strip invisible chars / fold lookalike letters BEFORE any rule runs
     text = re.sub(r"[ \t]+", " ", text).strip()              # arena finding: runs of spaces broke multi-word terms ('esta   semana') silently
     frame, pre, s, conds, passives, warns, conf = _prepare_frame(text, today)

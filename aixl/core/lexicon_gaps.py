@@ -130,7 +130,7 @@ def unaccounted_content(text: str, graph) -> list[str]:
     INCONCLUSIVE verdict (compare only looks at the DIFFERENCE between the two sides' lists)."""
     canon = repr(graph.canonical()).lower()
     out = []
-    for w in _TOKEN.findall(strip_accents(text).lower()):
+    for w in dict.fromkeys(_TOKEN.findall(strip_accents(text).lower())):          # each DISTINCT token once (the `f in canon` scans were repeated per occurrence)
         if (len(w) < 3 and not w[0].isdigit()) or w in FUNCTION_WORDS:
             continue
         fs = _forms(w)

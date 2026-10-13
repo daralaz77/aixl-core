@@ -32,6 +32,12 @@ def expand(c: str) -> str:
 
 
 def translate_gated(text: str) -> dict:
+    from aixl.core.limits import InputTooLarge, check_size
+    try:
+        check_size(text)
+    except InputTooLarge:                                   # fail closed and fast: hand the text back untouched, claim nothing
+        return {"mode": "NATURAL", "output": text, "aixl": "", "tokens_natural": count_tokens(text), "tokens_aixl": 0, "saving": 0.0,
+                "roundtrip_fingerprint_ok": False, "complete": False, "reason": "input_too_large", "fingerprint": None}
     original = text
     # whitespace runs break multi-word terms ('esta   semana', arena finding), so ANALYSE a normalised copy; but the NATURAL passthrough must be the
     # caller's text byte-for-byte (indentation, tabs, trailing newline are content: code, YAML, tables)

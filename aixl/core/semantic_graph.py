@@ -67,9 +67,15 @@ class SemanticGraph:
     # ---- construction -------------------------------------------------------------------------------
     def add_node(self, type_: str, value: str, attributes=None, confidence=1.0, source="natural_language",
                  provenance="EXPLICIT") -> SemanticObject:
-        n = SemanticObject(f"{type_.lower()}_{sum(1 for x in self.nodes if x.type == type_) + 1}", type_, value,
-                           attributes or {}, confidence, source, provenance)
+        if getattr(self, "_seen", -1) != len(self.nodes):          # list changed outside add_node (or first call): recount once
+            self._by_type = {}
+            for x in self.nodes:
+                self._by_type[x.type] = self._by_type.get(x.type, 0) + 1
+        k = self._by_type.get(type_, 0) + 1                        # O(1); was a scan of every node per add (O(n^2) graph build)
+        self._by_type[type_] = k
+        n = SemanticObject(f"{type_.lower()}_{k}", type_, value, attributes or {}, confidence, source, provenance)
         self.nodes.append(n)
+        self._seen = len(self.nodes)
         return n
 
     def add_edge(self, source: str, relation: str, target: str, **attrs) -> SemanticRelation:

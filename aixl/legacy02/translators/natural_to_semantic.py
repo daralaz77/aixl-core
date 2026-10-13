@@ -286,7 +286,8 @@ def analyze(text: str) -> tuple:
         f.constraints.append(f"LIMIT={_num(m.group(2).rstrip('.,'))}"); W.eat(m.start(), m.end())
 
     nouns = "|".join(rx.replace(r"\b", "") for _, rx in DATA_RX + ENTITY_RX)
-    for m in list(re.finditer(rf"\b(\d[\d.,]*\d|\d)\s+(?:de\s+)?(?={'(?:' + nouns + ')'}\b)", W.s)):
+    # `\d[\d.,]*\d` backtracked over the whole digit/comma run from every start: O(n^2) on '1,2,3,...'. A real number is never > 40 chars.
+    for m in list(re.finditer(rf"\b(\d[\d.,]{{0,40}}\d|\d)\s+(?:de\s+)?(?={'(?:' + nouns + ')'}\b)", W.s)):
         f.constraints.append(f"COUNT={_num(m.group(1))}"); W.eat(m.start(), m.end(1))
 
     # 7. location (capitalized chain; accepted only if a known place/country is inside)
