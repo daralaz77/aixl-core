@@ -112,17 +112,25 @@ def _strip(s):
 
 
 class _Work:
+    """The accent-stripped, lower-cased working copy that `analyze` consumes piece by piece (`eat` blanks what a rule already used).
+    Kept as ONE string: it used to be a list of characters re-joined on every `.s` access, which was O(n) per access and ~130 us per
+    join at 62 KB (4,119 accesses -> 0.54 s). A slice copy per `eat` is ~20x cheaper and `.s` is free."""
+
     def __init__(self, text):
         self.orig = text.replace("’", "'")
-        self.w = list(_strip(self.orig))
+        self._s = _strip(self.orig)
 
     @property
     def s(self):
-        return "".join(self.w)
+        return self._s
+
+    @property
+    def w(self):                            # kept for compatibility; nothing in the repo reads it
+        return list(self._s)
 
     def eat(self, a, b):
-        for i in range(a, b):
-            self.w[i] = " "
+        if b > a:
+            self._s = self._s[:a] + " " * (min(b, len(self._s)) - a) + self._s[b:]
 
 
 def detect_lang(text):

@@ -42,3 +42,13 @@ def test_repeated_dates_and_words_give_the_same_result_as_one_occurrence_and_sca
     t0 = time.perf_counter(); to_graph(one * 40); small = time.perf_counter() - t0
     t0 = time.perf_counter(); to_graph(one * 160); big = time.perf_counter() - t0
     assert big < small * 12 + 0.05                       # 4x the input: <= ~12x (quadratic would be ~16x; linear ~4x). Loose on purpose: stable on busy CI
+
+
+def test_repeated_sentences_scale_roughly_linearly(monkeypatch):            # was x3.4 per doubling (quadratic): the working string was re-joined on every access
+    from aixl.translators.natural_to_semantic import to_graph
+    monkeypatch.setenv("AIXL_MAX_INPUT_CHARS", "1000000")        # 1,600 sentences = 49 KB, above the default analysis limit
+    unit = "Analiza las ventas de Q1 2026. "
+    to_graph(unit * 50)                                          # warm-up (regex compilation)
+    t0 = time.perf_counter(); to_graph(unit * 400); small = time.perf_counter() - t0
+    t0 = time.perf_counter(); to_graph(unit * 1600); big = time.perf_counter() - t0
+    assert big < small * 9 + 0.05                                # 4x input: linear ~4x, quadratic ~16x
