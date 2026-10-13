@@ -40,6 +40,13 @@ SEEDS += GATE_SEEDS
 # Seeds with a conjunction: the AND->OR attacker below needs one (found 2026-10-13: 'a Ana y a Luis' -> 'a Ana o a Luis' was MATCH in the envelope)
 CONJ_SEEDS = ["Envía el informe a Ana y a Luis.", "Delete the old backups and the logs.", "Borra los archivos y las carpetas.", "Send the report to Ana and notify Luis."]
 SEEDS += CONJ_SEEDS
+# Seeds for the 2026-10-13 families: sequence, condition, quantifier/comparator, modality, and negation inside a conjunct.
+LOGIC_SEEDS = ["Envía el informe y luego borra los registros antiguos.", "Send the report and then delete the old logs.",
+               "Borra los respaldos si la auditoría pasó.", "Delete the backups if the audit passed.", "Archive the tickets when the client approves.",
+               "Exporta al menos 10 registros.", "Export at most 5 records.", "Process more than 100 orders.", "Delete all the temporary files.",
+               "You must delete the old backups.", "Debes borrar los respaldos antiguos.", "You may send the report to Ana.", "Puedes enviar el informe a Ana.",
+               "Send the report to Ana and delete the old logs.", "Envía el informe y borra los registros antiguos."]
+SEEDS += LOGIC_SEEDS
 
 # ---- attackers: (name, kind, fn(text, rng)->text|None) ; kind META = meaning-changing, COSM = cosmetic ----------------
 NEG_PRE = ["Never ", "Do not ", "Nunca ", "No quiero que "]
@@ -83,10 +90,44 @@ def a_lex(t, r):
 def a_quantifier_add(t, r):
     return t.rstrip(".") + r.choice([", excepto los de 2025.", ", except the ones from 2025.", ", pero solo los de Colombia.", ", only for admins."])
 CONJ = [(" y ", " o "), (" and ", " or "), (" e ", " ou "), (" o ", " y "), (" or ", " and ")]
+_PT = ("ção", "relatório", " não ", " do ", " da ", " dos ", " das ", " pontos", "arquivos antigos")
 def a_conj_swap(t, r):
-    c = [(a, b) for a, b in CONJ if a in t]
+    pt = any(m in t for m in _PT)                                # PT `o` is an article, not 'or': swapping it makes nonsense, not a meaning flip
+    c = [(a, b) for a, b in CONJ if a in t and not (pt and a == " o ")]
     if not c: return None
     a, b = r.choice(c); return t.replace(a, b, 1)
+QFLIP = [("al menos", "como máximo"), ("como máximo", "al menos"), ("at least", "at most"), ("at most", "at least"), ("más de", "menos de"),
+         ("menos de", "más de"), ("more than", "fewer than"), ("less than", "more than"), ("all the", "none of the"), ("todos los", "ninguno de los"),
+         ("todas las", "ninguna de las"), ("exactly", "about"), ("exactamente", "aproximadamente")]
+def a_quant_flip(t, r):
+    c = [(a, b) for a, b in QFLIP if a in t]
+    if not c: return None
+    a, b = r.choice(c); return t.replace(a, b, 1)
+CFLIP = [(" if ", " unless "), (" si ", " a menos que "), (" when ", " unless "), (" cuando ", " excepto cuando "), (" unless ", " if "), (" only if ", " even if ")]
+def a_cond_flip(t, r):
+    c = [(a, b) for a, b in CFLIP if a in t]
+    if not c: return None
+    a, b = r.choice(c); return t.replace(a, b, 1)
+def a_cond_drop(t, r):
+    m = re.search(r"\s(if|si|when|cuando|unless)\s", t)
+    return t[:m.start()] + "." if m else None
+MFLIP = [("must", "may"), ("may", "must"), ("debes", "puedes"), ("puedes", "debes"), ("debe ", "puede "), ("should", "may"), ("deberías", "puedes")]
+def a_modal_flip(t, r):
+    c = [(a, b) for a, b in MFLIP if re.search(rf"\b{a.strip()}\b", t)]
+    if not c: return None
+    a, b = r.choice(c); return re.sub(rf"\b{a.strip()}\b", b.strip(), t, count=1)
+def a_neg_scope(t, r):
+    """Negate the SECOND conjunct only: 'Send A and delete B' -> 'Send A and do not delete B'."""
+    for conj, neg in ((" and ", " and do not "), (" y ", " y no "), (" e ", " e não ")):
+        if conj in t: return t.replace(conj, neg, 1)
+    return None
+def a_order_swap(t, r):
+    """Reverse a sequence: 'X and then Y' -> 'Y and then X' (a conjunction without 'then' is commutative, a sequence is not)."""
+    for sep in (" and then ", " y luego "):
+        if sep in t:
+            x, y = t.rstrip(".").split(sep, 1)
+            return y[:1].upper() + y[1:] + sep + x[:1].lower() + x[1:] + "."
+    return None
 def a_compose(t, r):
     fns = [a_num, a_name, a_antonym, a_lex, a_add_constraint, a_neg_prefix]
     out = t
@@ -109,7 +150,8 @@ def a_punct(t, r): return t.rstrip(".") + r.choice(["", ".", "..", " ."])
 
 NL_ATTACKERS = [("neg_prefix", "META", a_neg_prefix), ("neg_suffix", "META", a_neg_suffix), ("num_change", "META", a_num),
                 ("name_swap", "META", a_name), ("antonym", "META", a_antonym), ("add_constraint", "META", a_add_constraint),
-                ("drop_tail", "META", a_drop_tail), ("lex_swap", "META", a_lex), ("quantifier_add", "META", a_quantifier_add), ("conj_swap", "META", a_conj_swap), ("compose", "META", a_compose), ("case", "COSM", a_case), ("nbsp", "COSM", a_nbsp), ("quotes", "COSM", a_quotes), ("please", "COSM", a_please), ("tab_nl", "COSM", a_tab_nl), ("wordnum", "COSM", a_wordnum), ("space", "COSM", a_space), ("punct", "COSM", a_punct)]
+                ("drop_tail", "META", a_drop_tail), ("lex_swap", "META", a_lex), ("quantifier_add", "META", a_quantifier_add), ("conj_swap", "META", a_conj_swap), ("quant_flip", "META", a_quant_flip), ("cond_flip", "META", a_cond_flip), ("cond_drop", "META", a_cond_drop),
+                ("modal_flip", "META", a_modal_flip), ("neg_scope", "META", a_neg_scope), ("order_swap", "META", a_order_swap), ("compose", "META", a_compose), ("case", "COSM", a_case), ("nbsp", "COSM", a_nbsp), ("quotes", "COSM", a_quotes), ("please", "COSM", a_please), ("tab_nl", "COSM", a_tab_nl), ("wordnum", "COSM", a_wordnum), ("space", "COSM", a_space), ("punct", "COSM", a_punct)]
 
 WIRE_BASE = ["V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE D:SALES T:Q1-2026",
              "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE,SEND E:REPORT Y:@ANA N:NO_DELETE K:FORBID_DELETE,BIND=DELETE>REPORT",
@@ -391,8 +433,12 @@ def scope(seed: int = 7, reps: int = 5) -> dict:
                 if aixl.compare(base, m).equivalent:
                     c["core_compare_equivalent"] += 1; known.append((name, base, m))
                 from aixl.api.service import compare_verified
-                if compare_verified(base, m)["equivalent"]:
+                cv = compare_verified(base, m)
+                if cv["equivalent"]:
                     c["verified_compare_equivalent"] += 1
+                c["decided"] += bool(cv.get("complete"))             # both texts completely accounted for: the layers made a real decision
+                c["family_n:" + name] += 1
+                c["family_decided:" + name] += bool(cv.get("complete"))
                 v = verify(seal(base), m); c["envelope_" + v] += 1
                 g = translate_gated(m); c["gate_" + g["mode"]] += 1
                 if g["mode"] == "AIXL":
@@ -418,6 +464,10 @@ if __name__ == "__main__":
         print(f"  integrity envelope MATCH            : {k.get('envelope_MATCH', 0)}   (defect if > 0; MISMATCH {k.get('envelope_MISMATCH', 0)}, UNVERIFIED {k.get('envelope_UNVERIFIED', 0)})")
         print(f"  gate AIXL (lossy or collapsed)      : {k.get('gate_AIXL', 0)} AIXL / {k.get('gate_NATURAL', 0)} NATURAL, collapse {k.get('gate_collapse', 0)}")
         print(f"  core comparator EQUIVALENT (known)  : {k.get('core_compare_equivalent', 0)}   (documented limit, not a defect)")
+        n = k.get("mutants", 0); d = k.get("decided", 0)
+        print(f"  DECIDED (both texts complete)       : {d} of {n} ({100*d/max(n,1):.0f}%)  -> a zero above is only meaningful over these; the rest the layers ABSTAINED on")
+        never = sorted(f.split(":", 1)[1] for f in k if f.startswith("family_n:") and k.get("family_decided:" + f.split(":", 1)[1], 0) == 0)
+        print(f"  families with 0 decided (verification vacuous there): {never or 'none'}")
         for n, b0, m in r["known_limits"][:30]: print(f"      [{n}] {b0!r} -> {m!r}")
         sys.exit(1 if k.get("semantic_equivalent") or k.get("verified_compare_equivalent") or k.get("envelope_MATCH") or k.get("gate_collapse") else 0)
     elif a.cmd == "selftest":

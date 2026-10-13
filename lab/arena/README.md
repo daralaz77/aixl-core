@@ -4,7 +4,7 @@ Attackers mutate seeds; oracles with ground truth by construction judge; failure
 Results 2026-10-10 (≈20 seeds-rounds ×60 attacks, own-author seeds): 1 uncontained defect found+fixed (runs of spaces dropped "esta semana" while the gate said AIXL), 1 contained (lowercase/ALL-CAPS names lost by translator, gate falls back NATURAL). 0 WIRE crashes/hangs. A clean arena is not proof of correctness.
 
 ## Scope: what each number is about  (`python -m lab.arena.arena scope`, fixed seed, writes nothing)
-An earlier version of this file said "0 META-FALSE-EQUIVALENT". That was true **only for the experimental comparator** (`aixl.semantic`). Per layer, over 1036 meaning-changing mutants (2026-10-13 sweep; 844 on 2026-10-10):
+An earlier version of this file said "0 META-FALSE-EQUIVALENT". That was true **only for the experimental comparator** (`aixl.semantic`). Per layer, over 1,036 meaning-changing mutants (2026-10-13 morning sweep; 844 on 2026-10-10; the 13-family sweep below has 1,676):
 
 | layer | result | how to read it |
 |---|---|---|
@@ -13,6 +13,12 @@ An earlier version of this file said "0 META-FALSE-EQUIVALENT". That was true **
 | integrity envelope (`envelope.verify`) | **0 MATCH** (261 MISMATCH, 775 UNVERIFIED) | shipped; abstains instead of guessing. Had 8 false MATCH on AND<->OR flips before the connective witness |
 | token gate (`translate_gated`) | 10 AIXL / 1026 NATURAL, **0 collapsed** | see the caveat below |
 | core comparator (`aixl.compare`) | **82 EQUIVALENT** of 1036 | KNOWN limit of the closed lexicons (grew from 24/844 with the new conjunction seeds), not a defect; patterns in `LIMITATIONS.md` ("E-ARENA-SCOPE") |
+
+**Decided vs abstained (added 2026-10-13).** A zero is only evidence over the mutants where the layers actually *decided* (both texts completely accounted for). `scope` prints
+that share and the families where it is zero. Over 1,676 mutants (13 META families, incl. quantifier/comparator flips, `if`/`unless`, dropped conditions, `must`/`may`, negation
+inside a conjunct, sequence reversal): **245 (15 %) were decided**; ten families were decided **0 times** (`add_constraint, antonym, cond_drop, cond_flip, modal_flip, neg_scope,
+neg_suffix, order_swap, quant_flip, quantifier_add`) because the seeds or the mutants contain content outside the closed vocabulary: there the published layers are safe **by
+abstaining (UNVERIFIED/INCONCLUSIVE), not by detecting**. That is a capability boundary, not a safety defect, and it is the honest reading of "0 defects".
 
 **Caveat on the gate row.** Until 2026-10-10 *none of the 22 seeds ever took the AIXL path of the gate*, so the oracles `META-GATE-DROPPED-NUMBER/NEGATION/COLLAPSE` had never fired in a real run (0 AIXL out of 737 was vacuous). Four dedicated `GATE_SEEDS` now reach it, but only a handful of mutants (8 of 844, all `num_change`) do, so this is a thin check, not strong evidence. What shows the oracles *can* fire is `selftest`: it plants 5 bugs (comparator says EQUIVALENT, decoder drops a prohibition, gate drops a number, envelope MATCHes a meaning change, gate collapses two meanings into one AIXL) and requires all 5 to be flagged.
 The envelope and gate oracles are in `judge_meta`, so `run` now attacks them too; `replay` reports `CONTAINED` (not `FIXED`) for a failure the translator still has but the gate contains.

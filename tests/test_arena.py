@@ -81,10 +81,34 @@ def test_selftest_plants_a_bug_for_every_oracle_family():
         assert word in names, word
 
 
-@pytest.mark.slow                                          # ~10 s: the experimental comparator costs ~50 ms per mutant; CI runs it, `-m "not slow"` skips it
-def test_scope_shipped_layers_have_no_defects_and_the_aixl_path_is_exercised():
+@pytest.fixture(scope="module")
+def scope_counts():
     from lab.arena.arena import scope
-    k = scope(reps=1)["counts"]                               # the full 5-rep sweep (844 mutants) is `python -m lab.arena.arena scope`
+    return scope(reps=1)["counts"]                                # the full 5-rep sweep (1,676 mutants) is `python -m lab.arena.arena scope`
+
+
+@pytest.mark.slow                                          # ~15 s: the experimental comparator costs ~50 ms per mutant; CI runs it, `-m "not slow"` skips it
+def test_scope_shipped_layers_have_no_defects_and_the_aixl_path_is_exercised(scope_counts):
+    k = scope_counts
     assert k["mutants"] > 100
     assert k.get("semantic_equivalent", 0) == 0 and k.get("envelope_MATCH", 0) == 0 and k.get("gate_collapse", 0) == 0
+    assert k.get("verified_compare_equivalent", 0) == 0
     assert k.get("gate_AIXL", 0) > 0                          # not vacuous: some mutants did reach the AIXL branch
+
+
+@pytest.mark.slow
+def test_new_attack_families_exist_and_scope_reports_what_was_decided(scope_counts):
+    from lab.arena.arena import NL_ATTACKERS
+    names = {n for n, _, _ in NL_ATTACKERS}
+    assert {"conj_swap", "quant_flip", "cond_flip", "cond_drop", "modal_flip", "neg_scope", "order_swap"} <= names
+    k = scope_counts
+    assert 0 < k["decided"] < k["mutants"]                    # some real decisions, and the abstentions are counted instead of hidden
+    assert any(key.startswith("family_decided:") for key in k)
+
+
+def test_pt_article_o_is_not_attacked_as_a_disjunction():
+    import random
+
+    from lab.arena.arena import a_conj_swap
+    assert a_conj_swap("Resuma o relatório em cinco pontos.", random.Random(1)) is None
+    assert a_conj_swap("Envía el informe a Ana y a Luis.", random.Random(1)) == "Envía el informe a Ana o a Luis."

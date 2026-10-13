@@ -20,6 +20,15 @@ Costo declarado de 4–5: recall de paráfrasis verdaderas en texto abierto 22�
 | 7 | **Lint de CI bloqueante** | `continue-on-error: true`; solo `aixl benchmarks tests` | bloqueante sobre **todo el repo** (`ruff check .` = 0), ruff fijado a la versión medida, y un job `arena` (`selftest` + `scope`, salida ≠ 0 si hay defecto) como compuerta de release; `check_imports` en el job de tests |
 | 8 | **Aviso de uso seguro de `aixl.compare`** | solo en LIMITATIONS | docstring de la función y del paquete, caja en el README y nota en la CLI (por `stderr`; `stdout` y `--json` intactos) |
 
+### Continuación del bucle (iteraciones 9–11: pasos 4–6 de la lista)
+| # | Paso | Antes | Después (verificado) |
+|---|---|---|---|
+| 9 | **`AIXL-ENV-2`** | `verify` no validaba versión ni forma; un sobre sellado antes del guard Y/O seguía con el hueco aunque llevara su texto | versión declarada y validada; ENV-1 aceptado recalculando el testigo desde su `text`; sobres mal formados, de versión desconocida o sin testigo → `UNVERIFIED`, nunca excepción (el sobre NO va firmado: autenticar al emisor es del transporte) |
+| 10 | **Último patrón superlineal** (oraciones repetidas) | 124 KB ≈ 2.5 s; 248 KB ≈ 9 s (×3.4 por duplicación) | 124 KB ≈ 0.54 s; 248 KB ≈ 1.2 s (×2.1–2.3): la causa era `"".join` de una lista de 62.000 caracteres en **cada** acceso a `W.s`. Equivalencia: **2.317/2.317** textos idénticos con árboles de código distintos. Guarda de escalado añadida |
+| 11 | **6 familias nuevas de atacantes** (cuantificadores/comparadores, `if`/`unless`, condición eliminada, `must`/`may`, negación dentro de un conjunto, inversión de secuencia) | 7 familias META | 13 familias, 1.676 mutantes: **0 defectos** en las capas publicadas, **pero solo 15 % (245) se decidieron de verdad**; 10 familias con 0 decididos |
+
+**Lo que el paso 11 enseña (importante):** un "0 defectos" no es seguridad por detección. Para modalidad (`must`/`may`), condicionales, comparadores y alcance de la negación, **las capas publicadas se abstienen siempre** (`UNVERIFIED`/`INCONCLUSIVE`): nunca afirman, pero tampoco detectan. `scope` ahora imprime la fracción decidida y las familias con 0 decididos para que el cero no engañe. Con semillas construidas solo con léxico conocido (60 mutantes) tampoco apareció ningún hueco. Corregí además un atacante impreciso: el artículo portugués `o` no es una disyunción.
+
 **Honestidad sobre lo que NO cubre el paso 6:** TLS (debe terminar en el ingress), rotación de token, cuotas por cliente (el límite es por dirección y por proceso: N réplicas = N× el límite), y autorización más fina que "tiene el token". **El token en el entorno es secreto de despliegue: no se probó contra un gestor de secretos real.**
 
 ## 2. DATOS CONFIRMADOS frente a SUPOSICIONES
@@ -43,7 +52,7 @@ Costo declarado de 4–5: recall de paráfrasis verdaderas en texto abierto 22�
 | 2 | Servidor A2A expuesto sin autenticación ni límite de tasa | 5 | 8 | **40** | **CERRADO (iteración 6)**: falla cerrado, token Bearer, límite de tasa y de cuerpo; sin TLS ni cuotas por cliente |
 | 3 | Quien consume `equivalent` de `aixl.compare` (API, no MCP) confía en un veredicto inseguro en texto abierto | 6 | 7 | **42** | mitigado en MCP/A2A; **aviso de uso seguro en API, paquete, README y CLI (iteración 8)**; el comportamiento de la biblioteca no cambia por compatibilidad |
 | 4 | Diferenciador absorbido por árbitros LLM baratos (precio/latencia cayendo) | 6 | 7 | 42 | abierto |
-| 5 | Meaning flips aún desconocidos (el Y/O estuvo 5 semanas sin verse) | 6 | 7 | 42 | **mitigado en parte**: arena + scope; semillas de un solo autor |
+| 5 | Meaning flips aún desconocidos (el Y/O estuvo 5 semanas sin verse) | 6 | 7 | 42 | **mitigado en parte**: arena con 13 familias; solo el 15 % de los mutantes se decide, el resto se abstiene; semillas de un solo autor |
 | 6 | Conclusión cuantitativa sobre un corpus propio / un solo autor | 5 | 6 | 30 | abierto |
 | 7 | Agotamiento de CPU por patrón superlineal remanente (124 KB ~ 2.5 s) | 3 | 5 | 15 | acotado por el límite |
 | 8 | Deriva documental: 41 docs, claims históricos y vigentes mezclados | 5 | 4 | 20 | abierto |
@@ -76,4 +85,4 @@ Nada garantiza crecimiento exponencial; estos son los mecanismos que **se acumul
 **NO-GO** para posicionarlo como probador general de equivalencia semántica o desplegarlo públicamente sin esas condiciones.
 
 ## 10. Próximos 10 pasos
-1. ~~Autenticación + límite de tasa en A2A~~ **hecho (iteración 6)**; falta TLS en el ingress. 2. ~~Lint de CI bloqueante~~ **hecho (iteración 7)**. 3. ~~Aviso de uso seguro en `aixl.compare`~~ **hecho (iteración 8)**. 4. `AIXL-ENV-2` y compatibilidad del campo `or`. 5. Corregir el patrón superlineal remanente. 6. Atacantes de cuantificadores/condicionales/alcance de negación en la arena. 7. Semillas de otros autores (Opus/Sonnet sin acceso al repo) para la arena. 8. Prueba de carga concurrente del servidor y de recuperación. 9. Construir y probar un wheel limpio. 10. Decidir con el dueño el producto único (verificación + punteros) y medir interés real con 3–5 usuarios antes de invertir más.
+1. ~~Autenticación + límite de tasa en A2A~~ **hecho (iteración 6)**; falta TLS en el ingress. 2. ~~Lint de CI bloqueante~~ **hecho (iteración 7)**. 3. ~~Aviso de uso seguro en `aixl.compare`~~ **hecho (iteración 8)**. 4. ~~`AIXL-ENV-2`~~ **hecho (iteración 9)**. 5. ~~Patrón superlineal remanente~~ **hecho (iteración 10)**. 6. ~~Atacantes de cuantificadores/condicionales/alcance de negación~~ **hecho (iteración 11)**; el hallazgo es que esas familias no son verificables hoy. 7. Semillas de otros autores (Opus/Sonnet sin acceso al repo) para la arena. 8. Prueba de carga concurrente del servidor y de recuperación. 9. Construir y probar un wheel limpio. 10. Decidir con el dueño el producto único (verificación + punteros) y medir interés real con 3–5 usuarios antes de invertir más.
