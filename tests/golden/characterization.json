@@ -1170,19 +1170,19 @@
   "tele": "analyze sales 2026-10-07"
  },
  "Borra los archivos temporales #4.": {
-  "compact": "A:DELETE Y:#4",
+  "compact": "A:DELETE E:FILE Y:#4",
   "env": [
    false,
    null
   ],
-  "fp": "9fadfa8a14027fc3",
+  "fp": "ac1b1bd88b3d38f1",
   "gate": [
    "NATURAL",
    "incomplete_encoding",
-   8
+   11
   ],
   "passthrough": true,
-  "tele": "delete #4"
+  "tele": "delete file #4"
  },
  "Busca empresas.": {
   "compact": "A:SEARCH E:COMPANY",
@@ -1710,19 +1710,19 @@
   "tele": "analyze sales no_analyze forbid_analyze"
  },
  "Don't send the file.": {
-  "compact": "A:SEND N:NO_SEND K:FORBID_SEND",
+  "compact": "A:SEND E:FILE N:NO_SEND K:FORBID_SEND",
   "env": [
-   false,
-   null
+   true,
+   "b870f981"
   ],
-  "fp": "cbb1d4c5f9f0c118",
+  "fp": "b870f98114ba6b3d",
   "gate": [
    "NATURAL",
-   "incomplete_encoding",
-   12
+   "no_token_saving",
+   15
   ],
   "passthrough": true,
-  "tele": "send no_send forbid_send"
+  "tele": "send file no_send forbid_send"
  },
  "Ejecuta el modelo #3.": {
   "compact": "A:EXECUTE E:MODEL Y:#3",
@@ -2565,19 +2565,19 @@
   "tele": "execute model no_execute forbid_execute"
  },
  "Never send the file to Ana.": {
-  "compact": "A:SEND Y:@ANA N:NO_SEND K:FORBID_SEND",
+  "compact": "A:SEND E:FILE Y:@ANA N:NO_SEND K:FORBID_SEND",
   "env": [
-   false,
-   null
+   true,
+   "1c98b4d3"
   ],
-  "fp": "bf59471258166301",
+  "fp": "1c98b4d34ec92c1e",
   "gate": [
    "NATURAL",
-   "incomplete_encoding",
-   16
+   "no_token_saving",
+   19
   ],
   "passthrough": true,
-  "tele": "send @ana no_send forbid_send"
+  "tele": "send file @ana no_send forbid_send"
  },
  "No actives la alerta.": {
   "compact": "A:ENABLE N:NO_ENABLE K:FORBID_ENABLE",
@@ -2595,19 +2595,19 @@
   "tele": "enable no_enable forbid_enable"
  },
  "No borres los archivos temporales #4.": {
-  "compact": "A:DELETE Y:#4 N:NO_DELETE K:FORBID_DELETE",
+  "compact": "A:DELETE E:FILE Y:#4 N:NO_DELETE K:FORBID_DELETE",
   "env": [
    false,
    null
   ],
-  "fp": "b11ac5a7543685f1",
+  "fp": "19fe86447e813515",
   "gate": [
    "NATURAL",
    "incomplete_encoding",
-   19
+   22
   ],
   "passthrough": true,
-  "tele": "delete #4 no_delete forbid_delete"
+  "tele": "delete file #4 no_delete forbid_delete"
  },
  "No compares los datasets.": {
   "compact": "A:CMP D:DATASET N:NO_COMPARE K:FORBID_COMPARE",
@@ -3120,19 +3120,19 @@
   "tele": "search audio dataset"
  },
  "Send the file to Ana.": {
-  "compact": "A:SEND Y:@ANA",
+  "compact": "A:SEND E:FILE Y:@ANA",
   "env": [
-   false,
-   null
+   true,
+   "7d1ac1d2"
   ],
-  "fp": "780190f19e23e269",
+  "fp": "7d1ac1d26f82be96",
   "gate": [
    "NATURAL",
-   "incomplete_encoding",
-   7
+   "no_token_saving",
+   10
   ],
   "passthrough": true,
-  "tele": "send @ana"
+  "tele": "send file @ana"
  },
  "Send the report today.": {
   "compact": "A:SEND E:REPORT T:2026-10-08",
@@ -3165,19 +3165,19 @@
   "tele": "send result company @acme"
  },
  "Sending the file is forbidden.": {
-  "compact": "A:SEND N:NO_SEND K:FORBID_SEND",
+  "compact": "A:SEND E:FILE N:NO_SEND K:FORBID_SEND",
   "env": [
    false,
    null
   ],
-  "fp": "cbb1d4c5f9f0c118",
+  "fp": "b870f98114ba6b3d",
   "gate": [
    "NATURAL",
    "incomplete_encoding",
-   12
+   15
   ],
   "passthrough": true,
-  "tele": "send no_send forbid_send"
+  "tele": "send file no_send forbid_send"
  },
  "Summarize report #12.": {
   "compact": "A:SUM E:REPORT Y:#12",

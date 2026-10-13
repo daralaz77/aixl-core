@@ -59,3 +59,12 @@ def test_logic_pairs_have_no_defects():
             bad.append((r["a"], r["b"]))
     assert not bad, bad
     assert L  # module imports cleanly
+
+
+def test_noun_extension_represents_objects_and_never_drops_them():
+    """aixl/resources/nouns_v1.json: an object noun must reach the graph (previously 'Delete the backups' == 'Delete the files' == 'Delete')."""
+    import json
+    assert aixl.compare("Delete the backups.", "Delete the files.").equivalent is False
+    assert aixl.compare("Borra los respaldos.", "Delete the backups.").equivalent
+    ents = json.load(open(os.path.join(ROOT, "aixl", "resources", "nouns_v1.json"), encoding="utf-8"))["entities"]
+    assert "INVOICE" not in ents      # reserved: out-of-lexicon exemplar of the silent-loss benchmark and of the extension guide

@@ -146,3 +146,13 @@ This is the same closed-vocabulary ceiling already documented above (open-text e
   correctly NOT_EQUIVALENT, but `complete` stays False because the closed vocabulary does not account for the object nouns
   (`respaldos`, `registros`, `backups`). The ceiling on "decided" is the noun lexicon, not the operators. Widening it is a separate,
   measured step (each new term must pass the blind sets), not something this change claims.
+
+### Update 2026-10-13: noun lexicon extension (aixl/resources/nouns_v1.json, 36 concepts x ES/EN/PT)
+- Selected by frequency of unaccounted tokens on dev200 + golden_r + blind10-12 + arena seeds; blind13/14 held out for evaluation.
+- Effect: objects such as backups/files/orders/tickets now reach the graph (before: silently dropped, so `Delete the backups` == `Delete the files`).
+  Arena decided share 17% -> 23%; arena core false-EQUIVALENT 33% -> 25%; `compare_verified` false-EQUIVALENT stays 0 on all four corpora;
+  logic pairs still 0 defects.
+- Cost: core recall on other authors' SAME pairs drops 1-2 points (blind13 22->20%, blind14 25->22%) — synonyms across the new nouns
+  (e.g. `issue` vs `ticket` are merged, `report` vs `summary` are not) now matter. Not a safety loss (core was already not trusted for EQUIVALENT).
+- Still open: 77% abstain. The open vocabulary of real instructions is a long tail (hundreds of domain nouns); this is a sampled batch, not closure.
+- Deliberately excluded: alert/notification (light-verb objects) and invoice/factura (benchmark + docs exemplar of an out-of-lexicon noun).

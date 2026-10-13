@@ -53,6 +53,15 @@ ENTITY_RX = [
  ("RESULT",   r"\b(resultados?|results?)\b"),
  ("EVENT",    r"\b(eventos?|events?)\b"),
 ]
+try:   # data-driven noun extension (aixl/resources/nouns_v1.json): appended to the closed entity lexicon, never replacing an existing code
+    import json as _json
+    from importlib import resources as _res
+    _have = {k for k, _ in DATA_RX + ENTITY_RX}
+    for _k, _rx in _json.loads(_res.files("aixl.resources").joinpath("nouns_v1.json").read_text(encoding="utf-8"))["entities"].items():
+        if _k not in _have:
+            ENTITY_RX.append((_k, r"\b(" + _rx + r")\b"))
+except (OSError, ValueError, KeyError, ModuleNotFoundError):   # a missing extension file must degrade to the base lexicon, not break import
+    pass
 NOUN_CANON = {**{k: k for k, _ in DATA_RX}, **{k: k for k, _ in ENTITY_RX}}
 
 MONTHS = {  # stripped-lowercase name -> (number, 3-letter code)
