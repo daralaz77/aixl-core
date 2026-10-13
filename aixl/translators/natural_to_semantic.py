@@ -505,6 +505,10 @@ def _apply_surface_operators(frame, s: str, text: str) -> None:
     days = sorted(c for c, rx in _DOW_RX if rx.search(s))
     if days:
         frame.constraints.append("DOW=" + ",".join(days))
+    from aixl.core.modifiers import codes_in
+    mods = codes_in(text)
+    if mods:
+        frame.constraints.append("MOD=" + ",".join(mods))
     n_neg = 0
     for c in _clauses(s):
         v = len(_VERB_NEG.findall(c.replace("no one", " ").replace("no body", " ")))

@@ -107,3 +107,20 @@ def test_surface_operators_are_visible_to_the_core_comparator(a, b):
 ])
 def test_surface_operators_do_not_break_true_paraphrases(a, b):
     assert aixl.compare(a, b).equivalent is True
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Delete the old backups.", "Delete the new backups."),
+    ("Borra el archivo temporal.", "Borra el archivo permanente."),
+    ("Cierra los tickets activos.", "Cierra los tickets inactivos."),
+])
+def test_contrast_modifiers_reach_the_graph(a, b):
+    assert aixl.compare(a, b).equivalent is False
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Delete duplicate rows from the orders table.", "Remove repeated rows from the orders table."),
+    ("Borra los respaldos antiguos.", "Borra los respaldos viejos."),
+])
+def test_contrast_modifier_synonyms_converge(a, b):
+    assert aixl.compare(a, b).equivalent is True

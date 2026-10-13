@@ -131,12 +131,14 @@ def check_completeness(text: str, graph, _ev=None) -> dict:
     for c in markers:
         skip |= {w for w in MARKERS[c]} | {t for p in MARKERS[c] if " " in p for t in p.split()}
     missing = []
+    from aixl.core.modifiers import accounted_words
+    mod_ok = accounted_words(graph.canonical()["constraints"])      # modifier words whose code the graph carries (MOD=)
     toks = _ALLTOK.findall(_norm(text))
     # LIMITATION (declared): verbs outside the verb table cannot be recognised; the FIRST content token of an imperative text is
     # taken as the verb the ACTION atom stands for ('mueve' -> UPDATE). Later unknown verbs stay unaccounted (safe).
     verb = next((w for w in toks if w not in FUNCTION_WORDS and w not in STOP and w not in SHORT_FUNCTION and w not in _CLOSED and not w[0].isdigit()), None) if graph.by_type("ACTION") else None
     for w in toks:
-        if w == verb or w in missing or w in skip or w in FUNCTION_WORDS or w in STOP or w in SHORT_FUNCTION or w in _CLOSED:
+        if w == verb or w in missing or w in skip or w in mod_ok or w in FUNCTION_WORDS or w in STOP or w in SHORT_FUNCTION or w in _CLOSED:
             continue
         fs = _forms(w) | {stem(_CONCEPT.get(w, w))}
         if any((f in ev) if f[0].isdigit() else (f in ev or stem(f) in ev or _known(f)) for f in fs):

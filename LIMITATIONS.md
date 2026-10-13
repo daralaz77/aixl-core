@@ -188,3 +188,12 @@ Rule (aixl/core/open_vocab.py): core graphs equivalent + no unreflected marker +
 aware) are emitted by the translator, so the CORE comparator sees them. Core-EQUIVALENT on meaning-changing mutants (known limit, not a defect):
 own seeds 122 -> 82, other-author seeds 1244 -> 321. SAME recall of core unchanged on every corpus; published layers still 0 defects; suite green.
 Remaining core-permissive families: lex_swap (`duplicados`->`únicos`), compose, drop_tail, modal_flip, num_change, add_constraint.
+
+### Update 2026-10-13: lex_swap — contrast modifiers modelled (aixl/core/modifiers.py, `MOD=` constraint)
+Of the core-EQUIVALENT lex_swap mutants, two real classes: (1) a known contrast word swapped for its opposite (`old`->`new`, `temporal`->`permanente`,
+`activos`->`inactivos`): now 26 contrast concepts ES/EN/PT emitted as `MOD=<codes>` and counted as accounted words only when the graph carries them;
+(2) a changed word that is UNKNOWN (typos / gibberish: `duplicatres`, `csome`): nothing to model — the published layers abstain because the word is
+unaccounted; the core alone cannot see it (documented limit).
+Deliberately not in the table (already modelled; a second path broke convergence tests): older/newer than, recent, public/private, urgent, open/closed.
+Core-EQUIVALENT on meaning-changing mutants: own seeds 82 -> 25, other-author 321 -> 279; arena decided share 23% -> 30% (own seeds), published layers 0
+defects, SAME recall of the core unchanged on every corpus (after adding repeated/redundant to DUP: one paraphrase pair had split).

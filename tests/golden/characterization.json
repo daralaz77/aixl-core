@@ -15,19 +15,19 @@
   "tele": "analyze video this_week"
  },
  "Activa la alerta.": {
-  "compact": "A:ENABLE",
+  "compact": "A:ENABLE K:MOD=ACTIVE",
   "env": [
    false,
    null
   ],
-  "fp": "88976e3a231b2de0",
+  "fp": "ac07767c23554fd5",
   "gate": [
    "NATURAL",
    "incomplete_encoding",
-   4
+   10
   ],
   "passthrough": true,
-  "tele": "enable"
+  "tele": "enable mod=active"
  },
  "Actualiza el modelo #3.": {
   "compact": "A:UPDATE E:MODEL Y:#3",
@@ -1170,19 +1170,19 @@
   "tele": "analyze sales 2026-10-07"
  },
  "Borra los archivos temporales #4.": {
-  "compact": "A:DELETE E:FILE Y:#4",
+  "compact": "A:DELETE E:FILE Y:#4 K:MOD=TEMP",
   "env": [
    false,
    null
   ],
-  "fp": "ac1b1bd88b3d38f1",
+  "fp": "6f97c912bf55d78b",
   "gate": [
    "NATURAL",
    "incomplete_encoding",
-   11
+   16
   ],
   "passthrough": true,
-  "tele": "delete file #4"
+  "tele": "delete file #4 mod=temp"
  },
  "Busca empresas.": {
   "compact": "A:SEARCH E:COMPANY",
@@ -2595,19 +2595,19 @@
   "tele": "enable no_enable forbid_enable"
  },
  "No borres los archivos temporales #4.": {
-  "compact": "A:DELETE E:FILE Y:#4 N:NO_DELETE K:FORBID_DELETE",
+  "compact": "A:DELETE E:FILE Y:#4 N:NO_DELETE K:FORBID_DELETE,MOD=TEMP",
   "env": [
    false,
    null
   ],
-  "fp": "19fe86447e813515",
+  "fp": "4a6fcba7163a16fa",
   "gate": [
    "NATURAL",
    "incomplete_encoding",
-   22
+   26
   ],
   "passthrough": true,
-  "tele": "delete file #4 no_delete forbid_delete"
+  "tele": "delete file #4 no_delete forbid_delete mod=temp"
  },
  "No compares los datasets.": {
   "compact": "A:CMP D:DATASET N:NO_COMPARE K:FORBID_COMPARE",
