@@ -274,3 +274,13 @@ Looked for more gaps again (user: "otra vuelta") and suspected `aixl.compare()`/
 **Re-verified with the same honest, separate-process methodology, 3 clean trials against the fixed code**: **0.54s, 0.86s, 0.77s** — comfortably under the timeout every time, a real and consistent improvement over the original's 2.45–3.27s spread, not just a different single lucky number.
 
 Honest scope: this was tested at 900 concurrent requests on a constrained 1-CPU container — a stand-in for "a burst bigger than the box can handle," not a specific real traffic number (there is none yet). `AIXL_MAX_CONCURRENT_CPU_WORK=4` is a starting default matched loosely to `k8s/deployment.yaml`'s own `resources.limits.cpu: "500m"`; raise it if the Deployment's CPU limit is raised, and re-measure rather than assume a bigger number is strictly better (too high defeats the point; too low adds needless queuing latency under legitimate concurrent load). No rate limiting was added at the request-admission level (a 429-style reject beyond some concurrency) — the semaphore provides backpressure by making excess callers wait, which was sufficient to fix the measured problem; an explicit reject-based limiter remains a reasonable future addition if real abuse, not just a synthetic burst, is ever observed.
+
+
+## Authentication, rate limit and body cap (2026-10-13, consejo-5x audit)
+Until this date the A2A agent had **no authentication and no rate limit** while the image, compose file and k8s manifests bound it to `0.0.0.0`. Now (`aixl/agents/guard.py`):
+- **Fail closed:** listening on a non-loopback host without `AIXL_A2A_TOKEN` makes the process exit with code 2 and an explicit log line. `AIXL_A2A_ALLOW_ANONYMOUS=1` is the deliberate opt-out for an isolated network.
+- **Token:** every route except `/healthz`, `/readyz` and the agent card needs `Authorization: Bearer <token>` (constant-time comparison). `/metrics` is NOT public: give Prometheus the token.
+- **Rate limit:** token bucket per client address, `AIXL_A2A_RATE_PER_MIN` (default 120) -> 429 + `Retry-After`. In-memory and per process: N replicas allow N x the limit and clients behind one proxy share a bucket (put a real gateway in front for per-tenant limits).
+- **Body cap:** `AIXL_A2A_MAX_BODY_BYTES` (default 262144) -> 413. Texts above 16,384 characters are additionally refused by the analysis (`AIXL_MAX_INPUT_CHARS`).
+- **Docker/compose:** `export AIXL_A2A_TOKEN=$(openssl rand -hex 32)` before `docker compose up`. **k8s:** create the `aixl-a2a-auth` Secret (command in `k8s/deployment.yaml`).
+- **Not covered:** TLS (terminate it at the ingress), token rotation, per-client quotas, and any authorisation beyond "has the token".

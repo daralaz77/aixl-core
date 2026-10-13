@@ -117,14 +117,20 @@ class AixlAgentExecutor(AgentExecutor):
                                          "negotiation task mid-flight yet")
 
 
-def build_app(url: str):
+def build_app(url: str, guard=None):
+    """`guard`: a GuardConfig (default: from the environment). Pass `False` to build the bare app (tests of the protocol itself)."""
     from starlette.applications import Starlette
+
+    from aixl.agents.guard import Guard, GuardConfig
 
     card = _agent_card(url)
     handler = DefaultRequestHandler(AixlAgentExecutor(), ExpiringTaskStore(), card)
     routes = (observability_routes() + create_agent_card_routes(card)
               + create_jsonrpc_routes(handler, rpc_url="/"))
-    return Starlette(routes=routes)
+    app = Starlette(routes=routes)
+    if guard is False:
+        return app
+    return Guard(app, guard or GuardConfig.from_env())
 
 
 def main():
@@ -134,7 +140,15 @@ def main():
     port = int(os.environ.get("PORT") or (sys.argv[1] if len(sys.argv) > 1 else 8766))
     host = os.environ.get("AIXL_A2A_HOST", "127.0.0.1")
     public_url = os.environ.get("AIXL_A2A_PUBLIC_URL") or f"http://127.0.0.1:{port}/"
-    app = build_app(public_url)
+    from aixl.agents.guard import GuardConfig, startup_problem
+    cfg = GuardConfig.from_env()
+    problem = startup_problem(host, cfg)
+    if problem:
+        log.error(problem)
+        sys.exit(2)
+    if not cfg.token:
+        log.warning("running WITHOUT authentication (loopback only or AIXL_A2A_ALLOW_ANONYMOUS=1); rate limit %s/min per client", cfg.rate_per_min)
+    app = build_app(public_url, cfg)
     log.info("starting aixl a2a agent on %s:%s (public url: %s)", host, port, public_url)
     uvicorn.run(app, host=host, port=port, log_level=os.environ.get("AIXL_LOG_LEVEL", "info").lower(),
                 log_config=None)

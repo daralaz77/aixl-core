@@ -97,6 +97,12 @@ def main(argv=None):
         if a.json: return dump(r.to_dict())
         print(f"equivalent: {str(r.equivalent).lower()}   similarity: {r.similarity:.2f}   drift: {r.drift_level}")
         for d in r.differences: print(f"  {d.field}: {d.source} -> {d.target}  [{d.severity}]")
+        if r.equivalent:
+            v = aixl.compare_verified(a.a, a.b)
+            if not v["equivalent"]:
+                print(f"  NOTE: rules-route 'equivalent' is NOT proven here ({v.get('reason', 'unverified')}). `aixl.compare_verified` says {v['verdict']}.", file=sys.stderr)
+            else:
+                print("  note: proven by the completeness check (both texts fully accounted for).", file=sys.stderr)
         return
     if a.cmd == "diff": return print(aixl.semantic_diff(a.a, a.b))
     if a.cmd == "drift":

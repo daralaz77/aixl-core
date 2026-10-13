@@ -16,6 +16,9 @@ services:
     environment:
       PORT: "8766"
       AIXL_A2A_HOST: "0.0.0.0"
+      # Required since 2026-10-13: the agent refuses to listen on 0.0.0.0 without authentication (aixl/agents/guard.py). Clients send
+      # `Authorization: Bearer <token>`. /healthz, /readyz and the agent card stay public. Rate limit / body cap: AIXL_A2A_RATE_PER_MIN, AIXL_A2A_MAX_BODY_BYTES.
+      AIXL_A2A_TOKEN: "${AIXL_A2A_TOKEN:?set AIXL_A2A_TOKEN (e.g. export AIXL_A2A_TOKEN=$(openssl rand -hex 32))}"
       AIXL_A2A_PUBLIC_URL: "http://localhost:8766/"
       AIXL_LOG_FORMAT: "json"
       AIXL_LOG_LEVEL: "INFO"

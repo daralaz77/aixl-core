@@ -18,6 +18,10 @@
 
 **Paper:** *When 99% Means Nothing: Negative Results from Measuring Semantic Equivalence Between Agent Instructions* — [doi:10.5281/zenodo.23227169](https://doi.org/10.5281/zenodo.23227169). This repository at tag `v1.0.0-paper` is the code and data behind it ([archived copy](https://doi.org/10.5281/zenodo.23226946)).
 
+> **Safe use, in one line.** `aixl.compare(...).equivalent` is only reliable *inside the controlled vocabulary*: on open text it ignores whatever the lexicons have no slot for
+> (measured false "equivalent": 19.7 % and 35.4 % of other authors' non-equivalent pairs). Use **`aixl.compare_verified`** (what the MCP and A2A tools return): it never says
+> EQUIVALENT without proof, at the price of proving almost no open-text paraphrase. The A2A agent refuses to listen on a public interface without `AIXL_A2A_TOKEN` ([DEPLOYMENT.md](DEPLOYMENT.md)).
+
 ## 0. Scope of AIXL 0.5 (decided 2026-10-03, [ADR-018](docs/adr/ADR-018.md))
 AIXL 0.5 is: **(1)** an exact, offline, free comparison engine *inside a controlled vocabulary*; **(2)** a loss detector that refuses to say "equal" without proof (opt-in `inconclusive`, `R:` residue, completeness); **(3)** deterministic input hygiene (`sanitize_input`); **(4)** an interchange format with real MCP/A2A servers and a bounded negotiation protocol; **(5)** an **audit layer around a full-text arbiter** (`aixl.arbiter`: versioned rules, 2-of-2 consensus, output validation, a decision memo — judges are functions you supply; the core never calls a model).
 It is *not* a prover of paraphrase equivalence on open text, a candidate-pair prefilter, compression, or a standard (claims withdrawn in ADR-018).

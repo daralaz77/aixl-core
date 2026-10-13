@@ -1,4 +1,7 @@
-"""AIXL 0.3 — experimental semantic core (representation, equivalence, diff, drift, ambiguity, contradiction)."""
+"""AIXL 0.3 — experimental semantic core (representation, equivalence, diff, drift, ambiguity, contradiction).
+
+SAFE USE: `compare(...).equivalent` is reliable only inside the controlled vocabulary; on open text prefer `compare_verified(...)`, which never
+answers EQUIVALENT without proof (see README §2 and LIMITATIONS.md, E-ARENA-SCOPE)."""
 from aixl.api.service import (  # noqa: F401
                               compare,
                               compare_aixl,

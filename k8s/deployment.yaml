@@ -43,6 +43,15 @@ spec:
           envFrom:
             - configMapRef:
                 name: aixl-a2a-config
+          env:
+            # Required since 2026-10-13 (the agent refuses to listen on 0.0.0.0 without authentication). Create it with:
+            #   kubectl -n aixl create secret generic aixl-a2a-auth --from-literal=token="$(openssl rand -hex 32)"
+            - name: AIXL_A2A_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: aixl-a2a-auth
+                  key: token
+                  optional: false
           resources:
             # A single Python asyncio process doing in-memory comparisons: no large working set, no
             # disk I/O, no external calls. These are deliberately small; raise them only if /metrics

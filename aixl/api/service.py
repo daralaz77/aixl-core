@@ -39,6 +39,13 @@ def translate(text: str) -> dict:
 
 
 def compare(text_a: str, text_b: str, config: dict | None = None) -> ComparisonResult:
+    """Rules-route comparison of two instructions (closed lexicons, offline, ~1 ms).
+
+    **SAFE USE: `equivalent=True` is reliable ONLY inside the controlled vocabulary.** Content the lexicons have no slot for is silently ignored, so on
+    open text this returns EQUIVALENT for edits that change the meaning (measured: false EQUIVALENT on 19.7 % / 35.4 % of other authors' non-equivalent
+    pairs, blind13/14; 82 of 1,036 adversarial mutants, `python -m lab.arena.arena scope`). Use :func:`compare_verified` whenever a wrong "equivalent"
+    would matter: it never answers EQUIVALENT unless both texts are completely accounted for. For "are these two open texts the same?" use a strict
+    2-of-2 LLM arbiter (README §2)."""
     if config is not None:
         return compare_graphs(to_graph(text_a), to_graph(text_b), config)
     from aixl.core.completeness import BOUNDARY, annotate, marker_conflicts, names_reordered

@@ -36,14 +36,29 @@ jobs:
       - name: Run test suite
         run: pytest -q
 
+      - name: Every `from aixl... import` in the repo still resolves
+        run: python -m benchmarks.check_imports
+
   lint:
-    # Informative while the baseline is being cleaned (docs/CLEANUP_ROADMAP.md, phases 1-2). Flip continue-on-error to false when it reaches 0.
+    # BLOCKING since 2026-10-13 (the baseline reached 0 on 2026-10-08; consejo-5x audit step 2). Rules are pinned in pyproject.toml
+    # (F, E9, B, I). ruff itself is pinned too: an import-sorting rule changing between versions must not turn main red by itself.
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install ruff
-      - run: ruff check aixl benchmarks tests --statistics
+      - run: pip install ruff==0.16.10
+      - run: ruff check .
+
+  arena:
+    # Release gate from the audit decision (2026-10-13): the adversarial sweep must report ZERO defects in the layers that are published
+    # (published compare, integrity envelope, gate). `selftest` first: an arena that cannot catch a planted bug proves nothing.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m lab.arena.arena selftest
+      - run: python -m lab.arena.arena scope

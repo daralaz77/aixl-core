@@ -13,6 +13,15 @@ Objetivo: auditoría completa y ruta de mejora, trabajando en bucle (auditar →
 
 Costo declarado de 4–5: recall de paráfrasis verdaderas en texto abierto 22–25 % → 0–2 % (dev set propio 100 % → 76 %). Es coherente con ADR-018: para "¿son iguales dos textos abiertos?" se usa el árbitro 2-de-2, no esta regla.
 
+### Continuación del bucle (iteraciones 6–8, mismo día, pasos 1–3 de la lista)
+| # | Paso | Antes | Después (verificado) |
+|---|---|---|---|
+| 6 | **Autenticación + límite de tasa en A2A** (`aixl/agents/guard.py`) | sin token ni límite; imagen, compose y k8s ligados a `0.0.0.0` | escuchar en interfaz no local **sin `AIXL_A2A_TOKEN` termina con código 2**; por HTTP real: probes y tarjeta 200, RPC y `/metrics` sin token **401**, token malo 401, cuerpo 300 KB **413**, ráfaga sobre 6/min → **429** + `Retry-After`; Docker (`${AIXL_A2A_TOKEN:?…}`) y k8s (Secret `aixl-a2a-auth`) actualizados; 8 tests nuevos + los 19 de protocolo A2A siguen verdes |
+| 7 | **Lint de CI bloqueante** | `continue-on-error: true`; solo `aixl benchmarks tests` | bloqueante sobre **todo el repo** (`ruff check .` = 0), ruff fijado a la versión medida, y un job `arena` (`selftest` + `scope`, salida ≠ 0 si hay defecto) como compuerta de release; `check_imports` en el job de tests |
+| 8 | **Aviso de uso seguro de `aixl.compare`** | solo en LIMITATIONS | docstring de la función y del paquete, caja en el README y nota en la CLI (por `stderr`; `stdout` y `--json` intactos) |
+
+**Honestidad sobre lo que NO cubre el paso 6:** TLS (debe terminar en el ingress), rotación de token, cuotas por cliente (el límite es por dirección y por proceso: N réplicas = N× el límite), y autorización más fina que "tiene el token". **El token en el entorno es secreto de despliegue: no se probó contra un gestor de secretos real.**
+
 ## 2. DATOS CONFIRMADOS frente a SUPOSICIONES
 **Confirmado (ejecutado hoy):** estado del repo limpio y sincronizado; 1161 tests; lint 0; cobertura de líneas 88 % (`agents` 19 % sin los tests lentos, `legacy02` 63 %); tiempos de entrada hostil antes/después; falsos equivalentes por capa; el hueco Y/O; README declara honestamente que la ruta de reglas es insegura en texto abierto.
 **Suposición / desconocido:** nº de usuarios reales (ninguno medido), disposición de pago, comportamiento del servidor A2A bajo `InputTooLarge` en `aixl_negotiate` (no verificado), costo real en factura de los punteros (solo modelo), seguridad ante prompt-injection de un cliente que *consuma* estos veredictos.
@@ -21,18 +30,18 @@ Costo declarado de 4–5: recall de paráfrasis verdaderas en texto abierto 22�
 | Área | Antes | Después | Motivo principal |
 |---|---|---|---|
 | Código / Arquitectura | 72 | **80** | capas como pruebas, sin ciclos de importación; quedan: un patrón superlineal acotado, `legacy02` al 63 % de cobertura, dos comparadores |
-| Seguridad | 50 | **68** | entrada acotada; superficie publicada sin falsos "equivalente"; **sin autenticación ni límite de tasa en A2A** (documentado, no resuelto) |
+| Seguridad | 50 | **76** | entrada acotada; superficie publicada sin falsos "equivalente"; **sin autenticación ni límite de tasa en A2A** (documentado, no resuelto) |
 | Producto / UX | 55 | **57** | veredicto honesto y verificable, pero valor estrecho y README denso (HIPÓTESIS: tiempo hasta el primer valor alto) |
 | Ventas / Mercado | 35 | **35** | sin evidencia de demanda; el diferenciador medido (verificación) compite con un árbitro LLM que ya hace lo mismo mejor |
 | QA / Operaciones | 78 | **84** | arena con 6 errores plantados detectados, congelamiento por hash, caracterización, guardas de escalado; CI de lint aún informativo |
-| **Global** | 58 | **65** | **Riesgo considerable**; el riesgo CRÍTICO de mercado no lo oculta el promedio |
+| **Global** | 58 | **67** | **Riesgo considerable**; el riesgo CRÍTICO de mercado no lo oculta el promedio |
 
 ## 4. Los 10 mayores riesgos (Probabilidad × Impacto)
 | # | Riesgo | P | I | R | Estado |
 |---|---|---|---|---|---|
 | 1 | Sin demanda demostrada: producto sin mercado o sin disposición de pago | 7 | 9 | **63** | abierto (estrategia, §7) |
-| 2 | Servidor A2A expuesto sin autenticación ni límite de tasa | 5 | 8 | **40** | abierto (documentado en `k8s/configmap.yaml`) |
-| 3 | Quien consume `equivalent` de `aixl.compare` (API, no MCP) confía en un veredicto inseguro en texto abierto | 6 | 7 | **42** | mitigado en MCP/A2A; la API de biblioteca sigue igual por compatibilidad |
+| 2 | Servidor A2A expuesto sin autenticación ni límite de tasa | 5 | 8 | **40** | **CERRADO (iteración 6)**: falla cerrado, token Bearer, límite de tasa y de cuerpo; sin TLS ni cuotas por cliente |
+| 3 | Quien consume `equivalent` de `aixl.compare` (API, no MCP) confía en un veredicto inseguro en texto abierto | 6 | 7 | **42** | mitigado en MCP/A2A; **aviso de uso seguro en API, paquete, README y CLI (iteración 8)**; el comportamiento de la biblioteca no cambia por compatibilidad |
 | 4 | Diferenciador absorbido por árbitros LLM baratos (precio/latencia cayendo) | 6 | 7 | 42 | abierto |
 | 5 | Meaning flips aún desconocidos (el Y/O estuvo 5 semanas sin verse) | 6 | 7 | 42 | **mitigado en parte**: arena + scope; semillas de un solo autor |
 | 6 | Conclusión cuantitativa sobre un corpus propio / un solo autor | 5 | 6 | 30 | abierto |
@@ -63,8 +72,8 @@ Nada garantiza crecimiento exponencial; estos son los mecanismos que **se acumul
 **Métricas a vigilar:** falsos equivalentes por capa publicada (objetivo 0 en `scope`), p95 de latencia del gate (hoy ~0.5 ms; 0.21 s peor caso), tasa de `UNVERIFIED/INCONCLUSIVE` en tráfico real (indicador de utilidad), tamaño de entrada p99, defectos nuevos de la arena por 1000 mutantes, y —las que no existen— usuarios activos y tasa de reutilización.
 
 ## 9. Decisión del Consejo
-**GO CON CONDICIONES** como **herramienta experimental de verificación local / entre agentes propios**, con las condiciones: (1) A2A no se expone a red sin autenticación y límite de tasa; (2) no se afirma equivalencia de texto abierto; (3) cada release corre `scope` en cero.
+**GO CON CONDICIONES** como **herramienta experimental de verificación local / entre agentes propios**, con las condiciones: (1) A2A no se expone a red sin autenticación y límite de tasa **(cumplida en el código; falta TLS en el ingress)**; (2) no se afirma equivalencia de texto abierto; (3) cada release corre `scope` en cero.
 **NO-GO** para posicionarlo como probador general de equivalencia semántica o desplegarlo públicamente sin esas condiciones.
 
 ## 10. Próximos 10 pasos
-1. Autenticación + límite de tasa en A2A (bloquea la exposición). 2. Lint de CI bloqueante. 3. Aviso explícito en `aixl.compare` (API) y en README del uso seguro. 4. `AIXL-ENV-2` y compatibilidad del campo `or`. 5. Corregir el patrón superlineal remanente. 6. Atacantes de cuantificadores/condicionales/alcance de negación en la arena. 7. Semillas de otros autores (Opus/Sonnet sin acceso al repo) para la arena. 8. Prueba de carga concurrente del servidor y de recuperación. 9. Construir y probar un wheel limpio. 10. Decidir con el dueño el producto único (verificación + punteros) y medir interés real con 3–5 usuarios antes de invertir más.
+1. ~~Autenticación + límite de tasa en A2A~~ **hecho (iteración 6)**; falta TLS en el ingress. 2. ~~Lint de CI bloqueante~~ **hecho (iteración 7)**. 3. ~~Aviso de uso seguro en `aixl.compare`~~ **hecho (iteración 8)**. 4. `AIXL-ENV-2` y compatibilidad del campo `or`. 5. Corregir el patrón superlineal remanente. 6. Atacantes de cuantificadores/condicionales/alcance de negación en la arena. 7. Semillas de otros autores (Opus/Sonnet sin acceso al repo) para la arena. 8. Prueba de carga concurrente del servidor y de recuperación. 9. Construir y probar un wheel limpio. 10. Decidir con el dueño el producto único (verificación + punteros) y medir interés real con 3–5 usuarios antes de invertir más.
