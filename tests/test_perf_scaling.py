@@ -14,7 +14,7 @@ def test_add_node_ids_are_unchanged_and_not_quadratic():
     assert g.add_node("ENTITY", "x").id == "entity_5"
     t0 = time.perf_counter()
     h = SemanticGraph()
-    for i in range(20000):
+    for _ in range(20000):
         h.add_node("TIME", "x")
     assert time.perf_counter() - t0 < 2.0                        # 20k nodes: ~0.03 s now, ~13 s with the old scan
 

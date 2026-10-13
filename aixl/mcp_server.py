@@ -26,9 +26,9 @@ def aixl_translate(text: str) -> dict:
     return {"aixl": r["aixl"], "semantic": r["semantic"], "ambiguous": r["ambiguity"]["ambiguous"]}
 
 
-@server.tool(description="Compare two instructions (or AIXL messages) for semantic equivalence, similarity, drift.")
+@server.tool(description="Compare two instructions (or AIXL messages) for semantic equivalence, similarity, drift. Returns INCONCLUSIVE (never EQUIVALENT) when the closed vocabulary does not account for all the content of both texts; `verified` says whether it did.")
 def aixl_compare(a: str, b: str) -> dict:
-    return aixl.compare(a, b).to_dict()
+    return aixl.compare_verified(a, b)       # never EQUIVALENT without proof; same keys as compare().to_dict() plus `verified` (consejo-5x 2026-10-13)
 
 
 @server.tool(description="Resolve a disagreement between a sender and a receiver instruction via a bounded, "

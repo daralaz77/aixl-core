@@ -5,6 +5,7 @@ actually holds (or from its own paraphrase/interpretation) and compares. Three h
   UNVERIFIED  at least one side is outside what the translator fully encodes (completeness fails) -> NO claim either way
 Nothing here compresses; it only detects."""
 from aixl.core.completeness import is_complete
+from aixl.core.connectives import or_count
 from aixl.core.fingerprint import fingerprint_graph
 from aixl.translators.natural_to_semantic import to_graph
 
@@ -21,11 +22,13 @@ def _fp(text):
 
 def seal(text: str) -> dict:
     fp, complete = _fp(text)
-    return {"text": text, "fp": fp if complete else None, "verifiable": complete, "v": "AIXL-ENV-1"}
+    return {"text": text, "fp": fp if complete else None, "verifiable": complete, "v": "AIXL-ENV-1", "or": or_count(text)}
 
 
 def verify(envelope: dict, received_text: str) -> str:
     fp, complete = _fp(received_text)
     if not envelope.get("verifiable") or not complete:
         return "UNVERIFIED"
+    if "or" in envelope and envelope["or"] != or_count(received_text):      # AND<->OR flips are invisible to the fingerprint (y/o are function words)
+        return "MISMATCH"
     return "MATCH" if fp == envelope["fp"] else "MISMATCH"

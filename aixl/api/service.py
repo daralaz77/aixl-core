@@ -133,3 +133,39 @@ def round_trip(text_or_graph, config: dict | None = None, today=None) -> "RoundT
     from aixl.core.roundtrip import round_trip_graph
     g = to_graph(text_or_graph) if isinstance(text_or_graph, str) else text_or_graph
     return round_trip_graph(g, config, today)
+
+
+def compare_verified(text_a: str, text_b: str, config: dict | None = None) -> dict:
+    """`compare()` for SHIPPED surfaces (MCP / A2A): it never reports EQUIVALENT without proof.
+
+    The core comparator works over closed lexicons: an appended or dropped clause it has no slot for is simply ignored, so it can call a
+    meaning change EQUIVALENT (arena scope, 2026-10-13: 24 of 844 meaning-changing edits). Here, when the comparator says EQUIVALENT but either
+    side is not COMPLETELY accounted for (`aixl.core.completeness.is_complete`, the same rule the integrity envelope uses), the verdict becomes
+    INCONCLUSIVE and `equivalent` False, with the original verdict kept in `raw_verdict` and the unaccounted words listed. A negative or
+    already-INCONCLUSIVE verdict is returned untouched. All keys of `compare().to_dict()` are preserved; `verified` is added.
+    Inputs over the analysis limit are never analysed: verdict UNVERIFIED."""
+    from aixl.core.completeness import is_complete
+    from aixl.core.lexicon_gaps import unaccounted_content
+    from aixl.core.limits import InputTooLarge
+    try:
+        d = compare(text_a, text_b, config).to_dict()
+    except InputTooLarge as e:
+        return {"verdict": "UNVERIFIED", "equivalent": False, "verified": False, "reason": "input_too_large", "detail": str(e)}
+    ga, gb = to_graph(text_a), to_graph(text_b)
+    ok_a, ok_b = is_complete(text_a, ga), is_complete(text_b, gb)
+    d["verified"] = ok_a and ok_b
+    if d.get("equivalent") and d["verified"]:
+        from aixl.core.connectives import disjunction_differs
+        if disjunction_differs(text_a, text_b):                       # 'y' vs 'o': a conjunction became a disjunction (or the reverse)
+            d["raw_verdict"] = d.get("verdict")
+            d["verdict"], d["equivalent"], d["verified"] = "INCONCLUSIVE", False, False
+            d["reason"] = "connectives: the texts differ in disjunction (or/o/ou/u), which the comparator does not model"
+            return d
+    if d.get("equivalent") and not d["verified"]:
+        d["raw_verdict"] = d.get("verdict")
+        d["verdict"], d["equivalent"] = "INCONCLUSIVE", False
+        d["reason"] = "completeness: the closed vocabulary does not account for all the content of " + (
+            "both texts" if not ok_a and not ok_b else "text A" if not ok_a else "text B")
+        d["unaccounted"] = {"a": unaccounted_content(text_a, ga) if not ok_a else [], "b": unaccounted_content(text_b, gb) if not ok_b else []}
+    return d
+

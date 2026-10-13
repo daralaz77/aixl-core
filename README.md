@@ -30,6 +30,7 @@ AIXL (AI Interoperability eXchange Language) is an **experimental semantic layer
 |---|---|---|
 | Are two **open-text** instructions the same? | A strict full-text **arbiter, 2-of-2** (two independent LLMs, "same" only if both say SAME) and a stored verdict | blind12: 359/360 recovered, **0/480** false "same" on near-misses; blind11: 100 % / 0.6 % |
 | Exact, offline, free comparison in a **controlled vocabulary** | `aixl.compare` (rules route) | 0.85 ms/pair; 99.4 % on the own (same-author) benchmark; **unsafe on open text** |
+| The same comparison, **never claiming EQUIVALENT without proof** (what the MCP and A2A tools return) | `aixl.compare_verified` | false "equivalent" on other authors' pairs 19.7 % / 35.4 % → **0 %** (blind13/14); the price: it proves only 0–2 % of open-text paraphrases (`python -m benchmarks.compare_verified_eval`) |
 | Never say "equal" without proof | `compare(..., config with "inconclusive": true)` (opt-in) | 0–2 % false "equivalent", proves 0–17 % |
 | Input hygiene (invisible / look-alike characters) | `sanitize_input` (automatic) | 0 false rejections on 71 benign pairs |
 | Interchange with other agents | AIXL line + MCP / A2A adapters | three vendors' clients called the MCP server |

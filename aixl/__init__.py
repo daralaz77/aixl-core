@@ -2,6 +2,7 @@
 from aixl.api.service import (  # noqa: F401
                               compare,
                               compare_aixl,
+                              compare_verified,
                               detect_ambiguity,
                               detect_contradiction,
                               detect_drift,

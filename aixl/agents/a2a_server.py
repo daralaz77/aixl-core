@@ -103,7 +103,7 @@ class AixlAgentExecutor(AgentExecutor):
             # all fighting over the same single core. run_cpu_bound() (aixl/agents/concurrency.py) adds
             # a small semaphore on top, so only a few calls run at once and /healthz actually gets
             # scheduled promptly in between — re-verified with the same 900-request burst after adding it.
-            result = (await run_cpu_bound(aixl.compare, req.get("a", ""), req.get("b", ""))).to_dict()
+            result = await run_cpu_bound(aixl.compare_verified, req.get("a", ""), req.get("b", ""))      # dict; never EQUIVALENT without proof
             reply = new_data_message(result, role=Role.ROLE_AGENT,
                                       context_id=context.context_id, task_id=context.task_id)
             await event_queue.enqueue_event(reply)

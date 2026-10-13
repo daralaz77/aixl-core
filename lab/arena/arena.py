@@ -37,6 +37,9 @@ SEEDS = [
 # branch -- the one oracles META-GATE-* guard -- was never executed by any attack (0 of the 22 seeds above reach it).
 GATE_SEEDS = ["Analiza las ventas del primer trimestre de 2026.", "Analise as vendas do primeiro trimestre de 2026.", "Genera un PDF.", "Traduce el documento."]
 SEEDS += GATE_SEEDS
+# Seeds with a conjunction: the AND->OR attacker below needs one (found 2026-10-13: 'a Ana y a Luis' -> 'a Ana o a Luis' was MATCH in the envelope)
+CONJ_SEEDS = ["Envía el informe a Ana y a Luis.", "Delete the old backups and the logs.", "Borra los archivos y las carpetas.", "Send the report to Ana and notify Luis."]
+SEEDS += CONJ_SEEDS
 
 # ---- attackers: (name, kind, fn(text, rng)->text|None) ; kind META = meaning-changing, COSM = cosmetic ----------------
 NEG_PRE = ["Never ", "Do not ", "Nunca ", "No quiero que "]
@@ -79,6 +82,11 @@ def a_lex(t, r):
     a, b = r.choice(c); return t.replace(a, b, 1)
 def a_quantifier_add(t, r):
     return t.rstrip(".") + r.choice([", excepto los de 2025.", ", except the ones from 2025.", ", pero solo los de Colombia.", ", only for admins."])
+CONJ = [(" y ", " o "), (" and ", " or "), (" e ", " ou "), (" o ", " y "), (" or ", " and ")]
+def a_conj_swap(t, r):
+    c = [(a, b) for a, b in CONJ if a in t]
+    if not c: return None
+    a, b = r.choice(c); return t.replace(a, b, 1)
 def a_compose(t, r):
     fns = [a_num, a_name, a_antonym, a_lex, a_add_constraint, a_neg_prefix]
     out = t
@@ -101,7 +109,7 @@ def a_punct(t, r): return t.rstrip(".") + r.choice(["", ".", "..", " ."])
 
 NL_ATTACKERS = [("neg_prefix", "META", a_neg_prefix), ("neg_suffix", "META", a_neg_suffix), ("num_change", "META", a_num),
                 ("name_swap", "META", a_name), ("antonym", "META", a_antonym), ("add_constraint", "META", a_add_constraint),
-                ("drop_tail", "META", a_drop_tail), ("lex_swap", "META", a_lex), ("quantifier_add", "META", a_quantifier_add), ("compose", "META", a_compose), ("case", "COSM", a_case), ("nbsp", "COSM", a_nbsp), ("quotes", "COSM", a_quotes), ("please", "COSM", a_please), ("tab_nl", "COSM", a_tab_nl), ("wordnum", "COSM", a_wordnum), ("space", "COSM", a_space), ("punct", "COSM", a_punct)]
+                ("drop_tail", "META", a_drop_tail), ("lex_swap", "META", a_lex), ("quantifier_add", "META", a_quantifier_add), ("conj_swap", "META", a_conj_swap), ("compose", "META", a_compose), ("case", "COSM", a_case), ("nbsp", "COSM", a_nbsp), ("quotes", "COSM", a_quotes), ("please", "COSM", a_please), ("tab_nl", "COSM", a_tab_nl), ("wordnum", "COSM", a_wordnum), ("space", "COSM", a_space), ("punct", "COSM", a_punct)]
 
 WIRE_BASE = ["V:AIXL-0.3 I:REQUEST_ANALYSIS A:ANALYZE D:SALES T:Q1-2026",
              "V:AIXL-0.3 I:REQUEST_EXECUTION A:DELETE,SEND E:REPORT Y:@ANA N:NO_DELETE K:FORBID_DELETE,BIND=DELETE>REPORT",
@@ -160,6 +168,12 @@ def judge_meta(orig: str, mut: str) -> str | None:
         return f"META-CRASH:{type(e).__name__}"
     if v.verdict == "EQUIVALENT":
         return "META-FALSE-EQUIVALENT"
+    try:
+        from aixl.api.service import compare_verified
+        if compare_verified(orig, mut)["equivalent"]:               # the surface MCP/A2A clients actually receive
+            return "META-VERIFIED-COMPARE-FALSE-EQUIVALENT"
+    except Exception as e:
+        return f"META-VERIFIED-CRASH:{type(e).__name__}"
     try:
         if verify(seal(orig), mut) == "MATCH":                     # envelope says the received text means what was sealed
             return "META-ENVELOPE-FALSE-MATCH"
@@ -294,7 +308,7 @@ def run(rounds: int, seed: int, per_round: int = 60):
 
 
 # every defect code the CURRENT oracles can emit; a stored record with any other code was written by an older oracle
-EMITTED = {"META-FALSE-EQUIVALENT", "META-ENVELOPE-FALSE-MATCH", "META-GATE-DROPPED-NUMBER", "META-GATE-DROPPED-NEGATION",
+EMITTED = {"META-FALSE-EQUIVALENT", "META-VERIFIED-COMPARE-FALSE-EQUIVALENT", "META-ENVELOPE-FALSE-MATCH", "META-GATE-DROPPED-NUMBER", "META-GATE-DROPPED-NEGATION",
            "META-GATE-COLLAPSE", "COSM-UNCONTAINED-LOSS", "WIRE-HANG", "WIRE-SILENT-DROP"}
 
 
@@ -302,7 +316,7 @@ def _status(c) -> str:
     code = judge(c["kind"], c["original"], c["mutated"])
     if code == c["code"]:
         return "STILL_FAILS"
-    if c["code"] in EMITTED or c["code"].split(":")[0] in {"META-CRASH", "META-ENVELOPE-CRASH", "META-GATE-CRASH", "COSM-CRASH", "WIRE-CRASH"}:
+    if c["code"] in EMITTED or c["code"].split(":")[0] in {"META-CRASH", "META-VERIFIED-CRASH", "META-ENVELOPE-CRASH", "META-GATE-CRASH", "COSM-CRASH", "WIRE-CRASH"}:
         return "FIXED" if code is None else f"CHANGED->{code}"
     # stored code is not one the oracle emits any more (older oracle): do NOT claim it was fixed
     if c["kind"] == "COSM":
@@ -338,6 +352,10 @@ def selftest() -> list:
     G.translate_gated = lambda t: {"mode": "AIXL", "output": "A:ANALYZE D:SALES"}
     try: res.append(("gate ships AIXL that dropped the number", judge_meta("Analiza 5 ventas.", "Analiza 6 ventas.") == "META-GATE-DROPPED-NUMBER"))
     finally: G.translate_gated = og
+    import aixl.api.service as SV
+    ocv = SV.compare_verified; SV.compare_verified = lambda a, b, c=None: {"equivalent": True}
+    try: res.append(("published compare says EQUIVALENT to a meaning change", judge_meta("Borra el archivo.", "Nunca borres el archivo.") == "META-VERIFIED-COMPARE-FALSE-EQUIVALENT"))
+    finally: SV.compare_verified = ocv
     import aixl.envelope as EV
     ov = EV.verify; EV.verify = lambda env, t: "MATCH"
     try: res.append(("envelope MATCHes a meaning change", judge_meta("Borra el archivo.", "Nunca borres el archivo.") == "META-ENVELOPE-FALSE-MATCH"))
@@ -372,6 +390,9 @@ def scope(seed: int = 7, reps: int = 5) -> dict:
                 if compare_texts(base, m).verdict == "EQUIVALENT": c["semantic_equivalent"] += 1
                 if aixl.compare(base, m).equivalent:
                     c["core_compare_equivalent"] += 1; known.append((name, base, m))
+                from aixl.api.service import compare_verified
+                if compare_verified(base, m)["equivalent"]:
+                    c["verified_compare_equivalent"] += 1
                 v = verify(seal(base), m); c["envelope_" + v] += 1
                 g = translate_gated(m); c["gate_" + g["mode"]] += 1
                 if g["mode"] == "AIXL":
@@ -393,11 +414,12 @@ if __name__ == "__main__":
         r = scope(); k = r["counts"]
         print(f"mutants (meaning-changing, fixed seed): {k.get('mutants', 0)}")
         print(f"  semantic comparator EQUIVALENT      : {k.get('semantic_equivalent', 0)}   (defect if > 0)")
+        print(f"  published compare (verified) EQUIV  : {k.get('verified_compare_equivalent', 0)}   (defect if > 0)")
         print(f"  integrity envelope MATCH            : {k.get('envelope_MATCH', 0)}   (defect if > 0; MISMATCH {k.get('envelope_MISMATCH', 0)}, UNVERIFIED {k.get('envelope_UNVERIFIED', 0)})")
         print(f"  gate AIXL (lossy or collapsed)      : {k.get('gate_AIXL', 0)} AIXL / {k.get('gate_NATURAL', 0)} NATURAL, collapse {k.get('gate_collapse', 0)}")
         print(f"  core comparator EQUIVALENT (known)  : {k.get('core_compare_equivalent', 0)}   (documented limit, not a defect)")
         for n, b0, m in r["known_limits"][:30]: print(f"      [{n}] {b0!r} -> {m!r}")
-        sys.exit(1 if k.get("semantic_equivalent") or k.get("envelope_MATCH") or k.get("gate_collapse") else 0)
+        sys.exit(1 if k.get("semantic_equivalent") or k.get("verified_compare_equivalent") or k.get("envelope_MATCH") or k.get("gate_collapse") else 0)
     elif a.cmd == "selftest":
         r = selftest()
         for n, ok in r: print("CAUGHT" if ok else "MISSED", "-", n)
