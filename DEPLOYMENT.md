@@ -284,3 +284,10 @@ Until this date the A2A agent had **no authentication and no rate limit** while 
 - **Body cap:** `AIXL_A2A_MAX_BODY_BYTES` (default 262144) -> 413. Texts above 16,384 characters are additionally refused by the analysis (`AIXL_MAX_INPUT_CHARS`).
 - **Docker/compose:** `export AIXL_A2A_TOKEN=$(openssl rand -hex 32)` before `docker compose up`. **k8s:** create the `aixl-a2a-auth` Secret (command in `k8s/deployment.yaml`).
 - **Not covered:** TLS (terminate it at the ingress), token rotation, per-client quotas, and any authorisation beyond "has the token".
+
+## Load and recovery test (measured 2026-10-13, `python scripts/load_test_a2a.py`)
+Real JSON-RPC over loopback HTTP, 1 process, this Mac: 300 compare calls at concurrency 40 -> 300/300 ok, 157 req/s, p50 222 ms / p99 287 ms;
+2000 at concurrency 200 -> 2000/2000 ok, 173 req/s, p50 1.0 s / p99 1.4 s. `/healthz` stays 200 under saturation (max 0.8 s). 400 kB body -> 413 and the
+server stays up; 60-request burst at 20/min -> 40 x 429, 0 x 5xx; `kill -9` -> back and answering in 0.3 s; SIGTERM exits in 0.2 s (default
+signal handling, exit -15: no in-flight drain — acceptable because every call is idempotent and stateless except negotiation Tasks, which are
+in-memory and lost on restart). Single-core numbers; size replicas from them, do not extrapolate.
