@@ -11,7 +11,6 @@ import asyncio
 import os
 import signal
 import socket
-import statistics
 import subprocess
 import sys
 import time
