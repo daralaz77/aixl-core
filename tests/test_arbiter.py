@@ -10,7 +10,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def test_rules_are_the_ones_used_in_every_experiment():
-    a = open(os.path.join(ROOT, "data", "arbiter", "rules_v1.txt"), "rb").read()
+    a = open(os.path.join(ROOT, "aixl", "resources", "arbiter_rules_v1.txt"), "rb").read()
     b = open(os.path.join(ROOT, "data", "blind10", "arb_rules.txt"), "rb").read()
     assert a == b                                              # the experiment copy and the packaged copy cannot drift
     assert A.rules_id() == hashlib.sha256(a).hexdigest()[:16]

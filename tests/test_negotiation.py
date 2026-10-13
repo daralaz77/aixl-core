@@ -224,7 +224,7 @@ def test_negotiate_still_resolves_a_merely_destructive_but_reversible_action_dis
 def test_negotiate_rejects_an_irreversible_send_disagreement():
     # E-MCP-DESTRUCTIVE widened (2026-09-30, user request): SEND joins DELETE/EXECUTE on
     # `irreversible_actions` — a message sent usually can't be unsent. Not yet backed by a real
-    # disagreement case the way DELETE was (see data/config.json's irreversible_actions comment).
+    # disagreement case the way DELETE was (see aixl/resources/config.json's irreversible_actions comment).
     sender = canon("Send the invoice.")              # -> SEND
     receiver = canon("Update the invoice.")           # -> UPDATE
     out = neg.negotiate(sender, receiver, max_rounds=3)

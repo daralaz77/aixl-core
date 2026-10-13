@@ -1,6 +1,6 @@
 """FASE 8 — Drift detection: how much did the meaning move between SOURCE and TARGET semantics?
 
-Levels are derived from the highest severity among the concrete differences (configurable in data/config.json).
+Levels are derived from the highest severity among the concrete differences (configurable in aixl/resources/config.json).
 CRITICAL covers: negation/permission flips, quantity changes, destructive/opposite actions, critical constraints
 (visibility, before/after). A drift report always carries the concrete differences (never just a label)."""
 from dataclasses import dataclass, field

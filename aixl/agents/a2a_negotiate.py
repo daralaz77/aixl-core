@@ -6,7 +6,7 @@ multi-turn exchange at all required building a whole separate mechanism: a secon
 (aixl/agents/sender_agent.py) plus aixl/autonomous_negotiation.py driving it by hand. A2A's Task model
 (TaskState.TASK_STATE_INPUT_REQUIRED, a TaskStore that persists state across calls) is built for exactly
 this kind of pause-and-resume interaction natively — this module uses it for the ONE case negotiation
-genuinely needs a human in the loop: an irreversible-action disagreement (see data/config.json's
+genuinely needs a human in the loop: an irreversible-action disagreement (see aixl/resources/config.json's
 `irreversible_actions`), which `aixl/negotiation.py` has always REJECTed with the message "requires human
 confirmation, not auto-resolved by trusting the sender" — a claim that, until now, had no actual mechanism
 behind it. This closes that gap for real: the task pauses, asks a human (or another real agent) which

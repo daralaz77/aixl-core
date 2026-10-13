@@ -62,3 +62,17 @@ jobs:
           python-version: "3.12"
       - run: python -m lab.arena.arena selftest
       - run: python -m lab.arena.arena scope
+
+  wheel:
+    # A wheel that builds is not a wheel that works: the first one failed every call (config.json outside the package, found 2026-10-13).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install build
+      - run: python -m build --wheel --outdir dist
+      - run: python -m venv /tmp/cleanvenv && /tmp/cleanvenv/bin/pip install dist/aixl-*.whl
+      - name: Exercise the INSTALLED package from outside the repo
+        run: cd /tmp && /tmp/cleanvenv/bin/python "$GITHUB_WORKSPACE/scripts/wheel_smoke.py"

@@ -24,12 +24,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 # here and in pyproject.toml's own `a2a` extra.
 RUN pip install --no-cache-dir "a2a-sdk[http-server]" uvicorn
 
-# Only what the agent actually imports at runtime: the aixl/ package and its one config file
-# (aixl/core/ontology.py's load_config() resolves data/config.json relative to the package, so this
-# sibling layout must be preserved) — not the 1.4MB of blind-set/benchmark data under data/ that has
-# nothing to do with running the agent.
+# Only what the agent actually imports at runtime: the aixl/ package, which now carries its own resources (aixl/resources/config.json) —
+# not the 1.4MB of blind-set/benchmark data under data/ that has nothing to do with running the agent.
 COPY aixl/ ./aixl/
-COPY data/config.json ./data/config.json
 
 RUN useradd --no-create-home --uid 10001 aixl && chown -R aixl:aixl /app
 USER aixl

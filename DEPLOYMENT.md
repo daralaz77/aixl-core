@@ -60,7 +60,7 @@ see BENCHMARK.md §16); every pod is interchangeable, nothing to migrate or back
 
 ## 4. Docker / Kubernetes configuration
 
-- **`Dockerfile`**: `python:3.12-slim`, copies only `aixl/` + `data/config.json` (the one file the
+- **`Dockerfile`**: `python:3.12-slim`, copies only `aixl/` + `aixl/resources/config.json` (the one file the
   library reads at runtime — not the ~1.4 MB of blind-set/benchmark data under `data/`, which has
   nothing to do with running the agent), runs as a non-root user (uid 10001), `HEALTHCHECK` against
   `/healthz`. **Verified**: built and ran locally; `docker inspect`'s health status reached `healthy`.

@@ -21,7 +21,7 @@ with zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED) as z:
     for f in ("benchmarks/__init__.py", "benchmarks/metrics.py", "benchmarks/llm_translator_eval.py"):
         if os.path.exists(os.path.join(ROOT, f)):
             z.write(os.path.join(ROOT, f), f)
-    z.write(os.path.join(ROOT, "data/config.json"), "data/config.json")
+    z.write(os.path.join(ROOT, "aixl/resources/config.json"), "aixl/resources/config.json")
     z.write(os.path.join(ROOT, "data/llm_translator/texts_blind5.json"), "data/llm_translator/texts_blind5.json")
     for f in ("pairs_A5.jsonl", "pairs_B5.jsonl"):
         z.write(os.path.join(ROOT, "data/blind5", f), f"data/blind5/{f}")

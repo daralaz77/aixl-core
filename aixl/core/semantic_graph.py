@@ -210,7 +210,7 @@ class SemanticGraph:
     # ---- canonical form -----------------------------------------------------------------------------
     def canonical(self, config: dict | None = None, today=None) -> dict:
         """Canonical form: comparison is done on THIS, not on the surface words or on the frame.
-        Normalizations (all configurable/documented): action groups (data/config.json), EXCLUDE == FORBID INCLUDE,
+        Normalizations (all configurable/documented): action groups (aixl/resources/config.json), EXCLUDE == FORBID INCLUDE,
         generic DATA dropped when a specific datum is present, intent/goal derived from the canonical actions.
         `today` (E-DATE, 2026-09-27): reference date used to resolve TODAY/YESTERDAY/... TIME nodes to a
         literal value AT COMPARISON TIME — applied here, not only in the rule-based translator, so it also

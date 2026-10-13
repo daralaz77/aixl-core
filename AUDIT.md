@@ -32,7 +32,7 @@ text (ES/EN/PT)
   -> cli.py, lab/render.py, lab/server.py   human-facing CLI + tiny web viewer
 ```
 
-Config (`data/config.json`, loaded via `aixl.core.ontology.load_config()`) holds severity thresholds,
+Config (`aixl/resources/config.json`, loaded via `aixl.core.ontology.load_config()`) holds severity thresholds,
 `destructive_actions` (comparator display only) and `irreversible_actions` (negotiation REJECT gate) —
 two intentionally separate lists, not a duplication (different consumers, different tolerance for false positives).
 

@@ -13,7 +13,7 @@ Current: package **0.5.0**, wire token `AIXL-0.3` (unchanged; `R:` is additive).
 ## What is stable
 * The wire format and atom meanings of a given `V:` version (PROTOCOL.md).
 * Result **shapes** (`ComparisonResult.to_dict()` keys, `AixlError.code`) within a MINOR line; keys are only added (`warnings` appears only when non-empty).
-* `data/config.json` keys (weights, severities, `destructive_actions`, `irreversible_actions`, `critical_constraint_keys`).
+* `aixl/resources/config.json` keys (weights, severities, `destructive_actions`, `irreversible_actions`, `critical_constraint_keys`).
 
 ## What is deliberately NOT stable
 * **Fingerprints** are a function of the canonical form, the lexicon and the reference date. A vocabulary or normalization change can change a fingerprint. Store `aixl.__version__` next to any persisted fingerprint

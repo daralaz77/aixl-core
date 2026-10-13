@@ -59,7 +59,7 @@ def _is_empty(v) -> bool:
 
 def _involves_irreversible_action(d: Difference, cfg: dict) -> bool:
     """Narrower than comparator's own `destructive_actions` (used only for CRITICAL severity display,
-    and includes common/reversible actions like UPDATE) — see data/config.json's irreversible_actions
+    and includes common/reversible actions like UPDATE) — see aixl/resources/config.json's irreversible_actions
     comment for why: reusing destructive_actions here broke the real 'Close ticket' vs 'Delete ticket'
     case, since UPDATE sits on both lists' broad end."""
     irr = set(cfg.get("irreversible_actions", ["DELETE"]))

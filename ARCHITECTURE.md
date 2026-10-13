@@ -69,7 +69,7 @@ the only cycle left is `core` <-> `translators` through 3 lazy (function-level) 
 3. Ontology decides node type: REPORT/DOCUMENT/MODEL/RESULT/EVENT... are ENTITIES (AIXL `E:`), SALES/CUSTOMERS/USERS/DATASET... are DATA (`D:`).
 4. Equivalence = exact canonical equality. Similarity is a graded metric for non-equivalent pairs only.
 5. Action groups (CREATE≡GENERATE, GET≡RETRIEVE, SEARCH≡FIND, CHECK≡VALIDATE) are equivalent for comparison (config `action_groups`, empty list = strict).
-6. TIME change severity = MAJOR (the two user specs disagree: CRITICAL in one, MODERATE in an example of the other). Configurable in `data/config.json`.
+6. TIME change severity = MAJOR (the two user specs disagree: CRITICAL in one, MODERATE in an example of the other). Configurable in `aixl/resources/config.json`.
 7. `EXCLUDE X` ≡ `FORBID INCLUDE X` in the canonical form (the graph keeps the surface verb).
 8. *(Superseded 2026-09-27, E-DATE.)* Relative days/months/years now resolve against an explicit `today` (default: system date) at canonicalization, so "mañana" equals the matching ISO date; weeks stay unresolved on purpose. Originally: relative dates were not resolved (no clock).
 9. A generic `DATA` mention is dropped when a specific datum is present ("datos de ventas" = SALES).

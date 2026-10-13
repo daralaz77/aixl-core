@@ -5,7 +5,7 @@ same?" is a strict full-text arbiter — two independent judges, "same" only if 
 (the same pair wrong on every run) and the verdict of a single pair can flip between runs (Sonnet 1.2 %, Haiku 6.1 %, the
 2-of-2 1.2 %), so a decision must be STORED and reused, never re-derived. This module provides exactly that, and nothing else:
 
-* `rules_text()` / `rules_id()` — the versioned arbiter rules (`data/arbiter/rules_v1.txt`); the id is the sha256 of the bytes.
+* `rules_text()` / `rules_id()` — the versioned arbiter rules (`aixl/resources/arbiter_rules_v1.txt`); the id is the sha256 of the bytes.
 * `consensus(verdicts)` — SAME only if every judge says SAME (and there are at least two for `ok`); DIFFERENT if any says DIFFERENT.
 * `parse_judge_lines(text, expected_ids)` — validates a judge's `id<TAB>verdict<TAB>reason` output; reports missing/invalid ids
   (one dropped line in 410 judgments was observed, so callers need a retry path).
@@ -24,7 +24,9 @@ from dataclasses import dataclass, field
 from aixl.core.normalizer import sanitize_input
 
 VERDICTS = ("SAME", "DIFFERENT", "UNSURE")
-_RULES_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "arbiter", "rules_v1.txt")
+from aixl.resources import path as _resource  # noqa: E402
+
+_RULES_PATH = _resource("arbiter_rules_v1.txt")
 
 
 def rules_text() -> str:

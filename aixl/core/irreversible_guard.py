@@ -16,7 +16,7 @@ usage: assess(text_a, text_b, aixl_a, aixl_b, equivalent) -> {"escalate": bool, 
 """
 import re
 
-# verbs that mean permanent removal / outbound communication, per irreversible action in data/config.json
+# verbs that mean permanent removal / outbound communication, per irreversible action in aixl/resources/config.json
 _VERBS = {
     "DELETE": r"\b(delet\w*|remov\w*|eras\w*|purg\w*|wip\w*|destro\w*|drop\w*|elimin\w*|borr\w*|suprim\w*|destru\w*|"
               r"exclu(?:a|am|as|i|ir|ir[ií]a|[ií]d[oa]s?)|exclu[ií]\w*|apag\w*|remov\w*|quit\w*\s+permanente\w*)\b",

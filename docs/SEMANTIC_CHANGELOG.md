@@ -12,7 +12,7 @@ Canonical form gains a dimension, so by VERSIONING_POLICY.md this is a loud MINO
 | `validate()`, `round_trip()` (ADR-012) | New functions | none | same file |
 | `detect_ambiguity(text, context=None)` (ADR-013) | Optional parameter; findings gain optional keys only with a context | none | `test_ambiguity_context.py` |
 | Graph per-action TARGET/DEPENDS_ON/OBJECT edges, `meta.composition` | Edge relations already existed; JSON gains edges | none | `test_composition.py` |
-| `data/config.json`: `bindings` weight 3.0, severity MAJOR | Keys added | custom configs without them fall back to severity MAJOR and weight 3.0 (tested) | covered by `test_bindings.py` |
+| `aixl/resources/config.json`: `bindings` weight 3.0, severity MAJOR | Keys added | custom configs without them fall back to severity MAJOR and weight 3.0 (tested) | covered by `test_bindings.py` |
 
 Regression tests added for property/invariant behaviour (`test_properties.py`, `test_golden.py`). Total at release: 435 passed.
 

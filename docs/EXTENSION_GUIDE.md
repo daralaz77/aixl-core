@@ -14,8 +14,8 @@ out-of-lexicon words are *reported*, not lost silently: the `UNRECOGNIZED_TERMS`
 | an action verb synonym | `EXTRA_ACTION_RX` in `aixl/core/normalizer.py` (or `ACTION_RX` in the 0.2 analyzer) | regex over accent-stripped text; a word preceded by an article is not treated as a verb |
 | a *new* canonical action | the verb above **and** `ACTIONS` + `ACTION_TO_INTENT` in `aixl/legacy02/protocol/atoms.py`; decide if it belongs in `destructive_actions` / `irreversible_actions` | changes meaning of the vocabulary ⇒ MINOR bump |
 | a unit | `UNIT_MAP` in `aixl/core/normalizer.py` | |
-| a constraint key | emit `KEY=VALUE` into `frame.constraints` in the translator; if loss of it is safety-relevant add it to `critical_constraint_keys` in `data/config.json` | e.g. `SCOPE` |
-| a severity / weight | `data/config.json` | configuration, not code |
+| a constraint key | emit `KEY=VALUE` into `frame.constraints` in the translator; if loss of it is safety-relevant add it to `critical_constraint_keys` in `aixl/resources/config.json` | e.g. `SCOPE` |
+| a severity / weight | `aixl/resources/config.json` | configuration, not code |
 
 ## Worked example — domain extension for invoices (verified by `tests/test_docs.py`)
 Without it, "Generate the invoice" silently drops the object and raises `UNRECOGNIZED_TERMS`. As a standalone module `finance_ext.py`:

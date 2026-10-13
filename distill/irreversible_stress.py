@@ -1,5 +1,5 @@
 """Stress test for the DANGEROUS error of a translator: calling two instructions equivalent when they differ on
-something that matters, specifically around IRREVERSIBLE actions (data/config.json `irreversible_actions`: DELETE, SEND).
+something that matters, specifically around IRREVERSIBLE actions (aixl/resources/config.json `irreversible_actions`: DELETE, SEND).
 
 Why a separate set: blind5 contains only 27 NOT_EQUIVALENT pairs that touch an irreversible action, so it cannot say how
 often a translator silently drops a negation / condition / quantity / target / time / ordering on "delete" or "send".

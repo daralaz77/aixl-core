@@ -15,7 +15,7 @@ CONDITION, QUANTITY, OUTPUT, MODIFIER, INTENT, RESIDUE`. `RESIDUE` (additive 202
 `SemanticGraph.canonical(config=None, today=None)` returns 16 dimensions:
 `intent, actions, entities, data, time, location, constraints, conditions, negation, references, quantities, goal, output, modifiers, bindings, residue` (`residue` = the order-free, light-stemmed content words of all `RESIDUE` nodes; empty for graphs without any).
 Conservative normalization only — it must never turn a real difference into equivalence:
-action synonym groups (`data/config.json: action_groups`), `EXCLUDE X` ≡ `FORBID INCLUDE X`, numbers (`.90`=`0.9`, `1.000`=`1000`),
+action synonym groups (`aixl/resources/config.json: action_groups`), `EXCLUDE X` ≡ `FORBID INCLUDE X`, numbers (`.90`=`0.9`, `1.000`=`1000`),
 duration units (1 year = 12 months), generic `DATA` dropped when a specific datum exists, relative time resolved against `today`
 (default: system date), aggregates kept distinct (`TOTAL_SALES` ≠ `SALES`). Intent and goal are *derived*, scored but never
 reported as an independent difference. Unordered dimensions are compared as sets; `actions` order is meaningful.
@@ -25,7 +25,7 @@ reported as an independent difference. Unordered dimensions are compared as sets
 `verdict ∈ EQUIVALENT, NOT_EQUIVALENT, INCONCLUSIVE` (INCONCLUSIVE only when `config["inconclusive"]` is true: the canonical forms match but equality is not proven — see [COMPARATOR.md](COMPARATOR.md)), `drift_level ∈ NO_DRIFT, MINOR_, MODERATE_, MAJOR_, CRITICAL_DRIFT` (worst difference), typed `differences`
 (`field, source, target, kind ∈ changed|added|removed|order, severity`), `critical_changes`, and `warnings` (transparency, never a verdict change).
 
-Severity (`data/config.json`, configurable): negation, quantities → CRITICAL; time, constraints, conditions, references, actions, data, output → MAJOR;
+Severity (`aixl/resources/config.json`, configurable): negation, quantities → CRITICAL; time, constraints, conditions, references, actions, data, output → MAJOR;
 entities, location → MODERATE; goal, intent → MINOR. Escalations: opposite/destructive action changes; critical constraint keys
 (`VISIBILITY, BEFORE, AFTER, TIME_AT, RECIPIENT, SCOPE`); and — **context-sensitive and directional** — when a destructive/external action
 (`DELETE, EXECUTE, SEND, DISABLE, UPDATE`) is involved, a *removed or changed* reference/object/condition/constraint is CRITICAL (target/scope

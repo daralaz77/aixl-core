@@ -1,13 +1,13 @@
 # Comparator
 `compare_graphs(a, b, config, today)` in `aixl/core/comparator.py` compares **canonical forms**, never strings. Dimensions: intent, actions, entities, data, time, location, constraints, conditions, negation, references, quantities, goal, output, modifiers.
 - `equivalent` is exact: any difference in any non-derived dimension => False. intent/goal are derived and scored, never reported as independent differences.
-- `similarity` and `drift` are weighted by `data/config.json` (`weights`, `severity`); they are diagnostic, not truth.
+- `similarity` and `drift` are weighted by `aixl/resources/config.json` (`weights`, `severity`); they are diagnostic, not truth.
 - Severity is context-sensitive: changing the target/scope or dropping a safeguard of a destructive action (DELETE EXECUTE SEND DISABLE UPDATE) is CRITICAL; negation and quantities are CRITICAL; time/constraints/conditions/references/actions MAJOR.
 - `warnings`: `UNRECOGNIZED_TERMS` and blocking `NO_ACTION_RECOGNIZED` (an "equivalent" verdict on a text with no recognised action proves nothing).
 ORDER=MOST_RECENT/OLDEST is now a constraint ("más reciente", "latest", "mais recente"). Bindings (`K:BIND=ACTION>ARG`, dimension `bindings`): compared per argument as sets of actions; empty on either side = unknown (skipped); one side's set contained in the other's is compatible; disjoint/crossing is a difference (CRITICAL if a destructive action is involved). See LIMITATIONS #3 for what is deliberately not bound. Mapping to the prompt's result set: equivalent=EQUIVALENT; differences with only MINOR/added info ~ PARTIALLY_EQUIVALENT; negation/critical ~ NOT_EQUIVALENT/CONTRADICTORY (via the contradiction detector).
 
 ## Verdict, INCONCLUSIVE and completeness (added 2026-10-02/03, opt-in)
-`ComparisonResult.verdict` is `EQUIVALENT` or `NOT_EQUIVALENT`; with `config["inconclusive"] = True` (default **false**, `data/config.json`) it can also be `INCONCLUSIVE` and `equivalent` is then `False` ("not proven", so legacy callers err on the safe side). It is set when:
+`ComparisonResult.verdict` is `EQUIVALENT` or `NOT_EQUIVALENT`; with `config["inconclusive"] = True` (default **false**, `aixl/resources/config.json`) it can also be `INCONCLUSIVE` and `equivalent` is then `False` ("not proven", so legacy callers err on the safe side). It is set when:
 * canonical forms match but the two rule-based graphs carry different `meta["unaccounted"]` content words (words neither a lexicon nor the canonical form accounts for; `UNACCOUNTED_CONTENT` warning); or
 * both graphs were annotated with `aixl.core.completeness.annotate(graph, text)` and a side is incomplete (a content word or a structural marker — before/after, only, all, except, not, more/less than, every — is not reflected; `INCOMPLETE_ENCODING`) or the marker sets differ; opposed markers (before vs after, more vs less) give `NOT_EQUIVALENT` with a `MARKERS` difference; or
 * the only difference is two different `R:` residues (they may be translations of each other).

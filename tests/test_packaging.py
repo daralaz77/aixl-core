@@ -15,3 +15,16 @@ def test_every_atoms_data_file_is_declared_as_package_data():
     assert data_files, "expected data files under aixl/atoms/data"
     missing = [f for f in data_files if not any(fnmatch.fnmatch(f, pat) for pat in patterns)]
     assert not missing, f"not covered by package-data (would be missing from the wheel): {missing}"
+
+
+def test_runtime_resources_are_inside_the_package_and_declared():
+    cfg = tomllib.loads((ROOT / "pyproject.toml").read_text())
+    patterns = cfg["tool"]["setuptools"]["package-data"]["aixl.resources"]
+    base = ROOT / "aixl" / "resources"
+    files = [p.name for p in base.iterdir() if p.is_file() and p.suffix != ".py"]
+    assert {"config.json", "arbiter_rules_v1.txt"} <= set(files)
+    assert not [f for f in files if not any(fnmatch.fnmatch(f, pat) for pat in patterns)]
+    from aixl.core import ontology
+    from aixl.resources import path
+    assert path("config.json").startswith(str(ROOT / "aixl"))               # inside the package, not the repo's top-level data/
+    assert ontology.load_config()["weights"]

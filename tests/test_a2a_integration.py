@@ -126,7 +126,7 @@ def test_aixl_negotiate_over_real_a2a_resolves_an_ordinary_disagreement_in_one_c
 def test_aixl_negotiate_over_real_a2a_pauses_for_a_human_on_an_irreversible_action_disagreement(server_url):
     """The real, multi-turn case this whole mechanism exists for: "Close ticket #77." (UPDATE) vs
     "Delete ticket #77." (DELETE) must PAUSE the Task (TASK_STATE_INPUT_REQUIRED) and ask a human —
-    not silently trust either side — because DELETE is on data/config.json's irreversible_actions."""
+    not silently trust either side — because DELETE is on aixl/resources/config.json's irreversible_actions."""
     async def run():
         return await _negotiate(server_url, "Close ticket #77.", "Delete ticket #77.")
     task = asyncio.run(run())

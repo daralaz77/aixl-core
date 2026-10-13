@@ -15,14 +15,14 @@ Always run through the venv (`python3 -m unittest` finds nothing and a bare `pyt
 ## Layout
 `aixl/core` semantics (graph, canonical form, comparator, drift, ambiguity, contradiction, fingerprint, lexicon_gaps, normalizer) ·
 `aixl/translators` text→graph · `aixl/serialization` AIXL/JSON codecs · `aixl/api/service.py` public API · `aixl/adapters` + `aixl/agents` + `aixl/mcp_server.py` transport ·
-`aixl/legacy02` vendored, measured AIXL 0.2 analyzer/parser/encoder · `data/config.json` weights/severities · `benchmarks/` and `data/` evidence · `tests/`.
+`aixl/legacy02` vendored, measured AIXL 0.2 analyzer/parser/encoder · `aixl/resources/config.json` weights/severities · `benchmarks/` and `data/` evidence · `tests/`.
 Rule for any new feature (§59): is it semantic, syntactic, transport, adaptation, or domain-specific? Provider-specific ⇒ never in `core`; domain-specific ⇒ extension.
 
 ## Typical tasks
 * **Compare two instructions:** `aixl.compare(a, b)`; to reproduce results across days pass `today=` to the functions that accept it.
 * **Add vocabulary:** [EXTENSION_GUIDE.md](EXTENSION_GUIDE.md).
 * **Fix a translator bug:** write the failing case in `tests/test_regression.py` (`test_bugNNN`) first, fix, run the whole suite **and** the blind/benchmark ratchets.
-* **Change a severity or weight:** edit `data/config.json` (not code); document it in ARCHITECTURE.md if it is an assumption.
+* **Change a severity or weight:** edit `aixl/resources/config.json` (not code); document it in ARCHITECTURE.md if it is an assumption.
 
 ## Quality gates (a change is not done until all pass)
 1. `pytest -q` green. 2. Ratchets: `tests/test_sil5x100.py`, `tests/test_sil_security.py` (floors = measured values; raise on improvement, never lower silently).

@@ -28,7 +28,7 @@ False alarms: 0/31 benign cross-lingual restatements flagged.
 1. **Loss is never silent (§66).** Out-of-lexicon object nouns raise `UNRECOGNIZED_TERMS`; a text with no recognised action raises `NO_ACTION_RECOGNIZED` (BLOCKING): "equivalent" there means "could not verify".
 2. **Severity is context-sensitive and directional.** Removing/changing the target, condition or constraint of a destructive/external action is CRITICAL; *adding* a restriction is not. Compare in the
    direction *original → received*. `compare(b, a)` reverses `added/removed`, so a widening attack read backwards looks like a narrowing.
-3. **Irreversible actions cannot be negotiated away.** In `negotiate()`, an `actions` disagreement involving `DELETE` or `SEND` (`data/config.json: irreversible_actions`) is not auto-resolved by trusting the
+3. **Irreversible actions cannot be negotiated away.** In `negotiate()`, an `actions` disagreement involving `DELETE` or `SEND` (`aixl/resources/config.json: irreversible_actions`) is not auto-resolved by trusting the
    sender: it REJECTs (or, in A2A, pauses the Task for a human). `EXECUTE` was tried and removed after 8 of 10 real instances proved to be translator noise.
 4. **Confidence ≠ meaning.** Extraction confidence (`H:`) never substitutes the representation.
 5. **No content is trusted as an instruction.** Text compared by AIXL is data; the library never follows instructions found inside it.

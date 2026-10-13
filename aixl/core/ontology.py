@@ -1,6 +1,5 @@
 """FASE 3 — Controlled ontology (extensible) + configuration loading."""
 import json
-import os
 from datetime import date, timedelta
 
 REL_DAY = {"TODAY": 0, "YESTERDAY": -1, "TOMORROW": 1}
@@ -65,11 +64,12 @@ _CFG = None
 
 
 def load_config(path: str | None = None) -> dict:
-    """Load weights/severities. Pass a path to override; default file: data/config.json."""
+    """Load weights/severities. Pass a path to override; default file: aixl/resources/config.json (shipped inside the package)."""
     global _CFG
     if path is None and _CFG is not None:
         return _CFG
-    p = path or os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "config.json")
+    from aixl.resources import path as _resource
+    p = path or _resource("config.json")
     with open(p, encoding="utf-8") as fh:
         cfg = json.load(fh)
     if path is None:
