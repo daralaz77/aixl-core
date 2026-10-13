@@ -1,0 +1,177 @@
+{"id": "OS-OP000", "author": "opus", "text": "Exporta las ventas de septiembre a un archivo CSV y envíaselo a Marta antes del viernes."}
+{"id": "OS-OP001", "author": "opus", "text": "Si el cliente no ha pagado en treinta días, márcalo como moroso en el CRM."}
+{"id": "OS-OP002", "author": "opus", "text": "Prepara un informe con los diez productos más vendidos del último trimestre."}
+{"id": "OS-OP003", "author": "opus", "text": "No borres ningún ticket cerrado aunque tenga más de un año de antigüedad."}
+{"id": "OS-OP004", "author": "opus", "text": "Primero revisa el contrato de Grupo Andino y luego agenda una llamada con su gerente."}
+{"id": "OS-OP005", "author": "opus", "text": "Los reembolsos mayores a quinientos dólares deben ser aprobados por el director financiero."}
+{"id": "OS-OP006", "author": "opus", "text": "Programa una reunión con el equipo de soporte el martes o el miércoles por la tarde."}
+{"id": "OS-OP007", "author": "opus", "text": "Resume los comentarios de la encuesta de satisfacción y destaca las quejas sobre entregas tardías."}
+{"id": "OS-OP008", "author": "opus", "text": "Puedes cerrar los tickets duplicados, pero no respondas a los clientes sin mi revisión."}
+{"id": "OS-OP009", "author": "opus", "text": "Compara los gastos de marketing de enero y febrero y explica la diferencia en un párrafo."}
+{"id": "OS-OP010", "author": "opus", "text": "Cuando llegue la factura de Telcomex, regístrala en contabilidad y avísale a Jorge."}
+{"id": "OS-OP011", "author": "opus", "text": "Revisa el pull request de autenticación antes de que se fusione con la rama principal."}
+{"id": "OS-OP012", "author": "opus", "text": "Envía un recordatorio a los clientes cuyas suscripciones vencen entre el 1 y el 15 de noviembre."}
+{"id": "OS-OP013", "author": "opus", "text": "Nunca compartas los datos personales de los empleados con proveedores externos."}
+{"id": "OS-OP014", "author": "opus", "text": "Actualiza la hoja de inventario y elimina los artículos que no tengan movimiento desde marzo."}
+{"id": "OS-OP015", "author": "opus", "text": "A menos que Laura lo autorice, no cambies los precios publicados en la tienda."}
+{"id": "OS-OP016", "author": "opus", "text": "Clasifica los correos de la bandeja de soporte por urgencia y responde primero los críticos."}
+{"id": "OS-OP017", "author": "opus", "text": "Calcula el promedio de tiempo de respuesta de los agentes durante la última semana."}
+{"id": "OS-OP018", "author": "opus", "text": "Después de migrar la base de datos, verifica que al menos el noventa por ciento de los registros coincida."}
+{"id": "OS-OP019", "author": "opus", "text": "Redacta un borrador de correo para Bancolombia solicitando la ampliación del plazo del crédito."}
+{"id": "OS-OP020", "author": "opus", "text": "Send the quarterly revenue report to the board by Thursday at noon."}
+{"id": "OS-OP021", "author": "opus", "text": "If a customer requests a refund within fourteen days, process it without asking for approval."}
+{"id": "OS-OP022", "author": "opus", "text": "List the top five accounts by churn risk and attach their last support interactions."}
+{"id": "OS-OP023", "author": "opus", "text": "Do not merge any branch that has failing tests or unresolved review comments."}
+{"id": "OS-OP024", "author": "opus", "text": "First back up the production database, then run the schema migration script."}
+{"id": "OS-OP025", "author": "opus", "text": "You must notify legal before sharing any contract drafts with Acme Corporation."}
+{"id": "OS-OP026", "author": "opus", "text": "Schedule a one-on-one with Priya sometime next week, preferably Monday or Tuesday morning."}
+{"id": "OS-OP027", "author": "opus", "text": "Flag every invoice that exceeds the approved purchase order amount by more than ten percent."}
+{"id": "OS-OP028", "author": "opus", "text": "Archive all Slack channels that have had no activity since January of this year."}
+{"id": "OS-OP029", "author": "opus", "text": "Unless the client explicitly asks, never include internal pricing notes in the proposal."}
+{"id": "OS-OP030", "author": "opus", "text": "Merge the two customer spreadsheets and remove rows with duplicate email addresses."}
+{"id": "OS-OP031", "author": "opus", "text": "Review the logging changes in the payments service and check for leaked card numbers."}
+{"id": "OS-OP032", "author": "opus", "text": "When the shipment from Northwind arrives, update the order status and email the buyer."}
+{"id": "OS-OP033", "author": "opus", "text": "You may reschedule the demo, but you cannot cancel it without telling Daniel."}
+{"id": "OS-OP034", "author": "opus", "text": "Summarize the incident postmortem in under two hundred words for the executive team."}
+{"id": "OS-OP035", "author": "opus", "text": "Create a Jira ticket for the login timeout bug and assign it to the mobile team."}
+{"id": "OS-OP036", "author": "opus", "text": "Count how many support tickets were reopened between July and September."}
+{"id": "OS-OP037", "author": "opus", "text": "After the audit is complete, delete the temporary access granted to the external consultants."}
+{"id": "OS-OP038", "author": "opus", "text": "Draft a polite reply declining the partnership offer from Brightline Media."}
+{"id": "OS-OP039", "author": "opus", "text": "Compare our cloud costs with last year's and highlight any service that grew more than twenty percent."}
+{"id": "OS-OP040", "author": "opus", "text": "Envie o relatório de despesas de outubro para a Fernanda até segunda-feira."}
+{"id": "OS-OP041", "author": "opus", "text": "Se o pedido estiver atrasado mais de cinco dias, ofereça frete grátis ao cliente."}
+{"id": "OS-OP042", "author": "opus", "text": "Liste os vinte clientes com maior faturamento no primeiro semestre."}
+{"id": "OS-OP043", "author": "opus", "text": "Não altere a planilha de folha de pagamento sem autorização do RH."}
+{"id": "OS-OP044", "author": "opus", "text": "Primeiro valide os dados de entrada e depois gere os gráficos para a apresentação."}
+{"id": "OS-OP045", "author": "opus", "text": "O gerente deve aprovar qualquer desconto acima de quinze por cento."}
+{"id": "OS-OP046", "author": "opus", "text": "Marque uma reunião com a equipe da Natura na quinta ou na sexta à tarde."}
+{"id": "OS-OP047", "author": "opus", "text": "Revise o código do módulo de relatórios e aponte funções sem testes unitários."}
+{"id": "OS-OP048", "author": "opus", "text": "Responda os chamados abertos no fim de semana antes das dez da manhã."}
+{"id": "OS-OP049", "author": "opus", "text": "Você pode arquivar os e-mails antigos, mas não exclua nenhum anexo de contratos."}
+{"id": "OS-OP050", "author": "opus", "text": "Quando o fornecedor enviar a nota fiscal, confira os valores com o pedido de compra."}
+{"id": "OS-OP051", "author": "opus", "text": "Calcule a média de vendas por loja entre janeiro e junho de 2025."}
+{"id": "OS-OP052", "author": "opus", "text": "Nunca envie senhas ou tokens de acesso por e-mail ou chat."}
+{"id": "OS-OP053", "author": "opus", "text": "Atualize o cadastro do cliente Ricardo Alves com o novo endereço e telefone."}
+{"id": "OS-OP054", "author": "opus", "text": "Depois de fechar o mês, exporte o balancete e compartilhe com a contabilidade."}
+{"id": "OS-OP055", "author": "opus", "text": "Identifique os produtos com estoque abaixo de cinquenta unidades e crie pedidos de reposição."}
+{"id": "OS-OP056", "author": "opus", "text": "A menos que o jurídico peça, não renove o contrato com a Vivo automaticamente."}
+{"id": "OS-OP057", "author": "opus", "text": "Resuma as avaliações negativas do aplicativo publicadas nos últimos trinta dias."}
+{"id": "OS-OP058", "author": "opus", "text": "Separe os tickets de suporte por categoria e envie um resumo semanal ao Paulo."}
+{"id": "OS-OP059", "author": "opus", "text": "Compare o desempenho das campanhas de e-mail e de redes sociais no último trimestre."}
+{"id": "OS-SO000", "author": "sonnet", "text": "Si el saldo de la cuenta de Constructora Andina supera los 50.000 dólares, avisa a Tesorería antes del cierre de mes."}
+{"id": "OS-SO001", "author": "sonnet", "text": "Exporta la lista de clientes con más de tres facturas vencidas y envíasela a Marta por correo."}
+{"id": "OS-SO002", "author": "sonnet", "text": "Primero revisa el borrador del contrato con Textiles del Sur y después súbelo a la carpeta compartida de Legal."}
+{"id": "OS-SO003", "author": "sonnet", "text": "No elimines ningún ticket del primer trimestre de 2025, aunque aparezca como resuelto."}
+{"id": "OS-SO004", "author": "sonnet", "text": "Agenda una reunión con Laura y Pedro entre el martes y el jueves, por la tarde, de máximo una hora."}
+{"id": "OS-SO005", "author": "sonnet", "text": "Debes registrar cada gasto superior a 200 euros en el sistema; los menores pueden anotarse al final de la semana."}
+{"id": "OS-SO006", "author": "sonnet", "text": "Muéstrame las cinco categorías de producto con mayores ventas en octubre de 2026 comparadas con septiembre."}
+{"id": "OS-SO007", "author": "sonnet", "text": "Cuando un cliente reporte el mismo error dos veces, escala el caso al equipo de nivel dos y notifica a su gerente de cuenta."}
+{"id": "OS-SO008", "author": "sonnet", "text": "Revisa el pull request de Camilo y comenta cualquier función de más de cincuenta líneas sin pruebas unitarias."}
+{"id": "OS-SO009", "author": "sonnet", "text": "Actualiza el informe de conciliación bancaria de septiembre y no lo envíes a auditoría sin la aprobación de Fernanda."}
+{"id": "OS-SO010", "author": "sonnet", "text": "Si la factura de Distribuidora Norte no llega antes del viernes, llámalos y pide una nueva fecha de pago."}
+{"id": "OS-SO011", "author": "sonnet", "text": "Después de migrar la base de datos de clientes, verifica que no haya registros duplicados ni correos vacíos."}
+{"id": "OS-SO012", "author": "sonnet", "text": "Redacta un correo cordial para Banco Pacífico explicando que el pago se realizará en la segunda quincena de noviembre."}
+{"id": "OS-SO013", "author": "sonnet", "text": "Puedes cerrar los tickets de soporte sin respuesta del cliente después de catorce días, pero primero envía un recordatorio."}
+{"id": "OS-SO014", "author": "sonnet", "text": "Prepara un resumen semanal de incidencias y compáralo con el promedio de los últimos seis meses."}
+{"id": "OS-SO015", "author": "sonnet", "text": "Please send Ahmed the Q3 revenue report by Thursday noon, and copy the finance team on the email."}
+{"id": "OS-SO016", "author": "sonnet", "text": "If the server's error rate stays above two percent for ten minutes, page the on-call engineer immediately."}
+{"id": "OS-SO017", "author": "sonnet", "text": "Do not share the customer's billing details with anyone outside the support team, even if they ask politely."}
+{"id": "OS-SO018", "author": "sonnet", "text": "First reconcile the vendor payments for August, then flag any invoice that differs by more than five percent."}
+{"id": "OS-SO019", "author": "sonnet", "text": "Update the account owner for Brightwave Logistics to Sarah Chen and log the change in the CRM."}
+{"id": "OS-SO020", "author": "sonnet", "text": "You must anonymize every column containing personal data before uploading the dataset, but you may keep the region field."}
+{"id": "OS-SO021", "author": "sonnet", "text": "List the ten customers with the highest churn risk between January and June, sorted by annual contract value."}
+{"id": "OS-SO022", "author": "sonnet", "text": "Schedule a follow-up call with Maria for next Monday unless she has already confirmed the renewal."}
+{"id": "OS-SO023", "author": "sonnet", "text": "Review the migration script and tell me whether it can run safely on production before the weekend."}
+{"id": "OS-SO024", "author": "sonnet", "text": "Merge the two duplicate accounts for Northwind Traders and keep the older record as the primary one."}
+{"id": "OS-SO025", "author": "sonnet", "text": "When the weekly backup finishes, verify the checksum and email the result to the infrastructure channel."}
+{"id": "OS-SO026", "author": "sonnet", "text": "Create a ticket for the login bug, assign it to Daniel, and set the priority to high."}
+{"id": "OS-SO027", "author": "sonnet", "text": "Remove the expired discount codes from the store, but leave the ones that are still valid through December."}
+{"id": "OS-SO028", "author": "sonnet", "text": "Summarize the three most common complaints from last month's support chats and propose one fix for each."}
+{"id": "OS-SO029", "author": "sonnet", "text": "Draft a polite refusal to the vendor's price increase and propose a cap of three percent per year."}
+{"id": "OS-SO030", "author": "sonnet", "text": "Confira se o relatório de vendas de setembro tem pelo menos duzentas linhas antes de enviá-lo ao Rodrigo."}
+{"id": "OS-SO031", "author": "sonnet", "text": "Se o cliente pedir reembolso depois de trinta dias da compra, encaminhe o caso para o setor financeiro."}
+{"id": "OS-SO032", "author": "sonnet", "text": "Não envie o contrato à Transportadora Horizonte antes de a diretoria aprovar os novos prazos de entrega."}
+{"id": "OS-SO033", "author": "sonnet", "text": "Primeiro atualize a planilha de estoque e depois gere o relatório de itens abaixo do nível mínimo."}
+{"id": "OS-SO034", "author": "sonnet", "text": "Agende uma reunião com a Juliana e o Carlos na próxima quarta-feira para revisar o orçamento de 2027."}
+{"id": "OS-SO035", "author": "sonnet", "text": "Você deve registrar todas as horas trabalhadas até sexta-feira, mas pode lançar as horas extras na segunda seguinte."}
+{"id": "OS-SO036", "author": "sonnet", "text": "Mostre os cinco clientes com maior volume de compras no último trimestre e compare com o mesmo período do ano passado."}
+{"id": "OS-SO037", "author": "sonnet", "text": "Quando o chamado ficar parado por mais de quarenta e oito horas, avise o supervisor e atualize o cliente."}
+{"id": "OS-SO038", "author": "sonnet", "text": "Revise o código enviado pela Beatriz e aponte qualquer consulta ao banco de dados que esteja sem índice."}
+{"id": "OS-SO039", "author": "sonnet", "text": "Corrija o valor da fatura da Agropecuária Vale Verde e reenvie o documento para o e-mail financeiro da empresa."}
+{"id": "OS-SO040", "author": "sonnet", "text": "Se o pagamento não cair na conta até o dia quinze, bloqueie o acesso do cliente e comunique o gerente comercial."}
+{"id": "OS-SO041", "author": "sonnet", "text": "Depois de exportar os dados do CRM, apague os arquivos temporários e confirme que nenhum cliente ficou de fora."}
+{"id": "OS-SO042", "author": "sonnet", "text": "Escreva um e-mail gentil para a Seguradora Atlântica informando que a apólice será renovada em janeiro de 2027."}
+{"id": "OS-SO043", "author": "sonnet", "text": "Não altere o cadastro de nenhum fornecedor sem a assinatura do responsável e do departamento jurídico."}
+{"id": "OS-SO044", "author": "sonnet", "text": "Prepare um resumo mensal das despesas e destaque as categorias que cresceram mais de dez por cento."}
+{"id": "OS-SO045", "author": "sonnet", "text": "Transfira o caso do cliente Pedro Almeida para o time de segurança e feche o chamado duplicado."}
+{"id": "OS-SO046", "author": "sonnet", "text": "Gere um relatório de vendas por região entre 1 de julho e 30 de setembro e envie para a diretoria."}
+{"id": "OS-SO047", "author": "sonnet", "text": "Marque como urgente qualquer chamado de clientes premium ou com mais de duas reclamações abertas."}
+{"id": "OS-SO048", "author": "sonnet", "text": "Atualize o documento de política de privacidade e peça aprovação da Fernanda antes de publicar no site."}
+{"id": "OS-SO049", "author": "sonnet", "text": "Compare o orçamento aprovado com os gastos reais do departamento de marketing e liste as diferenças superiores a mil reais."}
+{"id": "OS-SO050", "author": "sonnet", "text": "Genera una lista con los diez productos menos vendidos del último semestre y propón si conviene descontinuarlos."}
+{"id": "OS-SO051", "author": "sonnet", "text": "Cuando termine la auditoría de seguridad, archiva los informes y comparte el resumen con Ingeniería y Cumplimiento."}
+{"id": "OS-SO052", "author": "sonnet", "text": "No apruebes ninguna solicitud de vacaciones que se solape con el cierre contable de diciembre."}
+{"id": "OS-SO053", "author": "sonnet", "text": "Check whether the invoice from Orion Supplies matches the purchase order, and hold payment if the totals disagree."}
+{"id": "OS-SO054", "author": "sonnet", "text": "Rename the staging branch after the release, then delete the old feature branches that were merged before September."}
+{"id": "OS-SO055", "author": "sonnet", "text": "Cancele a assinatura do cliente apenas se ele confirmar por escrito e já tiver quitado as parcelas pendentes."}
+{"id": "OS-SO056", "author": "sonnet", "text": "Send the new onboarding checklist to every employee who joined after August 1st, and ask HR to confirm receipt."}
+{"id": "OS-SO057", "author": "sonnet", "text": "Antes de publicar la nueva tarifa, valida los precios con Ricardo y verifica que ninguno baje del margen mínimo."}
+{"id": "OS-HA000", "author": "haiku", "text": "Si el archivo de facturas supera los 500 registros, divídelo en lotes de 100 antes de importarlo."}
+{"id": "OS-HA001", "author": "haiku", "text": "Envíale a Marta un correo con el resumen de ventas del tercer trimestre antes del viernes."}
+{"id": "OS-HA002", "author": "haiku", "text": "No publiques el informe de auditoría en el canal público hasta que legal lo revise."}
+{"id": "OS-HA003", "author": "haiku", "text": "Revisa el código del módulo de pagos y, después, prepara un resumen de los riesgos encontrados."}
+{"id": "OS-HA004", "author": "haiku", "text": "Mantén las cuentas de clientes con más de 90 días de atraso en la lista de cobranza prioritaria."}
+{"id": "OS-HA005", "author": "haiku", "text": "Podemos reprogramar la reunión con el proveedor de Monterrey si el martes no les conviene."}
+{"id": "OS-HA006", "author": "haiku", "text": "Calcula el promedio de tiempo de respuesta del soporte por semana entre enero y junio."}
+{"id": "OS-HA007", "author": "haiku", "text": "Abre un ticket para Infraestructura o para Seguridad, según el tipo de incidente reportado por el cliente."}
+{"id": "OS-HA008", "author": "haiku", "text": "Antes de cerrar el mes, concilia las transferencias bancarias con el libro de contabilidad de Banco Pacífico."}
+{"id": "OS-HA009", "author": "haiku", "text": "Debes obtener aprobación de Gerencia antes de dar de baja a cualquier usuario del sistema."}
+{"id": "OS-HA010", "author": "haiku", "text": "Puedes saltarte la revisión del jefe solo en pedidos menores a cien dólares."}
+{"id": "OS-HA011", "author": "haiku", "text": "Nunca compartas las credenciales del panel administrativo con proveedores externos, ni por correo ni por chat."}
+{"id": "OS-HA012", "author": "haiku", "text": "Ordena los contratos vencidos de este año por valor y resume los tres más grandes."}
+{"id": "OS-HA013", "author": "haiku", "text": "Si la factura de Hernández y Asociados tiene un error de IVA, emite una nota de crédito y avísame."}
+{"id": "OS-HA014", "author": "haiku", "text": "Migra primero la base de datos de pruebas, luego la de producción, y solo después actualiza la aplicación móvil."}
+{"id": "OS-HA015", "author": "haiku", "text": "Haz un análisis de los gastos de viaje del equipo comercial entre marzo y agosto de 2026."}
+{"id": "OS-HA016", "author": "haiku", "text": "Cuando el stock de la bodega principal baje de 50 unidades, notifica al encargado de compras de inmediato."}
+{"id": "OS-HA017", "author": "haiku", "text": "Prepara una presentación de diez diapositivas para la junta directiva de Grupo Andino, sin incluir datos confidenciales de nómina."}
+{"id": "OS-HA018", "author": "haiku", "text": "Responde a los clientes que escribieron por WhatsApp hoy, o deriva los casos complejos a Felipe."}
+{"id": "OS-HA019", "author": "haiku", "text": "Recuerda que el sistema de reservas de la clínica solo acepta citas con al menos 24 horas de anticipación."}
+{"id": "OS-HA020", "author": "haiku", "text": "If the refund request is above $500, route it to a senior agent before approving anything."}
+{"id": "OS-HA021", "author": "haiku", "text": "Send Priya the revised budget spreadsheet by Thursday at noon, and copy the finance team."}
+{"id": "OS-HA022", "author": "haiku", "text": "You must not delete any customer records from the production database without a signed change request."}
+{"id": "OS-HA023", "author": "haiku", "text": "Review the pull request from Daniel, then leave comments on the authentication module before merging."}
+{"id": "OS-HA024", "author": "haiku", "text": "Pull the top 10 accounts by monthly recurring revenue for Q2 and flag any that dropped more than 15 percent."}
+{"id": "OS-HA025", "author": "haiku", "text": "You may reschedule the Acme Corp onboarding call if their procurement lead is unavailable next week."}
+{"id": "OS-HA026", "author": "haiku", "text": "Before publishing the incident report, confirm the timeline with the on-call engineer and remove any personal data."}
+{"id": "OS-HA027", "author": "haiku", "text": "Unless the vendor confirms delivery by Friday, cancel the order and find an alternative supplier in Ohio."}
+{"id": "OS-HA028", "author": "haiku", "text": "Never share the Stripe live API key in a support ticket, a Slack thread, or an email."}
+{"id": "OS-HA029", "author": "haiku", "text": "Draft a short apology email to the customers affected by yesterday's outage and keep it under 120 words."}
+{"id": "OS-HA030", "author": "haiku", "text": "Compile the expense reports from March through June, then total them by department and send the summary to Ramirez."}
+{"id": "OS-HA031", "author": "haiku", "text": "If the contractor's invoice exceeds the approved budget, you should hold payment and notify the project manager."}
+{"id": "OS-HA032", "author": "haiku", "text": "Create a Jira ticket for the login timeout bug, assign it to the mobile team, and mark it as high priority."}
+{"id": "OS-HA033", "author": "haiku", "text": "You can approve up to two discount codes per customer each month, but not more than that without manager sign-off."}
+{"id": "OS-HA034", "author": "haiku", "text": "Schedule a 45-minute sync with Hannah and the design leads sometime between Tuesday and Thursday next week."}
+{"id": "OS-HA035", "author": "haiku", "text": "Compare the conversion rates of the spring and summer campaigns, then explain which channel performed best."}
+{"id": "OS-HA036", "author": "haiku", "text": "Before you migrate the warehouse inventory to the new system, back up the current tables and verify the row counts."}
+{"id": "OS-HA037", "author": "haiku", "text": "Summarize the complaints from Brightline Logistics this quarter and identify whether the delays are recurring or isolated."}
+{"id": "OS-HA038", "author": "haiku", "text": "Do not include unreleased product roadmap details in the public newsletter, even if marketing asks for them."}
+{"id": "OS-HA039", "author": "haiku", "text": "Se o cliente pedir cancelamento antes do fim do contrato, envie a proposta de retenção primeiro."}
+{"id": "OS-HA040", "author": "haiku", "text": "Revise a planilha de custos da obra de Campinas e marque as linhas com diferença acima de 10%."}
+{"id": "OS-HA041", "author": "haiku", "text": "Não envie os dados financeiros da empresa para fornecedores sem um acordo de confidencialidade assinado."}
+{"id": "OS-HA042", "author": "haiku", "text": "Agende uma videochamada com a Juliana e o time de vendas na próxima terça, entre 14h e 16h."}
+{"id": "OS-HA043", "author": "haiku", "text": "Primeiro atualize o cadastro dos clientes, depois gere as faturas de setembro e, por fim, envie os boletos."}
+{"id": "OS-HA044", "author": "haiku", "text": "Você pode oferecer até 15% de desconto para renovações, mas qualquer valor maior precisa de aprovação do gerente."}
+{"id": "OS-HA045", "author": "haiku", "text": "Se o chamado do Banco Horizonte ficar aberto por mais de 48 horas, escale para o supervisor de suporte."}
+{"id": "OS-HA046", "author": "haiku", "text": "Resuma as avaliações negativas da loja online de janeiro a março e aponte se o problema é a entrega ou o produto."}
+{"id": "OS-HA047", "author": "haiku", "text": "Antes de publicar a atualização do aplicativo, teste o fluxo de pagamento no ambiente de homologação."}
+{"id": "OS-HA048", "author": "haiku", "text": "Crie um relatório de inadimplência com os clientes da Construtora Vale Verde, ou apenas os que estão há mais de 60 dias."}
+{"id": "OS-HA049", "author": "haiku", "text": "Quando o estoque do depósito de Recife chegar a 40 unidades, avise a equipe de compras no mesmo dia."}
+{"id": "OS-HA050", "author": "haiku", "text": "Peça ao Rodrigo que revise as notas fiscais de outubro antes de enviá-las ao contador."}
+{"id": "OS-HA051", "author": "haiku", "text": "Você não deve aceitar devoluções acima de R$ 800 sem a assinatura do coordenador financeiro."}
+{"id": "OS-HA052", "author": "haiku", "text": "Organize a agenda do treinamento de vendas para a próxima semana, com no mínimo quatro sessões de uma hora."}
+{"id": "OS-HA053", "author": "haiku", "text": "Se a Transportes Rápido Ltda. atrasar mais de dois pedidos no mês, cancele o contrato ou renegocie as condições."}
+{"id": "OS-HA054", "author": "haiku", "text": "Podemos manter os contratos antigos até dezembro, mas os novos clientes já devem assinar o modelo atualizado."}
+{"id": "OS-HA055", "author": "haiku", "text": "Liste os cinco fornecedores com maior volume de compras no segundo semestre e compare os prazos de pagamento."}
+{"id": "OS-HA056", "author": "haiku", "text": "Envie a versão final do relatório para a diretora Camila até sexta-feira, copiando o departamento jurídico."}
+{"id": "OS-HA057", "author": "haiku", "text": "Não divulgue o resultado da pesquisa salarial até que o RH tenha validado os números."}
+{"id": "OS-HA058", "author": "haiku", "text": "Faça o backup do banco de dados de produção às três da manhã, ou no sábado se houver manutenção agendada."}

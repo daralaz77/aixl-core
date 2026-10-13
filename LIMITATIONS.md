@@ -156,3 +156,11 @@ This is the same closed-vocabulary ceiling already documented above (open-text e
   (e.g. `issue` vs `ticket` are merged, `report` vs `summary` are not) now matter. Not a safety loss (core was already not trusted for EQUIVALENT).
 - Still open: 77% abstain. The open vocabulary of real instructions is a long tail (hundreds of domain nouns); this is a sampled batch, not closure.
 - Deliberately excluded: alert/notification (light-verb objects) and invoice/factura (benchmark + docs exemplar of an out-of-lexicon noun).
+
+### Update 2026-10-13: arena over OTHER authors' seeds (`python -m lab.arena.arena scope --other`)
+- 177 seeds written by Opus/Sonnet/Haiku sub-agents (`data/arena/other_author_seeds.jsonl`) that never saw the arena or the lexicons -> 6569 mutants.
+- First run found 16 false EQUIVALENT in the semantic engine (`aixl.semantic.compare_texts`, behind the hybrid protocol/MCP): root cause `al menos`
+  parsed as the exception word `menos` (swallowed the quantity), plus `must not` == `may not` and a negation lost under `que ninguno`. Fixed
+  (root cause + fail-closed flags AMBIGUOUS_MAY_NOT / AMBIGUOUS_EMBEDDED_NEGATION / UNREPRESENTABLE_EXCEPTION); now 0.
+- The published `compare_verified` and the envelope were already 0. DECIDED share on these seeds is **0.2% (15 of 6569)**: on realistic, longer
+  instructions the closed vocabulary abstains almost always (own-author seeds: 23%). This is the real coverage number to quote, not the 23%.

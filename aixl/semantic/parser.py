@@ -457,6 +457,8 @@ def _parse_step(toks, ctx) -> Step:
             i += 1; continue
         # --- exceptions / without / only
         ex = next((p for p in L.EXCEPT_WORDS if at(i, p)), None)
+        if ex == ("menos",) and i > 0 and fs[i - 1] in ("al", "lo", "o", "ao", "pelo", "mas", "mais"):
+            ex = None      # 'al menos' / 'por lo menos' / 'más o menos' are the 'at least' comparator, not an exception ('menos' = except)
         if ex:
             j = i + len(ex); k = j; bag = []
             while k < n and fs[k] not in PUNCT and not (bag and (fs[k] in L.MODAL_MUST | L.MODAL_MAY or (_is_verb(toks[k], ctx) and fs[k] not in L.NOUN_ONLY))):
@@ -548,6 +550,15 @@ def _parse_step(toks, ctx) -> Step:
             items.append(("TOK", norm_token(f, lang)))
         i += 1
 
+    # ----- fail-closed flags for constructions this parser folds silently (arena scope --other, 2026-10-13: each produced a false EQUIVALENT)
+    if any(fs[j] in ("may", "might") and j + 1 < n and fs[j + 1] == "not" for j in range(n - 1)):
+        flags_here.append(("AMBIGUOUS_MAY_NOT", "'may not' = not permitted OR not necessarily: not the same as 'must not'"))
+    _nw = ("ninguno", "ninguna", "ningun", "ningunos", "ningunas", "nenhum", "nenhuma", "nenhuns", "none", "nobody", "nadie", "ninguem")
+    _cx = [j for j, w in enumerate(fs) if w in ("que", "that") and any(fs[k] in _nw for k in range(j + 1, n))]
+    if _cx and any(w in _nw for w in fs):
+        flags_here.append(("AMBIGUOUS_EMBEDDED_NEGATION", "negative quantifier inside a that/que complement: negation scope not resolved"))
+    if any(at(j, p_) for j in range(n) for p_ in L.EXCEPT_WORDS if p_ != ("menos",)) and not any(a.type == "EXCEPT" for a in A):
+        flags_here.append(("UNREPRESENTABLE_EXCEPTION", "exception clause present but not modelled for this step"))
     # ----- compose deontic status
     modal_seen = any(w in L.MODAL_MAY | L.MODAL_MUST | L.PROHIBITED | L.MODAL_ADVISE for w in fs)
     double_neg_modal = neg >= 2 and modal_seen and not litotes and not not_true and not not_required

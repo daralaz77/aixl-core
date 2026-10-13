@@ -68,3 +68,20 @@ def test_noun_extension_represents_objects_and_never_drops_them():
     assert aixl.compare("Borra los respaldos.", "Delete the backups.").equivalent
     ents = json.load(open(os.path.join(ROOT, "aixl", "resources", "nouns_v1.json"), encoding="utf-8"))["entities"]
     assert "INVOICE" not in ents      # reserved: out-of-lexicon exemplar of the silent-loss benchmark and of the extension guide
+
+
+@pytest.mark.parametrize("a,b", [
+    ("You must not delete the records without a signed request.", "You may not delete the records without a signed request."),
+    ("Valida los precios y verifica que ninguno baje del margen.", "Valida los precios y no verifica que ninguno baje del margen."),
+    ("Confirma que ningún cliente quedó fuera.", "No confirmes que ningún cliente quedó fuera."),
+    ("Verifica que al menos el 90 por ciento coincida.", "Verifica que al menos el 90 por ciento coincida, excepto los de 2025."),
+])
+def test_semantic_engine_no_false_equivalent_on_other_author_defects(a, b):
+    """Found by `arena scope --other` (data/arena/other_author_seeds.jsonl): 16 false EQUIVALENT in the semantic engine used by the hybrid protocol."""
+    from aixl.semantic.compare import compare_texts
+    assert compare_texts(a, b).verdict != "EQUIVALENT"
+
+
+def test_al_menos_is_a_comparator_not_an_exception():
+    from aixl.semantic.compare import compare_texts
+    assert compare_texts("Selecciona al menos 10 archivos.", "Selecciona 10 archivos.").verdict == "NOT_EQUIVALENT"

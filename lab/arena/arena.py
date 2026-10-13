@@ -408,7 +408,14 @@ def selftest() -> list:
     return res
 
 
-def scope(seed: int = 7, reps: int = 5) -> dict:
+def other_author_seeds() -> list[tuple[str, str]]:
+    """(author, text) written by Opus/Sonnet/Haiku sub-agents that never saw the arena or the lexicons (data/arena/other_author_seeds.jsonl)."""
+    import os
+    f = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "arena", "other_author_seeds.jsonl")
+    return [(r["author"], r["text"]) for r in map(json.loads, open(f, encoding="utf-8")) if r.get("text")]
+
+
+def scope(seed: int = 7, reps: int = 5, seeds=None) -> dict:
     """Fixed-seed sweep of every META attacker against EVERY layer, one verdict per layer. Writes nothing.
     `core_compare_equivalent` is a KNOWN LIMIT of the closed lexicons (the core comparator is not what protects a message in production: the envelope and
     the gate abstain instead). The other counters are defects when non-zero."""
@@ -422,7 +429,7 @@ def scope(seed: int = 7, reps: int = 5) -> dict:
     for name, kind, fn in NL_ATTACKERS:
         if kind != "META":
             continue
-        for base in SEEDS:
+        for base in (seeds or SEEDS):
             for _ in range(reps):
                 try: m = fn(base, random.Random(rng.randrange(1 << 30)))
                 except Exception: m = None
@@ -448,7 +455,7 @@ def scope(seed: int = 7, reps: int = 5) -> dict:
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("cmd", choices=["run", "replay", "selftest", "scope"])
+    ap = argparse.ArgumentParser(); ap.add_argument("cmd", choices=["run", "replay", "selftest", "scope"]); ap.add_argument("--other", action="store_true", help="scope over the other-author seeds only")
     ap.add_argument("--rounds", type=int, default=20); ap.add_argument("--seed", type=int, default=1)
     a = ap.parse_args()
     if a.cmd == "run":
@@ -457,7 +464,7 @@ if __name__ == "__main__":
         for r in new: print(f"  [{r['code']}] via {r['op']}: {r['original']!r} -> {r['mutated']!r}")
         st = load_state(); print("weights:", {k: round(v, 2) for k, v in sorted(st['weights'].items(), key=lambda x: -x[1])[:6]})
     elif a.cmd == "scope":
-        r = scope(); k = r["counts"]
+        r = scope(seeds=[t for _a, t in other_author_seeds()] if a.other else None); k = r["counts"]
         print(f"mutants (meaning-changing, fixed seed): {k.get('mutants', 0)}")
         print(f"  semantic comparator EQUIVALENT      : {k.get('semantic_equivalent', 0)}   (defect if > 0)")
         print(f"  published compare (verified) EQUIV  : {k.get('verified_compare_equivalent', 0)}   (defect if > 0)")
