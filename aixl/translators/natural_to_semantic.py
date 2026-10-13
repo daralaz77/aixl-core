@@ -477,6 +477,42 @@ def _apply_comparators(frame, s: str) -> None:
             frame.constraints.append(c)
 
 
+_DOW = {"MON": "monday|lunes|segunda|segunda-feira", "TUE": "tuesday|martes|terca|terca-feira", "WED": "wednesday|miercoles|quarta|quarta-feira",
+        "THU": "thursday|jueves|quinta|quinta-feira", "FRI": "friday|viernes|sexta|sexta-feira", "SAT": "saturday|sabado", "SUN": "sunday|domingo"}
+_DOW_RX = [(code, re.compile(r"(?<![a-z-])(?:" + words + r")s?(?![a-z])")) for code, words in _DOW.items()]
+_VERB_NEG = re.compile(r"(?<![a-z])(?:not|no|nao|never|nunca|jamais|jamas|don't|dont|doesn't|cannot|can't|won't|shouldn't|mustn't|isn't|aren't)(?![a-z])")
+_N_WORD = re.compile(r"(?<![a-z])(?:ninguno|ninguna|ningun|nadie|nada|nenhum|nenhuma|ninguem|nobody|nothing|none|neither|nor|ni|nem)(?![a-z])|(?<![a-z])no\s+(?:one|body)(?![a-z])")
+
+
+def _clauses(s: str):
+    return [c for c in re.split(r"[,;:.!?]|\b(?:and then|y luego|e depois|then|luego|depois|but|pero|mas)\b", s) if c.strip()]
+
+
+def _apply_surface_operators(frame, s: str, text: str) -> None:
+    """Operators the closed lexicon has no slot for but whose COUNT/identity changes meaning (arena, 2026-10-13: 549 core-EQUIVALENT meaning
+    changes, mostly `and`->`or` and a 2nd negation added to a text that already had one). Emitted as constraints so every comparator sees them:
+      DISJ=<n>   number of disjunction connectives (or/ou/o/u; PT article `o` is not one)
+      DOW=<d>    weekdays named, canonical across ES/EN/PT
+      NEGN=<n>   negations when >= 2: verb negators count each, n-words only when no verb negator shares their clause (negative concord)."""
+    toks = re.findall(r"(?<![a-z0-9])[a-z]+(?![a-z0-9])", s)       # `2o` (ordinal) is not the word `o`
+    lang = legacy.detect_lang(text)
+    _bound = {"more", "less", "fewer", "greater", "higher", "lower", "better", "worse", "equal", "above", "below", "older", "newer", "earlier", "later",
+              "mas", "menos", "mayor", "menor", "superior", "inferior", "igual", "mais", "maior", "anterior", "posterior"}   # `or more`: a comparator, not a disjunction
+    n_or = sum(1 for i, t in enumerate(toks)
+               if (t in ("or", "ou") or t == "u" or (t == "o" and lang == "es")) and not (i + 1 < len(toks) and toks[i + 1] in _bound))
+    if n_or:
+        frame.constraints.append(f"DISJ={n_or}")
+    days = sorted(c for c, rx in _DOW_RX if rx.search(s))
+    if days:
+        frame.constraints.append("DOW=" + ",".join(days))
+    n_neg = 0
+    for c in _clauses(s):
+        v = len(_VERB_NEG.findall(c.replace("no one", " ").replace("no body", " ")))
+        n_neg += v if v else min(1, len(_N_WORD.findall(c)))
+    if n_neg >= 2:
+        frame.constraints.append(f"NEGN={n_neg}")
+
+
 _COND_RX = [("UNLESS", re.compile(r"(?<![a-z])(?:unless|except if|except when|a menos que|a no ser que|salvo que|excepto si|exceto se|salvo se)(?![a-z])")),
             ("ONLY_IF", re.compile(r"(?<![a-z])(?:only if|only when|solo si|solamente si|unicamente si|somente se|apenas se|so se)(?![a-z])")),
             ("WHEN", re.compile(r"(?<![a-z])(?:when|whenever|cuando|quando)(?![a-z])")),
@@ -774,6 +810,7 @@ def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     _apply_quantities_and_selection(frame, pre, s, conf)
     _apply_comparators(frame, s)
     _apply_condition_connectives(frame, s, text)
+    _apply_surface_operators(frame, s, text)
     frame.conditions += conds
     _apply_recency_order(frame, s)
     _apply_aggregate_qualifiers(frame, s)

@@ -182,3 +182,9 @@ Rule (aixl/core/open_vocab.py): core graphs equivalent + no unreflected marker +
   per-class marker reflection), so any scheme of "core equal + residue equal" inherits those blind spots.
 - Decision: `compare_verified` stays as is. Next real levers: harden the core where it is permissive (per-occurrence marker reflection,
   weekday/ordinal comparison), each with its own arena family; or an arbiter over the residue only.
+
+### Update 2026-10-13: core hardened where it was permissive (surface operators -> constraints)
+`DISJ=<n>` (or/ou/o/u; PT article `o` and `or more` excluded), `DOW=<days>` (ES/EN/PT canonical), `NEGN=<n>` (>= 2 negations, negative concord
+aware) are emitted by the translator, so the CORE comparator sees them. Core-EQUIVALENT on meaning-changing mutants (known limit, not a defect):
+own seeds 122 -> 82, other-author seeds 1244 -> 321. SAME recall of core unchanged on every corpus; published layers still 0 defects; suite green.
+Remaining core-permissive families: lex_swap (`duplicados`->`únicos`), compose, drop_tail, modal_flip, num_change, add_constraint.

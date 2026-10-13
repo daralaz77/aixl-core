@@ -85,3 +85,25 @@ def test_semantic_engine_no_false_equivalent_on_other_author_defects(a, b):
 def test_al_menos_is_a_comparator_not_an_exception():
     from aixl.semantic.compare import compare_texts
     assert compare_texts("Selecciona al menos 10 archivos.", "Selecciona 10 archivos.").verdict == "NOT_EQUIVALENT"
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Compare the two documents and list the differences.", "Compare the two documents or list the differences."),
+    ("Schedule a call for next Monday.", "Schedule a call for next Tuesday."),
+    ("Si el cliente no ha pagado, márcalo.", "Do not si el cliente no ha pagado, márcalo."),
+    ("Elimina el reporte de lunes.", "Elimina el reporte de martes."),
+])
+def test_surface_operators_are_visible_to_the_core_comparator(a, b):
+    """DISJ= / DOW= / NEGN= constraints: the CORE (not only compare_verified) must not call these EQUIVALENT (arena, 549 -> 82 on own seeds)."""
+    assert aixl.compare(a, b).equivalent is False
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Book a room for at least ten people.", "Book a room that fits ten people or more."),
+    ("Analise o relatório.", "Analiza el reporte."),
+    ("Analiza los clientes del 2º trimestre de 2026.", "Analiza los clientes del segundo trimestre de 2026."),
+    ("Agenda una llamada el lunes.", "Schedule a call on Monday."),
+    ("No envíes el informe a nadie.", "No envíes el informe a nadie."),
+])
+def test_surface_operators_do_not_break_true_paraphrases(a, b):
+    assert aixl.compare(a, b).equivalent is True
