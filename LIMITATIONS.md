@@ -253,3 +253,5 @@ Not modelled (honest list, from the same read): swapped recipients/roles (`al co
 added destinatario/payment-method/warning phrases after a complete instruction (`y a su contador`, `con tarjeta corporativa`), approve vs review.
 Residual confirmed by test, not claimed fixed: the position of `only`/`solo` and step reorder are only visible when the sentence's objects are in the
 lexicon (`Solo el notario puede firmar el acta` vs `El notario puede firmar solo el acta`; `back up the database, then run the migration` reversed).
+Loop pass 2b: the Spanish `o` was counted as a disjunction only when the language detector said `es`, but `Envía el informe a Ana o a Luis` is detected
+as `en`; now every `o` counts unless the text is detected as Portuguese (article). Core-EQUIVALENT on own-seed mutants: 0 (was 2).

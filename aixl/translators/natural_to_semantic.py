@@ -648,7 +648,7 @@ def _apply_surface_operators(frame, s: str, text: str) -> None:
     _bound = {"more", "less", "fewer", "greater", "higher", "lower", "better", "worse", "equal", "above", "below", "older", "newer", "earlier", "later",
               "mas", "menos", "mayor", "menor", "superior", "inferior", "igual", "mais", "maior", "anterior", "posterior"}   # `or more`: a comparator, not a disjunction
     n_or = sum(1 for i, t in enumerate(toks)
-               if (t in ("or", "ou") or t == "u" or (t == "o" and lang == "es")) and not (i + 1 < len(toks) and toks[i + 1] in _bound))
+               if (t in ("or", "ou") or t == "u" or (t == "o" and lang != "pt")) and not (i + 1 < len(toks) and toks[i + 1] in _bound))
     if n_or:
         frame.constraints.append(f"DISJ={n_or}")
     days = sorted(c for c, rx in _DOW_RX if rx.search(s))
