@@ -162,6 +162,10 @@ def compare_verified(text_a: str, text_b: str, config: dict | None = None) -> di
     ok_a, ok_b = is_complete(text_a, ga), is_complete(text_b, gb)
     d["complete"] = ok_a and ok_b          # both texts fully accounted for by the closed vocabulary (the layers can DECIDE)
     d["verified"] = ok_a and ok_b          # complete AND no connective conflict; False means "no claim of sameness is made"
+    if d.get("verdict") == "NOT_EQUIVALENT":
+        # NOT_EQUIVALENT means "not proven equal", not "proven different": on ~410 labelled pairs of other authors it was right 50 % of the time when
+        # a text was not fully accounted for (paraphrase / cross-language noise) and 6 of 8 when both were. Callers must not treat it as a proof.
+        d["difference_reliable"] = ok_a and ok_b
     if d.get("equivalent") and d["verified"]:
         from aixl.core.connectives import disjunction_differs
         if disjunction_differs(text_a, text_b):                       # 'y' vs 'o': a conjunction became a disjunction (or the reverse)

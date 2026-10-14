@@ -160,3 +160,35 @@ def decide(a: str, b: str, judges: dict, memo: DecisionMemo | None = None, retri
             rec["a"], rec["b"] = a, b
         memo.put(rec)
     return d
+
+
+@dataclass
+class Layered:
+    """Result of `layered_decide`: `verdict` SAME | DIFFERENT | UNSURE, `source` which layer decided (deterministic | arbiter | none)."""
+    verdict: str
+    source: str
+    deterministic: str                      # compare_verified verdict that routed the pair
+    arbiter: "Decision | None" = None
+    reason: str = ""
+
+
+def layered_decide(a: str, b: str, judges: dict, memo: "DecisionMemo | None" = None, retries: int = 1) -> Layered:
+    """Deterministic proof first, the full-text arbiter for everything else.
+
+    1. `compare_verified` EQUIVALENT (complete on both sides, no connective conflict) -> SAME without a judge.
+    2. anything else -> `decide()`: SAME only when EVERY judge says SAME (>= 2), DIFFERENT if any says DIFFERENT, else UNSURE.
+    A deterministic NOT_EQUIVALENT is NOT final and NOT a veto: measured on 600 labelled pairs of other authors it is right only ~50 % of the
+    time (it means "not proven equal": paraphrase, cross-language, vocabulary), so using it as a verdict destroyed the arbiter's recall
+    (13/54 proven SAME vs 52/54 in benchmarks/layered_eval.py). It is reported in `deterministic` as a hint for the audit trail.
+    The deterministic layers never produce SAME without proof. Judges are caller-supplied callables (no provider is imported here)."""
+    from aixl.api.service import compare_verified
+    d = compare_verified(a, b)
+    v = d.get("verdict") or "INCONCLUSIVE"
+    if v == "EQUIVALENT" and d.get("verified"):
+        return Layered("SAME", "deterministic", v, None, "proved equal over a completely accounted vocabulary")
+    arb = decide(a, b, judges, memo, retries)
+    if arb.verdict == "SAME" and arb.ok:
+        return Layered("SAME", "arbiter", v, arb, "no deterministic proof; every judge says SAME")
+    if arb.verdict == "DIFFERENT":
+        return Layered("DIFFERENT", "arbiter", v, arb, "a judge says DIFFERENT")
+    return Layered("UNSURE", "none", v, arb, "judges not unanimous or invalid")

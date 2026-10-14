@@ -255,3 +255,18 @@ Residual confirmed by test, not claimed fixed: the position of `only`/`solo` and
 lexicon (`Solo el notario puede firmar el acta` vs `El notario puede firmar solo el acta`; `back up the database, then run the migration` reversed).
 Loop pass 2b: the Spanish `o` was counted as a disjunction only when the language detector said `es`, but `Envía el informe a Ana o a Luis` is detected
 as `en`; now every `o` counts unless the text is detected as Portuguese (article). Core-EQUIVALENT on own-seed mutants: 0 (was 2).
+
+## E-LAYERED-ARBITER (2026-10-14): the arbiter behind the deterministic layers — what it adds and what it does not
+`aixl.arbiter.layered_decide(a, b, judges, memo)`: `compare_verified` EQUIVALENT (proof, no judge) -> SAME; everything else goes to the existing
+2-of-2 full-text arbiter (SAME only if every judge says SAME). Measured offline on the stored judgments of blind17 + blind18 (115 pairs;
+`benchmarks/layered_eval.py`, no model called): arbiter alone 52/54 SAME proven, 58/61 DIFF found, 2 false SAME (both disputed labels:
+a double negation `No es cierto que no debas` = `Debes`, and `X después de Y` reordered); layered: identical numbers, 2 UNSURE (invalid judge
+output). On open-domain text the deterministic proof fires on 0 of 115 pairs, so layering saves no judge call there and adds no correctness —
+consistent with EVIDENCE.md. What it does add is a deterministic answer (no judge, no cost) wherever the vocabulary is controlled, and an audit
+trail (`deterministic` hint + judge verdicts + stored decision).
+First design rejected by measurement: treating a deterministic NOT_EQUIVALENT as FINAL (or as a veto) dropped proven SAME from 52/54 to 13/54, because
+on 411 labelled pairs of blind13-18 a NOT_EQUIVALENT on a text that is not fully accounted for is right only 50 % (205 DIFF / 206 SAME); when both
+texts are fully accounted for it was 6 of 8. So NOT_EQUIVALENT is "not proven equal", never "proven different". `compare_verified` now adds
+`difference_reliable` (true only when both texts are accounted for) and the MCP tool description says so.
+Consequence for the 0.2 % coverage figure: it is the share the DETERMINISTIC layers can decide; with the arbiter in the loop every pair gets an
+answer at ~$0.28 per 1 000 pairs (EVIDENCE.md), with the arbiter's own measured error (1.2 % flip, 2-of-2).
