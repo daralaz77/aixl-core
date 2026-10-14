@@ -480,7 +480,7 @@ def _apply_comparators(frame, s: str) -> None:
 _DOW = {"MON": "monday|lunes|segunda|segunda-feira", "TUE": "tuesday|martes|terca|terca-feira", "WED": "wednesday|miercoles|quarta|quarta-feira",
         "THU": "thursday|jueves|quinta|quinta-feira", "FRI": "friday|viernes|sexta|sexta-feira", "SAT": "saturday|sabado", "SUN": "sunday|domingo"}
 _DOW_RX = [(code, re.compile(r"(?<![a-z-])(?:" + words + r")s?(?![a-z])")) for code, words in _DOW.items()]
-_VERB_NEG = re.compile(r"(?<![a-z])(?:not|no|nao|never|nunca|jamais|jamas|don't|dont|doesn't|cannot|can't|won't|shouldn't|mustn't|isn't|aren't)(?![a-z])")
+_VERB_NEG = re.compile(r"(?<![a-z])(?:not|no|nao|never|nunca|jamais|jamas|don't|dont|doesn't|cannot|can't|won't|shouldn't|mustn't|isn't|aren't|without|sin|sem)(?![a-z])")
 _N_WORD = re.compile(r"(?<![a-z])(?:ninguno|ninguna|ningun|nadie|nada|nenhum|nenhuma|ninguem|nobody|nothing|none|neither|nor|ni|nem)(?![a-z])|(?<![a-z])no\s+(?:one|body)(?![a-z])")
 
 
@@ -503,7 +503,7 @@ def _day_of_month(s: str) -> list:
 
 _DET = ("the|a|an|their|its|his|her|my|your|our|this|that|these|those|all|every|each|any|el|la|los|las|un|una|unos|unas|su|sus|mi|mis|tu|tus|este|esta|estos|estas|"
         "todo|todos|todas|cada|o|os|as|um|uma|uns|umas|seu|sua|seus|suas|meu|minha|nosso|nossa|esse|essa|esses|essas|isso|esto|eso|lo|le|les|se|them|it|him|us")
-_VERB_CLAUSE = re.compile(r"(?<![a-z])(?:and|y|e|also|tambien|tambem)\s+(?:also\s+|tambien\s+|tambem\s+)?([a-z]{3,})\s+(?:" + _DET + r")(?![a-z])")
+_VERB_CLAUSE = re.compile(r"(?<![a-z])(?:and|y|e|also|tambien|tambem|but|pero|mas|porem|sino)\s+(?:(?:also|first|primero|primeiro|only|solo|siempre|always|tambien|tambem)\s+)?([a-z]{3,})\s+(?:" + _DET + r")(?![a-z])")
 _NOT_VERB = frozenset("the a an and or of for with from into onto over under between before after during until about than that this those these their its his her "
                       "el la los las un una de del en con por para sobre entre antes despues hasta como mas menos cuando donde si no sin "
                       "do da dos das em no na nos nas com por sobre entre ate quando onde".split())

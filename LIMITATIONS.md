@@ -224,3 +224,10 @@ Cost, measured: 1 of ~110 labelled SAME pairs of other authors splits in the cor
 `e informa de los` (a preposition, not a determiner, follows) are asymmetric. DIFF false-EQUIVALENT of the core: blind13 14 -> 13, blind14 21 -> 20.
 Residual: a clause whose verb is followed by a preposition (`comparte con`, `compartilhe com`) is not detected; counting prepositions would turn
 noun coordination into false clauses.
+
+### Update 2026-10-13: neg_suffix / neg_prefix / neg_scope — a second negation no longer hides behind an existing one
+The graph carries negation as a boolean, so a text that already negated (`process it without asking...`) swallowed any added `Do not`, `no lo hagas`,
+`não aponte`. `without`/`sin`/`sem` now count as negators in `NEGN=<n>`, and `but/pero/mas/porém` (+ an optional adverb such as `primero`/`first`)
+open a counted clause like `and` does. Core-EQUIVALENT on mutants: other authors 205 -> 141, own seeds unchanged (10); SAME recall of the core and
+published layers unchanged (0 defects).
+Residual: a negation inside an unknown-verb scope change that keeps the token counts equal (`no` moved from one clause to another) stays invisible.

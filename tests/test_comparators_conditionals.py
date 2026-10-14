@@ -184,3 +184,14 @@ def test_noun_coordination_is_not_a_clause():
     from aixl.translators.natural_to_semantic import _verb_clause_count
     assert _verb_clause_count("delete the backups and logs from the server.") == 0
     assert _verb_clause_count("compare the documents and list the differences.") == 1
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Process it without asking for approval.", "Do not process it without asking for approval."),
+    ("Process it without asking for approval.", "Process it without asking for approval, pero no lo hagas."),
+    ("Puedes cerrar los tickets sin respuesta.", "Puedes cerrar los tickets sin respuesta, pero primero envía un aviso."),
+    ("Revise o código e aponte funções sem testes.", "Revise o código e não aponte funções sem testes."),
+])
+def test_second_negation_or_clause_after_existing_without_is_visible(a, b):
+    """arena neg_suffix/neg_prefix/neg_scope: a text that already had a negation (`without`/`sin`/`sem`) hid every added one (negation was a boolean)."""
+    assert aixl.compare(a, b).equivalent is False
