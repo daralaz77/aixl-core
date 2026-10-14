@@ -2985,19 +2985,19 @@
   "tele": "sum report #12"
  },
  "Resume este documento en cinco puntos y conserva solamente la información más importante.": {
-  "compact": "A:SUM E:DOC K:QTY=5:PUNTOS,ONLY=1",
+  "compact": "A:SUM E:DOC K:QTY=5:PUNTOS,ONLY=1@2",
   "env": [
    false,
    null
   ],
-  "fp": "8821fae09526f6cc",
+  "fp": "07f03ff33c0fe69b",
   "gate": [
    "NATURAL",
    "incomplete_encoding",
-   18
+   20
   ],
   "passthrough": true,
-  "tele": "sum doc qty=5:puntos only=1"
+  "tele": "sum doc qty=5:puntos only=1@2"
  },
  "Retrieve 20 customers.": {
   "compact": "A:RETRIEVE D:CUSTOMERS K:QTY=20:CUSTOMERS",

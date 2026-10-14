@@ -581,6 +581,58 @@ def _dow_relations(s: str) -> list:
     return sorted(set(out))
 
 
+_SEQ_CUE = re.compile(r"(?<![a-z])(?:then|afterwards|after that|luego|despues|depois)(?![a-z])|(?:^|[.;,]\s*)(?:primero|primeiro|first)(?![a-z])(?!\s+(?:trimestre|quarter|semestre|semana|week|mes|month|ano|year|dia|day|lugar|place|time|vez))")
+
+
+_MEAS = {"MG": "mg|miligramos?|miligramas?|milligrams?|miligramas?", "ML": "ml|mililitros?|milliliters?|millilitres?", "G": "g|gramos?|gramas?|grams?",
+         "KG": "kg|kilos?|kilogramos?|kilogramas?|kilograms?", "L": "l|litros?|liters?|litres?", "MCG": "mcg|microgramos?|micrograms?|ug",
+         "HA": "ha|hectareas?|hectares?", "ALQUEIRE": "alqueires?", "ACRE": "acres?", "KM": "km|kilometros?|kilometres?|kilometers?",
+         "MILE": "millas?|miles?|milhas?", "C": "°c|grados? celsius|degrees? celsius|graus? celsius", "F": "°f|grados? fahrenheit|degrees? fahrenheit",
+         "USD": "usd|dolares?|dollars?", "EUR": "eur|euros?", "COP": "cop|pesos? colombianos?", "BRL": "brl|reais|real"}
+_MEAS_RX = [(c, re.compile(r"(?<![a-z0-9.])(\d+(?:[.,]\d+)?)\s*(?:" + w + r")(?![a-z0-9])")) for c, w in _MEAS.items()]
+_PER_RX = [(c, re.compile(r"(?<![a-z])(?:por|per|a cada|each|/)\s*(?:" + w + r")(?![a-z0-9])")) for c, w in _MEAS.items() if c not in ("C", "F", "USD", "EUR", "COP", "BRL")]
+
+
+def _measurements(s: str) -> list:
+    """`5 ml` vs `5 mg`, `200 litros por hectare` vs `... por alqueire`, `50 USD`: the unit after a number was dropped unless it was in a tiny
+    counting-unit table, so a dose / area / currency change was invisible."""
+    out = []
+    for c, rx in _MEAS_RX:
+        for m in rx.finditer(s):
+            out.append(f"MEAS={m.group(1).replace(',', '.').rstrip('0').rstrip('.') if '.' in m.group(1).replace(',', '.') else m.group(1)}:{c}")
+    for c, rx in _PER_RX:
+        if rx.search(s):
+            out.append(f"PER={c}")
+    return sorted(set(out))
+
+
+def _concept_positions(s: str) -> list:
+    hits = set()
+    for _code, rx in legacy.DATA_RX + legacy.ENTITY_RX + ALL_ACTION_RX:
+        for m in re.finditer(rx, s):
+            hits.add(m.start())
+    return sorted(hits)
+
+
+def _concept_sequence(s: str) -> list:
+    """Order in which the lexicon's ACTION / ENTITY / DATA concepts are mentioned (`backup then migration` vs `migration then backup`,
+    `copy A to B` vs `copy B to A`, `to the buyer ... to the seller`): the graph is a SET, so every reorder was invisible. Needs >= 2 distinct
+    concepts; modifiers are left out (their position moves between languages: `old backups` / `respaldos antiguos`)."""
+    hits = []
+    for code, rx in legacy.DATA_RX + legacy.ENTITY_RX:
+        for m in re.finditer(rx, s):
+            hits.append((m.start(), code))
+    for code, rx in ALL_ACTION_RX:
+        for m in re.finditer(rx, s):
+            hits.append((m.start(), code))
+    hits.sort()
+    out = []
+    for _p, code in hits:
+        if not out or out[-1] != code:
+            out.append(code)
+    return out if len(set(out)) >= 2 else []
+
+
 def _clauses(s: str):
     return [c for c in re.split(r"[,;:.!?]|\b(?:and then|y luego|e depois|then|luego|depois|but|pero|mas)\b", s) if c.strip()]
 
@@ -606,9 +658,25 @@ def _apply_surface_operators(frame, s: str, text: str) -> None:
     for c in _time_range(s) + _dow_relations(s):
         if c not in frame.constraints:
             frame.constraints.append(c)
-    n_only = len(_ONLY_RX.findall(s))
-    if n_only:
-        frame.constraints.append(f"ONLY={n_only}")
+    seq = _concept_sequence(s) if _SEQ_CUE.search(s) else []
+    if seq:
+        frame.constraints.append("SEQ=" + ">".join(seq))
+    for c in _measurements(s):
+        if c not in frame.constraints:
+            frame.constraints.append(c)
+    if re.search(r"(?<![a-z])(?:always|siempre|sempre)(?![a-z])", s):
+        frame.constraints.append("FREQ=ALWAYS")
+    if not frame.negations and not any(c.startswith("FORBID_") for c in frame.constraints) and not re.search(r"(?<![a-z])(?:until|till|hasta|ate)(?![a-z])", s):
+        from aixl.core.completeness import _split_neg_comparators
+        s_neg = _split_neg_comparators(s)[1]                  # `no fewer than`, `not before`: carried by comparator/ordering constraints
+        n_lost = sum(len(_VERB_NEG.findall(c)) for c in _clauses(s_neg.replace("no one", " ")))
+        if n_lost:
+            frame.constraints.append(f"NEGW={n_lost}")        # a negation the graph lost (verb outside the lexicon): `Nunca hornees` vs `No siempre hornees`
+    only_pos = []
+    for m in _ONLY_RX.finditer(s):
+        only_pos.append(sum(1 for _p in _concept_positions(s) if _p < m.start()))
+    if only_pos:
+        frame.constraints.append("ONLY=" + ",".join(f"{len(only_pos)}@{x}" for x in sorted(set(only_pos))) if len(set(only_pos)) == 1 and len(only_pos) == 1 else "ONLY=" + ",".join(str(x) for x in only_pos))
     n_cl = _verb_clause_count(s) - max(0, len(set(frame.actions)) - 1)      # clauses whose verb the lexicon already turned into an ACTION are modelled
     if n_cl > 0:
         frame.constraints.append(f"CLAUSES={n_cl}")

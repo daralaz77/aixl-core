@@ -221,3 +221,24 @@ def test_time_windows_clock_hours_weekday_relations_only_cancel_modal_count(a, b
 ])
 def test_time_and_relation_paraphrases_converge(a, b):
     assert aixl.compare(a, b).equivalent is True
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Administra 5 ml del jarabe cada 8 horas.", "Administra 5 mg del jarabe cada 8 horas."),
+    ("Aplique 200 litros de calda por hectare.", "Aplique 200 litros de calda por alqueire."),
+    ("Registra la escritura dentro de los 30 días hábiles.", "Registra la escritura dentro de los 30 días."),
+    ("Nunca hornees el pan.", "No siempre hornees el pan."),
+    ("Reply to the sender of the complaint.", "Reply to the recipient of the complaint."),
+])
+def test_loop_pass_2_units_business_days_never_vs_not_always_only_position_sequence(a, b):
+    """blind15-18 residue (other authors, not tuned on): dose units, rate units, business days, lost negation, focus of `only`, step order."""
+    assert aixl.compare(a, b).equivalent is False
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Delete only the logs.", "Borra solo los logs."),
+    ("Always send the report.", "Envía siempre el informe."),
+    ("Analiza las ventas del primer trimestre de 2026.", "Analiza las ventas de Q1 2026."),
+])
+def test_loop_pass_2_paraphrases_still_converge(a, b):
+    assert aixl.compare(a, b).equivalent is True

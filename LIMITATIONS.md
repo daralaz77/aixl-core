@@ -240,3 +240,16 @@ DOWREL=BEFORE:FRI; `only/solo/apenas/somente` counted (ONLY=n, `only if/after/be
 Net labelled DIFF pairs the core calls EQUIVALENT: 39 -> 38 (2 fixed: `Pausa`/`Cancela la campaña`, `Cancele`/`Adie a reunião`; 1 exposed:
 `Si llueve, cancela el evento y avisa…` vs `Cancela el evento y, si llueve, avisa…` — the condition's SCOPE over one action is not modelled; the new
 CANCEL action made the two graphs otherwise equal. compare_verified abstains on it).
+
+### Update 2026-10-13: loop pass 2 — read on blind15-18 (other authors, never tuned on)
+Core-EQUIVALENT on labelled DIFF pairs of blind13-18: 86 -> 70 (b13 14->11, b14 19->14, b15 17->15, b16 18->14, b18 5->3, b17 13 unchanged);
+core SAME recall 53 -> 50 (3 paraphrases split; published layers unaffected: 0 false-EQUIVALENT on all 380 DIFF pairs, verified recall unchanged).
+Added: `SEQ=` order of action/entity concepts, only on sequencing cues (`then/luego/depois/despues`, sentence-initial `primero`; ordinals such as
+`primer trimestre` excluded — they cost two true paraphrases in the first attempt, the unrestricted version lost 8 of 58 dev paraphrases and was
+discarded); `MEAS=<n>:<UNIT>` and `PER=<UNIT>` (mg/ml/g/kg/l/ha/alqueire/km/mile/°C/currencies); `MOD=BUSINESS|SENDER|RECIPIENT|ACTUAL`;
+`FREQ=ALWAYS`; `NEGW=<n>` only when the graph lost the negation (unknown verb; `until` and comparator negations excluded); `ONLY=<n>@<concepts before>`.
+Tried and removed: APPROVE as an action (`has approved` inside a subordinate clause became a second action and split `only after` from `until`).
+Not modelled (honest list, from the same read): swapped recipients/roles (`al comprador ... al vendedor`), pronoun reference (`dale a él`/`a ella`),
+added destinatario/payment-method/warning phrases after a complete instruction (`y a su contador`, `con tarjeta corporativa`), approve vs review.
+Residual confirmed by test, not claimed fixed: the position of `only`/`solo` and step reorder are only visible when the sentence's objects are in the
+lexicon (`Solo el notario puede firmar el acta` vs `El notario puede firmar solo el acta`; `back up the database, then run the migration` reversed).

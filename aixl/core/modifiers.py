@@ -31,6 +31,10 @@ _RAW = {
     "EXTERNAL": "external|externo|externos|externa|externas",
     "PROD": "production|produccion|producao",
     "STAGING": "staging|preproduccion|homologacao",
+    "BUSINESS": "business|working|workdays?|habiles|habil|laborables|laborable|uteis|util",
+    "SENDER": "sender|senders|remitente|remitentes|remetente|remetentes",
+    "RECIPIENT": "recipient|recipients|destinatario|destinatarios|destinatario|destinataria",
+    "ACTUAL": "actual|actuales|current",
 }
 _COMPARATIVE = {"older": "OLD", "oldest": "OLD", "newer": "NEW", "newest": "NEW"}
 _STRIP = lambda w: strip_accents(w).lower()      # noqa: E731
