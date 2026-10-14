@@ -501,6 +501,21 @@ def _day_of_month(s: str) -> list:
     return sorted(f"{mon}-{d:02d}" for mon, d in out if 1 <= d <= 31)
 
 
+_DET = ("the|a|an|their|its|his|her|my|your|our|this|that|these|those|all|every|each|any|el|la|los|las|un|una|unos|unas|su|sus|mi|mis|tu|tus|este|esta|estos|estas|"
+        "todo|todos|todas|cada|o|os|as|um|uma|uns|umas|seu|sua|seus|suas|meu|minha|nosso|nossa|esse|essa|esses|essas|isso|esto|eso|lo|le|les|se|them|it|him|us")
+_VERB_CLAUSE = re.compile(r"(?<![a-z])(?:and|y|e|also|tambien|tambem)\s+(?:also\s+|tambien\s+|tambem\s+)?([a-z]{3,})\s+(?:" + _DET + r")(?![a-z])")
+_NOT_VERB = frozenset("the a an and or of for with from into onto over under between before after during until about than that this those these their its his her "
+                      "el la los las un una de del en con por para sobre entre antes despues hasta como mas menos cuando donde si no sin "
+                      "do da dos das em no na nos nas com por sobre entre ate quando onde".split())
+
+
+def _verb_clause_count(s: str) -> int:
+    """Coordinated clauses led by a verb: `... and LIST the differences`, `y DESTACA las quejas`. Pattern, not lexicon (the verb may be unknown):
+    conjunction + word + determiner/possessive/pronoun. Noun coordination (`logs and backups`, `domicilio y telefono`) has no determiner and is
+    not counted. A dropped trailing clause was invisible to the core whenever its verb/object were out of lexicon (arena drop_tail)."""
+    return sum(1 for m in _VERB_CLAUSE.finditer(s) if m.group(1) not in _NOT_VERB)
+
+
 def _clauses(s: str):
     return [c for c in re.split(r"[,;:.!?]|\b(?:and then|y luego|e depois|then|luego|depois|but|pero|mas)\b", s) if c.strip()]
 
@@ -523,6 +538,9 @@ def _apply_surface_operators(frame, s: str, text: str) -> None:
     if days:
         frame.constraints.append("DOW=" + ",".join(days))
     full = {f"{_MON3[int(i[5:7])]}-{i[8:10]}" for i in re.findall(r"\d{4}-\d{2}-\d{2}", frame.time or "")}      # day already carried by a resolved full date
+    n_cl = _verb_clause_count(s) - max(0, len(set(frame.actions)) - 1)      # clauses whose verb the lexicon already turned into an ACTION are modelled
+    if n_cl > 0:
+        frame.constraints.append(f"CLAUSES={n_cl}")
     days_m = [d for d in _day_of_month(s) if d not in full]
     if days_m:
         frame.constraints.append("DAYM=" + ",".join(days_m))

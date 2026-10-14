@@ -214,3 +214,13 @@ SHOULD (should, ought to, deberías, deveria ...), MAY (may, can, puedes, pode, 
 Excluded on purpose: `May` the month (neighbour words) and polite questions (`Can you send it?`, `¿Puedes enviarlo?` == the imperative).
 Core-EQUIVALENT on meaning-changing mutants: own seeds 25 -> 15, other authors 259 -> 227; recall of SAME unchanged; published layers 0 defects.
 Residual: `may not` is genuinely ambiguous (not permitted / not necessarily) and is carried as MAY_NOT, distinct from `must not`.
+
+### Update 2026-10-13: drop_tail — a dropped trailing clause is now visible (`CLAUSES=<n>`)
+A coordinated clause led by a verb OUTSIDE the lexicon (`and list the differences`, `y destaca las quejas`, `and attach their ...`) vanished without
+trace. Pattern, not lexicon: conjunction (and/y/e/also) + word + determiner/possessive/pronoun counts as a clause; clauses whose verb already became an
+ACTION are not double counted; `then/luego/depois` sequencing stays with the ORDER constraints; noun coordination (`logs and backups`) has no
+determiner and is not counted. Core-EQUIVALENT on mutants: own seeds 15 -> 10, other authors 227 -> 205; published layers 0 defects.
+Cost, measured: 1 of ~110 labelled SAME pairs of other authors splits in the core (blind14 12 -> 11) — surface differences such as `y reporta los` vs
+`e informa de los` (a preposition, not a determiner, follows) are asymmetric. DIFF false-EQUIVALENT of the core: blind13 14 -> 13, blind14 21 -> 20.
+Residual: a clause whose verb is followed by a preposition (`comparte con`, `compartilhe com`) is not detected; counting prepositions would turn
+noun coordination into false clauses.

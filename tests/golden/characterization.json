@@ -2835,19 +2835,19 @@
   "tele": "delete report allow_delete"
  },
  "Please translate the attached quarterly report into English, keep all numbers unchanged, and return the result as JSON.": {
-  "compact": "A:TRN E:REPORT,RESULT K:LANG=EN O:JSON",
+  "compact": "A:TRN E:REPORT,RESULT K:LANG=EN,CLAUSES=1 O:JSON",
   "env": [
    false,
    null
   ],
-  "fp": "697f7004871ffbaf",
+  "fp": "dfefa8f503da8d27",
   "gate": [
    "NATURAL",
    "incomplete_encoding",
-   18
+   23
   ],
   "passthrough": true,
-  "tele": "trn report result lang=en json"
+  "tele": "trn report result lang=en clauses=1 json"
  },
  "Procesa 1.000 registros.": {
   "compact": "K:QTY=1000:RECORDS",

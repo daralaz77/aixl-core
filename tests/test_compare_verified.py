@@ -7,10 +7,12 @@ from aixl.envelope import seal, verify
 
 
 def test_known_closed_lexicon_limits_become_inconclusive_with_the_reason():
-    d = aixl.compare_verified("Compare the two documents and list the differences.", "Compare the two documents.")
-    assert aixl.compare("Compare the two documents and list the differences.", "Compare the two documents.").equivalent   # the core still says so (documented limit)
+    # (2026-10-13: `... and list the differences` was the old example; the core now sees the extra clause, so a changed UNKNOWN word is the limit)
+    a, b = "Delete the notes about the quarterly handover.", "Delete the notes about the quarterly handxyz."
+    d = aixl.compare_verified(a, b)
+    assert aixl.compare(a, b).equivalent                      # the core still says so (documented limit)
     assert d["verdict"] == "INCONCLUSIVE" and d["equivalent"] is False and d["verified"] is False and d["raw_verdict"] == "EQUIVALENT"
-    assert "list" in d["unaccounted"]["a"] and "differences" in d["unaccounted"]["a"]
+    assert "handover" in d["unaccounted"]["a"] and "handxyz" in d["unaccounted"]["b"]
 
 
 def test_verified_keeps_every_key_of_compare_and_a_true_paraphrase():

@@ -167,3 +167,20 @@ def test_modal_strength_is_modelled(a, b):
 ])
 def test_modal_paraphrases_still_converge(a, b):
     assert aixl.compare(a, b).equivalent is True
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Compare the two documents and list the differences.", "Compare the two documents."),
+    ("Resume los comentarios de la encuesta y destaca las quejas sobre entregas.", "Resume los comentarios de la encuesta."),
+    ("List the top five accounts by churn risk and attach their last support interactions.", "List the top five accounts by churn risk."),
+])
+def test_dropped_trailing_clause_with_unknown_verb_is_visible(a, b):
+    """arena drop_tail: a coordinated clause led by a verb outside the lexicon (list/destaca/attach) vanished without trace."""
+    assert aixl.compare(a, b).equivalent is False
+
+
+def test_noun_coordination_is_not_a_clause():
+    assert aixl.compare("Delete the backups and logs from the server.", "Delete the backups and logs from the server.").equivalent
+    from aixl.translators.natural_to_semantic import _verb_clause_count
+    assert _verb_clause_count("delete the backups and logs from the server.") == 0
+    assert _verb_clause_count("compare the documents and list the differences.") == 1
