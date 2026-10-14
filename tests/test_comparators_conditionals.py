@@ -195,3 +195,29 @@ def test_noun_coordination_is_not_a_clause():
 def test_second_negation_or_clause_after_existing_without_is_visible(a, b):
     """arena neg_suffix/neg_prefix/neg_scope: a text that already had a negation (`without`/`sin`/`sem`) hid every added one (negation was a boolean)."""
     assert aixl.compare(a, b).equivalent is False
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Agende uma videochamada na terça, entre 14h e 16h.", "Agende uma videochamada na terça, entre 14h e 17h."),
+    ("Agende uma reunião às 16h.", "Agende uma reunião às 23h."),
+    ("Send the report to Ana and notify Luis.", "Cancel the report to Ana and notify Luis."),
+    ("Pay before Friday.", "Pay after Friday."),
+    ("Share the file, only for admins.", "Share the file."),
+    ("You must anonymize it so you can upload.", "You may anonymize it so you can upload."),
+    ("Schedule it at noon.", "Schedule it at 3 pm."),
+])
+def test_time_windows_clock_hours_weekday_relations_only_cancel_modal_count(a, b):
+    """num_change / add_constraint / quantifier_add / antonym / modal_flip residue of the arena (other authors)."""
+    assert aixl.compare(a, b).equivalent is False
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Schedule it at 5 pm.", "Schedule it at 17:00."),
+    ("Agenda la reunión a las 5 de la tarde.", "Agenda la reunión a las 17:00."),
+    ("Agende uma reunião às 16h.", "Agende uma reunião às 16:00."),
+    ("Schedule a call between 2 pm and 4 pm.", "Schedule a call between 14:00 and 16:00."),
+    ("Paga antes del viernes.", "Pay before Friday."),
+    ("Schedule it at noon.", "Schedule it at 12:00."),
+])
+def test_time_and_relation_paraphrases_converge(a, b):
+    assert aixl.compare(a, b).equivalent is True

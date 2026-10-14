@@ -292,8 +292,8 @@ CLOCK_TIME = re.compile(
     r"(?P<h>\d{1,2})(?:[:h](?P<m>\d{2}))?\s*(?P<ap>a\.?m\.?|p\.?m\.?)?\b", re.I)
 BEFORE_WORDS = {"antes de", "before", "prior to", "by", "no later than"}
 AT_TIME = re.compile(
-    r"\b(?:at|for|para|a las)\s+(?:las?\s+)?"
-    r"(?P<h>\d{1,2})(?:[:h](?P<m>\d{2}))?\s*(?P<ap>a\.?m\.?|p\.?m\.?)?\b", re.I)
+    r"\b(?:at|for|para|a las|a la|as|ao|a)\s+(?:las?\s+)?"
+    r"(?P<h>\d{1,2})(?:(?P<sep>[:h])(?P<m>\d{2})?|\s*(?P<hr>horas?|hrs?)\b)?\s*(?P<ap>a\.?m\.?|p\.?m\.?)?\b", re.I)
 
 SLASH_DATE = re.compile(r"\b(\d{1,2})/(\d{1,2})/((?:19|20)\d\d)\b")
 
@@ -339,9 +339,24 @@ def _extra_time_extensions(frame, text_stripped: str) -> None:
         code = "BEFORE" if mo.group("dir").lower() in BEFORE_WORDS else "AFTER"
         frame.constraints.append(f"{code}={_24h(mo)}")
     for mo in AT_TIME.finditer(s):
-        if not (mo.group("m") or mo.group("ap")):
-            continue                                      # bare number after "at/for/para": not a clock time
-        frame.constraints.append(f"TIME_AT={_24h(mo)}")
+        if not (mo.group("m") or mo.group("ap") or mo.group("sep") == "h" or mo.group("hr")):
+            continue                                      # bare number after "at/for/para": not a clock time (`16h`, `14 horas` are)
+        c = f"TIME_AT={_24h(mo)}"
+        if c not in frame.constraints:
+            frame.constraints.append(c)
+    for rx_, hh in ((r"(?<![a-z])(?:at\s+)?(?:noon|midday|mediodia|meio dia|meio-dia)(?![a-z])", "12:00"),):
+        if re.search(rx_, s) and f"TIME_AT={hh}" not in frame.constraints:
+            frame.constraints.append(f"TIME_AT={hh}")
+    for mo in re.finditer(r"(?<![0-9:])(\d{1,2})\s+(?:de la|da|de)\s+(manana|tarde|noche|madrugada|manha)\b", s):
+        h, part = int(mo.group(1)), mo.group(2)
+        if h <= 12:
+            if part in ("tarde", "noche") and h != 12:
+                h += 12
+            elif part in ("manana", "manha", "madrugada") and h == 12:
+                h = 0
+            c = f"TIME_AT={h:02d}:00"
+            if c not in frame.constraints:
+                frame.constraints.append(c)
 
     for op, rx in AGE_RX:
         m = rx.search(s)
@@ -404,6 +419,12 @@ def _apply_quantities_and_selection(frame, pre: str, s: str, conf: dict) -> None
     """Quantities (0.2 COUNT replaced), ranking cues -> LIMIT, selection FIRST/LAST."""
     frame.constraints = [c for c in frame.constraints if not c.startswith("COUNT=")]
     qs = _quantities(pre, frame)
+    clock_hours = {mo.group("h").lstrip("0") or "0" for rx_ in (AT_TIME, CLOCK_TIME) for mo in rx_.finditer(s) if mo.group("ap")}
+    for rm in _RANGE_RX.finditer(s):                                     # `between 2 pm and 4 pm`: both hours belong to the window
+        if rm.group(3) or rm.group(6) or rm.group(2) or rm.group(5):
+            clock_hours |= {rm.group(1).lstrip("0") or "0", rm.group(4).lstrip("0") or "0"}
+    clock_hours |= {m.group(1).lstrip("0") or "0" for m in re.finditer(r"(?<![0-9:])(\d{1,2})\s+(?:de la|da|de)\s+(?:manana|tarde|noche|madrugada|manha)\b", s)}
+    qs = [q for q in qs if not (not q[1] and str(q[0]) in clock_hours)]       # `at 5 pm` is TIME_AT=17:00, not also QTY=5 (it split `5 pm` from `17:00`)
     ranking = bool(RANK_CUE.search(s))
     for num, unit, w1 in qs:
         if w1 in ("mejores", "best", "principales", "principais", "top", "main", "leading") or (ranking and len(qs) == 1 and not any(c.startswith("LIMIT=") for c in frame.constraints)):
@@ -503,7 +524,7 @@ def _day_of_month(s: str) -> list:
 
 _DET = ("the|a|an|their|its|his|her|my|your|our|this|that|these|those|all|every|each|any|el|la|los|las|un|una|unos|unas|su|sus|mi|mis|tu|tus|este|esta|estos|estas|"
         "todo|todos|todas|cada|o|os|as|um|uma|uns|umas|seu|sua|seus|suas|meu|minha|nosso|nossa|esse|essa|esses|essas|isso|esto|eso|lo|le|les|se|them|it|him|us")
-_VERB_CLAUSE = re.compile(r"(?<![a-z])(?:and|y|e|also|tambien|tambem|but|pero|mas|porem|sino)\s+(?:(?:also|first|primero|primeiro|only|solo|siempre|always|tambien|tambem)\s+)?([a-z]{3,})\s+(?:" + _DET + r")(?![a-z])")
+_VERB_CLAUSE = re.compile(r"(?<![a-z])(?:and|y|e|also|tambien|tambem|but|pero|mas|porem|sino)\s+(?:(?:also|first|primero|primeiro|only|solo|siempre|always|tambien|tambem)\s+)?([a-z]{3,})\s+(?:(?:first|primero|primeiro|then|also|only|solo|always|siempre|immediately|inmediatamente|todos|todas)\s+)?(?:" + _DET + r")(?![a-z])")
 _NOT_VERB = frozenset("the a an and or of for with from into onto over under between before after during until about than that this those these their its his her "
                       "el la los las un una de del en con por para sobre entre antes despues hasta como mas menos cuando donde si no sin "
                       "do da dos das em no na nos nas com por sobre entre ate quando onde".split())
@@ -514,6 +535,50 @@ def _verb_clause_count(s: str) -> int:
     conjunction + word + determiner/possessive/pronoun. Noun coordination (`logs and backups`, `domicilio y telefono`) has no determiner and is
     not counted. A dropped trailing clause was invisible to the core whenever its verb/object were out of lexicon (arena drop_tail)."""
     return sum(1 for m in _VERB_CLAUSE.finditer(s) if m.group(1) not in _NOT_VERB)
+
+
+_TT = r"(?:las?\s+)?(\d{1,2})(?:(?:[:h])(\d{2})?)?\s*(a\.?m\.?|p\.?m\.?)?"
+_RANGE_RX = re.compile(r"\b(?:between|entre|from|de|das|desde)\s+" + _TT + r"\s+(?:and|y|e|to|a|as|ate|hasta|until)\s+" + _TT + r"(?![0-9:])", re.I)
+
+
+def _hhmm(h: str, m: str | None, ap: str | None) -> str:
+    hh = int(h)
+    if ap:
+        a = ap[0].lower()
+        if a == "p" and hh != 12:
+            hh += 12
+        if a == "a" and hh == 12:
+            hh = 0
+    return f"{hh:02d}:{m or '00'}"
+
+
+def _time_range(s: str) -> list:
+    """`entre 14h e 16h` / `between 2 pm and 4 pm` / `de las 9:00 a las 11:00` -> TIME_BETWEEN=14:00-16:00 (the window was dropped whole)."""
+    out = []
+    for m in _RANGE_RX.finditer(s):
+        h1, m1, a1, h2, m2, a2 = m.groups()
+        marked = (m1 or a1 or ":" in m.group(0) or re.search(r"\d\s*h\b", m.group(0)))
+        if not marked or int(h1) > 24 or int(h2) > 24:
+            continue
+        a1 = a1 or a2                                  # `2 to 4 pm` shares the meridiem
+        out.append(f"TIME_BETWEEN={_hhmm(h1, m1, a1)}-{_hhmm(h2, m2, a2)}")
+    return out
+
+
+_DOW_ALT = "|".join(sorted({w for ws in _DOW.values() for w in ws.split("|")}, key=len, reverse=True))
+_DOW_REL = re.compile(r"(?<![a-z])(before|by|antes de|antes del|antes|after|despues de|despues del|despues|depois de|depois do|depois|until|till|hasta el|hasta|ate|ate o)\s+"
+                      r"(?:(?:the|el|la|o|a|this|next|este|esta|proximo|proxima|este|esse)\s+)*(" + _DOW_ALT + r")(?![a-z])")
+_REL_CODE = {"before": "BEFORE", "by": "BEFORE", "antes": "BEFORE", "after": "AFTER", "despues": "AFTER", "depois": "AFTER",
+             "until": "UNTIL", "till": "UNTIL", "hasta": "UNTIL", "ate": "UNTIL"}
+_ONLY_RX = re.compile(r"(?<![a-z])(?:only|just|solo|solamente|unicamente|apenas|somente)(?![a-z])(?!\s+(?:if|when|after|before|once|si|se|cuando|quando|despues|antes|depois|apos)(?![a-z]))")
+
+
+def _dow_relations(s: str) -> list:
+    out = []
+    for m in _DOW_REL.finditer(s):
+        code = next(c for c, ws in _DOW.items() if re.fullmatch(ws, m.group(2)))
+        out.append(f"DOWREL={_REL_CODE[m.group(1).split()[0]]}:{code}")
+    return sorted(set(out))
 
 
 def _clauses(s: str):
@@ -538,6 +603,12 @@ def _apply_surface_operators(frame, s: str, text: str) -> None:
     if days:
         frame.constraints.append("DOW=" + ",".join(days))
     full = {f"{_MON3[int(i[5:7])]}-{i[8:10]}" for i in re.findall(r"\d{4}-\d{2}-\d{2}", frame.time or "")}      # day already carried by a resolved full date
+    for c in _time_range(s) + _dow_relations(s):
+        if c not in frame.constraints:
+            frame.constraints.append(c)
+    n_only = len(_ONLY_RX.findall(s))
+    if n_only:
+        frame.constraints.append(f"ONLY={n_only}")
     n_cl = _verb_clause_count(s) - max(0, len(set(frame.actions)) - 1)      # clauses whose verb the lexicon already turned into an ACTION are modelled
     if n_cl > 0:
         frame.constraints.append(f"CLAUSES={n_cl}")

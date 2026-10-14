@@ -71,7 +71,7 @@ def modal_codes(text: str) -> list:
     `must not` is the prohibition the negation already carries (no code). `May` the month is excluded by its neighbours."""
     s = " " + " ".join(_TOK.findall(strip_accents(text).lower())) + " "
     polite = "?" in text or "\u00bf" in text      # `Can you send it?` / `¿Puedes enviarlo?` is a polite imperative, not a permission
-    out = set()
+    out = []
     for code, phrases in _MODAL_RAW.items():
         for p in phrases:
             for m in re.finditer(r"(?<= )" + re.escape(p) + r"(?= )", s):
@@ -81,10 +81,11 @@ def modal_codes(text: str) -> list:
                     continue
                 if p == "may" and ((before and before[-1] in _MONTH_CTX_PREV) or (after and after[0].isdigit())):
                     continue
-                out.add(code + ("_NOT" if after[:1] in (["not"], ["never"]) or (code == "MAY" and p in ("can",) and after[:1] == ["not"]) else ""))
+                out.append(code + ("_NOT" if after[:1] in (["not"], ["never"]) or (code == "MAY" and p in ("can",) and after[:1] == ["not"]) else ""))
     if re.search(r"(?<![a-z])cannot(?![a-z])|(?<![a-z])can t(?![a-z])|(?<![a-z])cant(?![a-z])", s) or " no puedes " in s or " nao pode " in s:
-        out.add("MAY_NOT")
-    return sorted(out)
+        out.append("MAY_NOT")
+    import collections
+    return sorted(c if n == 1 else f"{c}:{n}" for c, n in collections.Counter(out).items())      # a SECOND `may` is a change too
 
 
 def modal_words() -> set:

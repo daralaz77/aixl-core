@@ -231,3 +231,12 @@ The graph carries negation as a boolean, so a text that already negated (`proces
 open a counted clause like `and` does. Core-EQUIVALENT on mutants: other authors 205 -> 141, own seeds unchanged (10); SAME recall of the core and
 published layers unchanged (0 defects).
 Residual: a negation inside an unknown-verb scope change that keeps the token counts equal (`no` moved from one clause to another) stays invisible.
+
+### Update 2026-10-13: loop pass 1 — clock times, windows, weekday relations, ONLY, CANCEL, modal counts (`benchmarks/loop_pass.py`)
+Residue of the arena (other authors) read pair by pair, fixed in the translator: `16h`/`16h30`/`às 14 horas`/`5 de la tarde`/`noon` now give TIME_AT (and
+`at 5 pm` no longer ALSO emits QTY=5, which split it from `17:00`); `entre 14h e 16h` -> TIME_BETWEEN; `antes del viernes`/`before Friday` ->
+DOWREL=BEFORE:FRI; `only/solo/apenas/somente` counted (ONLY=n, `only if/after/before` excluded); CANCEL joins the action table; a second `may` is
+`MAY:2`. Core-EQUIVALENT on mutants: own seeds 10 -> 2, other authors 141 -> 40; published layers 0.
+Net labelled DIFF pairs the core calls EQUIVALENT: 39 -> 38 (2 fixed: `Pausa`/`Cancela la campaña`, `Cancele`/`Adie a reunião`; 1 exposed:
+`Si llueve, cancela el evento y avisa…` vs `Cancela el evento y, si llueve, avisa…` — the condition's SCOPE over one action is not modelled; the new
+CANCEL action made the two graphs otherwise equal. compare_verified abstains on it).

@@ -56,7 +56,8 @@ EXTRA_ACTION_RX = [
     ("INCLUDE", r"\b(inclu(ye|yes|ir|ya|yas|a|i|am|em)|include[sd]?|incorpor(a|ar|e|es))\b"),
     ("EXCLUDE", r"\b(exclu(ye|yes|ir|ya|yas|i|is|a)|exclude[sd]?|omit(e|es|ir)|omit|descarta(r)?|descarte|discard[s]?)\b"),
     ("UPDATE",  r"\b(actuali[zc](a|ar|e|es|en)|update[sd]?|modific(a|ar|ue|ues)|modify|edit(a|ar|e|es)?|cierra(s)?|close[sd]?|resuelve(s)?|resolve[sd]?|marc(a|ar|as)|mark(s|ed)?|flag(s|ged|ging)?)\b"),
-    ("CREATE",  r"\b(program(a|ar|as|e)|schedul(e|es|ed|ing)|agenda(r)?)\b"),
+    ("CREATE",  r"\b(program(a|ar|as|e)|schedul(e|es|ed|ing)|agenda(r)?|agende(m|s)?|agendar)\b"),
+    ("CANCEL",  r"\b(cancel(s|led|ed|ing)?|cancela(r|s)?|cancele(s)?|cancelar|anula(r|s)?|anule(s)?|call off|abort(s|ed|ing)?)\b"),
 ]
 
 # Single source of truth for "every action verb the translator knows" (0.2 base + 0.3 extensions),
