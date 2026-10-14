@@ -526,7 +526,10 @@ def _apply_surface_operators(frame, s: str, text: str) -> None:
     days_m = [d for d in _day_of_month(s) if d not in full]
     if days_m:
         frame.constraints.append("DAYM=" + ",".join(days_m))
-    from aixl.core.modifiers import codes_in
+    from aixl.core.modifiers import codes_in, modal_codes
+    modal = modal_codes(text)
+    if modal:
+        frame.constraints.append("MODAL=" + ",".join(modal))
     mods = codes_in(text)
     if mods:
         frame.constraints.append("MOD=" + ",".join(mods))

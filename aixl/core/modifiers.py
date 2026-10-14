@@ -55,3 +55,37 @@ def accounted_words(constraints) -> set:
         if c.startswith("MOD="):
             have |= set(c[4:].split(","))
     return {w for w, code in WORD_CODE.items() if code in have}
+
+
+# --- modality strength: `must` is the unmarked imperative (Delete == You must delete), so only the WEAKER readings are emitted -----------------
+_MODAL_RAW = {
+    "SHOULD": ["should", "ought to", "deberias", "deberia", "deberian", "convendria", "conviene", "deveria", "deverias", "recomendable", "recommended"],
+    "MAY": ["may", "can", "might", "puedes", "puede", "pueden", "podes", "podras", "podra", "pode", "podem", "podes", "allowed to", "permitted to",
+            "feel free to", "esta permitido", "es posible", "libre de", "tienes permiso", "tem permissao"],
+}
+_MONTH_CTX_PREV = {"in", "of", "during", "until", "before", "after", "from", "since", "by", "en", "de", "desde", "hasta", "em", "ate", "antes", "despues"}
+
+
+def modal_codes(text: str) -> list:
+    """`SHOULD` / `MAY` / `SHOULD_NOT` / `MAY_NOT` present in `text`. `must`/`debes`/`deve` and the bare imperative are the same (no code);
+    `must not` is the prohibition the negation already carries (no code). `May` the month is excluded by its neighbours."""
+    s = " " + " ".join(_TOK.findall(strip_accents(text).lower())) + " "
+    polite = "?" in text or "\u00bf" in text      # `Can you send it?` / `¿Puedes enviarlo?` is a polite imperative, not a permission
+    out = set()
+    for code, phrases in _MODAL_RAW.items():
+        for p in phrases:
+            for m in re.finditer(r"(?<= )" + re.escape(p) + r"(?= )", s):
+                before = s[:m.start()].split()
+                after = s[m.end():].split()
+                if code == "MAY" and (polite or after[:1] == ["you"]) and p in ("can", "may", "puedes", "puede", "pode", "podes", "podem", "might"):
+                    continue
+                if p == "may" and ((before and before[-1] in _MONTH_CTX_PREV) or (after and after[0].isdigit())):
+                    continue
+                out.add(code + ("_NOT" if after[:1] in (["not"], ["never"]) or (code == "MAY" and p in ("can",) and after[:1] == ["not"]) else ""))
+    if re.search(r"(?<![a-z])cannot(?![a-z])|(?<![a-z])can t(?![a-z])|(?<![a-z])cant(?![a-z])", s) or " no puedes " in s or " nao pode " in s:
+        out.add("MAY_NOT")
+    return sorted(out)
+
+
+def modal_words() -> set:
+    return {w for ps in _MODAL_RAW.values() for p in ps for w in p.split()}

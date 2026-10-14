@@ -206,3 +206,11 @@ Reading the core-EQUIVALENT `compose` mutants (not just counting them) found thr
 - `older`/`newer` without `than` (`keep the older record`): comparative modifiers OLD/NEW, while `older than N` stays the AGE constraint.
 Still open and documented: an appended clause whose verb folds into an existing action (`copy the team on the email` + `and notify the whole team`
 stays SEND), and unknown-word typos (the core cannot see them; the published layers abstain). Core-EQUIVALENT on mutants (other authors) 279 -> 259.
+
+### Update 2026-10-13: modal_flip — modality strength modelled (`MODAL=SHOULD|MAY|SHOULD_NOT|MAY_NOT`)
+`must`/`may`/`should` were function words: no layer compared them, so `You must delete` == `You may delete` in the core. Now only the WEAKER
+readings are emitted (`must`/`debes`/`deve` and the bare imperative are the same thing, `must not` is the negation already modelled):
+SHOULD (should, ought to, deberías, deveria ...), MAY (may, can, puedes, pode, allowed to ...), with `_NOT` when negated (`cannot`, `no puedes`).
+Excluded on purpose: `May` the month (neighbour words) and polite questions (`Can you send it?`, `¿Puedes enviarlo?` == the imperative).
+Core-EQUIVALENT on meaning-changing mutants: own seeds 25 -> 15, other authors 259 -> 227; recall of SAME unchanged; published layers 0 defects.
+Residual: `may not` is genuinely ambiguous (not permitted / not necessarily) and is carried as MAY_NOT, distinct from `must not`.

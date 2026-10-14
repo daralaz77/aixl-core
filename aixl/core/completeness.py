@@ -133,6 +133,9 @@ def check_completeness(text: str, graph, _ev=None) -> dict:
     missing = []
     from aixl.core.modifiers import accounted_words
     mod_ok = accounted_words(graph.canonical()["constraints"])      # modifier words whose code the graph carries (MOD=)
+    if any(k.startswith("MODAL=") for k in graph.canonical()["constraints"]):
+        from aixl.core.modifiers import modal_words
+        mod_ok = mod_ok | modal_words()
     toks = _ALLTOK.findall(_norm(text))
     # LIMITATION (declared): verbs outside the verb table cannot be recognised; the FIRST content token of an imperative text is
     # taken as the verb the ACTION atom stands for ('mueve' -> UPDATE). Later unknown verbs stay unaccounted (safe).

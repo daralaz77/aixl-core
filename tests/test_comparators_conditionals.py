@@ -144,3 +144,26 @@ def test_compose_findings_day_of_month_hyphen_duration_comparative(a, b):
 ])
 def test_compose_findings_do_not_split_true_paraphrases(a, b):
     assert aixl.compare(a, b).equivalent is True
+
+
+@pytest.mark.parametrize("a,b", [
+    ("You must delete the old backups.", "You may delete the old backups."),
+    ("You should delete the logs.", "You may delete the logs."),
+    ("Delete the logs.", "You may delete the logs."),
+    ("You can delete the logs.", "You cannot delete the logs."),
+])
+def test_modal_strength_is_modelled(a, b):
+    """arena modal_flip: must/should/may were function words the core ignored (`must` == `may`)."""
+    assert aixl.compare(a, b).equivalent is False
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Delete the logs.", "You must delete the logs."),
+    ("Debes borrar los logs.", "Borra los logs."),
+    ("Puedes borrar los logs.", "You can delete the logs."),
+    ("Can you send the report?", "Send the report."),
+    ("¿Puedes enviar el informe?", "Envía el informe."),
+    ("You must not delete the logs.", "Don't delete the logs."),
+])
+def test_modal_paraphrases_still_converge(a, b):
+    assert aixl.compare(a, b).equivalent is True
