@@ -1,26 +1,65 @@
-# AIXL — experimental semantic layer (0.5.0) — read the status first
+# AIXL — experimental semantic layer (0.5.0) — read this first
 
-> **Status (2026-10-03), in one paragraph.** AIXL was built as a way to represent what an instruction *means* and to check that two instructions mean the same.
-> Measured on text written by **other** authors (not on the project's own benchmark), the answer for **open-domain** text is: the rule-based and LLM-encoded AIXL
-> routes wrongly judge ~40–59 % of non-equivalent pairs "equivalent" (they drop whatever the closed vocabulary has no slot for), the repaired,
-> safe versions prove only 0–32 % of true paraphrases, and a **strict full-text LLM arbiter (two independent models, "same" only if both agree)** recovers 99.7–100 % of
-> true paraphrases with 0 % false "same" on 480 hard near-miss negatives. AIXL's remaining measured value is **narrower than first claimed**: exact, offline,
-> free comparison inside a *controlled vocabulary*; deterministic input hygiene (invisible/look-alike characters); a loss detector that refuses to say "equal"
-> without proof; and an interchange format with real MCP/A2A servers. Everything is in [`docs/EVIDENCE.md`](docs/EVIDENCE.md); the earlier headline
-> numbers (99.4 %, 95 %+) are kept as history because they come from sets that share the translator's own vocabulary.
->
-> **1062 tests** pass (`.venv/bin/python -m pytest -q`). Not a standard; no production use; nothing in it executes an action.
-> **AIXL 0.4 atom layer** (concept-id atoms, wire format, firewall, fidelity): [docs/ATOMS.md](docs/ATOMS.md) — evidence and limits in [docs/ATOMS_EVIDENCE.md](docs/ATOMS_EVIDENCE.md).
+## What AIXL is, and what it is not (updated 2026-10-14)
+
+**One sentence.** AIXL is a deterministic, offline checker that **refuses to say two instructions mean the same unless it can prove it**, plus an
+audit-friendly wrapper around a full-text LLM arbiter for everything it cannot prove. It is **not** a paraphrase prover, not compression, not a standard.
+
+| It **is** | It **is not** |
+|---|---|
+| A *loss/distortion detector*: a lost negation, a changed number, a swapped weekday, `must`→`may`, `and`→`or`, a dropped clause are caught and never reported as "equal". | A way to *prove* that two free-text paraphrases mean the same. On other authors' text the deterministic layers prove ~0–2 % of true paraphrases (0.2 % decided on realistic long instructions). |
+| Exact, offline, free (0.85 ms/pair) **inside a controlled vocabulary** (ES/EN/PT instructions with known verbs/nouns). | A general semantic model. The vocabulary is closed on purpose: a word it does not know is *reported*, never silently equated. |
+| A layered decision: deterministic proof first, then a 2-of-2 LLM arbiter (`aixl.arbiter.layered_decide`), with stored decisions and an audit trail. | A better judge than the arbiter. Measured on 115 pairs, layering gives the **same** accuracy as the arbiter alone (52/54 proven, 58/61 differences) — it adds a free deterministic answer where the vocabulary is controlled, and audit, not correctness. |
+| A format other agents can call: MCP server, A2A agent (Bearer auth, rate limit, body cap), 1255 tests, wheel packaging. | Validated with real agent-to-agent traffic or any real organisation (not tested). Nothing in it executes an action. |
+
+### How to read a verdict (this is the part people get wrong)
+
+| `compare_verified` returns | It means | It does **not** mean |
+|---|---|---|
+| `EQUIVALENT`, `verified: true` | Both texts are completely accounted for by the vocabulary and every modelled slot is equal. **Proof.** | — |
+| `INCONCLUSIVE` | The vocabulary does not account for all the content (or a connective/modality it cannot compare differs). `unaccounted` lists the words. **No claim.** | "probably different" |
+| `NOT_EQUIVALENT`, `difference_reliable: true` | A modelled slot differs and both texts are fully accounted for. Right 6 of 8 on labelled pairs of other authors — still check. | — |
+| `NOT_EQUIVALENT`, `difference_reliable: false` | **Not proven equal.** On texts the vocabulary does not fully cover this was right only **50 %** of the time (205 DIFF / 206 SAME of 411 labelled pairs). | "proven different". Do not block, bill or alert on it alone. |
+
+Rule of thumb: **EQUIVALENT is trustworthy; NOT_EQUIVALENT is a flag to look, not a finding.** Send `INCONCLUSIVE` and unreliable `NOT_EQUIVALENT`
+to the arbiter or to a human.
+
+### Which tool for which job
+
+| You need | Use | Measured |
+|---|---|---|
+| "Did anything get lost or changed on this hop?" (negation, quantity, date, time, modality, conjunction) | `aixl.compare_verified` / MCP `aixl_compare` | 0 false EQUIVALENT on 380 labelled DIFF pairs of other authors (blind13–18) and on 6 569 + 1 676 meaning-changing mutants |
+| "Are these two open-text instructions the same?" | Arbiter 2-of-2 behind `layered_decide` (you supply two judge callables) | blind17/18: 52/54 proven, 58/61 differences, 2 disputed false SAME; ≈ $0.28 / 1 000 pairs; verdict flips 1.2 % → store decisions |
+| Exact duplicate / canonical key inside a controlled vocabulary | `aixl.to_aixl`, fingerprint | exact; not a candidate-pair prefilter (recall 15.8 % vs 60.3 % lexical) |
+| A tamper-evident wrapper around a message | `aixl.envelope.seal` / `verify` (`AIXL-ENV-2`) | MATCH only when the working string is accounted for; AND↔OR flip and added negations caught |
+| Input hygiene | `sanitize_input` (automatic) | invisible and look-alike characters |
+
+### Honest numbers (2026-10-14)
+* **Deterministic coverage** on realistic instructions written by other authors: **0.2 %** decided (15 of 6 569 mutants); 23–30 % on the project's own seeds.
+  A hand-extended lexicon cannot close this: even knowing all 2 399 unaccounted words of the selection corpus gives 22 % of held-out seeds
+  (`benchmarks/lexicon_coverage_curve.py`).
+* **Core comparator** (`aixl.compare`, not the shipped surface) on meaning-changing arena mutants it still calls EQUIVALENT: own seeds 122 → **0**,
+  other authors' seeds 1 244 → **37** (same sweep, this audit loop: conjunction, comparator, condition, modality, weekday, clock time, units,
+  negation count, clauses). Labelled DIFF pairs it still calls equal: 86 → 70 on blind13–18. Residual: roles/recipients swapped, pronoun
+  reference, appended clauses with known verbs, approve vs review. The core is **not** trustworthy on open text; the shipped layers abstain there.
+* **Why NOT_EQUIVALENT is weak:** paraphrase, cross-language and vocabulary noise. See `LIMITATIONS.md` (E-LAYERED-ARBITER).
+* **Negative results kept on purpose:** open-vocabulary verification (E-OPEN-VOCAB, unsafe), unrestricted order constraint (cost 8 of 58 paraphrases),
+  deterministic DIFFERENT as final (cost 39 of 54 proven SAME).
+
+### Safe use, in one line
+Use **`aixl.compare_verified`** (what MCP and A2A return) — never `aixl.compare(...).equivalent` on open text — and treat `NOT_EQUIVALENT` with
+`difference_reliable: false` as "not proven equal". The A2A agent refuses to listen on a public interface without `AIXL_A2A_TOKEN` ([DEPLOYMENT.md](DEPLOYMENT.md)).
+
+### Status
+Not a standard; no production use. Everything measured is in [`docs/EVIDENCE.md`](docs/EVIDENCE.md) and [`LIMITATIONS.md`](LIMITATIONS.md); the earlier headline numbers
+(99.4 %, 95 %+) are history: they come from sets that share the translator's own vocabulary.
+**1255 tests** pass (`.venv/bin/python -m pytest -q`). **AIXL 0.4 atom layer** (concept-id atoms, wire format, firewall, fidelity): [docs/ATOMS.md](docs/ATOMS.md) — evidence in [docs/ATOMS_EVIDENCE.md](docs/ATOMS_EVIDENCE.md).
 
 [![tests](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml/badge.svg)](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml)
 [![Paper DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23227169.svg)](https://doi.org/10.5281/zenodo.23227169)
 [![Code DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23226946.svg)](https://doi.org/10.5281/zenodo.23226946)
 
 **Paper:** *When 99% Means Nothing: Negative Results from Measuring Semantic Equivalence Between Agent Instructions* — [doi:10.5281/zenodo.23227169](https://doi.org/10.5281/zenodo.23227169). This repository at tag `v1.0.0-paper` is the code and data behind it ([archived copy](https://doi.org/10.5281/zenodo.23226946)).
-
-> **Safe use, in one line.** `aixl.compare(...).equivalent` is only reliable *inside the controlled vocabulary*: on open text it ignores whatever the lexicons have no slot for
-> (measured false "equivalent": 19.7 % and 35.4 % of other authors' non-equivalent pairs). Use **`aixl.compare_verified`** (what the MCP and A2A tools return): it never says
-> EQUIVALENT without proof, at the price of proving almost no open-text paraphrase. The A2A agent refuses to listen on a public interface without `AIXL_A2A_TOKEN` ([DEPLOYMENT.md](DEPLOYMENT.md)).
 
 ## 0. Scope of AIXL 0.5 (decided 2026-10-03, [ADR-018](docs/adr/ADR-018.md))
 AIXL 0.5 is: **(1)** an exact, offline, free comparison engine *inside a controlled vocabulary*; **(2)** a loss detector that refuses to say "equal" without proof (opt-in `inconclusive`, `R:` residue, completeness); **(3)** deterministic input hygiene (`sanitize_input`); **(4)** an interchange format with real MCP/A2A servers and a bounded negotiation protocol; **(5)** an **audit layer around a full-text arbiter** (`aixl.arbiter`: versioned rules, 2-of-2 consensus, output validation, a decision memo — judges are functions you supply; the core never calls a model).
