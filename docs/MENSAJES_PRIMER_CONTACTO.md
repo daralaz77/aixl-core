@@ -58,8 +58,8 @@ Hola, soy Darwing Pérez Aranguren (Daralaz). Desarrollo una capa que detecta cu
 
 ## Antes de enviar (checklist)
 - [ ] Leí cada cifra y puedo explicarla (75,8 %, 237/240, 119/120; todas con n pequeño y relays escritos por modelos).
-- [ ] Tengo un acuerdo de confidencialidad base listo, porque lo van a pedir.
-- [ ] Confirmé que `director@daralaz.com` recibe y responde (el límite gratuito de dominios de Resend ya está usado).
+- [ ] Tengo un acuerdo de confidencialidad base listo, porque lo van a pedir. (Borrador en `docs/legal/`; falta la revisión de un abogado.)
+- [x] `director@daralaz.com` recibe y responde (confirmado por Darwing el 2026-10-22).
 - [ ] Decidí qué NO prometo: no digo que detecta cualquier paráfrasis, ni que prueba equivalencia sin árbitro.
 - [ ] Si hablan de precio: USD 30 por 1 000 pares es un objetivo a validar, no una tarifa.
 
