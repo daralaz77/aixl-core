@@ -8,27 +8,29 @@ Ventaja que se puede decir sin exagerar: el detector de datos críticos corre **
 
 ---
 
-## 1. Vozy — formulario `vozy.ai/es/contact-us` o correo (versión completa)
+## 1. Vozy — formulario `vozy.ai/es/contact-us` o correo (versión completa, v2: abre con una pregunta)
 
-**Asunto:** Piloto de medición: ¿cuántos traspasos de caso cambian de significado? (Nexus)
+**Asunto:** Una pregunta sobre los resúmenes de traspaso en Nexus
 
 Hola, equipo de Vozy:
 
-Soy Darwing Pérez Aranguren, director de Daralaz. Trabajo en AIXL, una capa que revisa si una instrucción conserva su significado cuando pasa de un agente a otro. Les escribo porque en Nexus los casos pasan de agentes virtuales a personas, y ese es justo el punto donde un dato puede perderse sin que nadie lo note: una negación, una cifra, una fecha, una condición.
+Soy Darwing Pérez Aranguren (Daralaz). Trabajo en un verificador que detecta cuando una instrucción pierde o cambia un dato al pasar de un agente a otro. Un ejemplo de lo que busca: el cliente dice «No me llamen después de las 6 pm» y el resumen que llega al agente humano dice «Cliente pide llamadas después de las 6 pm».
 
-Qué tenemos medido, con sus límites: en pruebas con relays escritos por modelos (120 instrucciones, evaluación preregistrada), el detector señaló el 75,8 % de las alteraciones sutiles y el árbitro de dos jueces probó 237 de 240 reenvíos fieles y detectó 119 de 120 alteraciones. No hemos medido tráfico real de ninguna organización, y eso es lo que busco.
+Mi pregunta: en Nexus, cuando un caso pasa del agente virtual a una persona, ¿quién escribe ese resumen, un modelo o una plantilla?, ¿y cada cuánto revisan que no se haya perdido una negación, una cifra o una condición? De la respuesta depende si lo que hago les sirve o no.
 
-Propuesta: un piloto de 4 a 6 semanas, sin costo, bajo acuerdo de confidencialidad. Ustedes eligen un flujo y me comparten entre 200 y 300 pares anonimizados de «lo que dijo el agente → lo que recibió el siguiente». El detector corre en local y sin modelo. Les devuelvo un informe: qué proporción cambió de significado, de qué tipo, y qué parte se habría detectado automáticamente. Si la proporción es baja, se lo digo y lo cerramos.
+Si les interesa, propongo un piloto gratuito de 4 a 6 semanas, con acuerdo de confidencialidad: ustedes eligen un flujo y me comparten entre 200 y 300 traspasos anonimizados; les devuelvo qué proporción cambió de significado y de qué tipo. Si la proporción es baja, se lo digo y lo cerramos. Mis pruebas con textos escritos por modelos son prometedoras pero pequeñas, y no tengo tráfico real de ninguna organización; por eso pregunto antes de proponer nada más.
 
-¿Podemos hablar 30 minutos esta o la próxima semana? Pueden escribirme a director@daralaz.com o al +57 320 205 4478.
+¿Podemos hablar 30 minutos? director@daralaz.com · +57 320 205 4478
 
 Gracias,
 Darwing Pérez Aranguren
 Daralaz
 
-## 1b. Vozy — WhatsApp `+57 302 542 1158` (versión corta)
+## 1b. Vozy — WhatsApp `+57 302 542 1158` (versión corta, v2)
 
-Hola, soy Darwing Pérez Aranguren (Daralaz). Trabajo en una capa que detecta cuando una instrucción pierde o cambia un dato al pasar de un agente a otro (una negación, una cifra, una fecha). Busco una organización para un piloto de medición gratuito, bajo confidencialidad, con 200–300 traspasos anonimizados. ¿Con quién podría hablar 30 minutos sobre Nexus? director@daralaz.com · +57 320 205 4478
+Hola, soy Darwing Pérez Aranguren (Daralaz). Una pregunta sobre Nexus: cuando el agente virtual pasa un caso a una persona, ¿el resumen lo escribe un modelo o una plantilla? Trabajo en un verificador que detecta si ese resumen pierde un dato (p. ej. el cliente dice «no me llamen después de las 6 pm» y el resumen dice «pide llamadas después de las 6 pm»). Si les sirve, propongo un piloto gratuito y confidencial con 200–300 traspasos anonimizados. ¿Con quién podría hablar 30 minutos? director@daralaz.com · +57 320 205 4478
+
+> Qué cambió respecto a v1: abre con una pregunta concreta en vez de con cifras, usa un ejemplo de su propio flujo y deja las cifras y el árbitro para la llamada. Motivo: el resumen de un modelo casi siempre reformula, y ahí el detector gratuito da falsas alertas; lo que decide si hay algo que resolver es saber quién escribe el resumen.
 
 ---
 
