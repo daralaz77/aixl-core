@@ -243,7 +243,7 @@ CANCEL action made the two graphs otherwise equal. compare_verified abstains on 
 
 ### Update 2026-10-13: loop pass 2 — read on blind15-18 (other authors, never tuned on)
 Core-EQUIVALENT on labelled DIFF pairs of blind13-18: 86 -> 70 (b13 14->11, b14 19->14, b15 17->15, b16 18->14, b18 5->3, b17 13 unchanged);
-core SAME recall 53 -> 50 (3 paraphrases split; published layers unaffected: 0 false-EQUIVALENT on all 380 DIFF pairs, verified recall unchanged).
+core SAME recall 53 -> 50 (3 paraphrases split; published layers unaffected: 0 false-EQUIVALENT on all 318 DIFF pairs, verified recall unchanged).
 Added: `SEQ=` order of action/entity concepts, only on sequencing cues (`then/luego/depois/despues`, sentence-initial `primero`; ordinals such as
 `primer trimestre` excluded — they cost two true paraphrases in the first attempt, the unrestricted version lost 8 of 58 dev paraphrases and was
 discarded); `MEAS=<n>:<UNIT>` and `PER=<UNIT>` (mg/ml/g/kg/l/ha/alqueire/km/mile/°C/currencies); `MOD=BUSINESS|SENDER|RECIPIENT|ACTUAL`;
