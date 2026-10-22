@@ -2,6 +2,7 @@
 
 SAFE USE: `compare(...).equivalent` is reliable only inside the controlled vocabulary; on open text prefer `compare_verified(...)`, which never
 answers EQUIVALENT without proof (see README §2 and LIMITATIONS.md, E-ARENA-SCOPE)."""
+from aixl.invariants import relay_check  # noqa: F401, E402,I001
 from aixl.api.service import (  # noqa: F401
                               compare,
                               compare_aixl,

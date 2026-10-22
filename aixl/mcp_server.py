@@ -31,6 +31,13 @@ def aixl_compare(a: str, b: str) -> dict:
     return aixl.compare_verified(a, b)       # never EQUIVALENT without proof; same keys as compare().to_dict() plus `verified` (consejo-5x 2026-10-13)
 
 
+@server.tool(description="Did a CRITICAL SLOT change between a source instruction and its relay (negation, number, date/weekday, modality, condition, "
+                          "and/or, only, comparator, names)? Built for near-verbatim relays; works on open vocabulary. `ok: true` means no critical slot visibly "
+                          "changed — it is NOT a proof of equivalence. Measured: flags 91.8 % of meaning-changing corruptions, 0.1 % of benign edits.")
+def aixl_relay_check(source: str, relay: str) -> dict:
+    return aixl.relay_check(source, relay)
+
+
 @server.tool(description="Resolve a disagreement between a sender and a receiver instruction via a bounded, "
                           "severity-ordered clarification exchange. Returns ACCEPT (converged) or REJECT.")
 def aixl_negotiate(sender_text: str, receiver_text: str, max_rounds: int = 3) -> dict:

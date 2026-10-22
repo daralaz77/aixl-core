@@ -498,6 +498,7 @@ def _apply_comparators(frame, s: str) -> None:
             frame.constraints.append(c)
 
 
+_PT_CUE = re.compile(r"[\u00e3\u00f5\u00e7\u00ea]|(?<![a-z])(?:nao|n\u00e3o|uma|umas|uns|ao|aos|pelo|pela|pelos|pelas|voce|voc\u00ea|os|dos|das|do|da|na|nas)(?![a-z])")
 _DOW = {"MON": "monday|lunes|segunda|segunda-feira", "TUE": "tuesday|martes|terca|terca-feira", "WED": "wednesday|miercoles|quarta|quarta-feira",
         "THU": "thursday|jueves|quinta|quinta-feira", "FRI": "friday|viernes|sexta|sexta-feira", "SAT": "saturday|sabado", "SUN": "sunday|domingo"}
 _DOW_RX = [(code, re.compile(r"(?<![a-z-])(?:" + words + r")s?(?![a-z])")) for code, words in _DOW.items()]
@@ -648,7 +649,7 @@ def _apply_surface_operators(frame, s: str, text: str) -> None:
     _bound = {"more", "less", "fewer", "greater", "higher", "lower", "better", "worse", "equal", "above", "below", "older", "newer", "earlier", "later",
               "mas", "menos", "mayor", "menor", "superior", "inferior", "igual", "mais", "maior", "anterior", "posterior"}   # `or more`: a comparator, not a disjunction
     n_or = sum(1 for i, t in enumerate(toks)
-               if (t in ("or", "ou") or t == "u" or (t == "o" and lang != "pt")) and not (i + 1 < len(toks) and toks[i + 1] in _bound))
+               if (t in ("or", "ou") or t == "u" or (t == "o" and lang != "pt" and not _PT_CUE.search(text.lower()))) and not (i + 1 < len(toks) and toks[i + 1] in _bound))
     if n_or:
         frame.constraints.append(f"DISJ={n_or}")
     days = sorted(c for c, rx in _DOW_RX if rx.search(s))
@@ -909,12 +910,22 @@ def _looks_portuguese(lang: str, raw: str, s: str) -> bool:
     return lang == "pt" or bool(re.search(r"[ãõç]", raw.lower())) or bool(_PT_ONLY_WORDS.search(s))
 
 
+_WRAP = re.compile(r"^[\s\"'\u201c\u201d\u2018\u2019`*_>#\-\u2022]+|[\s\"'\u201c\u201d\u2018\u2019`*_]+$")
+
+
+def _strip_wrappers(t: str) -> str:
+    """Markdown emphasis, quotes and list bullets around a whole instruction are formatting, not content."""
+    t2 = _WRAP.sub("", t.replace("**", "").replace("__", ""))
+    return t2 if t2 else t
+
+
 def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     from aixl.core.limits import check_size
     from aixl.core.normalizer import sanitize_input
     check_size(text)                                         # O(n^2) analysis: refuse before any rule runs
     text, obfuscation = sanitize_input(text)               # §39: strip invisible chars / fold lookalike letters BEFORE any rule runs
     text = re.sub(r"[ \t]+", " ", text).strip()              # arena finding: runs of spaces broke multi-word terms ('esta   semana') silently
+    text = _strip_wrappers(text)                              # relay finding: `"Se o pedido..."` / `**Se o pedido...**` lost COND=IF and the negation (the quote broke `^`)
     text = _HYPHEN_UNIT.sub(r"\1 \2", text)               # `45-minute sync` was dropped: the number-unit pair is a duration like `45 minutes`
     frame, pre, s, conds, passives, warns, conf = _prepare_frame(text, today)
     pos: dict = {}

@@ -270,3 +270,22 @@ texts are fully accounted for it was 6 of 8. So NOT_EQUIVALENT is "not proven eq
 `difference_reliable` (true only when both texts are accounted for) and the MCP tool description says so.
 Consequence for the 0.2 % coverage figure: it is the share the DETERMINISTIC layers can decide; with the arbiter in the loop every pair gets an
 answer at ~$0.28 per 1 000 pairs (EVIDENCE.md), with the arbiter's own measured error (1.2 % flip, 2-of-2).
+
+## E-RELAY (2026-10-22): what AIXL CAN do for agent-to-agent hand-offs — preservation of critical slots (`aixl.relay_check`, MCP `aixl_relay_check`)
+Context: the proprietary language could not be spoken between AIs (LLM encode/decode routes: 0 % proven on open text), and equivalence of free paraphrases
+needs the arbiter. What survives, and what is measurable without any vocabulary: **did a critical slot change on the hop?** Negation, numbers, dates,
+weekdays, clock times, modality (`must`/`may`), `and`/`or`, conditions, `only`, comparators, extra clauses, named entities — closed-class words, digits and
+capitalised tokens, extracted deterministically in ES/EN/PT as language-independent codes (`aixl/invariants.py`).
+- **Regime where it works (near-verbatim relays: copy, truncation, a flipped word, an injected clause).** `benchmarks/invariants_relay_eval.py`, other
+  authors' seeds (never seen by the code), families chosen on the project's OWN seeds by a stated rule (benign false-alarm rate <= 0.5 %, >= 1 detection):
+  **91.8 % of 2 622 meaning-changing corruptions flagged, 0.1 % of 1 141 benign edits flagged** (case, whitespace, newline, politeness prefix, contraction,
+  markdown, quotes). By attack: negation / condition / quantifier / modality / name swaps 95–100 %, number change 93 %, dropped tail 86 %, added constraint 85 %.
+  **Blind spot by design: antonym of a verb 0/18** (`send` -> `cancel`) and any change that touches only vocabulary.
+- **Regime where it does NOT work (adversarial paraphrase pairs).** On blind13-18 (author-written SAME paraphrases vs near-miss DIFFERENT), most families fire as
+  often on SAME as on DIFFERENT (lift ~1: `NEGATION` 41 SAME vs 17 DIFF — paraphrases legitimately restructure negation: `sin casco` / `casco obligatorio`);
+  the only families with lift >= 2 on dev (`CLAUSES`, `DISJUNCTION`) detected 8–11 % of DIFF at 3–10 % false alarm. So `relay_check` must not be used to
+  decide whether two differently-worded texts are equivalent. That is the arbiter's job.
+- Bugs this harness found in the translator (fixed): quotes / markdown around a whole instruction lost `COND=IF` and the negation (`^` anchor); a Portuguese
+  article `o` was counted as the Spanish disjunction when a Spanish politeness prefix confused the language detector; a sentence-initial word after leading
+  whitespace was taken for a named entity.
+- `ok: true` is never an equivalence claim. Unanalysable input (over the size cap) returns `ok: false`.

@@ -33,7 +33,7 @@ async def _call(tool: str, args: dict) -> dict:
 def test_server_lists_the_aixl_tools():
     out = asyncio.run(_call("aixl_translate", {"text": "Analiza las ventas de Q1 2026."}))
     assert set(out["tool_names"]) == {"aixl_translate", "aixl_compare", "aixl_negotiate",
-                                       "aixl_negotiate_autonomous", "aixl_hybrid_prepare", "aixl_hybrid_decide"}
+                                       "aixl_negotiate_autonomous", "aixl_hybrid_prepare", "aixl_hybrid_decide", "aixl_relay_check"}
 
 
 def test_hybrid_two_step_over_real_mcp_stdio_transport():

@@ -29,6 +29,7 @@ to the arbiter or to a human.
 | You need | Use | Measured |
 |---|---|---|
 | "Did anything get lost or changed on this hop?" (negation, quantity, date, time, modality, conjunction) | `aixl.compare_verified` / MCP `aixl_compare` | 0 false EQUIVALENT on 380 labelled DIFF pairs of other authors (blind13–18) and on 6 569 + 1 676 meaning-changing mutants |
+| "Did a critical slot change on this hop?" — negation, number, date/weekday/time, modality, and/or, condition, `only`, names — on a **near-verbatim relay**, any vocabulary | `aixl.relay_check` / MCP `aixl_relay_check` | other authors' seeds: **91.8 %** of 2 622 meaning-changing corruptions flagged, **0.1 %** of 1 141 benign edits flagged; blind spot: verb antonyms (`send`→`cancel`) 0/18. **Not** for differently-worded paraphrases (lift ≈ 1 there). `ok:true` ≠ equivalent |
 | "Are these two open-text instructions the same?" | Arbiter 2-of-2 behind `layered_decide` (you supply two judge callables) | blind17/18: 52/54 proven, 58/61 differences, 2 disputed false SAME; ≈ $0.28 / 1 000 pairs; verdict flips 1.2 % → store decisions |
 | Exact duplicate / canonical key inside a controlled vocabulary | `aixl.to_aixl`, fingerprint | exact; not a candidate-pair prefilter (recall 15.8 % vs 60.3 % lexical) |
 | A tamper-evident wrapper around a message | `aixl.envelope.seal` / `verify` (`AIXL-ENV-2`) | MATCH only when the working string is accounted for; AND↔OR flip and added negations caught |
