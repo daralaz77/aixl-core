@@ -1,0 +1,116 @@
+NOTE: code differs from the frozen state -> this is NOT the preregistered run: ['aixl/translators/natural_to_semantic.py changed since the freeze']
+120 sources with relays (0 unparsable lines)
+corrupted flagged       91/120 = 75.8%
+faithful_light flagged  9/120 = 7.5%
+faithful_heavy flagged  109/120 = 90.8%
+
+per corruption type (detected / total):
+  conjunction        10/10  100%
+  omission            9/10   90%
+  date_time           9/10   90%
+  number              9/10   90%
+  negation            9/10   90%
+  pronoun_reference   9/10   90%
+  condition           8/10   80%
+  entity              8/10   80%
+  modality            8/10   80%
+  scope               5/10   50%
+  antonym_verb        5/10   50%
+  role_swap           2/10   20%
+
+families firing on FAITHFUL relays: {('faithful_heavy', 'ACTION'): 50, ('faithful_heavy', 'PRONOUN'): 32, ('faithful_heavy', 'NEGATION'): 30, ('faithful_heavy', 'MODALITY'): 26, ('faithful_heavy', 'CLAUSES'): 25, ('faithful_heavy', 'CONDITION'): 20, ('faithful_heavy', 'SEQUENCE'): 10, ('faithful_heavy', 'MODIFIER'): 7, ('faithful_heavy', 'COMPARATOR'): 7, ('faithful_heavy', 'DISJUNCTION'): 6, ('faithful_heavy', 'QUANTITY'): 5, ('faithful_heavy', 'NAME_ORDER'): 5, ('faithful_heavy', 'NUMBER'): 4, ('faithful_light', 'NEGATION'): 3, ('faithful_heavy', 'ONLY'): 2, ('faithful_heavy', 'WEEKDAY'): 2, ('faithful_light', 'PRONOUN'): 2, ('faithful_light', 'CLAUSES'): 2, ('faithful_heavy', 'DATE'): 2, ('faithful_light', 'MODIFIER'): 1, ('faithful_light', 'ONLY'): 1, ('faithful_heavy', 'NAME'): 1, ('faithful_light', 'DISJUNCTION'): 1, ('faithful_light', 'ACTION'): 1}
+
+preregistered hypotheses:
+  MET      H1 corrupted >= 70 %
+  NOT MET  H2 faithful_light <= 5 %
+  NOT MET  H3 faithful_heavy <= 25 %
+  NOT MET  H4 antonym_verb, role_swap, pronoun_reference each >= 50 %
+
+missed corruptions (29):
+  [number] 'If a customer requests a refund within fourteen days, process it without asking for approv'
+      -> 'If a customer requests a refund within fifteen days, process it without asking for approva'
+      (El plazo pasó de catorce a quince días.)
+  [modality] 'Você não deve aceitar devoluções acima de R$ 800 sem a assinatura do coordenador financeir'
+      -> 'Você não precisa aceitar devoluções acima de R$ 800 sem a assinatura do coordenador financ'
+      (La prohibición 'no debe' pasó a 'no necesita' (opcional).)
+  [entity] 'Los reembolsos mayores a quinientos dólares deben ser aprobados por el director financiero'
+      -> 'Los reembolsos mayores a quinientos dólares deben ser aprobados por el director comercial.'
+      (El aprobador cambió de director financiero a director comercial.)
+  [scope] "Do not share the customer's billing details with anyone outside the support team, even if "
+      -> "Do not share the customer's billing details with anyone outside the company, even if they "
+      (El círculo permitido se amplió del equipo de soporte a toda la empresa.)
+  [role_swap] 'Cuando llegue la factura de Telcomex, regístrala en contabilidad y avísale a Jorge.'
+      -> 'Cuando llegue la factura de Telcomex, regístrala en contabilidad y pídele a Jorge que te a'
+      (Se invirtió quién avisa a quién: ahora Jorge avisa en lugar de ser avisado.)
+  [condition] 'Não divulgue o resultado da pesquisa salarial até que o RH tenha validado os números.'
+      -> 'Não divulgue o resultado da pesquisa salarial até que o RH tenha recebido os números.'
+      (La condición pasó de que RH valide los números a que solo los reciba.)
+  [antonym_verb] 'First back up the production database, then run the schema migration script.'
+      -> 'First restore the production database, then run the schema migration script.'
+      (El verbo 'hacer copia de seguridad' se cambió por 'restaurar'.)
+  [scope] 'Revise o código do módulo de relatórios e aponte funções sem testes unitários.'
+      -> 'Revise o código de todos os módulos e aponte funções sem testes unitários.'
+      (El alcance se amplió del módulo de reportes a todos los módulos.)
+  [role_swap] 'Não envie o contrato à Transportadora Horizonte antes de a diretoria aprovar os novos praz'
+      -> 'Não envie o contrato à diretoria antes de a Transportadora Horizonte aprovar os novos praz'
+      (Se intercambiaron destinatario y aprobador (directorio y Transportadora Horizonte).)
+  [role_swap] 'Peça ao Rodrigo que revise as notas fiscais de outubro antes de enviá-las ao contador.'
+      -> 'Peça ao contador que revise as notas fiscais de outubro antes de enviá-las ao Rodrigo.'
+      (Se intercambiaron Rodrigo y el contador (revisor y destinatario).)
+  [antonym_verb] 'Draft a polite reply declining the partnership offer from Brightline Media.'
+      -> 'Draft a polite reply accepting the partnership offer from Brightline Media.'
+      (El verbo 'rechazar' se cambió por 'aceptar'.)
+  [date_time] 'Send the new onboarding checklist to every employee who joined after August 1st, and ask H'
+      -> 'Send the new onboarding checklist to every employee who joined after August 15th, and ask '
+      (La fecha de corte pasó del 1 al 15 de agosto.)
+  [scope] 'Compare o orçamento aprovado com os gastos reais do departamento de marketing e liste as d'
+      -> 'Compare o orçamento aprovado com os gastos reais de todos os departamentos e liste as dife'
+      (El alcance se amplió de marketing a todos los departamentos.)
+  [antonym_verb] 'Mantén las cuentas de clientes con más de 90 días de atraso en la lista de cobranza priori'
+      -> 'Saca de la lista de cobranza prioritaria las cuentas de clientes con más de 90 días de atr'
+      (El verbo 'mantén' se cambió por 'saca'.)
+  [role_swap] 'Responde a los clientes que escribieron por WhatsApp hoy, o deriva los casos complejos a F'
+      -> 'Responde a los clientes que escribieron por WhatsApp hoy, o pide a Felipe que te derive lo'
+      (Se invirtió quién deriva a quién: ahora Felipe deriva al agente.)
+  [condition] 'Revisa el pull request de autenticación antes de que se fusione con la rama principal.'
+      -> 'Revisa el pull request de autenticación una vez que se haya fusionado con la rama principa'
+      (La revisión pasó de ser antes de la fusión a después de ella.)
+  [omission] 'Schedule a 45-minute sync with Hannah and the design leads sometime between Tuesday and Th'
+      -> 'Schedule a 45-minute sync with Hannah sometime between Tuesday and Thursday next week.'
+      (Se omitió a los líderes de diseño.)
+  [role_swap] 'Create a Jira ticket for the login timeout bug and assign it to the mobile team.'
+      -> 'Have the mobile team create a Jira ticket for the login timeout bug and assign it to you.'
+      (Se intercambió quién crea y a quién se asigna el ticket.)
+  [modality] 'Nunca envie senhas ou tokens de acesso por e-mail ou chat.'
+      -> 'Evite enviar senhas ou tokens de acesso por e-mail ou chat.'
+      (La prohibición absoluta 'nunca' se suavizó a 'evite'.)
+  [antonym_verb] 'Transfira o caso do cliente Pedro Almeida para o time de segurança e feche o chamado dupli'
+      -> 'Transfira o caso do cliente Pedro Almeida para o time de segurança e reabra o chamado dupl'
+      (El verbo 'feche' (cerrar) se cambió por 'reabra' (reabrir).)
+  [role_swap] 'Review the pull request from Daniel, then leave comments on the authentication module befo'
+      -> 'Have Daniel review the pull request, then leave comments on the authentication module befo'
+      (Daniel pasó de ser el autor del pull request a ser quien lo revisa.)
+  [pronoun_reference] "Compare our cloud costs with last year's and highlight any service that grew more than twe"
+      -> "Compare your cloud costs with last year's and highlight any service that grew more than tw"
+      ('our' (nuestros costos) pasó a 'your' (los costos de otra parte).)
+  [entity] 'Gere um relatório de vendas por região entre 1 de julho e 30 de setembro e envie para a di'
+      -> 'Gere um relatório de vendas por região entre 1 de julho e 30 de setembro e envie para a eq'
+      (El destinatario cambió de la diretoria a la equipe de vendas.)
+  [negation] 'No publiques el informe de auditoría en el canal público hasta que legal lo revise.'
+      -> 'Publica el informe de auditoría en el canal público hasta que legal lo revise.'
+      (Se eliminó la negación: ahora se manda publicar el informe.)
+  [scope] 'Haz un análisis de los gastos de viaje del equipo comercial entre marzo y agosto de 2026.'
+      -> 'Haz un análisis de los gastos de viaje y alojamiento del equipo comercial entre marzo y ag'
+      (El alcance se amplió de gastos de viaje a viaje y alojamiento.)
+  [scope] 'Revise o código enviado pela Beatriz e aponte qualquer consulta ao banco de dados que este'
+      -> 'Revise o código enviado pela Beatriz e aponte a consulta ao banco de dados mais lenta que '
+      (De todas las consultas sin índice se pasó a solo la más lenta.)
+  [role_swap] 'Send Priya the revised budget spreadsheet by Thursday at noon, and copy the finance team.'
+      -> 'Have Priya send the revised budget spreadsheet by Thursday at noon, and copy the finance t'
+      (Priya pasó de ser quien recibe la hoja a ser quien la envía.)
+  [role_swap] 'You may reschedule the demo, but you cannot cancel it without telling Daniel.'
+      -> 'You may reschedule the demo, but Daniel cannot cancel it without telling you.'
+      (Se intercambió quién debe avisar a quién: ahora es Daniel quien debe avisar.)
+  [antonym_verb] 'Primero revisa el borrador del contrato con Textiles del Sur y después súbelo a la carpeta'
+      -> 'Primero revisa el borrador del contrato con Textiles del Sur y después descárgalo de la ca'
+      ('súbelo' (subir a la carpeta) cambió a 'descárgalo' (bajar de la carpeta).)

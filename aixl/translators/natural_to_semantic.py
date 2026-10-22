@@ -649,7 +649,7 @@ def _apply_surface_operators(frame, s: str, text: str) -> None:
     _bound = {"more", "less", "fewer", "greater", "higher", "lower", "better", "worse", "equal", "above", "below", "older", "newer", "earlier", "later",
               "mas", "menos", "mayor", "menor", "superior", "inferior", "igual", "mais", "maior", "anterior", "posterior"}   # `or more`: a comparator, not a disjunction
     n_or = sum(1 for i, t in enumerate(toks)
-               if (t in ("or", "ou") or t == "u" or (t == "o" and lang != "pt" and not _PT_CUE.search(text.lower()))) and not (i + 1 < len(toks) and toks[i + 1] in _bound))
+               if (t in ("or", "ou") or t == "u" or (t == "o" and lang != "pt" and not _PT_CUE.search(text.lower()) and i > 0 and toks[i - 1] not in ("e", "y", "ou", "or"))) and not (i + 1 < len(toks) and toks[i + 1] in _bound))
     if n_or:
         frame.constraints.append(f"DISJ={n_or}")
     days = sorted(c for c, rx in _DOW_RX if rx.search(s))
@@ -932,7 +932,7 @@ def to_graph(text: str, today: date | None = None) -> SemanticGraph:
     for act, rx in legacy.ACTION_RX:
         for m in re.finditer(rx, s):
             pos.setdefault(act, m.start())
-    extra = [e for e in _scan(EXTRA_ACTION_RX, s) if not re.search(r"\b(?:the|a|an|el|la|un|una|o|os|uma|este|esta|that|this)\s+$", s[max(0, e[0] - 8):e[0]])]
+    extra = [e for e in _scan(EXTRA_ACTION_RX, s) if not re.search(r"\b(?:the|a|an|el|la|un|una|o|os|uma|este|esta|that|this|ao|aos|al|del|do|da|dos|das|pelo|pela)\s+$", s[max(0, e[0] - 8):e[0]])]
     for start, act, _m in extra:
         pos.setdefault(act, start)
     for start, act, _neg in passives:

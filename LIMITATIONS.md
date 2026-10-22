@@ -289,3 +289,22 @@ capitalised tokens, extracted deterministically in ES/EN/PT as language-independ
   article `o` was counted as the Spanish disjunction when a Spanish politeness prefix confused the language detector; a sentence-initial word after leading
   whitespace was taken for a named entity.
 - `ok: true` is never an equivalence claim. Unanalysable input (over the size cap) returns `ok: false`.
+
+### E-RELAY-LLM (2026-10-22): `relay_check` on relays written by real models — preregistered, run once (data/relays/PREREG.md, FREEZE.json, RESULT_preregistered_run.txt)
+120 sources, two model authors (Opus, Sonnet) acting as an intermediate agent, no access to the repository; per source a near-verbatim faithful relay, a strongly reworded
+faithful relay and ONE subtle corruption (5 of each of 12 types). Code frozen by hash before the outputs were read.
+| Preregistered hypothesis | Result | Verdict |
+|---|---|---|
+| H1 corrupted relays flagged >= 70 % | **91/120 = 75.8 %** | MET |
+| H2 near-verbatim faithful relays flagged <= 5 % | 10/120 = 8.3 % | **NOT MET** |
+| H3 strongly reworded faithful relays flagged <= 25 % | **109/120 = 90.8 %** | **NOT MET** |
+| H4 antonym_verb, role_swap, pronoun_reference each >= 50 % | 50 %, **20 %**, 90 % | **NOT MET** (role_swap) |
+Per type: conjunction 100 %, omission / date / number / negation / pronoun 90 %, condition / entity / modality 80 %, scope 50 %, antonym_verb 50 %, role_swap 20 %.
+**What this means.** The detector catches most realistic corruptions, but when an intermediate agent REWORDS the instruction (the usual way agents hand work over) it
+flags 9 of 10 faithful relays: moving a negation, swapping `approve`/`be approved by`, adding `them` are legitimate and move the slots. So `relay_check` is a
+**copy / tamper / near-verbatim** detector, NOT a quality gate for paraphrasing agents; for those the arbiter is the tool and `relay_check` is only evidence for it.
+Missed: scope widening without a closed-class word (`support team` -> `company`), a swapped role noun with no capitalised name (`Rodrigo` / `el contador`), a noun-level
+antonym (`declining` -> `accepting`, `back up` -> `restore` outside the verb table), one-digit-word changes (`fourteen` -> `fifteen`: number WORDS are not compared unless in the table).
+**Post-hoc (NOT part of the preregistered run, set already spent):** two genuine translator bugs behind near-verbatim false alarms were fixed — a sentence-initial
+Portuguese `O` counted as a disjunction, and `ao e-mail` read as the verb `e-mail` (action SEND). Near-verbatim false alarm 8.3 % -> 7.5 %; nothing else moved
+(RESULT_postfix.txt). The residual light false alarms are surface variation (`isn't available` / `unavailable`, `check` / `check them`, `aponte` / `indique`).
