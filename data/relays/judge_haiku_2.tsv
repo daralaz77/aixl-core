@@ -1,0 +1,90 @@
+R180	SAME	misma restricción, reformulada
+R181	DIFFERENT	"atualize" (una vez) vs "mantenha atualizado" (continuo)
+R182	SAME	sinónimos y orden
+R183	SAME	mismas condiciones y acción
+R184	SAME	misma tarea, distinto orden
+R185	SAME	mantener vs seguir figurando
+R186	SAME	mismo correo, mismo límite
+R187	SAME	mismos contratos vencidos, orden y top 3
+R188	SAME	idéntico
+R189	SAME	solo puntuación
+R190	SAME	mismas sesiones y mínimo
+R191	SAME	mismo periodo, semanal, promedio
+R192	SAME	solo preposición
+R193	SAME	mismo orden y hora
+R194	SAME	idéntico
+R195	DIFFERENT	a conserva el más antiguo; b conserva el más nuevo
+R196	DIFFERENT	"tu gerente" vs "su gerente"
+R197	SAME	mismo informe, misma condición
+R198	DIFFERENT	septiembre vs agosto
+R199	SAME	idéntico
+R200	DIFFERENT	prioridad del ticket vs "his priority" (de Daniel)
+R201	SAME	idéntico
+R202	SAME	misma condición y acciones
+R203	SAME	mayor a / más de
+R204	DIFFERENT	"y propón" vs "o propón"
+R205	DIFFERENT	"no deve" (prohibición) vs "não precisa" (no necesita)
+R206	DIFFERENT	b omite la migración de producción
+R207	SAME	mismo contenido, sujeto explícito
+R208	DIFFERENT	cerrar vs reabrir el chamado
+R209	SAME	idéntico
+R210	SAME	mismo orden cambiado, mismo sentido
+R211	SAME	mismo contenido, orden distinto
+R212	SAME	mismo llamado y excepción
+R213	DIFFERENT	b añade "timeout" al bug
+R214	SAME	mismo periodo, región y destino
+R215	SAME	idéntico
+R216	DIFFERENT	a deriva a Felipe; b pide a Felipe que derive a ti
+R217	SAME	mismos chamados y hora
+R218	SAME	idéntico
+R219	SAME	artículo opcional
+R220	SAME	conservar = no borrar
+R221	DIFFERENT	junio vs julio
+R222	SAME	solo "at" opcional
+R223	SAME	solo artículo
+R224	DIFFERENT	diez vs veinte por ciento
+R225	SAME	mismo contenido reformulado
+R226	SAME	idéntico
+R227	DIFFERENT	"o" vs "e" (cancelar o renegociar)
+R228	DIFFERENT	solo clientes afectados vs todos los clientes
+R229	DIFFERENT	"unless" (excepto si) vs "if" (si)
+R230	SAME	promedio semanal, agentes, semana pasada
+R231	SAME	every = each
+R232	SAME	encerrar = cerrar; mismo resto
+R233	DIFFERENT	Vale Verde vs Vale Azul
+R234	SAME	mismo top 20
+R235	SAME	idéntico
+R236	SAME	idéntico
+R237	DIFFERENT	a no renueva; b renueva salvo que pida lo contrario
+R238	SAME	solo puntuación
+R239	DIFFERENT	back up vs restore
+R240	SAME	idéntico
+R241	SAME	de...a / de...até
+R242	SAME	misma condición y acción
+R243	DIFFERENT	quince vs cinco por ciento
+R244	SAME	hasta que = antes que (mismo sentido)
+R245	SAME	mismo disparador y acción, reformulado
+R246	SAME	no aceptar sin firma = aceptar solo con firma
+R247	SAME	mismas tareas, reformulado
+R248	DIFFERENT	"can run safely" vs "should run"
+R249	DIFFERENT	destacar vs omitir las quejas
+R250	SAME	"o" vs "ou então", mismo sentido
+R251	SAME	mismo orden lógico reformulado
+R252	SAME	mismo disparador y acciones
+R253	DIFFERENT	crear vs cancelar pedidos de reposición
+R254	SAME	mismo correo y plazo
+R255	SAME	mismo resumen y foco
+R256	SAME	mismas tareas, reformulado
+R257	SAME	mismo disparador y aviso
+R258	SAME	idéntico
+R259	SAME	mismas comprobaciones
+R260	SAME	cualquier = toda
+R261	SAME	no alterar = evitar alterar
+R262	SAME	mismo cambio condicional
+R263	SAME	mismo resumen, causa y periodo
+R264	SAME	idéntico
+R265	SAME	idéntico
+R266	SAME	mismo mandato, reformulado
+R267	SAME	solo conectores
+R268	DIFFERENT	delete vs extend el acceso
+R269	SAME	solo preposición

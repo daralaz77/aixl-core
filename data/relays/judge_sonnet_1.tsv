@@ -1,0 +1,90 @@
+R090	DIFFERENT	financiero vs comercial
+R091	SAME	identical
+R092	DIFFERENT	mínimo vs máximo
+R093	DIFFERENT	design leads dropped
+R094	DIFFERENT	ten-minute duration dropped
+R095	SAME	same request
+R096	DIFFERENT	and vs or
+R097	DIFFERENT	Paulo vs Pedro
+R098	DIFFERENT	optional condition added
+R099	SAME	same schedule/condition
+R100	SAME	identical
+R101	SAME	paraphrase
+R102	DIFFERENT	40 vs 14
+R103	SAME	same ordering
+R104	DIFFERENT	su vs tu gerente
+R105	SAME	paraphrase
+R106	DIFFERENT	flag vs approve
+R107	SAME	paraphrase
+R108	DIFFERENT	trigger differs (complaint)
+R109	SAME	paraphrase
+R110	SAME	identical
+R111	SAME	trivial wording
+R112	SAME	word order
+R113	DIFFERENT	before vs after merge
+R114	SAME	paraphrase
+R115	DIFFERENT	Campinas vs Curitiba
+R116	DIFFERENT	ten percent threshold added
+R117	SAME	avísale/avisa same
+R118	DIFFERENT	never vs avoid
+R119	SAME	article only
+R120	SAME	paraphrase
+R121	SAME	identical
+R122	SAME	paraphrase
+R123	SAME	paraphrase
+R124	SAME	paraphrase
+R125	DIFFERENT	row count verification dropped
+R126	DIFFERENT	200 vs 20 words
+R127	DIFFERENT	unless vs once
+R128	SAME	paraphrase
+R129	DIFFERENT	keep vs remove
+R130	SAME	paraphrase
+R131	SAME	paraphrase
+R132	DIFFERENT	first vs only
+R133	DIFFERENT	and vs or
+R134	SAME	paraphrase
+R135	SAME	paraphrase
+R136	SAME	paraphrase
+R137	SAME	identical
+R138	DIFFERENT	summary vs reports sent
+R139	SAME	paraphrase
+R140	SAME	paraphrase
+R141	DIFFERENT	our vs your
+R142	SAME	identical
+R143	SAME	trivial wording
+R144	SAME	trivial wording
+R145	SAME	trivial wording
+R146	DIFFERENT	opposite approval condition
+R147	SAME	same condition
+R148	DIFFERENT	support team vs company
+R149	SAME	politely/nicely
+R150	DIFFERENT	martes vs miércoles
+R151	SAME	paraphrase
+R152	DIFFERENT	upload vs download
+R153	SAME	paraphrase
+R154	SAME	mas/porém
+R155	SAME	identical
+R156	SAME	punctuation only
+R157	SAME	paraphrase
+R158	DIFFERENT	Aug 1 vs Aug 15
+R159	DIFFERENT	notify vs ask Jorge to notify
+R160	SAME	paraphrase
+R161	SAME	paraphrase
+R162	DIFFERENT	Juliana vs Mariana
+R163	SAME	identical
+R164	SAME	paraphrase
+R165	SAME	identical
+R166	SAME	trivial wording
+R167	DIFFERENT	one module vs all
+R168	SAME	paraphrase
+R169	SAME	paraphrase
+R170	SAME	identical
+R171	SAME	paraphrase
+R172	SAME	paraphrase
+R173	DIFFERENT	delete attachments vs not
+R174	SAME	trivial wording
+R175	SAME	trivial wording
+R176	SAME	paraphrase
+R177	DIFFERENT	roles swapped
+R178	SAME	paraphrase
+R179	DIFFERENT	and then vs or

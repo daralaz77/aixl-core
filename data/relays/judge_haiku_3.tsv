@@ -1,0 +1,90 @@
+R270	DIFFERENT	devem vs podem (obligación vs permiso)
+R271	DIFFERENT	fourteen vs fifteen days
+R272	DIFFERENT	b omite "sin pruebas unitarias"
+R273	SAME	idénticos
+R274	DIFFERENT	quién crea y a quién se asigna el ticket cambia
+R275	SAME	misma instrucción, distinta redacción
+R276	DIFFERENT	y (ambas firmas) vs ou (cualquiera)
+R277	SAME	idénticos
+R278	DIFFERENT	cualquier consulta vs solo la más lenta
+R279	SAME	sinónimos: separar/organizar, semanal/toda semana
+R280	SAME	idénticos
+R281	DIFFERENT	b omite comunicar al gerente comercial
+R282	DIFFERENT	quién no puede cancelar cambia (tú vs Daniel)
+R283	DIFFERENT	agosto vs agosto y septiembre
+R284	SAME	idénticos
+R285	DIFFERENT	Fernanda vs Fabiana
+R286	SAME	misma regla expresada con otra estructura
+R287	DIFFERENT	viernes vs jueves
+R288	DIFFERENT	un párrafo vs dos párrafos
+R289	SAME	request/ask sinónimos, misma condición
+R290	SAME	misma instrucción, distinta redacción
+R291	SAME	no enviar antes de aprobación = enviar solo después
+R292	SAME	misma instrucción, distinta redacción
+R293	SAME	when/upon arrival, mismas acciones
+R294	DIFFERENT	b añade alojamiento
+R295	SAME	misma condición y horario, distinta redacción
+R296	SAME	misma regla, orden de cláusulas distinto
+R297	SAME	idénticos
+R298	DIFFERENT	marcar como moroso vs eliminar del CRM
+R299	SAME	mayores a / supere; misma aprobación del CFO
+R300	SAME	misma prohibición hasta revisión legal
+R301	DIFFERENT	secuencia incondicional vs condicional
+R302	DIFFERENT	Banco Pacífico vs Banco Popular
+R303	SAME	idénticos
+R304	DIFFERENT	b omite "antes del viernes"
+R305	SAME	mismo orden, acima/ultrapasse sinónimos
+R306	SAME	ou apenas / ou só: mismo alcance
+R307	DIFFERENT	debes (obligación) vs puedes (permiso)
+R308	SAME	misma regla, distinta redacción
+R309	DIFFERENT	2025 vs 2024
+R310	SAME	ordenar/clasificar por urgencia y responder primero a críticos
+R311	SAME	misma instrucción, orden de cláusulas distinto
+R312	SAME	misma regla, distinta redacción
+R313	SAME	misma instrucción, distinta redacción
+R314	SAME	misma instrucción, orden distinto
+R315	SAME	destacar = resaltar
+R316	SAME	misma prohibición, distinta colocación del pronombre
+R317	SAME	"su" bodega y "la" bodega principal se refieren a lo mismo
+R318	SAME	misma tarea, plazo y copia
+R319	DIFFERENT	quién hace la revisión cambia
+R320	SAME	más de 10% vs superior a 10%, mismo sentido
+R321	SAME	superiores a / acima de mil reais
+R322	DIFFERENT	b permite responder sin revisión
+R323	SAME	misma regla de aprobación gerencial
+R324	SAME	misma regla de aprobación previa
+R325	SAME	misma tarea condicional
+R326	DIFFERENT	solo marketing vs todos los departamentos
+R327	SAME	idénticos
+R328	SAME	misma tarea, orden de cláusulas distinto
+R329	SAME	parado/sin movimiento, 48 horas, mismas acciones
+R330	SAME	idénticos
+R331	DIFFERENT	validado vs recibido los números
+R332	SAME	libro de contabilidad / libro contable
+R333	DIFFERENT	nunca (prohibición) vs evite (recomendación)
+R334	SAME	misma instrucción, distinta redacción
+R335	SAME	misma regla de límite
+R336	SAME	idénticos
+R337	SAME	misma prohibición con excepción del cliente
+R338	SAME	misma comparación, redacción distinta
+R339	SAME	decline/turn down, polite/courteous
+R340	DIFFERENT	15% vs 25%
+R341	DIFFERENT	o (uno u otro) vs ambos problemas
+R342	DIFFERENT	una corrección por cada queja vs una sola para todas
+R343	SAME	mismo orden de migraciones
+R344	SAME	misma condición de autorización de Laura
+R345	DIFFERENT	quién envía y quién confiere cambia
+R346	DIFFERENT	correo (email) vs mensaje sin canal especificado
+R347	DIFFERENT	and vs or
+R348	DIFFERENT	diez de la mañana vs diez de la noche
+R349	SAME	misma regla de autorización previa de RH
+R350	SAME	misma petición, redacción distinta
+R351	SAME	idénticos
+R352	SAME	idénticos
+R353	DIFFERENT	clientes con mayor facturación vs sin facturación
+R354	SAME	mismo orden: backup antes de migración
+R355	DIFFERENT	b omite "último trimestre"
+R356	SAME	misma condición, orden de cláusulas distinto
+R357	DIFFERENT	Camila vs Carla
+R358	SAME	misma regla de archivado y no eliminación de anexos
+R359	SAME	misma condición y acciones, redacción distinta

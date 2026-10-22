@@ -1,0 +1,90 @@
+R090	DIFFERENT	financiero vs comercial
+R091	SAME	idénticos
+R092	DIFFERENT	mínimo vs máximo
+R093	DIFFERENT	B omite "design leads"
+R094	DIFFERENT	mantenido 10 min vs en cualquier momento
+R095	SAME	"tell me" = "let me know"
+R096	DIFFERENT	"and copy" vs "or copy"
+R097	DIFFERENT	Paulo vs Pedro
+R098	DIFFERENT	B añade condición "si hay tiempo"
+R099	SAME	mismas alternativas, reordenadas
+R100	SAME	idénticos
+R101	SAME	misma instrucción reformulada
+R102	DIFFERENT	40 vs 14 unidades
+R103	SAME	mismo orden validar→gráficos
+R104	DIFFERENT	"tu" vs "su" gerente de cuenta, referente distinto
+R105	SAME	misma prohibición
+R106	DIFFERENT	marcar vs aprobar
+R107	SAME	misma prohibición
+R108	DIFFERENT	condición distinta: pedido atrasado vs cliente reclama
+R109	SAME	mismo permiso condicional
+R110	SAME	idénticos
+R111	SAME	"from" vs "in", mismo alcance
+R112	SAME	mismo promedio, reordenado
+R113	DIFFERENT	antes vs después de fusionar
+R114	SAME	mismo orden revisar→subir
+R115	DIFFERENT	Campinas vs Curitiba
+R116	DIFFERENT	B añade "más de diez por ciento"
+R117	SAME	tú/tuteo equivalente
+R118	DIFFERENT	nunca vs evita
+R119	SAME	misma exclusión
+R120	SAME	quando vs assim que, misma secuencia
+R121	SAME	idénticos
+R122	SAME	misma regla, otra redacción
+R123	SAME	mismo contenido, orden distinto
+R124	SAME	misma entrega y copia
+R125	DIFFERENT	A añade verificar conteos de filas
+R126	DIFFERENT	200 vs 20 palabras
+R127	DIFFERENT	unless vs once (condición opuesta)
+R128	SAME	misma instrucción en otro idioma
+R129	DIFFERENT	mantener en lista vs sacar de la lista
+R130	SAME	mismo plazo y destinataria
+R131	SAME	misma comparación y umbral
+R132	DIFFERENT	responder primero los críticos vs solo los críticos
+R133	DIFFERENT	"e" vs "ou" en el último paso
+R134	SAME	misma condición y acciones
+R135	SAME	mismas acciones, otra redacción
+R136	SAME	mismo orden de pasos
+R137	SAME	idénticos
+R138	DIFFERENT	B envía los reportes, A envía el resumen
+R139	SAME	misma prohibición
+R140	SAME	mismo encargo y orden
+R141	SAME	our/your sobre los mismos costos
+R142	SAME	idénticos
+R143	SAME	misma condición de 48 horas
+R144	SAME	mismo contenido
+R145	SAME	misma instrucción reformulada
+R146	DIFFERENT	opuestas: no envíes vs envíalo
+R147	SAME	misma condición, otra redacción
+R148	DIFFERENT	equipo de soporte vs empresa
+R149	SAME	politely = nicely
+R150	DIFFERENT	martes vs miércoles
+R151	SAME	mismo contenido, "no mínimo" = "pelo menos"
+R152	DIFFERENT	subir vs descargar
+R153	SAME	20 = vinte, mismo ranking
+R154	SAME	misma restricción
+R155	SAME	idénticos
+R156	SAME	misma restricción
+R157	SAME	unless confirmed = if not confirmed
+R158	DIFFERENT	1 de agosto vs 15 de agosto
+R159	DIFFERENT	avisar a Jorge vs pedirle que avise
+R160	SAME	misma regla de aprobación
+R161	SAME	misma cita y participantes
+R162	DIFFERENT	Juliana vs Mariana
+R163	SAME	idénticos
+R164	SAME	misma secuencia
+R165	SAME	idénticos
+R166	SAME	mismo contenido
+R167	DIFFERENT	módulo de relatórios vs todos los módulos
+R168	SAME	mismo límite de palabras
+R169	SAME	mismo rango de tardes
+R170	SAME	idénticos
+R171	SAME	mismo plazo y copia
+R172	SAME	mismas acciones
+R173	DIFFERENT	no excluir anexos vs excluir anexos
+R174	SAME	"enviar a" = "enviar a", mismo destinatario
+R175	SAME	"them" refiere a los mismos cambios
+R176	SAME	mismo límite y aprobación
+R177	DIFFERENT	orden invertido: quién debe aprobar cambia
+R178	SAME	grew = rose, mismo umbral
+R179	DIFFERENT	y (secuencia) vs o (alternativa)

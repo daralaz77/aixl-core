@@ -1,0 +1,14 @@
+pairs 360; judgments: sonnet 360, haiku 360
+A arbiter alone  corrupted accepted as SAME   1/120 (0.8%) | proven SAME: light 120/120, heavy 117/120 | corrupted -> DIFFERENT 119, ESCALATE 0, UNSURE 0
+B hybrid-hard    corrupted accepted as SAME   1/120 (0.8%) | proven SAME: light 120/120, heavy 99/120 | corrupted -> DIFFERENT 119, ESCALATE 0, UNSURE 0
+C hybrid-all     corrupted accepted as SAME   0/120 (0.0%) | proven SAME: light 111/120, heavy 11/120 | corrupted -> DIFFERENT 119, ESCALATE 1, UNSURE 0
+
+preregistered hypotheses:
+  NOT MET  H5 arbiter-alone false SAME >= 5 %  (1/120)
+  NOT MET  H6 hybrid-hard cuts false SAME by >= 30 % relative  (1 -> 1)
+  NOT MET  H7 hybrid-hard keeps >= 97 % of proven SAME on faithful  (219/237)
+  MET      H8 hybrid-all loses > 10 % of proven SAME on faithful_heavy  (117 -> 11)
+
+corrupted relays the arbiter accepted (1):
+  'Não altere a planilha de folha de pagamento sem autorização do RH.'
+    -> 'Evite alterar a planilha de folha de pagamento sem autorização do RH.'   invariants fired: ['NEGATION']

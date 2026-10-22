@@ -308,3 +308,18 @@ antonym (`declining` -> `accepting`, `back up` -> `restore` outside the verb tab
 **Post-hoc (NOT part of the preregistered run, set already spent):** two genuine translator bugs behind near-verbatim false alarms were fixed — a sentence-initial
 Portuguese `O` counted as a disjunction, and `ao e-mail` read as the verb `e-mail` (action SEND). Near-verbatim false alarm 8.3 % -> 7.5 %; nothing else moved
 (RESULT_postfix.txt). The residual light false alarms are surface variation (`isn't available` / `unavailable`, `check` / `check them`, `aponte` / `indique`).
+
+## E-HYBRID-RELAY (2026-10-22): `relay_check` as evidence for the 2-of-2 arbiter — preregistered, run once; REJECTED
+Same 120 sources / 360 relays written by Opus and Sonnet (E-RELAY-LLM); judges Sonnet and Haiku read only `rules_v1` + (id, a, b), 4 blocks of 90, labels never shown
+(`data/relays/PREREG_HYBRID.md`, `judge_key.json`, `JUDGE_*.tsv`, `RESULT_hybrid.txt`; no judgment was lost or invalid: 720 valid lines, 1 UNSURE).
+| Arm | corrupted accepted as SAME | proven SAME, near-verbatim | proven SAME, reworded |
+|---|---|---|---|
+| A  2-of-2 arbiter alone | **1/120 = 0.8 %** | **120/120** | **117/120** |
+| B  + veto on hard-fact slots (number, date, weekday, clock, name, bound, unit) | 1/120 | 120/120 | 99/120 (-15 %) |
+| C  + veto on any slot | 0/120 | 111/120 | 11/120 (-91 %) |
+Hypotheses: H5 (arbiter alone has >= 5 % false SAME so there is something to fix) **NOT MET** (0.8 %); H6 (veto cuts false SAME by >= 30 %) **NOT MET** (1 -> 1);
+H7 (veto keeps >= 97 % of proven SAME) **NOT MET** (219/237 = 92 %); H8 (full veto loses > 10 % on reworded relays) **MET**.
+**Decision: the hybrid is not offered.** The arbiter alone is already strong on realistic relays — 237/240 faithful relays proven (98.8 %), 119/120 corruptions caught (the one
+accepted, `Não altere` -> `Evite alterar`, softens a prohibition and is arguably a judgement call). The veto can only remove SAMEs; here it removed 18 correct ones and added
+nothing. `relay_check` therefore stays what it is — a free, offline copy / tamper detector for near-verbatim relays — and the arbiter is the tool for reworded ones.
+Limits: 120 sources, two relay authors and two judge families from one vendor; the 95 % interval of a 1/120 false-SAME rate is roughly 0.02-4.6 %.

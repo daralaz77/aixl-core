@@ -1,0 +1,90 @@
+R000	SAME	paraphrase
+R001	SAME	paraphrase
+R002	DIFFERENT	may vs must
+R003	DIFFERENT	this year vs all years
+R004	SAME	isn't available equivalent
+R005	SAME	paraphrase
+R006	SAME	paraphrase
+R007	DIFFERENT	unless vs even if
+R008	DIFFERENT	chat dropped
+R009	SAME	identical
+R010	SAME	identical
+R011	SAME	paraphrase
+R012	SAME	identical
+R013	SAME	paraphrase
+R014	SAME	paraphrase
+R015	SAME	paraphrase
+R016	SAME	paraphrase
+R017	SAME	identical
+R018	SAME	paraphrase
+R019	DIFFERENT	roles swapped
+R020	SAME	paraphrase
+R021	DIFFERENT	week vs month
+R022	SAME	same
+R023	DIFFERENT	recipient differs
+R024	DIFFERENT	or vs and
+R025	SAME	paraphrase
+R026	SAME	identical
+R027	SAME	paraphrase
+R028	SAME	identical
+R029	SAME	paraphrase
+R030	SAME	every/each
+R031	DIFFERENT	60 vs 90 days
+R032	SAME	identical
+R033	SAME	paraphrase
+R034	SAME	identical
+R035	DIFFERENT	after vs before
+R036	SAME	identical
+R037	DIFFERENT	50000 vs 5000
+R038	SAME	identical
+R039	DIFFERENT	opposite polarity
+R040	SAME	identical
+R041	DIFFERENT	two vs three
+R042	SAME	paraphrase
+R043	DIFFERENT	or vs also
+R044	DIFFERENT	opposite
+R045	SAME	identical
+R046	SAME	identical
+R047	SAME	paraphrase
+R048	SAME	identical
+R049	SAME	paraphrase
+R050	SAME	paraphrase
+R051	SAME	paraphrase
+R052	DIFFERENT	personal data removal dropped
+R053	DIFFERENT	Northwind vs Fabrikam
+R054	DIFFERENT	exclude vs include
+R055	SAME	paraphrase
+R056	DIFFERENT	they migrate added
+R057	SAME	paraphrase
+R058	SAME	paraphrase
+R059	SAME	identical
+R060	SAME	paraphrase
+R061	DIFFERENT	must vs advisable
+R062	SAME	identical
+R063	SAME	paraphrase
+R064	SAME	identical
+R065	DIFFERENT	who sends differs
+R066	SAME	paraphrase
+R067	SAME	paraphrase
+R068	SAME	paraphrase
+R069	SAME	identical
+R070	DIFFERENT	never include vs include
+R071	DIFFERENT	November vs December
+R072	SAME	paraphrase
+R073	DIFFERENT	decline vs accept
+R074	SAME	identical
+R075	SAME	paraphrase
+R076	SAME	identical
+R077	SAME	paraphrase
+R078	SAME	paraphrase
+R079	DIFFERENT	recipient dropped
+R080	SAME	identical
+R081	SAME	identical
+R082	SAME	paraphrase
+R083	SAME	identical
+R084	SAME	paraphrase
+R085	DIFFERENT	overdue condition added
+R086	SAME	paraphrase
+R087	SAME	paraphrase
+R088	DIFFERENT	opposite
+R089	SAME	porém/mas

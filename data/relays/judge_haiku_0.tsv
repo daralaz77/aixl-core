@@ -1,0 +1,90 @@
+R000	SAME	reordered conditional, same content
+R001	SAME	same action and condition, reworded
+R002	DIFFERENT	may vs must
+R003	DIFFERENT	este año vs todos los años
+R004	SAME	isn't available vs unavailable
+R005	SAME	same analysis, period and team
+R006	SAME	same refund rule, reworded
+R007	DIFFERENT	a menos que vs aunque (opposite condition)
+R008	DIFFERENT	b drops chat channel
+R009	SAME	identical
+R010	SAME	identical
+R011	SAME	same condition and action, reworded
+R012	SAME	identical
+R013	SAME	same meeting, reordered
+R014	SAME	same condition and offer, reworded
+R015	SAME	same metric, scope and period
+R016	SAME	same threshold and action, synonyms
+R017	SAME	identical
+R018	SAME	same actions, reordered
+R019	DIFFERENT	recipient Rodrigo vs contador
+R020	SAME	same threshold, action and scope
+R021	DIFFERENT	última semana vs último mes
+R022	SAME	comma only differs
+R023	DIFFERENT	recipient diretoria vs equipe de vendas
+R024	DIFFERENT	ou (either) vs e (both)
+R025	SAME	same ticket steps, reworded
+R026	SAME	identical
+R027	SAME	same trigger and steps, reworded
+R028	SAME	identical
+R029	SAME	same prohibition, reworded
+R030	SAME	every vs each, same scope
+R031	DIFFERENT	60 dias vs 90 dias
+R032	SAME	identical
+R033	SAME	same threshold and action, reworded
+R034	SAME	identical
+R035	DIFFERENT	después vs antes de migrar
+R036	SAME	identical
+R037	DIFFERENT	50.000 vs 5.000 threshold
+R038	SAME	identical
+R039	DIFFERENT	opposite: no borres vs borra
+R040	SAME	identical
+R041	DIFFERENT	two vs three codes
+R042	SAME	same steps, reordered
+R043	DIFFERENT	b adds Saturday as additional, a makes it alternative
+R044	DIFFERENT	opposite: no publiques vs publica
+R045	SAME	identical
+R046	SAME	identical
+R047	SAME	same prohibition, reworded
+R048	SAME	identical
+R049	SAME	same review and check, reworded
+R050	SAME	same steps and threshold, synonyms
+R051	SAME	same report, deadline and cc, reordered
+R052	DIFFERENT	a adds remove personal data step
+R053	DIFFERENT	Northwind vs Fabrikam
+R054	DIFFERENT	sin incluir vs incluyendo confidential data
+R055	SAME	sometime vs at some point
+R056	DIFFERENT	b changes subject to ellos migren
+R057	SAME	same steps, reworded
+R058	SAME	aponte vs indique, same scope
+R059	SAME	identical
+R060	SAME	same list and proposal, synonyms
+R061	DIFFERENT	obligation (debes) vs advice (conviene)
+R062	SAME	identical
+R063	SAME	delete access vs access removed, same scope
+R064	SAME	identical
+R065	SAME	same send-by-deadline, reordered
+R066	SAME	same rule: no auto-renewal unless legal asks
+R067	SAME	same signature requirement, reworded
+R068	SAME	same routing, reordered
+R069	SAME	identical
+R070	DIFFERENT	opposite: never include vs include
+R071	DIFFERENT	noviembre vs diciembre
+R072	SAME	same recipients and date range, reworded
+R073	DIFFERENT	declining vs accepting
+R074	SAME	identical
+R075	SAME	same embargo until HR validation
+R076	SAME	identical
+R077	UNSURE	a fin de semana may mean weekend, not end of week
+R078	SAME	same steps, reworded
+R079	DIFFERENT	a adds send to Rodrigo
+R080	SAME	identical
+R081	SAME	identical
+R082	SAME	same deadlines, reworded
+R083	SAME	identical
+R084	SAME	same review before merge, reworded
+R085	DIFFERENT	b adds overdue condition
+R086	SAME	same scope, reworded
+R087	SAME	same threshold and action, synonyms
+R088	DIFFERENT	opposite: do not include vs do include
+R089	SAME	mas vs porem, same meaning

@@ -1,0 +1,90 @@
+R270	DIFFERENT	deve vs pode
+R271	DIFFERENT	14 vs 15 days
+R272	DIFFERENT	unit tests condition dropped
+R273	SAME	identical
+R274	DIFFERENT	roles/assignee changed
+R275	SAME	paraphrase
+R276	DIFFERENT	e vs ou
+R277	SAME	identical
+R278	DIFFERENT	only slowest query
+R279	SAME	paraphrase
+R280	SAME	identical
+R281	DIFFERENT	manager notice dropped
+R282	DIFFERENT	roles reversed
+R283	DIFFERENT	September added
+R284	SAME	identical
+R285	DIFFERENT	Fernanda vs Fabiana
+R286	SAME	paraphrase
+R287	DIFFERENT	sexta vs quinta
+R288	DIFFERENT	one vs two paragraphs
+R289	SAME	synonym
+R290	SAME	paraphrase
+R291	SAME	same condition
+R292	SAME	paraphrase
+R293	SAME	passive paraphrase
+R294	DIFFERENT	lodging added
+R295	SAME	same schedule
+R296	SAME	reordered
+R297	SAME	identical
+R298	DIFFERENT	mark vs delete
+R299	SAME	paraphrase
+R300	SAME	same condition
+R301	DIFFERENT	validate step vs conditional
+R302	DIFFERENT	Pacifico vs Popular
+R303	SAME	identical
+R304	DIFFERENT	deadline dropped
+R305	SAME	paraphrase
+R306	SAME	paraphrase
+R307	DIFFERENT	debes vs puedes
+R308	SAME	paraphrase
+R309	DIFFERENT	2025 vs 2024
+R310	SAME	paraphrase
+R311	SAME	reordered
+R312	SAME	paraphrase
+R313	SAME	paraphrase
+R314	SAME	reordered
+R315	SAME	synonym
+R316	SAME	pronoun only
+R317	DIFFERENT	su bodega vs la bodega
+R318	SAME	paraphrase
+R319	DIFFERENT	reviewer changed
+R320	SAME	paraphrase
+R321	SAME	synonym
+R322	DIFFERENT	opposite on replies
+R323	SAME	passive
+R324	SAME	paraphrase
+R325	SAME	paraphrase
+R326	DIFFERENT	scope all departments
+R327	SAME	identical
+R328	SAME	reordered
+R329	SAME	paraphrase
+R330	SAME	identical
+R331	DIFFERENT	validated vs received
+R332	SAME	synonym
+R333	DIFFERENT	nunca vs evite
+R334	SAME	passive
+R335	SAME	paraphrase
+R336	SAME	identical
+R337	SAME	paraphrase
+R338	SAME	paraphrase
+R339	SAME	paraphrase
+R340	DIFFERENT	15% vs 25%
+R341	DIFFERENT	either/or vs both
+R342	DIFFERENT	each vs one for all
+R343	SAME	same order
+R344	SAME	paraphrase
+R345	DIFFERENT	roles reversed
+R346	SAME	paraphrase
+R347	DIFFERENT	and vs or
+R348	DIFFERENT	manhã vs noite
+R349	SAME	paraphrase
+R350	SAME	paraphrase
+R351	SAME	identical
+R352	SAME	identical
+R353	DIFFERENT	com vs sem faturamento
+R354	SAME	same order
+R355	DIFFERENT	time period dropped
+R356	SAME	reordered
+R357	DIFFERENT	Camila vs Carla
+R358	SAME	paraphrase
+R359	SAME	synonym
