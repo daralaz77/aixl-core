@@ -20,8 +20,36 @@ BENIGN = [
 ]
 
 
+_PRON_SWAP = {"he": "she", "she": "he", "his": "her", "her": "his", "him": "her", "él": "ella", "ella": "él", "ele": "ela", "ela": "ele",
+              "ellos": "ellas", "ellas": "ellos", "eles": "elas", "elas": "eles", "su": "mi", "sua": "minha", "their": "his", "his ": "their "}
+
+
+def _role_swap(t, r):
+    ms = list(re.finditer(r"(?<![\w@#])(@[A-Za-z0-9_.]+|[A-Z\u00c1\u00c9\u00cd\u00d3\u00da\u00d1][\w\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1]{2,})", t))
+    ms = [m for m in ms if m.start() > 0 and t[:m.start()].rstrip()[-1:] not in (".", "!", "?")]
+    names = sorted({m.group(0) for m in ms})
+    if len(names) < 2:
+        return None
+    a, b = r.sample(names, 2)
+    return re.sub(re.escape(a) + "|" + re.escape(b), lambda m: b if m.group(0) == a else a, t)
+
+
+def _pronoun_flip(t, r):
+    ws = [m for m in re.finditer(r"\b\w+\b", t) if m.group(0).lower() in _PRON_SWAP and m.group(0).lower() not in ("su", "sua", "his ", "their")]
+    if not ws:
+        return None
+    m = r.choice(ws)
+    rep = _PRON_SWAP[m.group(0).lower()]
+    return t[:m.start()] + (rep.capitalize() if m.group(0)[0].isupper() else rep) + t[m.end():]
+
+
 def mutants(seeds, reps=2):
     rng = random.Random(7)
+    for name, fn in (("role_swap", _role_swap), ("pronoun_flip", _pronoun_flip)):
+        for b in seeds:
+            m = fn(b, random.Random(rng.randrange(1 << 30)))
+            if m and m != b:
+                yield name, b, m
     for name, kind, fn in A.NL_ATTACKERS:
         if kind != "META":
             continue

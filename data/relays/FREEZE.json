@@ -1,0 +1,26 @@
+{
+ "aixl/invariants.py": "f4cb4e7a253e73568cf2633fee08ef55129ffa429fabb50c06d1ee0f17ad110f",
+ "aixl/translators/natural_to_semantic.py": "c84176176edc32c06a96c1c109bad2d780f3d813baf783d1d5a075a40ef067f9",
+ "aixl/core/modifiers.py": "fee9a98d26bfbc1a418407d98d2b08a340e9a913674210265ad3e47a99e8d6e9",
+ "aixl/core/completeness.py": "dcbb03ced7a9c653af30e9c64f99ad733fc0f3cce0c3186936fb0205296f00c3",
+ "aixl/api/service.py": "c5220eaf4a96fd36bd5781203a20243bc63721be7373953894b1e8f58ae5ddd2",
+ "RELAY_FAMILIES": [
+  "ACTION",
+  "CLAUSES",
+  "COMPARATOR",
+  "CONDITION",
+  "DATE",
+  "DISJUNCTION",
+  "MODALITY",
+  "MODIFIER",
+  "NAME",
+  "NAME_ORDER",
+  "NEGATION",
+  "NUMBER",
+  "ONLY",
+  "PRONOUN",
+  "QUANTITY",
+  "SEQUENCE",
+  "WEEKDAY"
+ ]
+}

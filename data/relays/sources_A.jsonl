@@ -1,0 +1,60 @@
+{"id": "A000", "source": "Migra primero la base de datos de pruebas, luego la de producción, y solo después actualiza la aplicación móvil."}
+{"id": "A001", "source": "Podemos reprogramar la reunión con el proveedor de Monterrey si el martes no les conviene."}
+{"id": "A002", "source": "If a customer requests a refund within fourteen days, process it without asking for approval."}
+{"id": "A003", "source": "Se o pedido estiver atrasado mais de cinco dias, ofereça frete grátis ao cliente."}
+{"id": "A004", "source": "Resuma as avaliações negativas da loja online de janeiro a março e aponte se o problema é a entrega ou o produto."}
+{"id": "A005", "source": "Compara los gastos de marketing de enero y febrero y explica la diferencia en un párrafo."}
+{"id": "A006", "source": "Envie o relatório de despesas de outubro para a Fernanda até segunda-feira."}
+{"id": "A007", "source": "Você não deve aceitar devoluções acima de R$ 800 sem a assinatura do coordenador financeiro."}
+{"id": "A008", "source": "Você deve registrar todas as horas trabalhadas até sexta-feira, mas pode lançar as horas extras na segunda seguinte."}
+{"id": "A009", "source": "Los reembolsos mayores a quinientos dólares deben ser aprobados por el director financiero."}
+{"id": "A010", "source": "Do not share the customer's billing details with anyone outside the support team, even if they ask politely."}
+{"id": "A011", "source": "Cuando llegue la factura de Telcomex, regístrala en contabilidad y avísale a Jorge."}
+{"id": "A012", "source": "O gerente deve aprovar qualquer desconto acima de quinze por cento."}
+{"id": "A013", "source": "Puedes cerrar los tickets duplicados, pero no respondas a los clientes sin mi revisión."}
+{"id": "A014", "source": "Não divulgue o resultado da pesquisa salarial até que o RH tenha validado os números."}
+{"id": "A015", "source": "Revisa el pull request de Camilo y comenta cualquier función de más de cincuenta líneas sin pruebas unitarias."}
+{"id": "A016", "source": "Ordena los contratos vencidos de este año por valor y resume los tres más grandes."}
+{"id": "A017", "source": "Resume los comentarios de la encuesta de satisfacción y destaca las quejas sobre entregas tardías."}
+{"id": "A018", "source": "Crie um relatório de inadimplência com os clientes da Construtora Vale Verde, ou apenas os que estão há mais de 60 dias."}
+{"id": "A019", "source": "First back up the production database, then run the schema migration script."}
+{"id": "A020", "source": "Antes de cerrar el mes, concilia las transferencias bancarias con el libro de contabilidad de Banco Pacífico."}
+{"id": "A021", "source": "Revise o código do módulo de relatórios e aponte funções sem testes unitários."}
+{"id": "A022", "source": "Se a Transportes Rápido Ltda. atrasar mais de dois pedidos no mês, cancele o contrato ou renegocie as condições."}
+{"id": "A023", "source": "Não envie o contrato à Transportadora Horizonte antes de a diretoria aprovar os novos prazos de entrega."}
+{"id": "A024", "source": "Responda os chamados abertos no fim de semana antes das dez da manhã."}
+{"id": "A025", "source": "Peça ao Rodrigo que revise as notas fiscais de outubro antes de enviá-las ao contador."}
+{"id": "A026", "source": "Revisa el código del módulo de pagos y, después, prepara un resumen de los riesgos encontrados."}
+{"id": "A027", "source": "Prepara una presentación de diez diapositivas para la junta directiva de Grupo Andino, sin incluir datos confidenciales de nómina."}
+{"id": "A028", "source": "You may reschedule the Acme Corp onboarding call if their procurement lead is unavailable next week."}
+{"id": "A029", "source": "Draft a polite reply declining the partnership offer from Brightline Media."}
+{"id": "A030", "source": "Send the new onboarding checklist to every employee who joined after August 1st, and ask HR to confirm receipt."}
+{"id": "A031", "source": "You can approve up to two discount codes per customer each month, but not more than that without manager sign-off."}
+{"id": "A032", "source": "Compare o desempenho das campanhas de e-mail e de redes sociais no último trimestre."}
+{"id": "A033", "source": "Envie a versão final do relatório para a diretora Camila até sexta-feira, copiando o departamento jurídico."}
+{"id": "A034", "source": "Compare o orçamento aprovado com os gastos reais do departamento de marketing e liste as diferenças superiores a mil reais."}
+{"id": "A035", "source": "Calcula el promedio de tiempo de respuesta de los agentes durante la última semana."}
+{"id": "A036", "source": "Mantén las cuentas de clientes con más de 90 días de atraso en la lista de cobranza prioritaria."}
+{"id": "A037", "source": "Faça o backup do banco de dados de produção às três da manhã, ou no sábado se houver manutenção agendada."}
+{"id": "A038", "source": "Responde a los clientes que escribieron por WhatsApp hoy, o deriva los casos complejos a Felipe."}
+{"id": "A039", "source": "Revisa el pull request de autenticación antes de que se fusione con la rama principal."}
+{"id": "A040", "source": "Não altere a planilha de folha de pagamento sem autorização do RH."}
+{"id": "A041", "source": "Schedule a follow-up call with Maria for next Monday unless she has already confirmed the renewal."}
+{"id": "A042", "source": "A menos que o jurídico peça, não renove o contrato com a Vivo automaticamente."}
+{"id": "A043", "source": "Se o pagamento não cair na conta até o dia quinze, bloqueie o acesso do cliente e comunique o gerente comercial."}
+{"id": "A044", "source": "Quando o chamado ficar parado por mais de quarenta e oito horas, avise o supervisor e atualize o cliente."}
+{"id": "A045", "source": "Organize a agenda do treinamento de vendas para a próxima semana, com no mínimo quatro sessões de uma hora."}
+{"id": "A046", "source": "Revise a planilha de custos da obra de Campinas e marque as linhas com diferença acima de 10%."}
+{"id": "A047", "source": "Summarize the three most common complaints from last month's support chats and propose one fix for each."}
+{"id": "A048", "source": "Schedule a 45-minute sync with Hannah and the design leads sometime between Tuesday and Thursday next week."}
+{"id": "A049", "source": "Liste os vinte clientes com maior faturamento no primeiro semestre."}
+{"id": "A050", "source": "Create a Jira ticket for the login timeout bug and assign it to the mobile team."}
+{"id": "A051", "source": "Flag every invoice that exceeds the approved purchase order amount by more than ten percent."}
+{"id": "A052", "source": "Compile the expense reports from March through June, then total them by department and send the summary to Ramirez."}
+{"id": "A053", "source": "Please send Ahmed the Q3 revenue report by Thursday noon, and copy the finance team on the email."}
+{"id": "A054", "source": "Nunca envie senhas ou tokens de acesso por e-mail ou chat."}
+{"id": "A055", "source": "Você pode arquivar os e-mails antigos, mas não exclua nenhum anexo de contratos."}
+{"id": "A056", "source": "Merge the two duplicate accounts for Northwind Traders and keep the older record as the primary one."}
+{"id": "A057", "source": "Create a ticket for the login bug, assign it to Daniel, and set the priority to high."}
+{"id": "A058", "source": "Review the logging changes in the payments service and check for leaked card numbers."}
+{"id": "A059", "source": "Primeiro valide os dados de entrada e depois gere os gráficos para a apresentação."}

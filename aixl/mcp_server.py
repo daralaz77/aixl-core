@@ -32,8 +32,8 @@ def aixl_compare(a: str, b: str) -> dict:
 
 
 @server.tool(description="Did a CRITICAL SLOT change between a source instruction and its relay (negation, number, date/weekday, modality, condition, "
-                          "and/or, only, comparator, names)? Built for near-verbatim relays; works on open vocabulary. `ok: true` means no critical slot visibly "
-                          "changed — it is NOT a proof of equivalence. Measured: flags 91.8 % of meaning-changing corruptions, 0.1 % of benign edits.")
+                          "and/or, only, comparator, names, action verb, who-is-first, pronoun)? Built for near-verbatim relays; works on open vocabulary. `ok: true` means no critical slot visibly "
+                          "changed — it is NOT a proof of equivalence. Measured: flags 94.7 % of meaning-changing corruptions, 0.1 % of benign edits.")
 def aixl_relay_check(source: str, relay: str) -> dict:
     return aixl.relay_check(source, relay)
 
