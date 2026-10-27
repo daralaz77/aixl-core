@@ -1,0 +1,97 @@
+90 sources (0 unparsable lines)
+faithful_light  flagged 11/90 = 12.2%
+faithful_heavy  flagged 73/90 = 81.1%
+role_swap       flagged 65/90 = 72.2%
+control         flagged 77/90 = 85.6%
+
+role_swap by style: {'actor_flip': '15/24 = 62.5%', 'addressee_to_you': '21/22 = 95.5%', 'delegation': '23/23 = 100.0%', 'two_roles_swap': '6/21 = 28.6%'}
+role_swap by language: {'es': '23/30 = 76.7%', 'en': '22/30 = 73.3%', 'pt': '20/30 = 66.7%'}
+control by type: {'negation': '22/22 = 100.0%', 'number': '21/21 = 100.0%', 'date_time': '23/24 = 95.8%', 'condition': '11/23 = 47.8%'}
+families on faithful_light: {'CONDITION': 3, 'ACTION': 2, 'CLAUSES': 1, 'COMPARATOR': 1, 'DELEGATION': 1, 'WEEKDAY': 1, 'MODALITY': 1, 'DISJUNCTION': 1}
+
+preregistered hypotheses:
+  MET      R1 role_swap >= 50 %
+  NOT MET  R2 faithful_light <= 10 %
+  MET      R3 control >= 70 %
+  NOT MET  R4 every style >= 30 %
+
+missed role swaps (25):
+  [two_roles_swap] 'El área de compras aprueba el pedido y el área de finanzas emite el pago, solo si el proveedor entre'
+      -> 'El área de finanzas aprueba el pedido y el área de compras emite el pago, solo si el proveedor entre'
+      (Compras y finanzas intercambian tareas: finanzas aprueba y compras paga.)
+  [two_roles_swap] 'El profesor titular corrige los exámenes finales y el asistente de cátedra registra las notas, siemp'
+      -> 'El asistente de cátedra corrige los exámenes finales y el profesor titular registra las notas, siemp'
+      (El profesor titular y el asistente de cátedra intercambian sus tareas.)
+  [two_roles_swap] 'Si el incidente es crítico, el equipo de infraestructura lidera la respuesta y el equipo de segurida'
+      -> 'Si el incidente es crítico, el equipo de seguridad lidera la respuesta y el equipo de infraestructur'
+      (Infraestructura y seguridad intercambian quién lidera y quién documenta.)
+  [actor_flip] 'The billing team should send the legal department a summary of all disputed invoices by the end of t'
+      -> 'The legal department should send the billing team a summary of all disputed invoices by the end of t'
+      (Ahora el departamento legal envía y el equipo de facturación recibe.)
+  [actor_flip] 'The night shift must hand over the incident log to the morning shift at 6 a.m.'
+      -> 'The morning shift must hand over the incident log to the night shift at 6 a.m.'
+      (Ahora el turno de la mañana entrega y el turno de la noche recibe.)
+  [two_roles_swap] 'Unless the shipment is international, the dispatch team books the carrier and customer service notif'
+      -> 'Unless the shipment is international, customer service books the carrier and the dispatch team notif'
+      (Despacho y servicio al cliente intercambian sus tareas.)
+  [two_roles_swap] 'Se o contrato for renovado, o jurídico revisa as cláusulas e o comercial negocia os preços com o cli'
+      -> 'Se o contrato for renovado, o comercial revisa as cláusulas e o jurídico negocia os preços com o cli'
+      (Jurídico e comercial trocam suas tarefas.)
+  [addressee_to_you] 'A diretoria vai encaminhar ao gerente de TI as 4 propostas de fornecedores de nuvem.'
+      -> 'A diretoria vai encaminhar a você as 4 propostas de fornecedores de nuvem.'
+      (As propostas já não vão ao gerente de TI, mas a quem recebe a mensagem.)
+  [two_roles_swap] 'Quando o paciente chegar pela emergência, a enfermagem faz a triagem e o médico plantonista solicita'
+      -> 'Quando o paciente chegar pela emergência, o médico plantonista faz a triagem e a enfermagem solicita'
+      (Enfermagem e médico plantonista trocam suas tarefas.)
+  [two_roles_swap] 'Caso o servidor fique fora do ar por mais de uma hora, o time de suporte avisa os clientes e o time '
+      -> 'Caso o servidor fique fora do ar por mais de uma hora, o time de engenharia avisa os clientes e o ti'
+      (Suporte e engenharia trocam quem avisa os clientes e quem abre o relatório.)
+  [two_roles_swap] 'Se a carga chegar avariada, o conferente registra a ocorrência e o motorista assina o termo de receb'
+      -> 'Se a carga chegar avariada, o motorista registra a ocorrência e o conferente assina o termo de receb'
+      (Conferente e motorista trocam suas tarefas.)
+  [actor_flip] 'O departamento de compras deve cobrar do fornecedor o reembolso das peças defeituosas.'
+      -> 'O fornecedor deve cobrar do departamento de compras o reembolso das peças defeituosas.'
+      (Agora o fornecedor cobra e o departamento de compras é quem deve reembolsar.)
+  [actor_flip] 'El equipo de soporte le pasa al equipo de ingeniería los 8 tickets críticos del día.'
+      -> 'El equipo de ingeniería le pasa al equipo de soporte los 8 tickets críticos del día.'
+      (Soporte e ingeniería invierten quién entrega los tickets y quién los recibe.)
+  [two_roles_swap] 'El director de ventas presenta el plan y la directora financiera lo aprueba en la reunión del jueves'
+      -> 'La directora financiera presenta el plan y el director de ventas lo aprueba en la reunión del jueves'
+      (El director de ventas y la directora financiera intercambian presentar y aprobar.)
+  [two_roles_swap] 'El gerente de planta supervisa el turno de la mañana y la jefa de calidad supervisa el de la noche, '
+      -> 'La jefa de calidad supervisa el turno de la mañana y el gerente de planta supervisa el de la noche, '
+      (El gerente de planta y la jefa de calidad intercambian sus turnos.)
+  [actor_flip] 'El profesor Ríos le entrega las notas finales a la coordinadora académica.'
+      -> 'La coordinadora académica le entrega las notas finales al profesor Ríos.'
+      (El profesor y la coordinadora invierten quién entrega y quién recibe las notas.)
+  [two_roles_swap] 'The legal department reviews the vendor contract and the finance team signs it off by March 3.'
+      -> 'The finance team reviews the vendor contract and the legal department signs it off by March 3.'
+      (Legal and finance swap the reviewing and signing-off roles.)
+  [actor_flip] 'The support team hands escalated tickets to the engineering team when the customer is on the enterpr'
+      -> 'The engineering team hands escalated tickets to the support team when the customer is on the enterpr'
+      (Support and engineering swap who hands over and who receives the tickets.)
+  [actor_flip] 'The pharmacist gives the nurse the updated dosage chart each morning.'
+      -> 'The nurse gives the pharmacist the updated dosage chart each morning.'
+      (The pharmacist and nurse swap who gives and who receives the chart.)
+  [two_roles_swap] 'The night nurse covers ward A and the day nurse covers ward B, 12 beds each.'
+      -> 'The day nurse covers ward A and the night nurse covers ward B, 12 beds each.'
+      (The night nurse and the day nurse swap wards.)
+  [two_roles_swap] 'The teacher grades the essays and the teaching assistant records the grades once the unit is finishe'
+      -> 'The teaching assistant grades the essays and the teacher records the grades once the unit is finishe'
+      (The teacher and teaching assistant swap grading and recording.)
+  [two_roles_swap] 'A equipe de suporte atende os chamados e a equipe de engenharia corrige os erros no mesmo dia.'
+      -> 'A equipe de engenharia atende os chamados e a equipe de suporte corrige os erros no mesmo dia.'
+      (Suporte e engenharia trocam as tarefas de atender chamados e corrigir erros.)
+  [actor_flip] 'O médico plantonista passa à enfermeira os resultados dos exames se o paciente estiver estável.'
+      -> 'A enfermeira passa ao médico plantonista os resultados dos exames se o paciente estiver estável.'
+      (Médico e enfermeira invertem quem passa e quem recebe os resultados.)
+  [actor_flip] 'A diretora Helena entrega o relatório final ao conselho de pais.'
+      -> 'O conselho de pais entrega o relatório final à diretora Helena.'
+      (A diretora e o conselho invertem quem entrega e quem recebe o relatório.)
+  [two_roles_swap] 'O motorista carrega o caminhão e o ajudante confere as 40 caixas.'
+      -> 'O ajudante carrega o caminhão e o motorista confere as 40 caixas.'
+      (Motorista e ajudante trocam as tarefas de carregar e conferir.)
+
+--- Baseline on the SAME fresh data with the code before the role changes (commit 1c70413; post-hoc comparison, not preregistered) ---
+old code | role_swap 37/90 {'actor_flip': '16/24', 'addressee_to_you': '3/22', 'delegation': '12/23', 'two_roles_swap': '6/21'} | faithful_light 10/90 | control 78/90
+new code | role_swap 65/90 {'actor_flip': '15/24', 'addressee_to_you': '21/22', 'delegation': '23/23', 'two_roles_swap': '6/21'} | faithful_light 11/90 | control 77/90

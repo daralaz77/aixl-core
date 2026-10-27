@@ -354,3 +354,18 @@ are too gentle to be the only false-alarm test.**
 Measured after the removal: arena corruptions 94.5 %, benign 0.0 % (unchanged). On the model-written relays (a SPENT set, and the swapped-role patterns were read from it, so this is NOT
 evidence of generalisation): corrupted flagged 93 -> 100 of 120, swapped roles 2 -> 8 of 10, near-verbatim faithful 10 of 120 (unchanged), reworded 108 -> 107.
 `DELEGATION` is in the default set by principle, not by the arena selection rule (it never fires on the arena's mutants). **A fresh set of model-written role swaps is needed before any claim.**
+
+## E-ROLES (2026-10-26): swapped roles on FRESH model-written relays — preregistered, run once (data/relays_roles/PREREG.md, FREEZE.json, RESULT.txt)
+Two new authors (Opus, Sonnet) wrote 90 instructions of their own (ES/EN/PT, half naming people, half only roles/teams) and, for each, a near-verbatim relay, a reworded relay, one swapped-role
+corruption (four styles) and one control corruption. They never saw the code or the previous data; the code was frozen by hash before their outputs were read.
+| Hypothesis | Result | Verdict |
+|---|---|---|
+| R1 swapped roles flagged >= 50 % | **65/90 = 72.2 %** | MET |
+| R2 near-verbatim faithful flagged <= 10 % | 11/90 = 12.2 % | **NOT MET** |
+| R3 control corruptions (negation/number/date/condition) flagged >= 70 % | 77/90 = 85.6 % (condition only 11/23) | MET |
+| R4 every swap style flagged >= 30 % | actor_flip 63 %, addressee_to_you 95 %, delegation 100 %, **two_roles_swap 29 % (6/21)** | **NOT MET** |
+Same data, code BEFORE the role changes (post-hoc comparison): swapped roles 37/90 -> 65/90 (addressee 3/22 -> 21/22, delegation 12/23 -> 23/23); near-verbatim faithful 10 -> 11; control 78 -> 77.
+So the change does what it was designed to do on data its author had not read, at the price of one more false alarm in 90.
+**What remains unsolved:** two roles trading places with no marker word (`Finance approves and Purchasing pays` -> `Purchasing approves and Finance pays`), 6 of 21; `actor_flip` between two
+role nouns (`The night shift hands the log to the morning shift` reversed) is only caught when a name is involved. Both need who-does-what binding (subject-verb pairing), which the
+closed vocabulary does not give for unknown verbs; the earlier shortcut (`ROLE_PAIRS`) was a measured failure. Language: es 77 %, en 73 %, pt 67 %. Sample: 90 sources, two authors.
