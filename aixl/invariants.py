@@ -39,15 +39,33 @@ def _family_of(constraint: str):
     return None
 
 
-def extract(text: str) -> dict:
+_BOUND = frozenset("more less fewer greater higher lower better worse equal above below older newer earlier later mas menos mayor menor superior inferior igual mais maior anterior posterior".split())
+
+
+def _is_pt(text: str) -> bool:
+    from aixl.translators.natural_to_semantic import _PT_CUE
+    return bool(_PT_CUE.search(strip_accents(text).lower()) or re.search(r"[\u00e3\u00f5\u00e7]", text.lower()))
+
+
+def _or_count(text: str, pt: bool) -> int:
+    """or / ou / u, and the Spanish `o` (but not the Portuguese article `o`, and not `or more`): decided once for the pair, see `check`."""
+    toks = re.findall(r"(?<![a-z0-9])[a-z]+(?![a-z0-9])", strip_accents(text).lower())
+    return sum(1 for i, t in enumerate(toks)
+               if (t in ("or", "ou", "u") or (t == "o" and not pt and i > 0 and toks[i - 1] not in ("e", "y", "ou", "or"))) and not (i + 1 < len(toks) and toks[i + 1] in _BOUND))
+
+
+def extract(text: str, pt: bool | None = None) -> dict:
     check_size(text)
     g = to_graph_auto(text)
     c = g.canonical()
     out: dict = {}
     for k in c["constraints"]:
         fam = _family_of(k)
-        if fam:
+        if fam and fam != "DISJUNCTION":
             out.setdefault(fam, set()).add(k)
+    n_or = _or_count(text, _is_pt(text) if pt is None else pt)
+    if n_or:
+        out["DISJUNCTION"] = {f"DISJ={n_or}"}
     if c.get("negation"):
         out.setdefault("NEGATION", set()).add("NEG")
     for t in c.get("time", ()):
@@ -81,7 +99,7 @@ def extract(text: str) -> dict:
     toks = re.findall(r"[a-z]+", lw)
     deleg = collections.Counter(t for t in toks if t in _DELEGATE)
     if deleg:
-        out["DELEGATION"] = {f"{k}:{v}" for k, v in deleg.items()}        # `Send Priya the budget` -> `Have Priya send it`: who acts changed
+        out["DELEGATION"] = {f"n:{sum(deleg.values())}"}                   # `Send Priya the budget` -> `Have Priya send it`: who acts changed (`solicita` = `pede`: the total, not the cue)
     dos = sum(1 for w in _WORD.findall(text.lower()) if w == "dos")
     if dos:
         out["AMBIGUOUS"] = {f"dos:{dos}"}                       # ES "two" / PT "of the": the count must not change
@@ -90,7 +108,8 @@ def extract(text: str) -> dict:
 
 def check(source: str, relay: str, families=None) -> list:
     """Violations between a source text and its relay: [(family, only_in_source, only_in_relay)] for each family whose slot sets differ."""
-    a, b = extract(source), extract(relay)
+    pt = _is_pt(source) or _is_pt(relay)                           # one language for the pair
+    a, b = extract(source, pt), extract(relay, pt)
     out = []
     for fam in sorted(set(a) | set(b)):
         if families is not None and fam not in families:

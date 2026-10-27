@@ -69,3 +69,22 @@ def test_swapped_roles_delegation_and_addressee_are_flagged(src, relay):
 def test_the_article_el_is_not_a_pronoun_but_el_with_accent_is():
     assert not any(v["family"] == "PRONOUN" for v in aixl.relay_check("Revisa el informe.", "Revisa informe.")["violations"])
     assert any(v["family"] == "PRONOUN" for v in aixl.relay_check("Dáselo a él.", "Dáselo a ella.")["violations"])
+
+
+@pytest.mark.parametrize("src,relay", [
+    ("IT will hand the 6 spare laptops over to Marcus before the onboarding session.", "IT will hand over the 6 spare laptops to Marcus before the onboarding session."),
+    ("Marta aprueba los reembolsos y Rodrigo los paga, siempre que el cliente haya devuelto el producto.", "Marta aprueba los reembolsos y Rodrigo los paga, siempre y cuando el cliente haya devuelto el producto."),
+    ("When the client approves the mockups, Carlos builds the page.", "Once the client approves the mockups, Carlos builds the page."),
+    ("A coordenadora de logística deve avisar o fornecedor sobre o atraso.", "A coordenadora de logística tem que avisar o fornecedor sobre o atraso."),
+    ("Priya sends Tom the 4 signed contracts by Friday noon.", "Priya sends Tom the 4 signed contracts by noon on Friday."),
+    ("O médico plantonista solicita os exames.", "O médico plantonista pede os exames."),
+])
+def test_false_alarms_found_on_fresh_model_written_relays_stay_fixed(src, relay):
+    """2026-10-26: `hand over` is not 'more than'; `siempre que` / `siempre y cuando` / `once` are conditions; the Portuguese article `o` follows the PAIR's language;
+    `by Friday noon` = `by noon on Friday`; two delegation cues are one fact."""
+    assert aixl.relay_check(src, relay)["ok"] is True
+
+
+def test_the_phrasal_verb_fix_does_not_hide_a_real_bound():
+    assert aixl.relay_check("Reject orders over 500 dollars.", "Reject orders over 5000 dollars.")["ok"] is False
+    assert aixl.relay_check("Reject orders over 500 dollars.", "Reject orders under 500 dollars.")["ok"] is False

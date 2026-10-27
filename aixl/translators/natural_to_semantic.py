@@ -459,7 +459,7 @@ LAST_NOUN_RX = re.compile(r"\bultim[oa]\s+" + _NOUN_RX)      # singular 'último
 # 'Export at least 10 customers' vs 'Export fewer than 10 customers' (9 of 30 meaning-changing pairs in data/arena/logic_pairs.jsonl).
 _CMP_PREFIX = {
     "GE": r"mayor o igual a|mayor o igual que|igual o mayor que|maior ou igual a|at least|no fewer than|not fewer than|no less than|not less than|a minimum of|minimum of|minimum|al menos|como minimo|no menos de|minimo de|pelo menos|no minimo|nao menos de",
-    "GT": r"mayor a|mayor de|maior a|more than|greater than|in excess of|exceeding|over|above|mas de|mayor que|superior a|por encima de|encima de|mais de|maior que|acima de",
+    "GT": r"mayor a|mayor de|maior a|more than|greater than|in excess of|exceeding|(?<!hand )(?<!turn )(?<!pass )(?<!take )(?<!carry )(?<!look )(?<!roll )(?<!go )over|above|mas de|mayor que|superior a|por encima de|encima de|mais de|maior que|acima de",
     "LE": r"menor o igual a|menor o igual que|igual o menor que|menor ou igual a|at most|no more than|not more than|up to|a maximum of|maximum of|maximum|as many as|como maximo|no mas de|a lo sumo|hasta|maximo de|no maximo|nao mais de|ate",
     "LT": r"menor a|menor de|fewer than|less than|lower than|under|below|menos de|menos que|por debajo de|inferior a|menor que|abaixo de",
     "EQ": r"exactly|precisely|exactamente|exacto|exatamente",
@@ -577,7 +577,7 @@ def _time_range(s: str) -> list:
 
 _DOW_ALT = "|".join(sorted({w for ws in _DOW.values() for w in ws.split("|")}, key=len, reverse=True))
 _DOW_REL = re.compile(r"(?<![a-z])(before|by|antes de|antes del|antes|after|despues de|despues del|despues|depois de|depois do|depois|until|till|hasta el|hasta|ate|ate o)\s+"
-                      r"(?:(?:the|el|la|o|a|this|next|este|esta|proximo|proxima|este|esse)\s+)*(" + _DOW_ALT + r")(?![a-z])")
+                      r"(?:(?:noon|midday|mediodia|morning|afternoon|evening|night|manana|tarde|noche)\s+(?:on|of|del|de|do|da)\s+)?(?:(?:the|el|la|o|a|this|next|este|esta|proximo|proxima|este|esse)\s+)*(" + _DOW_ALT + r")(?![a-z])")
 _REL_CODE = {"before": "BEFORE", "by": "BEFORE", "antes": "BEFORE", "after": "AFTER", "despues": "AFTER", "depois": "AFTER",
              "until": "UNTIL", "till": "UNTIL", "hasta": "UNTIL", "ate": "UNTIL"}
 _ONLY_RX = re.compile(r"(?<![a-z])(?:only|just|solo|solamente|unicamente|apenas|somente)(?![a-z])(?!\s+(?:if|when|after|before|once|si|se|cuando|quando|despues|antes|depois|apos)(?![a-z]))")
@@ -715,6 +715,10 @@ _COND_RX = [("UNLESS", re.compile(r"(?<![a-z])(?:unless|except if|except when|a 
             ("IF", re.compile(r"(?:^|[,;]\s*|\s)se\s+(?:o|a|os|as|um|uma|nao|ha)(?![a-z])"))]
 
 
+# `siempre que` / `siempre y cuando` / `provided that` / `as long as` / `desde que` (an IF) and `once` / `as soon as` / `en cuanto` / `assim que` (a WHEN) were missed, or
+# `siempre y cuando` was read as a WHEN only because it contains `cuando` (relay false alarm, 2026-10-26).
+_COND_IF_SYN = re.compile(r"(?<![a-z])(?:siempre y cuando|siempre y que|siempre que|provided that|provided(?= (?:the|a|an|it|he|she|they|we|you|i)(?![a-z]))|as long as|desde que|contanto que|sempre que)(?![a-z])")
+_COND_WHEN_SYN = re.compile(r"(?<![a-z])(?:once(?= (?:the|a|an|this|that|it|he|she|they|we|you|i|all)(?![a-z]))|as soon as|en cuanto|tan pronto como|assim que|logo que)(?![a-z])")
 _WHETHER = re.compile(r"(?:check|verify|validate|see|ask|know|determine|confirm|test|wonder|decide|tell|find out|figure out|verifica|verificar|verifique|comprueba|comprobar|"
                       r"revisa|revisar|confirma|confirmar|confirme|valida|validar|averigua|averiguar|pregunta|preguntar|descubre|veja|veja|vê|descubra|saber|sabe)\s+(?:que\s+)?$")
 
@@ -724,7 +728,8 @@ def _apply_condition_connectives(frame, s: str, text: str) -> None:
     part that survives paraphrase ('X if Y' / 'If Y, X') and that distinguishes `if` from `unless` without comparing prose.
     Not conditions: `verify if / check whether ...` (an interrogative object of the action), and a bare Spanish `si` with no clause after it (`si muestrame`
     = 'yes, show me'); the accented `sí` (yes) is read from the ORIGINAL text."""
-    work = s
+    work = _COND_IF_SYN.sub(" if ", s)
+    work = _COND_WHEN_SYN.sub(" when ", work)
     low = text.lower()
     for name, rx in _COND_RX:
         for m in rx.finditer(work):

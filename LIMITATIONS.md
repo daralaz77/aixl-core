@@ -369,3 +369,15 @@ So the change does what it was designed to do on data its author had not read, a
 **What remains unsolved:** two roles trading places with no marker word (`Finance approves and Purchasing pays` -> `Purchasing approves and Finance pays`), 6 of 21; `actor_flip` between two
 role nouns (`The night shift hands the log to the morning shift` reversed) is only caught when a name is involved. Both need who-does-what binding (subject-verb pairing), which the
 closed vocabulary does not give for unknown verbs; the earlier shortcut (`ROLE_PAIRS`) was a measured failure. Language: es 77 %, en 73 %, pt 67 %. Sample: 90 sources, two authors.
+
+### E-ROLES follow-up (2026-10-26): the 11 false alarms on near-verbatim faithful relays, one by one
+Read from data/relays_roles (so that set is now SPENT for false-alarm claims; the gains below are not independent evidence):
+- **Confirmed translator bugs, fixed:** `hand over the 6 laptops` was read as "more than 6" (phrasal verbs `hand/turn/pass/take/carry/look/roll/go over`); `siempre que` was not a
+  condition and `siempre y cuando` was one only by accident (it contains `cuando`; now both are IF, and `once` / `as soon as` / `en cuanto` / `assim que` are WHEN, `provided that` /
+  `as long as` / `desde que` are IF); `by Friday noon` lost its weekday relation when written `by noon on Friday`.
+- **Confirmed design fixes:** the Portuguese article `o` was a disjunction in a relay that lost the word revealing the language (`deve` -> `tem que`): the language is now decided once for
+  the PAIR; two delegation cues (`solicita` / `pede`) are one fact: the total is compared.
+- **Tried and reverted:** flag `ACTION` only when both sides have a known verb (it removed 2 false alarms, `encaminhar` / `enviar`, but cost 6 of 18 antonym corruptions in the arena): in a
+  safety detector a missed corruption weighs more than a false alarm.
+- **Left as real changes:** `should` -> `needs to` (a stronger modality) and `para confirmar` -> `y confirma` (a purpose clause became a coordinated one).
+Result: near-verbatim faithful relays flagged 11/90 -> 5/90 on the fresh roles set, 10/120 unchanged on the earlier set, arena 94.5 % / 0.0 % unchanged, swapped roles 65/90 unchanged.
