@@ -323,3 +323,22 @@ H7 (veto keeps >= 97 % of proven SAME) **NOT MET** (219/237 = 92 %); H8 (full ve
 accepted, `Não altere` -> `Evite alterar`, softens a prohibition and is arguably a judgement call). The veto can only remove SAMEs; here it removed 18 correct ones and added
 nothing. `relay_check` therefore stays what it is — a free, offline copy / tamper detector for near-verbatim relays — and the arbiter is the tool for reworded ones.
 Limits: 120 sources, two relay authors and two judge families from one vendor; the 95 % interval of a 1/120 false-SAME rate is roughly 0.02-4.6 %.
+
+## Improvement round 2026-10-26 (method: find with evidence, smallest change, verify, record)
+**Found (confirmed by running it):**
+1. **A false EQUIVALENT from the published `compare_verified`.** `Envie o relatório dos clientes` vs `Envie o relatório aos dois clientes` -> EQUIVALENT, verified, envelope MATCH.
+   Cause: `dos` is the number 2 in Spanish and `de + os` ("of the") in Portuguese; the translator read it as 2 in both (QTY=2 on each side).
+   Fix: `dos` is never "accounted" (`aixl/core/completeness.py`), so any text containing it is INCOMPLETE and no layer claims equivalence over it. `unaccounted` now lists the
+   words completeness refuses. Cost, accepted: Spanish `dos clientes` vs English `two customers` is withheld (INCONCLUSIVE). The first attempt (counting `dos` in the OR
+   witness) was rejected: `dos clientes` vs `dos dois clientes` still came out EQUIVALENT.
+2. **Number words beyond ten were invisible** to the core (`fourteen`/`fifteen`, `catorce`/`quince`, `quatorze`/`quinze` all compared EQUIVALENT) and `relay_check` compared
+   `fourteen` with `14` as different. One shared table and parser (`aixl/core/numberwords.py`: ES/EN/PT, compounds `treinta y cinco`, `dois mil`, `one hundred and five`;
+   `one`/`uno`/`um` only before a unit); the translator's table is extended from it.
+3. **Clock times in another notation were a "change"** (`6 pm` vs `18:00`, `6 de la tarde`, `15h30`): normalised to one token. A different time (`6 pm` -> `8 pm`) is still flagged.
+4. **Spanish `la` counted as a pronoun** (`de la tarde`): removed; `él/ella/le/les/his/her/...` still count.
+5. **Portuguese article `o` counted as a disjunction** after a politeness prefix: more Portuguese-only cues (number words, `quando`, `mais`, `qualquer`, ...).
+**Measured after** (arena mutants, other authors' seeds; families chosen on own seeds as before): corruptions flagged 94.7 % -> 94.5 %, benign edits flagged 0.1 % -> **0.0 %** (0 of 1 141).
+Core and `compare_verified` on labelled pairs (dev, arena paraphrases, blind13/14): false EQUIVALENT 0 on every corpus; verified recall unchanged (44, 1, 1, 0). Suite 1292 -> 1320 tests.
+On the model-written relays (a SPENT set: regression check only, not evidence): corrupted flagged 91 -> 93 of 120 (the two number-word cases), near-verbatim faithful 10 (unchanged),
+reworded faithful 109 -> 108.
+**Not done / still open:** swapped roles without names (2 of 10), widened scope without a marker word, noun-level antonyms, `isn't available` vs `unavailable`. No real traffic yet.

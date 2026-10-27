@@ -178,6 +178,8 @@ def compare_verified(text_a: str, text_b: str, config: dict | None = None) -> di
         d["verdict"], d["equivalent"] = "INCONCLUSIVE", False
         d["reason"] = "completeness: the closed vocabulary does not account for all the content of " + (
             "both texts" if not ok_a and not ok_b else "text A" if not ok_a else "text B")
-        d["unaccounted"] = {"a": unaccounted_content(text_a, ga) if not ok_a else [], "b": unaccounted_content(text_b, gb) if not ok_b else []}
+        from aixl.core.completeness import check_completeness
+        d["unaccounted"] = {"a": sorted(set(unaccounted_content(text_a, ga)) | set(check_completeness(text_a, ga)["unaccounted"])) if not ok_a else [],
+                            "b": sorted(set(unaccounted_content(text_b, gb)) | set(check_completeness(text_b, gb)["unaccounted"])) if not ok_b else []}      # + words completeness refuses (e.g. `dos`)
     return d
 

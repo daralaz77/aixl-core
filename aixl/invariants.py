@@ -11,6 +11,7 @@ import collections
 import re
 
 from aixl.core.limits import check_size
+from aixl.core.numberwords import canonical_numbers
 from aixl.translators.auto import to_graph_auto
 
 # constraint prefix -> family. Everything else (entities, data, actions) is vocabulary-dependent and deliberately NOT an invariant.
@@ -23,7 +24,8 @@ _FAMILY = {
 _NAME = re.compile(r"(?<![\w@#])(?:@[A-Za-z0-9_.]+|#\d+|[\w.+-]+@[\w-]+\.[\w.-]+|https?://\S+)")
 _CAP = re.compile(r"(?<=[\s,;:(])([A-ZÁÉÍÓÚÑ][\wáéíóúñ]{2,})")        # capitalised word NOT at the start of a sentence
 _WORD = re.compile(r"[a-z\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1\u00e3\u00f5\u00e7]+")
-_PRONOUNS = frozenset("he she him her his hers they them their theirs it its el ella ellos ellas le les lo la su sus ele ela eles elas dele dela deles delas seu sua seus suas".split())
+# `la` / `lo` are left out on purpose: they are mostly ARTICLES in Spanish (`de la tarde`, `lo importante`), so counting them made `6 de la tarde` -> `18:00` a "pronoun change".
+_PRONOUNS = frozenset("he she him her his hers they them their theirs it its el ella ellos ellas le les su sus ele ela eles elas dele dela deles delas seu sua seus suas".split())
 _NUM = re.compile(r"(?<![\w.])\d+(?:[.,]\d+)?(?![\w])")
 
 
@@ -63,9 +65,12 @@ def extract(text: str) -> dict:
         out["PRONOUN"] = {f"{k}:{v}" for k, v in pron.items()}     # `he`/`she`, `él`/`ella`, `his`/`her`: whom a pronoun points to
     if names:
         out["NAME"] = names
-    nums = {n.replace(",", ".") for n in _NUM.findall(text)}
+    nums = canonical_numbers(text)                              # digits, number words (`catorce` = 14) and clock times (`6 pm` = `18:00`) in one notation
     if nums:
         out["NUMBER"] = nums
+    dos = sum(1 for w in _WORD.findall(text.lower()) if w == "dos")
+    if dos:
+        out["AMBIGUOUS"] = {f"dos:{dos}"}                       # ES "two" / PT "of the": the count must not change
     return {k: frozenset(v) for k, v in out.items()}
 
 
@@ -83,14 +88,14 @@ def check(source: str, relay: str, families=None) -> list:
 
 
 # Families that flag a corruption without flagging benign near-verbatim edits (selection rule and numbers: benchmarks/invariants_relay_eval.py, LIMITATIONS.md E-RELAY).
-RELAY_FAMILIES = frozenset({"ACTION", "NAME_ORDER", "PRONOUN", "CLAUSES", "COMPARATOR", "CONDITION", "DATE", "DISJUNCTION", "MODALITY", "MODIFIER", "NAME", "NEGATION", "NUMBER", "ONLY", "QUANTITY", "SEQUENCE", "WEEKDAY"})
+RELAY_FAMILIES = frozenset({"ACTION", "AMBIGUOUS", "NAME_ORDER", "PRONOUN", "CLAUSES", "COMPARATOR", "CONDITION", "DATE", "DISJUNCTION", "MODALITY", "MODIFIER", "NAME", "NEGATION", "NUMBER", "ONLY", "QUANTITY", "SEQUENCE", "WEEKDAY"})
 
 
 def relay_check(source: str, relay: str) -> dict:
     """Did a critical slot change between `source` and its `relay`?  Built for NEAR-VERBATIM relays (copy, truncation, a flipped word, an injected
     clause). It is NOT an equivalence test: `ok: true` means "no critical slot visibly changed", never "same meaning" — a rewording that moves a negation
     into a different construction can raise a violation, and an antonym swap (`send` -> `cancel`) or a vocabulary-only change is invisible to it.
-    Measured (other authors' seeds, families chosen on the project's own): 94.7 % of meaning-changing corruptions flagged, 0.1 % of benign edits flagged."""
+    Measured (other authors' seeds, families chosen on the project's own): 94.5 % of meaning-changing corruptions flagged, 0.0 % of benign edits flagged."""
     try:
         v = check(source, relay, RELAY_FAMILIES)
     except Exception as e:                                        # noqa: BLE001 — fail closed: an input we cannot analyse is not "ok"

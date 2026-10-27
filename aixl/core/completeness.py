@@ -123,6 +123,11 @@ def _reflected(cls: str, graph, ev: set) -> bool:
     return False
 
 
+# `dos` = the number 2 (Spanish) or `de + os`, "of the" (Portuguese). The translator reads it as 2, so `Envie o relatorio dos clientes` came out EQUIVALENT (verified) to
+# `... aos dois clientes` (found 2026-10-26). A text containing it is INCOMPLETE: no layer may claim equivalence over it (cost: ES `dos clientes` vs EN `two customers` is withheld).
+_HOMOGRAPHS = frozenset({"dos"})
+
+
 def check_completeness(text: str, graph, _ev=None) -> dict:
     ev = _ev if _ev is not None else _evidence_tokens(graph)
     markers = extract_markers(text)
@@ -141,6 +146,9 @@ def check_completeness(text: str, graph, _ev=None) -> dict:
     # taken as the verb the ACTION atom stands for ('mueve' -> UPDATE). Later unknown verbs stay unaccounted (safe).
     verb = next((w for w in toks if w not in FUNCTION_WORDS and w not in STOP and w not in SHORT_FUNCTION and w not in _CLOSED and not w[0].isdigit()), None) if graph.by_type("ACTION") else None
     for w in toks:
+        if w in _HOMOGRAPHS and w not in missing:
+            missing.append(w)                       # never "accounted": whichever reading the translator picks is wrong in the other language
+            continue
         if w == verb or w in missing or w in skip or w in mod_ok or w in FUNCTION_WORDS or w in STOP or w in SHORT_FUNCTION or w in _CLOSED:
             continue
         fs = _forms(w) | {stem(_CONCEPT.get(w, w))}

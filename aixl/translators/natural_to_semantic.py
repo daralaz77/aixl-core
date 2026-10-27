@@ -72,6 +72,13 @@ NUMBER_WORDS = {
     "cincuenta": 50, "cien": 100, "ciento": 100, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9,
     "ten": 10, "twenty": 20, "thirty": 30, "fifty": 50, "hundred": 100, "dois": 2, "duas": 2, "quatro": 4, "sete": 7, "oito": 8,
     "dez": 10, "vinte": 20, "trinta": 30, "cinquenta": 50, "cem": 100}
+from aixl.core.numberwords import HUNDREDS as _NW_HUNDREDS
+from aixl.core.numberwords import TENS as _NW_TENS
+from aixl.core.numberwords import UNITS as _NW_UNITS  # noqa: E402
+
+for _k, _v in {**_NW_UNITS, **_NW_TENS, **_NW_HUNDREDS}.items():      # 11-19, 40-90, 200-900 ...: `fourteen` and `fifteen` were invisible to the core
+    if _k not in NUMBER_WORDS and _v > 0:
+        NUMBER_WORDS[_k] = _v
 LIGHT = [
     (r"(?:ejecut\w+|corre|correr|realiz\w+|haz|hacer|efectu\w+|run|runs|execute|perform|make|rode|rodar|faca)\s+(?:el|la|un|una|the|a|an|o|uma?|os|as)?\s*(?:analisis|analise|analysis)\b", "analiza"),
     (r"(?:ejecut\w+|corre|correr|realiz\w+|haz|hacer|efectu\w+|run|runs|execute|perform|make|rode|rodar|faca)\s+(?:el|la|un|una|the|a|an|o|uma?|os|as)?\s*(?:validacion|validacao|validation)\b", "valida"),
@@ -498,7 +505,9 @@ def _apply_comparators(frame, s: str) -> None:
             frame.constraints.append(c)
 
 
-_PT_CUE = re.compile(r"[\u00e3\u00f5\u00e7\u00ea]|(?<![a-z])(?:nao|n\u00e3o|uma|umas|uns|ao|aos|pelo|pela|pelos|pelas|voce|voc\u00ea|os|dos|das|do|da|na|nas)(?![a-z])")
+_PT_CUE = re.compile(r"[\u00e3\u00f5\u00e7\u00ea]|(?<![a-z])(?:nao|n\u00e3o|uma|umas|uns|ao|aos|pelo|pela|pelos|pelas|voce|voc\u00ea|os|dos|das|do|da|na|nas"
+                     r"|quando|mais|qualquer|tambem|ainda|entao|depois|ficar|deve|devem|dois|duas|sete|oito|dez|onze|doze|treze|catorze|quatorze|quinze|dezesseis|dezessete|dezoito|dezenove"
+                     r"|vinte|trinta|quarenta|cinquenta|sessenta|oitenta|cem|cento)(?![a-z])")
 _DOW = {"MON": "monday|lunes|segunda|segunda-feira", "TUE": "tuesday|martes|terca|terca-feira", "WED": "wednesday|miercoles|quarta|quarta-feira",
         "THU": "thursday|jueves|quinta|quinta-feira", "FRI": "friday|viernes|sexta|sexta-feira", "SAT": "saturday|sabado", "SUN": "sunday|domingo"}
 _DOW_RX = [(code, re.compile(r"(?<![a-z-])(?:" + words + r")s?(?![a-z])")) for code, words in _DOW.items()]
