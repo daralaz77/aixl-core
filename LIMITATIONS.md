@@ -381,3 +381,13 @@ Read from data/relays_roles (so that set is now SPENT for false-alarm claims; th
   safety detector a missed corruption weighs more than a false alarm.
 - **Left as real changes:** `should` -> `needs to` (a stronger modality) and `para confirmar` -> `y confirma` (a purpose clause became a coordinated one).
 Result: near-verbatim faithful relays flagged 11/90 -> 5/90 on the fresh roles set, 10/120 unchanged on the earlier set, arena 94.5 % / 0.0 % unchanged, swapped roles 65/90 unchanged.
+
+### E-ROLES follow-up (2026-10-26): conditions — `relay_check` now compares WHAT the condition says
+The 12 condition corruptions that slipped through all kept the connective and changed the content (`critico` -> `menor`, `renovado` -> `cancelado`, `internacional` -> `refrigerado`,
+`regression tests` -> `smoke tests`, `estavel` -> `instavel`). The graph already held the clause text; `relay_check` only compared the connective (`COND=IF`). New family `CONDITION_TEXT`
+(clause text without its introducing connective, without articles; skipped when one side has no clause text, because a dropped condition is `CONDITION`'s job).
+Measured: condition corruptions flagged 11/23 -> **22/23**, all control corruptions 77/90 -> **88/90**; swapped roles 65/90 and near-verbatim faithful 5/90 unchanged on the fresh set; arena
+corruptions 94.5 % -> 94.6 %, benign 0.0 % (the family passes the arena's selection rule by itself); earlier model-written set: corrupted 100/120 unchanged, near-verbatim faithful 10 -> 13 of 120.
+**Cost, accepted:** a word-level check cannot tell a synonym from an antonym: `requests` -> `asks for`, `politely` -> `nicely`, `unavailable` -> `isn't available`, `cair` -> `entrar` inside a
+condition are flagged with `estavel` -> `instavel`. A missed `critico` -> `menor` weighs more than that alarm. Evidence status: the 12 misses were read to design this, so the 88/90 is not
+independent; the arena result and the earlier set are.

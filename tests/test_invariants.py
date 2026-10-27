@@ -88,3 +88,23 @@ def test_false_alarms_found_on_fresh_model_written_relays_stay_fixed(src, relay)
 def test_the_phrasal_verb_fix_does_not_hide_a_real_bound():
     assert aixl.relay_check("Reject orders over 500 dollars.", "Reject orders over 5000 dollars.")["ok"] is False
     assert aixl.relay_check("Reject orders over 500 dollars.", "Reject orders under 500 dollars.")["ok"] is False
+
+
+@pytest.mark.parametrize("src,relay", [
+    ("Si el incidente es crítico, el equipo lidera la respuesta.", "Si el incidente es menor, el equipo lidera la respuesta."),
+    ("Unless the shipment is international, the team books the carrier.", "Unless the shipment is refrigerated, the team books the carrier."),
+    ("Se o contrato for renovado, o jurídico revisa as cláusulas.", "Se o contrato for cancelado, o jurídico revisa as cláusulas."),
+    ("Notify the manager if the patient is stable.", "Notify the manager if the patient is unstable."),
+])
+def test_a_changed_condition_content_is_flagged_even_with_the_same_connective(src, relay):
+    """The connective was compared (COND=IF) but not WHAT the condition says: 11 of 23 condition corruptions on fresh model-written relays slipped through."""
+    r = aixl.relay_check(src, relay)
+    assert r["ok"] is False and "CONDITION_TEXT" in {v["family"] for v in r["violations"]}
+
+
+@pytest.mark.parametrize("src,relay", [
+    ("Marta aprueba los pagos, siempre que el cliente haya devuelto el producto.", "Marta aprueba los pagos, siempre y cuando el cliente haya devuelto el producto."),
+    ("Build the notes only if the build passes all regression tests.", "Build the notes only if the build passes all the regression tests."),
+])
+def test_condition_connective_synonyms_and_articles_are_not_a_change(src, relay):
+    assert aixl.relay_check(src, relay)["ok"] is True

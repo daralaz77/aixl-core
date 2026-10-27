@@ -54,6 +54,20 @@ def _or_count(text: str, pt: bool) -> int:
                if (t in ("or", "ou", "u") or (t == "o" and not pt and i > 0 and toks[i - 1] not in ("e", "y", "ou", "or"))) and not (i + 1 < len(toks) and toks[i + 1] in _BOUND))
 
 
+_LEAD = re.compile(r"^(?:siempre y cuando|siempre y que|siempre que|provided that|as long as|desde que|contanto que|sempre que|once|as soon as|en cuanto|assim que|when|whenever|if|unless|cuando|quando|si|se)\s+")
+
+
+_ARTICLES = frozenset("the a an el la los las un una lo o os as um uma".split())
+
+
+def _strip_connective(clause: str) -> str:
+    """The condition text without the word that introduces it: `siempre que X` == `siempre y cuando X` == `X`."""
+    prev = None
+    while prev != clause:
+        prev, clause = clause, _LEAD.sub("", clause.strip())
+    return " ".join(w for w in clause.split() if w not in _ARTICLES)         # `all regression tests` == `all the regression tests`
+
+
 def extract(text: str, pt: bool | None = None) -> dict:
     check_size(text)
     g = to_graph_auto(text)
@@ -68,6 +82,9 @@ def extract(text: str, pt: bool | None = None) -> dict:
         out["DISJUNCTION"] = {f"DISJ={n_or}"}
     if c.get("negation"):
         out.setdefault("NEGATION", set()).add("NEG")
+    conds = {_strip_connective(x) for x in c.get("conditions", ()) if x}
+    if conds:
+        out["CONDITION_TEXT"] = conds                            # WHAT the condition says (`incident is critical` -> `incident is minor`), not only which connective introduces it
     for t in c.get("time", ()):
         out.setdefault("DATE", set()).add(str(t))
     for q in c.get("quantities", ()):
@@ -115,20 +132,22 @@ def check(source: str, relay: str, families=None) -> list:
         if families is not None and fam not in families:
             continue
         sa, sb = a.get(fam, frozenset()), b.get(fam, frozenset())
+        if fam == "CONDITION_TEXT" and (not sa or not sb):
+            continue                                              # one side has no condition TEXT (`once X` was not captured): a dropped condition is the CONDITION family's job
         if sa != sb:
             out.append((fam, tuple(sorted(sa - sb)), tuple(sorted(sb - sa))))
     return out
 
 
 # Families that flag a corruption without flagging benign near-verbatim edits (selection rule and numbers: benchmarks/invariants_relay_eval.py, LIMITATIONS.md E-RELAY).
-RELAY_FAMILIES = frozenset({"ACTION", "AMBIGUOUS", "DELEGATION", "NAME_ORDER", "PRONOUN", "CLAUSES", "COMPARATOR", "CONDITION", "DATE", "DISJUNCTION", "MODALITY", "MODIFIER", "NAME", "NEGATION", "NUMBER", "ONLY", "QUANTITY", "SEQUENCE", "WEEKDAY"})
+RELAY_FAMILIES = frozenset({"ACTION", "AMBIGUOUS", "CONDITION_TEXT", "DELEGATION", "NAME_ORDER", "PRONOUN", "CLAUSES", "COMPARATOR", "CONDITION", "DATE", "DISJUNCTION", "MODALITY", "MODIFIER", "NAME", "NEGATION", "NUMBER", "ONLY", "QUANTITY", "SEQUENCE", "WEEKDAY"})
 
 
 def relay_check(source: str, relay: str) -> dict:
     """Did a critical slot change between `source` and its `relay`?  Built for NEAR-VERBATIM relays (copy, truncation, a flipped word, an injected
     clause). It is NOT an equivalence test: `ok: true` means "no critical slot visibly changed", never "same meaning" — a rewording that moves a negation
     into a different construction can raise a violation, and an antonym swap (`send` -> `cancel`) or a vocabulary-only change is invisible to it.
-    Measured (other authors' seeds, families chosen on the project's own): 94.5 % of meaning-changing corruptions flagged, 0.0 % of benign edits flagged."""
+    Measured (other authors' seeds, families chosen on the project's own): 94.6 % of meaning-changing corruptions flagged, 0.0 % of benign edits flagged."""
     try:
         v = check(source, relay, RELAY_FAMILIES)
     except Exception as e:                                        # noqa: BLE001 — fail closed: an input we cannot analyse is not "ok"
