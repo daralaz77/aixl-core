@@ -342,3 +342,15 @@ Core and `compare_verified` on labelled pairs (dev, arena paraphrases, blind13/1
 On the model-written relays (a SPENT set: regression check only, not evidence): corrupted flagged 91 -> 93 of 120 (the two number-word cases), near-verbatim faithful 10 (unchanged),
 reworded faithful 109 -> 108.
 **Not done / still open:** swapped roles without names (2 of 10), widened scope without a marker word, noun-level antonyms, `isn't available` vs `unavailable`. No real traffic yet.
+
+### Improvement round 2026-10-26 (b): swapped roles
+Evidence: on the 120 model-written relays only 2 of 10 swapped-role corruptions were flagged. Three patterns explained the misses: the actor moves (`Send Priya X` -> `Have Priya send X`,
+`avísale a Jorge` -> `pídele a Jorge que te avise`), the addressee becomes `you`/`te` (`assign it to the team` -> `assign it to you`), and two roles trade places.
+Added: `DELEGATION` (cues `have/ask/tell/request/instruct`, `pide/pídele/dile/pede/peça/diga`), second-person pronouns in `PRONOUN` and in the `NAME_ORDER` sequence,
+and the accented `él` (the article `el` had been counted as a pronoun instead).
+**Tried and removed — a negative result:** `ROLE_PAIRS` (the pairs preposition + head word, to catch two role nouns trading places). It added no swapped-role detection and
+raised near-verbatim false alarms on model-written faithful relays from 10/120 to 25/120 (19 firings). Mechanical benign edits (1 141) had missed it entirely: **the arena's benign edits
+are too gentle to be the only false-alarm test.**
+Measured after the removal: arena corruptions 94.5 %, benign 0.0 % (unchanged). On the model-written relays (a SPENT set, and the swapped-role patterns were read from it, so this is NOT
+evidence of generalisation): corrupted flagged 93 -> 100 of 120, swapped roles 2 -> 8 of 10, near-verbatim faithful 10 of 120 (unchanged), reworded 108 -> 107.
+`DELEGATION` is in the default set by principle, not by the arena selection rule (it never fires on the arena's mutants). **A fresh set of model-written role swaps is needed before any claim.**

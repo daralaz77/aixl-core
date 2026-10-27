@@ -53,3 +53,19 @@ def test_mcp_tool_is_exposed_and_matches_the_api():
 def test_blind_spots_closed_action_role_and_pronoun(src, relay, family):
     r = aixl.relay_check(src, relay)
     assert r["ok"] is False and family in {v["family"] for v in r["violations"]}
+
+
+@pytest.mark.parametrize("src,relay", [
+    ("Send Priya the revised budget spreadsheet by Thursday.", "Have Priya send the revised budget spreadsheet by Thursday."),
+    ("Cuando llegue la factura, avísale a Jorge.", "Cuando llegue la factura, pídele a Jorge que te avise."),
+    ("You may reschedule the demo, but you cannot cancel it without telling Daniel.", "You may reschedule the demo, but Daniel cannot cancel it without telling you."),
+    ("Create a ticket and assign it to the mobile team.", "Have the mobile team create a ticket and assign it to you."),
+])
+def test_swapped_roles_delegation_and_addressee_are_flagged(src, relay):
+    """Roles swapped by a model (2026-10-26): who acts moved (`Have X do`, `pídele a X que`) or the addressee became `you` / `te`."""
+    assert aixl.relay_check(src, relay)["ok"] is False
+
+
+def test_the_article_el_is_not_a_pronoun_but_el_with_accent_is():
+    assert not any(v["family"] == "PRONOUN" for v in aixl.relay_check("Revisa el informe.", "Revisa informe.")["violations"])
+    assert any(v["family"] == "PRONOUN" for v in aixl.relay_check("Dáselo a él.", "Dáselo a ella.")["violations"])

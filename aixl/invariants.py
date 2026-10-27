@@ -11,6 +11,7 @@ import collections
 import re
 
 from aixl.core.limits import check_size
+from aixl.core.normalizer import strip_accents
 from aixl.core.numberwords import canonical_numbers
 from aixl.translators.auto import to_graph_auto
 
@@ -25,7 +26,9 @@ _NAME = re.compile(r"(?<![\w@#])(?:@[A-Za-z0-9_.]+|#\d+|[\w.+-]+@[\w-]+\.[\w.-]+
 _CAP = re.compile(r"(?<=[\s,;:(])([A-ZÁÉÍÓÚÑ][\wáéíóúñ]{2,})")        # capitalised word NOT at the start of a sentence
 _WORD = re.compile(r"[a-z\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1\u00e3\u00f5\u00e7]+")
 # `la` / `lo` are left out on purpose: they are mostly ARTICLES in Spanish (`de la tarde`, `lo importante`), so counting them made `6 de la tarde` -> `18:00` a "pronoun change".
-_PRONOUNS = frozenset("he she him her his hers they them their theirs it its el ella ellos ellas le les su sus ele ela eles elas dele dela deles delas seu sua seus suas".split())
+_PRONOUNS = frozenset("he she him her his hers they them their theirs it its \u00e9l ella ellos ellas le les su sus ele ela eles elas dele dela deles delas seu sua seus suas".split())
+_SECOND = re.compile(r"(?<![a-z])(?:you|your|yours|te|ti|tu|tus|usted|ustedes|voce|voces|vos)(?![a-z])")
+_DELEGATE = frozenset("have ask tell request instruct pide pidele pideles dile diles pedile pede peca diga diz solicita".split())
 _NUM = re.compile(r"(?<![\w.])\d+(?:[.,]\d+)?(?![\w])")
 
 
@@ -60,7 +63,14 @@ def extract(text: str) -> dict:
     order = tuple(m.group(0).lower() for m in sorted(list(_NAME.finditer(text)) + [m for m in _CAP.finditer(text) if m.group(1).lower() in caps], key=lambda m: m.start()))
     if len(order) >= 2:
         out["NAME_ORDER"] = {order}                              # who comes first: `Ana ... Luis` vs `Luis ... Ana` (role swap)
-    pron = collections.Counter(w for w in _WORD.findall(text.lower()) if w in _PRONOUNS)
+    lw = strip_accents(text).lower()
+    second = [m for m in _SECOND.finditer(lw)]
+    if second:
+        order = tuple(x for _p, x in sorted([(m.start(), m.group(0)) for m in list(_NAME.finditer(text))] + [(m.start(), m.group(1).lower()) for m in _CAP.finditer(text) if m.group(1).lower() in caps]
+                                           + [(m.start(), "you") for m in second]))
+        if len(order) >= 2:
+            out["NAME_ORDER"] = {order}                          # the addressee (`you`, `te`, `voce`) moves too: `assign it to the team` -> `assign it to you`
+    pron = collections.Counter([w for w in _WORD.findall(text.lower()) if w in _PRONOUNS] + ["you" for _m in second])
     if pron:
         out["PRONOUN"] = {f"{k}:{v}" for k, v in pron.items()}     # `he`/`she`, `él`/`ella`, `his`/`her`: whom a pronoun points to
     if names:
@@ -68,6 +78,10 @@ def extract(text: str) -> dict:
     nums = canonical_numbers(text)                              # digits, number words (`catorce` = 14) and clock times (`6 pm` = `18:00`) in one notation
     if nums:
         out["NUMBER"] = nums
+    toks = re.findall(r"[a-z]+", lw)
+    deleg = collections.Counter(t for t in toks if t in _DELEGATE)
+    if deleg:
+        out["DELEGATION"] = {f"{k}:{v}" for k, v in deleg.items()}        # `Send Priya the budget` -> `Have Priya send it`: who acts changed
     dos = sum(1 for w in _WORD.findall(text.lower()) if w == "dos")
     if dos:
         out["AMBIGUOUS"] = {f"dos:{dos}"}                       # ES "two" / PT "of the": the count must not change
@@ -88,7 +102,7 @@ def check(source: str, relay: str, families=None) -> list:
 
 
 # Families that flag a corruption without flagging benign near-verbatim edits (selection rule and numbers: benchmarks/invariants_relay_eval.py, LIMITATIONS.md E-RELAY).
-RELAY_FAMILIES = frozenset({"ACTION", "AMBIGUOUS", "NAME_ORDER", "PRONOUN", "CLAUSES", "COMPARATOR", "CONDITION", "DATE", "DISJUNCTION", "MODALITY", "MODIFIER", "NAME", "NEGATION", "NUMBER", "ONLY", "QUANTITY", "SEQUENCE", "WEEKDAY"})
+RELAY_FAMILIES = frozenset({"ACTION", "AMBIGUOUS", "DELEGATION", "NAME_ORDER", "PRONOUN", "CLAUSES", "COMPARATOR", "CONDITION", "DATE", "DISJUNCTION", "MODALITY", "MODIFIER", "NAME", "NEGATION", "NUMBER", "ONLY", "QUANTITY", "SEQUENCE", "WEEKDAY"})
 
 
 def relay_check(source: str, relay: str) -> dict:
