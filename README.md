@@ -51,6 +51,9 @@ to the arbiter or to a human.
 Use **`aixl.compare_verified`** (what MCP and A2A return) — never `aixl.compare(...).equivalent` on open text — and treat `NOT_EQUIVALENT` with
 `difference_reliable: false` as "not proven equal". The A2A agent refuses to listen on a public interface without `AIXL_A2A_TOKEN` ([DEPLOYMENT.md](DEPLOYMENT.md)).
 
+### Security
+How to report a vulnerability, what is in scope and the known limits: [SECURITY.md](SECURITY.md). Threat model for meaning-changing manipulation: [docs/SECURITY_MODEL.md](docs/SECURITY_MODEL.md).
+
 ### Status
 Not a standard; no production use. Everything measured is in [`docs/EVIDENCE.md`](docs/EVIDENCE.md) and [`LIMITATIONS.md`](LIMITATIONS.md); the earlier headline numbers
 (99.4 %, 95 %+) are history: they come from sets that share the translator's own vocabulary.
