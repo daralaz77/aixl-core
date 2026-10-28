@@ -83,7 +83,7 @@ jobs:
 
       - name: Pull the just-published image fresh and re-verify a real round-trip
         # Proves the full publish -> pull cycle actually works through the real registry with real
-        # auth — ghcr.io/daralaz77/aixl-core is a PRIVATE package (matches the repo's own visibility),
+        # auth — ghcr.io/daralaz77/aixl-core is a PRIVATE package (package visibility is set separately from the repository's, which is public),
         # confirmed the hard way: an anonymous `docker pull` of it fails with "unauthorized", and even
         # an authenticated-but-under-scoped token gets a 403 — so `docker push` succeeding is NOT
         # sufficient evidence the image is actually retrievable. This also exercises the same kind of

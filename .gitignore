@@ -15,3 +15,11 @@ distill/colab_out/
 distill/mlx_data_qwen/
 
 .gate_logs/
+
+# Private material lives in the PRIVATE repository daralaz77/aixl-private (moved there 2026-10-28). This repository is public: never commit contact drafts, prospect lists, agreements or market audits here.
+docs/legal/
+docs/MENSAJES_*.md
+docs/MESSAGES_*.md
+docs/SEGUIMIENTO_*.md
+docs/PROSPECTOS_*.md
+docs/AUDIT_CONSEJO_5X_*_MERCADO.md
