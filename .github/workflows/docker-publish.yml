@@ -49,15 +49,18 @@ jobs:
 
       - name: Run the smoke-tested image and verify a real round-trip
         run: |
+          # The agent refuses to listen on a public interface (the image binds 0.0.0.0) without AIXL_A2A_TOKEN. A token is generated for this run only.
+          TOKEN=$(openssl rand -hex 16)
+          echo "::add-mask::$TOKEN"
           docker run -d --name smoke -p 8766:8766 \
-            -e AIXL_A2A_PUBLIC_URL=http://127.0.0.1:8766/ aixl-core:smoke-test
+            -e AIXL_A2A_TOKEN=$TOKEN -e AIXL_A2A_PUBLIC_URL=http://127.0.0.1:8766/ aixl-core:smoke-test
           for i in $(seq 1 20); do
             curl -sf http://127.0.0.1:8766/healthz > /dev/null && break
             sleep 1
           done
-          curl -sf http://127.0.0.1:8766/healthz
-          pip install -q "a2a-sdk[http-server]"
-          python scripts/smoke_test_a2a.py http://127.0.0.1:8766
+          curl -sf http://127.0.0.1:8766/healthz || { docker logs smoke; exit 1; }
+          pip install -q "a2a-sdk[http-server]" httpx
+          AIXL_A2A_TOKEN=$TOKEN python scripts/smoke_test_a2a.py http://127.0.0.1:8766 || { docker logs smoke; exit 1; }
           docker logs smoke
           docker rm -f smoke
 
@@ -90,14 +93,16 @@ jobs:
         run: |
           docker rmi aixl-core:smoke-test || true
           docker pull ghcr.io/${{ github.repository }}:latest
+          TOKEN2=$(openssl rand -hex 16)
+          echo "::add-mask::$TOKEN2"
           docker run -d --name smoke2 -p 8767:8766 \
-            -e PORT=8766 -e AIXL_A2A_PUBLIC_URL=http://127.0.0.1:8767/ \
+            -e PORT=8766 -e AIXL_A2A_TOKEN=$TOKEN2 -e AIXL_A2A_PUBLIC_URL=http://127.0.0.1:8767/ \
             ghcr.io/${{ github.repository }}:latest
           for i in $(seq 1 20); do
             curl -sf http://127.0.0.1:8767/healthz > /dev/null && break
             sleep 1
           done
-          curl -sf http://127.0.0.1:8767/healthz
-          python scripts/smoke_test_a2a.py http://127.0.0.1:8767
+          curl -sf http://127.0.0.1:8767/healthz || { docker logs smoke2; exit 1; }
+          AIXL_A2A_TOKEN=$TOKEN2 python scripts/smoke_test_a2a.py http://127.0.0.1:8767 || { docker logs smoke2; exit 1; }
           docker logs smoke2
           docker rm -f smoke2

@@ -196,3 +196,29 @@ def test_metrics_is_real_prometheus_text_format_and_counts_a_real_compare_call(s
     assert "# TYPE aixl_requests_total counter" in after
     after_n = int([l for l in after.splitlines() if l.startswith("aixl_compare_total")][0].split()[1])
     assert after_n == before_n + 1
+
+
+def test_smoke_script_passes_against_a_token_protected_agent_like_the_ci_image():
+    """docker-publish.yml starts the image WITH a token (the agent refuses to listen on 0.0.0.0 without one) and the smoke test must send it. Regression for the CI that failed on
+    every push from 2026-10-13 to 2026-10-27: the workflow never passed AIXL_A2A_TOKEN."""
+    import importlib.util
+    port, token = _free_port(), "ci-smoke-token-123"
+    env = {**os.environ, "AIXL_A2A_TOKEN": token, "AIXL_A2A_PUBLIC_URL": f"http://127.0.0.1:{port}/"}
+    proc = subprocess.Popen([sys.executable, "-m", "aixl.agents.a2a_server", str(port)], cwd=REPO_ROOT, env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    try:
+        url = f"http://127.0.0.1:{port}"
+        for _ in range(100):
+            try:
+                if httpx.get(url + "/healthz", timeout=0.5).status_code == 200:
+                    break
+            except httpx.HTTPError:
+                time.sleep(0.1)
+        spec = importlib.util.spec_from_file_location("smoke_test_a2a", os.path.join(REPO_ROOT, "scripts", "smoke_test_a2a.py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        asyncio.run(mod.main(url, token))                                    # auth rejected anonymously + compare + negotiate
+        from a2a.client.errors import A2AClientError
+        with pytest.raises(A2AClientError):
+            asyncio.run(mod.main(url, None))                                 # without the token the script must FAIL, not pass silently
+    finally:
+        proc.terminate(); proc.wait(timeout=5)

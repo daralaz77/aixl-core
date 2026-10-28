@@ -291,3 +291,9 @@ Real JSON-RPC over loopback HTTP, 1 process, this Mac: 300 compare calls at conc
 server stays up; 60-request burst at 20/min -> 40 x 429, 0 x 5xx; `kill -9` -> back and answering in 0.3 s; SIGTERM exits in 0.2 s (default
 signal handling, exit -15: no in-flight drain — acceptable because every call is idempotent and stateless except negotiation Tasks, which are
 in-memory and lost on restart). Single-core numbers; size replicas from them, do not extrapolate.
+
+### Smoke test with a token (2026-10-27)
+Since 2026-10-13 the agent refuses to listen on a non-loopback host without `AIXL_A2A_TOKEN`, and the image binds `0.0.0.0`. The `docker-publish` workflow never passed a token, so
+its smoke test failed on every push for two weeks and no image was published. Fixed: both `docker run` steps now generate a one-run token (masked in the log) and pass it; 
+`scripts/smoke_test_a2a.py` reads `AIXL_A2A_TOKEN`, sends it as `Authorization: Bearer ...`, and first asserts that an anonymous JSON-RPC call is rejected with 401 while `/healthz`
+stays public (so a broken guard also fails the pipeline). By hand: `AIXL_A2A_TOKEN=<token> python scripts/smoke_test_a2a.py http://127.0.0.1:8766`.
