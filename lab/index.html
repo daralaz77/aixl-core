@@ -26,6 +26,35 @@ button.primary{color:#fff;font-weight:700;letter-spacing:.06em;border-color:#1d2
 pre{background:#14130f;color:#9be8b3;border:1px solid #000;border-radius:8px;padding:10px;overflow:auto;font-size:12.5px;margin:6px 0;box-shadow:inset 0 3px 8px rgba(0,0,0,.7)}
 details{margin-top:14px}summary{cursor:pointer;color:var(--mut);font-size:13px}.err{border-color:var(--bad);color:var(--bad)}
 .diff{margin:6px 0;padding:8px 10px;border-radius:6px;border-left:4px solid var(--bad);background:var(--panel);box-shadow:inset 0 1px 3px var(--sh)}small{color:var(--mut)}
+
+/* ---- motion ---- */
+body{background-size:auto,auto;position:relative;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;z-index:-1;width:46vmax;height:46vmax;border-radius:50%;filter:blur(70px);opacity:.45;pointer-events:none;animation:drift 22s ease-in-out infinite alternate}
+body:before{top:-14vmax;left:-10vmax;background:radial-gradient(circle,var(--acc),transparent 65%)}
+body:after{bottom:-16vmax;right:-12vmax;background:radial-gradient(circle,var(--ok),transparent 65%);animation-duration:28s;animation-delay:-9s}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(8vmax,5vmax) scale(1.18)}}
+main{animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+.demos button{animation:rise .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*45ms + 150ms)}
+button{transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s,filter .18s}
+button:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 1px 0 var(--hi) inset,0 5px 0 var(--line),0 9px 14px var(--sh)}
+button.primary:hover{box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 5px 0 #1d2f94,0 10px 18px var(--sh)}
+button:active{transform:translateY(3px)}
+textarea{transition:box-shadow .25s,border-color .25s}
+textarea:focus{outline:none;border-color:var(--acc);box-shadow:inset 0 3px 7px var(--sh),0 0 0 3px color-mix(in srgb,var(--acc) 35%,transparent),0 0 18px color-mix(in srgb,var(--acc) 40%,transparent)}
+.card.enter{animation:pop .5s cubic-bezier(.2,1.2,.3,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+.badge:before{animation:led 2.2s ease-in-out infinite}
+@keyframes led{0%,100%{box-shadow:0 0 5px currentColor,inset 0 -1px 2px rgba(0,0,0,.4)}50%{box-shadow:0 0 15px currentColor,0 0 4px currentColor,inset 0 -1px 2px rgba(0,0,0,.4)}}
+.neq.badge{animation:shake .5s .15s both}
+@keyframes shake{20%,60%{transform:translateX(-4px)}40%,80%{transform:translateX(4px)}}
+.diff,.dim{animation:rise .45s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*60ms + 120ms)}
+.bar>i{transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.scan{position:relative;overflow:hidden;color:var(--mut)}
+.scan:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,var(--hi) 50%,transparent 70%);transform:translateX(-100%);animation:sweep 1.1s linear infinite}
+@keyframes sweep{to{transform:translateX(100%)}}
+details>*:not(summary){animation:rise .35s ease both}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style></head>
 <body><main>
 <h1>AIXL Semantic Lab</h1>
@@ -40,11 +69,11 @@ const DEMOS=[["Equivalencia","Analiza las ventas del primer trimestre de 2026.",
 const STATES={PROVEN:["eq","EQUIVALENCIA COMPROBADA"],NO_PROOF:["warn","SIN CAMBIOS CRÍTICOS — NO PROBADO EQUIVALENTE"],DIFFERENCE:["neq","DIFERENCIA DETECTADA"],UNVERIFIED:["warn","NO SE PUDO ANALIZAR"]};
 const DIMN={actions:"Acción",entities:"Entidades",data:"Datos",time:"Fechas y tiempo",location:"Lugar",constraints:"Restricciones",conditions:"Condiciones",negation:"Negación",references:"Referencias",quantities:"Cantidades",output:"Resultado esperado",modifiers:"Matices"};
 const $=id=>document.getElementById(id);
-DEMOS.forEach(d=>{const b=document.createElement('button');b.textContent=d[0];b.onclick=()=>{$('a').value=d[1];$('b').value=d[2];run()};$('demos').appendChild(b)});
+DEMOS.forEach(d=>{const b=document.createElement('button');b.textContent=d[0];b.style.setProperty('--i',DEMOS.indexOf(d));b.onclick=()=>{$('a').value=d[1];$('b').value=d[2];run()};$('demos').appendChild(b)});
 const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 function fail(msg){$('out').innerHTML=`<div class="card err"><b>No se pudo comparar.</b> ${esc(msg)}</div>`}
 async function run(){
-  $('out').innerHTML='<div class="card">Analizando…</div>';
+  $('out').innerHTML='<div class="card scan">Analizando…</div>';
   let d;
   try{
     const r=await fetch('/api/compare',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({a:$('a').value,b:$('b').value})});
@@ -55,14 +84,16 @@ async function run(){
   const rel=(d.relay&&d.relay.violations||[]).map(v=>`<div class="diff"><b>Dato crítico (${esc(v.family)})</b><br>Solo en A: ${esc((v.only_in_source||[]).join(', ')||'—')} → Solo en B: ${esc((v.only_in_relay||[]).join(', ')||'—')}</div>`).join('');
   const diffs=(d.differences||[]).map(x=>`<div class="diff"><b>${esc(x.field)}</b> — ${esc(x.kind)} <small>(${esc(x.severity)}${x.detail?', '+esc(x.detail):''})</small><br>${esc(x.source)} → ${esc(x.target)}</div>`).join('');
   const amb=(t,x)=>x&&x.ambiguous?`<p><b>AMBIGUO</b> (texto ${esc(t)}): ${x.findings.map(f=>esc(f.field+': '+f.reason)).join('; ')}</p>`:'';
-  $('out').innerHTML=`<div class="card"><div><span class="badge ${cls}">${label}</span></div>
+  $('out').innerHTML=`<div class="card enter"><div><span class="badge ${cls}">${label}</span></div>
   <p style="margin:10px 0 0">${esc(d.state_reason||'')}</p>
   ${rel||diffs?`<h3 style="margin:14px 0 4px;font-size:14px">Qué cambió</h3>${rel}${diffs}`:''}
   ${amb('A',d.ambiguity_a)}${amb('B',d.ambiguity_b)}${d.contradiction&&d.contradiction.contradiction?`<p><b>CONTRADICCIÓN</b>: ${d.contradiction.alerts.map(a=>esc(a.type)).join(', ')}</p>`:''}
   <details><summary>Detalle técnico</summary>
-  <p><small>Similitud superficial (no es una prueba de equivalencia):</small> <b>${pct}%</b></p><div class="bar"><i style="width:${pct}%"></i></div>
+  <p><small>Similitud superficial (no es una prueba de equivalencia):</small> <b>${pct}%</b></p><div class="bar"><i data-w="${pct}" style="width:0"></i></div>
   <div class="dims">${dims}</div>
   <pre>${esc(d.aixl_a||'')}\n${esc(d.aixl_b||'')}</pre></details></div>`;
+  document.querySelectorAll('#out .diff,#out .dim').forEach((el,i)=>el.style.setProperty('--i',i));
+  requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll('#out .bar>i').forEach(el=>el.style.width=el.dataset.w+'%')));
 }
 $('go').onclick=run;
 document.addEventListener('keydown',e=>{if(e.ctrlKey&&e.key==='Enter')run()});
