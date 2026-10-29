@@ -161,6 +161,40 @@ def _strong_audience(lw: str) -> bool:
     return False
 
 
+# USE_LIMIT_PLURAL (2026-10-29): a different signal for "who is the audience", chosen because closed lists failed twice (E-USE-LIMIT v5/v8). A strong audience verb whose complement has a PLURAL HEAD
+# (`written for investors`, `dirigido a los pacientes de diálisis`): English puts the head last, Spanish/Portuguese first. Events and occasions are mostly singular (`the harvest festival`).
+# Structure, not vocabulary: no event list. Known weak spot: plural events (`las pruebas de carga`), singular groups (`the committee`) and irregular plurals.
+_EN_PLURALS = frozenset("people children men women persons folks".split())
+
+
+def _plural_word(w: str) -> bool:
+    return w in _EN_PLURALS or (len(w) > 3 and w.endswith("s") and not w.endswith(("ss", "us", "is", "ics")))
+
+
+def _plural_audience(lw: str, with_groups: bool = False) -> bool:
+    for m in _STRONG.finditer(lw):
+        toks = m.group("rest").split()
+        i = 0
+        while i < len(toks) - 1 and toks[i] in _DET:
+            i += 1
+        np = []
+        for t in toks[i:]:
+            if t in _NP_END:
+                break
+            np.append(t)
+        if not np:
+            continue
+        head = np[0] if _ROMANCE_VERB.search(m.group(0)) else np[-1]          # Spanish / Portuguese: head first; English: head last
+        if _plural_word(head) or (with_groups and re.fullmatch(_AUD_NOUN, head)):
+            return True
+    return False
+
+
+def plural_audience(text: str) -> bool:
+    """OPT-IN (family `USE_LIMIT_PLURAL`): a strong audience verb whose complement has a PLURAL head. Structural, no event list. Evaluated only on the spent sets so far (see LIMITATIONS.md E-USE-LIMIT v9)."""
+    return _plural_audience(strip_accents(text).lower().replace("-", " ").replace("\u2011", " "))
+
+
 def open_audience(text: str) -> bool:
     """OPT-IN (family `USE_LIMIT_OPEN`, not in RELAY_FAMILIES): a strong audience verb followed by ANY group. Validated on fresh data it caught 91 % of unusual audiences but also flagged 36.7 % of
     decoys (`prepared for the harvest festival`): events, occasions and purposes are as open as audiences, so no closed exclusion list generalises (LIMITATIONS.md E-USE-LIMIT v8)."""
@@ -227,6 +261,8 @@ def extract(text: str, pt: bool | None = None) -> dict:
         out["DELEGATION"] = {f"n:{sum(deleg.values())}"}                   # `Send Priya the budget` -> `Have Priya send it`: who acts changed (`solicita` = `pede`: the total, not the cue)
     if open_audience(text):
         out["USE_LIMIT_OPEN"] = {"AUDIENCE"}                   # opt-in only: see `open_audience`
+    if plural_audience(text):
+        out["USE_LIMIT_PLURAL"] = {"AUDIENCE"}                 # opt-in only: see `plural_audience`
     ul = use_limits(text)
     if ul:
         out["USE_LIMIT"] = set(ul)                             # `Confidential.` / `under NDA` / `Embargoed` / `for management` / `Draft`: what limits the use of the content
@@ -256,6 +292,7 @@ def check(source: str, relay: str, families=None) -> list:
 RELAY_FAMILIES_V1 = frozenset({"ACTION", "AMBIGUOUS", "CONDITION_TEXT", "DELEGATION", "NAME_ORDER", "PRONOUN", "CLAUSES", "COMPARATOR", "CONDITION", "DATE", "DISJUNCTION", "MODALITY", "MODIFIER", "NAME", "NEGATION", "NUMBER", "ONLY", "QUANTITY", "SEQUENCE", "WEEKDAY"})
 RELAY_FAMILIES = RELAY_FAMILIES_V1 | {"USE_LIMIT"}      # V1 = before the use-limit family (kept so a baseline can be re-scored)
 
+RELAY_FAMILIES_PLURAL = RELAY_FAMILIES | {"USE_LIMIT_PLURAL"}   # + the plural-head audience family (opt-in, pending a fresh validation)
 RELAY_FAMILIES_OPEN = RELAY_FAMILIES | {"USE_LIMIT_OPEN"}     # + the strong-audience-verb family (more sensitive, 36.7 % decoy alarms on fresh data)
 
 

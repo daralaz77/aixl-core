@@ -112,3 +112,26 @@ def test_open_audiences_are_seen_in_open_mode_v7(text):
 def test_reservado_para_is_the_audience_verb_not_a_confidentiality_notice():
     assert "CONFIDENTIALITY" not in use_limits("Configure o ambiente, reservado para a rodada de testes.")
     assert "CONFIDENTIALITY" in use_limits("Documento reservado. Envie o relatório.")
+
+
+@pytest.mark.parametrize("text", [
+    "Update the charts written for investors.", "Ajusta el informe dirigido a los inversionistas.", "Redija o folheto destinado às mães lactantes.",
+    "Prepare the guide aimed at community health workers.", "Escribe la nota pensada para los pacientes de diálisis.",
+])
+def test_plural_head_audience(text):
+    from aixl.invariants import plural_audience
+    assert plural_audience(text)
+
+
+@pytest.mark.parametrize("text", [
+    "Write the speech prepared for the harvest festival.", "Escribe el texto preparado para la ceremonia de graduación.", "Revise o edital preparado para a eleição do sindicato.",
+    "Draft the plan aimed at reducing churn.", "Update the slides prepared for the quarterly review.",
+])
+def test_singular_head_is_not_a_plural_audience(text):
+    from aixl.invariants import plural_audience
+    assert not plural_audience(text)
+
+
+def test_plural_family_is_opt_in():
+    from aixl.invariants import RELAY_FAMILIES_PLURAL
+    assert "USE_LIMIT_PLURAL" in RELAY_FAMILIES_PLURAL and "USE_LIMIT_PLURAL" not in RELAY_FAMILIES

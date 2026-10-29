@@ -1,0 +1,12 @@
+{
+ "aixl/invariants.py": "558a709c421a510c82c1b86b560a7846f3afc63d8b68cd0ead91299ae8b6146c",
+ "aixl/translators/natural_to_semantic.py": "ebb1f6677c3868851aefefbe4cb5b58b21144f11757e7273c98c6f9ce7fc8dc0",
+ "aixl/core/completeness.py": "9c678a07cd341190d1c3a7daaf9fb3e4cb18b4681b2344ee4b9f77c03de617b7",
+ "aixl/core/numberwords.py": "d0162b8768336582a765a42a3559de0fe1afc3167b905fdcd736f7b0b3fa6538",
+ "aixl/api/service.py": "5c0e77d96f7a0756d2bfda8657a4f1d89f33fac5403b35d12e8b1a11acb793be",
+ "benchmarks/use_limit_plural_eval.py": "a174ae5c1e6bf9e01431c520ed241780723aa0766eab2b64d4c1c5aecc0964c6",
+ "_note": "code frozen BEFORE the data exist; USE_LIMIT_PLURAL on the older sets: 0 of 1280 (pre-freeze check)",
+ "data/use_limits_v9/out_A.jsonl": "ed9ec3b68f6fb47c329a7d55cacafd558e953d0cc44b8097f983e0620c6e555a",
+ "data/use_limits_v9/out_B.jsonl": "54683897fe6a9ac2f1e71b67ea9c8c7a91f08618e2e99a93487697446b3e52c2",
+ "data/use_limits_v9/out_C.jsonl": "f6cdafe89791ea2062701e2e46261a8420630bb0208a21a26e34fad6136c907f"
+}
