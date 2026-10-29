@@ -1,0 +1,64 @@
+records 150 (malformed lines: 0); authors: {'A': 50, 'B': 50, 'C': 50}
+limit_drop flagged NEW 138/150 = 92.0 %   (families without USE_LIMIT: 30/150 = 20.0 %)
+  per style : audience 31/36 = 86.1 %; confidentiality 37/39 = 94.9 %; doc_status 37/37 = 100.0 %; legal_status 33/38 = 86.8 %
+  per lang  : en 43/45 = 95.6 %; es 44/45 = 97.8 %; pt 51/60 = 85.0 %
+  per author: A 43/50 = 86.0 %; B 48/50 = 96.0 %; C 47/50 = 94.0 %
+faithful_light flagged NEW 20/150 = 13.3 % (OLD 18/150 = 12.0 %); by USE_LIMIT alone 2/150 = 1.3 %
+faithful_heavy flagged NEW 140/150 = 93.3 % (OLD 106/150 = 70.7 %); by USE_LIMIT alone 34/150 = 22.7 %
+control corruption flagged NEW 145/150 = 96.7 % (OLD 145/150 = 96.7 %)
+recipient decoy flagged by USE_LIMIT 0/150 = 0.0 %
+equivalent pairs of the older sets with a USE_LIMIT alarm: 0 of 1280
+
+V1 PASS  V2 FAIL  V3 FAIL  V4 PASS  V5 PASS  V6 PASS
+
+faithful_heavy USE_LIMIT-only alarms (34):
+  unverified | Load the shipment numbers, which are still awaiting confirmation, into the logistics dashboard by 4 p.m. tomor
+  under investigation | Gather the access records of the account that is currently the subject of an inquiry and mark all logins origi
+  under seal | File the settlement exhibits, lodged with the court away from public view, in the case folder if the clerk con
+  en litigio | Detén los pagos al proveedor Medina, cuyo contrato es objeto de una disputa ante tribunales, durante 30 días.
+  Para la junta directiva | Calcula el margen por producto y resalta los 3 con mayor caída; el texto va destinado a quienes integran la me
+  reservado para la gerencia | Elabora el esquema de bonificaciones pensado para el cuerpo gerencial, con fecha límite el 15 de diciembre.
+  protegidos por sigilo profissional | Ordene por data as mensagens do caso Souza, resguardadas pelo segredo entre advogado e cliente.
+  sob investigação | Suspenda o acesso do usuário do almoxarifado, cuja conta é alvo de apuração, se o chefe de segurança confirmar
+  redigida para o conselho | Reformule a ata em linguagem clara, cuja leitura caberá aos conselheiros, e entregue até sexta-feira.
+  rascunho | Formate a primeira versão ainda em construção da proposta comercial e corrija os títulos se o modelo estiver a
+  versão preliminar | Compartilhe a edição ainda sujeita a mudanças do cronograma de obras e atualize as 12 tarefas atrasadas.
+  provisório | Use o orçamento em caráter temporário para calcular o custo por aluno e registre o resultado até 30 de junho.
+  trabalho em andamento | O documento de requisitos ainda está sendo construído; complete a seção de integrações se o arquiteto liberar 
+  minuta | Atualize a versão de trabalho do contrato de serviço com o novo prazo de 90 dias e marque as mudanças.
+  en elaboración | Actualiza el plan de contratación, aún en proceso de redacción, si Recursos Humanos confirma los presupuestos.
+  en litigio | Prepara cuatro párrafos del contrato de arrendamiento que está siendo disputado ante un tribunal para la revis
+  pensado para auditores externos | Redacta la nota de cierre dirigiéndola a los revisores externos de auditoría, con entrega antes del martes.
+  bajo investigación | Documenta las tres transacciones que están siendo examinadas formalmente para el equipo de cumplimiento.
+  reservado para la gerencia | Elabora el tablero de ventas pensando en los directivos de la gerencia, con entrega el 15 de noviembre.
+  sujeto a contrato | Ofrece dos planes de soporte condicionados a la firma del contrato para los clientes de la región norte.
+  still in draft | Share the Q3 forecast, which is still being written, once finance signs off on the currency assumptions.
+  under seal | Review the three filings that the court has closed to public view before the hearing and flag any missing exhi
+  written for the executive team | Prepare the onboarding memo aimed at the members of the executive team, due Friday morning.
+  work in progress | Circulate the vendor scorecard, still being built out, if procurement has verified the pricing data.
+  classified | Brief the incident commander on the vulnerability report kept at the highest secrecy level, without naming aff
+  sob sigilo judicial | Analise as duas petições que o tribunal mantém fechadas ao público antes da audiência de quinta-feira.
+  em rascunho | Atualize o cronograma de implantação, ainda em fase de redação, caso a equipe de tecnologia aprove a arquitetu
+  sujeito a contrato | Ofereça três pacotes de manutenção condicionados à assinatura do contrato para os clientes do sul.
+  versão provisória | Divulgue a política de reembolso ainda em estágio inicial de revisão, assim que o jurídico validar os valores.
+  em litígio | Revise os dois contratos que estão sendo disputados judicialmente antes da reunião com o fornecedor.
+  de circulação restrita | Envie a análise de risco, mantida em circuito fechado à equipe de segurança, sem anexar os registros de usuári
+  sob revisão jurídica | Ajuste as quatro cláusulas que o departamento jurídico está examinando na seção de pagamentos.
+  sigilosa | Descreva a estratégia de preços, mantida em total discrição, sem mencionar descontos para concorrentes.
+  escrita para o conselho | Redija a ata trimestral pensada para os conselheiros, com entrega até o dia 5 de dezembro.
+
+recipient decoy alarms (0):
+
+missed limit_drop (12):
+  audience | en | aimed at investors | Update the 3 growth charts in the deck aimed at investors with last quarter's numbers.
+  legal_status | pt | objeto de inquérito | Liste os 6 contratos de fornecimento objeto de inquérito e indique o valor de cada um.
+  legal_status | pt | em disputa judicial | Calcule os royalties devidos pela patente em disputa judicial e registre o resultado na planilha do jurídico.
+  audience | pt | redigido para os gestores de RH | Atualize o guia de avaliação redigido para os gestores de RH se a política de bônus mudar este ano.
+  legal_status | pt | em processo de arbitragem | Prepare um resumo da reclamação do distribuidor em processo de arbitragem e anexe a correspondência trocada.
+  confidentiality | pt | secreto | Traduza o relatório secreto de vulnerabilidades e entregue a versão em inglês em 30 de abril.
+  legal_status | pt | objeto de ação civil pública | Levante os laudos ambientais da obra objeto de ação civil pública se a prefeitura enviar as licenças.
+  audience | es | dirigido a los inversionistas | Ajusta el tono del informe de sostenibilidad, dirigido a los inversionistas, y reduce el texto a 800 palabras.
+  audience | pt | Para a alta gestão | Para a alta gestão. Resuma os custos de logística em 3 tópicos e cite a rota mais cara.
+  confidentiality | en | proprietary | Share the new algorithm benchmark, proprietary, with research partners without including raw training data.
+  audience | pt | pensado para os professores | Redija o guia de avaliação pensado para os professores até a sexta-feira da próxima semana.
+  legal_status | pt | em investigação | Organize os seis registros em investigação para a equipe de conformidade.

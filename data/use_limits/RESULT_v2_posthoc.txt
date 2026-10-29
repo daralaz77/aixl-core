@@ -1,0 +1,32 @@
+records 80 (malformed lines: 0)
+limit_drop flagged  NEW 60/80 = 75.0 %   (baseline OLD families 18/80 = 22.5 %)
+  per style (NEW): audience 6/20 = 30.0 %; confidentiality 20/20 = 100.0 %; doc_status 17/20 = 85.0 %; legal_status 17/20 = 85.0 %
+  per lang  (NEW): en 21/26 = 80.8 %; es 22/26 = 84.6 %; pt 17/28 = 60.7 %
+faithful_light flagged NEW 6/80 = 7.5 % (OLD 6/80 = 7.5 %); by USE_LIMIT alone 0/80 = 0.0 %
+faithful_heavy flagged NEW 71/80 = 88.8 % (OLD 65/80 = 81.2 %); by USE_LIMIT alone 6/80 = 7.5 %
+control corruption flagged NEW 78/80 = 97.5 % (OLD 78/80 = 97.5 %)
+families fired on faithful_light: ACTION:4, CONDITION_TEXT:1, NEGATION:1, CLAUSES:1
+
+U1 FAIL  U2 PASS  U3 PASS  U4 PASS
+
+missed limit_drop (20):
+  audience | es | redactado para la junta directiva | Si el auditor aprueba las cifras, publica en el portal el resumen financiero redactado para la junta directiva.
+  audience | es | dirigido al equipo de finanzas | Si el cierre contable termina hoy, adjunta al ticket el análisis de márgenes dirigido al equipo de finanzas.
+  audience | en | written for senior management | If the Q3 numbers are final, attach the headcount analysis written for senior management to the HR ticket.
+  doc_status | en | work-in-progress | Circulate the work-in-progress onboarding checklist to the new support hires.
+  audience | pt | elaborado para a diretoria | Se o cliente aprovar o orçamento, anexe ao chamado o relatório de custos elaborado para a diretoria.
+  legal_status | pt | sujeita a parecer jurídico | Envie a proposta de parceria, sujeita a parecer jurídico, ao time comercial até 15 de novembro.
+  legal_status | pt | aguardando decisão judicial | Prepare o comunicado aos clientes sobre o recall, aguardando decisão judicial, para envio na segunda-feira às 10h.
+  audience | pt | redigido para o conselho de administração | Se a votação for aprovada, envie ao secretário o resumo estratégico redigido para o conselho de administração.
+  legal_status | pt | em litígio | Arquive os e-mails do contrato, em litígio, na pasta de compliance até sexta-feira às 18h.
+  audience | pt | voltado aos auditores independentes | Quando o inventário fechar, envie ao controller o relatório de estoques voltado aos auditores independentes.
+  doc_status | pt | em fase de aprovação | Compartilhe o novo fluxo de devoluções, em fase de aprovação, com os atendentes do suporte.
+  audience | es | escrito para el comité de finanzas | Redacta el resumen de gastos de octubre, escrito para el comité de finanzas, y entrégalo el viernes a las 9 de la mañana.
+  audience | es | para la junta directiva | Elabora el reporte de soporte para la junta directiva y entrégalo el 15 de noviembre.
+  audience | en | written for the board of directors | Draft the churn report written for the board of directors and have it ready by Thursday morning.
+  audience | en | prepared for the logistics managers | Update the shipping dashboard prepared for the logistics managers before 5 pm today.
+  audience | en | addressed to the finance team | Write the quarterly KPI note addressed to the finance team and post it on Monday at noon.
+  audience | pt | escrito para a diretoria | Prepare o relatório de vendas escrito para a diretoria e envie na quinta-feira às 10h.
+  audience | pt | preparada para a equipe financeira | Monte a planilha de despesas preparada para a equipe financeira até 20 de novembro.
+  audience | pt | direcionado à equipe de engenharia | Prepare o resumo do chamado direcionado à equipe de engenharia para sexta-feira às 16h.
+  doc_status | pt | minuta | Reescreva a minuta de política de devoluções e, se o gerente concordar, envie à diretoria.
