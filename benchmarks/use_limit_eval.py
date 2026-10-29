@@ -14,7 +14,7 @@ D = os.path.join(ROOT, "data", "use_limits")
 def load():
     rows, bad = [], 0
     for f in ("out_A.jsonl", "out_B.jsonl"):
-        for ln, line in enumerate(open(os.path.join(D, f), encoding="utf-8"), 1):
+        for line in open(os.path.join(D, f), encoding="utf-8"):
             try:
                 r = json.loads(line)
                 assert all(r.get(k) for k in ("source", "faithful_light", "faithful_heavy", "limit_drop", "control", "style"))
