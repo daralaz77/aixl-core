@@ -1,0 +1,55 @@
+records 180 (malformed 0); authors {'A': 60, 'B': 60, 'C': 60}; kinds {'open_audience': 90, 'decoy': 90}
+open_audience v5: drop flagged 82/90 = 91.1 %; by USE_LIMIT 82/90 = 91.1 %; faithful_light flagged 6/90 = 6.7 %, by USE_LIMIT alone 0/90 = 0.0 %
+open_audience v4: drop flagged 12/90 = 13.3 %; by USE_LIMIT 0/90 = 0.0 %; faithful_light flagged 6/90 = 6.7 %, by USE_LIMIT alone 0/90 = 0.0 %
+decoy         v5: drop flagged 52/90 = 57.8 %; by USE_LIMIT 33/90 = 36.7 %; faithful_light flagged 6/90 = 6.7 %, by USE_LIMIT alone 0/90 = 0.0 %
+decoy         v4: drop flagged 30/90 = 33.3 %; by USE_LIMIT 0/90 = 0.0 %; faithful_light flagged 6/90 = 6.7 %, by USE_LIMIT alone 0/90 = 0.0 %
+open_audience per lang (v5): en 27/27 = 100.0 %; es 25/27 = 92.6 %; pt 30/36 = 83.3 %
+equivalent pairs of the older sets with a USE_LIMIT alarm: 0 of 1280
+spent v3 set: recipient decoy flagged by USE_LIMIT 1/150 = 0.7 %; faithful_light by USE_LIMIT alone 3/150 = 2.0 %
+
+W1 PASS  W2 FAIL  W3 PASS  W4 PASS  W5 PASS
+
+decoy false alarms by USE_LIMIT (33):
+  es | la ceremonia de graduación | Escribe un discurso de bienvenida breve pensado para la ceremonia de graduación y envíalo al rector para revisión.
+  es | la cosecha de aguacate | Organiza un calendario de turnos preparado para la cosecha de aguacate y compártelo con los capataces.
+  es | el aniversario de la biblioteca pública | Revisa el texto escrito para el aniversario de la biblioteca pública y ajusta el tono para que sea más cálido.
+  es | la bodega central de Cali | Genera la lista de inventario destinada a la bodega central de Cali y márcala como prioritaria.
+  en | the harvest festival | Design a printed program intended for the harvest festival, listing every stall and performance.
+  en | the end of the fiscal quarter | Schedule the inventory count geared to the end of the fiscal quarter and notify the warehouse leads.
+  en | the customer orders schema | Write migration scripts targeted at the customer orders schema and test them before merging.
+  pt | a festa junina da escola | Crie um roteiro de apresentações pensado para a festa junina da escola e envie à coordenação.
+  pt | a eleição do sindicato | Revise o edital preparado para a eleição do sindicato e aponte prazos inconsistentes.
+  pt | a cerimônia de posse do novo prefeito | Revise o discurso redigido para a cerimônia de posse do novo prefeito e encurte a introdução.
+  pt | o funeral do antigo maestro da banda | Ajuste o texto escrito para o funeral do antigo maestro da banda e suavize o tom.
+  pt | a greve dos caminhoneiros | Atualize o plano de contingência preparado para a greve dos caminhoneiros com rotas alternativas de abastecimento.
+  pt | o galpão de Campinas | Gere a lista de separação direcionada para o galpão de Campinas e envie ao supervisor logístico.
+  es | la ceremonia de graduación | Redacta el guion del presentador preparado para la ceremonia de graduación y compártelo con el equipo de protocolo.
+  es | el informe regional de inspección de seguridad | Resume los hallazgos del taller en un anexo destinado a el informe regional de inspección de seguridad, sin cambiar las 
+  es | la cosecha de café | Organiza el calendario de transporte enfocado en la cosecha de café y avisa a los conductores por mensaje.
+  es | el festival de cine documental | Escribe el texto del programa de mano redactado para el festival de cine documental y revisa la ortografía de los título
+  en | the harvest festival | Draft the stall allocation plan prepared for the harvest festival and circulate it to the market committee.
+  en | the anniversary gala | Compose the welcome speech written for the anniversary gala and add cues for the lighting crew.
+  en | the election night broadcast | Prepare the data visuals tailored for the election night broadcast and test them on the studio monitors.
+  pt | a cerimônia de posse | Redija o roteiro do mestre de cerimônias preparado para a cerimônia de posse e compartilhe com a equipe de protocolo.
+  pt | a safra de soja | Monte o plano de transporte pensado para a safra de soja e avise os motoristas por mensagem.
+  pt | o festival de inverno | Escreva o texto do programa escrito para o festival de inverno e revise a grafia dos nomes dos artistas.
+  pt | o esquema do banco de dados | Prepare o arquivo de migração elaborado para o esquema do banco de dados e execute os testes de regressão depois.
+  pt | a greve dos caminhoneiros | Redija o comunicado interno redigido para a greve dos caminhoneiros e confirme o canal de envio com a assessoria.
+  es | la inauguración del festival de otoño | Prepara el guion de presentación preparado para la inauguración del festival de otoño, con los tiempos de cada orador.
+  es | la cosecha de cacao de este año | Escribe el cronograma de acopio escrito para la cosecha de cacao de este año, con los puntos de recepción.
+  es | el aniversario de la fundación del pueblo | Redacta el discurso enfocado en el aniversario de la fundación del pueblo, con tono emotivo y breve.
+  es | el esquema de la base de datos de inventario | Documenta el cambio de nombres de columnas escrito para el esquema de la base de datos de inventario, con una tabla de e
+  en | the city marathon weekend | Write the water station schedule drafted for the city marathon weekend, listing refill times and volunteer roles.
+  pt | a festa da colheita da uva | Prepare o roteiro de palcos preparado para a festa da colheita da uva, com horários de cada atração.
+  pt | o aniversário da cidade | Escreva o discurso de abertura escrito para o aniversário da cidade, com tom afetuoso e breve.
+  pt | a greve dos caminhoneiros | Prepare o plano de abastecimento preparado para a greve dos caminhoneiros, com rotas alternativas e estoques mínimos.
+
+missed open_audience drops (8):
+  es | los entrenadores de fútbol base | Diseña la ficha de ejercicios de calentamiento adaptada a los entrenadores de fútbol base y entrégala en formato imprimi
+  pt | servidores do cartório eleitoral | Redija a nota sobre o novo sistema de protocolo, direcionada a servidores do cartório eleitoral, em tom formal.
+  pt | mediadores de bibliotecas comunitárias | Organize um roteiro de oficinas de leitura concebido para mediadores de bibliotecas comunitárias e revise os títulos sug
+  pt | pescadores artesanais | Escreva a cartilha sobre períodos de defeso focada em pescadores artesanais, com ilustrações simples e frases curtas.
+  es | las enfermeras de turno nocturno del área de urgencias | Crea el protocolo de entrega de turno enfocado en las enfermeras de turno nocturno del área de urgencias, con pasos brev
+  pt | gestores de unidades de saúde municipais | Redija um painel de indicadores focado em gestores de unidades de saúde municipais, com metas trimestrais.
+  pt | vendedores de feiras livres | Monte uma tabela de preços feita para vendedores de feiras livres, com arredondamentos padronizados.
+  pt | moradores de comunidades ribeirinhas | Crie um cronograma de vacinação concebido para moradores de comunidades ribeirinhas, com paradas fluviais marcadas.

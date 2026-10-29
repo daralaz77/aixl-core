@@ -161,11 +161,17 @@ def _strong_audience(lw: str) -> bool:
     return False
 
 
+def open_audience(text: str) -> bool:
+    """OPT-IN (family `USE_LIMIT_OPEN`, not in RELAY_FAMILIES): a strong audience verb followed by ANY group. Validated on fresh data it caught 91 % of unusual audiences but also flagged 36.7 % of
+    decoys (`prepared for the harvest festival`): events, occasions and purposes are as open as audiences, so no closed exclusion list generalises (LIMITATIONS.md E-USE-LIMIT v8)."""
+    return _strong_audience(strip_accents(text).lower().replace("-", " ").replace("\u2011", " "))
+
+
 def use_limits(text: str) -> frozenset:
     """The use-limit concepts present in `text` (a subset of CONFIDENTIALITY, LEGAL_HOLD, AUDIENCE, DOC_STATUS)."""
     lw = strip_accents(text).lower().replace("-", " ").replace("\u2011", " ")           # `work-in-progress` == `work in progress`
     found = {k for k, rx in _USE_LIMIT_RE.items() if rx.search(lw)}
-    if any(_AUD_LABEL.search(part) for part in re.split(r"(?<=[.!?])\s+", lw.strip())) or _strong_audience(lw):
+    if any(_AUD_LABEL.search(part) for part in re.split(r"(?<=[.!?])\s+", lw.strip())):
         found.add("AUDIENCE")
     return frozenset(found)
 
@@ -219,6 +225,8 @@ def extract(text: str, pt: bool | None = None) -> dict:
     deleg = collections.Counter(t for t in toks if t in _DELEGATE)
     if deleg:
         out["DELEGATION"] = {f"n:{sum(deleg.values())}"}                   # `Send Priya the budget` -> `Have Priya send it`: who acts changed (`solicita` = `pede`: the total, not the cue)
+    if open_audience(text):
+        out["USE_LIMIT_OPEN"] = {"AUDIENCE"}                   # opt-in only: see `open_audience`
     ul = use_limits(text)
     if ul:
         out["USE_LIMIT"] = set(ul)                             # `Confidential.` / `under NDA` / `Embargoed` / `for management` / `Draft`: what limits the use of the content
@@ -248,14 +256,16 @@ def check(source: str, relay: str, families=None) -> list:
 RELAY_FAMILIES_V1 = frozenset({"ACTION", "AMBIGUOUS", "CONDITION_TEXT", "DELEGATION", "NAME_ORDER", "PRONOUN", "CLAUSES", "COMPARATOR", "CONDITION", "DATE", "DISJUNCTION", "MODALITY", "MODIFIER", "NAME", "NEGATION", "NUMBER", "ONLY", "QUANTITY", "SEQUENCE", "WEEKDAY"})
 RELAY_FAMILIES = RELAY_FAMILIES_V1 | {"USE_LIMIT"}      # V1 = before the use-limit family (kept so a baseline can be re-scored)
 
+RELAY_FAMILIES_OPEN = RELAY_FAMILIES | {"USE_LIMIT_OPEN"}     # + the strong-audience-verb family (more sensitive, 36.7 % decoy alarms on fresh data)
 
-def relay_check(source: str, relay: str) -> dict:
+
+def relay_check(source: str, relay: str, open_audience: bool = False) -> dict:
     """Did a critical slot change between `source` and its `relay`?  Built for NEAR-VERBATIM relays (copy, truncation, a flipped word, an injected
     clause). It is NOT an equivalence test: `ok: true` means "no critical slot visibly changed", never "same meaning" — a rewording that moves a negation
     into a different construction can raise a violation, and an antonym swap (`send` -> `cancel`) or a vocabulary-only change is invisible to it.
     Measured (other authors' seeds, families chosen on the project's own): 94.6 % of meaning-changing corruptions flagged, 0.0 % of benign edits flagged."""
     try:
-        v = check(source, relay, RELAY_FAMILIES)
+        v = check(source, relay, RELAY_FAMILIES_OPEN if open_audience else RELAY_FAMILIES)
     except Exception as e:                                        # noqa: BLE001 — fail closed: an input we cannot analyse is not "ok"
         return {"ok": False, "violations": [], "reason": f"not analysed: {type(e).__name__}", "regime": "near-verbatim relay"}
     return {"ok": not v, "regime": "near-verbatim relay",

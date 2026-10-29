@@ -1,7 +1,7 @@
 """USE_LIMIT family: pure use-limit markers (no negation / number / date / modal) must not vanish unnoticed. Cases from the 12-pair probe (spent: regression only)."""
 import pytest
 
-from aixl.invariants import RELAY_FAMILIES, RELAY_FAMILIES_V1, relay_check, use_limits
+from aixl.invariants import RELAY_FAMILIES, RELAY_FAMILIES_OPEN, RELAY_FAMILIES_V1, open_audience, relay_check, use_limits
 
 DROPS = [
     ("Confidential. Send the report to Ana.", "Send the report to Ana."),
@@ -64,10 +64,18 @@ def test_extended_lexicon_v3(text, concept):
     assert concept in use_limits(text)
 
 
-def test_strong_audience_verb_is_a_marker_whatever_group_follows():
-    """v5: any group can be an audience, so `aimed at investors` / `dirigido a los profesores` count."""
-    assert "AUDIENCE" in use_limits("Update the charts in the deck aimed at investors.")
-    assert "AUDIENCE" in use_limits("Ajusta el informe dirigido a los inversionistas.")
+def test_strong_audience_verb_is_an_opt_in_marker_whatever_group_follows():
+    """v5-v7 as an OPT-IN family (USE_LIMIT_OPEN): fresh validation = 91 % of unusual audiences but 36.7 % decoy alarms, so it is NOT in RELAY_FAMILIES."""
+    assert open_audience("Update the charts in the deck aimed at investors.")
+    assert open_audience("Ajusta el informe dirigido a los inversionistas.")
+    assert "AUDIENCE" not in use_limits("Update the charts in the deck aimed at investors.")
+    assert "USE_LIMIT_OPEN" in RELAY_FAMILIES_OPEN and "USE_LIMIT_OPEN" not in RELAY_FAMILIES
+
+
+def test_relay_check_open_mode_is_opt_in():
+    a, b = "Update the charts in the deck aimed at investors.", "Update the charts in the deck."
+    assert relay_check(a, b)["ok"] is True                              # the default: a group outside the closed list is not seen
+    assert relay_check(a, b, open_audience=True)["ok"] is False
 
 
 @pytest.mark.parametrize("text", [
@@ -89,16 +97,16 @@ def test_technical_target_is_not_an_audience():
     "Configure o ambiente, reservado para a rodada de testes.", "Faça o merge das correções, direcionado à ramificação principal do repositório.",
     "Set up the variant reserved for the pricing experiment.", "Compile the evidence tailored for the annual compliance audit.", "Write the notes prepared for the product launch event.",
 ])
-def test_purposes_events_and_technical_targets_are_not_an_audience_v7(text):
-    assert "AUDIENCE" not in use_limits(text)
+def test_purposes_events_and_technical_targets_are_not_an_open_audience_v7(text):
+    assert "AUDIENCE" not in use_limits(text) and not open_audience(text)
 
 
 @pytest.mark.parametrize("text", [
     "Prepare the onboarding checklist, tailored for the summer interns.", "Write the guide aimed at marketing managers.",
     "Redija o folheto destinado às mães lactantes.", "Ajusta el informe dirigido a los inversionistas.",
 ])
-def test_open_audiences_are_still_seen_v7(text):
-    assert "AUDIENCE" in use_limits(text)
+def test_open_audiences_are_seen_in_open_mode_v7(text):
+    assert open_audience(text)
 
 
 def test_reservado_para_is_the_audience_verb_not_a_confidentiality_notice():

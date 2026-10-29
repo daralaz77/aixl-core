@@ -11,11 +11,12 @@ import sys
 from aixl.invariants import RELAY_FAMILIES, check
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-D = os.path.join(ROOT, "data", "use_limits_v5")
+D = os.path.join(ROOT, "data", "use_limits_v5")                    # default; `--dir use_limits_v8` evaluates another set (the baseline file always lives in use_limits_v5)
+BASE = os.path.join(ROOT, "data", "use_limits_v5", "baseline_invariants_v4.py.txt")
 
 
 def _load_v4():
-    path = os.path.join(D, "baseline_invariants_v4.py.txt")
+    path = BASE
     loader = importlib.machinery.SourceFileLoader("invariants_v4_baseline", path)
     spec = importlib.util.spec_from_loader("invariants_v4_baseline", loader)
     mod = importlib.util.module_from_spec(spec)
@@ -27,7 +28,10 @@ def pct(k, n):
     return f"{k}/{n} = {100 * k / max(n, 1):.1f} %"
 
 
-def main(out=None):
+def main(out=None, d=None):
+    global D
+    if d:
+        D = os.path.join(ROOT, "data", d)
     v4 = _load_v4()
     rows, bad = [], 0
     for path in sorted(glob.glob(os.path.join(D, "out_*.jsonl"))):
@@ -104,4 +108,4 @@ def main(out=None):
 
 
 if __name__ == "__main__":
-    main(sys.argv[sys.argv.index("--out") + 1] if "--out" in sys.argv else None)
+    main(sys.argv[sys.argv.index("--out") + 1] if "--out" in sys.argv else None, sys.argv[sys.argv.index("--dir") + 1] if "--dir" in sys.argv else None)

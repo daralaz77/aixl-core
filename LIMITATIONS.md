@@ -475,3 +475,18 @@ Frozen result (RESULT_v5_frozen.txt; the v4 code scored on the same data is the 
   more technical targets and experiments. Two slips found by the unit tests: the `-ar/-er/-ir` infinitive rule hit the English word `summer`, and the Portuguese contraction `destinado às` (a + as) was missing. Re-scored on the same data:
   open-audience **96.7 %**, decoy alarms **3.3 %** (v4 baseline 5.6 %), 0 of 1 280 older equivalent pairs; spent v3 set: recipient decoy 1/150, faithful-light by USE_LIMIT alone 2.0 %.
 **Caveat that matters:** this is a closed-list arms race (events/periods/targets are about as open as audiences) tuned on 180 records; the number to believe is the frozen one (W2 failed). A final validation needs a new set.
+
+## E-USE-LIMIT v8 (2026-10-29): VALIDATION of the strong-audience-verb mode on a NEW set — preregistered, code frozen by hash BEFORE the data (data/use_limits_v8/PREREG.md, FREEZE.json), run once; **W2 FAILED again**
+180 fresh records, three authors (Opus, Sonnet, Haiku), 90 open audiences from domains unlike the office ones (health, agriculture, education, public sector, NGOs, sport, culture, transport) and 90 decoys chosen widely
+(ceremonies, festivals, harvests, elections, anniversaries, funerals, strikes, compound noun phrases, purposes that start with a verb, technical targets). Code = commit c6c4dc3 (reproduce with `git checkout c6c4dc3`); result: RESULT.txt.
+* **W1 PASS** — unusual audiences flagged **91.1 %** (en 100, es 92.6, **pt 83.3**; v4: 13.3 %). **W3, W4, W5 PASS** (faithful-light by USE_LIMIT alone 0 %, 0 of 1 280, spent v3 set 0.7 % / 2.0 %).
+* **W2 FAIL** — decoys flagged by USE_LIMIT **36.7 %** (33/90), threshold 10 %; the v4 code scored 0.0 % on the same decoys. The 33 false alarms are occasions and events my lists did not contain (`ceremonia de graduación`, `cosecha de aguacate`,
+  `harvest festival`, `anniversary gala`, `festa junina`, `greve dos caminhoneiros`, `funeral`, `marathon weekend`) plus technical targets (`customer orders schema`, `galpão`, `bodega central`).
+* **The post-hoc v6/v7 numbers did not generalise:** on the set they were tuned on the decoy alarms were 3.3 %, on fresh data 36.7 % — a measured overfit of 33 points. Events, occasions and purposes are about as open as audiences, so
+  no closed exclusion list works; that is the finding.
+* **8 audiences still missed** (read after the run, NOT tuned), three different causes: verbs outside the list (`adaptada a`, `concebido para`, `focada em`, `feita para`); a technical word that is also a group
+  (`servidores do cartório` = civil servants, read as `servidores` = servers); and the head-noun check reading `turno` inside `enfermeras de turno nocturno` as an event. All three are closed-list fragility.
+**Decision (product, not statistics):** the strong-audience-verb mode is NOT part of the default. `USE_LIMIT` keeps the closed audience list (same behaviour as the frozen v3 numbers plus the `al` / `às` contractions and
+`reservado para X`); the open mode is the opt-in family `USE_LIMIT_OPEN` (`RELAY_FAMILIES_OPEN`, `relay_check(source, relay, open_audience=True)`, `aixl.invariants.open_audience`) for callers who prefer sensitivity over alerts:
+on fresh data it catches 91 % of unusual audiences and flags 37 % of decoys. `python -m benchmarks.use_limit_modes use_limits_v8` prints both modes side by side. Not wired into the MCP tool (default only).
+**What a better answer needs:** not a longer list but a different signal — e.g. whether the complement is a group of PEOPLE (a noun class needing a vocabulary) or a judge that decides audience vs occasion on the flagged pairs only.
