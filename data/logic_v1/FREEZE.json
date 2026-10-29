@@ -1,0 +1,8 @@
+{
+ "aixl/logic.py": "a5096406ad773aa38cd932690c8c8a6b1fdc5e57026ce70e8c0fef9ff3445a2c",
+ "aixl/core/normalizer.py": "aa88544826fcdf64f93a87bd291a10bd1e15a1c4b8883779509496a146fa84ec",
+ "aixl/api/service.py": "5c0e77d96f7a0756d2bfda8657a4f1d89f33fac5403b35d12e8b1a11acb793be",
+ "aixl/invariants.py": "6d82eefd910701d08373c2588e0d6b2e9404212c31367d7c87528c7cf558aeb1",
+ "benchmarks/logic_eval.py": "8339e658c07db72e8cc608361a08ce29718ca6d60396f0eb5fc30b245405761f",
+ "_note": "code frozen BEFORE the data exist; older labelled pairs: 0 false EQUIVALENT_LOGIC, 0 false DIFFERENT_LOGIC"
+}
