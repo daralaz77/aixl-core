@@ -38,6 +38,14 @@ def aixl_relay_check(source: str, relay: str) -> dict:
     return aixl.relay_check(source, relay)
 
 
+@server.tool(description="Does an instruction carry the fields you need BEFORE acting on it? `required` is a list from DATE, NUMBER, NAME, CONDITION, USE_LIMIT (NAME needs a capital letter: a lower-case name is NOT seen). "
+                          "Returns state `ready` or `input-required` (with the missing kinds: ask the sender, do not guess). Closed-class detection, open vocabulary; "
+                          "DATE does not understand `soon`. It says nothing about whether the instruction is correct.")
+def aixl_handoff_check(text: str, required: list[str]) -> dict:
+    from aixl.handoff import handoff_check
+    return handoff_check(text, required)
+
+
 @server.tool(description="Resolve a disagreement between a sender and a receiver instruction via a bounded, "
                           "severity-ordered clarification exchange. Returns ACCEPT (converged) or REJECT.")
 def aixl_negotiate(sender_text: str, receiver_text: str, max_rounds: int = 3) -> dict:

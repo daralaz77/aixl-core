@@ -1,0 +1,120 @@
+{"id":1,"lang":"es","kind":"name","text":"manda el informe a lucia antes del viernes por favor","target":"lucia"}
+{"id":2,"lang":"es","kind":"name","text":"pídele a ismael que revise el contrato de arrendamiento","target":"ismael"}
+{"id":3,"lang":"es","kind":"name","text":"recuérdale a itziar la reunión de mañana a las nueve","target":"itziar"}
+{"id":4,"lang":"es","kind":"name","text":"avisa a wilfredo que el pedido ya salió","target":"wilfredo"}
+{"id":5,"lang":"es","kind":"name","text":"xiomara debe aprobar el presupuesto antes de que lo enviemos","target":"xiomara"}
+{"id":6,"lang":"es","kind":"name","text":"reenvía el correo a baltasar con copia al resto","target":"baltasar"}
+{"id":7,"lang":"es","kind":"name","text":"agenda una llamada con nuria para hablar del lanzamiento","target":"nuria"}
+{"id":8,"lang":"es","kind":"name","text":"dile a ezequiel que suba los archivos a la nube hoy","target":"ezequiel"}
+{"id":9,"lang":"es","kind":"name","text":"necesito que yolanda firme la factura esta semana","target":"yolanda"}
+{"id":10,"lang":"es","kind":"name","text":"comparte la presentación con anselmo","target":"anselmo"}
+{"id":11,"lang":"es","kind":"name","text":"pregúntale a zoraida si ya cerró el balance del mes","target":"zoraida"}
+{"id":12,"lang":"es","kind":"name","text":"asigna la tarea de pruebas a eleazar para el lunes","target":"eleazar"}
+{"id":13,"lang":"es","kind":"name","text":"escríbele a graciela y confirma la hora de la entrega","target":"graciela"}
+{"id":14,"lang":"es","kind":"name","text":"que ignacio prepare el resumen de ventas de octubre","target":"ignacio"}
+{"id":15,"lang":"es","kind":"name","text":"cancela la cita con odalys y propón otra fecha","target":"odalys"}
+{"id":16,"lang":"es","kind":"name","text":"pásale el borrador a bernardo para que lo corrija","target":"bernardo"}
+{"id":17,"lang":"es","kind":"name","text":"llama a jairo y pregúntale por el estado del servidor","target":"jairo"}
+{"id":18,"lang":"es","kind":"name","text":"notifica a cayetano que su acceso fue renovado","target":"cayetano"}
+{"id":19,"lang":"es","kind":"name","text":"invita a brenda a la revisión del jueves","target":"brenda"}
+{"id":20,"lang":"es","kind":"name","text":"envía las actas a ulises hoy mismo","target":"ulises"}
+{"id":21,"lang":"es","kind":"noun","text":"manda el informe a finanzas antes del cierre del mes","target":"finanzas"}
+{"id":22,"lang":"es","kind":"noun","text":"reenvía el correo a soporte con el número de ticket","target":"soporte"}
+{"id":23,"lang":"es","kind":"noun","text":"avisa al cliente que el envío llegará con retraso","target":"cliente"}
+{"id":24,"lang":"es","kind":"noun","text":"publica el anuncio en slack para todo el equipo","target":"slack"}
+{"id":25,"lang":"es","kind":"noun","text":"pásale la factura a contabilidad para que la registren","target":"contabilidad"}
+{"id":26,"lang":"es","kind":"noun","text":"escala el problema a gerencia si no hay respuesta hoy","target":"gerencia"}
+{"id":27,"lang":"es","kind":"noun","text":"consulta con legal si podemos usar esa cláusula","target":"legal"}
+{"id":28,"lang":"es","kind":"noun","text":"envía la propuesta a ventas y pide comentarios","target":"ventas"}
+{"id":29,"lang":"es","kind":"noun","text":"informa a recursos humanos sobre la nueva contratación","target":"recursos"}
+{"id":30,"lang":"es","kind":"noun","text":"sube el reporte a la oficina de bogotá antes del mediodía","target":"bogotá"}
+{"id":31,"lang":"es","kind":"noun","text":"dile a los proveedores que el pago sale el martes","target":"proveedores"}
+{"id":32,"lang":"es","kind":"noun","text":"comparte el calendario con marketing y diseño","target":"marketing"}
+{"id":33,"lang":"es","kind":"noun","text":"avisa a la directiva que la auditoría terminó","target":"directiva"}
+{"id":34,"lang":"es","kind":"noun","text":"pide a logística que confirme la fecha de despacho","target":"logística"}
+{"id":35,"lang":"es","kind":"noun","text":"manda un mensaje por whatsapp al grupo de operaciones","target":"whatsapp"}
+{"id":36,"lang":"es","kind":"noun","text":"notifica a todos los gerentes de tienda sobre el cambio de horario","target":"gerentes"}
+{"id":37,"lang":"es","kind":"noun","text":"envía la queja a atención al cliente y haz seguimiento","target":"atención"}
+{"id":38,"lang":"es","kind":"noun","text":"reserva la sala victoria para la reunión del lunes","target":"victoria","trick":true}
+{"id":39,"lang":"es","kind":"noun","text":"guarda el documento en la carpeta rosa del drive","target":"rosa","trick":true}
+{"id":40,"lang":"es","kind":"noun","text":"copia a los accionistas en el resumen trimestral","target":"accionistas"}
+{"id":41,"lang":"en","kind":"name","text":"ask tomas to review the draft before noon","target":"tomas"}
+{"id":42,"lang":"en","kind":"name","text":"send the invoice to oluwaseun and cc accounting","target":"oluwaseun"}
+{"id":43,"lang":"en","kind":"name","text":"remind priya about the standup tomorrow morning","target":"priya"}
+{"id":44,"lang":"en","kind":"name","text":"tell caoimhe the deployment is finished","target":"caoimhe"}
+{"id":45,"lang":"en","kind":"name","text":"forward this thread to dmitri when you get a chance","target":"dmitri"}
+{"id":46,"lang":"en","kind":"name","text":"book a meeting with fatima for thursday afternoon","target":"fatima"}
+{"id":47,"lang":"en","kind":"name","text":"have kwame sign off on the release notes","target":"kwame"}
+{"id":48,"lang":"en","kind":"name","text":"email siobhan the updated schedule today","target":"siobhan"}
+{"id":49,"lang":"en","kind":"name","text":"let hiroshi know the client moved the deadline","target":"hiroshi"}
+{"id":50,"lang":"en","kind":"name","text":"assign the bug fix to ingrid and set it high priority","target":"ingrid"}
+{"id":51,"lang":"en","kind":"name","text":"share the slides with lakshmi before the call","target":"lakshmi"}
+{"id":52,"lang":"en","kind":"name","text":"ping thaddeus about the missing receipts","target":"thaddeus"}
+{"id":53,"lang":"en","kind":"name","text":"ask yusuf if he can cover the friday shift","target":"yusuf"}
+{"id":54,"lang":"en","kind":"name","text":"cancel the lunch with beatrix and suggest next week","target":"beatrix"}
+{"id":55,"lang":"en","kind":"name","text":"get arjun to approve the expense report","target":"arjun"}
+{"id":56,"lang":"en","kind":"name","text":"write to mireille and confirm the venue","target":"mireille"}
+{"id":57,"lang":"en","kind":"name","text":"loop in nikolai on the security review","target":"nikolai"}
+{"id":58,"lang":"en","kind":"name","text":"thank imogen for the quick turnaround on the report","target":"imogen"}
+{"id":59,"lang":"en","kind":"name","text":"hand the onboarding checklist over to chidi","target":"chidi"}
+{"id":60,"lang":"en","kind":"name","text":"call rafferty and ask about the supplier quote","target":"rafferty"}
+{"id":61,"lang":"en","kind":"noun","text":"send it to marketing and ask for feedback by friday","target":"marketing"}
+{"id":62,"lang":"en","kind":"noun","text":"post the update on slack so the whole team sees it","target":"slack"}
+{"id":63,"lang":"en","kind":"noun","text":"escalate the issue to legal if there is no reply today","target":"legal"}
+{"id":64,"lang":"en","kind":"noun","text":"notify the customer that the order shipped","target":"customer"}
+{"id":65,"lang":"en","kind":"noun","text":"forward the receipts to accounting for reimbursement","target":"accounting"}
+{"id":66,"lang":"en","kind":"noun","text":"ask support to reopen the ticket and add the logs","target":"support"}
+{"id":67,"lang":"en","kind":"noun","text":"email the vendors about the new payment terms","target":"vendors"}
+{"id":68,"lang":"en","kind":"noun","text":"tell hr that the new hire starts monday","target":"hr"}
+{"id":69,"lang":"en","kind":"noun","text":"share the roadmap with the board before the meeting","target":"board"}
+{"id":70,"lang":"en","kind":"noun","text":"drop the file in the shared drive for the design team","target":"design"}
+{"id":71,"lang":"en","kind":"noun","text":"message the london office about the server outage","target":"london"}
+{"id":72,"lang":"en","kind":"noun","text":"cc the stakeholders on the final summary","target":"stakeholders"}
+{"id":73,"lang":"en","kind":"noun","text":"update the engineers on the new release schedule","target":"engineers"}
+{"id":74,"lang":"en","kind":"noun","text":"ask finance to double check the quarterly numbers","target":"finance"}
+{"id":75,"lang":"en","kind":"noun","text":"put the reminder in the sales channel on teams","target":"sales"}
+{"id":76,"lang":"en","kind":"noun","text":"send the draft to bill for payment before the end of the month","target":"bill","trick":true}
+{"id":77,"lang":"en","kind":"noun","text":"pin the message in the grace period thread for everyone","target":"grace","trick":true}
+{"id":78,"lang":"en","kind":"noun","text":"file the complaint with the regulator and keep a copy","target":"regulator"}
+{"id":79,"lang":"en","kind":"noun","text":"brief the interns on the safety rules tomorrow","target":"interns"}
+{"id":80,"lang":"en","kind":"noun","text":"route this request to operations and flag it urgent","target":"operations"}
+{"id":81,"lang":"pt","kind":"name","text":"peça ao wagner para confirmar a reunião de amanhã","target":"wagner"}
+{"id":82,"lang":"pt","kind":"name","text":"manda o relatório para a luana até sexta","target":"luana"}
+{"id":83,"lang":"pt","kind":"name","text":"avisa o thiago que o pedido já saiu","target":"thiago"}
+{"id":84,"lang":"pt","kind":"name","text":"lembra a keila de assinar o contrato","target":"keila"}
+{"id":85,"lang":"pt","kind":"name","text":"encaminhe o e-mail ao eliseu com cópia para o time","target":"eliseu"}
+{"id":86,"lang":"pt","kind":"name","text":"agende uma ligação com a nathalia sobre o lançamento","target":"nathalia"}
+{"id":87,"lang":"pt","kind":"name","text":"diga ao ítalo que suba os arquivos hoje","target":"ítalo"}
+{"id":88,"lang":"pt","kind":"name","text":"preciso que a jaqueline aprove o orçamento","target":"jaqueline"}
+{"id":89,"lang":"pt","kind":"name","text":"compartilha a apresentação com o josué antes da call","target":"josué"}
+{"id":90,"lang":"pt","kind":"name","text":"pergunta à graziela se o balanço do mês já fechou","target":"graziela"}
+{"id":91,"lang":"pt","kind":"name","text":"atribua a tarefa de testes ao rodrigo para segunda","target":"rodrigo"}
+{"id":92,"lang":"pt","kind":"name","text":"escreve para a danúbia e confirma o horário da entrega","target":"danúbia"}
+{"id":93,"lang":"pt","kind":"name","text":"que o ademir prepare o resumo de vendas de outubro","target":"ademir"}
+{"id":94,"lang":"pt","kind":"name","text":"cancela o almoço com a querubina e sugere outra data","target":"querubina"}
+{"id":95,"lang":"pt","kind":"name","text":"passa o rascunho para o gilberto corrigir","target":"gilberto"}
+{"id":96,"lang":"pt","kind":"name","text":"liga para a tainá e pergunta sobre o servidor","target":"tainá"}
+{"id":97,"lang":"pt","kind":"name","text":"notifique o expedito que o acesso dele foi renovado","target":"expedito"}
+{"id":98,"lang":"pt","kind":"name","text":"convida a samira para a revisão de quinta","target":"samira"}
+{"id":99,"lang":"pt","kind":"name","text":"envia as atas para o washington ainda hoje","target":"washington"}
+{"id":100,"lang":"pt","kind":"name","text":"agradece à heloísa pela entrega rápida do material","target":"heloísa"}
+{"id":101,"lang":"pt","kind":"noun","text":"encaminhe o documento ao jurídico para análise","target":"jurídico"}
+{"id":102,"lang":"pt","kind":"noun","text":"manda o relatório para o financeiro antes do fechamento","target":"financeiro"}
+{"id":103,"lang":"pt","kind":"noun","text":"avisa o cliente que a entrega vai atrasar","target":"cliente"}
+{"id":104,"lang":"pt","kind":"noun","text":"posta o aviso no slack para o time todo","target":"slack"}
+{"id":105,"lang":"pt","kind":"noun","text":"passa a nota fiscal para a contabilidade registrar","target":"contabilidade"}
+{"id":106,"lang":"pt","kind":"noun","text":"escale o problema para a diretoria se ninguém responder hoje","target":"diretoria"}
+{"id":107,"lang":"pt","kind":"noun","text":"peça ao suporte para reabrir o chamado","target":"suporte"}
+{"id":108,"lang":"pt","kind":"noun","text":"envia a proposta para vendas e pede comentários","target":"vendas"}
+{"id":109,"lang":"pt","kind":"noun","text":"informa o rh sobre a nova contratação","target":"rh"}
+{"id":110,"lang":"pt","kind":"noun","text":"manda o resumo para o escritório de lisboa até o meio-dia","target":"lisboa"}
+{"id":111,"lang":"pt","kind":"noun","text":"avise os fornecedores que o pagamento sai na terça","target":"fornecedores"}
+{"id":112,"lang":"pt","kind":"noun","text":"compartilha o calendário com o marketing e o design","target":"marketing"}
+{"id":113,"lang":"pt","kind":"noun","text":"pede à logística para confirmar a data de despacho","target":"logística"}
+{"id":114,"lang":"pt","kind":"noun","text":"manda mensagem no whatsapp para o grupo de operações","target":"whatsapp"}
+{"id":115,"lang":"pt","kind":"noun","text":"notifica os gerentes das lojas sobre o novo horário","target":"gerentes"}
+{"id":116,"lang":"pt","kind":"noun","text":"copia os acionistas no resumo trimestral","target":"acionistas"}
+{"id":117,"lang":"pt","kind":"noun","text":"reserva a sala vitória para a reunião de segunda","target":"vitória","trick":true}
+{"id":118,"lang":"pt","kind":"noun","text":"guarda o arquivo na pasta rosa do drive","target":"rosa","trick":true}
+{"id":119,"lang":"pt","kind":"noun","text":"envia a queixa ao atendimento e acompanha o caso","target":"atendimento"}
+{"id":120,"lang":"pt","kind":"noun","text":"briefa os estagiários sobre as regras de segurança amanhã","target":"estagiários"}

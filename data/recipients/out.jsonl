@@ -1,0 +1,160 @@
+{"id":1,"lang":"es","has_recipient":true,"text":"manda el informe de ventas a lucia antes del cierre","recipient":"lucia"}
+{"id":2,"lang":"es","has_recipient":true,"text":"Envía la factura a Finanzas con el comprobante adjunto","recipient":"Finanzas"}
+{"id":3,"lang":"es","has_recipient":true,"text":"avisa al gerente que el pedido se retrasó dos días","recipient":"gerente"}
+{"id":4,"lang":"es","has_recipient":true,"text":"dile a carlos que revise el contrato hoy mismo","recipient":"carlos"}
+{"id":5,"lang":"es","has_recipient":true,"text":"Pásale el borrador a Marta para que lo corrija","recipient":"Marta"}
+{"id":6,"lang":"es","has_recipient":true,"text":"cc a recursos humanos en el correo de la nueva vacante","recipient":"recursos humanos"}
+{"id":7,"lang":"es","has_recipient":true,"text":"pregunta al cliente si prefiere la entrega por la mañana","recipient":"cliente"}
+{"id":8,"lang":"es","has_recipient":true,"text":"Escala el ticket a soporte técnico de inmediato","recipient":"soporte técnico"}
+{"id":9,"lang":"es","has_recipient":true,"text":"reenvía la cotización a ventas con los nuevos precios","recipient":"ventas"}
+{"id":10,"lang":"es","has_recipient":true,"text":"informa a pedro del cambio de horario del lunes","recipient":"pedro"}
+{"id":11,"lang":"es","has_recipient":true,"text":"Pídele a la directora el presupuesto del trimestre","recipient":"la directora"}
+{"id":12,"lang":"es","has_recipient":true,"text":"comparte las métricas con marketing esta semana","recipient":"marketing"}
+{"id":13,"lang":"es","has_recipient":true,"text":"notifica al proveedor que cancelamos la orden anterior","recipient":"proveedor"}
+{"id":14,"lang":"es","has_recipient":true,"text":"mándale a sofía las fotos del evento","recipient":"sofía"}
+{"id":15,"lang":"es","has_recipient":true,"text":"Encamina esta queja al área legal para su análisis","recipient":"área legal"}
+{"id":16,"lang":"es","has_recipient":true,"text":"recuérdale a Jorge la reunión de las 3","recipient":"Jorge"}
+{"id":17,"lang":"es","has_recipient":true,"text":"asigna la tarea a diego y pon fecha límite el jueves","recipient":"diego"}
+{"id":18,"lang":"es","has_recipient":true,"text":"comenta con el equipo de diseño los nuevos colores","recipient":"equipo de diseño"}
+{"id":19,"lang":"es","has_recipient":true,"text":"Envíale al contador los recibos del mes","recipient":"contador"}
+{"id":20,"lang":"es","has_recipient":true,"text":"abre un caso con AWS por la caída del servidor","recipient":"AWS"}
+{"id":21,"lang":"es","has_recipient":true,"text":"dile al técnico que traiga las herramientas","recipient":"técnico"}
+{"id":22,"lang":"es","has_recipient":true,"text":"avisa a nómina que hubo un error en las horas extra","recipient":"nómina"}
+{"id":23,"lang":"es","has_recipient":true,"text":"Responde a Andrea con las cifras actualizadas","recipient":"Andrea"}
+{"id":24,"lang":"es","has_recipient":true,"text":"solicita a tesorería el pago de la nota pendiente","recipient":"tesorería"}
+{"id":25,"lang":"es","has_recipient":true,"text":"comunica al jefe de planta el paro programado","recipient":"jefe de planta"}
+{"id":26,"lang":"es","has_recipient":true,"text":"manda esta presentación a Roberto para su opinión","recipient":"Roberto"}
+{"id":27,"lang":"es","has_recipient":true,"text":"pregúntale a la secretaria si hay sala libre","recipient":"la secretaria"}
+{"id":28,"lang":"en","has_recipient":true,"text":"Send the draft to Ana before lunch","recipient":"Ana"}
+{"id":29,"lang":"en","has_recipient":true,"text":"tell the client the shipment is delayed","recipient":"the client"}
+{"id":30,"lang":"en","has_recipient":true,"text":"ping marketing about the new banner","recipient":"marketing"}
+{"id":31,"lang":"en","has_recipient":true,"text":"Forward the invoice to accounting with the receipts","recipient":"accounting"}
+{"id":32,"lang":"en","has_recipient":true,"text":"ask Tom to review the pull request","recipient":"Tom"}
+{"id":33,"lang":"en","has_recipient":true,"text":"cc legal on the vendor email","recipient":"legal"}
+{"id":34,"lang":"en","has_recipient":true,"text":"let the manager know i'm out on friday","recipient":"the manager"}
+{"id":35,"lang":"en","has_recipient":true,"text":"email the quarterly report to dave","recipient":"dave"}
+{"id":36,"lang":"en","has_recipient":true,"text":"Share the deck with the design team","recipient":"the design team"}
+{"id":37,"lang":"en","has_recipient":true,"text":"notify support about the outage right away","recipient":"support"}
+{"id":38,"lang":"en","has_recipient":true,"text":"hand the access badges to security","recipient":"security"}
+{"id":39,"lang":"en","has_recipient":true,"text":"Remind Priya about the 3pm sync","recipient":"Priya"}
+{"id":40,"lang":"en","has_recipient":true,"text":"assign this bug to the backend team","recipient":"the backend team"}
+{"id":41,"lang":"en","has_recipient":true,"text":"update the CEO on the quarterly numbers","recipient":"the CEO"}
+{"id":42,"lang":"en","has_recipient":true,"text":"message sarah that the room is booked","recipient":"sarah"}
+{"id":43,"lang":"en","has_recipient":true,"text":"Copy HR on the offer letter","recipient":"HR"}
+{"id":44,"lang":"en","has_recipient":true,"text":"post the weekly update for the QA team on the board","recipient":"the QA team"}
+{"id":45,"lang":"en","has_recipient":true,"text":"get the vendor to confirm pricing in writing","recipient":"the vendor"}
+{"id":46,"lang":"en","has_recipient":true,"text":"Ask the director for approval on the new hire","recipient":"the director"}
+{"id":47,"lang":"en","has_recipient":true,"text":"send john the updated schedule","recipient":"john"}
+{"id":48,"lang":"en","has_recipient":true,"text":"inform finance of the budget cut","recipient":"finance"}
+{"id":49,"lang":"en","has_recipient":true,"text":"write to the landlord about the leak","recipient":"the landlord"}
+{"id":50,"lang":"en","has_recipient":true,"text":"Tell Maria the meeting moved to the big room","recipient":"Maria"}
+{"id":51,"lang":"en","has_recipient":true,"text":"bring the intern up to speed on the project","recipient":"the intern"}
+{"id":52,"lang":"en","has_recipient":true,"text":"route the ticket to IT","recipient":"IT"}
+{"id":53,"lang":"en","has_recipient":true,"text":"give the auditor access to the logs","recipient":"the auditor"}
+{"id":54,"lang":"en","has_recipient":true,"text":"call the supplier and confirm the order","recipient":"the supplier"}
+{"id":55,"lang":"pt","has_recipient":true,"text":"manda o relatório para a lucia hoje","recipient":"lucia"}
+{"id":56,"lang":"pt","has_recipient":true,"text":"Envie a fatura ao financeiro com o comprovante","recipient":"financeiro"}
+{"id":57,"lang":"pt","has_recipient":true,"text":"avise o gerente que o pedido atrasou","recipient":"gerente"}
+{"id":58,"lang":"pt","has_recipient":true,"text":"diga ao carlos para revisar o contrato","recipient":"carlos"}
+{"id":59,"lang":"pt","has_recipient":true,"text":"encaminhe ao jurídico o contrato assinado","recipient":"jurídico"}
+{"id":60,"lang":"pt","has_recipient":true,"text":"copie o RH no e-mail da vaga","recipient":"RH"}
+{"id":61,"lang":"pt","has_recipient":true,"text":"Peça à diretora o orçamento do trimestre","recipient":"diretora"}
+{"id":62,"lang":"pt","has_recipient":true,"text":"compartilhe as métricas com o marketing","recipient":"marketing"}
+{"id":63,"lang":"pt","has_recipient":true,"text":"notifique o fornecedor sobre o cancelamento","recipient":"fornecedor"}
+{"id":64,"lang":"pt","has_recipient":true,"text":"mande para a Sofia as fotos do evento","recipient":"Sofia"}
+{"id":65,"lang":"pt","has_recipient":true,"text":"informe ao pedro a mudança de horário","recipient":"pedro"}
+{"id":66,"lang":"pt","has_recipient":true,"text":"Lembre a Joana da reunião às 15h","recipient":"Joana"}
+{"id":67,"lang":"pt","has_recipient":true,"text":"atribua a tarefa ao diego","recipient":"diego"}
+{"id":68,"lang":"pt","has_recipient":true,"text":"fale com a equipe de design sobre as cores","recipient":"equipe de design"}
+{"id":69,"lang":"pt","has_recipient":true,"text":"envie ao contador os recibos do mês","recipient":"contador"}
+{"id":70,"lang":"pt","has_recipient":true,"text":"avise a tesouraria sobre o pagamento atrasado","recipient":"tesouraria"}
+{"id":71,"lang":"pt","has_recipient":true,"text":"Pergunte ao cliente se prefere entrega na segunda","recipient":"cliente"}
+{"id":72,"lang":"pt","has_recipient":true,"text":"escale o chamado para o suporte técnico","recipient":"suporte técnico"}
+{"id":73,"lang":"pt","has_recipient":true,"text":"responda à andrea com os números novos","recipient":"andrea"}
+{"id":74,"lang":"pt","has_recipient":true,"text":"comunique ao chefe de turno a parada de amanhã","recipient":"chefe de turno"}
+{"id":75,"lang":"pt","has_recipient":true,"text":"passe o rascunho para o Marcelo corrigir","recipient":"Marcelo"}
+{"id":76,"lang":"pt","has_recipient":true,"text":"peça ao técnico que traga as ferramentas","recipient":"técnico"}
+{"id":77,"lang":"pt","has_recipient":true,"text":"encaminhe a reclamação ao SAC","recipient":"SAC"}
+{"id":78,"lang":"pt","has_recipient":true,"text":"avise o time de vendas da mudança de preço","recipient":"time de vendas"}
+{"id":79,"lang":"pt","has_recipient":true,"text":"Mande a ata para a secretária","recipient":"secretária"}
+{"id":80,"lang":"pt","has_recipient":true,"text":"solicite ao almoxarifado 50 canetas novas","recipient":"almoxarifado"}
+{"id":81,"lang":"es","has_recipient":false,"text":"entrega el reporte para el viernes","recipient":null}
+{"id":82,"lang":"es","has_recipient":false,"text":"reserva la sala a las 5 de la tarde","recipient":null}
+{"id":83,"lang":"es","has_recipient":false,"text":"Mueve el archivo a la carpeta de 2024","recipient":null}
+{"id":84,"lang":"es","has_recipient":false,"text":"pide 20 unidades más de cables para la bodega","recipient":null}
+{"id":85,"lang":"es","has_recipient":false,"text":"revisa el inventario en la oficina de bogotá","recipient":null}
+{"id":86,"lang":"es","has_recipient":false,"text":"imprime el contrato para firmar","recipient":null}
+{"id":87,"lang":"es","has_recipient":false,"text":"programa la reunión para el martes a las 10","recipient":null}
+{"id":88,"lang":"es","has_recipient":false,"text":"Actualiza la hoja de cálculo con las ventas de ayer","recipient":null}
+{"id":89,"lang":"es","has_recipient":false,"text":"anota en la agenda para confirmar la asistencia del jueves","recipient":null}
+{"id":90,"lang":"es","has_recipient":false,"text":"baja el precio a 15 dólares si el stock supera 100","recipient":null}
+{"id":91,"lang":"es","has_recipient":false,"text":"cierra el ticket cuando el error esté resuelto","recipient":null}
+{"id":92,"lang":"es","has_recipient":false,"text":"agenda la capacitación para el próximo lunes","recipient":null}
+{"id":93,"lang":"es","has_recipient":false,"text":"Guarda las facturas en el archivador de la bodega","recipient":null}
+{"id":94,"lang":"es","has_recipient":false,"text":"cambia el turno a las 6 de la mañana","recipient":null}
+{"id":95,"lang":"es","has_recipient":false,"text":"elabora un resumen de una página para mañana","recipient":null}
+{"id":96,"lang":"es","has_recipient":false,"text":"compra 30 sillas para la sala de juntas","recipient":null}
+{"id":97,"lang":"es","has_recipient":false,"text":"genera el informe en pdf antes de las 3","recipient":null}
+{"id":98,"lang":"es","has_recipient":false,"text":"Mueve la reunión a la próxima semana","recipient":null}
+{"id":99,"lang":"es","has_recipient":false,"text":"prepara la presentación para revisar el lunes","recipient":null}
+{"id":100,"lang":"es","has_recipient":false,"text":"limpia la base de datos de clientes duplicados","recipient":null}
+{"id":101,"lang":"es","has_recipient":false,"text":"instala el programa en el computador del almacén","recipient":null}
+{"id":102,"lang":"es","has_recipient":false,"text":"anota los gastos del viaje a medellín","recipient":null}
+{"id":103,"lang":"es","has_recipient":false,"text":"Duplica la producción a 500 piezas por día","recipient":null}
+{"id":104,"lang":"es","has_recipient":false,"text":"ajusta el presupuesto a 10 millones","recipient":null}
+{"id":105,"lang":"es","has_recipient":false,"text":"revisa el código para detectar errores","recipient":null}
+{"id":106,"lang":"es","has_recipient":false,"text":"apaga los equipos al terminar la jornada","recipient":null}
+{"id":107,"lang":"es","has_recipient":false,"text":"traduce el manual al inglés para el jueves","recipient":null}
+{"id":108,"lang":"en","has_recipient":false,"text":"finish the report by next week","recipient":null}
+{"id":109,"lang":"en","has_recipient":false,"text":"Book the conference room for 5pm","recipient":null}
+{"id":110,"lang":"en","has_recipient":false,"text":"move the file to the shared folder","recipient":null}
+{"id":111,"lang":"en","has_recipient":false,"text":"order 30 more chairs for the office","recipient":null}
+{"id":112,"lang":"en","has_recipient":false,"text":"check the stock at the warehouse","recipient":null}
+{"id":113,"lang":"en","has_recipient":false,"text":"print the contract to sign","recipient":null}
+{"id":114,"lang":"en","has_recipient":false,"text":"Schedule the training for monday morning","recipient":null}
+{"id":115,"lang":"en","has_recipient":false,"text":"update the spreadsheet with yesterday's sales","recipient":null}
+{"id":116,"lang":"en","has_recipient":false,"text":"set the discount to 15% if stock exceeds 100","recipient":null}
+{"id":117,"lang":"en","has_recipient":false,"text":"close the ticket once the bug is fixed","recipient":null}
+{"id":118,"lang":"en","has_recipient":false,"text":"extend the trial to 30 days","recipient":null}
+{"id":119,"lang":"en","has_recipient":false,"text":"Review the code to find regressions","recipient":null}
+{"id":120,"lang":"en","has_recipient":false,"text":"back up the database before midnight","recipient":null}
+{"id":121,"lang":"en","has_recipient":false,"text":"turn off the servers at the end of the shift","recipient":null}
+{"id":122,"lang":"en","has_recipient":false,"text":"draft a one-page summary by tomorrow noon","recipient":null}
+{"id":123,"lang":"en","has_recipient":false,"text":"install the update on the lab computers","recipient":null}
+{"id":124,"lang":"en","has_recipient":false,"text":"rename the folder to archive 2024","recipient":null}
+{"id":125,"lang":"en","has_recipient":false,"text":"Reschedule the meeting to next thursday at 9","recipient":null}
+{"id":126,"lang":"en","has_recipient":false,"text":"cancel the subscription after 30 days","recipient":null}
+{"id":127,"lang":"en","has_recipient":false,"text":"restart the router in the server room","recipient":null}
+{"id":128,"lang":"en","has_recipient":false,"text":"record the expenses from the trip to Denver","recipient":null}
+{"id":129,"lang":"en","has_recipient":false,"text":"reduce the batch size to 200 units","recipient":null}
+{"id":130,"lang":"en","has_recipient":false,"text":"translate the manual into French by friday","recipient":null}
+{"id":131,"lang":"en","has_recipient":false,"text":"Take inventory at the front desk","recipient":null}
+{"id":132,"lang":"en","has_recipient":false,"text":"add the new column to the table","recipient":null}
+{"id":133,"lang":"en","has_recipient":false,"text":"wait until 4pm to publish the post","recipient":null}
+{"id":134,"lang":"pt","has_recipient":false,"text":"entregue o relatório até segunda","recipient":null}
+{"id":135,"lang":"pt","has_recipient":false,"text":"reserve a sala para amanhã às 5 da tarde","recipient":null}
+{"id":136,"lang":"pt","has_recipient":false,"text":"Mova o arquivo para a pasta compartilhada","recipient":null}
+{"id":137,"lang":"pt","has_recipient":false,"text":"peça 20 unidades a mais de cabos","recipient":null}
+{"id":138,"lang":"pt","has_recipient":false,"text":"confira o estoque no depósito","recipient":null}
+{"id":139,"lang":"pt","has_recipient":false,"text":"imprima o contrato para assinar","recipient":null}
+{"id":140,"lang":"pt","has_recipient":false,"text":"agende o treinamento para a próxima terça","recipient":null}
+{"id":141,"lang":"pt","has_recipient":false,"text":"atualize a planilha com as vendas de ontem","recipient":null}
+{"id":142,"lang":"pt","has_recipient":false,"text":"reduza o preço a 15 reais se o estoque passar de 100","recipient":null}
+{"id":143,"lang":"pt","has_recipient":false,"text":"Feche o chamado quando o erro for corrigido","recipient":null}
+{"id":144,"lang":"pt","has_recipient":false,"text":"amplie o teste para 30 dias","recipient":null}
+{"id":145,"lang":"pt","has_recipient":false,"text":"revise o código para encontrar falhas","recipient":null}
+{"id":146,"lang":"pt","has_recipient":false,"text":"faça backup do banco antes da meia-noite","recipient":null}
+{"id":147,"lang":"pt","has_recipient":false,"text":"desligue os computadores ao fim do expediente","recipient":null}
+{"id":148,"lang":"pt","has_recipient":false,"text":"escreva um resumo de uma página para amanhã","recipient":null}
+{"id":149,"lang":"pt","has_recipient":false,"text":"instale o programa no computador do escritório","recipient":null}
+{"id":150,"lang":"pt","has_recipient":false,"text":"Renomeie a pasta para arquivo 2024","recipient":null}
+{"id":151,"lang":"pt","has_recipient":false,"text":"remarque a reunião para quinta às 9h","recipient":null}
+{"id":152,"lang":"pt","has_recipient":false,"text":"cancele a assinatura depois de 30 dias","recipient":null}
+{"id":153,"lang":"pt","has_recipient":false,"text":"anote as despesas da viagem a Curitiba","recipient":null}
+{"id":154,"lang":"pt","has_recipient":false,"text":"dobre a produção para 500 peças por dia","recipient":null}
+{"id":155,"lang":"pt","has_recipient":false,"text":"traduza o manual para o inglês até sexta","recipient":null}
+{"id":156,"lang":"pt","has_recipient":false,"text":"faça o inventário na recepção","recipient":null}
+{"id":157,"lang":"pt","has_recipient":false,"text":"adicione a nova coluna à tabela","recipient":null}
+{"id":158,"lang":"pt","has_recipient":false,"text":"espere até as 16h para publicar o post","recipient":null}
+{"id":159,"lang":"pt","has_recipient":false,"text":"ajuste o orçamento para 10 mil reais","recipient":null}
+{"id":160,"lang":"pt","has_recipient":false,"text":"salve as notas fiscais no arquivo do almoxarifado","recipient":null}

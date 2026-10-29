@@ -33,7 +33,7 @@ async def _call(tool: str, args: dict) -> dict:
 def test_server_lists_the_aixl_tools():
     out = asyncio.run(_call("aixl_translate", {"text": "Analiza las ventas de Q1 2026."}))
     assert set(out["tool_names"]) == {"aixl_translate", "aixl_compare", "aixl_negotiate",
-                                       "aixl_negotiate_autonomous", "aixl_hybrid_prepare", "aixl_hybrid_decide", "aixl_relay_check"}
+                                       "aixl_negotiate_autonomous", "aixl_hybrid_prepare", "aixl_hybrid_decide", "aixl_relay_check", "aixl_handoff_check"}
 
 
 def test_hybrid_two_step_over_real_mcp_stdio_transport():
@@ -96,3 +96,8 @@ def test_aixl_negotiate_autonomous_over_real_mcp_rejects_an_irreversible_action_
     payload = json.loads(out["text"])
     assert payload["converged"] is False
     assert "irreversible action" in payload["transcript"][-1]
+
+
+def test_handoff_check_over_real_mcp_stdio_transport():
+    out = asyncio.run(_call("aixl_handoff_check", {"text": "Send the report to Ana.", "required": ["DATE", "NAME"]}))
+    assert "input-required" in json.dumps(out) and "DATE" in json.dumps(out)

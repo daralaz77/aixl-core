@@ -1,0 +1,56 @@
+160 lines: 80 with recipient, 80 without
+NAME only (before)     detected 15/80 = 19%  (lowercase-only lines 0/50)  false 'present' 3/80 = 4%  per lang {'en': '5/27', 'es': '6/27', 'pt': '4/26'}  reject
+RECIPIENT (now)        detected 67/80 = 84%  (lowercase-only lines 41/50)  false 'present' 36/80 = 45%  per lang {'en': '18/27', 'es': '27/27', 'pt': '22/26'}  reject
+
+missed recipients:
+   en | let the manager know i'm out on friday | the manager
+   en | notify support about the outage right away | support
+   en | message sarah that the room is booked | sarah
+   en | Copy HR on the offer letter | HR
+   en | post the weekly update for the QA team on the board | the QA team
+   en | send john the updated schedule | john
+   en | inform finance of the budget cut | finance
+   en | route the ticket to IT | IT
+   en | call the supplier and confirm the order | the supplier
+   pt | avise o gerente que o pedido atrasou | gerente
+   pt | copie o RH no e-mail da vaga | RH
+   pt | notifique o fornecedor sobre o cancelamento | fornecedor
+   pt | avise o time de vendas da mudança de preço | time de vendas
+
+false 'present':
+   es | Mueve el archivo a la carpeta de 2024
+   es | pide 20 unidades más de cables para la bodega
+   es | Actualiza la hoja de cálculo con las ventas de ayer
+   es | baja el precio a 15 dólares si el stock supera 100
+   es | compra 30 sillas para la sala de juntas
+   es | anota los gastos del viaje a medellín
+   es | Duplica la producción a 500 piezas por día
+   es | ajusta el presupuesto a 10 millones
+   es | apaga los equipos al terminar la jornada
+   es | traduce el manual al inglés para el jueves
+   en | move the file to the shared folder
+   en | print the contract to sign
+   en | extend the trial to 30 days
+   en | Review the code to find regressions
+   en | draft a one-page summary by tomorrow noon
+   en | rename the folder to archive 2024
+   en | record the expenses from the trip to Denver
+   en | reduce the batch size to 200 units
+   en | translate the manual into French by friday
+   en | add the new column to the table
+   en | wait until 4pm to publish the post
+   pt | reserve a sala para amanhã às 5 da tarde
+   pt | Mova o arquivo para a pasta compartilhada
+   pt | peça 20 unidades a mais de cabos
+   pt | atualize a planilha com as vendas de ontem
+   pt | reduza o preço a 15 reais se o estoque passar de 100
+   pt | amplie o teste para 30 dias
+   pt | desligue os computadores ao fim do expediente
+   pt | Renomeie a pasta para arquivo 2024
+   pt | remarque a reunião para quinta às 9h
+   pt | cancele a assinatura depois de 30 dias
+   pt | anote as despesas da viagem a Curitiba
+   pt | dobre a produção para 500 peças por dia
+   pt | traduza o manual para o inglês até sexta
+   pt | adicione a nova coluna à tabela
+   pt | ajuste o orçamento para 10 mil reais
