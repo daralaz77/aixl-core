@@ -490,3 +490,18 @@ Frozen result (RESULT_v5_frozen.txt; the v4 code scored on the same data is the 
 `reservado para X`); the open mode is the opt-in family `USE_LIMIT_OPEN` (`RELAY_FAMILIES_OPEN`, `relay_check(source, relay, open_audience=True)`, `aixl.invariants.open_audience`) for callers who prefer sensitivity over alerts:
 on fresh data it catches 91 % of unusual audiences and flags 37 % of decoys. `python -m benchmarks.use_limit_modes use_limits_v8` prints both modes side by side. Not wired into the MCP tool (default only).
 **What a better answer needs:** not a longer list but a different signal — e.g. whether the complement is a group of PEOPLE (a noun class needing a vocabulary) or a judge that decides audience vs occasion on the flagged pairs only.
+
+## E-USE-LIMIT v9 (2026-10-29): USE_LIMIT_PLURAL — a structural audience signal on a NEW set, preregistered, code and data frozen by hash, run once; **X1 and X2 FAILED, the structure is informative**
+Signal: a strong audience verb whose complement has a PLURAL head (English last word of the noun phrase, Spanish/Portuguese first). 180 fresh records, three authors (Opus, Sonnet, Haiku), with the known weak spots included on purpose per author:
+10 singular-group audiences (`la junta directiva`, `the film crew`) and 10 plural-event decoys (`las pruebas de carga`, `the nightly builds`). Result: data/use_limits_v9/RESULT.txt.
+* **X1 FAIL** — audiences flagged by the plural family **57.8 %** (threshold 75 %): plural groups **85.0 %** (51/60), singular groups **3.3 %** (1/30, the predicted hole). By language es 66.7, **en 37.0**, pt 66.7.
+* **X2 FAIL** — decoys flagged by the plural family **30.0 %** (27/90, threshold 10 %), but the split is the finding: ordinary decoys (events, purposes, deadlines, technical targets) **3.3 %** (2/60) versus **plural events 83.3 %** (25/30, the other predicted hole).
+  For comparison the open mode (strong verb + any group, E-USE-LIMIT v8) flags 35.0 % of the ordinary decoys on this set and the default closed list 1.7 %.
+* **X3 PASS** (faithful-light by the family alone 0 %), **X4 PASS** (0 of 1 280 older equivalent pairs), **X5 PASS** (spent v3 set: recipient decoy 0.7 %).
+**What it says.** A morphological signal generalises where the event lists did not (ordinary decoys 3.3 % vs 35 % for the open mode), at the cost of two blind spots that are structural, not lexical: a PLURAL event reads as an audience, a SINGULAR group does not.
+**English recall is low for a reason found after the run (NOT tuned):** the head-last rule is wrong when the noun phrase has a post-modifier (`the tenants of the Maple Street building` -> head read as `building`; `school groups visiting the museum` -> `museum`), and the
+verb `directed at` is not in the list. Spanish and Portuguese put the head first, so they do not suffer from it.
+**The two signals are complementary (post-hoc, on the set already read — NOT evidence):** the default closed list already catches 73.3 % of the singular groups (collective nouns are a small closed class: `junta`, `comité`, `equipo`, `board`, `crew`,
+`conselho`, `diretoria`, `comissão`, `time`) and 5.0 % of plural groups; the plural family catches 85 % of plural groups. Union default + plural: audiences **83.3 %** (plural groups 88.3, singular 73.3), ordinary decoys **5.0 %**, plural events still **83.3 %**.
+**Decision:** `USE_LIMIT_PLURAL` stays opt-in (`RELAY_FAMILIES_PLURAL`, `aixl.invariants.plural_audience`); no mode of the audience family meets the 10 % decoy bar because of plural events. A fix would need a different signal for those
+(whether the head is an EVENT-like noun) — the same closed-class problem again — or a judge restricted to the pairs this family flags. Not implemented.

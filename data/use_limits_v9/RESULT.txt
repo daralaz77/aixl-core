@@ -1,0 +1,87 @@
+records 180 (malformed 0); authors {'A': 60, 'B': 60, 'C': 60}; kinds {('open_audience', 'plural_group'): 60, ('open_audience', 'singular_group'): 30, ('decoy', 'other'): 60, ('decoy', 'plural_event'): 30}
+open_audience default  drop flagged 40/90 = 44.4 %; by the audience family 25/90 = 27.8 %; faithful_light by it alone 2/90 = 2.2 %
+open_audience plural   drop flagged 77/90 = 85.6 %; by the audience family 52/90 = 57.8 %; faithful_light by it alone 0/90 = 0.0 %
+open_audience open     drop flagged 87/90 = 96.7 %; by the audience family 85/90 = 94.4 %; faithful_light by it alone 0/90 = 0.0 %
+decoy         default  drop flagged 35/90 = 38.9 %; by the audience family 2/90 = 2.2 %; faithful_light by it alone 1/90 = 1.1 %
+decoy         plural   drop flagged 51/90 = 56.7 %; by the audience family 27/90 = 30.0 %; faithful_light by it alone 0/90 = 0.0 %
+decoy         open     drop flagged 60/90 = 66.7 %; by the audience family 37/90 = 41.1 %; faithful_light by it alone 0/90 = 0.0 %
+
+per subkind (plural family: flagged by USE_LIMIT_PLURAL):
+  plural_group   51/60 = 85.0 %   (open mode 57/60 = 95.0 %; default 3/60 = 5.0 %)
+  singular_group 1/30 = 3.3 %   (open mode 28/30 = 93.3 %; default 22/30 = 73.3 %)
+  other          2/60 = 3.3 %   (open mode 21/60 = 35.0 %; default 1/60 = 1.7 %)
+  plural_event   25/30 = 83.3 %   (open mode 16/30 = 53.3 %; default 1/30 = 3.3 %)
+per language (open_audience, plural family): es 18/27 = 66.7 %; en 10/27 = 37.0 %; pt 24/36 = 66.7 %
+per author  (open_audience, plural family): A 18/30 = 60.0 %; B 17/30 = 56.7 %; C 17/30 = 56.7 %
+equivalent pairs of the older sets with a USE_LIMIT_PLURAL alarm: 0 of 1280; spent v3 set: recipient decoy 1/150 = 0.7 %
+
+X1 FAIL  X2 FAIL  X3 PASS  X4 PASS  X5 PASS
+
+decoy false alarms by USE_LIMIT_PLURAL (27):
+  plural_event | es | las reuniones de los lunes | Prepara una plantilla de acta pensada para las reuniones de los lunes y súbela a la carpeta compartida del equipo c
+  plural_event | es | las pruebas de carga del portal de pagos | Genera un conjunto de datos sintéticos destinado a las pruebas de carga del portal de pagos, sin datos personales r
+  plural_event | es | las auditorías internas de inventario | Redacta una lista de verificación orientada a las auditorías internas de inventario y envíala al jefe de bodega.
+  other | en | reducing duplicate support tickets | Write a rollout note aimed at reducing duplicate support tickets and share it with the help desk leads.
+  plural_event | en | the quarterly business reviews | Build a dashboard view tailored for the quarterly business reviews, showing churn and gross margin.
+  plural_event | en | the nightly builds | Write a runbook geared to the nightly builds and flag any step that requires manual approval.
+  plural_event | pt | as entregas mensais da obra | Crie um modelo de relatório pensado para as entregas mensais da obra e inclua fotos do canteiro.
+  plural_event | pt | testes de regressão do aplicativo bancário | Prepare um conjunto de casos de teste voltado a testes de regressão do aplicativo bancário e documente os resultado
+  plural_event | pt | as reuniões de alinhamento entre as filiais | Redija um roteiro de facilitação preparado para as reuniões de alinhamento entre as filiais, com perguntas de abert
+  plural_event | pt | plantões de fim de semana da farmácia | Organize uma planilha de controle destinada a plantões de fim de semana da farmácia e marque os farmacêuticos respo
+  plural_event | es | las reuniones de los lunes | Prepara la agenda estándar, pensada para las reuniones de los lunes del equipo, con espacio para bloqueos y avances
+  plural_event | es | las pruebas de carga | Escribe el generador de datos sintéticos, preparado para las pruebas de carga del sistema de pagos, con registros v
+  plural_event | es | las revisiones mensuales de presupuesto | Elabora la plantilla de seguimiento, pensada para las revisiones mensuales de presupuesto, con columnas de desviaci
+  plural_event | en | the nightly builds on the CI server | Configure the logging level, intended for the nightly builds on the CI server, and keep other pipelines unchanged.
+  plural_event | en | the quarterly reviews | Create a performance summary template, prepared for the quarterly reviews, with sections for goals and feedback.
+  plural_event | pt | os testes de regressão noturnos | Configure os logs detalhados, pensados para os testes de regressão noturnos, e mantenha o nível normal nos demais a
+  plural_event | pt | as entregas mensais ao cliente | Monte o modelo de relatório, preparado para as entregas mensais ao cliente, com campos de status e observações.
+  plural_event | pt | as reuniões de alinhamento semanais da equipe | Crie a pauta padrão, pensada para as reuniões de alinhamento semanais da equipe, com espaço para impedimentos.
+  plural_event | pt | as auditorias trimestrais da unidade | Redija a lista de documentos, preparada para as auditorias trimestrais da unidade, agrupando os arquivos por área r
+  other | es | las fiestas patronales del pueblo | Redacta un programa de actividades infantiles, pensado para las fiestas patronales del pueblo.
+  plural_event | es | las reuniones de los lunes del equipo comercial | Redacta el orden del día con puntos cortos, pensado para las reuniones de los lunes del equipo comercial.
+  plural_event | pt | as entregas mensais do contrato | Escreva um resumo de status em tópicos, redigido para as entregas mensais do contrato.
+  plural_event | pt | as reuniões quinzenais da diretoria | Prepare a pauta com decisões pendentes, preparada para as reuniões quinzenais da diretoria.
+  plural_event | es | las pruebas de carga del servicio de pagos | Escribe el plan de pruebas en lenguaje técnico, dirigido a las pruebas de carga del servicio de pagos.
+  plural_event | pt | os testes de regressão do módulo de login | Documente o roteiro de execução, direcionado para os testes de regressão do módulo de login.
+  plural_event | es | las entregas semanales del proyecto | Resume el avance técnico en una tabla breve, reservado para las entregas semanales del proyecto.
+  plural_event | pt | as visitas técnicas mensais das obras | Escreva o roteiro de inspeção em checklist, pensado para as visitas técnicas mensais das obras.
+
+missed audiences (38):
+  singular_group | es | la junta directiva | Prepara el informe de riesgos financieros dirigido a la junta directiva, con énfasis en liquidez y deuda.
+  singular_group | es | el comité de ética del hospital | Resume los resultados del ensayo clínico en un documento destinado al comité de ética del hospital y adjunta los an
+  singular_group | es | el equipo de producción del cortometraje | Redacta las instrucciones de rodaje escritas para el equipo de producción del cortometraje, incluyendo horarios de 
+  plural_group | en | the tenants of the Maple Street building | Draft a short summary of the lease changes written for the tenants of the Maple Street building.
+  plural_group | en | the night-shift paramedics | Prepare a FAQ on the new triage process aimed at the night-shift paramedics, and keep the tone calm.
+  singular_group | en | the school board | Prepare the incident report addressed to the school board and attach the timeline from the facilities team.
+  singular_group | en | the film crew | Draft the safety briefing meant for the film crew and keep it brief and practical.
+  singular_group | en | the audit committee | Compile the procurement findings into a memo directed to the audit committee, highlighting the vendor overlaps.
+  singular_group | pt | o conselho fiscal | Consolide as despesas do semestre em um relatório preparado para o conselho fiscal e anexe os comprovantes.
+  singular_group | pt | a equipe de enfermagem da UTI neonatal | Escreva as orientações de plantão pensadas para a equipe de enfermagem da UTI neonatal e revise as doses padrão.
+  singular_group | pt | a diretoria executiva da distribuidora | Elabore o resumo da auditoria escrito para a diretoria executiva da distribuidora e destaque os riscos regulatórios
+  singular_group | pt | a comissão de fábrica | Prepare a pauta de negociação redigida para a comissão de fábrica, incluindo as propostas de escala de turnos.
+  singular_group | es | la junta directiva | Genera el análisis de costos de la subestación eléctrica, reservado para la junta directiva, con riesgos principale
+  singular_group | es | el equipo médico de urgencias | Resume el protocolo de triaje actualizado, redactado para el equipo médico de urgencias, en una página con un diagr
+  singular_group | es | la comisión de ética universitaria | Escribe la carta de presentación del estudio, destinada a la comisión de ética universitaria, e incluye el consenti
+  plural_group | en | night-shift nurses | Prepare the new medication-checking checklist, directed at night-shift nurses, and keep it to a single printed page
+  plural_group | en | volunteer coaches of the youth league | Compile the training drills handbook, intended for volunteer coaches of the youth league, with a diagram for each d
+  plural_group | en | school groups visiting the museum | Draft the exhibition wall texts, meant for school groups visiting the museum, in a warm and clear tone.
+  singular_group | en | the school board | Prepare the enrollment trends brief, addressed to the school board, highlighting the budget impact on the first pag
+  singular_group | en | the film crew | Write the daily call sheet summary, prepared for the film crew, listing locations and pickup times for each unit.
+  singular_group | en | the planning committee | Draft the zoning proposal summary, reserved for the planning committee, with maps attached as an appendix.
+  singular_group | pt | o conselho fiscal da cooperativa | Prepare o relatório de despesas do semestre, preparado para o conselho fiscal da cooperativa, com notas explicativa
+  singular_group | pt | a equipe de enfermagem | Redija o protocolo de higienização das mãos, escrito para a equipe de enfermagem, com checklist de uma página.
+  singular_group | pt | a diretoria da fábrica | Elabore o resumo do painel de produção, redigido para a diretoria da fábrica, com os indicadores principais no topo
+  singular_group | pt | a comissão organizadora do evento | Monte o cronograma do congresso, pensado para a comissão organizadora do evento, destacando os pontos de decisão.
+  plural_group | en | the investors of our seed fund | Draft a quarterly update in plain English, written for the investors of our seed fund.
+  plural_group | en | the tenants of the riverside building on Elm Street | Draft a notice about the new recycling schedule, directed to the tenants of the riverside building on Elm Street.
+  plural_group | en | the volunteers of the regional food bank | Write a short safety briefing for the warehouse, tailored for the volunteers of the regional food bank.
+  plural_group | en | the members of the university rowing club | Prepare a training plan outline, intended for the members of the university rowing club.
+  singular_group | es | la junta directiva de la fundación | Redacta el acta de la reunión de presupuesto, dirigida a la junta directiva de la fundación.
+  singular_group | en | the film crew on location | Write the call sheet for the harbor shoot, prepared for the film crew on location.
+  singular_group | pt | o conselho fiscal da associação | Redija o parecer sobre as contas do semestre, escrito para o conselho fiscal da associação.
+  singular_group | es | el equipo médico de guardia | Resume el protocolo de traslado de pacientes en una página, preparado para el equipo médico de guardia.
+  singular_group | en | the school board before the vote | Draft a short budget memo on the new library project, addressed to the school board before the vote.
+  singular_group | pt | a equipe de enfermagem do turno da manhã | Prepare um resumo dos novos protocolos de higiene das mãos, pensado para a equipe de enfermagem do turno da manhã.
+  singular_group | es | el comité organizador del evento regional | Escribe el guion de la presentación del festival, enfocado en el comité organizador del evento regional.
+  singular_group | pt | o time de manutenção do turno noturno | Escreva o procedimento de bloqueio de máquinas, redigido para o time de manutenção do turno noturno.
+  singular_group | pt | a comissão de ética da universidade | Compile as dúvidas recebidas sobre pesquisa com voluntários, voltada para a comissão de ética da universidade.
