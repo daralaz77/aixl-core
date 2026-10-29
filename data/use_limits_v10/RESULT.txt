@@ -1,0 +1,63 @@
+records 180 (malformed 0); authors {'A': 60, 'B': 60, 'C': 60}; kinds {('open_audience', 'plural_group'): 60, ('open_audience', 'singular_group'): 30, ('decoy', 'other'): 60, ('decoy', 'plural_event'): 30}
+open_audience default  flagged by the audience families 21/90 = 23.3 %; any family 41/90 = 45.6 %; faithful_light by them alone 0/90 = 0.0 %
+open_audience union    flagged by the audience families 78/90 = 86.7 %; any family 81/90 = 90.0 %; faithful_light by them alone 0/90 = 0.0 %
+open_audience open     flagged by the audience families 85/90 = 94.4 %; any family 89/90 = 98.9 %; faithful_light by them alone 0/90 = 0.0 %
+decoy         default  flagged by the audience families 2/90 = 2.2 %; any family 23/90 = 25.6 %; faithful_light by them alone 0/90 = 0.0 %
+decoy         union    flagged by the audience families 30/90 = 33.3 %; any family 45/90 = 50.0 %; faithful_light by them alone 0/90 = 0.0 %
+decoy         open     flagged by the audience families 41/90 = 45.6 %; any family 58/90 = 64.4 %; faithful_light by them alone 0/90 = 0.0 %
+
+per subkind (union / default / open):
+  plural_group   union 57/60 = 95.0 %; default 0/60 = 0.0 %; open 55/60 = 91.7 %
+  singular_group union 21/30 = 70.0 %; default 21/30 = 70.0 %; open 30/30 = 100.0 %
+  other          union 1/60 = 1.7 %; default 0/60 = 0.0 %; open 28/60 = 46.7 %
+  plural_event   union 29/30 = 96.7 %; default 2/30 = 6.7 %; open 13/30 = 43.3 %
+per language (open_audience, union): es 23/27 = 85.2 %; en 25/29 = 86.2 %; pt 30/34 = 88.2 %
+equivalent pairs of the older sets with an audience alarm: 0 of 1280; spent v3 set: recipient decoy 1/150 = 0.7 %
+
+Y1 PASS  Y2 PASS  Y3 PASS  Y4 PASS  Y5 PASS  Y6 PASS
+
+decoy false alarms by the union (30):
+  plural_event | es | las reuniones de los lunes | Prepara una plantilla de acta pensada para las reuniones de los lunes y agrega una sección de compromisos.
+  plural_event | es | las pruebas de carga del portal | Escribe el guion de verificación destinado a las pruebas de carga del portal y registra los tiempos de respuesta.
+  plural_event | es | las auditorías internas de inventario | Redacta la lista de chequeo orientada a las auditorías internas de inventario y ordénala por almacén.
+  plural_event | en | the weekly meetings of the design team | Create a standing agenda template designed for the weekly meetings of the design team and add a decisions log.
+  plural_event | en | the nightly builds | Write a monitoring script intended for the nightly builds and post failures to the engineering channel.
+  plural_event | en | the quarterly reviews | Draft a slide template reserved for the quarterly reviews and keep the financial section at the end.
+  plural_event | pt | os testes de regressão do aplicativo | Escreva um roteiro de verificação pensado para os testes de regressão do aplicativo e anote os casos que falharem.
+  plural_event | pt | as entregas mensais aos clientes | Monte um modelo de relatório feito para as entregas mensais aos clientes e inclua um campo de pendências.
+  plural_event | pt | inspeções de segurança nos canteiros de obra | Prepare uma lista de verificação destinada a inspeções de segurança nos canteiros de obra e organize por área.
+  plural_event | pt | as reuniões de planejamento editorial | Redija um modelo de ata preparado para as reuniões de planejamento editorial e reserve um espaço para decisões.
+  plural_event | es | las reuniones de los lunes | Redacta la agenda preparada para las reuniones de los lunes y circúlala por la mañana.
+  plural_event | es | las pruebas de carga | Configura el monitoreo pensado para las pruebas de carga y guarda los resultados en el repositorio.
+  plural_event | es | las revisiones trimestrales | Prepara el guion destinado a las revisiones trimestrales y ajusta los indicadores clave.
+  plural_event | en | the weekly meetings | Write the checklist prepared for the weekly meetings and post it in the team wiki.
+  plural_event | en | the nightly builds | Tune the pipeline designed for the nightly builds and log any slow steps.
+  plural_event | en | the quarterly reviews | Draft the slide template meant for the quarterly reviews and share it with finance.
+  plural_event | pt | os testes de regressão | Prepare o roteiro pensado para os testes de regressão e documente os casos de borda.
+  plural_event | pt | as entregas mensais | Redija o modelo feito para as entregas mensais e envie ao gerente de projeto.
+  plural_event | pt | as reuniões de alinhamento | Ajuste o script preparado para as reuniões de alinhamento e salve no repositório.
+  plural_event | pt | as auditorias internas | Escreva o checklist redigido para as auditorias internas e arquive na pasta compartilhada.
+  other | es | la temporada de lluvias en la costa del pacífico | El guion está adaptado a la temporada de lluvias en la costa del pacífico, con escenas cortas.
+  plural_event | en | the weekly meetings of the parent council | The newsletter is written for the weekly meetings of the parent council, so summarize decisions.
+  plural_event | en | the nightly builds of the mobile app pipeline | Prepare the dashboard targeted at the nightly builds of the mobile app pipeline, with failure counts.
+  plural_event | es | las reuniones de los lunes del equipo de compras municipal | El resumen está dirigido a las reuniones de los lunes del equipo de compras municipal, con acuerdos marcados.
+  plural_event | es | las pruebas de carga del sistema de reservas nacional | Redacta el protocolo pensado para las pruebas de carga del sistema de reservas nacional, paso a paso.
+  plural_event | es | los simulacros semanales de evacuación del colegio | Este panel está orientado a los simulacros semanales de evacuación del colegio, con tiempos registrados.
+  plural_event | pt | as entregas mensais do contrato de manutenção dos elevadores | O relatório foi redigido para as entregas mensais do contrato de manutenção dos elevadores, com fotos.
+  plural_event | pt | aos testes de regressão do aplicativo de pagamentos | Monte o painel voltado aos testes de regressão do aplicativo de pagamentos, com taxa de falhas.
+  plural_event | pt | às reuniões de acompanhamento da obra do viaduto | A planilha é destinada às reuniões de acompanhamento da obra do viaduto, com pendências abertas.
+  plural_event | pt | as rodadas de avaliação trimestral dos professores da rede | Este resumo é preparado para as rodadas de avaliação trimestral dos professores da rede, em tópicos.
+
+missed audiences (12):
+  plural_group | es | los conductores de autobús intermunicipal | Escribe un comunicado sobre el nuevo horario adaptado a los conductores de autobús intermunicipal y envíalo como bo
+  singular_group | en | the film crew | Write the shooting schedule summary directed to the film crew and highlight the location changes.
+  singular_group | pt | a comissão de licitação | Escreva a nota técnica feita para a comissão de licitação e anexe a comparação entre os fornecedores.
+  plural_group | pt | atletas juvenis do clube | Redija o guia de treino focado em atletas juvenis do clube e revise o tom com a treinadora.
+  singular_group | es | la comisión de ética | Escribe el acta resumida destinada a la comisión de ética y archívala en la carpeta compartida.
+  singular_group | en | the film crew | Prepare the shot list tailored for the film crew and share it in the production channel.
+  singular_group | pt | a comissão de licitação | Monte o resumo executivo escrito para a comissão de licitação e destaque os critérios de avaliação.
+  plural_group | es | los operarios de la planta de embotellado del turno vespertino | El manual de seguridad está adaptado a los operarios de la planta de embotellado del turno vespertino, con dibujos.
+  singular_group | en | the hospital ethics panel reviewing the trial | Draft the incident report tailored for the hospital ethics panel reviewing the trial, in formal English.
+  singular_group | en | the district fire brigade | This dashboard is adapted for the district fire brigade, showing staffing by station.
+  singular_group | es | la dirección de la escuela técnica de la comarca | Redacta el aviso concebido para la dirección de la escuela técnica de la comarca, en tono formal.
+  singular_group | pt | ao time de produção do documentário sobre a bacia do rio | O roteiro é voltado ao time de produção do documentário sobre a bacia do rio, com cenas curtas.

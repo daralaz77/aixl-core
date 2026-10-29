@@ -135,3 +135,12 @@ def test_singular_head_is_not_a_plural_audience(text):
 def test_plural_family_is_opt_in():
     from aixl.invariants import RELAY_FAMILIES_PLURAL
     assert "USE_LIMIT_PLURAL" in RELAY_FAMILIES_PLURAL and "USE_LIMIT_PLURAL" not in RELAY_FAMILIES
+
+
+def test_relay_check_plural_mode_is_opt_in_and_validated_on_fresh_data():
+    """E-USE-LIMIT v10: the union (closed list + plural head) passed its preregistered hypotheses; it stays opt-in because plural events (`the nightly builds`) are still read as audiences."""
+    a, b = "Draft the notice directed to the tenants of the riverside building.", "Draft the notice."
+    assert relay_check(a, b)["ok"] is True
+    assert relay_check(a, b, plural_audience=True)["ok"] is False
+    a, b = "Write the speech prepared for the harvest festival.", "Write the speech."
+    assert relay_check(a, b, plural_audience=True)["ok"] is True                # ordinary events are not read as audiences

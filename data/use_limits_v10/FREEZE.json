@@ -1,0 +1,12 @@
+{
+ "aixl/invariants.py": "8431cf1a13551e96ddc79f36b55cf27ecc693156c12ffea2c9bcbf16651db983",
+ "aixl/translators/natural_to_semantic.py": "ebb1f6677c3868851aefefbe4cb5b58b21144f11757e7273c98c6f9ce7fc8dc0",
+ "aixl/core/completeness.py": "9c678a07cd341190d1c3a7daaf9fb3e4cb18b4681b2344ee4b9f77c03de617b7",
+ "aixl/core/numberwords.py": "d0162b8768336582a765a42a3559de0fe1afc3167b905fdcd736f7b0b3fa6538",
+ "aixl/api/service.py": "5c0e77d96f7a0756d2bfda8657a4f1d89f33fac5403b35d12e8b1a11acb793be",
+ "benchmarks/use_limit_union_eval.py": "914b536581504f08c6cb5477b14138d85b3f2e613b612cdca78d52d36d12c465",
+ "_note": "code frozen BEFORE the data exist; union alarms on older equivalent pairs (pre-freeze check): 0 of 1280",
+ "data/use_limits_v10/out_A.jsonl": "95ffba9c2e8ddb0184898078a44d29d6bb9a777703367ddd3e6ba75398843d12",
+ "data/use_limits_v10/out_B.jsonl": "42b24daf0e8559a26feb35124766370c0d38f800efdd02dab577acda69fa36fd",
+ "data/use_limits_v10/out_C.jsonl": "154d432160cdccd77bc62acb8752eefff4e8270c5b372869e547f0616c12d17f"
+}

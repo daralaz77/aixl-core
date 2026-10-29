@@ -77,8 +77,8 @@ _AUD_NOUN = (r"team|teams|managers?|management|committee|board|auditors?|executi
              r"conselho|consejo|administracion|administracao|jefaturas?|chefias?|lideranca|liderazgo|cupula|alta direccion|alta direcao")
 _AUD_TERMS = r"(?:(?:[a-z]+\s+){0,2}(?:" + _AUD_NOUN + r")(?:\s+(?:de|da|do|of)\s+[a-z]+)?)"
 # constructions that make a group the AUDIENCE of a document (not its recipient): `written for`, `addressed to`, `dirigido a`, `voltado aos`, `reserved for`...
-_AUD_VERB = (r"(?:reserved for|intended for|written for|prepared for|drafted for|meant for|made for|tailored for|aimed at|targeted at|geared to|geared towards|addressed to|directed to|oriented to|"
-             r"reservad[oa]s? (?:para|al?|a la|a los|a las)|exclusiv[oa]s? (?:para|de)|destinad[oa]s? (?:al?|a la|a los|a las|para|aos|as|ao)|dirigid[oa]s? (?:al?|a la|a los|a las|para)|escrit[oa]s? para|redactad[oa]s? para|preparad[oa]s? para|elaborad[oa]s? para|"
+_AUD_VERB = (r"(?:reserved for|intended for|written for|prepared for|drafted for|meant for|made for|tailored for|aimed at|targeted at|geared to|geared towards|addressed to|directed to|directed at|oriented to|designed for|conceived for|adapted for|adapted to|"
+             r"adaptad[oa]s? (?:al?|a la|a los|a las|para)|concebid[oa]s? para|focad[oa]s? (?:em|para|aos|as|ao)|feit[oa]s? para|reservad[oa]s? (?:para|al?|a la|a los|a las)|exclusiv[oa]s? (?:para|de)|destinad[oa]s? (?:al?|a la|a los|a las|para|aos|as|ao)|dirigid[oa]s? (?:al?|a la|a los|a las|para)|escrit[oa]s? para|redactad[oa]s? para|preparad[oa]s? para|elaborad[oa]s? para|"
              r"orientad[oa]s? (?:al?|a la|a los|a las|para|aos|as|ao)|pensad[oa]s? para|enfocad[oa]s? (?:al?|a la|a los|a las|en|para)|redigid[oa]s? para|voltad[oa]s? (?:a|aos|as|ao|para)|direcionad[oa]s? (?:a|aos|as|ao|para)|"
              r"dirigid[oa]s? (?:aos|as|ao)|escritos? para|exclusive to|exclusivo para)")
 _USE_LIMIT_PATTERNS = {
@@ -184,7 +184,11 @@ def _plural_audience(lw: str, with_groups: bool = False) -> bool:
             np.append(t)
         if not np:
             continue
-        head = np[0] if _ROMANCE_VERB.search(m.group(0)) else np[-1]          # Spanish / Portuguese: head first; English: head last
+        romance = bool(_ROMANCE_VERB.search(m.group(0)))
+        if not romance:
+            cut = [k for k, t in enumerate(np) if k > 0 and (t == "of" or t.endswith("ing"))]          # English: `the tenants of the building`, `school groups visiting the museum`
+            np = np[:cut[0]] if cut else np
+        head = np[0] if romance else np[-1]          # Spanish / Portuguese: head first; English: head last (of the phrase before a post-modifier)
         if _plural_word(head) or (with_groups and re.fullmatch(_AUD_NOUN, head)):
             return True
     return False
@@ -296,13 +300,13 @@ RELAY_FAMILIES_PLURAL = RELAY_FAMILIES | {"USE_LIMIT_PLURAL"}   # + the plural-h
 RELAY_FAMILIES_OPEN = RELAY_FAMILIES | {"USE_LIMIT_OPEN"}     # + the strong-audience-verb family (more sensitive, 36.7 % decoy alarms on fresh data)
 
 
-def relay_check(source: str, relay: str, open_audience: bool = False) -> dict:
+def relay_check(source: str, relay: str, open_audience: bool = False, plural_audience: bool = False) -> dict:
     """Did a critical slot change between `source` and its `relay`?  Built for NEAR-VERBATIM relays (copy, truncation, a flipped word, an injected
     clause). It is NOT an equivalence test: `ok: true` means "no critical slot visibly changed", never "same meaning" — a rewording that moves a negation
     into a different construction can raise a violation, and an antonym swap (`send` -> `cancel`) or a vocabulary-only change is invisible to it.
     Measured (other authors' seeds, families chosen on the project's own): 94.6 % of meaning-changing corruptions flagged, 0.0 % of benign edits flagged."""
     try:
-        v = check(source, relay, RELAY_FAMILIES_OPEN if open_audience else RELAY_FAMILIES)
+        v = check(source, relay, RELAY_FAMILIES_OPEN if open_audience else RELAY_FAMILIES_PLURAL if plural_audience else RELAY_FAMILIES)
     except Exception as e:                                        # noqa: BLE001 — fail closed: an input we cannot analyse is not "ok"
         return {"ok": False, "violations": [], "reason": f"not analysed: {type(e).__name__}", "regime": "near-verbatim relay"}
     return {"ok": not v, "regime": "near-verbatim relay",

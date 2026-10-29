@@ -505,3 +505,17 @@ verb `directed at` is not in the list. Spanish and Portuguese put the head first
 `conselho`, `diretoria`, `comissão`, `time`) and 5.0 % of plural groups; the plural family catches 85 % of plural groups. Union default + plural: audiences **83.3 %** (plural groups 88.3, singular 73.3), ordinary decoys **5.0 %**, plural events still **83.3 %**.
 **Decision:** `USE_LIMIT_PLURAL` stays opt-in (`RELAY_FAMILIES_PLURAL`, `aixl.invariants.plural_audience`); no mode of the audience family meets the 10 % decoy bar because of plural events. A fix would need a different signal for those
 (whether the head is an EVENT-like noun) — the same closed-class problem again — or a judge restricted to the pairs this family flags. Not implemented.
+
+## E-USE-LIMIT v10 (2026-10-29): the UNION (closed audience list + plural-head signal) on a NEW set — preregistered, code and data frozen by hash, run once; **all six hypotheses PASSED**
+Design changes made before the data (informed by the spent v9 misses): the English head rule cuts the noun phrase at a post-modifier (`of ...`, a participle `visiting ...`); more natural strong audience verbs
+(`directed at`, `designed for`, `conceived for`, `adapted for/to`, `adaptado a`, `concebido para`, `focado em`, `feito para`). Union = default families OR `USE_LIMIT_PLURAL` (`RELAY_FAMILIES_PLURAL`).
+180 fresh records, three authors (Opus, Sonnet, Haiku): 60 plural groups (English half with a post-modifier), 30 singular groups, 60 ordinary decoys, 30 plural-event decoys. Result: data/use_limits_v10/RESULT.txt.
+* **Y1 PASS** — audiences flagged by the union **86.7 %** (78/90): plural groups **95.0 %**, singular groups **70.0 %**. **Y3 PASS** — English **86.2 %** (v9 plural family alone: 37 %; es 85.2, pt 88.2).
+* **Y2 PASS** — ordinary decoys (events, occasions, purposes, deadlines, technical targets) flagged **1.7 %** (1/60); the open mode (strong verb + any group) flags **46.7 %** of the same decoys.
+* **Y4 PASS** (faithful-light by the audience families alone 0 %), **Y5 PASS** (0 of 1 280 older equivalent pairs), **Y6 PASS** (spent v3 set: recipient decoy 0.7 %).
+**What is still not solved:** the union flags **96.7 % of plural-event decoys** (29/30: `the nightly builds`, `las pruebas de carga`, `as reuniões de alinhamento`, `the quarterly reviews`) and, counting them, 33.3 % of all decoys (30/90). Y2 was defined on the ordinary
+decoys; on the whole decoy set the union does not meet the 10 % bar that v5/v8/v9 used. Singular groups outside the closed list are missed (`the film crew`, `la comisión de ética`, `a comissão de licitação`: 9 of 30), and so are a few plural groups whose
+verb or head the rules do not reach (12 audiences missed in all).
+**Decision:** the union is the first audience mode with preregistered, fresh evidence of high recall AND low alarms on ordinary decoys (86.7 % / 1.7 %). It stays OPT-IN (`relay_check(source, relay, plural_audience=True)`, `RELAY_FAMILIES_PLURAL`):
+whether to make it the default depends on how often real hand-offs say `prepared for the weekly meetings` (a plural event) — unknown without real traffic; today it would raise one alarm for almost every such phrase. Compared with the open mode on the same data:
+open 94.4 % audiences but 46.7 % ordinary decoys, so the union is the better trade. Not wired into the MCP tool (default only).
