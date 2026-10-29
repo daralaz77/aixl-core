@@ -1,0 +1,37 @@
+records 180 (malformed 0); authors {'A': 60, 'B': 60, 'C': 60}; kinds {'open_audience': 90, 'decoy': 90}
+open_audience v5: drop flagged 86/90 = 95.6 %; by USE_LIMIT 85/90 = 94.4 %; faithful_light flagged 12/90 = 13.3 %, by USE_LIMIT alone 0/90 = 0.0 %
+open_audience v4: drop flagged 15/90 = 16.7 %; by USE_LIMIT 0/90 = 0.0 %; faithful_light flagged 12/90 = 13.3 %, by USE_LIMIT alone 0/90 = 0.0 %
+decoy         v5: drop flagged 40/90 = 44.4 %; by USE_LIMIT 19/90 = 21.1 %; faithful_light flagged 11/90 = 12.2 %, by USE_LIMIT alone 1/90 = 1.1 %
+decoy         v4: drop flagged 29/90 = 32.2 %; by USE_LIMIT 5/90 = 5.6 %; faithful_light flagged 11/90 = 12.2 %, by USE_LIMIT alone 1/90 = 1.1 %
+open_audience per lang (v5): en 27/27 = 100.0 %; es 26/27 = 96.3 %; pt 33/36 = 91.7 %
+equivalent pairs of the older sets with a USE_LIMIT alarm: 0 of 1280
+spent v3 set: recipient decoy flagged by USE_LIMIT 0/150 = 0.0 %; faithful_light by USE_LIMIT alone 3/150 = 2.0 %
+
+W1 PASS  W2 FAIL  W3 PASS  W4 PASS  W5 PASS
+
+decoy false alarms by USE_LIMIT (19):
+  es | reducir las devoluciones | Escribe el nuevo flujo de soporte orientado a reducir las devoluciones y compártelo con el líder de atención al cliente.
+  en | reducing ticket backlog | Draft the new triage workflow aimed at reducing ticket backlog and share it with the support leads.
+  en | the pricing experiment | Set up the landing page variant reserved for the pricing experiment and track its conversions separately.
+  pt | reduzir o tempo de espera | Desenhe o novo roteiro da central de atendimento voltado para reduzir o tempo de espera e compartilhe com a supervisão.
+  pt | aumentar a retenção de clientes | Redija o e-mail de reativação direcionado para aumentar a retenção de clientes e programe o envio no CRM.
+  es | reducir la rotación de personal | Diseña un plan de beneficios enfocado en reducir la rotación de personal, y compáralo con el esquema actual.
+  es | la fase de pruebas | Configura el entorno de contenedores, reservado para la fase de pruebas, y documenta las variables necesarias.
+  en | reducing customer churn | Propose a loyalty campaign aimed at reducing customer churn, and estimate the cost of each option.
+  en | handling peak holiday demand | Adjust the staffing schedule geared to handling peak holiday demand, and flag any gaps in coverage.
+  pt | a rodada de testes | Configure o ambiente de simulação, reservado para a rodada de testes, e registre os parâmetros usados.
+  pt | a redução de custos logísticos | Proponha um novo desenho de rotas direcionado à redução de custos logísticos e compare com o desenho atual.
+  pt | a revisão jurídica do contrato | Separe as cláusulas de rescisão em um documento preparado para a revisão jurídica do contrato, em ordem numérica.
+  pt | a ramificação principal do repositório | Faça o merge das correções, direcionado à ramificação principal do repositório, depois de rodar o linter.
+  es | reducir la rotación de personal | Diseña el plan de encuestas orientado a reducir la rotación de personal, con preguntas sobre salario, liderazgo y carga 
+  en | lowering support ticket backlog | Outline the triage workflow aimed at lowering support ticket backlog, with priority rules, canned replies, and escalatio
+  en | improving checkout conversion | Draft the experiment brief geared to improving checkout conversion, listing the variants to test, the metrics to watch, 
+  pt | reduzir o churn de clientes | Monte a estratégia orientada a reduzir o churn de clientes, com gatilhos de alerta, ofertas de retenção e metas mensais.
+  pt | a auditoria interna da filial | Escreva o checklist preparado para a auditoria interna da filial, com controles de estoque, registros de caixa e evidênc
+  pt | os testes de carga do sistema | Documente o roteiro reservado para os testes de carga do sistema, com cenários de pico, limites de latência e critérios 
+
+missed open_audience drops (4):
+  pt | os enfermeiros do plantão noturno | Escreva o resumo das novas escalas direcionado para os enfermeiros do plantão noturno e envie pelo grupo do hospital.
+  pt | as mães lactantes | Redija o folheto sobre amamentação no trabalho, destinado às mães lactantes, e inclua os canais de apoio da empresa.
+  es | pasantes de primer año | Prepara la guía de incorporación dirigida a pasantes de primer año, con los pasos del primer mes y los contactos clave d
+  pt | lojistas do shopping | Prepare o calendário de promoções destinado a lojistas do shopping, com as épocas de decoração, o cronograma de vendas e

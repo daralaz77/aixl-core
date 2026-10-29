@@ -460,3 +460,18 @@ authors (Opus, Sonnet, Haiku; es 45, en 45, pt 60) that never saw the code, with
 instead of inferring it from free text. The contract documentation and the MCP tool description now say that a lower-case name is not seen.
 * **Bug found by the unit tests after the freeze (v4, post-hoc, NOT evidence):** the Spanish contraction `a + el` = `al` was missing (`dirigida al equipo`, `dirigido al comité ejecutivo`). Fixed; re-scoring the same set: dropped
   marker 91.3 -> 92.0 %, audience 83.3 -> 86.1 %, es 95.6 -> 97.8 %; recipient decoy 0/150, older sets 0/1 280, heavy-relay alarms 23.3 -> 22.7 % (V2 and V3 still FAIL). Frozen result kept in RESULT_v3_frozen.txt.
+
+## E-USE-LIMIT v5 (2026-10-29): a STRONG audience verb as the marker by itself — preregistered (data/use_limits_v5/PREREG.md), run once; **W2 FAILED**, then three post-hoc fixes (NOT evidence)
+Candidate v5: after `written for / aimed at / addressed to / dirigido a / escrito para / voltado a / ...` ANY group counts as the audience, except an event, deadline, number, gerund/infinitive or technical target
+(`prepared for the meeting`). 180 fresh records from three authors (Opus, Sonnet, Haiku): 90 `open_audience` (unusual groups: interns, patients, tenants, investors...) and 90 `decoy` (same verbs, complement NOT an audience).
+Frozen result (RESULT_v5_frozen.txt; the v4 code scored on the same data is the baseline):
+* **W1 PASS** — open-audience drops flagged **96.7 %** (v4: 16.7 %; en 92.6, es 100, pt 97.2). **W3 PASS** (faithful-light flagged by USE_LIMIT alone 0.6 %), **W4 PASS** (0 of 1 280), **W5 PASS** (spent v3 set).
+* **W2 FAIL** — the decoy drops flagged by USE_LIMIT: **43.3 %** (threshold 10 %; v4: 5.6 %). The risk named when the round was planned was real: of the 39 alarms, 36 were the new behaviour (an event/period noun my closed list did
+  not know: `feria`, `fase`, `campaña`, `seminário`, `quarterly business review`, `product launch event`...) and 3 came from the old lexicon (`auditoria interna`, `revisão jurídica`, `reservado`).
+**Post-hoc work after reading the failures** (the data is now SPENT: three tuning passes on it, so the numbers below are NOT evidence and need a fresh set):
+* v6: English puts the noun-phrase HEAD last, so both ends of the complement are checked against the event / time / technical lists; a gerund is only a purpose when it starts or heads the complement; more event, period, phase and
+  campaign nouns in en/es/pt (found missing: `migracao` was in the Spanish list only — an implementation slip). Decoy alarms 43.3 -> 21.1 %.
+* v7: a verb at the start of the complement (`aimed at reducing churn`, `orientado a reducir las devoluciones`) is a purpose; `reservado para X` is the audience verb, no longer a CONFIDENTIALITY notice (`reservado` alone still is);
+  more technical targets and experiments. Two slips found by the unit tests: the `-ar/-er/-ir` infinitive rule hit the English word `summer`, and the Portuguese contraction `destinado às` (a + as) was missing. Re-scored on the same data:
+  open-audience **96.7 %**, decoy alarms **3.3 %** (v4 baseline 5.6 %), 0 of 1 280 older equivalent pairs; spent v3 set: recipient decoy 1/150, faithful-light by USE_LIMIT alone 2.0 %.
+**Caveat that matters:** this is a closed-list arms race (events/periods/targets are about as open as audiences) tuned on 180 records; the number to believe is the frozen one (W2 failed). A final validation needs a new set.

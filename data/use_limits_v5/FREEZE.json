@@ -1,0 +1,12 @@
+{
+ "aixl/invariants.py": "b4041577c60a76259036a3dda41ee4b55836f2be976c69b016876705c7c6c076",
+ "aixl/translators/natural_to_semantic.py": "ebb1f6677c3868851aefefbe4cb5b58b21144f11757e7273c98c6f9ce7fc8dc0",
+ "aixl/core/completeness.py": "9c678a07cd341190d1c3a7daaf9fb3e4cb18b4681b2344ee4b9f77c03de617b7",
+ "aixl/core/numberwords.py": "d0162b8768336582a765a42a3559de0fe1afc3167b905fdcd736f7b0b3fa6538",
+ "aixl/api/service.py": "5c0e77d96f7a0756d2bfda8657a4f1d89f33fac5403b35d12e8b1a11acb793be",
+ "benchmarks/use_limit_eval_v5.py": "694174475eb8b9b942cbaf20874d84d4c8af9a8d886dadb07427d4de234f5d13",
+ "data/use_limits_v5/baseline_invariants_v4.py.txt": "91cfbd109316780b2c9f7948e05bb1a89a6ec84a50ba05bd5f3733975debf358",
+ "data/use_limits_v5/out_A.jsonl": "bd1753fde709b395693dacf2854c24046de35b8c5000760a33bde7fc6f2327e8",
+ "data/use_limits_v5/out_B.jsonl": "d37b9d20fe72b8affa789652c4e278650dbfc8777547b60e05e92631c7b00a89",
+ "data/use_limits_v5/out_C.jsonl": "ea3446c150faa3afbd98c4b738544bf45a61cfffd13d3285595d0333c6bbff1d"
+}

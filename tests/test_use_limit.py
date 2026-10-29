@@ -64,6 +64,43 @@ def test_extended_lexicon_v3(text, concept):
     assert concept in use_limits(text)
 
 
-def test_open_audience_nouns_are_a_known_limit():
-    """`aimed at investors` is NOT seen: the audience noun list is closed (measured v3: 6 of 36 audience drops missed)."""
-    assert "AUDIENCE" not in use_limits("Update the charts in the deck aimed at investors.")
+def test_strong_audience_verb_is_a_marker_whatever_group_follows():
+    """v5: any group can be an audience, so `aimed at investors` / `dirigido a los profesores` count."""
+    assert "AUDIENCE" in use_limits("Update the charts in the deck aimed at investors.")
+    assert "AUDIENCE" in use_limits("Ajusta el informe dirigido a los inversionistas.")
+
+
+@pytest.mark.parametrize("text", [
+    "Update the slides prepared for the meeting.", "Escribe el texto preparado para el viernes.", "Fix the deck made for testing.",
+    "Entrega el informe escrito para revisar.", "Update the plan prepared for Q3 2026.", "Prepare o resumo escrito para a reunião.",
+])
+def test_event_time_and_verb_complements_are_not_an_audience(text):
+    assert "AUDIENCE" not in use_limits(text)
+
+
+def test_technical_target_is_not_an_audience():
+    """blind11: `pull request targeting the main branch` = `dirigido a la rama principal` is an equivalent pair; it must not raise USE_LIMIT."""
+    assert "AUDIENCE" not in use_limits("Ejecuta las pruebas en cada pull request dirigido a la rama principal.")
+    assert "AUDIENCE" not in use_limits("Deploy the config meant for the staging environment.")
+
+
+@pytest.mark.parametrize("text", [
+    "Draft the workflow aimed at reducing ticket backlog.", "Escribe el plan orientado a reducir las devoluciones.", "Generate the records meant for load testing.",
+    "Configure o ambiente, reservado para a rodada de testes.", "Faça o merge das correções, direcionado à ramificação principal do repositório.",
+    "Set up the variant reserved for the pricing experiment.", "Compile the evidence tailored for the annual compliance audit.", "Write the notes prepared for the product launch event.",
+])
+def test_purposes_events_and_technical_targets_are_not_an_audience_v7(text):
+    assert "AUDIENCE" not in use_limits(text)
+
+
+@pytest.mark.parametrize("text", [
+    "Prepare the onboarding checklist, tailored for the summer interns.", "Write the guide aimed at marketing managers.",
+    "Redija o folheto destinado às mães lactantes.", "Ajusta el informe dirigido a los inversionistas.",
+])
+def test_open_audiences_are_still_seen_v7(text):
+    assert "AUDIENCE" in use_limits(text)
+
+
+def test_reservado_para_is_the_audience_verb_not_a_confidentiality_notice():
+    assert "CONFIDENTIALITY" not in use_limits("Configure o ambiente, reservado para a rodada de testes.")
+    assert "CONFIDENTIALITY" in use_limits("Documento reservado. Envie o relatório.")

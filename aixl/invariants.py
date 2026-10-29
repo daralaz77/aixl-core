@@ -78,11 +78,11 @@ _AUD_NOUN = (r"team|teams|managers?|management|committee|board|auditors?|executi
 _AUD_TERMS = r"(?:(?:[a-z]+\s+){0,2}(?:" + _AUD_NOUN + r")(?:\s+(?:de|da|do|of)\s+[a-z]+)?)"
 # constructions that make a group the AUDIENCE of a document (not its recipient): `written for`, `addressed to`, `dirigido a`, `voltado aos`, `reserved for`...
 _AUD_VERB = (r"(?:reserved for|intended for|written for|prepared for|drafted for|meant for|made for|tailored for|aimed at|targeted at|geared to|geared towards|addressed to|directed to|oriented to|"
-             r"reservad[oa]s? (?:para|al?|a la|a los|a las)|exclusiv[oa]s? (?:para|de)|destinad[oa]s? (?:al?|a la|a los|a las|para)|dirigid[oa]s? (?:al?|a la|a los|a las|para)|escrit[oa]s? para|redactad[oa]s? para|preparad[oa]s? para|elaborad[oa]s? para|"
-             r"orientad[oa]s? (?:al?|a la|a los|a las|para)|pensad[oa]s? para|enfocad[oa]s? (?:al?|a la|a los|a las|en|para)|redigid[oa]s? para|voltad[oa]s? (?:a|aos|as|ao|para)|direcionad[oa]s? (?:a|aos|as|ao|para)|"
+             r"reservad[oa]s? (?:para|al?|a la|a los|a las)|exclusiv[oa]s? (?:para|de)|destinad[oa]s? (?:al?|a la|a los|a las|para|aos|as|ao)|dirigid[oa]s? (?:al?|a la|a los|a las|para)|escrit[oa]s? para|redactad[oa]s? para|preparad[oa]s? para|elaborad[oa]s? para|"
+             r"orientad[oa]s? (?:al?|a la|a los|a las|para|aos|as|ao)|pensad[oa]s? para|enfocad[oa]s? (?:al?|a la|a los|a las|en|para)|redigid[oa]s? para|voltad[oa]s? (?:a|aos|as|ao|para)|direcionad[oa]s? (?:a|aos|as|ao|para)|"
              r"dirigid[oa]s? (?:aos|as|ao)|escritos? para|exclusive to|exclusivo para)")
 _USE_LIMIT_PATTERNS = {
-    "CONFIDENTIALITY": r"confidential\w*|confidencial\w*|privileged|privilegiad\w*|classified|clasificad\w*|classificad\w*|restricted|restringid\w*|restrit\w*|reservad\w*|"
+    "CONFIDENTIALITY": r"confidential\w*|confidencial\w*|privileged|privilegiad\w*|classified|clasificad\w*|classificad\w*|restricted|restringid\w*|restrit\w*|reservad\w*(?!\s+(?:para|al?|ao|aos|as)\b)|"
                        r"internal|internos?|internas?|in house|sensitive|sensible\w*|sensivel|sensiveis|sigilos\w*|sigilo|nda|non disclosure|under seal|bajo sello|sob sigilo|em sigilo|"
                        r"segredo de justica|secreto de sumario|"
                        r"acuerdos? de confidencialidad|acordos? de confidencialidade|confidentiality agreements?|uso interno|use internal",
@@ -103,11 +103,69 @@ _USE_LIMIT_RE = {k: re.compile(r"(?<![a-z])(?:" + v + r")(?![a-z])") for k, v in
 _AUD_LABEL = re.compile(r"(?:^|[.;:(—-])\s*(?:for|para)\s+(?:(?:the|la|el|los|las|a|o|os|as)\s+)?" + _AUD_TERMS + r"\s*[.)]?\s*$")
 
 
+# v5 (2026-10-29): a STRONG audience verb is itself the marker, whatever group follows (`written for investors`, `dirigido a los profesores`, `aimed at interns`): any group can be an audience, so the noun list
+# can never be closed. The risk is `prepared for the meeting` / `escrito para el viernes`: the complement is an EVENT, a deadline, a number or a verb, not an audience, so those are excluded.
+_NOT_AUDIENCE = frozenset((
+    "meeting meetings review reviews launch launches release releases demo demos presentation presentations call calls deadline deadlines audit audits trip trips event events workshop workshops "
+    "training session sessions sprint quarter season hearing hearings trial test tests testing upgrade migration negotiation negotiations interview interviews conference kickoff visit visits "
+    "inspection rollout deployment handover closing close project projects task tasks purpose use case occasion day days week weeks month months year years morning afternoon evening night "
+    "reunion reuniones revision lanzamiento estreno presentacion presentaciones llamada fecha auditoria viaje evento eventos taller capacitacion sesion trimestre cierre prueba pruebas migracion "
+    "negociacion entrevista conferencia visita inspeccion despliegue entrega proyecto tarea uso dia dias semana semanas mes meses ano anos manana tarde noche "
+    "reuniao reunioes revisao lancamento apresentacao apresentacoes ligacao prazo viagem oficina treinamento sessao fechamento teste testes negociacao conferencia inspecao implantacao tarefa "
+    "uso semana mes ano amanha noite hoje ontem hoy ayer today tomorrow yesterday tonight now soon later next last this that these those it them him her one each every any all "
+    "lunes martes miercoles jueves viernes sabado domingo monday tuesday wednesday thursday friday saturday sunday segunda terca quarta quinta sexta "
+    "enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre january february april june july august september october november december "
+    "janeiro fevereiro marco maio junho julho setembro outubro novembro dezembro "
+    "fair fairs phase phases campaign campaigns rehearsal rehearsals drill drills shift shifts period periods round rounds seminar seminars cycle cycles cutover go live freeze window windows "
+    "feria ferias fase fases campana campanas ensayo ensayos simulacro simulacros turno turnos periodo periodos ronda rondas seminario seminarios ciclo ciclos jornada jornadas renovacion "
+    "renegociacion migracion migraciones implementacion congelamiento ventana "
+    "feira feiras campanha campanhas ensaio ensaios simulado turno turnos periodo periodos rodada rodadas seminario seminarios ciclo ciclos jornada jornadas renovacao renegociacao "
+    "migracao migracoes implementacao relancamento plantao mutirao congelamento janela").split())
+# technical TARGETS (`pull request targeting the main branch` / `dirigido a la rama principal`): a place in a system, not an audience (found on blind11: 1 false alarm on an equivalent pair)
+_TECH_TARGET = frozenset(("branch branches repo repository repositories folder folders directory file files server servers environment environments endpoint endpoints table tables column columns "
+                         "module modules service services database databases cluster clusters platform platforms system systems rama ramas repositorio repositorios carpeta carpetas archivo archivos "
+                         "servidor servidores entorno entornos tabla tablas columna columnas modulo modulos servicio servicios plataforma plataformas sistema sistemas pasta pastas arquivo arquivos "
+                         "servidores ambiente ambientes tabela tabelas coluna colunas servico servicos plataformas ramificacao ramificacoes pipeline pipelines experiment experiments experimento experimentos pilot pilots piloto pilotos prototype prototype prototipo").split())
+_DET = frozenset("the our your their his her its a an this that these those el la los las un una unos unas lo nuestro nuestra nuestros nuestras su sus mi tu o os as um uma uns umas seu sua seus suas nosso nossa nossos nossas".split())
+_STRONG = re.compile(r"(?<![a-z])" + _AUD_VERB + r"\s+(?P<rest>[a-z]+(?:\s+[a-z]+){0,3})")
+
+
+_ROMANCE_VERB = re.compile(r"(?:dirigid|destinad|orientad|enfocad|pensad|escrit|redactad|redigid|voltad|direcionad|preparad|elaborad|reservad|exclusiv)[oa]|\bpara\b|\bpra\b")
+_ING_NOUNS = frozenset("marketing engineering accounting advertising banking nursing housing consulting publishing manufacturing meeting building".split())
+_NP_END = frozenset(("and or to in on with for by that which while so then but when if before after at from y e u ou con com que para pra por en em na cuando quando si se donde onde de del da do of").split()) - frozenset(("de", "del", "da", "do", "of"))
+
+
+def _strong_audience(lw: str) -> bool:
+    """A STRONG audience verb + a complement that is an audience. The complement is the noun phrase after the verb: English puts its HEAD last (`the quarterly business review`), Spanish/Portuguese first
+    (`la feria comercial`), so both ends are checked against the event / time / technical-target lists; a gerund or an infinitive head (`meant for testing`, `escrito para revisar`) is a purpose, not an audience."""
+    for m in _STRONG.finditer(lw):
+        toks = m.group("rest").split()
+        i = 0
+        while i < len(toks) - 1 and toks[i] in _DET:
+            i += 1
+        np = []
+        for t in toks[i:]:
+            if t in _NP_END:
+                break
+            np.append(t)
+        if not np:
+            continue
+        first, last = np[0], np[-1]
+        if any(t in _TECH_TARGET for t in np) or first in _NOT_AUDIENCE or last in _NOT_AUDIENCE or len(first) < 3 or first in _DET:
+            continue                                                  # `prepared for the meeting`, `targeting the main branch`, `written for tomorrow`
+        if (first.endswith("ing") and first not in _ING_NOUNS) or (last.endswith("ing") and last not in _ING_NOUNS):
+            continue                                                  # `aimed at reducing churn`, `meant for load testing`: a gerund starts the complement or is its head = a purpose
+        if len(first) > 4 and first.endswith(("ar", "er", "ir")) and _ROMANCE_VERB.search(m.group(0)):
+            continue                                                  # `orientado a reducir las devoluciones`, `escrito para revisar`: an infinitive = a purpose (Spanish / Portuguese only: `summer` is not a verb)
+        return True
+    return False
+
+
 def use_limits(text: str) -> frozenset:
     """The use-limit concepts present in `text` (a subset of CONFIDENTIALITY, LEGAL_HOLD, AUDIENCE, DOC_STATUS)."""
     lw = strip_accents(text).lower().replace("-", " ").replace("\u2011", " ")           # `work-in-progress` == `work in progress`
     found = {k for k, rx in _USE_LIMIT_RE.items() if rx.search(lw)}
-    if any(_AUD_LABEL.search(part) for part in re.split(r"(?<=[.!?])\s+", lw.strip())):
+    if any(_AUD_LABEL.search(part) for part in re.split(r"(?<=[.!?])\s+", lw.strip())) or _strong_audience(lw):
         found.add("AUDIENCE")
     return frozenset(found)
 
