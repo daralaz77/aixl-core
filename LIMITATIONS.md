@@ -391,3 +391,72 @@ corruptions 94.5 % -> 94.6 %, benign 0.0 % (the family passes the arena's select
 **Cost, accepted:** a word-level check cannot tell a synonym from an antonym: `requests` -> `asks for`, `politely` -> `nicely`, `unavailable` -> `isn't available`, `cair` -> `entrar` inside a
 condition are flagged with `estavel` -> `instavel`. A missed `critico` -> `menor` weighs more than that alarm. Evidence status: the 12 misses were read to design this, so the 88/90 is not
 independent; the arena result and the earlier set are.
+
+## E-USE-LIMIT (2026-10-29): a family for use-limit markers (`Confidential.`, `under NDA`, `Embargoed`, `for management eyes`, `Draft`) — preregistered, run once; v2 post-hoc
+**Why.** A 12-pair probe (same author as the code: indicative, spent) showed `relay_check` missed 7 of 12 relays that dropped a PURE use-limit marker, because those markers carry no negation,
+`only`, number, date or modal. `ok: true` then read "no critical slot changed" while a confidentiality notice had vanished (`compare_verified` was never wrong: it did not claim equivalence).
+Motivation from the literature: a 2026 preprint on boundary-metadata collapse (facts survive hand-offs, the markers limiting their use do not; unreviewed, two models).
+**What.** `aixl.invariants.use_limits` / family `USE_LIMIT`: four COARSE concepts (CONFIDENTIALITY, LEGAL_HOLD, AUDIENCE, DOC_STATUS), ES/EN/PT, presence only, so `confidential` -> `internal-use
+document` is not a change but dropping, adding or swapping the concept is. `RELAY_FAMILIES_V1` keeps the previous set for baselines.
+**Evaluation** (data/use_limits/PREREG.md, FREEZE.json, RESULT_v1_frozen.txt): two models (Opus, Sonnet) wrote 80 fresh instructions without seeing code (ES/EN/PT; confidentiality, legal_status,
+audience, doc_status), each with a faithful-light, a faithful-heavy, a marker-dropped and a one-corruption control relay.
+Frozen v1 result (all four preregistered hypotheses PASSED): dropped marker flagged **82.5 %** (baseline with the old families 22.5 %); per style confidentiality 100 %, doc_status 85 %,
+legal_status 85 %, audience 60 %; faithful-light flagged 7.5 % (same as before, 0 by USE_LIMIT alone); faithful-heavy flagged 90 % overall (not a gate), 8.8 % by USE_LIMIT alone (threshold 10 %);
+control corruptions 97.5 %. By language: es 92 %, en 85 %, pt 71 %.
+**A false-alarm class the fresh set did not show, found on OLD sets:** v1 raised USE_LIMIT on 2 truly-equivalent blind10 pairs (`para a diretoria` ≈ `to the board`): `for`/`para` + an audience word is
+usually an ADDRESSEE, not a limit. v2 (post-hoc, justified by independent data, NOT evidence): bare `for`/`para` + audience only counts as a sentence-opening LABEL (`For management.`) or as
+`for X eyes`; false alarms on equivalent pairs of the older sets 2 -> **0 of 1 280**. Cost, measured on the fresh set post-hoc (RESULT_v2_posthoc.txt): marker-dropped flagged 82.5 -> 75.0 %,
+audience 60 -> 30 %, pt 61 %. Accepted: a missed audience marker is better than a normal recipient read as a change.
+**Still missed (14 of 80 in v1; read after the freeze, NOT tuned):** audience written with a verb (`written for`, `addressed to`, `dirigido al`, `escrito para`, `voltado aos`, `direcionado à`) and
+Portuguese legal/status phrasings (`sujeita a parecer jurídico`, `em litígio`, `em fase de aprovação`, `minuta`). The fresh set is now spent; the next lexicon extension needs a NEW set.
+Presence only: it does not say WHICH audience (`for management` -> `for the board` is the same concept).
+
+## E-RISK-COVERAGE (2026-10-29): which evidence makes a SAME claim safe — `benchmarks/risk_coverage.py`, `aixl.confidence.claim_tier`
+Stored judgments only (no model called): blind17 + blind18, 115 pairs of other authors, 54 truly SAME. Claiming SAME, by tier: deterministic proof **P: 0 of 115 pairs** (open domain, consistent with
+EVIDENCE.md); every judge SAME and `relay_check` ok (J+): 1 false in 18 (5.6 %, 1.0-25.8 %); every judge SAME but `relay_check` flagged (J): 1 in 36 (2.8 %, 0.5-14.2 %); judges disagree: 9 in 11
+(81.8 %); all say different: 50 of 50 truly different. Cumulative "claim SAME when judges are unanimous": covers 52/54 true SAME (96 %) at 2/54 false (3.7 %, 1.0-12.5 %).
+**Finding kept on purpose:** `relay_check` ok does NOT make a unanimous SAME safer (the same conclusion as E-HYBRID-RELAY: on paraphrase it is the wrong signal); the useful signal is the judges' agreement.
+`aixl.confidence.claim_tier` returns the tier with its MEASURED rate, interval and scope; these are small samples and not a calibrated probability.
+
+## E-TERM-CONFIDENCE (2026-10-29): per-term trust from data — evaluated, NOT implemented (negative result)
+Idea: certify each term by measured disagreement instead of a hand list. Existing measurement (`benchmarks/lexicon_coverage_curve.py`, 4 440 selection texts, 2 600 distinct unaccounted words,
+177 other-author seeds): even if ALL 2 600 words were known, only 25 % of seeds would have nothing left unaccounted (2 % today; top 400 words -> 7 %; top 1 600 -> 18 %). A per-term table cannot lift
+coverage materially, and `difference_reliable` already captures the pair-level reliability (NOT_EQUIVALENT right 50 % when a text is not accounted, 6 of 8 when both are). A term table built from ~400
+labelled pairs would also overfit. Conclusion: the arbiter stays the route for open vocabulary.
+
+## E-HANDOFF (2026-10-29): receiving-side contract — `aixl.handoff.handoff_check`, MCP tool `aixl_handoff_check`
+`relay_check` asks whether a relay lost something the SOURCE had; this asks whether the instruction we received carries the fields we need at all (required kinds DATE, NUMBER, NAME, CONDITION,
+USE_LIMIT) and answers `ready` or `input-required` (ask the sender, do not guess). Closed-class detection, open vocabulary; unknown kinds are an error, never "satisfied". Checked on 10 hand-written
+ES/EN/PT instructions (same author: indicative): 9 of 10 had every expected kind detected; missed `next quarter` as a date. Known limits: NAME needs a capitalised token not at the start of a sentence (a
+lower-case name is not seen); DATE does not understand `soon`/`pronto` or relative periods. It says nothing about whether the instruction is correct. Not wired into the A2A agent (design only).
+
+### E-USE-LIMIT v3 (2026-10-29): extended lexicon on a NEW, larger fresh set — preregistered (data/use_limits_v3/PREREG.md), run once; 4 of 6 hypotheses passed
+The v1 set was spent, so the lexicon extension (audience constructions with a verb, Portuguese legal/status phrasings, hyphenated forms, more group nouns) was tested on 150 records from THREE
+authors (Opus, Sonnet, Haiku; es 45, en 45, pt 60) that never saw the code, with a recipient decoy per record. Frozen code: FREEZE.json; result: RESULT.txt.
+* **V1 PASS** — dropped marker flagged **91.3 %** (137/150; families without USE_LIMIT: 20.0 %). Per style: doc_status 100 %, confidentiality 94.9 %, legal_status 86.8 %, audience 83.3 %
+  (v1 frozen set: 60 %, v2: 30 %). Per language: en 95.6 %, es 95.6 %, **pt 85.0 %**. Per author 86 / 96 / 92 %.
+* **V4 PASS** — the recipient decoy (`send it for/to/para the board`) is flagged by USE_LIMIT in **0 of 150**; **V5 PASS** — control corruptions 96.7 %; **V6 PASS** — 0 of 1 280 equivalent pairs of the older sets.
+* **V2 FAIL** — faithful near-verbatim relays flagged 13.3 % (threshold 10 %). Of those, only 1.3 pts come from USE_LIMIT (2/150); the old families alone already flag 12.0 % on this set (other authors,
+  more varied edits). The threshold was written for the whole detector and this set exceeds it without the new family; reported, not repaired.
+* **V3 FAIL** — strongly reworded (heavy) faithful relays flagged by USE_LIMIT alone: **23.3 %** (threshold 10 %; v1 set 8.8 %). Reading the 35: the heavy relay expresses the limit as a DESCRIPTION
+  (`still awaiting confirmation`, `lodged with the court away from public view`, `cuyo contrato es objeto de una disputa`, `mantida em total discrição`) so the concept is present in the source
+  as a marker word and in the relay only as prose, or the reverse. Presence-only detection cannot see a concept written outside the lexicon: this is the closed-vocabulary limit again, not a bug with a
+  clean fix. It matters only where heavy rewording is the regime, and `relay_check` is documented as NOT a gate there (heavy relays are flagged 70.7 % without this family, 94.0 % with it).
+* **Still missed (13 of 150, read after the freeze, NOT tuned):** open audience nouns (`investors`, `inversionistas`, `professores`, `gestores de RH`, `alta gestão` — `gestão/gestión` was not in the
+  list), Portuguese legal phrasings (`objeto de inquérito`, `em disputa judicial`, `em processo de arbitragem`, `objeto de ação civil pública`, `em investigação`), and the single words `secreto`, `proprietary`.
+  Lesson: the audience noun list can never be closed (any group can be an audience). A possible next step needs NEW data and a risk check: treat a STRONG audience verb (`written for`, `dirigido a`,
+  `aimed at`) as the marker by itself, whatever noun follows — it risks `prepared for the meeting`.
+
+## E-HANDOFF-NAMES (2026-10-29): why the hand-off contract does not see lower-case names — verified, two fixes measured and REJECTED
+**Cause (confirmed in code and by a probe):** `invariants.extract` recognises NAME only as a capitalised token that is not at the start of a sentence, an `@handle`, a `#id`, an e-mail or a URL.
+`envía el informe a ana` yields no NAME while `... a Ana` does; a lowercase `ana` is indistinguishable from `casa` without extra information. Names at the start of a sentence are skipped too.
+**Two candidate fixes, each evaluated on an independent set written by a model without the code** (acceptance bars fixed before reading the data):
+1. Names set (data/names_lower: 60 lowercase first names + 60 lowercase common-noun recipients, es/en/pt; bars: false positives on nouns <= 5 %, recall >= 50 %): a 240-name list detects **18 %**
+   (11/60; 0 false positives; the set deliberately includes rare names), the word after `a/to/para` detects 72 % but flags **46 %** of the common nouns (`finanzas`, `marketing`, `contabilidad`): rejected.
+2. Recipient presence (data/recipients: 160 instructions, 80 with a recipient and 80 without, with date / quantity / place / infinitive decoys; bars: detected >= 80 %, false "present" <= 15 %): `NAME` alone
+   detects **19 %** (0 of 50 lowercase lines, 4 % false); the recipient-position detector detects **84 %** (41/50 lowercase) but claims a recipient in **45 %** of the lines that have none (`a la carpeta`,
+   `a 15 dólares`, `to the shared folder`, `para el jueves`) and misses recipients without a preposition (`notify support`, `send john`): rejected, because a contract that says `ready` when a field is missing fails open.
+**Decision:** neither is wired into `handoff_check`; `aixl/core/lowername.py` stays only so the two evaluations can be re-run. The honest design is to have the sender DECLARE the recipient as a structured field
+instead of inferring it from free text. The contract documentation and the MCP tool description now say that a lower-case name is not seen.
+* **Bug found by the unit tests after the freeze (v4, post-hoc, NOT evidence):** the Spanish contraction `a + el` = `al` was missing (`dirigida al equipo`, `dirigido al comité ejecutivo`). Fixed; re-scoring the same set: dropped
+  marker 91.3 -> 92.0 %, audience 83.3 -> 86.1 %, es 95.6 -> 97.8 %; recipient decoy 0/150, older sets 0/1 280, heavy-relay alarms 23.3 -> 22.7 % (V2 and V3 still FAIL). Frozen result kept in RESULT_v3_frozen.txt.
