@@ -17,3 +17,7 @@ Result of the verified run: 4 events with `EventName: gen_ai.evaluation.result`,
 ## gRPC
 Add the exporter (`v/bin/pip install "opentelemetry-exporter-otlp-proto-grpc==1.45.0"`, which brings `grpcio`), start the collector with `collector_grpc.yaml` (a gRPC receiver ONLY, on 127.0.0.1:4317: no HTTP server exists, so whatever
 arrives came over gRPC) and run `v/bin/python emit.py grpc`. Verified run: same 4 `gen_ai.evaluation.result` events, same attributes, the `aixl.evaluations` counter, and none of the words of the texts among the 65 attribute values.
+
+## TLS and mutual TLS (verified 2026-10-30)
+`make_certs.sh <dir> [lan-ip]` builds a throw-away CA, a server certificate (SAN: localhost, 127.0.0.1 and the LAN address) and a client certificate. Start the collector with `cfg_tls.yaml.example` (TLS) or `cfg_mtls.yaml.example` (client certificate REQUIRED) after replacing `<scratch>`,
+and set `OTLP_TLS_CA` (turns TLS on), `OTLP_TLS_CERT` + `OTLP_TLS_KEY` (client certificate) and `OTLP_HOST` for `emit.py`; `tls_matrix.py` runs the 13 cases (valid ones must arrive, wrong ones must be refused) against a real collector.

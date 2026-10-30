@@ -12,16 +12,31 @@ from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
 from opentelemetry.sdk.resources import Resource
 
 PROTOCOL = sys.argv[1] if len(sys.argv) > 1 else "http"
+HOST = os.environ.get("OTLP_HOST", "127.0.0.1")                          # the collector's address (default loopback)
+CA, CERT, KEY = os.environ.get("OTLP_TLS_CA"), os.environ.get("OTLP_TLS_CERT"), os.environ.get("OTLP_TLS_KEY")      # a CA file turns TLS on; CERT + KEY add a client certificate (mTLS)
+TLS = bool(CA) or os.environ.get("OTLP_TLS") == "1"                       # OTLP_TLS=1 without a CA: TLS with the system roots only (a self-signed collector must then be REFUSED)
+TIMEOUT = int(os.environ.get("OTLP_TIMEOUT", "10"))
 if PROTOCOL == "grpc":
+    import grpc
     from opentelemetry.exporter.otlp.proto.grpc._log_exporter import OTLPLogExporter
     from opentelemetry.exporter.otlp.proto.grpc.metric_exporter import OTLPMetricExporter
-    LOG_EXPORTER = lambda: OTLPLogExporter(endpoint="127.0.0.1:4317", insecure=True)                       # noqa: E731
-    METRIC_EXPORTER = lambda: OTLPMetricExporter(endpoint="127.0.0.1:4317", insecure=True)                 # noqa: E731
+
+    def _read(path):
+        return open(path, "rb").read() if path else None
+
+    def _kw():
+        if TLS:
+            return {"credentials": grpc.ssl_channel_credentials(root_certificates=_read(CA), private_key=_read(KEY), certificate_chain=_read(CERT)), "timeout": TIMEOUT}
+        return {"insecure": True, "timeout": TIMEOUT}
+    LOG_EXPORTER = lambda: OTLPLogExporter(endpoint=f"{HOST}:4317", **_kw())                               # noqa: E731
+    METRIC_EXPORTER = lambda: OTLPMetricExporter(endpoint=f"{HOST}:4317", **_kw())                         # noqa: E731
 else:
     from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
     from opentelemetry.exporter.otlp.proto.http.metric_exporter import OTLPMetricExporter
-    LOG_EXPORTER = lambda: OTLPLogExporter(endpoint="http://127.0.0.1:4318/v1/logs")                       # noqa: E731
-    METRIC_EXPORTER = lambda: OTLPMetricExporter(endpoint="http://127.0.0.1:4318/v1/metrics")              # noqa: E731
+    _scheme = "https" if TLS else "http"
+    _tls = {"certificate_file": CA, "client_certificate_file": CERT, "client_key_file": KEY, "timeout": TIMEOUT}
+    LOG_EXPORTER = lambda: OTLPLogExporter(endpoint=f"{_scheme}://{HOST}:4318/v1/logs", **_tls)           # noqa: E731
+    METRIC_EXPORTER = lambda: OTLPMetricExporter(endpoint=f"{_scheme}://{HOST}:4318/v1/metrics", **_tls)  # noqa: E731
 
 res = Resource.create({"service.name": "aixl-e2e-test-" + PROTOCOL})
 lp = LoggerProvider(resource=res)

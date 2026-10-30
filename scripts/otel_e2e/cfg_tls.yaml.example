@@ -1,0 +1,16 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 127.0.0.1:4318
+        tls: {cert_file: <scratch>/tls/server.pem, key_file: <scratch>/tls/server.key}
+      grpc:
+        endpoint: 127.0.0.1:4317
+        tls: {cert_file: <scratch>/tls/server.pem, key_file: <scratch>/tls/server.key}
+exporters:
+  debug: {verbosity: detailed}
+service:
+  telemetry: {metrics: {level: none}}
+  pipelines:
+    logs: {receivers: [otlp], exporters: [debug]}
+    metrics: {receivers: [otlp], exporters: [debug]}
