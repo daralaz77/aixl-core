@@ -566,8 +566,8 @@ Tested (tests/test_telemetry.py, 9 cases) with a fake logger: event and attribut
 **Not verified, said plainly:** the events were NOT checked end to end against a real SDK, exporter or collector (the SDK is not installed here; only the API contract and a fake logger were exercised); whether Langfuse, Grafana or another backend renders `gen_ai.evaluation.result` the way you want is untested;
 not wired into the MCP tools or the A2A agent (they would need the host application to configure the SDK).
 
-## E-LOGIC-INTEGRATION (2026-10-30): `compare_verified` now consults the propositional-skeleton engine (`aixl.logic`) — on by default, `config={"logic": False}` turns it off
-This changes the SHIPPED surfaces (MCP `aixl_compare`, the A2A agent, the guard), so the rules are written to be fail-closed:
+## E-LOGIC-INTEGRATION (2026-10-30): `compare_verified` can consult the propositional-skeleton engine (`aixl.logic`) — **OFF by default**, `config={"logic": True}` turns it on
+When turned on this changes what the SHIPPED surfaces would return (the MCP `aixl_compare` tool cannot enable it; the A2A agent and the guard call `compare_verified` with their own config), so the rules are written to be fail-closed:
 * the engine abstains -> nothing changes (a `logic` key with the abstention reason is added);
 * EQUIVALENT_LOGIC and the comparator says INCONCLUSIVE or an UNRELIABLE NOT_EQUIVALENT -> the verdict becomes EQUIVALENT with `proof: "logic"`, `raw_verdict` kept;
 * DIFFERENT_LOGIC and the comparator says INCONCLUSIVE -> NOT_EQUIVALENT with `difference_reliable: true`, `proof: "logic"` and the counter-example in `logic`; DIFFERENT_LOGIC on a NOT_EQUIVALENT only confirms `difference_reliable`;
@@ -578,3 +578,9 @@ This changes the SHIPPED surfaces (MCP `aixl_compare`, the A2A agent, the guard)
 * the 180 logic pairs (spent for the engine, so indicative): equivalent pairs proved **0 -> 51** of 90, different pairs called EQUIVALENT **0 of 90**, 0 conflicts there; 62 results carry `proof: "logic"`.
 **A real conflict worth knowing:** `Notify Ana unless the ticket is closed.` vs `Notify Ana if the ticket is not closed.` — the comparator reliably calls them different (it treats the `unless` and `if` connectives as different), the engine proves them equal; the result is INCONCLUSIVE, the safe outcome.
 **Scope, unchanged from E-LOGIC:** the engine only decides texts that reuse the same clauses (clauses assumed independent, `or` inclusive, `and` between actions read as a sequence), so on free paraphrase it abstains and `compare_verified` behaves as before.
+
+**Decision (2026-10-30): the integration is implemented but OFF by default.** Reasons: (1) the only risk that matters is a false EQUIVALENT and this adds a new road to "proof"; the evidence is good (0 of 90 in the engine's preregistered run, 0 of 2 681 older pairs) but harm is asymmetric;
+(2) the integrated `compare_verified` has no preregistered run of its own, and the shipped engine is the post-fix one (the Portuguese `é` fix is re-scored on already-read data only); (3) the gain is concentrated in policy-style rewrites that reuse the same clauses (205 -> 208 proved on 2 681 older pairs; 0 -> 51 of 90 in the engine's own domain) and nobody knows
+how much real traffic looks like that; (4) turning it on would change what MCP / A2A clients receive (`proof: "logic"`, a new `logic` key). Same policy as the open audience mode: what is not validated on real traffic is an option, not a default.
+Default behaviour is byte-for-byte the core result (tests/test_compare_verified_logic.py::test_default_equals_the_core_result).
+**To turn it on by default:** a fresh preregistered validation of the integrated `compare_verified` (including the conflict rule) AND pilot data on how often real hand-offs are same-clause rewrites.

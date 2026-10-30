@@ -222,10 +222,10 @@ def _apply_logic(text_a: str, text_b: str, d: dict) -> dict:
 
 
 def compare_verified(text_a: str, text_b: str, config: dict | None = None) -> dict:
-    """`compare_verified` with the propositional-skeleton engine folded in (on by default; `config={"logic": False}` turns it off). Adds a `logic` key; a logic proof sets `proof: "logic"`, and any disagreement between the
-    engine and a reliable comparator verdict becomes INCONCLUSIVE with `logic_conflict`. Everything else is the core behaviour documented above (`_compare_verified_core`)."""
+    """`compare_verified`, optionally with the propositional-skeleton engine folded in: OFF by default, `config={"logic": True}` turns it on (decision 2026-10-30, LIMITATIONS.md E-LOGIC-INTEGRATION). When on, a `logic` key is added;
+    a logic proof sets `proof: "logic"`, and any disagreement between the engine and a reliable comparator verdict becomes INCONCLUSIVE with `logic_conflict`. When off, the result is exactly the core behaviour (`_compare_verified_core`)."""
     cfg = dict(config or {})
-    use_logic = cfg.pop("logic", True)
+    use_logic = cfg.pop("logic", False)
     d = _compare_verified_core(text_a, text_b, cfg or None)
     if use_logic and d.get("verdict") != "UNVERIFIED":
         try:
