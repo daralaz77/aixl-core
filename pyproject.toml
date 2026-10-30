@@ -15,6 +15,7 @@ mcp = ["mcp"]
 a2a = ["a2a-sdk[http-server]", "uvicorn"]
 llm = ["httpx"]
 signing = ["cryptography"]
+otel = ["opentelemetry-api"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
