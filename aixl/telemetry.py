@@ -4,6 +4,7 @@ OpenTelemetry records evaluation results but does not compute them: AIXL is the 
 Names checked against the official definition (github.com/open-telemetry/semantic-conventions-genai, model/gen-ai/events.yaml and registry.yaml, main branch, 2026-10-30): event `gen_ai.evaluation.result`, stability **development**;
 attributes `gen_ai.evaluation.name` (required), `gen_ai.evaluation.score.label` (low-cardinality string, the implementation should document its values: see LABELS), `gen_ai.evaluation.explanation` (recommended), `gen_ai.response.id`
 (recommended, when available). `gen_ai.evaluation.score.value` is "if applicable" and is NOT emitted: AIXL verdicts are categories, and a similarity number would read as a proof it is not. These names are in Development and may change.
+The event BODY is a one-line readable summary (`<name>: <label> — <explanation>`) built only from those same pieces, so a log viewer does not show an empty line.
 Privacy by design: the texts, the clauses and the slot values are NEVER sent — only the evaluation name, the verdict label, the names of the violated families and booleans. Everything is best effort: with no OpenTelemetry installed, or any
 failure while emitting, the call is a no-op and the verdict is returned unchanged. Optional dependency: `opentelemetry-api` (extra `otel`); the application configures the SDK/exporter."""
 from aixl.api.service import compare_verified
@@ -63,7 +64,8 @@ def record_evaluation(name: str, label: str, *, explanation: str | None = None, 
                 attrs[k] = v
             elif isinstance(v, (list, tuple)) and all(isinstance(x, str) for x in v):
                 attrs[k] = list(v)
-        (logger or _default_logger()).emit(event_name=EVENT, attributes=attrs)
+        body = f"{name}: {label}" + (f" — {attrs['gen_ai.evaluation.explanation']}" if explanation else "")      # readable line for log viewers; same content-free pieces as the attributes
+        (logger or _default_logger()).emit(event_name=EVENT, body=body, attributes=attrs)
         _count(name, label)
         return True
     except Exception:                                                        # noqa: BLE001

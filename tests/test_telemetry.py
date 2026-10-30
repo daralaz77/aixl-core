@@ -30,6 +30,23 @@ def test_event_and_required_attribute_names_follow_the_official_definition():
     assert "gen_ai.evaluation.score.value" not in a                      # a category is not a score
 
 
+def test_body_is_a_readable_one_liner_from_the_same_content_free_pieces():
+    lg = FakeLogger()
+    T.record_evaluation(T.NAME_RELAY, "violation", explanation="changed critical slot families: DATE", logger=lg)
+    T.record_evaluation(T.NAME_RELAY, "ok", logger=lg)
+    assert lg.records[0]["body"] == "aixl.relay_check: violation — changed critical slot families: DATE"
+    assert lg.records[1]["body"] == "aixl.relay_check: ok"
+
+
+def test_body_never_carries_the_texts():
+    lg = FakeLogger()
+    T.relay_check_evaluated("Send the report to Ana before Friday at 5 pm.", "Send the report to Luis before Monday.", logger=lg)
+    body = lg.records[0]["body"].lower()
+    assert body.startswith("aixl.relay_check: violation")
+    for leaked in ("ana", "luis", "friday", "monday", "report", "5 pm"):
+        assert leaked not in body
+
+
 def test_labels_are_a_closed_low_cardinality_set():
     lg = FakeLogger()
     assert T.record_evaluation(T.NAME_RELAY, "totally new label", logger=lg) is False
