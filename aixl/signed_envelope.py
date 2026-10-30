@@ -62,6 +62,18 @@ def public_bytes(public_key) -> bytes:
     return public_key.public_bytes(ser.Encoding.Raw, ser.PublicFormat.Raw)
 
 
+def public_key_to_b64(public_key) -> str:
+    """The trusted public key as base64url of its 32 raw bytes: the form an MCP client passes to `aixl_verify_signed`."""
+    return _b64(public_bytes(public_key))
+
+
+def public_key_from_b64(text: str):
+    raw = _unb64(text)
+    if len(raw) != 32:
+        raise ValueError("an Ed25519 public key is 32 bytes")
+    return public_key_from_bytes(raw)
+
+
 def key_id(public_key) -> str:
     return _b64(hashlib.sha256(public_bytes(public_key)).digest())[:22]
 

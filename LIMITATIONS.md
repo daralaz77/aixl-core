@@ -584,3 +584,15 @@ When turned on this changes what the SHIPPED surfaces would return (the MCP `aix
 how much real traffic looks like that; (4) turning it on would change what MCP / A2A clients receive (`proof: "logic"`, a new `logic` key). Same policy as the open audience mode: what is not validated on real traffic is an option, not a default.
 Default behaviour is byte-for-byte the core result (tests/test_compare_verified_logic.py::test_default_equals_the_core_result).
 **To turn it on by default:** a fresh preregistered validation of the integrated `compare_verified` (including the conflict rule) AND pilot data on how often real hand-offs are same-clause rewrites.
+
+### E-OTEL update (2026-10-30): verified end to end with the REAL SDK and a REAL collector
+`opentelemetry-sdk` and `opentelemetry-exporter-otlp-proto-http` 1.45.0 in an isolated virtual environment; collector `otelcol` 0.164.0 (official release, macOS arm64, SHA-256 checked against the release's own `.sha256` file before running), bound to 127.0.0.1, `debug` exporter in detailed mode.
+`aixl.telemetry` was called with the default logger and meter (the SDK providers registered globally); the collector received **4 log records with `EventName: gen_ai.evaluation.result`** over OTLP/HTTP, with the attributes documented above, and the counter `aixl.evaluations` through OTLP metrics.
+Checked automatically on what was RECEIVED: the required attribute is present, `gen_ai.evaluation.score.value` is absent, the labels are inside the closed set, and **none of the words of the evaluated texts appears as a whole word among the 65 attribute values** (a first check flagged `Ana`; it was the substring inside the attribute NAME `explanation`,
+not a leak, and the check was redone on values with word boundaries). The reproducible kit is in `scripts/otel_e2e/` (not part of the test suite).
+**Still not verified:** how a real BACKEND (Langfuse, Grafana, Datadog...) stores or displays `gen_ai.evaluation.result` — only the collector's own debug output was read; gRPC transport; the Development-stage names may change. The collector and its download were deleted after the run.
+
+### MCP verification tool (2026-10-30): `aixl_verify_signed` — VERIFICATION ONLY
+The signed envelope is connected to MCP as a verification tool (signed envelope + the trusted public key as base64url of 32 raw bytes + the text you hold -> AUTHENTIC_MATCH / AUTHENTIC_MISMATCH / AUTHENTIC_UNVERIFIED / BAD_SIGNATURE / BAD_ALGORITHM / UNKNOWN_KEY / STALE / MALFORMED), tested over a REAL MCP stdio session (valid, drift after sealing, tampered envelope,
+text outside the vocabulary, invalid key). There is deliberately NO signing tool and nothing for the A2A agent: a tool that signs would let any prompt (including an injected one) use the private key, and a network-facing agent would be a signing oracle; signing stays in application code.
+Replay detection needs state and is not available through the tool. Same limits as E-SIGNED-ENVELOPE (no key distribution or revocation, not post-quantum, no external review).

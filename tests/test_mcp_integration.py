@@ -33,7 +33,7 @@ async def _call(tool: str, args: dict) -> dict:
 def test_server_lists_the_aixl_tools():
     out = asyncio.run(_call("aixl_translate", {"text": "Analiza las ventas de Q1 2026."}))
     assert set(out["tool_names"]) == {"aixl_translate", "aixl_compare", "aixl_negotiate",
-                                       "aixl_negotiate_autonomous", "aixl_hybrid_prepare", "aixl_hybrid_decide", "aixl_relay_check", "aixl_handoff_check"}
+                                       "aixl_negotiate_autonomous", "aixl_hybrid_prepare", "aixl_hybrid_decide", "aixl_relay_check", "aixl_handoff_check", "aixl_verify_signed"}
 
 
 def test_hybrid_two_step_over_real_mcp_stdio_transport():
@@ -101,3 +101,22 @@ def test_aixl_negotiate_autonomous_over_real_mcp_rejects_an_irreversible_action_
 def test_handoff_check_over_real_mcp_stdio_transport():
     out = asyncio.run(_call("aixl_handoff_check", {"text": "Send the report to Ana.", "required": ["DATE", "NAME"]}))
     assert "input-required" in json.dumps(out) and "DATE" in json.dumps(out)
+
+
+def test_verify_signed_over_real_mcp_stdio_transport():
+    """E-SIGNED-ENVELOPE over a real MCP session: sign in application code, verify through the tool with only the PUBLIC key."""
+    pytest.importorskip("cryptography")
+    from aixl.signed_envelope import generate_keypair, public_key_to_b64, sign_envelope
+    priv, pub = generate_keypair()
+    text = "Analiza las ventas del primer trimestre de 2026."          # inside the closed vocabulary, so the content check can decide
+    signed = sign_envelope(text, priv)
+    ok = json.loads(asyncio.run(_call("aixl_verify_signed", {"signed": signed, "public_key": public_key_to_b64(pub), "received_text": text}))["text"])
+    assert ok["state"] == "AUTHENTIC_MATCH"
+    drift = json.loads(asyncio.run(_call("aixl_verify_signed", {"signed": signed, "public_key": public_key_to_b64(pub), "received_text": "Analiza las ventas del primer trimestre de 2027."}))["text"])
+    assert drift["state"] == "AUTHENTIC_MISMATCH"
+    forged = dict(signed, envelope=dict(signed["envelope"], text="Otra cosa."))
+    assert json.loads(asyncio.run(_call("aixl_verify_signed", {"signed": forged, "public_key": public_key_to_b64(pub), "received_text": text}))["text"])["state"] == "BAD_SIGNATURE"
+    outside = sign_envelope("Envía el informe a María antes del viernes.", priv)          # outside the vocabulary: authentic, but the content cannot be decided
+    assert json.loads(asyncio.run(_call("aixl_verify_signed", {"signed": outside, "public_key": public_key_to_b64(pub), "received_text": "Envía el informe a María antes del viernes."}))["text"])["state"] == "AUTHENTIC_UNVERIFIED"
+    bad_key = json.loads(asyncio.run(_call("aixl_verify_signed", {"signed": signed, "public_key": "not-a-key", "received_text": text}))["text"])
+    assert bad_key["state"] == "MALFORMED"

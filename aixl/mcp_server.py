@@ -46,6 +46,20 @@ def aixl_handoff_check(text: str, required: list[str]) -> dict:
     return handoff_check(text, required)
 
 
+@server.tool(description="Verify an AIXL SIGNED semantic envelope (Ed25519): who sealed it, and whether the text you hold is what was sealed. `public_key` is the TRUSTED sender key, base64url of its 32 raw bytes. "
+                          "State: AUTHENTIC_MATCH / AUTHENTIC_MISMATCH / AUTHENTIC_UNVERIFIED (the signature is valid, then the content outcome) or BAD_SIGNATURE / BAD_ALGORITHM / UNKNOWN_KEY / STALE / MALFORMED. "
+                          "VERIFICATION ONLY: signing is done in application code, because a tool that signs would let any prompt use the private key. No key distribution or revocation; replay detection needs state and is not available here. Not post-quantum; not externally reviewed.")
+def aixl_verify_signed(signed: dict, public_key: str, received_text: str, max_age_s: int | None = None) -> dict:
+    try:
+        from aixl.signed_envelope import public_key_from_b64, verify_signed
+        pub = public_key_from_b64(public_key)
+    except ImportError:
+        return {"state": "UNAVAILABLE", "reason": "the optional dependency is missing: pip install cryptography"}
+    except Exception:                                            # noqa: BLE001
+        return {"state": "MALFORMED", "reason": "public_key must be the base64url of 32 raw Ed25519 bytes"}
+    return verify_signed(signed, pub, received_text, max_age_s=max_age_s)
+
+
 @server.tool(description="Resolve a disagreement between a sender and a receiver instruction via a bounded, "
                           "severity-ordered clarification exchange. Returns ACCEPT (converged) or REJECT.")
 def aixl_negotiate(sender_text: str, receiver_text: str, max_rounds: int = 3) -> dict:

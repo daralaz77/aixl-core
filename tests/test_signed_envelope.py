@@ -116,3 +116,11 @@ def test_non_string_received_text_and_bad_base64(keys):
 def test_public_key_bytes_roundtrip(keys):
     _priv, pub = keys
     assert key_id(public_key_from_bytes(public_bytes(pub))) == key_id(pub)
+
+
+def test_public_key_b64_roundtrip_and_length_check(keys):
+    from aixl.signed_envelope import public_key_from_b64, public_key_to_b64
+    _priv, pub = keys
+    assert key_id(public_key_from_b64(public_key_to_b64(pub))) == key_id(pub)
+    with pytest.raises(ValueError):
+        public_key_from_b64("AAAA")
