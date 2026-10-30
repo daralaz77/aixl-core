@@ -565,3 +565,16 @@ any failure while emitting is swallowed and the verdict is returned unchanged; w
 Tested (tests/test_telemetry.py, 9 cases) with a fake logger: event and attribute names, closed labels, no leak of any word of the texts, a broken exporter does not break the verdict, only `aixl.*` keys pass through.
 **Not verified, said plainly:** the events were NOT checked end to end against a real SDK, exporter or collector (the SDK is not installed here; only the API contract and a fake logger were exercised); whether Langfuse, Grafana or another backend renders `gen_ai.evaluation.result` the way you want is untested;
 not wired into the MCP tools or the A2A agent (they would need the host application to configure the SDK).
+
+## E-LOGIC-INTEGRATION (2026-10-30): `compare_verified` now consults the propositional-skeleton engine (`aixl.logic`) — on by default, `config={"logic": False}` turns it off
+This changes the SHIPPED surfaces (MCP `aixl_compare`, the A2A agent, the guard), so the rules are written to be fail-closed:
+* the engine abstains -> nothing changes (a `logic` key with the abstention reason is added);
+* EQUIVALENT_LOGIC and the comparator says INCONCLUSIVE or an UNRELIABLE NOT_EQUIVALENT -> the verdict becomes EQUIVALENT with `proof: "logic"`, `raw_verdict` kept;
+* DIFFERENT_LOGIC and the comparator says INCONCLUSIVE -> NOT_EQUIVALENT with `difference_reliable: true`, `proof: "logic"` and the counter-example in `logic`; DIFFERENT_LOGIC on a NOT_EQUIVALENT only confirms `difference_reliable`;
+* ANY disagreement with a reliable verdict (EQUIVALENT_LOGIC vs a reliable NOT_EQUIVALENT, or DIFFERENT_LOGIC vs a comparator proof) -> INCONCLUSIVE with `logic_conflict: true`: neither side is trusted over the other;
+* a crash in the extra layer never changes the verdict.
+**Measured** (not a preregistered run: the engine's own evaluation is E-LOGIC; this checks the integration):
+* all 2 681 older labelled pairs under data/: false EQUIVALENT stays at the 2 historical ones (blind2 `de la semana` vs `del mes`, blind4 `per quarter` vs `per month`), no new one; equivalent pairs proved 205 -> 208, different pairs refuted 1 172 -> 1 173; no crash.
+* the 180 logic pairs (spent for the engine, so indicative): equivalent pairs proved **0 -> 51** of 90, different pairs called EQUIVALENT **0 of 90**, 0 conflicts there; 62 results carry `proof: "logic"`.
+**A real conflict worth knowing:** `Notify Ana unless the ticket is closed.` vs `Notify Ana if the ticket is not closed.` — the comparator reliably calls them different (it treats the `unless` and `if` connectives as different), the engine proves them equal; the result is INCONCLUSIVE, the safe outcome.
+**Scope, unchanged from E-LOGIC:** the engine only decides texts that reuse the same clauses (clauses assumed independent, `or` inclusive, `and` between actions read as a sequence), so on free paraphrase it abstains and `compare_verified` behaves as before.

@@ -142,7 +142,7 @@ def round_trip(text_or_graph, config: dict | None = None, today=None) -> "RoundT
     return round_trip_graph(g, config, today)
 
 
-def compare_verified(text_a: str, text_b: str, config: dict | None = None) -> dict:
+def _compare_verified_core(text_a: str, text_b: str, config: dict | None = None) -> dict:
     """`compare()` for SHIPPED surfaces (MCP / A2A): it never reports EQUIVALENT without proof.
 
     The core comparator works over closed lexicons: an appended or dropped clause it has no slot for is simply ignored, so it can call a
@@ -181,5 +181,56 @@ def compare_verified(text_a: str, text_b: str, config: dict | None = None) -> di
         from aixl.core.completeness import check_completeness
         d["unaccounted"] = {"a": sorted(set(unaccounted_content(text_a, ga)) | set(check_completeness(text_a, ga)["unaccounted"])) if not ok_a else [],
                             "b": sorted(set(unaccounted_content(text_b, gb)) | set(check_completeness(text_b, gb)["unaccounted"])) if not ok_b else []}      # + words completeness refuses (e.g. `dos`)
+    return d
+
+
+def _apply_logic(text_a: str, text_b: str, d: dict) -> dict:
+    """Fold the propositional-skeleton engine (`aixl.logic`) into a `compare_verified` result, FAIL-CLOSED: it can add a proof the closed-vocabulary comparator cannot give, never override a reliable verdict, and any
+    disagreement becomes INCONCLUSIVE. See LIMITATIONS.md E-LOGIC-INTEGRATION."""
+    from aixl.logic import logic_compare
+    lr = logic_compare(text_a, text_b)
+    lv = lr["verdict"]
+    d["logic"] = {"verdict": lv, **{k: lr[k] for k in ("reason", "formula_a", "formula_b", "counterexample") if k in lr}}
+    if lv == "ABSTAIN":
+        return d
+    base = d.get("verdict")
+    reliable_diff = base == "NOT_EQUIVALENT" and bool(d.get("difference_reliable"))
+    if lv == "EQUIVALENT_LOGIC":
+        if base == "EQUIVALENT":
+            return d                                                      # the comparator already proved it; the logic engine agrees
+        if reliable_diff:
+            d["raw_verdict"], d["verdict"], d["equivalent"], d["verified"] = base, "INCONCLUSIVE", False, False
+            d["logic_conflict"] = True
+            d["reason"] = "the logic engine proves the same logical structure but the comparator found a reliable difference: no claim is made"
+            return d
+        if base in ("INCONCLUSIVE", "NOT_EQUIVALENT"):                    # an unreliable NOT_EQUIVALENT only means "not proven equal"
+            d["raw_verdict"], d["verdict"], d["equivalent"], d["verified"], d["proof"] = base, "EQUIVALENT", True, True, "logic"
+            d.pop("difference_reliable", None)
+            d["reason"] = "proved by the propositional-skeleton engine: the same clauses combine in the same logical way (truth table over the clauses)"
+        return d
+    # DIFFERENT_LOGIC: the clauses are the same and some assignment separates the two formulas
+    if base == "EQUIVALENT":
+        d["raw_verdict"], d["verdict"], d["equivalent"], d["verified"] = base, "INCONCLUSIVE", False, False
+        d["logic_conflict"] = True
+        d["reason"] = "the comparator proved equivalence but the logic engine found a counter-example: no claim is made"
+        return d
+    if base == "INCONCLUSIVE":
+        d["raw_verdict"], d["verdict"], d["equivalent"], d["proof"] = base, "NOT_EQUIVALENT", False, "logic"
+        d["reason"] = "the logic engine found a counter-example (the clauses are the same, their logical combination differs; clauses assumed independent)"
+    d["difference_reliable"] = True
+    return d
+
+
+def compare_verified(text_a: str, text_b: str, config: dict | None = None) -> dict:
+    """`compare_verified` with the propositional-skeleton engine folded in (on by default; `config={"logic": False}` turns it off). Adds a `logic` key; a logic proof sets `proof: "logic"`, and any disagreement between the
+    engine and a reliable comparator verdict becomes INCONCLUSIVE with `logic_conflict`. Everything else is the core behaviour documented above (`_compare_verified_core`)."""
+    cfg = dict(config or {})
+    use_logic = cfg.pop("logic", True)
+    d = _compare_verified_core(text_a, text_b, cfg or None)
+    if use_logic and d.get("verdict") != "UNVERIFIED":
+        try:
+            d = _apply_logic(text_a, text_b, d)
+        except Exception:                                                        # noqa: BLE001 — fail closed: a failure of the extra layer never changes the verdict
+            d["logic"] = {"verdict": "ABSTAIN", "reason": "the logic layer failed"}
     return d
 
