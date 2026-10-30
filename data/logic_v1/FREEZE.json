@@ -3,6 +3,10 @@
  "aixl/core/normalizer.py": "aa88544826fcdf64f93a87bd291a10bd1e15a1c4b8883779509496a146fa84ec",
  "aixl/api/service.py": "5c0e77d96f7a0756d2bfda8657a4f1d89f33fac5403b35d12e8b1a11acb793be",
  "aixl/invariants.py": "6d82eefd910701d08373c2588e0d6b2e9404212c31367d7c87528c7cf558aeb1",
- "benchmarks/logic_eval.py": "8339e658c07db72e8cc608361a08ce29718ca6d60396f0eb5fc30b245405761f",
- "_note": "code frozen BEFORE the data exist; older labelled pairs: 0 false EQUIVALENT_LOGIC, 0 false DIFFERENT_LOGIC"
+ "benchmarks/logic_eval.py": "e2cf8df775c19d1898d815ee45f351b6c4d4aee7585c5e988d977dc3aef0eed4",
+ "_note": "code frozen BEFORE the data exist; older labelled pairs: 0 false EQUIVALENT_LOGIC, 0 false DIFFERENT_LOGIC",
+ "data/logic_v1/out_A.jsonl": "a4ae7353ad5aa08e860ca34009b316d4e983fb44f958e3cf3258126848c24d99",
+ "data/logic_v1/out_B.jsonl": "07ce196ee545f8e02e595f402fa614fa02892bb7b2bb2cadb0fd4ed005a8e232",
+ "data/logic_v1/out_C.jsonl": "6312cef6143e4d1401f032b6886b81578c8ae6400513b634cb427fd46640dbc2",
+ "_note_evaluator_fix": "after the data were read: a variable-shadowing bug in the evaluator's output writing (`out`) was fixed; the printed numbers of the first run and of the rerun are identical; aixl/logic.py is byte-identical to the freeze"
 }

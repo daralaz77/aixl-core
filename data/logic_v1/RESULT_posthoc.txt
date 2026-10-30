@@ -1,0 +1,38 @@
+records 180 (malformed 0); authors {'A': 60, 'B': 60, 'C': 60}; labels {'EQUIVALENT': 90, 'DIFFERENT': 90}
+coverage (verdict, not ABSTAIN): 117/180 = 65.0 %; accuracy among decided: 117/117 = 100.0 %
+label EQUIVALENT: decided 51/90 = 56.7 %; false DIFFERENT_LOGIC 0
+label DIFFERENT : decided 66/90 = 73.3 %; false EQUIVALENT_LOGIC 0
+
+per subtype (decided / right / wrong):
+  and_or_swap             n  14  decided  14  right  14  false_eq 0  false_diff 0
+  commutation_of_conditionsn  14  decided  10  right  10  false_eq 0  false_diff 0
+  conditional_order       n  11  decided  11  right  11  false_eq 0  false_diff 0
+  contrapositive          n  13  decided   6  right   6  false_eq 0  false_diff 0
+  converse                n  14  decided   7  right   7  false_eq 0  false_diff 0
+  de_morgan               n  13  decided   8  right   8  false_eq 0  false_diff 0
+  distribution            n  14  decided   9  right   9  false_eq 0  false_diff 0
+  double_negation         n  12  decided   5  right   5  false_eq 0  false_diff 0
+  dropped_negation        n  13  decided  12  right  12  false_eq 0  false_diff 0
+  negation_scope          n  12  decided   6  right   6  false_eq 0  false_diff 0
+  only_if_vs_if           n  12  decided  11  right  11  false_eq 0  false_diff 0
+  regrouped_and_or        n  13  decided  13  right  13  false_eq 0  false_diff 0
+  unless_as_if_not        n  13  decided   2  right   2  false_eq 0  false_diff 0
+  unless_vs_if            n  12  decided   3  right   3  false_eq 0  false_diff 0
+per language: en decided 41/54 = 75.9 %; es decided 38/54 = 70.4 %; pt decided 38/72 = 52.8 %
+
+baselines on the same pairs:
+  compare_verified proves EQUIVALENT: on EQUIVALENT pairs 0/90; on DIFFERENT pairs (false proofs) 0/90
+  relay_check flags: DIFFERENT pairs 75/90; EQUIVALENT pairs (false alarms) 76/90
+older labelled pairs: false EQUIVALENT_LOGIC 0, false DIFFERENT_LOGIC 0, of 2681
+
+L1 PASS  L2 PASS  L3 PASS  L4 PASS  L5 PASS
+
+abstention reasons:
+   42  the clauses differ (the engine only compares texts that reuse the same
+   10  a comma list without a connective
+    5  the order of the actions may matter (`fetch X and generate Y` is not `
+    3  two negations in one clause
+    2  nested conditionals
+    1  empty side of a conditional
+
+wrong verdicts (0):

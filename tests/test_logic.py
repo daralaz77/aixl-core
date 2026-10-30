@@ -72,3 +72,11 @@ def test_negation_position_matters_with_a_modal():
 
 def test_condition_order_does_not_matter():
     assert v("Notify Ana if the ticket is closed and the client cancels.", "Notify Ana if the client cancels and the ticket is closed.") == "EQUIVALENT_LOGIC"
+
+
+def test_portuguese_e_acute_is_a_verb_not_a_conjunction():
+    """found by the fresh evaluation (2 wrong verdicts): `é` lost its accent and became the connective `e`, splitting `o acesso é liberado` into two clauses."""
+    a = "Se o funcionário completou o treinamento, o acesso ao laboratório é liberado."
+    b = "Se o acesso ao laboratório não é liberado, o funcionário não completou o treinamento."
+    assert v(a, b) == "EQUIVALENT_LOGIC"
+    assert v("Quando a conta ultrapassa o limite, o cartão é bloqueado.", "Se o cartão não é bloqueado, a conta não ultrapassa o limite.") == "EQUIVALENT_LOGIC"

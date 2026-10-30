@@ -50,7 +50,8 @@ def _lang(text: str) -> str:
 
 
 def _norm(text: str) -> str:
-    t = strip_accents(text).lower().replace("’", "'").replace("‘", "'")
+    t = re.sub(r"(?<!\w)é(?!\w)", "eh", text.lower())                       # Portuguese `é` (is) must not become `e` (and) when the accents are stripped
+    t = strip_accents(t).replace("’", "'").replace("‘", "'")
     t = re.sub(r"[\"“”]", "", t)
     t = t.replace("(", " ( ").replace(")", " ) ").replace(",", " , ")
     return re.sub(r"\s+", " ", t).strip()

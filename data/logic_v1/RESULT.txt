@@ -1,0 +1,41 @@
+records 180 (malformed 0); authors {'A': 60, 'B': 60, 'C': 60}; labels {'EQUIVALENT': 90, 'DIFFERENT': 90}
+coverage (verdict, not ABSTAIN): 114/180 = 63.3 %; accuracy among decided: 112/114 = 98.2 %
+label EQUIVALENT: decided 52/90 = 57.8 %; false DIFFERENT_LOGIC 2
+label DIFFERENT : decided 62/90 = 68.9 %; false EQUIVALENT_LOGIC 0
+
+per subtype (decided / right / wrong):
+  and_or_swap             n  14  decided  11  right  11  false_eq 0  false_diff 0
+  commutation_of_conditionsn  14  decided  10  right  10  false_eq 0  false_diff 0
+  conditional_order       n  11  decided  11  right  11  false_eq 0  false_diff 0
+  contrapositive          n  13  decided   6  right   4  false_eq 0  false_diff 2
+  converse                n  14  decided   7  right   7  false_eq 0  false_diff 0
+  de_morgan               n  13  decided   9  right   9  false_eq 0  false_diff 0
+  distribution            n  14  decided   7  right   7  false_eq 0  false_diff 0
+  double_negation         n  12  decided   7  right   7  false_eq 0  false_diff 0
+  dropped_negation        n  13  decided  12  right  12  false_eq 0  false_diff 0
+  negation_scope          n  12  decided   8  right   8  false_eq 0  false_diff 0
+  only_if_vs_if           n  12  decided  11  right  11  false_eq 0  false_diff 0
+  regrouped_and_or        n  13  decided  10  right  10  false_eq 0  false_diff 0
+  unless_as_if_not        n  13  decided   2  right   2  false_eq 0  false_diff 0
+  unless_vs_if            n  12  decided   3  right   3  false_eq 0  false_diff 0
+per language: en decided 41/54 = 75.9 %; es decided 38/54 = 70.4 %; pt decided 35/72 = 48.6 %
+
+baselines on the same pairs:
+  compare_verified proves EQUIVALENT: on EQUIVALENT pairs 0/90; on DIFFERENT pairs (false proofs) 0/90
+  relay_check flags: DIFFERENT pairs 75/90; EQUIVALENT pairs (false alarms) 76/90
+older labelled pairs: false EQUIVALENT_LOGIC 0, false DIFFERENT_LOGIC 0, of 2681
+
+L1 PASS  L2 PASS  L3 PASS  L4 PASS  L5 PASS
+
+abstention reasons:
+   40  the clauses differ (the engine only compares texts that reuse the same
+    9  a comma list without a connective
+    8  mixed and/or without parentheses
+    5  the order of the actions may matter (`fetch X and generate Y` is not `
+    2  nested conditionals
+    1  two negations in one clause
+    1  empty side of a conditional
+
+wrong verdicts (2):
+  EQUIVALENT | contrapositive | pt | DIFFERENT_LOGIC | Se o funcionário completou o treinamento, o acesso ao laboratório é liberado. | Se o acesso ao laboratório não é liberado, o funcionário não completou o treinamento.
+  EQUIVALENT | contrapositive | pt | DIFFERENT_LOGIC | Quando a conta ultrapassa o limite, o cartão é bloqueado. | Se o cartão não é bloqueado, a conta não ultrapassa o limite.

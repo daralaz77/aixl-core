@@ -59,8 +59,8 @@ def main(out=None):
     base = collections.Counter()
     for r in rows:
         eq = r["label"].upper() == "EQUIVALENT"
-        out = logic_compare(r["a"], r["b"])
-        v = out["verdict"]
+        res_out = logic_compare(r["a"], r["b"])
+        v = res_out["verdict"]
         for key in (("all",), ("sub", r["subtype"]), ("lang", r["lang"]), ("label", r["label"].upper())):
             c = res[key]
             c["n"] += 1
@@ -69,7 +69,7 @@ def main(out=None):
             c["false_eq"] += v == "EQUIVALENT_LOGIC" and not eq
             c["false_diff"] += v == "DIFFERENT_LOGIC" and eq
         if v == "ABSTAIN":
-            reasons[out["reason"][:70]] += 1
+            reasons[res_out["reason"][:70]] += 1
         elif not ((v == "EQUIVALENT_LOGIC" and eq) or (v == "DIFFERENT_LOGIC" and not eq)):
             wrong.append((r["label"], r["subtype"], r["lang"], v, r["a"], r["b"]))
         cv = compare_verified(r["a"], r["b"])
