@@ -95,3 +95,24 @@ def test_the_real_a2a_app_is_wrapped_and_protected():
     assert c.get("/.well-known/agent-card.json").status_code == 200
     assert c.post("/", json={"jsonrpc": "2.0", "id": 1, "method": "message/send", "params": {}}).status_code == 401
     assert isinstance(build_app("http://127.0.0.1:1/", False), Starlette)
+
+
+def test_loopback_means_an_ip_address_not_a_name_that_starts_with_127():
+    assert is_loopback("127.0.0.1") and is_loopback("127.1.2.3") and is_loopback("::1") and is_loopback("localhost")
+    assert not is_loopback("127.example.com") and not is_loopback("0.0.0.0") and not is_loopback("10.0.0.5")
+    assert "AIXL_A2A_TOKEN" in startup_problem("127.example.com", GuardConfig(), env={})
+
+
+def test_rate_limit_memory_is_bounded_without_changing_decisions(monkeypatch):
+    import aixl.agents.guard as g
+    monkeypatch.setattr(g, "MAX_TRACKED_CLIENTS", 5)
+    clock = Clock()
+    guard = Guard(_app(), GuardConfig(clock=clock, rate_per_min=60))
+    for i in range(5):
+        assert guard._allow(f"c{i}")[0]
+    clock.t += 120                                   # every bucket is fully refilled
+    assert guard._allow("new")[0]
+    assert len(guard._buckets) == 1
+    for _ in range(60):
+        guard._allow("busy")
+    assert not guard._allow("busy")[0]               # a client that exhausted its bucket is still limited

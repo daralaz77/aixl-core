@@ -7,17 +7,24 @@ set AIXL_A2A_HOST=0.0.0.0). Pure ASGI, no dependency, testable without the A2A S
     effective limit is N x that, and clients behind one proxy share a bucket.
   * Body cap: AIXL_A2A_MAX_BODY_BYTES (default 262144) -> 413, before the analysis-size guard (aixl.core.limits) is even reached."""
 import hmac
+import ipaddress
 import json
 import os
 import time
 from dataclasses import dataclass, field
 
+MAX_TRACKED_CLIENTS = 10_000                      # rate-limit buckets kept in memory; beyond this, idle (fully refilled) ones are dropped
 PUBLIC_PATHS = frozenset({"/healthz", "/readyz", "/.well-known/agent-card.json", "/.well-known/agent.json"})
 _LOOPBACK = frozenset({"127.0.0.1", "localhost", "::1"})
 
 
 def is_loopback(host: str) -> bool:
-    return host in _LOOPBACK or host.startswith("127.")
+    if host in _LOOPBACK:
+        return True
+    try:
+        return ipaddress.ip_address(host).is_loopback          # a DNS name such as "127.example.com" is NOT loopback
+    except ValueError:
+        return False
 
 
 @dataclass
@@ -62,6 +69,9 @@ class Guard:
     def _allow(self, client: str):
         """Token bucket. Returns (allowed, retry_after_seconds)."""
         now, cap = self.cfg.clock(), float(self.cfg.rate_per_min)
+        if len(self._buckets) >= MAX_TRACKED_CLIENTS and client not in self._buckets:
+            # a refilled bucket is indistinguishable from a new client, so dropping it changes no decision
+            self._buckets = {c: b for c, b in self._buckets.items() if b[0] + (now - b[1]) * cap / 60.0 < cap}
         tokens, last = self._buckets.get(client, (cap, now))
         tokens = min(cap, tokens + (now - last) * cap / 60.0)
         if tokens >= 1.0:
