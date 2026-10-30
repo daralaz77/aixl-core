@@ -46,10 +46,15 @@ def compare(text_a: str, text_b: str, config: dict | None = None) -> ComparisonR
     pairs, blind13/14; 82 of 1,036 adversarial mutants, `python -m lab.arena.arena scope`). Use :func:`compare_verified` whenever a wrong "equivalent"
     would matter: it never answers EQUIVALENT unless both texts are completely accounted for. For "are these two open texts the same?" use a strict
     2-of-2 LLM arbiter (README §2)."""
+    return _compare_graphs_of(text_a, text_b, to_graph(text_a), to_graph(text_b), config)
+
+
+def _compare_graphs_of(text_a: str, text_b: str, ga: SemanticGraph, gb: SemanticGraph, config: dict | None) -> ComparisonResult:
+    """`compare()` over graphs the caller already translated (translating is the costly, and in LLM mode non-deterministic, step)."""
     if config is not None:
-        return compare_graphs(to_graph(text_a), to_graph(text_b), config)
+        return compare_graphs(ga, gb, config)
     from aixl.core.completeness import BOUNDARY, annotate, marker_conflicts, names_reordered
-    ga, gb = annotate(to_graph(text_a), text_a), annotate(to_graph(text_b), text_b)
+    ga, gb = annotate(ga, text_a), annotate(gb, text_b)
     res = compare_graphs(ga, gb, config)
     if res.equivalent:
         ca, cb = ga.meta['completeness'], gb.meta['completeness']
@@ -155,10 +160,10 @@ def _compare_verified_core(text_a: str, text_b: str, config: dict | None = None)
     from aixl.core.lexicon_gaps import unaccounted_content
     from aixl.core.limits import InputTooLarge
     try:
-        d = compare(text_a, text_b, config).to_dict()
+        ga, gb = to_graph(text_a), to_graph(text_b)           # each text is translated ONCE; the comparison and the completeness checks share the graphs
+        d = _compare_graphs_of(text_a, text_b, ga, gb, config).to_dict()
     except InputTooLarge as e:
         return {"verdict": "UNVERIFIED", "equivalent": False, "verified": False, "reason": "input_too_large", "detail": str(e)}
-    ga, gb = to_graph(text_a), to_graph(text_b)
     ok_a, ok_b = is_complete(text_a, ga), is_complete(text_b, gb)
     d["complete"] = ok_a and ok_b          # both texts fully accounted for by the closed vocabulary (the layers can DECIDE)
     d["verified"] = ok_a and ok_b          # complete AND no connective conflict; False means "no claim of sameness is made"

@@ -52,3 +52,12 @@ def test_mcp_and_a2a_surfaces_use_the_verified_comparison():
     import aixl.mcp_server as M
     assert "compare_verified" in inspect.getsource(M.aixl_compare)
     assert "compare_verified" in inspect.getsource(A2A)
+
+
+def test_compare_verified_translates_each_text_once(monkeypatch):
+    import aixl.api.service as svc
+    calls = []
+    real = svc.to_graph
+    monkeypatch.setattr(svc, "to_graph", lambda t, *a, **k: (calls.append(t), real(t, *a, **k))[1])
+    svc.compare_verified("Envía el informe a Ana el lunes", "Envía el informe a Ana el lunes")
+    assert calls == ["Envía el informe a Ana el lunes"] * 2
