@@ -17,6 +17,7 @@ It does not call any model, does not judge anything itself and does not execute 
 responsibility; the evidence in EVIDENCE.md is for Sonnet 5/Haiku 4.5-class judges under `rules_v1.txt` on ES/EN/PT instructions."""
 import hashlib
 import json
+import logging
 import os
 import time
 from dataclasses import dataclass, field
@@ -98,12 +99,17 @@ class DecisionMemo:
 
     def __init__(self, path: str | None = None, store_texts: bool = False):
         self.path, self.store_texts, self._rows = path, store_texts, {}
+        self.skipped = 0                          # unreadable lines found on load (e.g. a write cut short by a crash); they are only a cache miss
         if path and os.path.exists(path):
             with open(path, encoding="utf-8") as fh:
-                for line in fh:
+                for n, line in enumerate(fh, 1):
                     if line.strip():
-                        r = json.loads(line)
-                        self._rows[r["key"]] = r
+                        try:
+                            r = json.loads(line)
+                            self._rows[r["key"]] = r
+                        except (ValueError, KeyError, TypeError):
+                            self.skipped += 1
+                            logging.getLogger("aixl.arbiter").warning("decision memo %s: line %d is unreadable and was skipped (the decision will be re-made)", path, n)
 
     def get(self, key: str):
         return self._rows.get(key)

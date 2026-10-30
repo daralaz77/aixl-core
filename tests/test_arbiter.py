@@ -102,3 +102,11 @@ def test_non_string_judge_answers_are_invalid_not_crashes():
     assert arbiter.normalize_verdict(5) is None and arbiter.normalize_verdict(["SAME"]) is None and arbiter.normalize_verdict(None) is None
     d = arbiter.decide("a b c", "a b d", {"j1": lambda a, b: 5, "j2": lambda a, b: "SAME"}, retries=0)
     assert d.verdict != "SAME" and not d.ok
+
+
+def test_memo_survives_a_truncated_line_and_says_so(tmp_path, caplog):
+    p = tmp_path / "memo.jsonl"
+    p.write_text('{"key": "k1", "verdict": "SAME"}\n{"key": "k2", "verd\n[1]\n', encoding="utf-8")
+    memo = A.DecisionMemo(str(p))
+    assert memo.get("k1")["verdict"] == "SAME" and memo.get("k2") is None
+    assert memo.skipped == 2 and "unreadable" in caplog.text
