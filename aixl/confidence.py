@@ -5,6 +5,11 @@ Tiers: P  deterministic proof (`compare_verified` verified EQUIVALENT) | J+ ever
 | split judges disagree | N every judge says different | none no judge output.
 The numbers come from `python -m benchmarks.risk_coverage` (blind17 + blind18, 115 pairs of other authors, judges Sonnet/Haiku, 2026-10-29): small samples, wide intervals, ES/EN/PT
 open-domain text. Finding kept on purpose: `relay_check` ok does NOT make a unanimous SAME safer (J+ 1/18 vs J 1/36); the signal is the judges' agreement."""
+def _unanimous_bound() -> float:
+    from aixl.risk import clopper_pearson_upper
+    return round(clopper_pearson_upper(2, 54, 0.10), 4)          # J+ and J together: 2 false SAME in 54 -> one-sided 90 % upper bound (E-RISK-CONTROL)
+
+
 _TABLE = {   # tier: (false-SAME count, n, (ci_low, ci_high) as fractions)
     "J+": (1, 18, (0.010, 0.258)), "J": (1, 36, (0.005, 0.142)), "split": (9, 11, (0.523, 0.949)), "N": (50, 50, (0.929, 1.0)),
 }
@@ -25,4 +30,8 @@ def claim_tier(verified: dict, relay: dict, votes) -> dict:
     else:
         t = "split"
     k, n, ci = _TABLE[t]
-    return {"tier": t, "false_same_measured": round(k / n, 3), "n": n, "ci95": ci, "scope": SCOPE}
+    out = {"tier": t, "false_same_measured": round(k / n, 3), "n": n, "ci95": ci, "scope": SCOPE}
+    if t in ("J+", "J"):
+        out["certified"] = {"false_same_upper_bound": _unanimous_bound(), "confidence": 0.90, "errors": 2, "n": 54,
+                            "guarantee": "P(false SAME | unanimous judges) <= bound with probability >= 90 % over the calibration draw, for pairs exchangeable with blind17+blind18; 5 % is NOT certifiable with this much data"}
+    return out

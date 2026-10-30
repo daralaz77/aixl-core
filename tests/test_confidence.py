@@ -25,3 +25,9 @@ def test_disagreement_is_flagged_as_unsafe():
 
 def test_all_different():
     assert claim_tier({}, OK, ["DIFFERENT", "DIFF"])["tier"] == "N"
+
+
+def test_unanimous_tiers_carry_a_certified_bound():
+    t = claim_tier({}, OK, ["SAME", "SAME"])
+    assert t["certified"]["errors"] == 2 and t["certified"]["n"] == 54 and 0.09 < t["certified"]["false_same_upper_bound"] < 0.10
+    assert "certified" not in claim_tier({}, OK, ["SAME", "DIFFERENT"])

@@ -14,6 +14,7 @@ dev = ["pytest", "tiktoken"]
 mcp = ["mcp"]
 a2a = ["a2a-sdk[http-server]", "uvicorn"]
 llm = ["httpx"]
+signing = ["cryptography"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
