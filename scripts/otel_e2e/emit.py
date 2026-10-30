@@ -16,6 +16,8 @@ HOST = os.environ.get("OTLP_HOST", "127.0.0.1")                          # the c
 CA, CERT, KEY = os.environ.get("OTLP_TLS_CA"), os.environ.get("OTLP_TLS_CERT"), os.environ.get("OTLP_TLS_KEY")      # a CA file turns TLS on; CERT + KEY add a client certificate (mTLS)
 TLS = bool(CA) or os.environ.get("OTLP_TLS") == "1"                       # OTLP_TLS=1 without a CA: TLS with the system roots only (a self-signed collector must then be REFUSED)
 TIMEOUT = int(os.environ.get("OTLP_TIMEOUT", "10"))
+HTTP_BASE = os.environ.get("OTLP_HTTP_BASE")                                # e.g. http://127.0.0.1:3100/otlp for Loki (logs at <base>/v1/logs)
+LOGS_ONLY = os.environ.get("OTLP_LOGS_ONLY") == "1"                       # a backend that has no OTLP metrics endpoint (Loki)
 if PROTOCOL == "grpc":
     import grpc
     from opentelemetry.exporter.otlp.proto.grpc._log_exporter import OTLPLogExporter
@@ -35,14 +37,14 @@ else:
     from opentelemetry.exporter.otlp.proto.http.metric_exporter import OTLPMetricExporter
     _scheme = "https" if TLS else "http"
     _tls = {"certificate_file": CA, "client_certificate_file": CERT, "client_key_file": KEY, "timeout": TIMEOUT}
-    LOG_EXPORTER = lambda: OTLPLogExporter(endpoint=f"{_scheme}://{HOST}:4318/v1/logs", **_tls)           # noqa: E731
+    LOG_EXPORTER = lambda: OTLPLogExporter(endpoint=(HTTP_BASE + "/v1/logs") if HTTP_BASE else f"{_scheme}://{HOST}:4318/v1/logs", **_tls)           # noqa: E731
     METRIC_EXPORTER = lambda: OTLPMetricExporter(endpoint=f"{_scheme}://{HOST}:4318/v1/metrics", **_tls)  # noqa: E731
 
 res = Resource.create({"service.name": "aixl-e2e-test-" + PROTOCOL})
 lp = LoggerProvider(resource=res)
 lp.add_log_record_processor(SimpleLogRecordProcessor(LOG_EXPORTER()))
 set_logger_provider(lp)
-mp = MeterProvider(resource=res, metric_readers=[PeriodicExportingMetricReader(METRIC_EXPORTER(), export_interval_millis=3_600_000)])
+mp = MeterProvider(resource=res, metric_readers=[] if LOGS_ONLY else [PeriodicExportingMetricReader(METRIC_EXPORTER(), export_interval_millis=3_600_000)])
 metrics.set_meter_provider(mp)
 
 from aixl import telemetry as T

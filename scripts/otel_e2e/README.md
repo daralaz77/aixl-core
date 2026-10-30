@@ -21,3 +21,7 @@ arrives came over gRPC) and run `v/bin/python emit.py grpc`. Verified run: same 
 ## TLS and mutual TLS (verified 2026-10-30)
 `make_certs.sh <dir> [lan-ip]` builds a throw-away CA, a server certificate (SAN: localhost, 127.0.0.1 and the LAN address) and a client certificate. Start the collector with `cfg_tls.yaml.example` (TLS) or `cfg_mtls.yaml.example` (client certificate REQUIRED) after replacing `<scratch>`,
 and set `OTLP_TLS_CA` (turns TLS on), `OTLP_TLS_CERT` + `OTLP_TLS_KEY` (client certificate) and `OTLP_HOST` for `emit.py`; `tls_matrix.py` runs the 13 cases (valid ones must arrive, wrong ones must be refused) against a real collector.
+
+## A real backend: Grafana Loki (verified 2026-10-30)
+Loki 3.7.9 (single binary, loopback only, filesystem storage, `auth_enabled: false`; SHA-256 checked against the release's `SHA256SUMS`) accepts OTLP logs at `/otlp/v1/logs`: `OTLP_HTTP_BASE=http://127.0.0.1:3100/otlp OTLP_LOGS_ONLY=1 python emit.py http` (Loki has no OTLP metrics endpoint).
+Query with the HTTP API (`/loki/api/v1/query_range`, header `X-Loki-Response-Encoding-Flags: categorize-labels` to see structured metadata) or LogQL, e.g. `{service_name="..."} | gen_ai_evaluation_score_label="violation"`.
