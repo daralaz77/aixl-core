@@ -53,8 +53,9 @@ def _sender_env_and_cwd() -> tuple[dict, str]:
 
 async def negotiate_autonomous_async(sender_command: list[str], receiver_canonical: dict,
                                       config: dict | None = None, max_rounds: int = 3,
-                                      msg_prefix: str = "M") -> NegotiationOutcome:
-    """Async core, exported so a caller already running inside an event loop (e.g. an MCP server's
+                                      msg_prefix: str = "M", sender_env: dict | None = None) -> NegotiationOutcome:
+    """`sender_env`: extra environment variables for the sender subprocess (e.g. AIXL_SENDER_TEXT, so a secret instruction never appears in `ps`).
+    Async core, exported so a caller already running inside an event loop (e.g. an MCP server's
     own tool handler — see aixl/mcp_server.py's aixl_negotiate_autonomous) can `await` it directly
     instead of going through the sync `negotiate_autonomous()` wrapper, which cannot be called from
     a running loop (asyncio.run() would raise).
@@ -64,9 +65,9 @@ async def negotiate_autonomous_async(sender_command: list[str], receiver_canonic
     — the two `get_request`/`get_answer` closures below are the only thing specific to talking to a
     real remote process instead of reading a local dict."""
     cfg = config or load_config()
-    sender_env, sender_cwd = _sender_env_and_cwd()
+    env, sender_cwd = _sender_env_and_cwd()
     params = StdioServerParameters(command=sender_command[0], args=sender_command[1:],
-                                    env=sender_env, cwd=sender_cwd)
+                                    env={**env, **(sender_env or {})}, cwd=sender_cwd)
     async with stdio_client(params) as (read, write):
         async with ClientSession(read, write) as session:
             await session.initialize()

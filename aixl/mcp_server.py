@@ -77,9 +77,9 @@ async def aixl_negotiate_autonomous(sender_text: str, receiver_text: str, max_ro
     import logging
     import sys
     receiver_canonical = aixl.to_semantic(receiver_text).canonical()
-    sender_cmd = [sys.executable, "-m", "aixl.agents.sender_agent", "--text", sender_text]
+    sender_cmd = [sys.executable, "-m", "aixl.agents.sender_agent"]          # the text goes in the environment, not in argv (visible to `ps`)
     try:
-        out = await negotiate_autonomous_async(sender_cmd, receiver_canonical, max_rounds=max_rounds)
+        out = await negotiate_autonomous_async(sender_cmd, receiver_canonical, max_rounds=max_rounds, sender_env={"AIXL_SENDER_TEXT": sender_text})
     except Exception as e:                                        # noqa: BLE001 — surface it, don't swallow it
         logging.getLogger("aixl.mcp_server").exception("aixl_negotiate_autonomous failed")      # the traceback stays in the server's own log (stderr), not in the reply
         return {"error": f"{type(e).__name__}: {e}"}

@@ -108,3 +108,21 @@ def test_autonomous_negotiation_sender_replay_mode_accepts_a_precomputed_aixl_li
     out = negotiate_autonomous(cmd, receiver_canonical, max_rounds=3)
     assert out.converged is True
     assert out.transcript[0].payload == sender_aixl
+
+
+def test_sender_text_can_travel_in_the_environment_so_it_is_not_in_argv():
+    import asyncio
+
+    from aixl.autonomous_negotiation import negotiate_autonomous_async
+    cmd = [sys.executable, "-m", "aixl.agents.sender_agent"]
+    assert "Archive" not in " ".join(cmd)
+    receiver_canonical = to_graph("Update ticket #77.").canonical()
+    out = asyncio.run(negotiate_autonomous_async(cmd, receiver_canonical, max_rounds=3, sender_env={"AIXL_SENDER_TEXT": "Archive ticket #77."}))
+    assert out.converged is True and out.transcript[2].value == "DISABLE"      # same outcome as the --text route above
+
+
+def test_sender_agent_without_any_source_fails_clearly():
+    import subprocess
+    r = subprocess.run([sys.executable, "-m", "aixl.agents.sender_agent"], capture_output=True, text=True, timeout=60,
+                       env={**_sender_env_and_cwd()[0]}, cwd=_sender_env_and_cwd()[1])
+    assert r.returncode != 0 and "AIXL_SENDER_TEXT" in r.stderr

@@ -9,17 +9,24 @@ cached once at negotiation setup and replayed — directly closing the "is the A
 confirmation from a running sender, or a value copied at simulation start?" gap the E-MCP
 third-party test (Claude Desktop, 2026-09-30) raised about the single-process aixl/negotiation.py.
 
-Run standalone: `python -m aixl.agents.sender_agent --text "Close ticket #77."`"""
+Run standalone: `python -m aixl.agents.sender_agent --text "Close ticket #77."`
+When spawned by a server, pass the text in the environment variable AIXL_SENDER_TEXT instead: command-line arguments are visible to every local
+user through `ps`, a process's environment is not."""
 import argparse
+import os
 
 import aixl
 from aixl.serialization import aixl_codec
 
 _parser = argparse.ArgumentParser()
-_group = _parser.add_mutually_exclusive_group(required=True)
-_group.add_argument("--text", help="Original natural-language instruction this sender holds.")
+_group = _parser.add_mutually_exclusive_group()
+_group.add_argument("--text", help="Original natural-language instruction this sender holds (or set AIXL_SENDER_TEXT).")
 _group.add_argument("--aixl", help="An already-encoded AIXL line this sender holds (replay mode).")
 _args = _parser.parse_args()
+if not (_args.text or _args.aixl):
+    _args.text = os.environ.get("AIXL_SENDER_TEXT")
+if not (_args.text or _args.aixl):
+    _parser.error("one of --text, --aixl or the AIXL_SENDER_TEXT environment variable is required")
 
 
 def _canonical() -> dict:
