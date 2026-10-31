@@ -22,3 +22,12 @@ def test_annotated_pointer_roundtrips_and_states_length():
     s = RefStore(annotate=True); s.encode(BIG)
     e = s.encode("x\n" + BIG)
     assert "(12 lines)" in e and s.decode(e) == "x\n" + BIG
+
+
+def test_decode_rejects_references_that_point_nowhere():
+    import pytest
+    s = RefStore(); s.encode("only message\nsecond line")
+    for bad in ("⟦=5:0-1⟧", "⟦=0:0-9⟧", "⟦=0:1-0⟧"):
+        with pytest.raises(ValueError, match="unresolvable"):
+            s.decode(bad)
+    assert s.decode("⟦=0:0-1⟧") == "only message\nsecond line"

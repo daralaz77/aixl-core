@@ -56,5 +56,7 @@ class RefStore:
     def decode(self, enc: str) -> str:
         def sub(mo):
             m, a, b = map(int, mo.groups())
+            if m >= len(self.msgs) or not a <= b < len(self.msgs[m]):
+                raise ValueError(f"unresolvable reference {mo.group(0)}: no such message or line range")
             return "\n".join(self.msgs[m][a:b + 1])
         return _REF.sub(sub, enc)
