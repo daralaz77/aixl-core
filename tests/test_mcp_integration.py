@@ -120,3 +120,16 @@ def test_verify_signed_over_real_mcp_stdio_transport():
     assert json.loads(asyncio.run(_call("aixl_verify_signed", {"signed": outside, "public_key": public_key_to_b64(pub), "received_text": "Envía el informe a María antes del viernes."}))["text"])["state"] == "AUTHENTIC_UNVERIFIED"
     bad_key = json.loads(asyncio.run(_call("aixl_verify_signed", {"signed": signed, "public_key": "not-a-key", "received_text": text}))["text"])
     assert bad_key["state"] == "MALFORMED"
+
+
+def test_autonomous_negotiation_error_reply_has_no_traceback_or_sender_text(monkeypatch, caplog):
+    import asyncio
+
+    import aixl.mcp_server as ms
+
+    async def boom(*a, **k):
+        raise RuntimeError("spawn failed")
+    monkeypatch.setattr(ms, "negotiate_autonomous_async", boom)
+    out = asyncio.run(ms.aixl_negotiate_autonomous("secret sender text", "receiver text"))
+    assert out == {"error": "RuntimeError: spawn failed"}
+    assert "spawn failed" in caplog.text                      # the detail is kept in the server log
