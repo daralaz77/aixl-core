@@ -516,3 +516,22 @@ def test_range_vs_exact_ends_and_any_vs_all_are_not_asserted():
     assert V("Choose a number between 1 and 10.", "Choose a number from 1 to 10, inclusive.") != "NOT_EQUIVALENT"
     assert V("Cualquier archivo adjunto debe ser escaneado.", "Todo archivo adjunto debe ser escaneado.") != "NOT_EQUIVALENT"
     assert V("Se aceptan entre 3 y 5 archivos.", "Se aceptan entre 3 y 6 archivos.") != "EQUIVALENT"
+
+
+# ---- blind24: dropped-feature ledger (indefinite article, past/future marker, plural) ---------------------------------------------------------
+@pytest.mark.parametrize("a,b", [
+    ("Delete the attachment from the ticket.", "Delete the attachments from the ticket."),
+    ("Revise o relatório antes de enviá-lo ao cliente.", "Revise os relatórios antes de enviá-los ao cliente."),
+    ("Upload the file to the server.", "Upload the files to the server."),
+    ("Borra el archivo adjunto.", "Borra los archivos adjuntos."),
+])
+def test_singular_vs_plural_is_never_equivalent(a, b):
+    assert V(a, b) != "EQUIVALENT"
+
+
+def test_dropped_feature_ledger_counts_what_lemmatising_drops():
+    from aixl.semantic.compare import dropped_features
+    assert dropped_features(parse("Delete the attachments.")) != dropped_features(parse("Delete the attachment."))
+    assert dropped_features(parse("Send a report.")) != dropped_features(parse("Send the report."))
+    assert dropped_features(parse("The ticket was closed.")) != dropped_features(parse("The ticket is closed."))
+    assert dropped_features(parse("Delete the report.")) == dropped_features(parse("Delete the report."))

@@ -69,6 +69,12 @@ def _num(tok: str):
     return L.NUM_WORDS.get(tok)
 
 
+def is_plural_form(f: str, lang: str) -> bool:
+    """True when norm_token reaches its plural-stripping branches for this surface form (the same conditions, in the same order)."""
+    if f in L.QUANTIFIERS or f in L.UNITS or _num(f) is not None or f in L.SYNONYMS or L.PREP_MAP.get(lang, {}).get(f): return False
+    return bool(len(f) > 4 and f.endswith("es") and f[-3] in "lrnzds" and not f.endswith("ses") or f.endswith("ones") or (len(f) > 3 and f.endswith("s") and not f.endswith("ss")))
+
+
 def norm_token(f: str, lang: str):
     """Normalized key of a content token for equality: quantifier/number/synonym/preposition classes, plural stripped."""
     if f in L.QUANTIFIERS: return "Q:" + L.QUANTIFIERS[f]

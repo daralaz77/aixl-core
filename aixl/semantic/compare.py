@@ -12,7 +12,7 @@ from collections import Counter
 
 from aixl.semantic import lexicon as L
 from aixl.semantic.model import Atom, Diff, Verdict
-from aixl.semantic.parser import FUNCTIONAL, parse
+from aixl.semantic.parser import FUNCTIONAL, is_plural_form, norm_token, parse
 
 SEVERITY = {"DEONTIC": "CRITICAL", "COND": "CRITICAL", "EXCEPT": "CRITICAL", "WITHOUT": "CRITICAL", "ACTION": "CRITICAL", "ONLY": "MAJOR", "TIME": "MAJOR",
             "QTY": "MAJOR", "ORD": "MAJOR", "QUANT": "MAJOR", "RECIPIENT": "MAJOR", "SEQUENCE": "MAJOR", "STEP": "MAJOR", "ITEMS": "MODERATE"}
@@ -20,6 +20,19 @@ SYMMETRIC_ACTIONS = {"COMPARE"}
 INDEFINITE_ARTICLES = {"es": {"un", "una", "unos", "unas"}, "pt": {"um", "uma", "uns", "umas"}, "en": {"a", "an"}}
 PAST_MARKERS = {"was", "were", "did", "fue", "fueron", "era", "eran", "foi", "foram", "hubo", "habia"}
 FUTURE_MARKERS = {"will", "shall", "sera", "seran", "sera", "serao"}
+
+
+def dropped_features(o) -> Counter:
+    """Ledger of features the parser folds away when it lemmatises: indefinite articles, past/future markers, plural inflection of content words.
+    EQUIVALENT is allowed only if the two ledgers are equal (a count that differs means a feature exists on one side only)."""
+    items = {v for s in o.steps for t, v in s.items if t in ("TOK", "NAME")}
+    c = Counter()
+    for f in o.norm:
+        if f in INDEFINITE_ARTICLES[o.lang]: c["indefinite"] += 1
+        elif f in PAST_MARKERS: c["past"] += 1
+        elif f in FUTURE_MARKERS: c["future"] += 1
+        elif is_plural_form(f, o.lang) and norm_token(f, o.lang) in items: c["plural"] += 1
+    return c
 # Closed list of difference types allowed to yield NOT_EQUIVALENT (step indexes removed). Chosen from the precision per type measured on
 # blind19-22 (development evidence): the types left out ('items' = loose tokens, 'cond' / 'cond.kind' = sufficient vs necessary and
 # added conditions, 'except') produced most wrong NOT_EQUIVALENT; anything new defaults to INCONCLUSIVE.
@@ -422,11 +435,11 @@ def compare(A, B) -> Verdict:
         shared = {k for st in A.steps for t, k in st.items if t == "TOK" and k not in closed and not k.startswith(("N:", "Q:"))} & \
                  {k for st in B.steps for t, k in st.items if t == "TOK" and k not in closed and not k.startswith(("N:", "Q:"))}
         if shared: acc.un(f"cross-language: identical spelling is not verified to mean the same ({sorted(shared)})")
-    if not acc.diffs:                                                                 # blind23: material the parser drops as 'function words' can still change the meaning
-        _ind = lambda o: sum(1 for f in o.norm if f in INDEFINITE_ARTICLES[o.lang])
-        if _ind(A) != _ind(B): acc.un("an indefinite article (a / un / um) appears on one side only: a specific vs an unspecified referent is not modelled")
-        _tm = lambda o: (any(f in PAST_MARKERS for f in o.norm), any(f in FUTURE_MARKERS for f in o.norm))
-        if _tm(A) != _tm(B): acc.un("a past or future marker (was / fue / foi / will / será) appears on one side only: an event in the past or future vs a current state is not modelled")
+    if not acc.diffs:                                                                 # dropped-feature ledger (blind23/24): what lemmatising throws away can still change the meaning
+        la, lb = dropped_features(A), dropped_features(B)
+        if la != lb:
+            gone = sorted(k for k in set(la) | set(lb) if la[k] != lb[k])
+            acc.un(f"the parser drops features that differ between the texts ({gone}): indefinite article, past/future marker, plural: a specific vs unspecified referent, event vs state, one vs many are not modelled")
     def _range_pair(d):               # 'between 3 and 5' (a range) vs 'from 3 to 5' (two exact numbers): whether the ends are included is not said
         if not d.path.endswith(".qty"): return False
         rg = [r for r in (d.original or []) + (d.new or []) if isinstance(r, tuple) and len(r) == 3 and r[0] == "range"]
