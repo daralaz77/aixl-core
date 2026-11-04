@@ -95,10 +95,11 @@ class Verdict:
     unresolved: list = field(default_factory=list)     # reasons the system cannot prove either way (fail-closed)
     warnings: list = field(default_factory=list)       # inferred / defaulted assumptions the verdict relied on
     flags: list = field(default_factory=list)          # parser flags raised on either text (AMBIGUOUS_* / UNREPRESENTABLE_* / SANITIZER), by code
+    suspected: list = field(default_factory=list)      # differences of a type outside the closed list: never asserted, but never lost (the hybrid veto still reads them)
 
     @property
     def equivalent(self) -> bool:
         return self.verdict == "EQUIVALENT"
 
     def to_dict(self) -> dict:
-        return dict(verdict=self.verdict, diffs=[d.to_dict() for d in self.diffs], unresolved=self.unresolved, warnings=self.warnings, flags=self.flags)
+        return dict(verdict=self.verdict, diffs=[d.to_dict() for d in self.diffs], unresolved=self.unresolved, warnings=self.warnings, flags=self.flags, suspected=[d.to_dict() for d in self.suspected])

@@ -9,6 +9,13 @@ from aixl.semantic import compare_texts, parse
 V = lambda a, b: compare_texts(a, b).verdict
 
 
+def FLAGGED(a, b):
+    """A difference is reported: asserted (NOT_EQUIVALENT) or, for a type outside the closed list DEFINITE_PATHS, kept as `suspected` under INCONCLUSIVE.
+    Never EQUIVALENT either way (no silent failure)."""
+    v = compare_texts(a, b)
+    return v.verdict == "NOT_EQUIVALENT" or (v.verdict == "INCONCLUSIVE" and bool(v.suspected))
+
+
 # ---- model: provenance, explicit ambiguity, unspecified-vs-specified ------------------------------------------------------------
 def test_atoms_carry_span_provenance_scope():
     o = parse("Resume el informe en 200 palabras.")
@@ -52,7 +59,7 @@ def test_inferred_reference_is_marked_inferred():
     ("Resume el informe.", "Resume el informe en inglés."),
  ])
 def test_core_distortions_are_never_equivalent(a, b):
-    assert V(a, b) == "NOT_EQUIVALENT"
+    assert FLAGGED(a, b)
 
 
 def test_swapped_stage_numbers_are_never_equivalent():     # regression (blind13 S041): numbers lost their position; INCONCLUSIVE is the honest answer
@@ -160,7 +167,7 @@ def test_paraphrase_or_undecidable_pair_is_never_called_not_equivalent(a, b):
     ("Entrega el pedido dentro de 3 días.", "Entrega el pedido a partir de 3 días."),
 ])
 def test_anchored_differences_are_still_not_equivalent(a, b):
-    assert V(a, b) == "NOT_EQUIVALENT"
+    assert FLAGGED(a, b)
 
 
 # ---- classes closed after blind15 (7 wrong NOT_EQUIVALENT: 3 paraphrases + 4 undecidable) ---------------------------------------------------
@@ -398,7 +405,7 @@ def test_spelled_compound_number_is_not_a_definite_difference():
 def test_unicamente_and_solamente_are_only():
     assert V("Solo puedes pasar si tienes pase.", "Puedes pasar únicamente si tienes pase.") != "NOT_EQUIVALENT"
     assert V("Solo puedes pasar si tienes pase.", "Puedes pasar solamente si tienes pase.") != "NOT_EQUIVALENT"
-    assert V("Puedes pasar si tienes pase.", "Puedes pasar únicamente si tienes pase.") == "NOT_EQUIVALENT"      # a real necessary-vs-sufficient difference stays
+    assert FLAGGED("Puedes pasar si tienes pase.", "Puedes pasar únicamente si tienes pase.")      # a real necessary-vs-sufficient difference stays flagged (suspected, not asserted: cond.kind is outside the closed list)
 
 
 def test_the_action_word_reappearing_as_a_noun_is_not_an_addition():
@@ -407,7 +414,7 @@ def test_the_action_word_reappearing_as_a_noun_is_not_an_addition():
 
 def test_coordination_marker_is_not_an_added_item():
     assert V("Send the note to Ana and Luis or Carmen.", "Send the note to Ana, and to either Luis or Carmen.") != "NOT_EQUIVALENT"
-    assert V("Send the note to Ana.", "Send the note to Ana and Luis.") == "NOT_EQUIVALENT"      # a real added recipient stays
+    assert FLAGGED("Send the note to Ana.", "Send the note to Ana and Luis.")      # a real added recipient stays flagged
 
 
 def test_time_modifier_moved_between_steps_is_a_scope_question_not_a_difference():
@@ -478,3 +485,17 @@ def test_locative_dentro_de_is_not_an_added_item_but_deadlines_still_compare():
 def test_less_than_n_units_and_within_next_n_units_are_one_deadline_not_a_difference():
     assert V("Entrega el informe en menos de tres días.", "Entrega el informe dentro de los próximos tres días.") != "NOT_EQUIVALENT"
     assert V("Entrega el informe en menos de tres días.", "Entrega el informe en menos de cuatro días.") == "NOT_EQUIVALENT"
+
+
+# ---- closed list DEFINITE_PATHS (after blind22): only reliable slot types may assert NOT_EQUIVALENT --------------------------------------------
+def test_closed_list_asserts_reliable_types_and_only_suspects_the_rest():
+    assert V("You may delete the logs.", "You must delete the logs.") == "NOT_EQUIVALENT"                 # deontic: asserted
+    assert V("Send the report in two days.", "Send the report in three days.") == "NOT_EQUIVALENT"        # quantity: asserted
+    v = compare_texts("Delete all files except the logs.", "Delete all files.")                            # 'except': not asserted, never lost
+    assert v.verdict == "INCONCLUSIVE" and v.suspected and any("except" in d.path for d in v.suspected)
+
+
+def test_suspected_difference_still_vetoes_a_unanimous_same():
+    from aixl import hybrid_protocol as hp
+    r = hp.decide("Delete all files except the logs", "Delete all files", {"j1": "SAME", "j2": "SAME"})
+    assert r["verdict"] == "REVIEW"

@@ -7,6 +7,7 @@
                   reference, an unsupported construct. The reasons are listed in `unresolved`; nothing is guessed.
 Equivalence is NEVER derived from a score or from similar wording (master prompt §2, §27)."""
 import itertools
+import re
 from collections import Counter
 
 from aixl.semantic import lexicon as L
@@ -16,6 +17,12 @@ from aixl.semantic.parser import FUNCTIONAL, parse
 SEVERITY = {"DEONTIC": "CRITICAL", "COND": "CRITICAL", "EXCEPT": "CRITICAL", "WITHOUT": "CRITICAL", "ACTION": "CRITICAL", "ONLY": "MAJOR", "TIME": "MAJOR",
             "QTY": "MAJOR", "ORD": "MAJOR", "QUANT": "MAJOR", "RECIPIENT": "MAJOR", "SEQUENCE": "MAJOR", "STEP": "MAJOR", "ITEMS": "MODERATE"}
 SYMMETRIC_ACTIONS = {"COMPARE"}
+# Closed list of difference types allowed to yield NOT_EQUIVALENT (step indexes removed). Chosen from the precision per type measured on
+# blind19-22 (development evidence): the types left out ('items' = loose tokens, 'cond' / 'cond.kind' = sufficient vs necessary and
+# added conditions, 'except') produced most wrong NOT_EQUIVALENT; anything new defaults to INCONCLUSIVE.
+DEFINITE_PATHS = {"step.deontic", "step.qty", "step.qty.mode", "step.qty.value", "step.qty.unit", "step.time", "step.action", "step.only",
+                  "step.ref", "step.ref.gender", "step.quant", "step.recipient", "items.antonym", "items.reference", "without", "sequence",
+                  "steps", "cond.polarity"}
 KNOWN_UNITS = set(L.UNITS.values()) | {"business_days"}
 
 
@@ -412,9 +419,13 @@ def compare(A, B) -> Verdict:
         shared = {k for st in A.steps for t, k in st.items if t == "TOK" and k not in closed and not k.startswith(("N:", "Q:"))} & \
                  {k for st in B.steps for t, k in st.items if t == "TOK" and k not in closed and not k.startswith(("N:", "Q:"))}
         if shared: acc.un(f"cross-language: identical spelling is not verified to mean the same ({sorted(shared)})")
+    soft = [d for d in acc.diffs if re.sub(r"\[\d+\]", "", d.path) not in DEFINITE_PATHS]
+    if soft:                                                                           # closed list: only slot types measured as reliable may assert a difference; the rest is INCONCLUSIVE
+        acc.diffs = [d for d in acc.diffs if not any(d is s for s in soft)]
+        acc.un(f"a difference of an unreliable type ({sorted({d.path for d in soft})}) is not asserted: it may be a paraphrase, an added detail or a disputed construction")
     codes = sorted(flags_all)
-    if acc.diffs: return Verdict("NOT_EQUIVALENT", acc.diffs, list(dict.fromkeys(acc.unres)), list(dict.fromkeys(acc.warn)), codes)
-    if acc.unres: return Verdict("INCONCLUSIVE", [], list(dict.fromkeys(acc.unres)), list(dict.fromkeys(acc.warn)), codes)
+    if acc.diffs: return Verdict("NOT_EQUIVALENT", acc.diffs, list(dict.fromkeys(acc.unres)), list(dict.fromkeys(acc.warn)), codes, soft)
+    if acc.unres: return Verdict("INCONCLUSIVE", [], list(dict.fromkeys(acc.unres)), list(dict.fromkeys(acc.warn)), codes, soft)
     return Verdict("EQUIVALENT", [], [], list(dict.fromkeys(acc.warn)), codes)
 
 

@@ -50,9 +50,9 @@ def decide(a: str, b: str, judges: dict | None = None, memo=None, short_circuit:
         if sem.verdict == "EQUIVALENT": notes.append("the semantic model considered them equivalent but a judge dissented; dissent wins")
         return HybridDecision("DIFFERENT", "arbiter-dissent", sem, d, notes)
     if d.verdict == "SAME":
-        if sem.verdict == "NOT_EQUIVALENT":
-            return HybridDecision("REVIEW", "none", sem, d, ["both judges said SAME but the semantic model found a definitive difference: " +
-                                                              "; ".join(f"{x.path} {x.type}" for x in sem.diffs[:3])])
+        if sem.verdict == "NOT_EQUIVALENT" or sem.suspected:     # a suspected difference (type outside the closed list) is not asserted by the comparator, but it still vetoes a unanimous SAME
+            return HybridDecision("REVIEW", "none", sem, d, ["both judges said SAME but the semantic model found a difference: " +
+                                                              "; ".join(f"{x.path} {x.type}" for x in (sem.diffs + sem.suspected)[:3])])
         amb = [c for c in sem.flags if c.startswith("AMBIGUOUS")]
         if sem.verdict == "INCONCLUSIVE" and amb:
             return HybridDecision("REVIEW", "none", sem, d, ["both judges said SAME, but the semantic model flags the text as ambiguous (" + ", ".join(amb) +
