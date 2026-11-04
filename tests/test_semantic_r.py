@@ -295,3 +295,28 @@ def test_es_pt_tag_question_is_flagged_but_a_real_negation_is_not_stripped():
     for t in ("Usa fuentes oficiales, no más de cinco.", "Envía el informe, no antes del viernes.", "Usa fuentes, ¿cuáles?"):
         assert not any(c == "AMBIGUOUS_TAG_QUESTION" for c, _ in parse(t).flags), t
     assert V("Usa fuentes oficiales, no blogs.", "Usa fuentes oficiales.") != "EQUIVALENT"      # ', no X' is a real negation and must stay one
+
+
+# ---- antonym lexicon: a single known antonym swap in an otherwise identical, polarity-free pair is a DEFINITE difference (was INCONCLUSIVE) ----
+@pytest.mark.parametrize("a,b", [
+    ("Mark the file as safe.", "Mark the file as unsafe."),
+    ("Review authorized accounts.", "Review unauthorized accounts."),
+    ("Keep the relevant files.", "Keep the irrelevant files."),
+    ("The server is reachable.", "The server is unreachable."),
+    ("Revisa las cuentas seguras.", "Revisa las cuentas inseguras."),
+    ("Mantén los archivos relevantes.", "Mantén los archivos irrelevantes."),
+    ("Revise contas seguras.", "Revise contas inseguras."),
+])
+def test_known_antonym_swap_is_not_equivalent(a, b):
+    assert V(a, b) == V(b, a) == "NOT_EQUIVALENT"
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Do not allow external access.", "Forbid external access."),               # negation + antonym = the SAME meaning: must never become NOT_EQUIVALENT by this rule
+    ("Do not use unsafe accounts.", "Use safe accounts."),                      # polarity present: rule stays silent (these two are not equal either, but never via this rule)
+    ("Use safe accounts.", "Use secure accounts."),                             # not an antonym pair: unchanged
+])
+def test_antonym_rule_is_silent_when_polarity_is_involved(a, b):
+    from aixl.semantic.parser import parse as _p
+    r = compare_texts(a, b)
+    assert not any(d.path == "items.antonym" for d in r.diffs)

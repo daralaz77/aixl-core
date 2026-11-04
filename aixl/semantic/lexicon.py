@@ -229,6 +229,24 @@ GENERIC_ACTIONS = {"MAKE", "GET", "TAKE", "GRANT", "USE", "DO", "CLEAR"}
 # stems that are ambiguous with very common non-verb words: require an exact imperative-looking form instead of stem+suffix
 EXACT_ONLY = {"da", "de", "le", "us", "pas", "fa", "tr", "quit", "cre", "dar", "don", "dig", "back", "pid", "log", "cance", "ask", "mov", "pick", "do", "adi", "sav", "post"}
 
+# Antonym pairs (folded, as the parser keeps them: plural stripped). Used ONLY by compare._items_cmp, and only for ONE swapped word in an otherwise
+# identical, polarity-free pair (deontic DO, no condition / exception / negation token): there a known antonym is a definite difference.
+# Deliberately small and symmetric. A missing pair costs INCONCLUSIVE, never a false verdict; grow it only with evidence.
+_ANT_BASE = [
+    ("safe", "unsafe"), ("secure", "insecure"), ("valid", "invalid"), ("correct", "incorrect"), ("relevant", "irrelevant"), ("authorized", "unauthorized"),
+    ("approved", "unapproved"), ("reachable", "unreachable"), ("possible", "impossible"), ("likely", "unlikely"), ("public", "private"), ("open", "closed"),
+    ("true", "false"), ("visible", "hidden"), ("accepted", "rejected"), ("enabled", "disabled"), ("active", "inactive"), ("complete", "incomplete"),
+    ("seguro", "inseguro"), ("valido", "invalido"), ("correcto", "incorrecto"), ("relevante", "irrelevante"), ("autorizado", "no_autorizado"),
+    ("posible", "imposible"), ("publico", "privado"), ("abierto", "cerrado"), ("verdadero", "falso"), ("visible", "oculto"), ("aceptado", "rechazado"),
+    ("activo", "inactivo"), ("completo", "incompleto"), ("certo", "errado"), ("correto", "incorreto"), ("possivel", "impossivel"), ("aberto", "fechado"),
+    ("verdadeiro", "falso"), ("visivel", "oculto"), ("aceito", "rejeitado"), ("ativo", "inativo"), ("completo", "incompleto"),
+]
+ANTONYMS = set()
+for _a, _b in _ANT_BASE:
+    if "_" in _b: continue
+    for _fa, _fb in ((_a, _b), (_a[:-1] + "a", _b[:-1] + "a")) if _a.endswith("o") and _b.endswith("o") else ((_a, _b),):
+        ANTONYMS.add(frozenset((_fa, _fb)))
+
 SYNONYMS = {  # content-noun classes (folded, singular). Deliberately small: a missing synonym costs INCONCLUSIVE, never a false EQUIVALENT.
     "informe": "report", "reporte": "report", "report": "report", "relatorio": "report",
     "archivo": "file", "file": "file", "arquivo": "file", "fichero": "file",

@@ -107,7 +107,7 @@ def _set_slot(a, b, acc, name, typ):
     if ca != cb: acc.un(f"{name.lower()} wording differs ({ca} / {cb})")
 
 
-def _items_cmp(ia, ib, acc, act_a, soft=False, other_slots=(frozenset(), frozenset()), person_ref=(False, False)):
+def _items_cmp(ia, ib, acc, act_a, soft=False, other_slots=(frozenset(), frozenset()), person_ref=(False, False), plain=False):
     """soft=True when a pronoun or a generic (light) verb may be standing in for content: a content difference is then only INCONCLUSIVE."""
     ia = [it for it in ia if it[0] != "ORD"]; ib = [it for it in ib if it[0] != "ORD"]
     if ia == ib: return
@@ -152,6 +152,8 @@ def _items_cmp(ia, ib, acc, act_a, soft=False, other_slots=(frozenset(), frozens
         elif content: acc.un(f"words {sorted(content)} missing on one side may be a paraphrase marker, not lost information")
         else: acc.un("only function words / repeated words differ (ellipsis or distribution)")
         return
+    if plain and len(ea) == len(eb) == 1 and all(x[0] == "TOK" for x in (*ea, *eb)) and frozenset((next(iter(ea))[1], next(iter(eb))[1])) in L.ANTONYMS:
+        acc.diff("items.antonym", "DISTORTION", sorted(ea), sorted(eb), "ACTION"); return       # one known antonym swap, everything else identical, no polarity in play
     acc.un(f"content words differ with no known synonym ({sorted(ea)} / {sorted(eb)})")
 
 
@@ -184,7 +186,7 @@ def _reliable_filter(x, y, acc):
     contraposition = any(p.endswith("deontic") for p in paths) and any(p.startswith("cond") for p in paths)
     gx_all, gy_all = getattr(x, "global_content", set()), getattr(y, "global_content", set())
     for d in acc.diffs:
-        if d.path == "items": keep.append(d); continue
+        if d.path in ("items", "items.antonym"): keep.append(d); continue      # the antonym rule already requires an otherwise identical, polarity-free pair
         if contraposition and (d.path.endswith("deontic") or d.path.startswith("cond")):
             acc.unres.append(f"{d.path}: polarity changed together with a condition: the same rule may be written by contraposition"); continue
         if getattr(acc, "cross", False) and d.path.endswith("deontic"):
@@ -287,7 +289,11 @@ def _step_cmp_inner(x, y, acc, k, a_act, b_act):
         for e in st.get("EXCEPT") + st.get("WITHOUT"): out |= set(e.value)
         return frozenset(out)
     gx, gy = getattr(x, "global_content", set()), getattr(y, "global_content", set())     # words said anywhere else in the same text are repetitions
+    def plain_step(s):      # no polarity machinery in play: plain deontic DO, no negation token, no condition / exception / only-focus
+        d = s.one("DEONTIC")
+        return d is not None and d.value == "DO" and not (s.get("COND") or s.get("EXCEPT") or s.get("WITHOUT") or s.get("ONLY")) and ("TOK", "NEG") not in s.items
     _items_cmp(x.items, y.items, acc, a_act.value if a_act else None, soft=amb_ref or generic or cross, other_slots=(slot_tokens(x) | gx, slot_tokens(y) | gy),
+               plain=plain_step(x) and plain_step(y),
                person_ref=(bool([a for a in x.get('REF') if a.value.startswith('person')]), bool([a for a in y.get('REF') if a.value.startswith('person')])))
 
 
