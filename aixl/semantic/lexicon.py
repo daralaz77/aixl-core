@@ -116,6 +116,10 @@ ORDINALS = {"primer": 1, "primero": 1, "primera": 1, "primeiro": 1, "primeira": 
             "reciente": "most_recent", "recientes": "most_recent", "recent": "most_recent", "recente": "most_recent",
             "antiguo": "oldest", "antiguos": "oldest", "oldest": "oldest", "earliest": "oldest", "antigo": "oldest", "antigos": "oldest", "recentes": "most_recent",
             "anterior": "previous", "previous": "previous", "siguiente": "next_item", "seguinte": "next_item"}
+REL_PRON = {"who", "which", "whom", "whose", "que", "quem", "quien", "quienes", "cuyo", "cuya", "cujo", "cuja"}     # a comma before one of these = non-restrictive reading (blind21)
+NEG_QUANT_SUBJ = {"nadie", "nobody", "ninguem"}                      # 'nobody did X' is a statement about a subject, not a prohibition
+CAUSAL_WORDS = {"because", "porque"}                                  # a causal connective differs from since / after / como: never an 'added item'
+ONLY_TIME_NEXT = {"depois", "despues", "after", "antes", "before", "until", "hasta", "ate"}
 TIME_CONJ = {"once", "when", "whenever", "after", "before", "until", "cuando", "quando", "luego", "depois", "apos", "despues", "antes", "hasta", "ate"}
 ORD_LIKE = {"final", "ultimate", "terminal", "finais", "finales"}      # may or may not mean 'last' ('the final bus' vs 'the final report'): never a definite reference difference
 # modal ADJECTIVES that state obligation / permission / possibility but are not modelled as deontic markers: an item difference made only of them is not a real addition

@@ -371,6 +371,9 @@ def compare(A, B) -> Verdict:
     unmodelled_modal = _um(A) ^ _um(B)          # only when the word is on ONE side: 'possible' vs 'not possible' share it and stay a clean polarity difference
     if unmodelled_modal and acc.diffs and not all(d.path == "items.antonym" for d in acc.diffs):                        # 'possible / impossible / optional' change what a definite difference means: nothing is asserted
         acc.diffs = []; acc.un(f"an unmodelled modal adjective is present ({sorted(unmodelled_modal)}): definite differences are suppressed")
+    _causal = lambda d: d.path == "items" and any(v in L.CAUSAL_WORDS for t, v in (list(d.original or []) + list(d.new or [])) if t == "TOK")
+    if any(_causal(d) for d in acc.diffs):                      # because / porque vs since / after / como: causation is not modelled, so an added 'because' is no definite difference
+        acc.diffs = [d for d in acc.diffs if not _causal(d)]; acc.un("a causal connective (because/porque) appears on one side only: causation vs sequence is not modelled")
     flags_all = {c for o in (A, B) for c, _ in o.flags}
     if any(c.startswith("UNREPRESENTABLE") for c in flags_all) and acc.diffs:       # an unmodelled construct makes slot diffs unreliable
         acc.unres.append("slot differences suppressed: an unrepresentable construct is present"); acc.diffs = []

@@ -422,3 +422,40 @@ def test_time_modifier_moved_between_steps_is_a_scope_question_not_a_difference(
 ])
 def test_whenever_is_not_a_plain_if(a, b):
     assert V(a, b) == "INCONCLUSIVE" and V(b, a) == "INCONCLUSIVE"
+
+
+# ---- defects found by blind21 (the set is spent; these use OWN sentences) -----------------------------------------------------------
+@pytest.mark.parametrize("a,b", [
+    ("Call the clients who live abroad.", "Call the clients, who live abroad."),
+    ("Elimina los registros que están en la carpeta vieja.", "Elimina los registros, que están en la carpeta vieja."),
+    ("Avise os técnicos que trabalham à noite.", "Avise os técnicos, que trabalham à noite."),
+])
+def test_comma_before_relative_clause_is_never_proven_equal(a, b):
+    assert V(a, b) == "INCONCLUSIVE" and V(b, a) == "INCONCLUSIVE"
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Since the disk was full, the job was stopped.", "The job was stopped because the disk was full."),
+    ("After the disk filled up, we purged the logs.", "We purged the logs because the disk filled up."),
+    ("Paramos o job porque o disco encheu.", "Paramos o job depois que o disco encheu."),
+])
+def test_causal_marker_is_not_an_added_item(a, b):
+    assert V(a, b) != "NOT_EQUIVALENT" and V(b, a) != "NOT_EQUIVALENT"
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Elena es la que más vendió este mes.", "Nadie vendió más que Elena este mes."),
+    ("Nadie entregó más reportes que Rosa.", "Rosa entregó más reportes que todos."),
+    ("Nobody scored higher than Rosa.", "Rosa scored the highest."),
+])
+def test_negative_quantifier_subject_is_not_a_prohibition(a, b):
+    assert V(a, b) != "NOT_EQUIVALENT" and V(b, a) != "NOT_EQUIVALENT"
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Reinicie o servidor só depois de instalar o patch.", "Instale o patch e depois reinicie o servidor."),
+    ("Faça o deploy só depois do backup.", "Faça o backup e depois o deploy."),
+    ("Solo después del respaldo, haz el despliegue.", "Haz el respaldo y luego el despliegue."),
+])
+def test_only_after_is_not_asserted_as_a_difference(a, b):
+    assert V(a, b) != "NOT_EQUIVALENT" and V(b, a) != "NOT_EQUIVALENT"

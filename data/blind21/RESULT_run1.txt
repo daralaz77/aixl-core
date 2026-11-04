@@ -1,0 +1,50 @@
+blind21 single run, 2026-11-04, frozen code at commit 1c08035 (python -m benchmarks.blind21_eval --show). Output copied verbatim from stdout.
+(A first attempt wrote an empty RESULT_run1.txt via shell redirection before the script started, so the guard refused and NO pair was evaluated; that file was deleted and this is the only real run.)
+
+SET: 80 pairs  labels {'EQUIVALENT': 30, 'NOT_EQUIVALENT': 34, 'UNDECIDABLE': 16}  verdicts {'INCONCLUSIVE': 65, 'NOT_EQUIVALENT': 11, 'EQUIVALENT': 4}
+
+[G1] false-EQUIVALENT: 4/50 (8.0%) (gate <= 3%) -> FAIL   ids: ['E025', 'F026', 'F027', 'F028']
+[G2] NOT_EQUIVALENT precision: 6/11 (54.5%) (gate >= 90%) -> FAIL
+     wrong NOT_EQUIVALENT ids: [('E024', 'UNDECIDABLE'), ('E035', 'EQUIVALENT'), ('F019', 'EQUIVALENT'), ('F022', 'UNDECIDABLE'), ('F024', 'EQUIVALENT')]
+[G3] proven-EQUIVALENT recall: 0/30 (0.0%)   NOT_EQUIVALENT recall: 6/34 (17.6%)   INCONCLUSIVE: 65/80 (81.2%)
+
+[G4] per family: false-EQUIVALENT | wrong NOT_EQUIVALENT | proven-EQUIVALENT of EQUIVALENT-labelled | n
+  approximation_exactness              0 | 0 | 0/2 | 8
+  causal_vs_temporal                   0 | 3 | 0/3 | 8
+  comparison_degree                    0 | 1 | 0/4 | 8
+  date_and_ordering_formats            0 | 1 | 0/4 | 8
+  frequency_adverbs                    0 | 0 | 0/3 | 8
+  list_order_and_priority              0 | 0 | 0/3 | 8
+  passive_active_voice                 0 | 0 | 0/3 | 8
+  restrictive_relative_clause          4 | 0 | 0/3 | 8
+  role_reversal                        0 | 0 | 0/3 | 8
+  universal_existential_quantifiers    0 | 0 | 0/2 | 8
+
+CLAIM 'the rule comparator generalises to text by other authors': NOT ALLOWED (G1 and G2 must both pass)
+
+E024 [UNDECIDABLE vs NOT_EQUIVALENT] Since the update, the app has been crashing. || Because of the update, the app has been crashing.
+   [('items', None, [('TOK', 'because'), ('TOK', 'update')])]
+
+E025 [NOT_EQUIVALENT vs EQUIVALENT] Los empleados que trabajan desde casa recibirán un bono. || Los empleados, que trabajan desde casa, recibirán un bono.
+   []
+
+E035 [EQUIVALENT vs NOT_EQUIVALENT] Primeiro instale o driver, depois reinicie o computador. || Reinicie o computador só depois de instalar o driver.
+   [('step[1].only', None, None)]
+
+F019 [EQUIVALENT vs NOT_EQUIVALENT] Marta es la que más vendió este trimestre. || Nadie vendió más que Marta este trimestre.
+   [('step[0].deontic', 'DO', 'DONT')]
+
+F022 [UNDECIDABLE vs NOT_EQUIVALENT] After the server crashed, we restored the backup. || We restored the backup because the server crashed.
+   [('items', None, [('TOK', 'because'), ('TOK', 'crashed'), ('TOK', 'server')])]
+
+F024 [EQUIVALENT vs NOT_EQUIVALENT] Since the invoice was overdue, the account was suspended. || The account was suspended because the invoice was overdue.
+   [('items', None, [('TOK', 'because'), ('TOK', 'invoice'), ('TOK', 'overdue')])]
+
+F026 [NOT_EQUIVALENT vs EQUIVALENT] Notify the employees who work remotely. || Notify the employees, who work remotely.
+   []
+
+F027 [NOT_EQUIVALENT vs EQUIVALENT] Apague os arquivos que estão na pasta temporária. || Apague os arquivos, que estão na pasta temporária.
+   []
+
+F028 [UNDECIDABLE vs EQUIVALENT] Send the report to the manager who approved the budget. || Send the report to the manager, who approved the budget.
+   []

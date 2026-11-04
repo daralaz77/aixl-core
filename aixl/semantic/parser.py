@@ -209,7 +209,7 @@ def _tag_end(toks, i):
 def parse(text: str, today=None) -> SemanticObject:
     clean, findings = sanitize_input(text)
     toks = tokenize(clean)
-    norm = tuple(t.f for t in toks if t.f not in PUNCT)
+    norm = tuple(t.f for k, t in enumerate(toks) if t.f not in PUNCT or (t.f == "," and k + 1 < len(toks) and toks[k + 1].f in L.REL_PRON))      # a comma before who/que is meaning, so it stays in the identity check
     toks, has_tag = _strip_tag_question(toks)
     lang = detect_lang(toks)
     ctx = Ctx(toks, lang)
@@ -219,6 +219,13 @@ def parse(text: str, today=None) -> SemanticObject:
     _fs = [t.f for t in toks]
     if any(tuple(_fs[i:i + len(p)]) == p for p in L.WHENEVER for i in range(len(_fs))):
         flags.append(("UNREPRESENTABLE_WHENEVER", "'whenever / siempre que / sempre que': a general rule over every occurrence, not the same as a plain 'if'"))
+    if any(_fs[i] == "," and _fs[i + 1] in L.REL_PRON for i in range(len(_fs) - 1)):
+        flags.append(("AMBIGUOUS_RELATIVE_COMMA", "a comma before who/which/que: restrictive vs non-restrictive relative clause changes who is meant"))
+    _clause_start = lambda i: i == 0 or _fs[i - 1] in (",", ";", ".", "que", "that", "porque", "because")        # subject position only: 'send it to no one' stays a plain object
+    if any(_clause_start(i) and (_fs[i] in L.NEG_QUANT_SUBJ or _fs[i:i + 2] == ["no", "one"]) for i in range(len(_fs))):
+        flags.append(("UNREPRESENTABLE_NEGATIVE_QUANTIFIER", "'nobody / nadie / ninguém': a negative subject, not a prohibition; its deontic polarity is not modelled"))
+    if any(_fs[i] in (L.ONLY_WORDS | {"so"}) and _fs[i + 1] in L.ONLY_TIME_NEXT and i > 0 and _fs[i - 1] not in (",", ";", ".") for i in range(len(_fs) - 1)):
+        flags.append(("UNREPRESENTABLE_ONLY_TIME", "'only after / só depois de': may state the same order as 'then' or a necessary condition"))
     if has_tag: flags.append(("AMBIGUOUS_TAG_QUESTION", "tag question: the tag asks for confirmation and its polarity is not modelled; the main clause is compared alone"))
     # sentences
     sents, cur = [], []
