@@ -499,3 +499,20 @@ def test_suspected_difference_still_vetoes_a_unanimous_same():
     from aixl import hybrid_protocol as hp
     r = hp.decide("Delete all files except the logs", "Delete all files", {"j1": "SAME", "j2": "SAME"})
     assert r["verdict"] == "REVIEW"
+
+
+# ---- blind23: definiteness, tense, range inclusivity, any vs all ---------------------------------------------------------------------------
+@pytest.mark.parametrize("a,b", [
+    ("Send me the report when it is ready.", "Send me a report when it is ready."),
+    ("Envía el informe al terminar.", "Envía un informe al terminar."),
+    ("The order was cancelled.", "The order is cancelled."),
+    ("La puerta fue cerrada.", "La puerta está cerrada."),
+])
+def test_dropped_function_words_that_change_meaning_are_never_equivalent(a, b):
+    assert V(a, b) != "EQUIVALENT"
+
+
+def test_range_vs_exact_ends_and_any_vs_all_are_not_asserted():
+    assert V("Choose a number between 1 and 10.", "Choose a number from 1 to 10, inclusive.") != "NOT_EQUIVALENT"
+    assert V("Cualquier archivo adjunto debe ser escaneado.", "Todo archivo adjunto debe ser escaneado.") != "NOT_EQUIVALENT"
+    assert V("Se aceptan entre 3 y 5 archivos.", "Se aceptan entre 3 y 6 archivos.") != "EQUIVALENT"

@@ -17,6 +17,9 @@ from aixl.semantic.parser import FUNCTIONAL, parse
 SEVERITY = {"DEONTIC": "CRITICAL", "COND": "CRITICAL", "EXCEPT": "CRITICAL", "WITHOUT": "CRITICAL", "ACTION": "CRITICAL", "ONLY": "MAJOR", "TIME": "MAJOR",
             "QTY": "MAJOR", "ORD": "MAJOR", "QUANT": "MAJOR", "RECIPIENT": "MAJOR", "SEQUENCE": "MAJOR", "STEP": "MAJOR", "ITEMS": "MODERATE"}
 SYMMETRIC_ACTIONS = {"COMPARE"}
+INDEFINITE_ARTICLES = {"es": {"un", "una", "unos", "unas"}, "pt": {"um", "uma", "uns", "umas"}, "en": {"a", "an"}}
+PAST_MARKERS = {"was", "were", "did", "fue", "fueron", "era", "eran", "foi", "foram", "hubo", "habia"}
+FUTURE_MARKERS = {"will", "shall", "sera", "seran", "sera", "serao"}
 # Closed list of difference types allowed to yield NOT_EQUIVALENT (step indexes removed). Chosen from the precision per type measured on
 # blind19-22 (development evidence): the types left out ('items' = loose tokens, 'cond' / 'cond.kind' = sufficient vs necessary and
 # added conditions, 'except') produced most wrong NOT_EQUIVALENT; anything new defaults to INCONCLUSIVE.
@@ -419,7 +422,20 @@ def compare(A, B) -> Verdict:
         shared = {k for st in A.steps for t, k in st.items if t == "TOK" and k not in closed and not k.startswith(("N:", "Q:"))} & \
                  {k for st in B.steps for t, k in st.items if t == "TOK" and k not in closed and not k.startswith(("N:", "Q:"))}
         if shared: acc.un(f"cross-language: identical spelling is not verified to mean the same ({sorted(shared)})")
-    soft = [d for d in acc.diffs if re.sub(r"\[\d+\]", "", d.path) not in DEFINITE_PATHS]
+    if not acc.diffs:                                                                 # blind23: material the parser drops as 'function words' can still change the meaning
+        _ind = lambda o: sum(1 for f in o.norm if f in INDEFINITE_ARTICLES[o.lang])
+        if _ind(A) != _ind(B): acc.un("an indefinite article (a / un / um) appears on one side only: a specific vs an unspecified referent is not modelled")
+        _tm = lambda o: (any(f in PAST_MARKERS for f in o.norm), any(f in FUTURE_MARKERS for f in o.norm))
+        if _tm(A) != _tm(B): acc.un("a past or future marker (was / fue / foi / will / será) appears on one side only: an event in the past or future vs a current state is not modelled")
+    def _range_pair(d):               # 'between 3 and 5' (a range) vs 'from 3 to 5' (two exact numbers): whether the ends are included is not said
+        if not d.path.endswith(".qty"): return False
+        rg = [r for r in (d.original or []) + (d.new or []) if isinstance(r, tuple) and len(r) == 3 and r[0] == "range"]
+        ex = {r[1] for r in (d.original or []) + (d.new or []) if isinstance(r, tuple) and len(r) == 3 and r[0] == "exact_implicit"}
+        return bool(rg) and {rg[0][1][0], rg[0][1][1]} <= ex
+    _rp = [d for d in acc.diffs if _range_pair(d)]
+    if _rp:
+        acc.diffs = [d for d in acc.diffs if not any(d is x for x in _rp)]; acc.un("a range ('between N and M') and two exact numbers ('from N to M'): whether the ends are included is not stated")
+    soft = [d for d in acc.diffs if re.sub(r"\[\d+\]", "", d.path) not in DEFINITE_PATHS or (d.path.endswith(".quant") and {d.original, d.new} == {"any", "all"})]      # any vs all: 'cualquier X debe' is often universal
     if soft:                                                                           # closed list: only slot types measured as reliable may assert a difference; the rest is INCONCLUSIVE
         acc.diffs = [d for d in acc.diffs if not any(d is s for s in soft)]
         acc.un(f"a difference of an unreliable type ({sorted({d.path for d in soft})}) is not asserted: it may be a paraphrase, an added detail or a disputed construction")
