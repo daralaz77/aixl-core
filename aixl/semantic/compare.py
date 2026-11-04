@@ -109,7 +109,7 @@ def _set_slot(a, b, acc, name, typ):
     if ca != cb: acc.un(f"{name.lower()} wording differs ({ca} / {cb})")
 
 
-def _items_cmp(ia, ib, acc, act_a, soft=False, other_slots=(frozenset(), frozenset()), person_ref=(False, False), plain=False):
+def _items_cmp(ia, ib, acc, act_a, soft=False, other_slots=(frozenset(), frozenset()), person_ref=(False, False), plain=False, act_b=None):
     """soft=True when a pronoun or a generic (light) verb may be standing in for content: a content difference is then only INCONCLUSIVE."""
     ia = [it for it in ia if it[0] != "ORD"]; ib = [it for it in ib if it[0] != "ORD"]
     if ia == ib: return
@@ -144,6 +144,10 @@ def _items_cmp(ia, ib, acc, act_a, soft=False, other_slots=(frozenset(), frozens
         acc.un("a possessive ('su') on one side may stand for the 'of X' phrase on the other"); return
     if ea and not eb and person_ref[1] and ("TOK", "OF") in ea:
         acc.un("a possessive ('su') on one side may stand for the 'of X' phrase on the other"); return
+    if (not ea) != (not eb) and any(x[0] == "TOK" and x[1] in L.COORD_MARKERS for x in (*ea, *eb)):
+        acc.un("a coordination marker (either / neither / both) is present only on one side: it fixes the grouping, it is not an added item"); return
+    if (not ea) != (not eb) and any(x[0] == "TOK" and str(x[1]).lower() == str(a).lower() for a in (act_a, act_b) if a for x in (*ea, *eb)):
+        acc.un("the action word reappears as a noun on the other side ('archive' vs 'move to the archive'): not an added item"); return
     if (not ea) != (not eb) and any(x[0] == "TOK" and x[1] in L.TIME_CONJ for x in (*ea, *eb)):
         acc.un("a temporal conjunction (once / when / after ...) heads the extra words: the same time relation may be written as a time clause on the other side"); return
     if not ea and eb:
@@ -173,7 +177,7 @@ def _time_words(st):
 
 
 def _content(st, with_ord=True):
-    return {(f"ORD:{k}" if t == "ORD" else k) for t, k in st.items if t in ("TOK", "NAME") + (("ORD",) if with_ord else ()) and k not in FUNCTIONAL and k != "AND"}
+    return {(f"ORD:{k}" if t == "ORD" else k) for t, k in st.items if t in ("TOK", "NAME") + (("ORD",) if with_ord else ()) and k not in FUNCTIONAL and k != "AND" and k not in L.MODAL_NECESSITY}      # 'necessary / obligatory' state the deontic atom ('no es necesario' is NOT_REQUIRED), not content; 'possible' is NOT here: it is unmodelled
 
 
 def _slot_tokens(st):
@@ -310,7 +314,7 @@ def _step_cmp_inner(x, y, acc, k, a_act, b_act):
         d = s.one("DEONTIC")
         return d is not None and d.value == "DO" and not (s.get("COND") or s.get("EXCEPT") or s.get("WITHOUT") or s.get("ONLY")) and ("TOK", "NEG") not in s.items
     _items_cmp(x.items, y.items, acc, a_act.value if a_act else None, soft=amb_ref or generic or cross, other_slots=(slot_tokens(x) | gx, slot_tokens(y) | gy),
-               plain=plain_step(x) and plain_step(y),
+               plain=plain_step(x) and plain_step(y), act_b=b_act.value if b_act else None,
                person_ref=(bool([a for a in x.get('REF') if a.value.startswith('person')]), bool([a for a in y.get('REF') if a.value.startswith('person')])))
 
 
@@ -355,8 +359,20 @@ def compare(A, B) -> Verdict:
         for code, detail in o.flags:
             if code.startswith("UNREPRESENTABLE") or code.startswith("AMBIGUOUS") or code == "SANITIZER":
                 acc.un(f"{who}: {code} ({detail})")
+    td = [d for d in acc.diffs if d.path.startswith("step[") and d.path.endswith(".time")]
+    moved = [d for d in td for e in td if d is not e and d.path != e.path and d.original == e.new and d.new == e.original and (not d.original or not d.new)]
+    if moved:                                                    # the same time modifier hangs on step i in one text and on step j in the other
+        acc.diffs = [d for d in acc.diffs if not any(d is m for m in moved)]
+        acc.un("a time modifier is attached to a different step in each text: it may scope over one step or over both")
+    if any(d.path == "cond.kind" for d in acc.diffs) and any(d.path.endswith(".only") for d in acc.diffs):      # 'solo puedes ... si' vs '... únicamente si': the focus word may BE the necessary condition
+        acc.diffs = [d for d in acc.diffs if d.path != "cond.kind" and not d.path.endswith(".only")]
+        acc.un("an 'only' focus on the verb in one text and a necessary condition in the other may state the same restriction")
+    _um = lambda o: {v for s in o.steps for t, v in s.items if t == "TOK" and v in L.MODAL_ADJ and v not in L.MODAL_NECESSITY}
+    unmodelled_modal = _um(A) ^ _um(B)          # only when the word is on ONE side: 'possible' vs 'not possible' share it and stay a clean polarity difference
+    if unmodelled_modal and acc.diffs and not all(d.path == "items.antonym" for d in acc.diffs):                        # 'possible / impossible / optional' change what a definite difference means: nothing is asserted
+        acc.diffs = []; acc.un(f"an unmodelled modal adjective is present ({sorted(unmodelled_modal)}): definite differences are suppressed")
     flags_all = {c for o in (A, B) for c, _ in o.flags}
-    if any(c.startswith("UNREPRESENTABLE") for c in flags_all) and acc.diffs:         # an unmodelled construct makes slot diffs unreliable
+    if any(c.startswith("UNREPRESENTABLE") for c in flags_all) and acc.diffs:       # an unmodelled construct makes slot diffs unreliable
         acc.unres.append("slot differences suppressed: an unrepresentable construct is present"); acc.diffs = []
     if "AMBIGUOUS_MODIFIER_SCOPE" in flags_all:
         keep = [d for d in acc.diffs if not d.path.startswith("items") and "qty" not in d.path]

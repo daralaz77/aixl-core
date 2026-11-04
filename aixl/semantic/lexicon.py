@@ -25,7 +25,12 @@ AVOID = {"evita", "evite", "evitar", "evitas", "evitem", "avoid"}
 NOT_TRUE = [("no", "es", "cierto", "que"), ("no", "es", "verdad", "que"), ("it", "is", "not", "true", "that"), ("nao", "e", "verdade", "que"), ("no", "es", "cierto"), ]
 LITOTES = [("no", "dejes", "de"), ("no", "deje", "de"), ("nao", "deixe", "de"), ("do", "not", "fail", "to"), ("never", "fail", "to"), ("no", "dejen", "de")]
 NOT_REQUIRED = [("no", "hace", "falta"), ("no", "necesitas"), ("no", "necesita"), ("nao", "precisa"), ("nao", "precisam"), ("no", "precisa"),
-                ("do", "not", "need", "to"), ("need", "not"), ("no", "tienes", "que"), ("no", "tiene", "que")]
+                ("do", "not", "need", "to"), ("need", "not"), ("no", "tienes", "que"), ("no", "tiene", "que"),
+                ("no", "es", "necesario"), ("no", "es", "obligatorio"), ("no", "es", "obligatoria"), ("no", "es", "preciso"), ("nao", "e", "necessario"), ("nao", "e", "obrigatorio"),
+                ("it", "is", "not", "necessary"), ("is", "not", "necessary"), ("it", "is", "not", "mandatory"), ("is", "not", "mandatory"), ("is", "not", "required")]
+MODAL_NECESSITY = {"necesario", "necesaria", "necessario", "necessaria", "necessary", "obligatorio", "obligatoria", "obrigatorio", "obrigatoria", "mandatory", "required"}
+COORD_MARKERS = {"either", "neither", "both", "ambos", "ambas", "entrambos"}      # words that only fix how a coordination groups; never an added item by themselves
+WHENEVER = [("whenever",), ("siempre", "que"), ("sempre", "que"), ("cada", "vez", "que"), ("toda", "vez", "que"), ("todas", "as", "vezes", "que"), ("every", "time")]
 
 # ---- quantity ------------------------------------------------------------------------------------------------------
 QTY_PHRASES = [  # (token tuple, mode); longest first

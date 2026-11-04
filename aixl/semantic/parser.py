@@ -214,6 +214,11 @@ def parse(text: str, today=None) -> SemanticObject:
     lang = detect_lang(toks)
     ctx = Ctx(toks, lang)
     flags = [("SANITIZER", f) for f in findings]
+    if re.search(r"(?<![\d.,])\d{1,3}[.,]\d{3}(?!\d|[.,]\d)", clean):
+        flags.append(("AMBIGUOUS_NUMBER_SEPARATOR", "'4.200' / '4,200': thousands separator or decimal point depends on the locale"))
+    _fs = [t.f for t in toks]
+    if any(tuple(_fs[i:i + len(p)]) == p for p in L.WHENEVER for i in range(len(_fs))):
+        flags.append(("UNREPRESENTABLE_WHENEVER", "'whenever / siempre que / sempre que': a general rule over every occurrence, not the same as a plain 'if'"))
     if has_tag: flags.append(("AMBIGUOUS_TAG_QUESTION", "tag question: the tag asks for confirmation and its polarity is not modelled; the main clause is compared alone"))
     # sentences
     sents, cur = [], []
@@ -595,8 +600,12 @@ def _parse_step(toks, ctx) -> Step:
         flags_here.append(("AMBIGUOUS_EMBEDDED_NEGATION", "negative quantifier inside a that/que complement: negation scope not resolved"))
     if any(at(j, p_) for j in range(n) for p_ in L.EXCEPT_WORDS if p_ != ("menos",)) and not any(a.type == "EXCEPT" for a in A):
         flags_here.append(("UNREPRESENTABLE_EXCEPTION", "exception clause present but not modelled for this step"))
+    if any(isinstance(q[2], str) and q[2].startswith("N:") for q in qty_acc):
+        flags_here.append(("UNREPRESENTABLE_COMPOUND_NUMBER", "spelled compound number ('mil quinientas', 'dos mil'): the parts are not combined"))
+    if not_required and neg >= 1:
+        flags_here.append(("AMBIGUOUS_DOUBLE_NEGATION", "'not necessary' together with another negation: permission, prohibition and obligation are all reachable"))
     # ----- compose deontic status
-    modal_seen = any(w in L.MODAL_MAY | L.MODAL_MUST | L.PROHIBITED | L.MODAL_ADVISE for w in fs)
+    modal_seen =any(w in L.MODAL_MAY | L.MODAL_MUST | L.PROHIBITED | L.MODAL_ADVISE for w in fs)
     double_neg_modal = neg >= 2 and modal_seen and not litotes and not not_true and not not_required
     if litotes: neg = 0; deontic = "DO"
     if quant and "none" in quant and neg == 0:

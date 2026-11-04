@@ -1,0 +1,56 @@
+SET: 80 pairs  labels {'EQUIVALENT': 31, 'NOT_EQUIVALENT': 34, 'UNDECIDABLE': 15}  verdicts {'INCONCLUSIVE': 53, 'NOT_EQUIVALENT': 19, 'EQUIVALENT': 8}
+
+[G1] false-EQUIVALENT: 4/49 (8.2%) (gate <= 3%) -> FAIL   ids: ['C012', 'C028', 'D027', 'D036']
+[G2] NOT_EQUIVALENT precision: 11/19 (57.9%) (gate >= 90%) -> FAIL
+     wrong NOT_EQUIVALENT ids: [('C004', 'UNDECIDABLE'), ('C019', 'UNDECIDABLE'), ('C021', 'UNDECIDABLE'), ('C025', 'EQUIVALENT'), ('C035', 'UNDECIDABLE'), ('D029', 'EQUIVALENT'), ('D031', 'UNDECIDABLE'), ('D034', 'EQUIVALENT')]
+[G3] proven-EQUIVALENT recall: 4/31 (12.9%)   NOT_EQUIVALENT recall: 11/34 (32.4%)   INCONCLUSIVE: 53/80 (66.2%)
+
+[G4] per family: false-EQUIVALENT | wrong NOT_EQUIVALENT | proven-EQUIVALENT of EQUIVALENT-labelled | n
+  antonym_swap                     0 | 0 | 1/4 | 8
+  conditional_necessary_sufficient 1 | 2 | 0/2 | 8
+  modal_strength                   1 | 0 | 0/2 | 8
+  negation_scope_adverbs           0 | 0 | 0/4 | 8
+  numeric_forms_units              2 | 1 | 1/3 | 8
+  only_focus_scope                 0 | 0 | 2/3 | 8
+  recipient_and_or_coordination    0 | 1 | 0/3 | 8
+  sequence_and_time                0 | 1 | 0/3 | 8
+  tag_question_confirmation        0 | 1 | 0/4 | 8
+  verb_paraphrase_lexical          0 | 2 | 0/3 | 8
+
+CLAIM 'the rule comparator generalises to text by other authors': NOT ALLOWED (G1 and G2 must both pass)
+
+C004 [UNDECIDABLE vs NOT_EQUIVALENT] Ya cerraste la caja, ¿no? || ¿No cerraste ya la caja?
+   [('step[0].deontic', 'DO', 'DONT')]
+
+C012 [NOT_EQUIVALENT vs EQUIVALENT] No es necesario que entregues el informe hoy. || Es necesario que no entregues el informe hoy.
+   []
+
+C019 [UNDECIDABLE vs NOT_EQUIVALENT] Salve o arquivo e feche o programa antes de sair. || Salve o arquivo antes de sair e feche o programa.
+   [('step[0].time', [], [('before', ('bag', 'sair'))]), ('step[1].time', [('before', ('bag', 'sair'))], [])]
+
+C021 [UNDECIDABLE vs NOT_EQUIVALENT] Send the report to Ana and Luis or Carmen. || Send the report to Ana, and to either Luis or Carmen.
+   [('items', None, [('TOK', 'either')])]
+
+C025 [EQUIVALENT vs NOT_EQUIVALENT] El auditorio tiene capacidad para 1.500 personas. || El auditorio tiene capacidad para mil quinientas personas.
+   [('step[0].qty.value', ('exact_implicit', 1500, 'persona'), ('exact_implicit', 1000, 'N:500'))]
+
+C028 [UNDECIDABLE vs EQUIVALENT] The deposit is 2.500 euros. || The deposit is 2,500 euros.
+   []
+
+C035 [UNDECIDABLE vs NOT_EQUIVALENT] Ligue para mim se precisar de alguma coisa. || Ligue para mim somente se precisar de alguma coisa.
+   [('cond', None, ('nec', False, ('OF', 'alguma', 'coisa', 'precisar')))]
+
+D027 [UNDECIDABLE vs EQUIVALENT] Cobre cerca de 1.000 reais por mês. || Cobre cerca de 1,000 reais por mês.
+   []
+
+D029 [EQUIVALENT vs NOT_EQUIVALENT] Archive the old emails after the review. || Move the old emails to the archive after the review.
+   [('items', None, [('TOK', 'archive')])]
+
+D031 [UNDECIDABLE vs NOT_EQUIVALENT] Revisa las cifras con el auditor antes del cierre. || Valida las cifras con el auditor antes del cierre.
+   [('step[0].action', 'REVIEW', 'VALIDATE')]
+
+D034 [EQUIVALENT vs NOT_EQUIVALENT] Solo podrás salir si entregas la llave. || Podrás salir únicamente si entregas la llave.
+   [('cond.kind', 'suff', 'nec'), ('step[0].only', 'podra', None)]
+
+D036 [UNDECIDABLE vs EQUIVALENT] The discount applies whenever you order online. || The discount applies if you order online.
+   []

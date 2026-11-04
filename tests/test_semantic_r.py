@@ -360,3 +360,65 @@ def test_final_in_front_of_a_noun_is_not_a_definite_difference_from_last():
     assert V("Close the gate after the last bus has left.", "Close the gate after the final bus has left.") != "NOT_EQUIVALENT"
     assert V("The shop closes once the last client has left.", "After the final client leaves, the shop closes.") != "NOT_EQUIVALENT"
     assert V("Send the final report.", "Send the report.") != "NOT_EQUIVALENT"      # 'final report' is not 'last report': stays unproven, never a definite LOSS
+
+
+# ---- defects found by blind20 (second set by other authors). Tests use OWN sentences, never the blind20 items ----
+def test_not_necessary_is_not_necessary_not_to():
+    """'not obligatory' (nothing required) vs 'obligatory not to' (a prohibition): a safety-relevant confusion that was proven EQUIVALENT."""
+    for a, b in [("No es necesario que firmes el acta hoy.", "Es necesario que no firmes el acta hoy."),
+                 ("No es necesario que entregues la llave hoy.", "Es necesario que no entregues la llave hoy."),
+                 ("Não é necessário que assine o termo hoje.", "É necessário que não assine o termo hoje."),
+                 ("It is not necessary that you sign today.", "It is necessary that you do not sign today."),
+                 ("No es obligatorio no usar el ascensor.", "Es obligatorio no usar el ascensor.")]:
+        assert V(a, b) != "EQUIVALENT" and V(b, a) != "EQUIVALENT", (a, b)
+    assert V("No es necesario que entregues la llave hoy.", "Es necesario que no entregues la llave hoy.") == "NOT_EQUIVALENT"
+    assert _deontic("No es necesario que entregues la llave hoy.") == "NOT_REQUIRED"
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Pay 4.200 dollars.", "Pay 4,200 dollars."),
+    ("Pague 3.500 reais.", "Pague 3,500 reais."),
+    ("Wait 1.000 seconds.", "Wait 1,000 seconds."),
+])
+def test_thousands_vs_decimal_separator_is_never_proven_equal(a, b):
+    assert V(a, b) != "EQUIVALENT" and V(b, a) != "EQUIVALENT"
+    assert any(c == "AMBIGUOUS_NUMBER_SEPARATOR" for c, _ in parse(a).flags)
+
+
+def test_unambiguous_numbers_are_not_flagged_and_real_differences_stay():
+    assert not any(c == "AMBIGUOUS_NUMBER_SEPARATOR" for c, _ in parse("Pay 4200 dollars. Wait 1,5 hours. Send 12.50 euros.").flags)
+    assert V("Hay 1500 sillas.", "Hay 1600 sillas.") == "NOT_EQUIVALENT"
+
+
+def test_spelled_compound_number_is_not_a_definite_difference():
+    for a, b in [("Hay 1500 sillas.", "Hay mil quinientas sillas."), ("Hay 2500 asientos.", "Hay dos mil quinientos asientos.")]:
+        assert V(a, b) != "NOT_EQUIVALENT", (a, b)
+
+
+def test_unicamente_and_solamente_are_only():
+    assert V("Solo puedes pasar si tienes pase.", "Puedes pasar únicamente si tienes pase.") != "NOT_EQUIVALENT"
+    assert V("Solo puedes pasar si tienes pase.", "Puedes pasar solamente si tienes pase.") != "NOT_EQUIVALENT"
+    assert V("Puedes pasar si tienes pase.", "Puedes pasar únicamente si tienes pase.") == "NOT_EQUIVALENT"      # a real necessary-vs-sufficient difference stays
+
+
+def test_the_action_word_reappearing_as_a_noun_is_not_an_addition():
+    assert V("Archive the files after the review.", "Move the files to the archive after the review.") != "NOT_EQUIVALENT"
+
+
+def test_coordination_marker_is_not_an_added_item():
+    assert V("Send the note to Ana and Luis or Carmen.", "Send the note to Ana, and to either Luis or Carmen.") != "NOT_EQUIVALENT"
+    assert V("Send the note to Ana.", "Send the note to Ana and Luis.") == "NOT_EQUIVALENT"      # a real added recipient stays
+
+
+def test_time_modifier_moved_between_steps_is_a_scope_question_not_a_difference():
+    assert V("Salve o arquivo e feche o programa antes de sair.", "Salve o arquivo antes de sair e feche o programa.") != "NOT_EQUIVALENT"
+    assert V("Salve o arquivo antes de sair.", "Salve o arquivo depois de sair.") == "NOT_EQUIVALENT"
+
+
+@pytest.mark.parametrize("a,b", [
+    ("The offer applies whenever you buy online.", "The offer applies if you buy online."),
+    ("A oferta vale sempre que comprar online.", "A oferta vale se comprar online."),
+    ("La oferta vale cada vez que compras en línea.", "La oferta vale si compras en línea."),
+])
+def test_whenever_is_not_a_plain_if(a, b):
+    assert V(a, b) == "INCONCLUSIVE" and V(b, a) == "INCONCLUSIVE"

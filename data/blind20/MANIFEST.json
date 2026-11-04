@@ -1,0 +1,5 @@
+{
+ "authorC_opus.jsonl": "4e4ed269a9c64a7ad34409c462925338f018aec58c2f4b66bdb238918462ad7d",
+ "authorD_haiku.jsonl": "b2ced08a47b3710125cca5776c9ea6d8170c36dfe51b9718a71a7c242386b139",
+ "PREREG.md": "written before the pairs; its hash is not frozen here because the RESULT section will be appended to it after the single run"
+}
