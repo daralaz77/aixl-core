@@ -4,7 +4,7 @@ OpenTelemetry records evaluation results but does not compute them: AIXL is the 
 Names checked against the official definition (github.com/open-telemetry/semantic-conventions-genai, model/gen-ai/events.yaml and registry.yaml, main branch, 2026-10-30): event `gen_ai.evaluation.result`, stability **development**;
 attributes `gen_ai.evaluation.name` (required), `gen_ai.evaluation.score.label` (low-cardinality string, the implementation should document its values: see LABELS), `gen_ai.evaluation.explanation` (recommended), `gen_ai.response.id`
 (recommended, when available). `gen_ai.evaluation.score.value` is "if applicable" and is NOT emitted: AIXL verdicts are categories, and a similarity number would read as a proof it is not. These names are in Development and may change.
-The event BODY is a one-line readable summary (`<name>: <label> — <explanation>`) built only from those same pieces, so a log viewer does not show an empty line.
+The event carries an explicit severity (WARN when a difference was found, INFO otherwise) because some backends guess the level from the message text. The event BODY is a one-line readable summary (`<name>: <label> — <explanation>`) built only from those same pieces, so a log viewer does not show an empty line.
 Privacy by design: the texts, the clauses and the slot values are NEVER sent — only the evaluation name, the verdict label, the names of the violated families and booleans. Everything is best effort: with no OpenTelemetry installed, or any
 failure while emitting, the call is a no-op and the verdict is returned unchanged. Optional dependency: `opentelemetry-api` (extra `otel`); the application configures the SDK/exporter."""
 from aixl.api.service import compare_verified
@@ -20,6 +20,7 @@ LABELS = {   # evaluation name -> the complete, low-cardinality set of labels th
     NAME_COMPARE: ("equivalent", "not_equivalent", "inconclusive", "unverified"),
     NAME_LOGIC: ("equivalent_logic", "different_logic", "abstain"),
 }
+WARN_LABELS = frozenset({"violation", "not_equivalent", "different_logic"})      # a difference was found -> WARN; everything else (ok, equivalent, inconclusive, abstain...) -> INFO
 _counter = None
 
 
@@ -65,7 +66,13 @@ def record_evaluation(name: str, label: str, *, explanation: str | None = None, 
             elif isinstance(v, (list, tuple)) and all(isinstance(x, str) for x in v):
                 attrs[k] = list(v)
         body = f"{name}: {label}" + (f" — {attrs['gen_ai.evaluation.explanation']}" if explanation else "")      # readable line for log viewers; same content-free pieces as the attributes
-        (logger or _default_logger()).emit(event_name=EVENT, body=body, attributes=attrs)
+        try:
+            from opentelemetry._logs import SeverityNumber  # noqa: PLC0415
+            sev = SeverityNumber.WARN if label in WARN_LABELS else SeverityNumber.INFO      # explicit: a backend that guesses the level from the text reads "critical slot" in an `ok` line as CRITICAL (seen in Loki/Grafana, 2026-11-03)
+            severity = {"severity_number": sev, "severity_text": sev.name}
+        except ImportError:                                                  # no OpenTelemetry API: a caller-supplied logger still works, without a severity
+            severity = {}
+        (logger or _default_logger()).emit(event_name=EVENT, body=body, attributes=attrs, **severity)
         _count(name, label)
         return True
     except Exception:                                                        # noqa: BLE001

@@ -27,3 +27,15 @@ Loki 3.7.9 (single binary, loopback only, filesystem storage, `auth_enabled: fal
 Query with the HTTP API (`/loki/api/v1/query_range`, header `X-Loki-Response-Encoding-Flags: categorize-labels` to see structured metadata) or LogQL, e.g. `{service_name="..."} | gen_ai_evaluation_score_label="violation"`.
 
 `loki.yaml` in this folder is the configuration used for that run (loopback only, filesystem storage, `auth_enabled: false`, `allow_structured_metadata: true`). Re-run of 2026-11-01: the readable body (`<name>: <label> — <explanation>`) arrives as the stored log line; start Loki with `-config.file=loki.yaml`. `emit.py` finds the `aixl` package relative to its own location, so if you copy it elsewhere set `PYTHONPATH` to the repo root.
+
+## Bearer-token authentication (verified 2026-11-03)
+`otelcol-contrib` 0.164.0 (SHA-256 checked) with the `bearertokenauth` extension on BOTH receivers (`cfg_token.yaml.example`, token from the environment). `token_matrix.py` (run it from a scratch folder holding `v/`, `contrib/otelcol-contrib` and `cfg_token.yaml`) starts it with a random token and runs 8 cases over HTTP and gRPC: the right token arrives (4 events each);
+no token, a wrong token and the right token under the `Basic` scheme are all refused (401 / UNAUTHENTICATED) and nothing arrives. The SDK sends the token through `OTEL_EXPORTER_OTLP_HEADERS="Authorization=Bearer%20<token>"` (the space URL-encoded). 8 of 8 as expected. Loopback only.
+
+## A second backend: VictoriaLogs v1.53.0 (verified 2026-11-03)
+Single binary (SHA-256 checked), `-httpListenAddr=127.0.0.1:9428`; logs go to `OTLP_HTTP_BASE=http://127.0.0.1:9428/insert/opentelemetry OTLP_LOGS_ONLY=1 python emit.py http`, query `/select/logsql/query` or the built-in UI at `/select/vmui/`. The readable body is the stored message in the UI. Unlike Loki it KEEPS the dotted attribute names and the event name (`event_name="gen_ai.evaluation.result"`).
+
+## Grafana 13.3.0 UI over Loki (verified 2026-11-03)
+Grafana (SHA-256 checked) on `127.0.0.1:3000` with anonymous access (`GF_AUTH_ANONYMOUS_ENABLED=true`, `GF_AUTH_ANONYMOUS_ORG_ROLE=Admin`, `GF_AUTH_DISABLE_LOGIN_FORM=true`) and a provisioned Loki datasource (`http://127.0.0.1:3100`): Explore with `{service_name=~".+"} | gen_ai_evaluation_name=~"aixl.*"` shows the 4 readable lines.
+**Found here, fixed:** with no severity, Loki guessed the level from the text and showed `aixl.relay_check: ok — no critical slot ...` as CRITICAL. The event now carries an explicit severity (WARN when a difference was found, INFO otherwise); re-run: `info / warn / info / warn`.
+

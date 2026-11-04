@@ -1,0 +1,30 @@
+extensions:
+  bearertokenauth:
+    scheme: Bearer
+    token: ${env:AIXL_TEST_TOKEN}
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 127.0.0.1:4318
+        auth:
+          authenticator: bearertokenauth
+      grpc:
+        endpoint: 127.0.0.1:4317
+        auth:
+          authenticator: bearertokenauth
+exporters:
+  debug:
+    verbosity: detailed
+service:
+  extensions: [bearertokenauth]
+  telemetry:
+    metrics:
+      level: none
+  pipelines:
+    logs:
+      receivers: [otlp]
+      exporters: [debug]
+    metrics:
+      receivers: [otlp]
+      exporters: [debug]

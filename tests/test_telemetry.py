@@ -106,3 +106,23 @@ def test_only_aixl_namespaced_attributes_pass_through():
 def test_default_logger_works_without_an_sdk():
     pytest.importorskip("opentelemetry")
     assert T.record_evaluation(T.NAME_RELAY, "ok") in (True, False)       # API-only: a no-op logger; must not raise
+
+
+def test_severity_is_explicit_warn_only_when_a_difference_was_found():
+    pytest.importorskip("opentelemetry._logs")
+    lg = FakeLogger()
+    for name, labels in T.LABELS.items():
+        for label in labels:
+            assert T.record_evaluation(name, label, logger=lg) is True
+    for rec in lg.records:
+        label = rec["attributes"]["gen_ai.evaluation.score.label"]
+        want = "WARN" if label in {"violation", "not_equivalent", "different_logic"} else "INFO"
+        assert rec["severity_text"] == want and rec["severity_number"].name == want, label
+
+
+def test_ok_line_that_mentions_critical_slots_is_info_not_critical():
+    pytest.importorskip("opentelemetry._logs")
+    lg = FakeLogger()
+    T.relay_check_evaluated("Send the report to Ana.", "Send the report to Ana.", logger=lg)
+    rec = lg.records[0]
+    assert "critical" in rec["body"] and rec["severity_text"] == "INFO"
