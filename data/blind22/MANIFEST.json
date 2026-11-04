@@ -1,0 +1,5 @@
+{
+ "authorG_opus.jsonl": "46b84cc66cc8491fa00aaef712af7d3f7a75696063b5d90760a12eaa088d8ff3",
+ "authorH_sonnet.jsonl": "f16a94b5af19bfaeb6c35e4740a182c55056e92828f95a02e5ee1bf025e43a5a",
+ "PREREG.md": "written before the pairs; its hash is not frozen here because the RESULT section will be appended to it after the single run"
+}

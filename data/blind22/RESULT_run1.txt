@@ -1,0 +1,37 @@
+blind22 single run, 2026-11-04, frozen code at commit 1ae0e5c (python -m benchmarks.blind22_eval --show). Output copied verbatim from stdout.
+
+SET: 80 pairs  labels {'EQUIVALENT': 33, 'NOT_EQUIVALENT': 30, 'UNDECIDABLE': 17}  verdicts {'INCONCLUSIVE': 68, 'NOT_EQUIVALENT': 12}
+
+[G1] false-EQUIVALENT: 0/47 (0.0%) (gate <= 3%) -> PASS   ids: []
+[G2] NOT_EQUIVALENT precision: 7/12 (58.3%) (gate >= 90%) -> FAIL
+     wrong NOT_EQUIVALENT ids: [('G008', 'UNDECIDABLE'), ('H005', 'EQUIVALENT'), ('H014', 'EQUIVALENT'), ('H021', 'EQUIVALENT'), ('H040', 'UNDECIDABLE')]
+[G3] proven-EQUIVALENT recall: 0/33 (0.0%)   NOT_EQUIVALENT recall: 7/30 (23.3%)   INCONCLUSIVE: 68/80 (85.0%)
+
+[G4] per family: false-EQUIVALENT | wrong NOT_EQUIVALENT | proven-EQUIVALENT of EQUIVALENT-labelled | n
+  aspect_completed_vs_ongoing          0 | 1 | 0/4 | 8
+  cleft_and_contrastive_focus          0 | 0 | 0/4 | 8
+  counterfactual_hypothetical          0 | 2 | 0/3 | 8
+  duration_vs_deadline                 0 | 1 | 0/2 | 8
+  location_prepositions                0 | 1 | 0/3 | 8
+  modifier_attachment                  0 | 0 | 0/3 | 8
+  pronoun_reference_scope              0 | 0 | 0/2 | 8
+  purpose_vs_result                    0 | 0 | 0/4 | 8
+  reported_speech_attribution          0 | 0 | 0/4 | 8
+  request_vs_command_register          0 | 0 | 0/4 | 8
+
+CLAIM 'the rule comparator generalises to text by other authors': NOT ALLOWED (G1 and G2 must both pass)
+
+G008 [UNDECIDABLE vs NOT_EQUIVALENT] If it rains, we will cancel the picnic. || We will cancel the picnic only if it rains.
+   [('cond.kind', 'suff', 'nec')]
+
+H005 [EQUIVALENT vs NOT_EQUIVALENT] If we had shipped on Monday, the client would have been happy. || Had we shipped on Monday, the client would have been happy.
+   [('step[0].time', [], [('at', 'mon')]), ('cond', ('suff', False, ('ON', 'monday', 'shipped', 'we')), None)]
+
+H014 [EQUIVALENT vs NOT_EQUIVALENT] El archivo está en la carpeta de Ventas. || El archivo está dentro de la carpeta de Ventas.
+   [('items', [('NAME', 'ventas'), ('TOK', 'folder')], None)]
+
+H021 [EQUIVALENT vs NOT_EQUIVALENT] Termina el análisis en menos de dos horas. || Termina el análisis dentro de las próximas dos horas.
+   [('step[0].qty', [('less_than', 2, 'hours')], []), ('step[0].time', [], [('within', ('bag', 'proxima', 'N:2', 'U:hours'))])]
+
+H040 [UNDECIDABLE vs NOT_EQUIVALENT] She started the backup at noon. || She has started the backup.
+   [('items', [('TOK', 'noon')], None)]
