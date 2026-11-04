@@ -374,6 +374,17 @@ def compare(A, B) -> Verdict:
     _causal = lambda d: d.path == "items" and any(v in L.CAUSAL_WORDS for t, v in (list(d.original or []) + list(d.new or [])) if t == "TOK")
     if any(_causal(d) for d in acc.diffs):                      # because / porque vs since / after / como: causation is not modelled, so an added 'because' is no definite difference
         acc.diffs = [d for d in acc.diffs if not _causal(d)]; acc.un("a causal connective (because/porque) appears on one side only: causation vs sequence is not modelled")
+    def _deadline_pair(q, t):         # 'in less than N units' (qty) vs 'within the next N units' (time): one deadline written two ways
+        if not (q.path.endswith(".qty") and t.path.endswith(".time") and q.path.rsplit(".", 1)[0] == t.path.rsplit(".", 1)[0]): return False
+        for rel in (q.original or []) + (q.new or []):
+            if isinstance(rel, tuple) and len(rel) == 3 and rel[0] == "less_than":
+                for w in (t.original or []) + (t.new or []):
+                    if isinstance(w, tuple) and len(w) == 2 and w[0] == "within" and isinstance(w[1], tuple) and f"N:{rel[1]}" in w[1] and f"U:{rel[2]}" in w[1]: return True
+        return False
+    _dl = [(q, t) for q in acc.diffs for t in acc.diffs if q is not t and _deadline_pair(q, t)]
+    if _dl:
+        drop = {id(x) for pr in _dl for x in pr}
+        acc.diffs = [d for d in acc.diffs if id(d) not in drop]; acc.un("'less than N units' and 'within the next N units' state one deadline in two forms")
     flags_all = {c for o in (A, B) for c, _ in o.flags}
     if any(c.startswith("UNREPRESENTABLE") for c in flags_all) and acc.diffs:       # an unmodelled construct makes slot diffs unreliable
         acc.unres.append("slot differences suppressed: an unrepresentable construct is present"); acc.diffs = []

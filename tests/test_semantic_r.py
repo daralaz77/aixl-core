@@ -459,3 +459,22 @@ def test_negative_quantifier_subject_is_not_a_prohibition(a, b):
 ])
 def test_only_after_is_not_asserted_as_a_difference(a, b):
     assert V(a, b) != "NOT_EQUIVALENT" and V(b, a) != "NOT_EQUIVALENT"
+
+
+# ---- defects found by blind22 (the set is spent; these use OWN sentences) ----------------------------------------------------------
+@pytest.mark.parametrize("a,b", [
+    ("Had they paid on Friday, the order would have shipped.", "If they had paid on Friday, the order would have shipped."),
+    ("Should you need help, call the desk.", "If you need help, call the desk."),
+])
+def test_inverted_conditional_is_never_a_definite_difference(a, b):
+    assert V(a, b) != "NOT_EQUIVALENT" and V(b, a) != "NOT_EQUIVALENT"
+
+
+def test_locative_dentro_de_is_not_an_added_item_but_deadlines_still_compare():
+    assert V("Guarda el informe en la carpeta de pagos.", "Guarda el informe dentro de la carpeta de pagos.") != "NOT_EQUIVALENT"
+    assert V("Responde dentro de dos horas.", "Responde dentro de tres horas.") == "NOT_EQUIVALENT"
+
+
+def test_less_than_n_units_and_within_next_n_units_are_one_deadline_not_a_difference():
+    assert V("Entrega el informe en menos de tres días.", "Entrega el informe dentro de los próximos tres días.") != "NOT_EQUIVALENT"
+    assert V("Entrega el informe en menos de tres días.", "Entrega el informe en menos de cuatro días.") == "NOT_EQUIVALENT"

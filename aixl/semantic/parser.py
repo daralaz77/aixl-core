@@ -226,6 +226,12 @@ def parse(text: str, today=None) -> SemanticObject:
         flags.append(("UNREPRESENTABLE_NEGATIVE_QUANTIFIER", "'nobody / nadie / ninguém': a negative subject, not a prohibition; its deontic polarity is not modelled"))
     if any(_fs[i] in (L.ONLY_WORDS | {"so"}) and _fs[i + 1] in L.ONLY_TIME_NEXT and i > 0 and _fs[i - 1] not in (",", ";", ".") for i in range(len(_fs) - 1)):
         flags.append(("UNREPRESENTABLE_ONLY_TIME", "'only after / só depois de': may state the same order as 'then' or a necessary condition"))
+    _sent_start = lambda i: i == 0 or _fs[i - 1] in (",", ";", ".", "?", "!")
+    if any(_sent_start(i) and ((_fs[i] in ("had", "were") and _fs[i + 1] in L.SUBJ_PRON) or _fs[i:i + 2] == ["de", "haber"]) for i in range(len(_fs) - 1)):
+        flags.append(("UNREPRESENTABLE_INVERTED_CONDITIONAL", "'Had we ... / Were they ... / de haber ...': an inverted 'if' clause; the condition is not modelled"))
+    _num_near = lambda i: any(f.isdigit() or f in L.NUM_WORDS or f in L.RECUR_UNITS or f in L.UNITS for f in _fs[i + 1:i + 5])
+    if any((_fs[i] == "inside" or (_fs[i] == "dentro" and _fs[i + 1] in ("de", "do", "da", "del"))) and not _num_near(i) for i in range(len(_fs) - 1)):
+        flags.append(("UNREPRESENTABLE_LOCATIVE", "'inside / dentro de' + a place: a location relation that is not modelled (a time span 'dentro de dos horas' is)"))
     if has_tag: flags.append(("AMBIGUOUS_TAG_QUESTION", "tag question: the tag asks for confirmation and its polarity is not modelled; the main clause is compared alone"))
     # sentences
     sents, cur = [], []
