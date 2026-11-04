@@ -1,0 +1,40 @@
+blind25 single run, 2026-11-04, frozen code at commit a50ecc8 (python -m benchmarks.blind25_eval --show). Output copied verbatim from stdout.
+
+SET: 80 pairs  labels {'EQUIVALENT': 32, 'NOT_EQUIVALENT': 32, 'UNDECIDABLE': 16}  verdicts {'INCONCLUSIVE': 69, 'NOT_EQUIVALENT': 5, 'EQUIVALENT': 6}
+
+[G1] false-EQUIVALENT: 3/48 (6.2%) (gate <= 3%) -> FAIL   ids: ['M020', 'M034', 'N034']
+[G2] NOT_EQUIVALENT precision: 3/5 (60.0%) (gate >= 90%) -> FAIL
+     wrong NOT_EQUIVALENT ids: [('M004', 'EQUIVALENT'), ('N026', 'EQUIVALENT')]
+[G3] proven-EQUIVALENT recall: 3/32 (9.4%)   NOT_EQUIVALENT recall: 3/32 (9.4%)   INCONCLUSIVE: 69/80 (86.2%)
+
+[G4] per family: false-EQUIVALENT | wrong NOT_EQUIVALENT | proven-EQUIVALENT of EQUIVALENT-labelled | n
+  compound_noun_order                  0 | 0 | 1/5 | 8
+  degree_modifiers                     0 | 0 | 0/2 | 8
+  gender_person_agreement              0 | 1 | 0/3 | 8
+  identifiers_and_versions             2 | 0 | 1/3 | 8
+  inclusion_exclusion_totals           0 | 1 | 0/4 | 8
+  negation_affixes                     1 | 0 | 0/4 | 8
+  past_simple_regular_vs_present       0 | 0 | 1/3 | 8
+  possessive_determiners               0 | 0 | 0/2 | 8
+  spatial_direction_ordering           0 | 0 | 0/3 | 8
+  urgency_phrasing                     0 | 0 | 0/3 | 8
+
+[extra] non-EQUIVALENT-labelled pairs that are INCONCLUSIVE but carry a suspected difference: 2
+
+CLAIM 'does not fail silently on new families (G1)': NOT ALLOWED
+CLAIM 'NOT_EQUIVALENT is reliable on other authors text (G1 and G2)': NOT ALLOWED
+
+M004 [EQUIVALENT vs NOT_EQUIVALENT] Each user must reset their password every 90 days. || Every user has to reset his or her password every 90 days.
+   [('step[0].quant', 'each', 'all')]
+
+M020 [UNDECIDABLE vs EQUIVALENT] O uso de celular não é proibido na sala. || O uso de celular é permitido na sala.
+   []
+
+M034 [NOT_EQUIVALENT vs EQUIVALENT] Instala la versión 2.1 del cliente. || Instala la versión 2.10 del cliente.
+   []
+
+N026 [EQUIVALENT vs NOT_EQUIVALENT] The fee is $50 excluding tax. || The fee is $50 before tax.
+   [('step[0].time', [], [('before', ('bag', 'tax'))])]
+
+N034 [NOT_EQUIVALENT vs EQUIVALENT] Upgrade to version 2.1 before launch. || Upgrade to version 2.10 before launch.
+   []
