@@ -535,3 +535,19 @@ def test_dropped_feature_ledger_counts_what_lemmatising_drops():
     assert dropped_features(parse("Send a report.")) != dropped_features(parse("Send the report."))
     assert dropped_features(parse("The ticket was closed.")) != dropped_features(parse("The ticket is closed."))
     assert dropped_features(parse("Delete the report.")) == dropped_features(parse("Delete the report."))
+
+
+# ---- blind25: version-like numerals, 'not prohibited', each vs all ---------------------------------------------------------------------------
+@pytest.mark.parametrize("a,b", [
+    ("Upgrade to version 2.1 before launch.", "Upgrade to version 2.10 before launch."),
+    ("Instala la versión 3.2 del cliente.", "Instala la versión 3.20 del cliente."),
+    ("O uso de celular não é proibido na sala.", "O uso de celular é permitido na sala."),
+    ("Phones are not forbidden in the room.", "Phones are permitted in the room."),
+])
+def test_blind25_silent_failures_are_never_equivalent(a, b):
+    assert V(a, b) != "EQUIVALENT"
+
+
+def test_each_vs_all_is_suspected_not_asserted():
+    v = compare_texts("Each user must reset their password every 90 days.", "Every user has to reset his or her password every 90 days.")
+    assert v.verdict != "NOT_EQUIVALENT"

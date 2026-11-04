@@ -32,6 +32,7 @@ def dropped_features(o) -> Counter:
         elif f in PAST_MARKERS: c["past"] += 1
         elif f in FUTURE_MARKERS: c["future"] += 1
         elif is_plural_form(f, o.lang) and norm_token(f, o.lang) in items: c["plural"] += 1
+        elif re.fullmatch(r"\d+(?:[.,]\d+)+", f): c["numeral:" + f] += 1       # '2.1' and '2.10' parse to the same float, but as a version / identifier they are two things (blind25)
     return c
 # Closed list of difference types allowed to yield NOT_EQUIVALENT (step indexes removed). Chosen from the precision per type measured on
 # blind19-22 (development evidence): the types left out ('items' = loose tokens, 'cond' / 'cond.kind' = sufficient vs necessary and
@@ -448,7 +449,7 @@ def compare(A, B) -> Verdict:
     _rp = [d for d in acc.diffs if _range_pair(d)]
     if _rp:
         acc.diffs = [d for d in acc.diffs if not any(d is x for x in _rp)]; acc.un("a range ('between N and M') and two exact numbers ('from N to M'): whether the ends are included is not stated")
-    soft = [d for d in acc.diffs if re.sub(r"\[\d+\]", "", d.path) not in DEFINITE_PATHS or (d.path.endswith(".quant") and {d.original, d.new} == {"any", "all"})]      # any vs all: 'cualquier X debe' is often universal
+    soft = [d for d in acc.diffs if re.sub(r"\[\d+\]", "", d.path) not in DEFINITE_PATHS or (d.path.endswith(".quant") and {d.original, d.new} in ({"any", "all"}, {"each", "all"}, {"each", "any"}))]      # any vs all: 'cualquier X debe' is often universal
     if soft:                                                                           # closed list: only slot types measured as reliable may assert a difference; the rest is INCONCLUSIVE
         acc.diffs = [d for d in acc.diffs if not any(d is s for s in soft)]
         acc.un(f"a difference of an unreliable type ({sorted({d.path for d in soft})}) is not asserted: it may be a paraphrase, an added detail or a disputed construction")

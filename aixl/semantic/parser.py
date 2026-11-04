@@ -633,6 +633,7 @@ def _parse_step(toks, ctx) -> Step:
     _ng = next((j for j, w in enumerate(fs) if w in L.NEG_TOKENS and w != "nada"), None)
     if neg == 1 and deontic == "DONT" and _pro is not None and _ng is not None and _ng < _pro and not litotes and not not_true and not not_required and not avoid:
         deontic = "MAY"; neg = 0          # 'no está prohibido / not forbidden' = permitted (the negation comes BEFORE the prohibition word; 'prohibido no X' is left as it was)
+        flags_here.append(("AMBIGUOUS_NOT_PROHIBITED", "'not prohibited' may be mere tolerance, not an explicit permission (blind25 M020)"))
     if neg % 2 == 1:
         deontic = {"DO": "DONT", "MAY": "DONT", "ADVISE": "DISCOURAGE", "DONT": "DONT"}.get(deontic, deontic)
     cands = frozenset()
