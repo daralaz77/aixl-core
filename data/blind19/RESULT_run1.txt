@@ -1,0 +1,44 @@
+SET: 80 pairs  labels {'EQUIVALENT': 32, 'NOT_EQUIVALENT': 33, 'UNDECIDABLE': 15}  verdicts {'INCONCLUSIVE': 54, 'NOT_EQUIVALENT': 21, 'EQUIVALENT': 5}
+
+[G1] false-EQUIVALENT: 0/48 (0.0%) (gate <= 3%) -> PASS   ids: []
+[G2] NOT_EQUIVALENT precision: 13/21 (61.9%) (gate >= 90%) -> FAIL
+     wrong NOT_EQUIVALENT ids: [('A013', 'EQUIVALENT'), ('A015', 'EQUIVALENT'), ('B004', 'UNDECIDABLE'), ('B015', 'EQUIVALENT'), ('B024', 'UNDECIDABLE'), ('B025', 'EQUIVALENT'), ('B036', 'UNDECIDABLE'), ('B038', 'EQUIVALENT')]
+[G3] proven-EQUIVALENT recall: 5/32 (15.6%)   NOT_EQUIVALENT recall: 13/33 (39.4%)   INCONCLUSIVE: 54/80 (67.5%)
+
+[G4] per family: false-EQUIVALENT | wrong NOT_EQUIVALENT | proven-EQUIVALENT of EQUIVALENT-labelled | n
+  antonym_swap                   0 | 0 | 0/3 | 8
+  condition_polarity             0 | 1 | 2/3 | 8
+  double_negation_modal          0 | 3 | 0/4 | 8
+  exception_vs_inclusion         0 | 1 | 1/2 | 8
+  negation_vs_antonym            0 | 0 | 0/3 | 8
+  quantifier_negation_scope      0 | 0 | 0/3 | 8
+  quantity_relations             0 | 1 | 2/4 | 8
+  tag_question_confirmation      0 | 1 | 0/4 | 8
+  time_relations                 0 | 0 | 0/2 | 8
+  true_paraphrase_distractor     0 | 1 | 0/4 | 8
+
+CLAIM 'the rule comparator generalises to text by other authors': NOT ALLOWED (G1 and G2 must both pass)
+
+A013 [EQUIVALENT vs NOT_EQUIVALENT] No está prohibido fumar en la terraza. || Está permitido fumar en la terraza.
+   [('step[0].deontic', 'DONT', 'MAY')]
+
+A015 [EQUIVALENT vs NOT_EQUIVALENT] Não é permitido ficar sem capacete dentro da obra. || É obrigatório usar capacete dentro da obra.
+   [('items', None, [('TOK', 'obrigatorio'), ('TOK', 'usar')])]
+
+B004 [UNDECIDABLE vs NOT_EQUIVALENT] No vienes mañana, ¿no? || Vienes mañana, ¿no?
+   [('step[0].deontic', 'DONT', 'DO')]
+
+B015 [EQUIVALENT vs NOT_EQUIVALENT] Não é proibido fotografar o local. || É permitido fotografar o local.
+   [('step[0].deontic', 'DONT', 'MAY')]
+
+B024 [UNDECIDABLE vs NOT_EQUIVALENT] You'll get the discount only if you subscribe. || You'll get the discount if you subscribe.
+   [('cond.kind', 'nec', 'suff')]
+
+B025 [EQUIVALENT vs NOT_EQUIVALENT] Traiga como mínimo tres referencias. || Traiga más de dos referencias.
+   [('step[0].qty.mode', ('at_least', 3, 'referencia'), ('greater_than', 2, 'referencia'))]
+
+B036 [UNDECIDABLE vs NOT_EQUIVALENT] Pueden entrar todos menos los menores de 12 años. || Pueden entrar los mayores de 12 años.
+   [('except', ('N:12', 'OF', 'U:years', 'menor'), None)]
+
+B038 [EQUIVALENT vs NOT_EQUIVALENT] The warehouse closes once the last truck has left. || After the final truck departs, the warehouse closes.
+   [('step[0].ref', ['last'], [])]

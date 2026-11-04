@@ -111,6 +111,11 @@ ORDINALS = {"primer": 1, "primero": 1, "primera": 1, "primeiro": 1, "primeira": 
             "reciente": "most_recent", "recientes": "most_recent", "recent": "most_recent", "recente": "most_recent",
             "antiguo": "oldest", "antiguos": "oldest", "oldest": "oldest", "earliest": "oldest", "antigo": "oldest", "antigos": "oldest", "recentes": "most_recent",
             "anterior": "previous", "previous": "previous", "siguiente": "next_item", "seguinte": "next_item"}
+TIME_CONJ = {"once", "when", "whenever", "after", "before", "until", "cuando", "quando", "luego", "depois", "apos", "despues", "antes", "hasta", "ate"}
+ORD_LIKE = {"final", "ultimate", "terminal", "finais", "finales"}      # may or may not mean 'last' ('the final bus' vs 'the final report'): never a definite reference difference
+# modal ADJECTIVES that state obligation / permission / possibility but are not modelled as deontic markers: an item difference made only of them is not a real addition
+MODAL_ADJ = {"obligatorio", "obligatoria", "obrigatorio", "obrigatoria", "mandatory", "required", "necessary", "necesario", "necesaria", "necessario", "necessaria", "essential",
+             "imprescindible", "indispensable", "indispensavel", "compulsory", "optional", "opcional", "possible", "posible", "possivel", "impossible", "imposible", "impossivel"}
 NEXT_WORDS = {"proximo", "proxima", "next", "proximos", "seguinte", "coming", "upcoming"}
 
 # ---- conditions / exceptions / only / sequence -----------------------------------------------------------------------

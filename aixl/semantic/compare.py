@@ -50,6 +50,8 @@ def _qty_cmp(a, b, acc, p):
     for x, y in zip(va, vb):
         (m1, v1, u1), (m2, v2, u2) = x.value, y.value
         if x.value == y.value: continue
+        if u1 == u2 and isinstance(v1, int) and isinstance(v2, int) and ((m1, m2, v1 - v2) in {("at_least", "greater_than", 1), ("greater_than", "at_least", -1), ("at_most", "less_than", -1), ("less_than", "at_most", 1)}):
+            acc.un("at-least-n and more-than-(n-1) (or at-most-n and fewer-than-(n+1)) are the same only for whole counts"); continue
         if v1 == v2 and u1 == u2 and {m1, m2} == {"exact", "exact_implicit"}:
             acc.un("quantity exactness is implicit on one side (bare number vs 'exactly')"); continue
         if u1 != u2 and (u1 in KNOWN_UNITS and u2 in KNOWN_UNITS or v1 == v2 and m1 == m2 and u1 and u2 and False):
@@ -136,10 +138,14 @@ def _items_cmp(ia, ib, acc, act_a, soft=False, other_slots=(frozenset(), frozens
     def anchored(extra, ctx_items):        # does the extra material clearly ADD information (vs. a paraphrase marker / filler / adjective)?
         content = [x for x in extra if x[1] not in FUNCTIONAL and x != ("TOK", "AND")]
         return any(x[0] == "NAME" or x[1] in KNOWN or str(x[1]).startswith("N:") for x in content) or (any(x[1] in PREPS for x in extra) and bool(content))
+    if (ea or eb) and any(x[0] == "TOK" and x[1] in L.MODAL_ADJ for x in (*ea, *eb)) and not (ea and eb):
+        acc.un("a modal adjective (obligatory / necessary / possible ...) is present only on one side: obligation or permission may be expressed there without being modelled"); return
     if not ea and eb and person_ref[0] and ("TOK", "OF") in eb:
         acc.un("a possessive ('su') on one side may stand for the 'of X' phrase on the other"); return
     if ea and not eb and person_ref[1] and ("TOK", "OF") in ea:
         acc.un("a possessive ('su') on one side may stand for the 'of X' phrase on the other"); return
+    if (not ea) != (not eb) and any(x[0] == "TOK" and x[1] in L.TIME_CONJ for x in (*ea, *eb)):
+        acc.un("a temporal conjunction (once / when / after ...) heads the extra words: the same time relation may be written as a time clause on the other side"); return
     if not ea and eb:
         content = [x for x in eb if is_new(x, sets_a, other_slots[0])]
         if content and anchored(list(eb), ib): acc.diff("items", "ADDITION", None, sorted(content), "ITEMS")
@@ -155,6 +161,15 @@ def _items_cmp(ia, ib, acc, act_a, soft=False, other_slots=(frozenset(), frozens
     if plain and len(ea) == len(eb) == 1 and all(x[0] == "TOK" for x in (*ea, *eb)) and frozenset((next(iter(ea))[1], next(iter(eb))[1])) in L.ANTONYMS:
         acc.diff("items.antonym", "DISTORTION", sorted(ea), sorted(eb), "ACTION"); return       # one known antonym swap, everything else identical, no polarity in play
     acc.un(f"content words differ with no known synonym ({sorted(ea)} / {sorted(eb)})")
+
+
+def _time_words(st):
+    """Words inside the 'bag' of a TIME atom ('after the final client leaves'): they are content too, but live outside st.items."""
+    out = set()
+    for t in st.get("TIME"):
+        v = t.value[1] if isinstance(t.value, tuple) and len(t.value) > 1 else None
+        if isinstance(v, tuple) and v and v[0] == "bag": out |= {w for w in v[1:] if isinstance(w, str)}
+    return out
 
 
 def _content(st, with_ord=True):
@@ -265,6 +280,8 @@ def _step_cmp_inner(x, y, acc, k, a_act, b_act):
         acc.un("ordinal readings overlap but are expressed with a different number of references")
     elif len(ords_a) == len(ords_b) > 1 and a_act and b_act and a_act.value == b_act.value in SYMMETRIC_ACTIONS and Counter(a.value for a in ords_a) == Counter(a.value for a in ords_b):
         acc.un("argument order of a symmetric action (may or may not carry direction)")
+    elif len(ords_a) != len(ords_b) and any(w in L.ORD_LIKE for s in (x, y) for w in ({v for t, v in s.items if t == "TOK"} | set(getattr(s, "global_content", set())) | _time_words(s))):
+        acc.un("an ordinal-like word ('final') is present: it may express the same reference as 'last', or not ('the final report')")
     elif len(ords_a) != len(ords_b): acc.diff(f"step[{k}].ref", "LOSS" if len(ords_a) > len(ords_b) else "ADDITION", [a.value for a in ords_a], [a.value for a in ords_b], "ORD")
     else:
         for u, v in zip(ords_a, ords_b):

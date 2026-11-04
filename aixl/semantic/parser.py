@@ -601,6 +601,10 @@ def _parse_step(toks, ctx) -> Step:
     if litotes: neg = 0; deontic = "DO"
     if quant and "none" in quant and neg == 0:
         neg = 1
+    _pro = next((j for j, w in enumerate(fs) if w in L.PROHIBITED), None)
+    _ng = next((j for j, w in enumerate(fs) if w in L.NEG_TOKENS and w != "nada"), None)
+    if neg == 1 and deontic == "DONT" and _pro is not None and _ng is not None and _ng < _pro and not litotes and not not_true and not not_required and not avoid:
+        deontic = "MAY"; neg = 0          # 'no está prohibido / not forbidden' = permitted (the negation comes BEFORE the prohibition word; 'prohibido no X' is left as it was)
     if neg % 2 == 1:
         deontic = {"DO": "DONT", "MAY": "DONT", "ADVISE": "DISCOURAGE", "DONT": "DONT"}.get(deontic, deontic)
     cands = frozenset()

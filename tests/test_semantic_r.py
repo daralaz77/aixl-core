@@ -320,3 +320,43 @@ def test_antonym_rule_is_silent_when_polarity_is_involved(a, b):
     from aixl.semantic.parser import parse as _p
     r = compare_texts(a, b)
     assert not any(d.path == "items.antonym" for d in r.diffs)
+
+
+# ---- four real defects found by blind19 (a set written by other authors). The tests use OWN sentences, never the blind19 items ----
+def _deontic(t):
+    return [a.value for a in parse(t).atoms() if a.type == "DEONTIC"][0]
+
+
+@pytest.mark.parametrize("t", ["No está prohibido grabar en la sala.", "Não é proibido gravar na sala.", "It is not forbidden to record in the room.", "Never forbidden to record here."])
+def test_not_forbidden_is_permission_not_prohibition(t):
+    assert _deontic(t) == "MAY"
+
+
+def test_not_forbidden_still_differs_from_forbidden_and_equals_permitted():
+    assert V("No está prohibido grabar en la sala.", "Está prohibido grabar en la sala.") == "NOT_EQUIVALENT"
+    assert V("No está prohibido grabar en la sala.", "Está permitido grabar en la sala.") != "NOT_EQUIVALENT"
+    assert V("Prohibido grabar en la sala.", "Está prohibido grabar en la sala.") != "NOT_EQUIVALENT"      # a plain prohibition is untouched
+
+
+def test_unmodelled_modal_adjective_never_creates_a_definite_item_difference():
+    assert V("Não é permitido entrar sem crachá.", "É obrigatório usar crachá para entrar.") != "NOT_EQUIVALENT"
+    assert V("No es posible pagar sin tarjeta.", "Es necesario pagar con tarjeta.") != "NOT_EQUIVALENT"
+
+
+@pytest.mark.parametrize("a,b", [
+    ("Pide como mínimo cuatro cotizaciones.", "Pide más de tres cotizaciones."),
+    ("Invite at most six guests.", "Invite fewer than seven guests."),
+])
+def test_integer_boundary_is_not_a_definite_difference(a, b):
+    assert V(a, b) != "NOT_EQUIVALENT" and V(b, a) != "NOT_EQUIVALENT"
+
+
+def test_integer_boundary_rule_does_not_hide_a_real_quantity_difference():
+    assert V("Pide como mínimo cuatro cotizaciones.", "Pide más de cuatro cotizaciones.") == "NOT_EQUIVALENT"      # off by one in the other direction: a real difference
+    assert V("Invite at most six guests.", "Invite fewer than six guests.") == "NOT_EQUIVALENT"
+
+
+def test_final_in_front_of_a_noun_is_not_a_definite_difference_from_last():
+    assert V("Close the gate after the last bus has left.", "Close the gate after the final bus has left.") != "NOT_EQUIVALENT"
+    assert V("The shop closes once the last client has left.", "After the final client leaves, the shop closes.") != "NOT_EQUIVALENT"
+    assert V("Send the final report.", "Send the report.") != "NOT_EQUIVALENT"      # 'final report' is not 'last report': stays unproven, never a definite LOSS
