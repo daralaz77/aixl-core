@@ -1,0 +1,46 @@
+blind24 single run, 2026-11-04, frozen code at commit 4525428 (python -m benchmarks.blind24_eval --show). Output copied verbatim from stdout.
+
+SET: 80 pairs  labels {'EQUIVALENT': 27, 'NOT_EQUIVALENT': 37, 'UNDECIDABLE': 16}  verdicts {'INCONCLUSIVE': 69, 'NOT_EQUIVALENT': 9, 'EQUIVALENT': 2}
+
+[G1] false-EQUIVALENT: 2/53 (3.8%) (gate <= 3%) -> FAIL   ids: ['K006', 'L007']
+[G2] NOT_EQUIVALENT precision: 4/9 (44.4%) (gate >= 90%) -> FAIL
+     wrong NOT_EQUIVALENT ids: [('K005', 'UNDECIDABLE'), ('K009', 'EQUIVALENT'), ('K012', 'UNDECIDABLE'), ('L009', 'EQUIVALENT'), ('L036', 'UNDECIDABLE')]
+[G3] proven-EQUIVALENT recall: 0/27 (0.0%)   NOT_EQUIVALENT recall: 4/37 (10.8%)   INCONCLUSIVE: 69/80 (86.2%)
+
+[G4] per family: false-EQUIVALENT | wrong NOT_EQUIVALENT | proven-EQUIVALENT of EQUIVALENT-labelled | n
+  domain_terms_near_synonyms           0 | 0 | 0/3 | 8
+  hedging_certainty                    0 | 0 | 0/2 | 8
+  information_source_evidence          0 | 0 | 0/3 | 8
+  number_singular_plural               2 | 1 | 0/2 | 8
+  percentage_vs_absolute               0 | 3 | 0/4 | 8
+  permission_scope_who                 0 | 0 | 0/2 | 8
+  repetition_count                     0 | 0 | 0/2 | 8
+  reversibility_finality               0 | 0 | 0/3 | 8
+  tense_bare_verb_forms                0 | 0 | 0/3 | 8
+  time_of_day_timezone                 0 | 1 | 0/3 | 8
+
+[extra] non-EQUIVALENT-labelled pairs that are INCONCLUSIVE but carry a suspected difference: 2
+
+CLAIM 'does not fail silently on new families (G1)': NOT ALLOWED
+CLAIM 'NOT_EQUIVALENT is reliable on other authors text (G1 and G2)': NOT ALLOWED
+
+K005 [UNDECIDABLE vs NOT_EQUIVALENT] Revisa cada archivo antes de subirlo. || Revisa todos los archivos antes de subirlos.
+   [('step[0].quant', 'each', 'all')]
+
+K006 [NOT_EQUIVALENT vs EQUIVALENT] Delete the attachment from the ticket. || Delete the attachments from the ticket.
+   []
+
+K009 [EQUIVALENT vs NOT_EQUIVALENT] One in ten requests is sampled for review. || 10% of requests are sampled for review.
+   [('step[0].qty', [('exact_implicit', 1, None), ('exact_implicit', 10, None)], [('exact_implicit', 10, None)])]
+
+K012 [UNDECIDABLE vs NOT_EQUIVALENT] About a third of the tickets were escalated. || 30% of the tickets were escalated.
+   [('step[0].ref', [3], [])]
+
+L007 [UNDECIDABLE vs EQUIVALENT] Revise o relatório antes de enviá-lo ao cliente. || Revise os relatórios antes de enviá-los ao cliente.
+   []
+
+L009 [EQUIVALENT vs NOT_EQUIVALENT] Discount applies to 10% of the stock. || Discount applies to one in ten items in stock.
+   [('step[0].qty', [('exact_implicit', 10, None)], [('exact_implicit', 1, None), ('exact_implicit', 10, 'item')])]
+
+L036 [UNDECIDABLE vs NOT_EQUIVALENT] Call us during business hours. || Call us between 9am and 5pm.
+   [('step[0].time', [('during', ('bag', 'business', 'U:hours'))], [('at', 'T0900'), ('at', 'T1700')])]
