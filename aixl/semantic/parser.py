@@ -172,13 +172,36 @@ def _split_steps(toks, ctx):
     return steps
 
 
+_TAG_AUX = {"is", "are", "am", "was", "were", "do", "does", "did", "have", "has", "had", "can", "could", "will", "would", "shall", "should", "may", "might", "must"}
+_TAG_PRON = {"i", "you", "he", "she", "it", "we", "they", "there"}
+
+
+def _strip_tag_question(toks):
+    """English tag question ', isn't it?' / ', did they?': a closing ', <aux> [not] <pronoun> ?'. Its auxiliary carries its own 'not', which the clause
+    parser would count as negation of the MAIN clause (so 'X, aren't you?' and 'not X, are you?' both parsed DONT and were proven EQUIVALENT).
+    The tag is removed before parsing and reported as an ambiguity: a tag asks for confirmation, so it is never silently dropped. Returns (toks, found)."""
+    out, found, i, n = [], False, 0, len(toks)
+    while i < n:
+        if toks[i].f == ",":
+            j = i + 1
+            if j < n and toks[j].f in _TAG_AUX:
+                j += 1
+                if j < n and toks[j].f == "not": j += 1
+                if j < n and toks[j].f in _TAG_PRON and (j + 1 == n or toks[j + 1].f in ("?", ".", "!")):
+                    found = True; i = j + 1; continue
+        out.append(toks[i]); i += 1
+    return out, found
+
+
 def parse(text: str, today=None) -> SemanticObject:
     clean, findings = sanitize_input(text)
     toks = tokenize(clean)
+    norm = tuple(t.f for t in toks if t.f not in PUNCT)
+    toks, has_tag = _strip_tag_question(toks)
     lang = detect_lang(toks)
     ctx = Ctx(toks, lang)
     flags = [("SANITIZER", f) for f in findings]
-    norm = tuple(t.f for t in toks if t.f not in PUNCT)
+    if has_tag: flags.append(("AMBIGUOUS_TAG_QUESTION", "tag question: the tag asks for confirmation and its polarity is not modelled; the main clause is compared alone"))
     # sentences
     sents, cur = [], []
     for t in toks:

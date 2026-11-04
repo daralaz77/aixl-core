@@ -255,3 +255,23 @@ def test_plural_oldest_never_crashes_the_parser():
     compare_texts("Borra los tres archivos más antiguos de la carpeta de pruebas.", "Delete the three oldest files in the test folder.")
     for w in ("antiguos", "antigos", "recentes", "recientes"):
         parse(f"Borra los archivos más {w} de la carpeta.")
+
+
+# ---- tag questions: found by the external SemAntoNeg corpus (28 false-EQUIVALENT). Cases below are OWN sentences, not corpus items ----
+@pytest.mark.parametrize("a,b", [
+    ("The door is open, isn't it?", "The door is not open, is it?"),
+    ("They finished the report, didn't they?", "They did not finish the report, did they?"),
+    ("She can drive, can't she?", "She can't drive, can she?"),
+    ("The team is ready, isn't it?", "The team is ready, is it?"),         # same clause, opposite expectation: never proven equivalent
+])
+def test_tag_question_polarity_never_proven_equivalent(a, b):
+    assert V(a, b) != "EQUIVALENT" and V(b, a) != "EQUIVALENT"
+
+
+def test_tag_question_main_clause_polarity_is_compared():
+    assert V("You are safe, aren't you?", "You are not safe, are you?") == V("You are safe.", "You are not safe.") == "NOT_EQUIVALENT"
+
+
+def test_tag_question_is_flagged_and_a_real_clause_is_not():
+    assert any(c == "AMBIGUOUS_TAG_QUESTION" for c, _ in parse("The door is open, isn't it?").flags)
+    assert not any(c == "AMBIGUOUS_TAG_QUESTION" for c, _ in parse("The door is open, is it a problem?").flags)   # a real clause is not a tag
