@@ -182,15 +182,28 @@ def _strip_tag_question(toks):
     The tag is removed before parsing and reported as an ambiguity: a tag asks for confirmation, so it is never silently dropped. Returns (toks, found)."""
     out, found, i, n = [], False, 0, len(toks)
     while i < n:
-        if toks[i].f == ",":
-            j = i + 1
-            if j < n and toks[j].f in _TAG_AUX:
-                j += 1
-                if j < n and toks[j].f == "not": j += 1
-                if j < n and toks[j].f in _TAG_PRON and (j + 1 == n or toks[j + 1].f in ("?", ".", "!")):
-                    found = True; i = j + 1; continue
+        end = _tag_end(toks, i) if toks[i].f == "," and i > 0 else None
+        if end is not None: found = True; i = end; continue
         out.append(toks[i]); i += 1
     return out, found
+
+
+# Spanish / Portuguese confirmation tags (accent-folded). The '?' must follow at once, so ', no más de 5' or ', nao e possivel' are never touched.
+_TAG_PHRASES_ES_PT = [("no", "es", "asi"), ("no", "es", "cierto"), ("no", "es", "verdad"), ("no", "es", "cierto"), ("nao", "e", "verdade"), ("nao", "e"),
+                      ("verdad",), ("cierto",), ("si",), ("eh",), ("no",), ("nao",), ("ne",), ("certo",), ("verdade",)]
+
+
+def _tag_end(toks, i):
+    """Index just after a tag question that starts at the comma toks[i], else None."""
+    n, j = len(toks), i + 1
+    if j < n and toks[j].f in _TAG_AUX:                                    # English: ', <aux> [not] <pronoun>'
+        k = j + 1
+        if k < n and toks[k].f == "not": k += 1
+        if k < n and toks[k].f in _TAG_PRON and (k + 1 == n or toks[k + 1].f in ("?", ".", "!")): return k + 1
+    if j < n and toks[j].f == "¿": j += 1                                  # Spanish / Portuguese
+    for ph in _TAG_PHRASES_ES_PT:
+        if tuple(t.f for t in toks[j:j + len(ph)]) == ph and j + len(ph) < n and toks[j + len(ph)].f == "?": return j + len(ph)
+    return None
 
 
 def parse(text: str, today=None) -> SemanticObject:

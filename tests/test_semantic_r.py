@@ -275,3 +275,23 @@ def test_tag_question_main_clause_polarity_is_compared():
 def test_tag_question_is_flagged_and_a_real_clause_is_not():
     assert any(c == "AMBIGUOUS_TAG_QUESTION" for c, _ in parse("The door is open, isn't it?").flags)
     assert not any(c == "AMBIGUOUS_TAG_QUESTION" for c, _ in parse("The door is open, is it a problem?").flags)   # a real clause is not a tag
+
+
+# ES/PT tags: '¿no?' / 'não é?' carry a bare 'no/não' that was counted as negation of the main clause (own sentences; the probe found 2 false-EQUIVALENT)
+@pytest.mark.parametrize("a,b", [
+    ("Estás seguro, ¿no?", "No estás seguro."),
+    ("Estás seguro, ¿no es así?", "No estás seguro."),
+    ("Você está seguro, não é?", "Você não está seguro."),
+    ("Você está seguro, não é?", "Você não está seguro, certo?"),
+    ("Entregas el informe, ¿no?", "No entregues el informe."),
+])
+def test_es_pt_tag_question_never_proven_equivalent_to_the_negated_clause(a, b):
+    assert V(a, b) != "EQUIVALENT" and V(b, a) != "EQUIVALENT"
+
+
+def test_es_pt_tag_question_is_flagged_but_a_real_negation_is_not_stripped():
+    for t in ("Estás seguro, ¿no?", "Você está seguro, não é?", "Está seguro, né?", "Estás seguro, ¿verdad?"):
+        assert any(c == "AMBIGUOUS_TAG_QUESTION" for c, _ in parse(t).flags), t
+    for t in ("Usa fuentes oficiales, no más de cinco.", "Envía el informe, no antes del viernes.", "Usa fuentes, ¿cuáles?"):
+        assert not any(c == "AMBIGUOUS_TAG_QUESTION" for c, _ in parse(t).flags), t
+    assert V("Usa fuentes oficiales, no blogs.", "Usa fuentes oficiales.") != "EQUIVALENT"      # ', no X' is a real negation and must stay one
