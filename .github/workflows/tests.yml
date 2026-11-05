@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   pytest:
     runs-on: ubuntu-latest
@@ -76,3 +79,11 @@ jobs:
       - run: python -m venv /tmp/cleanvenv && /tmp/cleanvenv/bin/pip install dist/aixl-*.whl
       - name: Exercise the INSTALLED package from outside the repo
         run: cd /tmp && /tmp/cleanvenv/bin/python "$GITHUB_WORKSPACE/scripts/wheel_smoke.py"
+
+      - name: Generate the SBOM (CycloneDX)
+        run: python scripts/make_sbom.py sbom.cdx.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: sbom.cdx.json

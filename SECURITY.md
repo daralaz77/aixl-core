@@ -3,7 +3,7 @@
 AIXL is maintained by one person. This policy says what to expect, so that nobody waits for something that will not come.
 
 ## Reporting a vulnerability
-Email **director@daralaz.com** with the subject `AIXL security`. Please include: what you found, how to reproduce it (the smallest input or request that shows it), the version or commit, and what you think the impact is.
+Use GitHub's **private vulnerability reporting** (repository → Security → Report a vulnerability) or email **director@daralaz.com** with the subject `AIXL security`. The policy is also published as `.well-known/security.txt` (RFC 9116). Please include: what you found, how to reproduce it (the smallest input or request that shows it), the version or commit, and what you think the impact is.
 **Please do not open a public issue or post it in a forum before we have talked.** There is no PGP key; if the report is sensitive, say so in the first line and keep the details for a reply.
 
 What you can expect, as a single maintainer's best effort and not a service level:
@@ -43,7 +43,7 @@ These are facts about the current code, each covered by tests; they are not a gu
 - The rate limiter and negotiation tasks are **in memory, per process**: with several replicas the limits are per replica and tasks are lost on restart.
 - `aixl_negotiate_autonomous` returns the Python **traceback** when it fails (file paths and internals), and passes the sender text as a command-line argument. It is meant for a local MCP session over stdio; do not expose it through a network-facing server.
 - The plain envelope states what the sender sealed; it is **not signed**, so it does not authenticate the sender. `aixl.signed_envelope` adds an optional Ed25519 signature (extra `signing`, library `cryptography`): it proves who sealed it and that it did not change, but there is **no key distribution, revocation or rotation**, replay/freshness checks only when the caller turns them on, the signature is **not post-quantum**, and the module has had **no external security review** (LIMITATIONS.md E-SIGNED-ENVELOPE).
-- **No penetration test, no dependency audit and no SOC 2 or similar certification** have been done. Dependency vulnerabilities in `a2a-sdk`, `mcp`, `uvicorn` and `httpx` are not monitored automatically yet.
+- **No penetration test, no external audit and no SOC 2 or similar certification** have been done. Since 2026-11-05 dependency updates are watched automatically (Dependabot, CodeQL, OpenSSF Scorecard, secret scanning), but a bot is not an audit: see [docs/THIRD_PARTY.md](docs/THIRD_PARTY.md), [docs/INCIDENT_RESPONSE.md](docs/INCIDENT_RESPONSE.md) and [docs/SECURITY_MILESTONES.md](docs/SECURITY_MILESTONES.md).
 - The tools handle whatever text you give them; if it contains personal data, that is processed in memory and (for the arbiter) sent to the model provider. Anonymise first.
 - Prompt injection against the arbiter's judges was tested on a small set of attacks (documented in `docs/EVIDENCE.md`); that is not a proof of robustness.
 
