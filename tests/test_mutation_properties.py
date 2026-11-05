@@ -38,6 +38,12 @@ BASE = [
     "Archive the logs and the reports.", "Archiva los registros y los informes.", "Arquive os logs e os relatórios.",
     "Send the file to the client if the manager approves.", "Envía el archivo al cliente si el gerente aprueba.", "Envie o arquivo ao cliente se o gerente aprovar.",
     "The client pays the supplier.", "El cliente paga al proveedor.", "O cliente paga ao fornecedor.",
+    # round 4: possessives, pronouns, grammatical person, simple past
+    "Send me your report before noon.", "Revise o meu código antes do deploy.", "Envía tu informe antes del mediodía.",
+    "She sends the invoice every month.", "Ella envía la factura cada mes.", "Ela envia a fatura todo mês.",
+    "Tell him the invoice is overdue.", "Dile a él que la factura venció.", "Diga a ele que a fatura venceu.",
+    "The bank closes at noon.", "El banco cierra al mediodía.", "O banco fecha ao meio-dia.",
+    "I approve the budget.", "Yo apruebo el presupuesto.", "Eu aprovo o orçamento.",
 ]
 
 
@@ -140,10 +146,29 @@ def m_roles(t):                # who does what to whom
             or _sub(r"^O cliente paga ao fornecedor", "O fornecedor paga ao cliente", t))
 
 
+def m_possessive(t):           # whose it is
+    return (_sub(r"\byour report\b", "our report", t) or _sub(r"\bo meu código\b", "o seu código", t) or _sub(r"\btu informe\b", "mi informe", t))
+
+
+def m_pronoun(t):              # who: him <-> her
+    return (_sub(r"\bTell him\b", "Tell them", t) or _sub(r"\bDile a él\b", "Dile a ella", t) or _sub(r"\bDiga a ele\b", "Diga a eles", t))
+
+
+def m_subject_person(t):       # grammatical person of the subject
+    return (_sub(r"^She sends\b", "They send", t) or _sub(r"^Ella envía\b", "Ellas envían", t) or _sub(r"^Ela envia\b", "Elas enviam", t)
+            or _sub(r"^I approve\b", "We approve", t) or _sub(r"^Yo apruebo\b", "Nosotros aprobamos", t) or _sub(r"^Eu aprovo\b", "Nós aprovamos", t))
+
+
+def m_simple_past(t):          # habitual present -> one past event, with no auxiliary
+    return (_sub(r"\bcloses at\b", "closed at", t) or _sub(r"\bcierra al\b", "cerró al", t) or _sub(r"\bfecha ao\b", "fechou ao", t)
+            or _sub(r"\bsends the\b", "sent the", t) or _sub(r"\benvía la\b", "envió la", t) or _sub(r"\benvia a\b", "enviou a", t))
+
+
 MUTATORS = {"plural": m_plural_noun, "indefinite": m_indefinite, "tense": m_tense, "number": m_number_up, "version": m_version,
             "negate": m_negate, "modal": m_modal, "before_after": m_before_after, "swap_verb": m_swap_verb, "each_all": m_each_all,
             "recipient": m_recipient, "weekday": m_weekday, "unit": m_unit, "person": m_person, "degree": m_degree,
-            "and_or": m_and_or, "drop_condition": m_drop_condition, "add_only": m_add_only, "roles": m_roles}
+            "and_or": m_and_or, "drop_condition": m_drop_condition, "add_only": m_add_only, "roles": m_roles,
+            "possessive": m_possessive, "pronoun": m_pronoun, "subject_person": m_subject_person, "simple_past": m_simple_past}
 
 # (mutator, base sentence) pairs KNOWN to come out EQUIVALENT: each one is an open hole, listed so the suite stays green AND the hole stays visible.
 # Do not add a pair without a one-line reason.

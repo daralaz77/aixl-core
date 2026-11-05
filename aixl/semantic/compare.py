@@ -449,7 +449,17 @@ def compare(A, B) -> Verdict:
     _rp = [d for d in acc.diffs if _range_pair(d)]
     if _rp:
         acc.diffs = [d for d in acc.diffs if not any(d is x for x in _rp)]; acc.un("a range ('between N and M') and two exact numbers ('from N to M'): whether the ends are included is not stated")
-    soft = [d for d in acc.diffs if re.sub(r"\[\d+\]", "", d.path) not in DEFINITE_PATHS or (d.path.endswith(".quant") and {d.original, d.new} in ({"any", "all"}, {"each", "all"}, {"each", "any"}))]      # any vs all: 'cualquier X debe' is often universal
+    def _fraction_in_words(d):        # '1 in 10' / 'one in ten' (two exact numbers) vs '10%' (one): a fraction written two ways, not a different quantity
+        if not d.path.endswith(".qty"): return False
+        ex = lambda xs: sorted(r[1] for r in (xs or []) if isinstance(r, tuple) and len(r) == 3 and r[0] == "exact_implicit")
+        a, b = ex(d.original), ex(d.new)
+        return bool(a) and bool(b) and len(a) != len(b) and (set(a) <= set(b) or set(b) <= set(a))
+    def _non_temporal_relation(d):    # 'before tax' / 'excluding tax': 'before' on a bag with no day, clock, number or unit is not a time relation
+        if not d.path.endswith(".time"): return False
+        vals = [v for v in (d.original or []) + (d.new or []) if isinstance(v, tuple) and len(v) == 2 and v[0] in ("before", "after", "until") and isinstance(v[1], tuple) and v[1][:1] == ("bag",)]
+        return bool(vals) and all(not any(re.fullmatch(r"(N:.*|U:.*|T\d{4}|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|mon|tue|wed|thu|fri|sat|sun)", k) or k in L.DAYS or k in L.RELDAYS for k in v[1][1:]) for v in vals)
+    soft = [d for d in acc.diffs if re.sub(r"\[\d+\]", "", d.path) not in DEFINITE_PATHS or (d.path.endswith(".quant") and {d.original, d.new} in ({"any", "all"}, {"each", "all"}, {"each", "any"}))
+            or _fraction_in_words(d) or _non_temporal_relation(d)]      # any vs all: 'cualquier X debe' is often universal
     if soft:                                                                           # closed list: only slot types measured as reliable may assert a difference; the rest is INCONCLUSIVE
         acc.diffs = [d for d in acc.diffs if not any(d is s for s in soft)]
         acc.un(f"a difference of an unreliable type ({sorted({d.path for d in soft})}) is not asserted: it may be a paraphrase, an added detail or a disputed construction")
@@ -463,5 +473,13 @@ def _probe(x, y):
     t = _Acc(); _step_cmp(x, y, t, 0); return t
 
 
-def compare_texts(a: str, b: str) -> Verdict:
-    return compare(parse(a), parse(b))
+def compare_texts(a: str, b: str, strict: bool = False) -> Verdict:
+    """Compare two texts. `strict=True` is the no-silent-failure mode for irreversible actions (DELETE, SEND, payments): EQUIVALENT only when the two
+    texts have the SAME token sequence (case, accents and punctuation aside); any other pair that the rules would call EQUIVALENT becomes INCONCLUSIVE.
+    NOT_EQUIVALENT is untouched. By construction it has no false-EQUIVALENT for texts that differ in a word, at the price of almost no proven equivalences."""
+    pa, pb = parse(a), parse(b)
+    v = compare(pa, pb)
+    if strict and v.verdict == "EQUIVALENT" and pa.norm != pb.norm:
+        return Verdict("INCONCLUSIVE", [], ["strict mode: EQUIVALENT is reserved for texts with the same token sequence; the rules alone proved these equal"],
+                       list(v.warnings), list(v.flags), list(v.suspected))
+    return v

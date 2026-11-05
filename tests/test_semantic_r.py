@@ -550,3 +550,30 @@ def test_blind25_silent_failures_are_never_equivalent(a, b):
 def test_each_vs_all_is_suspected_not_asserted():
     v = compare_texts("Each user must reset their password every 90 days.", "Every user has to reset his or her password every 90 days.")
     assert v.verdict != "NOT_EQUIVALENT"
+
+
+# ---- strict mode: EQUIVALENT only for the same token sequence ----------------------------------------------------------------------------------
+def test_strict_mode_only_proves_identical_token_sequences():
+    assert compare_texts("Delete the file.", "delete the FILE!", strict=True).verdict == "EQUIVALENT"        # same tokens: case and punctuation do not count
+    assert compare_texts("Borra el archivo.", "Borra el archivo", strict=True).verdict == "EQUIVALENT"
+    assert compare_texts("Delete the file.", "Delete a file.", strict=True).verdict != "EQUIVALENT"
+    assert compare_texts("Send it before Friday.", "Send it after Friday.", strict=True).verdict == "NOT_EQUIVALENT"      # a definite difference is still reported
+
+
+def test_strict_mode_has_no_false_equivalent_on_the_spent_blind_sets():
+    import json
+    import os
+    root = os.path.join(os.path.dirname(__file__), "..", "data")
+    n = bad = 0
+    for b in range(19, 26):
+        d = os.path.join(root, f"blind{b}")
+        for fn in sorted(os.listdir(d)):
+            if not fn.endswith(".jsonl"):
+                continue
+            for line in open(os.path.join(d, fn), encoding="utf-8"):
+                if line.strip():
+                    r = json.loads(line)
+                    if r["expected_equivalence"] != "EQUIVALENT":
+                        n += 1
+                        bad += compare_texts(r["text_a"], r["text_b"], strict=True).verdict == "EQUIVALENT"
+    assert n > 300 and bad == 0
