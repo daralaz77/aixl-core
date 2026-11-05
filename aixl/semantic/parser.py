@@ -42,7 +42,7 @@ def tokenize(text: str) -> list:
         s = re.sub(rx, rep, s, flags=re.I)
     s = re.sub(r"[$]\s?(\d[\d.,]*)", r"\1 usd", s)
     s = re.sub(r"€\s?(\d[\d.,]*)", r"\1 eur", s)
-    s = re.sub(r"(\d+)\s?[ºª°]", r" ORD\1 ", s)
+    s = re.sub(r"(?<!\d)(\d+)\s?[ºª°]", r" ORD\1 ", s)      # no start inside a digit run (quadratic otherwise)
     s = re.sub(r"\b(\d{1,2})(?::(\d\d))?\s*(a\.?\s?m\.?|p\.?\s?m\.?)(?![a-z])", lambda m: _clock_to_token(re.match(r"(\d+)(?::(\d+))?\s*(.*)", m.group(0).replace(" ", ""))), s, flags=re.I)
     s = re.sub(r"\b(\d{1,2}):(\d\d)\b", lambda m: f" T{int(m.group(1)):02d}{m.group(2)} ", s)
     s = re.sub(r"\b(?:a\s+las\s+|às\s+|as\s+|a\s+la\s+)?(\d{1,2})\s?(?:h|hs|hrs)\b(?!\w)", lambda m: f" T{int(m.group(1)):02d}00 ", s)
@@ -63,6 +63,7 @@ def detect_lang(toks) -> str:
 
 
 def _num(tok: str):
+    if len(tok) > 40: return None          # not a meaningful number; also int() raises ValueError past 4300 digits (a crash on '9' * 16384)
     if re.fullmatch(r"\d{1,3}(?:[.,]\d{3})+", tok): return int(re.sub(r"[.,]", "", tok))
     if re.fullmatch(r"\d+[.,]\d+", tok): return float(tok.replace(",", "."))
     if tok.isdigit(): return int(tok)

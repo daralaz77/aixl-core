@@ -1,6 +1,7 @@
 """Closed-class lexicon for the controlled domain (ES/EN/PT): function words and common instruction verbs.
 Everything here is general instruction vocabulary; anything NOT here stays as an opaque content token (never dropped)."""
 import re
+from functools import lru_cache
 
 ARTICLES = {"es": {"el", "la", "los", "las", "un", "una", "unos", "unas", "lo"},
             "pt": {"o", "a", "os", "as", "um", "uma", "uns", "umas"},
@@ -292,6 +293,7 @@ _SUFFIX = r"(?:a|e|o|as|es|an|en|ar|er|ir|ad|ed|id|ado|ido|ando|iendo|ing|ed|s|a
 _CLITIC = r"(?:(?:me|te|le|les|se|lo|la|los|las|nos)){0,2}"
 
 
+@lru_cache(maxsize=8192)
 def verb_action(token: str) -> str | None:
     """Canonical action for a folded token (imperative / infinitive / participle, with clitics) or None."""
     for act, stems in ACTIONS.items():

@@ -262,14 +262,14 @@ def analyze(text: str) -> tuple:
                 return op
         return "="
 
-    for m in list(re.finditer(r"(\d+(?:[.,]\d+)?)\s*%\s*(?:de\s+|of\s+)?(?:confianza|confidence|confianca)\b", W.s)):
+    for m in list(re.finditer(r"(?<!\d)(\d+(?:[.,]\d+)?)\s*%\s*(?:de\s+|of\s+)?(?:confianza|confidence|confianca)\b", W.s)):
         val = norm_decimal(f"{float(_num(m.group(1))) / 100:.2f}")
         if in_span(m.start()):
             f.conditions.append(f"H={val}")
         else:
             f.confidence = f"={val}"
         W.eat(m.start(), m.end())
-    for m in list(re.finditer(r"(?P<mid>[^0-9;.]{0,30}?)(?P<num>\d*\.\d+|\d+)\s+(?:de\s+)?(?:confidence|confianza|confianca)\b", W.s)):
+    for m in list(re.finditer(r"(?P<mid>[^0-9;.]{0,30}?)(?<!\d)(?P<num>\d*\.\d+|\d+)\s+(?:de\s+)?(?:confidence|confianza|confianca)\b", W.s)):
         if re.search(r"%", m.group(0)):
             continue
         op = cmp_of(m.group("mid"))
