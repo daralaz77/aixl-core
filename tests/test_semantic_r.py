@@ -324,7 +324,6 @@ def test_known_antonym_swap_is_not_equivalent(a, b):
     ("Use safe accounts.", "Use secure accounts."),                             # not an antonym pair: unchanged
 ])
 def test_antonym_rule_is_silent_when_polarity_is_involved(a, b):
-    from aixl.semantic.parser import parse as _p
     r = compare_texts(a, b)
     assert not any(d.path == "items.antonym" for d in r.diffs)
 

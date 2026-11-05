@@ -19,7 +19,7 @@ SEVERITY = {"DEONTIC": "CRITICAL", "COND": "CRITICAL", "EXCEPT": "CRITICAL", "WI
 SYMMETRIC_ACTIONS = {"COMPARE"}
 INDEFINITE_ARTICLES = {"es": {"un", "una", "unos", "unas"}, "pt": {"um", "uma", "uns", "umas"}, "en": {"a", "an"}}
 PAST_MARKERS = {"was", "were", "did", "fue", "fueron", "era", "eran", "foi", "foram", "hubo", "habia"}
-FUTURE_MARKERS = {"will", "shall", "sera", "seran", "sera", "serao"}
+FUTURE_MARKERS = {"will", "shall", "sera", "seran", "serao"}
 
 
 def dropped_features(o) -> Counter:
