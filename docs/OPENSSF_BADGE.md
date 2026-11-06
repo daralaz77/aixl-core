@@ -28,10 +28,10 @@ Base: `R = https://github.com/daralaz77/aixl-core`, `B = R/blob/main`.
 | repo_track | Met | git history: who, what, when |
 | repo_interim | Met | every commit is public on `main`, not only releases |
 | repo_distributed | Met | git |
-| version_unique | **TODO** | `0.5.0` is in `pyproject.toml` and `aixl.__version__`, but only the tag `v1.0.0-paper` exists. Cut a tag for the next version (see "Before you submit") |
+| version_unique | Met | tag `v0.6.0` (`R/releases/tag/v0.6.0`); version in `pyproject.toml` and `aixl.__version__` |
 | version_semver | Met | `B/docs/VERSIONING_POLICY.md` (SemVer) |
-| version_tags | **TODO** | needs the release tag above |
-| release_notes | **TODO** | `B/CHANGELOG.md` and `B/docs/SEMANTIC_CHANGELOG.md` exist; attach the matching section to the GitHub release when you tag |
+| version_tags | Met | git tags `v0.6.0` and `v1.0.0-paper` |
+| release_notes | Met | the notes of the GitHub release `v0.6.0`, `B/CHANGELOG.md` and `B/docs/SEMANTIC_CHANGELOG.md` |
 | release_notes_vulns | Met (N/A-like) | `B/CHANGELOG.md` states that no CVE has been assigned to any fixed issue in the version |
 
 ## Reporting
@@ -96,7 +96,7 @@ Base: `R = https://github.com/daralaz77/aixl-core`, `B = R/blob/main`.
 | dynamic_analysis_fixed | Met | nothing found by the fuzzers so far (150 s runs and 2 deep Hypothesis runs); would be fixed |
 
 ## Before you submit (what I could not do for you)
-1. **Create a release tag.** Decide the version: the changelog's "Unreleased" section is larger than a patch, so `0.5.1` or `0.6.0`. Then bump `pyproject.toml` and `aixl/__init__.py`, tag `vX.Y.Z` and publish a GitHub release whose notes are that changelog section. This publishes content, so it is your call.
+1. ~~Create a release tag~~ Done 2026-11-06: `v0.6.0` is published and marked Latest; the three version rows above are Met.
 2. **Answer the two ATTEST rows** honestly. If you do not yet feel able to, answer "Unmet" and explain; a project can still earn the badge by meeting the others later.
 3. Create the project entry while signed in with GitHub on bestpractices.dev (it reads the repository for you), then paste the answers above. I cannot sign in for you.
 4. After the badge exists, add its markdown to the README and re-run the Scorecard workflow; the alert closes on its next pass.
