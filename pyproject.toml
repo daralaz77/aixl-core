@@ -10,7 +10,7 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]
-dev = ["pytest", "tiktoken"]
+dev = ["pytest", "tiktoken", "hypothesis"]
 mcp = ["mcp"]
 a2a = ["a2a-sdk[http-server]", "uvicorn"]
 llm = ["httpx"]
