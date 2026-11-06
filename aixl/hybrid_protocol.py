@@ -26,6 +26,13 @@ PROTOCOL = ["Run TWO independent judges (separate contexts; different models if 
             "Call aixl_hybrid_decide(a, b, judge_verdicts={'judge_1': ..., 'judge_2': ...}). One judge, or a missing/invalid verdict, can never produce SAME."]
 
 
+def semantic_compare(a: str, b: str, strict: bool = False) -> dict:
+    """The rule-based semantic verdict as a dict (MCP tool `aixl_compare_semantic`). `strict=True`: EQUIVALENT only for the same token sequence."""
+    out = compare_texts(a, b, strict=strict).to_dict()
+    out["strict"] = strict
+    return out
+
+
 def prepare(a: str, b: str) -> dict:
     sem = compare_texts(a, b)
     obf = sorted(set(sanitize_input(a)[1]) | set(sanitize_input(b)[1]))

@@ -31,6 +31,12 @@ def aixl_compare(a: str, b: str) -> dict:
     return aixl.compare_verified(a, b)       # never EQUIVALENT without proof; same keys as compare().to_dict() plus `verified` (consejo-5x 2026-10-13)
 
 
+@server.tool(description="Rule-based semantic verdict for two instructions: EQUIVALENT / NOT_EQUIVALENT / INCONCLUSIVE (offline, no model). Use `strict: true` before an IRREVERSIBLE action (delete, send, pay): EQUIVALENT is then returned only when both texts have the same token sequence (case, accents and punctuation aside), so a changed word can never pass as 'the same'; the price is that almost no paraphrase is proven. "
+                          "NOT_EQUIVALENT lists the definite differences; `suspected` lists differences the rules saw but do not assert (treat them as a reason to ask a human). Measured on 345 non-equivalent pairs written by other authors: 0 false EQUIVALENT in strict mode.")
+def aixl_compare_semantic(a: str, b: str, strict: bool = False) -> dict:
+    return hybrid_protocol.semantic_compare(a, b, strict=strict)
+
+
 @server.tool(description="Did a CRITICAL SLOT change between a source instruction and its relay (negation, number, date/weekday, modality, condition, "
                           "and/or, only, comparator, names, action verb, who-is-first, pronoun)? Built for NEAR-VERBATIM relays (copy errors, tampering, a flipped word); works on open vocabulary. NOT a quality gate for a relay that rewords the instruction (9 of 10 faithful rewordings are flagged). `ok: true` means no critical slot visibly "
                           "changed — it is NOT a proof of equivalence. Measured: 94.6 % of arena corruptions and 75.8 % of corruptions written by real models are flagged; benign edits 0.0 %.")

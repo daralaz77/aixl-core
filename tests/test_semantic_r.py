@@ -577,3 +577,16 @@ def test_strict_mode_has_no_false_equivalent_on_the_spent_blind_sets():
                         n += 1
                         bad += compare_texts(r["text_a"], r["text_b"], strict=True).verdict == "EQUIVALENT"
     assert n > 300 and bad == 0
+
+
+def test_cli_semantic_command_and_strict_exit_codes():
+    import subprocess
+    import sys
+    root = os.path.join(os.path.dirname(__file__), "..")
+    run = lambda *args: subprocess.run([sys.executable, "cli.py", "semantic", *args], cwd=root, capture_output=True, text=True, timeout=60)
+    same = run("Delete the file.", "delete the FILE!", "--strict")
+    assert same.returncode == 0 and same.stdout.startswith("EQUIVALENT")
+    other = run("Delete the file.", "Delete a file.", "--strict")
+    assert other.returncode == 3 and "EQUIVALENT" not in other.stdout.split()[0]
+    js = run("Send it before Friday.", "Send it after Friday.", "--json")
+    assert js.returncode == 3 and json.loads(js.stdout)["verdict"] == "NOT_EQUIVALENT"

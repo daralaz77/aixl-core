@@ -15,6 +15,7 @@ The prompt's conceptual `aixl encode|decode|compare|validate|drift` map to the c
 | `drift` | `"a" "b"` | drift level + `CRITICAL_SEMANTIC_DRIFT` flag + differences (`--json`) | 0 |
 | `ambiguity` | `"text"` | ambiguity result as JSON | 0 |
 | `contradiction` | `"a" "b"` | contradiction result as JSON | 0 |
+| `semantic` | `"a" "b" [--strict] [--json]` | rule-based verdict EQUIVALENT / NOT_EQUIVALENT / INCONCLUSIVE (offline); `--strict`: EQUIVALENT only for the same token sequence, for irreversible actions; also MCP tool `aixl_compare_semantic` | 0 only for EQUIVALENT · **3** otherwise |
 | `negotiate` | `"sender" "receiver" [--rounds N] [--json]` | bounded clarification exchange on two texts | 0 |
 | `negotiate-aixl` | `"line" "line" [--rounds N] [--json]` | same, on two AIXL lines | 0 |
 | `lab` | `"a" "b"` | rich CLI view of a comparison | 0 |

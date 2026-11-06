@@ -33,7 +33,16 @@ async def _call(tool: str, args: dict) -> dict:
 def test_server_lists_the_aixl_tools():
     out = asyncio.run(_call("aixl_translate", {"text": "Analiza las ventas de Q1 2026."}))
     assert set(out["tool_names"]) == {"aixl_translate", "aixl_compare", "aixl_negotiate",
-                                       "aixl_negotiate_autonomous", "aixl_hybrid_prepare", "aixl_hybrid_decide", "aixl_relay_check", "aixl_handoff_check", "aixl_verify_signed"}
+                                       "aixl_negotiate_autonomous", "aixl_hybrid_prepare", "aixl_hybrid_decide", "aixl_relay_check", "aixl_handoff_check", "aixl_verify_signed", "aixl_compare_semantic"}
+
+
+def test_compare_semantic_tool_strict_mode_over_real_mcp_stdio_transport():
+    strict = json.loads(asyncio.run(_call("aixl_compare_semantic", {"a": "Delete the file.", "b": "Delete a file.", "strict": True}))["text"])
+    assert strict["verdict"] != "EQUIVALENT" and strict["strict"] is True
+    same = json.loads(asyncio.run(_call("aixl_compare_semantic", {"a": "Delete the file.", "b": "delete the FILE!", "strict": True}))["text"])
+    assert same["verdict"] == "EQUIVALENT"
+    diff = json.loads(asyncio.run(_call("aixl_compare_semantic", {"a": "Send it before Friday.", "b": "Send it after Friday."}))["text"])
+    assert diff["verdict"] == "NOT_EQUIVALENT" and diff["diffs"]
 
 
 def test_hybrid_two_step_over_real_mcp_stdio_transport():

@@ -63,7 +63,7 @@ jobs:
             sleep 1
           done
           curl -sf http://127.0.0.1:8766/healthz || { docker logs smoke; exit 1; }
-          pip install -q "a2a-sdk[http-server]" httpx
+          pip install -q --require-hashes -r requirements/ci.txt
           AIXL_A2A_TOKEN=$TOKEN python scripts/smoke_test_a2a.py http://127.0.0.1:8766 || { docker logs smoke; exit 1; }
           docker logs smoke
           docker rm -f smoke

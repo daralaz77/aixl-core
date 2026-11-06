@@ -22,7 +22,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 # it installs `mcp` alongside a2a-sdk, and `mcp` itself happens to depend on uvicorn for its own
 # (unrelated, HTTP-transport) use — a real, fragile hidden coupling, not a real fix, now made explicit
 # here and in pyproject.toml's own `a2a` extra.
-RUN pip install --no-cache-dir "a2a-sdk[http-server]" uvicorn
+COPY requirements/docker.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir --require-hashes -r /tmp/requirements.txt
 
 # Only what the agent actually imports at runtime: the aixl/ package, which now carries its own resources (aixl/resources/config.json) —
 # not the 1.4MB of blind-set/benchmark data under data/ that has nothing to do with running the agent.

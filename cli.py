@@ -45,6 +45,8 @@ def main(argv=None):
     for name, n in (("translate", 1), ("ambiguity", 1), ("aixl", 1), ("encode", 1), ("decode", 1), ("validate", 1), ("fingerprint", 1), ("compare", 2), ("diff", 2), ("drift", 2), ("contradiction", 2), ("lab", 2)):
         p = sub.add_parser(name)
         p.add_argument("a"); n == 2 and p.add_argument("b"); p.add_argument("--json", action="store_true")
+    p = sub.add_parser("semantic")   # rule-based verdict; --strict = EQUIVALENT only for the same token sequence (exit 0 EQUIVALENT / 3 anything else)
+    p.add_argument("a"); p.add_argument("b"); p.add_argument("--strict", action="store_true"); p.add_argument("--json", action="store_true")
     p = sub.add_parser("guard")      # internal guard: PASS / REVIEW (exit 0 / 3)
     p.add_argument("profile", choices=["reclamaya", "robot_school", "cinematch"]); p.add_argument("a"); p.add_argument("b")
     p.add_argument("--no-aixl", action="store_true"); p.add_argument("--json", action="store_true")
@@ -92,6 +94,16 @@ def main(argv=None):
         r = guard(a.a, a.b, a.profile, use_aixl=not a.no_aixl)
         print(json.dumps({"decision": r.decision, "reasons": r.reasons, "aixl_verdict": r.aixl_verdict}, ensure_ascii=False))
         raise SystemExit(0 if r.passed else 3)
+    if a.cmd == "semantic":
+        from aixl.semantic import compare_texts
+        v = compare_texts(a.a, a.b, strict=a.strict)
+        if a.json: dump({**v.to_dict(), "strict": a.strict})
+        else:
+            print(f"{v.verdict}{'  (strict)' if a.strict else ''}")
+            for d in v.diffs: print(f"  difference: {d.path}: {d.original} -> {d.new}  [{d.severity}]")
+            for d in v.suspected: print(f"  suspected (not asserted): {d.path}: {d.original} -> {d.new}")
+            for u in v.unresolved: print(f"  unresolved: {u}")
+        raise SystemExit(0 if v.verdict == "EQUIVALENT" else 3)
     if a.cmd == "compare":
         r = aixl.compare(a.a, a.b)
         if a.json: return dump(r.to_dict())
