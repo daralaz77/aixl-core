@@ -2,7 +2,7 @@
 
 Human-readable summary of what changes between releases. The detailed, per-change compatibility tables (backward compatibility, migration, test impact) are in [docs/SEMANTIC_CHANGELOG.md](docs/SEMANTIC_CHANGELOG.md); the project history is in [docs/HISTORY.md](docs/HISTORY.md). Version numbers follow [Semantic Versioning](https://semver.org/) (see `docs/VERSIONING_POLICY.md`); while the major version is 0, a MINOR bump may change the canonical form.
 
-## Unreleased (after 0.5.0)
+## 0.6.0 — 2026-11-06
 ### Security
 - Private vulnerability reporting, Dependabot, secret scanning and push protection enabled; `SECURITY.md` and `.well-known/security.txt` updated.
 - CodeQL, OpenSSF Scorecard and ClusterFuzzLite (Atheris) run in CI; every GitHub Action, the base images and the Python dependencies are pinned by hash.

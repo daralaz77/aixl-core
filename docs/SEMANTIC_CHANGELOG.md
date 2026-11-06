@@ -16,6 +16,16 @@ Canonical form gains a dimension, so by VERSIONING_POLICY.md this is a loud MINO
 
 Regression tests added for property/invariant behaviour (`test_properties.py`, `test_golden.py`). Total at release: 435 passed.
 
+## 0.6.0 — 2026-11-06 — the comparator asserts less and says "equal" less often; wire token stays `V:AIXL-0.3`
+| Change | Backward compatibility | Migration | Test impact |
+|---|---|---|---|
+| `compare_texts(a, b, strict=False)`; `strict=True`: EQUIVALENT only for the same token sequence. MCP tool `aixl_compare_semantic`, CLI `semantic [--strict]` | New parameter, tool and command; default behaviour of `compare_texts` is the only thing below | none | `test_semantic_r.py` (strict), `test_mcp_integration.py`, CLI test |
+| Closed list `DEFINITE_PATHS`: only reliable difference types (obligation, quantity, time, action, `only`, reference, recipient, quantifier, antonym, `without`, sequence, steps, condition polarity) may produce NOT_EQUIVALENT; others become INCONCLUSIVE and are kept in `Verdict.suspected` | `Verdict.to_dict()` gains a `suspected` key; pairs that were NOT_EQUIVALENT because of loose items / conditions / exceptions are now INCONCLUSIVE | callers that treat INCONCLUSIVE as "not proven equal" need no change | `test_semantic_r.py` (`FLAGGED`) |
+| Dropped-feature ledger (indefinite article, past/future marker, plural, version-like numerals) blocks EQUIVALENT when it differs; `AMBIGUOUS_NOT_PROHIBITED` flag; each/all and any/all differences are suspected, not asserted | Some pairs that came out EQUIVALENT now come out INCONCLUSIVE (never the reverse) | none | blind19-25 post-hoc: 0 false-EQUIVALENT, same proven-EQUIVALENT except 2 pairs in blind19 |
+| Regular expressions that were cubic or quadratic on digit runs fixed; numerals longer than 40 characters are treated as words | `to_semantic` on 2,000 digits: 19 s to under 0.1 s; no `ValueError` | none | `test_redos_budget.py` |
+
+Total at release: 1,921 passed. Details of the evidence: `data/blind23` to `data/blind25` PREREG files.
+
 ## 0.5.0 — 2026-10-03 (ADR-016, ADR-017, ADR-018) — all opt-in or additive; wire token stays `V:AIXL-0.3`
 | Change | Backward compatibility | Migration | Test impact |
 |---|---|---|---|
