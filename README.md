@@ -58,7 +58,7 @@ How to report a vulnerability, what is in scope and the known limits: [SECURITY.
 ### Status
 Not a standard; no production use. Everything measured is in [`docs/EVIDENCE.md`](docs/EVIDENCE.md) and [`LIMITATIONS.md`](LIMITATIONS.md); the earlier headline numbers
 (99.4 %, 95 %+) are history: they come from sets that share the translator's own vocabulary.
-**1255 tests** pass (`.venv/bin/python -m pytest -q`). **AIXL 0.4 atom layer** (concept-id atoms, wire format, firewall, fidelity): [docs/ATOMS.md](docs/ATOMS.md) — evidence in [docs/ATOMS_EVIDENCE.md](docs/ATOMS_EVIDENCE.md).
+**1,900+ tests** pass (`.venv/bin/python -m pytest -q`). **AIXL 0.4 atom layer** (concept-id atoms, wire format, firewall, fidelity): [docs/ATOMS.md](docs/ATOMS.md) — evidence in [docs/ATOMS_EVIDENCE.md](docs/ATOMS_EVIDENCE.md).
 
 [![tests](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml/badge.svg)](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml)
 [![Paper DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23227169.svg)](https://doi.org/10.5281/zenodo.23227169)
