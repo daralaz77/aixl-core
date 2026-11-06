@@ -32,7 +32,7 @@ def aixl_compare(a: str, b: str) -> dict:
 
 
 @server.tool(description="Rule-based semantic verdict for two instructions: EQUIVALENT / NOT_EQUIVALENT / INCONCLUSIVE (offline, no model). Use `strict: true` before an IRREVERSIBLE action (delete, send, pay): EQUIVALENT is then returned only when both texts have the same token sequence (case, accents and punctuation aside), so a changed word can never pass as 'the same'; the price is that almost no paraphrase is proven. "
-                          "NOT_EQUIVALENT lists the definite differences; `suspected` lists differences the rules saw but do not assert (treat them as a reason to ask a human). Measured on 345 non-equivalent pairs written by other authors: 0 false EQUIVALENT in strict mode.")
+                          "NOT_EQUIVALENT lists the definite differences; `suspected` lists differences the rules saw but do not assert (treat them as a reason to ask a human). Measured on 342 non-equivalent pairs written by other authors: 0 false EQUIVALENT in strict mode.")
 def aixl_compare_semantic(a: str, b: str, strict: bool = False) -> dict:
     return hybrid_protocol.semantic_compare(a, b, strict=strict)
 
