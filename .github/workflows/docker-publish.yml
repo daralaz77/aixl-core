@@ -1,29 +1,23 @@
 name: docker-publish
 
-# Builds and publishes the aixl-core A2A agent image. Gated on the test suite passing first (the
-# `tests` workflow) so a broken build never reaches ghcr.io — see DEPLOYMENT.md for the full pipeline.
+# Builds, smoke-tests and publishes the aixl-core A2A agent image. It is a REUSABLE workflow called by the `tests` workflow only after every
+# test job succeeded, and only for a push to main (see the `publish` job in tests.yml), so a broken build never reaches ghcr.io and no pull
+# request can reach the step that writes packages. It used to be a separate `workflow_run` workflow that checked out `workflow_run.head_sha`:
+# OpenSSF Scorecard flags that pattern as a 'dangerous workflow' even with conditions. See DEPLOYMENT.md for the full pipeline.
 on:
-  workflow_run:
-    workflows: ["tests"]
-    types: [completed]
-    branches: [main]
+  workflow_call:
 
 permissions:
   contents: read
 
 jobs:
   build-and-push:
-    # Only a SUCCESSFUL run of `tests` triggered by a push to this repository's own main: a pull request (even from a fork whose branch is
-    # also called main) never reaches the step that checks out code and writes packages (OpenSSF Scorecard 'dangerous workflow' finding).
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: ${{ github.event.workflow_run.head_sha }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1

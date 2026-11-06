@@ -38,7 +38,7 @@ see BENCHMARK.md §16); every pod is interchangeable, nothing to migrate or back
 ## 2. Deployment flow
 
 1. Push to `main`. CI runs the test suite (Python 3.11 + 3.12).
-2. On a green test run, `docker-publish.yml` triggers via `workflow_run`, builds the image, **actually
+2. When every test job is green (and only for a push to `main`), the `publish` job of `tests.yml` calls the reusable workflow `docker-publish.yml` (since 2026-11-06; it used to be a separate `workflow_run` workflow), which builds the image, **actually
    runs the built image and drives a real `aixl_compare` call through it** before pushing anything —
    this caught a real bug while building this pipeline (§5).
 3. Image lands in `ghcr.io/daralaz77/aixl-core` tagged `latest` and `sha-<short-sha>` (private package,
@@ -50,8 +50,8 @@ see BENCHMARK.md §16); every pod is interchangeable, nothing to migrate or back
 ## 3. CI/CD pipeline
 
 - **`.github/workflows/tests.yml`** (pre-existing, 2026-09-30): the test gate. Matrix Python 3.11/3.12.
-- **`.github/workflows/docker-publish.yml`** (this pass): `workflow_run` off of `tests`, so a red test
-  run never produces a published image. Steps: build → **run the real container and call it for real**
+- **`.github/workflows/docker-publish.yml`** (this pass): a reusable workflow (`workflow_call`) invoked by the `publish` job of `tests.yml` after all test jobs pass, so a red test
+  run never produces a published image and no pull request can reach it. Steps: build → **run the real container and call it for real**
   (`scripts/smoke_test_a2a.py`, same script you can run by hand) → only then push, tagged `latest` and
   `sha-<short-sha>` (so a specific commit's image can always be pinned, not just "whatever latest is
   today"). Uses the built-in `GITHUB_TOKEN` — no new secret to create or rotate.

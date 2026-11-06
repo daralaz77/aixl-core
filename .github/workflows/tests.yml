@@ -87,3 +87,12 @@ jobs:
         with:
           name: sbom
           path: sbom.cdx.json
+
+  publish:
+    # Build, smoke-test and publish the image: only after ALL the jobs above passed, and only for a push to this repository's main.
+    needs: [pytest, lint, arena, wheel]
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    permissions:
+      contents: read
+      packages: write
+    uses: ./.github/workflows/docker-publish.yml
