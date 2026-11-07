@@ -37,7 +37,11 @@ class HybridDecision:
                                                                   from_memo=self.arbiter.from_memo, obfuscation=self.arbiter.obfuscation))
 
 
-def decide(a: str, b: str, judges: dict | None = None, memo=None, short_circuit: bool = False, retries: int = 1) -> HybridDecision:
+def decide(a: str, b: str, judges: dict | None = None, memo=None, short_circuit: bool = False, retries: int = 1,
+           require_semantic_equivalent: bool = False) -> HybridDecision:
+    """`require_semantic_equivalent=True` (strict hybrid, for irreversible actions): a unanimous SAME is accepted only when the rule-based comparator ALSO proves
+    EQUIVALENT; when it cannot (INCONCLUSIVE) the result is REVIEW, a person decides. Measured 2026-11-06: 0 false accepts of 395 non-equivalent pairs (blind19-26)
+    but only 11 of 245 equivalent pairs are proven, so almost everything goes to review. Default False keeps the behaviour above."""
     sem = compare_texts(a, b)
     if sem.verdict == "NOT_EQUIVALENT" and (short_circuit or not judges):
         return HybridDecision("DIFFERENT", "semantic-suspect", sem, None,
@@ -57,6 +61,9 @@ def decide(a: str, b: str, judges: dict | None = None, memo=None, short_circuit:
         if sem.verdict == "INCONCLUSIVE" and amb:
             return HybridDecision("REVIEW", "none", sem, d, ["both judges said SAME, but the semantic model flags the text as ambiguous (" + ", ".join(amb) +
                                                               "): sameness of an ambiguous instruction is a guess, not a proof"])
+        if require_semantic_equivalent and sem.verdict != "EQUIVALENT":
+            return HybridDecision("REVIEW", "none", sem, d, ["strict hybrid: both judges said SAME but the rule-based comparator did not prove EQUIVALENT "
+                                                              f"(it said {sem.verdict}): a person decides before an irreversible action"])
         return HybridDecision("SAME", "arbiter+semantic" if sem.verdict == "EQUIVALENT" else "arbiter", sem, d, notes)
     if sem.verdict == "NOT_EQUIVALENT": notes.append("the arbiter is unsure, and the semantic model suspects a difference")
     return HybridDecision("UNSURE", "none", sem, d, notes)

@@ -39,3 +39,38 @@ def test_semantic_veto_turns_a_unanimous_same_into_review():
 def test_bad_judge_input_never_raises():
     hp.decide(A, B, None)
     hp.decide(A, B, {1: 5, "x": ["SAME"]})
+
+
+# Strict hybrid (2026-11-06): measured on blind19-26, the default hybrid let through about 5-6% of non-equivalent pairs because two LLM judges err together;
+# `strict=True` also needs the rule-based comparator to PROVE equivalence, otherwise REVIEW (a person decides).
+SAME2 = {"j1": "SAME", "j2": "SAME"}
+UNPROVEN = ("Get the contract signed by Friday.", "Make sure the contract is signed by Friday.")        # blind26 R008: judges say SAME, comparator INCONCLUSIVE
+
+
+def test_strict_sends_a_unanimous_same_to_review_when_the_comparator_cannot_prove_it():
+    assert hp.decide(*UNPROVEN, SAME2)["verdict"] == "SAME"                       # default behaviour unchanged
+    r = hp.decide(*UNPROVEN, SAME2, strict=True)
+    assert r["verdict"] == "REVIEW" and r["strict"] is True and "did not prove EQUIVALENT" in " ".join(r["notes"])
+
+
+def test_strict_keeps_same_when_the_comparator_proves_equivalent():
+    r = hp.decide(A, B, SAME2, strict=True)
+    assert r["verdict"] == "SAME" and r["proven_by"] == "arbiter+semantic"
+
+
+@pytest.mark.parametrize("strict", [False, True])
+def test_strict_never_loosens_anything(strict):
+    assert hp.decide(A, B, {"j1": "SAME", "j2": "DIFFERENT"}, strict=strict)["verdict"] == "DIFFERENT"
+    assert hp.decide(A, B, {"j1": "SAME"}, strict=strict)["verdict"] != "SAME"
+    assert hp.decide("Delete all files except the logs", "Delete all files", SAME2, strict=strict)["verdict"] == "REVIEW"
+
+
+def test_default_is_not_strict():
+    assert hp.decide(A, B, SAME2)["strict"] is False
+
+
+@pytest.mark.parametrize("a,b", [UNPROVEN,
+                                 ("Get the design team to update the logo on the website.", "Have the designers change the website logo."),          # blind26 S008
+                                 ("If the primary API is down, use the backup one.", "If the main API doesn't respond, switch to the backup.")])  # blind26 S040
+def test_the_three_blind26_judge_false_sames_do_not_pass_strict(a, b):
+    assert hp.decide(a, b, SAME2, strict=True)["verdict"] != "SAME"

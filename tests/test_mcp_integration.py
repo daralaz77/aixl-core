@@ -55,6 +55,10 @@ def test_hybrid_two_step_over_real_mcp_stdio_transport():
     dec2 = json.loads(asyncio.run(_call("aixl_hybrid_decide", {"a": "Generate the sales report", "b": "Create the sales report",
                                                               "judge_verdicts": {"j1": "SAME", "j2": "SAME"}}))["text"])
     assert dec2["verdict"] == "SAME"
+    u = {"a": "Get the contract signed by Friday.", "b": "Make sure the contract is signed by Friday.", "judge_verdicts": {"j1": "SAME", "j2": "SAME"}}
+    assert json.loads(asyncio.run(_call("aixl_hybrid_decide", u))["text"])["verdict"] == "SAME"
+    strict = json.loads(asyncio.run(_call("aixl_hybrid_decide", {**u, "strict": True}))["text"])
+    assert strict["verdict"] == "REVIEW" and strict["strict"] is True                    # strict: the comparator must prove it too
 
 
 def test_aixl_translate_over_real_mcp_stdio_transport():

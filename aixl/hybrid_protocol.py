@@ -42,10 +42,11 @@ def prepare(a: str, b: str) -> dict:
             "semantic": {"verdict": sem.verdict, "flags": list(sem.flags)}, "obfuscation": obf, "protocol": PROTOCOL}
 
 
-def decide(a: str, b: str, verdicts: dict) -> dict:
-    """verdicts: {judge_name: 'SAME'|'DIFFERENT'|'UNSURE'} (anything else counts as an INVALID answer). Never raises on bad judge input."""
+def decide(a: str, b: str, verdicts: dict, strict: bool = False) -> dict:
+    """verdicts: {judge_name: 'SAME'|'DIFFERENT'|'UNSURE'} (anything else counts as an INVALID answer). Never raises on bad judge input.
+    `strict=True`: SAME also needs the rule-based comparator to prove EQUIVALENT, otherwise REVIEW (use before an irreversible action)."""
     judges = {str(n): (lambda _a, _b, v=v: v) for n, v in (verdicts or {}).items()}
-    d = hybrid_decide(a, b, judges, retries=0)
-    out = d.to_dict(); out["rules_id"] = arbiter.rules_id(); out["action"] = ACTION[d.verdict]
+    d = hybrid_decide(a, b, judges, retries=0, require_semantic_equivalent=bool(strict))
+    out = d.to_dict(); out["rules_id"] = arbiter.rules_id(); out["action"] = ACTION[d.verdict]; out["strict"] = bool(strict)
     out["judges_received"] = len(judges)
     return out

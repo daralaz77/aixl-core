@@ -102,9 +102,12 @@ def aixl_hybrid_prepare(a: str, b: str) -> dict:
 
 
 @server.tool(description="HYBRID step 2/2: combine the verdicts of >= 2 independent judges (SAME|DIFFERENT|UNSURE) with the semantic veto. Returns SAME only if every "
-                          "judge says SAME and the semantic track does not veto; DIFFERENT on any dissent; REVIEW on judge/semantic conflict; else UNSURE.")
-def aixl_hybrid_decide(a: str, b: str, judge_verdicts: dict[str, str]) -> dict:
-    return hybrid_protocol.decide(a, b, judge_verdicts)
+                          "judge says SAME and the semantic track does not veto; DIFFERENT on any dissent; REVIEW on judge/semantic conflict; else UNSURE. "
+                          "Use `strict: true` before an IRREVERSIBLE action: SAME then also needs the rule-based comparator to prove EQUIVALENT, otherwise REVIEW (a person decides). "
+                          "Measured: with strict, 0 false SAME on 395 non-equivalent pairs (blind19-26; the comparator was tuned on blind19-25 and accepted nothing on blind26, so this is not a generalisation claim), "
+                          "but only 11 of 245 equivalent pairs are proven, so most pairs go to review. Without strict, the measured false-SAME rate is about 5-6%.")
+def aixl_hybrid_decide(a: str, b: str, judge_verdicts: dict[str, str], strict: bool = False) -> dict:
+    return hybrid_protocol.decide(a, b, judge_verdicts, strict=strict)
 
 
 def main():
