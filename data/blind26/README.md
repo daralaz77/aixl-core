@@ -1,0 +1,4 @@
+# blind26: comparator AND two judges, 80 pairs (2026-11-06)
+Pairs written by two fresh model authors (Opus R001-R040, Sonnet S001-S040) in 10 action families never used before. Pre-registration: `PREREG.md` (written before the pairs existed). One run: `RESULT_run1.txt` (read the READING section: G1 passes only vacuously because the comparator accepted none of the 80 pairs).
+Files: `CODE_FREEZE.json` (hashes recorded before the judges ran; `aixl/semantic/hybrid.py` was edited afterwards to add the strict hybrid, so its hash no longer matches by design; the code at commit 31696d7 is the reference), `MANIFEST.json` (hashes of the author files), `judge/` (anonymised batch and the two judges' answers), `judge_key.json` (Q id -> pair id), `eval.py` (refuses to run again because RESULT_run1.txt exists).
+Limits: authors and judges are Claude models; labels are model labels; 80 pairs.

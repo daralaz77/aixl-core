@@ -1,0 +1,80 @@
+{"id": "Q001", "a": "Please book the meeting room for Thursday at ten.", "b": "Please ask Dana to book the meeting room for Thursday at ten."}
+{"id": "Q002", "a": "Normalmente envía las facturas los lunes.", "b": "Envía las facturas los lunes."}
+{"id": "Q003", "a": "If the build fails, stop and tell me.", "b": "If the build fails, retry once and then tell me."}
+{"id": "Q004", "a": "Comprueba si el servidor está caído.", "b": "Reinicia el servidor si está caído."}
+{"id": "Q005", "a": "Compartilhe com a Ana apenas o arquivo orcamento.xlsx, não a pasta inteira.", "b": "Dê à Ana acesso somente ao orcamento.xlsx, sem compartilhar o resto da pasta."}
+{"id": "Q006", "a": "Esta vez envía el informe semanal en PDF.", "b": "Por esta única ocasión, manda el reporte de la semana como PDF."}
+{"id": "Q007", "a": "Share the document only with the finance team.", "b": "Give access to the document to finance people and nobody else."}
+{"id": "Q008", "a": "Responda sempre em português, mesmo que o cliente escreva em espanhol.", "b": "Independentemente do idioma em que o cliente escrever, inclusive espanhol, sua resposta deve ser em português."}
+{"id": "Q009", "a": "Se um arquivo não puder ser lido, pule-o e continue.", "b": "Se um arquivo não puder ser lido, pare tudo e avise."}
+{"id": "Q010", "a": "If any file in the batch can't be converted, skip it, carry on with the rest, and list the skipped ones at the end.", "b": "Keep converting the batch even when a file fails; leave the failed ones out and give me a list of them when you're done."}
+{"id": "Q011", "a": "Let me know whether the payment went through.", "b": "Tell me if the payment was processed successfully."}
+{"id": "Q012", "a": "Escreva o relatório em tópicos curtos.", "b": "Escreva o relatório em parágrafos corridos."}
+{"id": "Q013", "a": "Prepara el correo de felicitación para todos los clientes.", "b": "Envía el correo de felicitación a todos los clientes."}
+{"id": "Q014", "a": "Use the staging server unless I say otherwise.", "b": "Unless I specify a different one, run it on the staging server."}
+{"id": "Q015", "a": "Verifique se o cliente já pagou a fatura.", "b": "Cobre o cliente pela fatura."}
+{"id": "Q016", "a": "Ejecuta la migración en modo de prueba.", "b": "Simula la migración sin aplicar cambios reales."}
+{"id": "Q017", "a": "Update the Mercury dashboard with this quarter's numbers.", "b": "Update the Mercury dashboard with last quarter's numbers."}
+{"id": "Q018", "a": "Just tell me whether the backup ran last night; don't rerun it.", "b": "Without triggering it again, let me know if last night's backup ran."}
+{"id": "Q019", "a": "Respóndele al proveedor en inglés, en un solo párrafo.", "b": "Reply to the supplier in English, in a single paragraph."}
+{"id": "Q020", "a": "Sempre que eu pedir um resumo, faça com no máximo cinco linhas.", "b": "Toda vez que eu solicitar um sumário, limite-o a cinco linhas no máximo."}
+{"id": "Q021", "a": "Keep this between us for now.", "b": "Don't tell the rest of the team yet."}
+{"id": "Q022", "a": "Always send invoices in euros, regardless of the client's country.", "b": "Send invoices in euros by default, unless the client is outside the EU."}
+{"id": "Q023", "a": "Please book the meeting room for Thursday at 10 yourself; don't hand it off to reception.", "b": "Reserve the meeting room for Thursday at 10 a.m. personally rather than asking reception to do it."}
+{"id": "Q024", "a": "Reserva un hotel en Cartagena, Colombia.", "b": "Reserva un hotel en Cartagena, España."}
+{"id": "Q025", "a": "Order the replacement charger for the MacBook Air M2, not the Pro.", "b": "Get a replacement charger compatible with the M2 MacBook Air (not the MacBook Pro) ordered."}
+{"id": "Q026", "a": "Reply to the customer in Portuguese.", "b": "Reply to the customer in Spanish."}
+{"id": "Q027", "a": "Cuando revises mis correos, avísame si alguno es del banco.", "b": "Hoy cuando revises mis correos, avísame si alguno es del banco."}
+{"id": "Q028", "a": "Verifique se há espaço em disco suficiente no servidor e me diga.", "b": "Verifique se há espaço em disco suficiente no servidor e libere."}
+{"id": "Q029", "a": "Peça ao suporte para responder ao cliente ainda hoje.", "b": "Peça ao suporte o contato do cliente para responder ainda hoje."}
+{"id": "Q030", "a": "Call Michael Torres from Apex Logistics about the delay.", "b": "Call Michael Torres from Apex Logistics Inc. about the delay."}
+{"id": "Q031", "a": "Send me the data as a spreadsheet.", "b": "Send me the data as a CSV file."}
+{"id": "Q032", "a": "Mostre-me as alterações antes de aplicar o patch.", "b": "Aplique o patch e depois me mostre as alterações."}
+{"id": "Q033", "a": "Archive the thread with the supplier about the delayed shipment.", "b": "Archive the message from the supplier about the delayed shipment."}
+{"id": "Q034", "a": "Pídele a Laura que firme el contrato antes del viernes.", "b": "Dile a Laura que tiene que firmar el contrato como muy tarde el viernes."}
+{"id": "Q035", "a": "Share the slides with the team privately.", "b": "Share the slides with the team only."}
+{"id": "Q036", "a": "If the upload fails, retry twice and then let me know.", "b": "If the upload fails, retry twice and then skip it."}
+{"id": "Q037", "a": "Send me the summary as a Markdown table with one row per vendor.", "b": "One row per vendor, formatted as a table in Markdown: that's how I want the summary."}
+{"id": "Q038", "a": "Envía la cotización a Ana Gómez, la de compras, no a la de contabilidad.", "b": "La cotización va para Ana Gómez del área de compras; no confundir con la Ana Gómez de contabilidad."}
+{"id": "Q039", "a": "Dime qué cambiaría en el documento para que quede más claro.", "b": "Mejora el documento para que quede más claro."}
+{"id": "Q040", "a": "Do a dry run of the database migration and show me what would change.", "b": "Simulate the database migration without applying anything, and list the changes it would make."}
+{"id": "Q041", "a": "Solo por esta vez, envía el informe semanal en PDF en lugar de Excel.", "b": "Esta semana, y únicamente esta, manda el reporte semanal como PDF y no en Excel."}
+{"id": "Q042", "a": "From now on, put the meeting notes in the shared folder.", "b": "This time, put the meeting notes in the shared folder."}
+{"id": "Q043", "a": "Desta vez, pode aprovar os reembolsos abaixo de 50 euros sem me consultar.", "b": "Daqui pra frente, pode aprovar os reembolsos abaixo de 50 euros sem me consultar."}
+{"id": "Q044", "a": "Agenda una llamada con Carlos Mendoza de Bancolombia.", "b": "Agenda una llamada con Carlos Mendoza de Bancoldex."}
+{"id": "Q045", "a": "Envie o orçamento para o João Silva da contabilidade.", "b": "Envie o orçamento ao João Silva, que trabalha na contabilidade."}
+{"id": "Q046", "a": "Peça ao Marcos para revisar o código antes do deploy.", "b": "Revise o código antes do deploy."}
+{"id": "Q047", "a": "Reserve o hotel em São José dos Campos para terça.", "b": "Reserve o hotel em São José dos Pinhais para terça."}
+{"id": "Q048", "a": "Confirme se o pagamento da Lima & Filhos foi feito.", "b": "Confirme o pagamento da Lima & Filhos."}
+{"id": "Q049", "a": "Get the design team to update the logo on the website.", "b": "Have the designers change the website logo."}
+{"id": "Q050", "a": "Salve os arquivos em formato CSV, a não ser que eu peça outro.", "b": "Salve os arquivos sempre em CSV."}
+{"id": "Q051", "a": "From now on, cc Laura on every invoice you send to the Madrid client.", "b": "From now on, cc Laura on the next invoice you send to the Madrid client."}
+{"id": "Q052", "a": "Si el pago con tarjeta falla, no reintentes; avísame enseguida.", "b": "Ante un fallo en el cobro con tarjeta, detente y notifícame de inmediato sin volver a intentarlo."}
+{"id": "Q053", "a": "Publique o comunicado no blog da empresa.", "b": "Publique o comunicado no blog interno da empresa."}
+{"id": "Q054", "a": "Back up the project before the migration.", "b": "Back up the repository before the migration."}
+{"id": "Q055", "a": "Mande o relatório em formato de planilha.", "b": "Mande o relatório em Excel."}
+{"id": "Q056", "a": "Copy Jorge on the reply to the auditors.", "b": "Blind-copy Jorge on the reply to the auditors."}
+{"id": "Q057", "a": "Usa la cuenta personal a menos que te diga otra cosa.", "b": "Por defecto utiliza la cuenta personal; si yo indico otra, usa esa."}
+{"id": "Q058", "a": "Archive the whole email thread with the supplier.", "b": "Archive every message in the conversation with the supplier."}
+{"id": "Q059", "a": "Aplique as alterações de preço na loja só depois que eu aprovar a prévia.", "b": "Primeiro me mostre uma prévia das alterações de preço; aplique na loja apenas com minha aprovação."}
+{"id": "Q060", "a": "Se a API principal não responder, use o servidor de backup e me avise.", "b": "Se a API principal não responder, use o servidor de backup."}
+{"id": "Q061", "a": "Borra la fila del cliente Ruiz en la tabla de pedidos.", "b": "Borra la tabla de pedidos del cliente Ruiz."}
+{"id": "Q062", "a": "Salvo que te diga lo contrario, programa las reuniones de 30 minutos.", "b": "Por defecto, las reuniones que agendes deben durar media hora, a menos que yo indique otra cosa."}
+{"id": "Q063", "a": "Use metric units unless the client asks for imperial.", "b": "Use metric units even if the client asks for imperial."}
+{"id": "Q064", "a": "Prepara el correo de bienvenida para los nuevos clientes y envíamelo para revisar.", "b": "Prepara el correo de bienvenida para los nuevos clientes y envíaselo para revisar."}
+{"id": "Q065", "a": "Usa la plantilla nueva para el acta de hoy.", "b": "Usa la plantilla nueva para las actas."}
+{"id": "Q066", "a": "If the primary API is down, use the backup one.", "b": "If the main API doesn't respond, switch to the backup."}
+{"id": "Q067", "a": "Borra el archivo de registros antiguo.", "b": "Borra la carpeta de registros antiguos."}
+{"id": "Q068", "a": "Schedule the newsletter for Monday morning.", "b": "Set up the newsletter for Monday morning."}
+{"id": "Q069", "a": "Faça backup do repositório inteiro antes de mexer.", "b": "Faça backup da pasta do projeto antes de mexer."}
+{"id": "Q070", "a": "Exporta el listado a CSV separado por punto y coma.", "b": "Exporta el listado a CSV separado por comas."}
+{"id": "Q071", "a": "Manda el borrador a Pedro con copia a Ana.", "b": "Manda el borrador a Pedro con copia oculta a Ana."}
+{"id": "Q072", "a": "Dile a Marcos que actualice la lista de precios de la web.", "b": "Dile a Marcos que actualizaste la lista de precios de la web."}
+{"id": "Q073", "a": "Exporta la tabla como hoja de cálculo de Excel.", "b": "Guarda la tabla en un archivo .xlsx."}
+{"id": "Q074", "a": "Avísame si hay que renovar el certificado SSL del dominio.", "b": "Renueva el certificado SSL del dominio si hay que hacerlo."}
+{"id": "Q075", "a": "Get the contract signed by Friday.", "b": "Make sure the contract is signed by Friday."}
+{"id": "Q076", "a": "Draft the reply and show it to me before sending.", "b": "Draft the reply and send it."}
+{"id": "Q077", "a": "Si la subida falla, vuelve a intentarlo una vez.", "b": "Si la subida falla, inténtalo otra vez, solo una."}
+{"id": "Q078", "a": "Delete the row for customer 4821 from the orders table.", "b": "Delete the orders table for customer 4821."}
+{"id": "Q079", "a": "Deixe o documento visível para todos da empresa com o link.", "b": "Deixe o documento visível para todos com o link."}
+{"id": "Q080", "a": "Publica el anuncio solo en el canal privado del equipo, no en el general.", "b": "El anuncio va únicamente al canal privado del equipo; el canal general no debe verlo."}

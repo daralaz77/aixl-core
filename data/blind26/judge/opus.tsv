@@ -1,0 +1,80 @@
+Q001	DIFFERENT	b delegates to Dana
+Q002	DIFFERENT	normally qualifier dropped
+Q003	DIFFERENT	stop vs retry once
+Q004	DIFFERENT	check vs restart
+Q005	SAME	only file shared with Ana
+Q006	SAME	one-time weekly report PDF
+Q007	SAME	finance team only
+Q008	SAME	always reply Portuguese
+Q009	DIFFERENT	skip vs stop all
+Q010	SAME	skip failures, list at end
+Q011	SAME	report payment success
+Q012	DIFFERENT	bullets vs prose
+Q013	DIFFERENT	prepare vs send
+Q014	SAME	staging by default
+Q015	DIFFERENT	check payment vs charge
+Q016	SAME	test-mode migration, no changes
+Q017	DIFFERENT	this vs last quarter
+Q018	SAME	report backup, no rerun
+Q019	SAME	translation, same constraints
+Q020	SAME	summaries max five lines
+Q021	DIFFERENT	everyone vs team scope
+Q022	DIFFERENT	always vs EU exception
+Q023	DIFFERENT	a.m. added
+Q024	DIFFERENT	Colombia vs Spain
+Q025	SAME	M2 Air charger, not Pro
+Q026	DIFFERENT	Portuguese vs Spanish
+Q027	DIFFERENT	today scope added
+Q028	DIFFERENT	report vs free space
+Q029	DIFFERENT	ask for contact added
+Q030	SAME	same company, suffix only
+Q031	DIFFERENT	spreadsheet vs CSV
+Q032	DIFFERENT	order reversed
+Q033	DIFFERENT	thread vs single message
+Q034	DIFFERENT	before vs by Friday
+Q035	DIFFERENT	privately vs only
+Q036	DIFFERENT	notify vs skip
+Q037	SAME	Markdown table per vendor
+Q038	SAME	Ana Gómez from purchasing
+Q039	DIFFERENT	suggest vs edit
+Q040	SAME	dry run, show changes
+Q041	SAME	one-time PDF not Excel
+Q042	DIFFERENT	ongoing vs one-time
+Q043	DIFFERENT	one-time vs ongoing
+Q044	DIFFERENT	Bancolombia vs Bancoldex
+Q045	SAME	João Silva accounting
+Q046	DIFFERENT	delegate to Marcos dropped
+Q047	DIFFERENT	different city
+Q048	DIFFERENT	verify vs confirm payment
+Q049	SAME	designers update website logo
+Q050	DIFFERENT	override condition dropped
+Q051	DIFFERENT	every vs next invoice
+Q052	SAME	no retry, notify immediately
+Q053	DIFFERENT	internal blog added
+Q054	DIFFERENT	project vs repository
+Q055	DIFFERENT	spreadsheet vs Excel
+Q056	DIFFERENT	cc vs bcc
+Q057	SAME	personal account by default
+Q058	SAME	whole supplier thread
+Q059	SAME	apply after preview approval
+Q060	DIFFERENT	notification dropped
+Q061	DIFFERENT	row vs table
+Q062	SAME	30-minute default meetings
+Q063	DIFFERENT	unless vs even if
+Q064	DIFFERENT	me vs them recipient
+Q065	DIFFERENT	today vs all minutes
+Q066	SAME	fallback to backup API
+Q067	DIFFERENT	file vs folder
+Q068	DIFFERENT	schedule vs set up
+Q069	DIFFERENT	repository vs project folder
+Q070	DIFFERENT	semicolon vs comma
+Q071	DIFFERENT	cc vs bcc
+Q072	DIFFERENT	request vs inform done
+Q073	SAME	Excel xlsx export
+Q074	DIFFERENT	notify vs renew
+Q075	SAME	ensure signed by Friday
+Q076	DIFFERENT	review step dropped
+Q077	SAME	retry once
+Q078	DIFFERENT	row vs table
+Q079	DIFFERENT	company scope dropped
+Q080	SAME	private channel only

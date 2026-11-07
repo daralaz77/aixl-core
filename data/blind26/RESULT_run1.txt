@@ -1,0 +1,39 @@
+blind26 single run, 2026-11-06, frozen code at commit 31696d7 (python3 -I eval.py). Output copied verbatim from stdout; the reading below it was added afterwards.
+
+SET: 80 pairs  labels {'EQUIVALENT': 27, 'NOT_EQUIVALENT': 36, 'UNDECIDABLE': 17}  comparator verdicts {'INCONCLUSIVE': 76, 'NOT_EQUIVALENT': 4}
+judge verdicts: opus {'DIFFERENT': 51, 'SAME': 29}  sonnet {'DIFFERENT': 49, 'SAME': 31}
+
+R0 comparator alone                              false accepts 0/53 (0.0%)    proven-EQUIVALENT 0/27 (0.0%)   ids []
+R1 comparator AND both judges SAME (PRIMARY)     false accepts 0/53 (0.0%)    proven-EQUIVALENT 0/27 (0.0%)   ids []
+R2 strict comparator AND both judges SAME        false accepts 0/53 (0.0%)    proven-EQUIVALENT 0/27 (0.0%)   ids []
+judge opus alone                                 false accepts 4/53 (7.5%)    proven-EQUIVALENT 25/27 (92.6%)   ids ['R008', 'S008', 'S033', 'S040']
+judge sonnet alone                               false accepts 4/53 (7.5%)    proven-EQUIVALENT 27/27 (100.0%)   ids ['R008', 'R032', 'S008', 'S040']
+both judges SAME                                 false accepts 3/53 (5.7%)    proven-EQUIVALENT 25/27 (92.6%)   ids ['R008', 'S008', 'S040']
+
+[G1] R1 false accepts <= 3% of 53 non-EQUIVALENT-labelled pairs (<= 1) -> PASS
+[overlap] comparator false accepts 0, both-judges false SAME 3, in common 0 (expected if independent 0.0)
+[judge correlation] both SAME on non-EQ 3 vs 0.3 expected if independent
+
+[family] R0 false | judges-both false | R1 false | n
+  agent_vs_delegation                  0 | 2 | 0 | 8
+  default_vs_override                  0 | 0 | 0 | 8
+  entity_disambiguation                0 | 0 | 0 | 8
+  failure_handling                     0 | 1 | 0 | 8
+  object_granularity                   0 | 0 | 0 | 8
+  output_format_language               0 | 0 | 0 | 8
+  persistence_one_off_vs_standing      0 | 0 | 0 | 8
+  preview_vs_commit                    0 | 0 | 0 | 8
+  report_vs_perform                    0 | 0 | 0 | 8
+  visibility_confidentiality           0 | 0 | 0 | 8
+
+R1 false-accept pairs:
+
+CLAIM 'comparator AND two judges does not accept non-equivalent pairs on new families (G1)': ALLOWED (narrow wording, with proven-EQUIVALENT recall and the rule-of-three note)
+
+## READING (added after the run)
+1. G1 passes VACUOUSLY. The comparator called EQUIVALENT on 0 of 80 pairs (76 INCONCLUSIVE, 4 NOT_EQUIVALENT), so R0, R1 and R2 all accept nothing and proven-EQUIVALENT recall is 0/27. The PREREG warned that a rule that accepts nothing also passes G1. My written expectation (R0 alone >= 2 false accepts) was WRONG for that reason: nothing was accepted. This set cannot tell the combination from "accept nothing".
+2. What it does show: on action-instruction wording outside its closed vocabulary the comparator fails closed (no silent failure here), and its 4 NOT_EQUIVALENT calls are R029 and S036 (labelled NOT_EQUIVALENT, correct) and R004 and S004 (labelled UNDECIDABLE).
+3. The judges alone fail G1: both-SAME on 3/53 (5.7%), all three UNDECIDABLE-labelled with contestable labels (R008 'get X signed' / 'make sure X is signed'; S008 'update' / 'change' the logo; S040 'is down' / 'doesn't respond'). Labels are the authors' and are not corrected. The two judges again erred together: 3 both-SAME against 0.3 expected if independent.
+4. The judges' strength is recall (92.6% of EQUIVALENT-labelled pairs both SAME); the comparator's strength is that it never accepted anything it should not. The combination keeps the second property and loses the first.
+5. Allowed claim, narrow: on 80 pairs by two new authors in 10 new families, comparator AND two judges accepted 0 of 53 non-equivalent pairs and proved 0 of 27 equivalent ones. A passing 0/53 has a 95% upper bound of about 5.6% (rule of three), so it does not prove <= 3%, and one set after earlier failures is weak evidence.
+Limits: authors and judges are Claude models; labels from models; 80 pairs; label counts came out 27/36/17, not the planned 32/32/16.

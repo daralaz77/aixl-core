@@ -1,0 +1,80 @@
+Q001	DIFFERENT	delegates to Dana
+Q002	DIFFERENT	"normally" hedge dropped
+Q003	DIFFERENT	retry once added
+Q004	DIFFERENT	restart added
+Q005	SAME	only that file
+Q006	SAME	one-time weekly PDF
+Q007	SAME	finance only
+Q008	SAME	always Portuguese
+Q009	DIFFERENT	skip vs stop
+Q010	SAME	skip, continue, list
+Q011	SAME	report payment result
+Q012	DIFFERENT	bullets vs paragraphs
+Q013	DIFFERENT	prepare vs send
+Q014	SAME	staging default
+Q015	DIFFERENT	check vs charge
+Q016	SAME	dry-run migration
+Q017	DIFFERENT	this vs last quarter
+Q018	SAME	check only, no rerun
+Q019	SAME	English single paragraph
+Q020	SAME	max five lines
+Q021	DIFFERENT	different scope/wording
+Q022	DIFFERENT	always vs exception
+Q023	SAME	personally, not reception
+Q024	DIFFERENT	Colombia vs Spain
+Q025	SAME	M2 Air charger
+Q026	DIFFERENT	Portuguese vs Spanish
+Q027	DIFFERENT	today added
+Q028	DIFFERENT	tell vs free space
+Q029	DIFFERENT	different request
+Q030	DIFFERENT	Inc. added
+Q031	DIFFERENT	spreadsheet vs CSV
+Q032	DIFFERENT	order reversed
+Q033	DIFFERENT	thread vs message
+Q034	SAME	sign by Friday
+Q035	DIFFERENT	privately vs only
+Q036	DIFFERENT	notify vs skip
+Q037	SAME	Markdown table per vendor
+Q038	SAME	purchasing Ana only
+Q039	DIFFERENT	suggest vs improve
+Q040	SAME	dry run, show changes
+Q041	SAME	one-time PDF not Excel
+Q042	DIFFERENT	permanent vs once
+Q043	DIFFERENT	once vs ongoing
+Q044	DIFFERENT	Bancolombia vs Bancoldex
+Q045	SAME	João Silva accounting
+Q046	DIFFERENT	delegate vs do
+Q047	DIFFERENT	different city
+Q048	DIFFERENT	confirm made vs confirm
+Q049	SAME	designers change logo
+Q050	DIFFERENT	exception dropped
+Q051	DIFFERENT	every vs next
+Q052	SAME	no retry, notify
+Q053	DIFFERENT	internal blog added
+Q054	DIFFERENT	project vs repository
+Q055	DIFFERENT	spreadsheet vs Excel
+Q056	DIFFERENT	cc vs bcc
+Q057	SAME	personal default
+Q058	SAME	whole thread
+Q059	SAME	approve preview first
+Q060	DIFFERENT	notify dropped
+Q061	DIFFERENT	row vs table
+Q062	SAME	30-minute default
+Q063	DIFFERENT	opposite
+Q064	DIFFERENT	recipient me vs them
+Q065	DIFFERENT	today's vs all minutes
+Q066	SAME	fallback to backup
+Q067	DIFFERENT	file vs folder
+Q068	SAME	newsletter Monday morning
+Q069	DIFFERENT	repository vs folder
+Q070	DIFFERENT	semicolon vs comma
+Q071	DIFFERENT	cc vs bcc
+Q072	DIFFERENT	update vs told updated
+Q073	SAME	xlsx export
+Q074	DIFFERENT	notify vs renew
+Q075	SAME	contract signed by Friday
+Q076	DIFFERENT	show first vs send
+Q077	SAME	retry once
+Q078	DIFFERENT	row vs table
+Q079	DIFFERENT	company-only dropped
+Q080	SAME	private channel only

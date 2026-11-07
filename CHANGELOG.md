@@ -2,6 +2,11 @@
 
 Human-readable summary of what changes between releases. The detailed, per-change compatibility tables (backward compatibility, migration, test impact) are in [docs/SEMANTIC_CHANGELOG.md](docs/SEMANTIC_CHANGELOG.md); the project history is in [docs/HISTORY.md](docs/HISTORY.md). Version numbers follow [Semantic Versioning](https://semver.org/) (see `docs/VERSIONING_POLICY.md`); while the major version is 0, a MINOR bump may change the canonical form.
 
+## Unreleased
+### Added
+- Strict hybrid: `aixl.semantic.hybrid_decide(..., require_semantic_equivalent=True)`, `hybrid_protocol.decide(..., strict=True)` and the MCP tool `aixl_hybrid_decide(..., strict=True)`. A unanimous judge SAME is accepted only if the rule-based comparator also proves EQUIVALENT; otherwise REVIEW. Default behaviour is unchanged. Measured evidence and its limits: `docs/HYBRID_MCP.md`.
+- Evidence sets `data/blind26` (80 model-written pairs, new families) and `data/blind27` (100 human-labelled pairs from PAWS-X and CondaQA; references only, no third-party text), each pre-registered and run once.
+
 ## 0.6.0 — 2026-11-06
 ### Security
 - Private vulnerability reporting, Dependabot, secret scanning and push protection enabled; `SECURITY.md` and `.well-known/security.txt` updated.

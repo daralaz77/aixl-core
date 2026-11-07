@@ -1,0 +1,39 @@
+blind27 single run, 2026-11-06, frozen working tree of aixl-core (git HEAD 31696d7 plus the uncommitted strict-hybrid change). Output copied verbatim from stdout (python3 -I eval.py); the reading below it was added afterwards.
+
+SET: 100 pairs  labels {'EQUIVALENT': 50, 'NOT_EQUIVALENT': 50}  by source {'pawsx_equivalent': 30, 'pawsx_not_equivalent': 30, 'condaqa_edit1': 20, 'condaqa_edit2': 10, 'condaqa_edit3': 10}
+comparator verdicts {'INCONCLUSIVE': 99, 'NOT_EQUIVALENT': 1}
+judge verdicts: opus {'DIFFERENT': 67, 'SAME': 33}  sonnet {'DIFFERENT': 62, 'SAME': 38}
+
+R0 comparator alone                            false accepts 0/50 (0.0%)    proven-EQUIVALENT 0/50 (0.0%)
+R1 comparator AND both judges SAME (PRIMARY)   false accepts 0/50 (0.0%)    proven-EQUIVALENT 0/50 (0.0%)
+strict hybrid = SAME                           false accepts 0/50 (0.0%)    proven-EQUIVALENT 0/50 (0.0%)
+default hybrid = SAME                          false accepts 1/50 (2.0%)    proven-EQUIVALENT 24/50 (48.0%)
+both judges SAME                               false accepts 1/50 (2.0%)    proven-EQUIVALENT 28/50 (56.0%)
+judge opus alone                               false accepts 1/50 (2.0%)    proven-EQUIVALENT 32/50 (64.0%)
+judge sonnet alone                             false accepts 3/50 (6.0%)    proven-EQUIVALENT 35/50 (70.0%)
+
+[G1] R1 false accepts <= 3% of 50 NOT_EQUIVALENT pairs (<= 1); proven-EQUIVALENT 0 (floor 10) -> VACUOUS (R1 proves fewer than 10 equivalent pairs)   ids []
+[overlap] comparator false accepts 0, both-judges false SAME 1, in common 0 (expected if independent 0.0)
+[judge correlation] both SAME on NOT_EQUIVALENT 1 vs 0.1 expected if independent
+
+[source] n | comparator EQ | judges-both false SAME (non-EQ) | judges-both SAME on EQ | default-hybrid false
+  condaqa_edit1            20 | 0 | 0/0 | 11/20 | 0
+  condaqa_edit2            10 | 0 | 0/10 | 0/0 | 0
+  condaqa_edit3            10 | 0 | 0/10 | 0/0 | 0
+  pawsx_equivalent         30 | 0 | 0/0 | 17/30 | 0
+  pawsx_not_equivalent     30 | 0 | 1/30 | 0/0 | 1
+
+both-judges false-SAME pairs (NOT_EQUIVALENT-labelled):
+  X042 [pawsx_not_equivalent] (text omitted: the PAWS-X license is undeclared; ref pawsx-es-test-7821)
+
+CLAIM: none allowed (VACUOUS)
+
+## READING (added after the run)
+1. R1 and the strict hybrid are VACUOUS again: the comparator said EQUIVALENT on 0 of 100 pairs (99 INCONCLUSIVE, 1 NOT_EQUIVALENT), so any rule that needs it proves nothing (0/50). Same pattern as blind26 (0/27). On natural sentences outside its closed vocabulary the strict mode sends everything to review. No claim is allowed.
+2. My written expectation for the judges was wrong in the safe direction: I expected 3-15% false SAME; both judges together gave 1/50 (2.0%) and the default hybrid 1/50 (2.0%), with 56% and 48% of the equivalent pairs accepted. Every CondaQA scope-edit and affirmative-edit pair (20) was rejected by both judges. Sonnet alone had 3/50 (6.0%), Opus alone 1/50 (2.0%).
+3. The only both-judges false SAME is X042 (PAWS-X es, label 0): a one-word difference in the description of the monument and a swapped name order; PAWS labels carry known noise and this one is arguable. Not corrected.
+4. Contrast with blind19-26: there the judges gave 5-7% false SAME on model-written, subtle, partly UNDECIDABLE-labelled pairs. On human-labelled encyclopedic pairs they did better. Both facts hold; neither is a generalisation claim. With 50 non-equivalent pairs, 1 false SAME has a wide interval (about 0 to 10%).
+5. Judge error correlation cannot be read here (1 observed against 0.1 expected, n=1).
+Limits: domain mismatch (statements, not agent instructions; the arbiter prompt says instructions); judges are Claude models; CondaQA English only; one run, 100 pairs; dataset licenses undeclared or unread, so no pair text goes to the repository.
+
+Shipped copy: the pair text in the line above was replaced by its reference, and the judges' short reasons were removed from the verdict files, because the licenses of PAWS-X and CondaQA do not allow redistribution to be assumed.

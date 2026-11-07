@@ -1,0 +1,7 @@
+# blind27: human-labelled pairs from two public corpora, 100 pairs (2026-11-06)
+Sampled with seed 27 from PAWS-X (Spanish test split, 60 pairs) and CondaQA (dev split, 40 pairs). Pre-registration: `PREREG.md`. One run: `RESULT_run1.txt` (R1 and the strict hybrid are VACUOUS: the comparator accepted none of the 100 pairs; the judges alone gave 1 false SAME of 50).
+**No pair text is stored here.** The licenses of the two corpora are undeclared (PAWS-X, Hugging Face license "other") or not read (CondaQA dataset license), so only references and labels are kept: `pairs_refs.jsonl`. The judges' verdicts are in `judge/*_verdicts.tsv` (reasons removed) and `judge_key.json` maps the anonymised Q ids to the pair ids.
+To rebuild the pairs you need the raw data, obtained by you under each corpus' terms:
+- PAWS-X es test: `https://datasets-server.huggingface.co/rows?dataset=google-research-datasets%2Fpaws-x&config=es&split=test&offset=<0,100,...,1900>&length=100`, saved as `raw_pawsx/rows_<offset>.json` (20 files); the parquet file `es/test-00000-of-00001.parquet` (345,485 bytes) holds the same rows.
+- CondaQA dev: `https://raw.githubusercontent.com/AbhilashaRavichander/CondaQA/main/data/condaqa_dev.json` (2,130,332 bytes, sha256 b9ec9ab7453fbdc61fbed988119c03f507341ac495f1f5f95b13b27f59e639a2), saved as `raw/condaqa_dev.json`.
+Then `python3 sample.py` rebuilds `pairs.json` (its hash is in `MANIFEST.json`). Cite Yang et al. 2019 (PAWS-X) and Ravichander et al. 2022 (CondaQA).
