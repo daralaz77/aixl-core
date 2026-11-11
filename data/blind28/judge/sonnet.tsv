@@ -1,0 +1,120 @@
+Q001	SAME	number word
+Q002	SAME	same deadline
+Q003	DIFFERENT	before vs after
+Q004	DIFFERENT	only vs also
+Q005	DIFFERENT	20 vs 21 MB
+Q006	SAME	unless vs if none
+Q007	DIFFERENT	max vs min
+Q008	DIFFERENT	adds if possible
+Q009	SAME	each vs every
+Q010	DIFFERENT	some vs none
+Q011	SAME	2 GB equals 2000 MB
+Q012	DIFFERENT	restart vs shut down
+Q013	UNSURE	decimal separator ambiguous
+Q014	SAME	max vs up to
+Q015	SAME	none sent
+Q016	SAME	passive voice
+Q017	DIFFERENT	if vs unless
+Q018	SAME	unless equals if not
+Q019	SAME	at least equals no fewer
+Q020	DIFFERENT	at most vs at least
+Q021	DIFFERENT	before vs after
+Q022	SAME	only synonyms
+Q023	SAME	order swapped
+Q024	DIFFERENT	except vs including
+Q025	DIFFERENT	restart vs recreate
+Q026	DIFFERENT	condition differs
+Q027	DIFFERENT	max vs min
+Q028	SAME	each vs all
+Q029	DIFFERENT	except vs including
+Q030	SAME	contraction
+Q031	SAME	same deadline
+Q032	SAME	same weekly action
+Q033	DIFFERENT	opposite polarity
+Q034	SAME	install/deploy synonyms
+Q035	DIFFERENT	only vs also
+Q036	DIFFERENT	archive vs delete
+Q037	SAME	apart from equals except
+Q038	SAME	passive voice
+Q039	SAME	only synonyms
+Q040	DIFFERENT	GB vs MB
+Q041	DIFFERENT	email channel added
+Q042	DIFFERENT	until vs before
+Q043	SAME	delete synonyms
+Q044	SAME	same limit
+Q045	SAME	same deadline
+Q046	SAME	except synonyms
+Q047	SAME	except synonyms
+Q048	SAME	both prohibit
+Q049	DIFFERENT	all vs some
+Q050	DIFFERENT	only if added
+Q051	SAME	order swapped
+Q052	DIFFERENT	any vs some
+Q053	DIFFERENT	scope of only moved
+Q054	DIFFERENT	unless vs if
+Q055	SAME	max vs up to
+Q056	SAME	passive voice
+Q057	SAME	number word
+Q058	SAME	delete synonyms
+Q059	SAME	at least equals no fewer
+Q060	SAME	just equals solely
+Q061	DIFFERENT	unless vs if
+Q062	DIFFERENT	roles swapped
+Q063	DIFFERENT	15 vs 1.5 MB
+Q064	SAME	4B equals 4-B
+Q065	DIFFERENT	opposite polarity
+Q066	SAME	except synonyms
+Q067	DIFFERENT	opposite polarity
+Q068	SAME	except synonyms
+Q069	SAME	no file
+Q070	DIFFERENT	20 vs 21
+Q071	SAME	never equals do not
+Q072	DIFFERENT	none vs not every
+Q073	SAME	passive reorder
+Q074	DIFFERENT	by vs before
+Q075	DIFFERENT	except vs including
+Q076	SAME	only equals nobody except
+Q077	DIFFERENT	roles swapped
+Q078	SAME	every vs all
+Q079	DIFFERENT	max vs min
+Q080	SAME	order swapped
+Q081	SAME	only synonyms
+Q082	DIFFERENT	if vs unless
+Q083	DIFFERENT	install vs uninstall
+Q084	DIFFERENT	all vs some
+Q085	SAME	order swapped
+Q086	SAME	except synonyms
+Q087	DIFFERENT	before vs after
+Q088	SAME	gigabyte equals GB
+Q089	SAME	passive reorder
+Q090	SAME	1000 equals mil
+Q091	DIFFERENT	only vs also
+Q092	SAME	at least equals no fewer
+Q093	DIFFERENT	until vs from
+Q094	SAME	contraction
+Q095	SAME	only synonyms
+Q096	SAME	reboot/restart
+Q097	SAME	never equals do not
+Q098	DIFFERENT	no more vs no fewer
+Q099	DIFFERENT	before vs after
+Q100	SAME	same deadline
+Q101	SAME	every vs each
+Q102	SAME	create/generate
+Q103	SAME	4B equals 4-B
+Q104	SAME	only equals nobody but
+Q105	SAME	unless equals if not
+Q106	DIFFERENT	until vs through
+Q107	SAME	same deadline
+Q108	SAME	no sessions open
+Q109	DIFFERENT	if vs unless
+Q110	DIFFERENT	reversed condition
+Q111	SAME	at least equals no fewer
+Q112	SAME	none deleted
+Q113	SAME	delete synonyms
+Q114	SAME	1000 equals mil
+Q115	SAME	only administrators
+Q116	SAME	order swapped
+Q117	DIFFERENT	mail channel added
+Q118	SAME	order swapped
+Q119	DIFFERENT	obligation vs no need
+Q120	SAME	never synonyms

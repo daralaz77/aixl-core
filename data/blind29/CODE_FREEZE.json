@@ -1,0 +1,24 @@
+{
+ "new": {
+  "aixl/semantic/__init__.py": "49ca3e5026e51e993e1306d827bc5c990085cefd52ff5bcaa9e8718de3640a8e",
+  "aixl/semantic/compare.py": "99380644192fc1d666c8db5599c099cef54449c55d28aca68de99fd94f480a45",
+  "aixl/semantic/hybrid.py": "e2f09de29de0181d015240f9ebabbaca8bbeb4c0131fd6bf42958cdee4342989",
+  "aixl/semantic/lexicon.py": "f83ca841b89ec1eefaad3a82ffe31e9b4c3ee122ebf30ee5e629940f49155768",
+  "aixl/semantic/model.py": "a28d6c18262c49ce9acb801440f9a9e0aff71101bef9e943f9b7b4ff5bc833fc",
+  "aixl/semantic/parser.py": "bf05b41eb03d21f3689e49e30eda1b90c1e069b03624fc8fc86fe404b0b2a3be",
+  "aixl/hybrid_protocol.py": "2a07a3a5f69a13ba5d88f24851650c2c29dd10bab4b03399884f0824f4fba049",
+  "aixl/arbiter.py": "f69f42162f3eadbbdc9d90076053d7994f133d73aee9c81d4925589ae4fb76ad",
+  "aixl/resources/arbiter_rules_v1.txt": "9e63b85575c5caf5a217e9d3c27c32b2be195783a3a157c60ffebb9eb8be85a2"
+ },
+ "old": {
+  "aixl/semantic/__init__.py": "49ca3e5026e51e993e1306d827bc5c990085cefd52ff5bcaa9e8718de3640a8e",
+  "aixl/semantic/compare.py": "94d1dafd38aff754afb0c9d2e9286dc309ca8f8268da8f994fcce0096df51eca",
+  "aixl/semantic/hybrid.py": "e2f09de29de0181d015240f9ebabbaca8bbeb4c0131fd6bf42958cdee4342989",
+  "aixl/semantic/lexicon.py": "f83ca841b89ec1eefaad3a82ffe31e9b4c3ee122ebf30ee5e629940f49155768",
+  "aixl/semantic/model.py": "a28d6c18262c49ce9acb801440f9a9e0aff71101bef9e943f9b7b4ff5bc833fc",
+  "aixl/semantic/parser.py": "c9f0841ac375893027b23e9b59549c7c3c3d98f8e2576513b3e5f53e7f47784b",
+  "aixl/hybrid_protocol.py": "2a07a3a5f69a13ba5d88f24851650c2c29dd10bab4b03399884f0824f4fba049",
+  "aixl/arbiter.py": "f69f42162f3eadbbdc9d90076053d7994f133d73aee9c81d4925589ae4fb76ad",
+  "aixl/resources/arbiter_rules_v1.txt": "9e63b85575c5caf5a217e9d3c27c32b2be195783a3a157c60ffebb9eb8be85a2"
+ }
+}

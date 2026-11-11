@@ -1,0 +1,4 @@
+# blind29: paired test of three comparator changes on 120 fresh pairs (2026-11-11)
+New authors (Opus P, Sonnet Q, Haiku R) wrote 120 pairs in the same ten in-vocabulary constructs. The OLD comparator (git commit 933fb76) and the NEW one (the changes of `tests/test_semantic_recall_2026_11_11.py`) were run on the SAME pairs, with two blind Claude judges. Pre-registration `PREREG.md`; one run `RESULT_run1.txt`.
+Result in one line: safety rule holds (false accepts 2 -> 1, none new), recall rule does NOT hold (3 pairs newly proven, 1 lost, net +2 of 60; I required +5). The effect is in the deadline construct (0/6 -> 3/6).
+`CODE_FREEZE.json` holds the hashes of both code versions. To rerun the evaluator, extract the old code with `git archive 933fb76 aixl | tar -x -C data/blind29/oldcode` (or set AIXL_OLD_CODE); it refuses a second run because RESULT_run1.txt exists. The set is SPENT.

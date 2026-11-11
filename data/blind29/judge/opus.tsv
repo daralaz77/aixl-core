@@ -1,0 +1,120 @@
+Q001	DIFFERENT	deadline vs duration
+Q002	DIFFERENT	archive vs delete
+Q003	DIFFERENT	adds minors condition
+Q004	DIFFERENT	optional vs prohibited
+Q005	SAME	reordered
+Q006	DIFFERENT	except vs including
+Q007	DIFFERENT	1,000 is decimal in Portuguese
+Q008	SAME	passive voice
+Q009	DIFFERENT	"this year" scope moved
+Q010	SAME	salvo equals excepto
+Q011	SAME	only equals nobody else
+Q012	DIFFERENT	roles swapped
+Q013	DIFFERENT	archive vs delete
+Q014	DIFFERENT	opposite polarity
+Q015	DIFFERENT	none vs not all
+Q016	DIFFERENT	opposite polarity
+Q017	SAME	apart from equals except
+Q018	SAME	same deadline
+Q019	DIFFERENT	all vs some
+Q020	DIFFERENT	2500 vs 2050
+Q021	DIFFERENT	nobody vs everyone
+Q022	DIFFERENT	only vs also
+Q023	SAME	reordered condition
+Q024	SAME	same negation
+Q025	SAME	passive voice
+Q026	SAME	deploy equals install
+Q027	DIFFERENT	roles swapped
+Q028	DIFFERENT	any vs none
+Q029	SAME	same deadline
+Q030	SAME	synonyms
+Q031	DIFFERENT	Celsius vs Fahrenheit
+Q032	DIFFERENT	max vs min
+Q033	SAME	same prohibition
+Q034	SAME	maximum ten
+Q035	SAME	only Mondays
+Q036	SAME	same deadline
+Q037	SAME	equivalent condition
+Q038	DIFFERENT	4B vs 4D
+Q039	SAME	same conditions
+Q040	SAME	same amount
+Q041	DIFFERENT	up to vs at least
+Q042	SAME	synonyms
+Q043	DIFFERENT	except vs including
+Q044	DIFFERENT	if vs unless
+Q045	DIFFERENT	before vs after
+Q046	SAME	same deadline
+Q047	DIFFERENT	except vs including
+Q048	DIFFERENT	if vs unless
+Q049	SAME	number word vs digits
+Q050	SAME	synonyms
+Q051	SAME	number word vs digits
+Q052	SAME	same prohibition
+Q053	SAME	equivalent condition
+Q054	SAME	reordered
+Q055	DIFFERENT	roles swapped
+Q056	SAME	synonyms
+Q057	DIFFERENT	until vs through inclusive
+Q058	SAME	synonyms
+Q059	SAME	synonyms
+Q060	DIFFERENT	before vs after
+Q061	SAME	number word vs digits
+Q062	SAME	synonyms
+Q063	SAME	synonyms
+Q064	SAME	synonyms
+Q065	DIFFERENT	under 30 vs up to 30
+Q066	DIFFERENT	only if vs if
+Q067	SAME	reordered
+Q068	SAME	reordered condition
+Q069	SAME	equivalent condition
+Q070	SAME	same prohibition
+Q071	SAME	synonyms
+Q072	SAME	each equals all
+Q073	DIFFERENT	at least vs at most
+Q074	DIFFERENT	none vs not all
+Q075	DIFFERENT	unless vs if
+Q076	DIFFERENT	before vs after
+Q077	SAME	number word vs digits
+Q078	SAME	synonyms
+Q079	SAME	synonyms
+Q080	SAME	install equals deploy
+Q081	DIFFERENT	roles swapped
+Q082	DIFFERENT	all vs some
+Q083	DIFFERENT	opposite polarity
+Q084	SAME	reordered condition
+Q085	SAME	same prohibition
+Q086	DIFFERENT	by vs before day 10
+Q087	SAME	passive voice
+Q088	SAME	synonyms
+Q089	SAME	same prohibition
+Q090	SAME	same prohibition
+Q091	DIFFERENT	21 vs 20 days
+Q092	SAME	same amount
+Q093	SAME	equivalent condition
+Q094	SAME	same deadline
+Q095	DIFFERENT	opposite polarity
+Q096	DIFFERENT	within vs obligation in five
+Q097	SAME	synonyms
+Q098	DIFFERENT	before vs after
+Q099	DIFFERENT	up to vs at least
+Q100	UNSURE	comma separator ambiguous
+Q101	DIFFERENT	only vs also
+Q102	DIFFERENT	create vs delete
+Q103	SAME	synonyms
+Q104	DIFFERENT	approximate vs exact limit
+Q105	SAME	reordered condition
+Q106	SAME	contraction
+Q107	SAME	synonyms
+Q108	SAME	maximum thirty
+Q109	SAME	same prohibition
+Q110	DIFFERENT	only dropped
+Q111	DIFFERENT	each vs some
+Q112	SAME	same deadline
+Q113	DIFFERENT	only scope moved
+Q114	SAME	all equals every
+Q115	SAME	each equals all
+Q116	SAME	same channel
+Q117	SAME	each equals every
+Q118	SAME	unless equals except
+Q119	SAME	only equals nobody but
+Q120	DIFFERENT	deactivate vs delete

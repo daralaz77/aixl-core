@@ -1,0 +1,59 @@
+blind28 single run, 2026-11-11, frozen working tree of aixl-core (= git commit 933fb76), judges Opus, Sonnet (fresh agents) and Qwen2.5-7B-Instruct Q4_K_M (local llama-server, grammar-constrained, temperature 0, seed 28). Output copied verbatim from stdout (python3 -I eval.py); the reading below it was added afterwards.
+
+SET: 120 pairs  labels {'EQUIVALENT': 60, 'NOT_EQUIVALENT': 42, 'UNDECIDABLE': 18}  authors {'O': 40, 'S': 40, 'H': 40}
+comparator verdicts {'INCONCLUSIVE': 66, 'NOT_EQUIVALENT': 26, 'EQUIVALENT': 28}
+judge verdicts: opus {'SAME': 64, 'DIFFERENT': 54, 'UNSURE': 2}  sonnet {'SAME': 69, 'DIFFERENT': 50, 'UNSURE': 1}  qwen {'SAME': 94, 'DIFFERENT': 26}
+
+R0 comparator alone                                false accepts 4/60 (6.7%)    proven-EQUIVALENT 24/60 (40.0%)
+R1 comparator AND opus AND sonnet SAME (PRIMARY)   false accepts 4/60 (6.7%)    proven-EQUIVALENT 24/60 (40.0%)
+R3 comparator AND all three judges SAME            false accepts 4/60 (6.7%)    proven-EQUIVALENT 24/60 (40.0%)
+default hybrid (2 Claude + veto) = SAME            false accepts 5/60 (8.3%)    proven-EQUIVALENT 51/60 (85.0%)
+strict hybrid (2 Claude) = SAME                    false accepts 4/60 (6.7%)    proven-EQUIVALENT 24/60 (40.0%)
+J2 opus AND sonnet SAME                            false accepts 6/60 (10.0%)   proven-EQUIVALENT 58/60 (96.7%)
+J3 all three judges SAME                           false accepts 6/60 (10.0%)   proven-EQUIVALENT 57/60 (95.0%)
+qwen alone                                         false accepts 35/60 (58.3%)  proven-EQUIVALENT 59/60 (98.3%)
+opus alone                                         false accepts 6/60 (10.0%)   proven-EQUIVALENT 58/60 (96.7%)
+sonnet alone                                       false accepts 11/60 (18.3%)  proven-EQUIVALENT 58/60 (96.7%)
+
+[G1] R1 false accepts <= 3% of 60 NOT_EQUIVALENT-labelled pairs (<= 1); proven-EQUIVALENT 24 (floor 10) -> FAIL   ids ['H032', 'S007', 'S013', 'S040']
+[G1b] J3 (all three judges) false accepts 6 -> FAIL   ids ['H032', 'S007', 'S012', 'S013', 'S033', 'S040']
+[overlap] opus vs sonnet false SAME: 6 and 11, in common 6 (expected if independent 1.1)
+[overlap] qwen vs (opus AND sonnet) false SAME: 35 and 6, in common 6 (expected if independent 3.5)
+[overlap] comparator false accepts vs the two Claude judges: 4 and 6, in common 4 (expected if independent 0.4)
+[agreement] opus-sonnet 114/120  qwen-opus 88/120  qwen-sonnet 93/120
+
+[construct] n | comparator EQ on equivalents (proven/of) | comparator false accepts | R1 false | J2 false | qwen false | J3 false
+  bounds_at_least_at_most        12 | 3/6 | 0 | 0 | 0 | 1 | 0
+  conditional_order_if_unless    12 | 3/6 | 0 | 0 | 0 | 1 | 0
+  deadline_direction             12 | 0/5 | 0 | 0 | 0 | 2 | 0
+  exception_except_unless        12 | 4/6 | 1 | 1 | 1 | 5 | 1
+  negation_forms                 12 | 3/6 | 1 | 1 | 1 | 6 | 1
+  number_forms                   13 | 4/7 | 0 | 0 | 0 | 2 | 0
+  only_exclusivity               12 | 3/6 | 0 | 0 | 1 | 5 | 1
+  quantifier_all_each_any        11 | 0/5 | 1 | 1 | 1 | 5 | 1
+  verb_synonyms                  12 | 4/6 | 1 | 1 | 2 | 5 | 2
+  word_order_voice               12 | 0/7 | 0 | 0 | 0 | 3 | 0
+
+comparator false accepts (NOT_EQUIVALENT-labelled, comparator EQUIVALENT):
+  S007 [NOT_EQUIVALENT] Do not restart the server unless the ticket is marked urgent. || Do not restart the server if the ticket is not marked urgent. | author: the second text forbids restart in the non-urgent case but is silent otherwise; unless versus if-not scope shifts the condition
+  S013 [UNDECIDABLE] Do not share the admin password with anyone. || Never share the admin password with anyone. | author: never may add a temporal strength beyond do not
+  S040 [UNDECIDABLE] Não envie nenhum arquivo ao cliente. || Não envie qualquer arquivo ao cliente. | author: qualquer can read as any whatsoever or as just any random file, ambiguous scope
+  H032 [UNDECIDABLE] Crea un ticket para cada incidencia. || Genera un ticket para cada incidencia. | author: create may mean by hand, generate may mean automatically; the text leaves the method open
+
+J3 false accepts:
+  S007 [NOT_EQUIVALENT] Do not restart the server unless the ticket is marked urgent. || Do not restart the server if the ticket is not marked urgent. | author: the second text forbids restart in the non-urgent case but is silent otherwise; unless versus if-not scope shifts the condition
+  S012 [UNDECIDABLE] Just export the file; do not edit it. || Solely export the file; do not edit it. | author: just may mean merely or simply, so the nuance of solely is open
+  S013 [UNDECIDABLE] Do not share the admin password with anyone. || Never share the admin password with anyone. | author: never may add a temporal strength beyond do not
+  S033 [UNDECIDABLE] Install the patch on all workstations. || Deploy the patch to all workstations. | author: install and deploy may differ in who performs it and how
+  S040 [UNDECIDABLE] Não envie nenhum arquivo ao cliente. || Não envie qualquer arquivo ao cliente. | author: qualquer can read as any whatsoever or as just any random file, ambiguous scope
+  H032 [UNDECIDABLE] Crea un ticket para cada incidencia. || Genera un ticket para cada incidencia. | author: create may mean by hand, generate may mean automatically; the text leaves the method open
+
+CLAIM: NOT ALLOWED
+
+## READING (added after the run)
+1. G1 FAILS (4/60, 6.7%) and is NOT vacuous: the comparator proved 24 of 60 equivalent pairs (40%), the first non-vacuous test of the strict rule. The strict rule gave no protection here: every comparator false accept was ALSO accepted by both Claude judges (4 in common, 0.4 expected), so requiring the judges on top removed none. The blind19-25 finding that comparator and judge errors barely overlap does not hold on these pairs.
+2. Three of the four comparator false accepts are UNDECIDABLE-labelled and arguable (never versus do not, nenhum versus qualquer, create versus generate). The fourth, S007 ('unless the ticket is marked urgent' versus 'if the ticket is not marked urgent'), is labelled NOT_EQUIVALENT by its author, but the same construction was labelled EQUIVALENT by another author in blind19 (A022): the labels are inconsistent. Not corrected; the gate uses the original labels.
+3. My expectations: comparator proves 10-25 equivalents (24, as expected); comparator alone 0-3 false accepts (4, slightly worse); Claude judges 3-8% false SAME (10%, worse, almost all on UNDECIDABLE labels); Qwen alone 10-25% false SAME (58.3%, far worse); adding Qwen lowers false SAME (it did not: 6 and 6). The two Claude judges again erred together (6 of 6 in common against 1.1 expected).
+4. Qwen2.5-7B Q4 said SAME to 94 of 120 pairs and is NOT a useful third judge here: 35 of 60 non-equivalent pairs accepted, and its false SAMEs add nothing to the unanimity (J3 = J2 except one pair). Agreement with the Claude judges 88 and 93 of 120.
+5. Comparator recall gaps INSIDE its own constructs: 0 of 5 equivalents proven in deadline_direction, 0 of 5 in quantifier_all_each_any, 0 of 7 in word_order_voice. These are the improvable ones. The other constructs prove 3-4 of 6-7.
+Limits: tuned constructs, model authors and labels, 120 pairs, small local model at Q4, one run; the set is now spent (any change made after reading this is development evidence only).

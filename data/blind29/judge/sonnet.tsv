@@ -1,0 +1,120 @@
+Q001	DIFFERENT	by vs until
+Q002	DIFFERENT	archive vs delete
+Q003	DIFFERENT	extra minors condition
+Q004	DIFFERENT	opposite polarity
+Q005	SAME	same
+Q006	DIFFERENT	except vs including
+Q007	DIFFERENT	1,000 vs 1.000 Portuguese
+Q008	SAME	active/passive
+Q009	DIFFERENT	scope of created this year
+Q010	SAME	salvo/excepto
+Q011	SAME	only manager
+Q012	DIFFERENT	roles swapped
+Q013	DIFFERENT	archive vs delete
+Q014	DIFFERENT	opposite
+Q015	DIFFERENT	none vs not all
+Q016	DIFFERENT	opposite
+Q017	SAME	apart from/except
+Q018	SAME	deadline day 10
+Q019	DIFFERENT	all vs some
+Q020	DIFFERENT	2500 vs 2050
+Q021	DIFFERENT	opposite who can
+Q022	DIFFERENT	only vs also
+Q023	SAME	reordered
+Q024	SAME	same negation
+Q025	SAME	active/passive
+Q026	SAME	deploy/install
+Q027	DIFFERENT	roles swapped
+Q028	DIFFERENT	any vs none
+Q029	SAME	by/no later than
+Q030	SAME	somente/apenas
+Q031	DIFFERENT	C vs F
+Q032	DIFFERENT	no more vs no less
+Q033	SAME	not/never share
+Q034	SAME	max ten
+Q035	SAME	only Mondays
+Q036	SAME	by Friday latest
+Q037	SAME	if not shipped
+Q038	DIFFERENT	4B vs 4D
+Q039	SAME	same conditions
+Q040	SAME	number format
+Q041	DIFFERENT	up to vs at least
+Q042	SAME	at least two
+Q043	DIFFERENT	except vs including
+Q044	DIFFERENT	if vs unless
+Q045	DIFFERENT	before vs after
+Q046	SAME	by 17h
+Q047	DIFFERENT	except vs including
+Q048	DIFFERENT	if vs unless
+Q049	SAME	1500 euros
+Q050	SAME	restart/reboot
+Q051	SAME	twenty=20
+Q052	SAME	no driver
+Q053	SAME	unless signed
+Q054	SAME	reordered
+Q055	DIFFERENT	roles swapped
+Q056	SAME	delete/remove
+Q057	DIFFERENT	until vs through
+Q058	SAME	at least two
+Q059	SAME	at least three
+Q060	DIFFERENT	before vs after
+Q061	SAME	twenty=20
+Q062	SAME	excepto/salvo
+Q063	SAME	at least two
+Q064	SAME	only treasury
+Q065	DIFFERENT	less than vs up to
+Q066	DIFFERENT	only if vs if
+Q067	SAME	reordered
+Q068	SAME	reordered
+Q069	SAME	unless objects
+Q070	SAME	no unsigned docs
+Q071	SAME	delete/erase
+Q072	SAME	each/all
+Q073	DIFFERENT	least vs most
+Q074	DIFFERENT	any vs all
+Q075	DIFFERENT	opposite condition
+Q076	DIFFERENT	before vs after
+Q077	SAME	twenty=20
+Q078	SAME	only manager
+Q079	SAME	only supervisor
+Q080	SAME	install/deploy
+Q081	DIFFERENT	roles swapped
+Q082	DIFFERENT	all vs some
+Q083	DIFFERENT	opposite
+Q084	SAME	reordered
+Q085	SAME	not/never
+Q086	DIFFERENT	until vs before
+Q087	SAME	active/passive
+Q088	SAME	except
+Q089	SAME	no one
+Q090	SAME	not/never
+Q091	DIFFERENT	21 vs 20
+Q092	SAME	1000 reais
+Q093	SAME	unless/if not
+Q094	SAME	by Friday latest
+Q095	DIFFERENT	opposite
+Q096	DIFFERENT	obligation and within differ
+Q097	SAME	delete synonyms
+Q098	DIFFERENT	before vs after
+Q099	DIFFERENT	up to vs at least
+Q100	DIFFERENT	number format ambiguous
+Q101	DIFFERENT	only vs also
+Q102	DIFFERENT	create vs delete
+Q103	SAME	restart/reboot
+Q104	DIFFERENT	approximate unos added
+Q105	SAME	reordered
+Q106	SAME	same
+Q107	SAME	excepto/salvo
+Q108	SAME	max thirty
+Q109	SAME	no cash payments
+Q110	DIFFERENT	only vs may
+Q111	DIFFERENT	each vs some
+Q112	SAME	same deadline
+Q113	DIFFERENT	only scope shifted
+Q114	SAME	all/every
+Q115	SAME	each/all
+Q116	SAME	mail/send
+Q117	SAME	each/every
+Q118	SAME	unless/except
+Q119	SAME	only/nobody but
+Q120	DIFFERENT	deactivate vs delete

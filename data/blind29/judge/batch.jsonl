@@ -1,0 +1,120 @@
+{"id": "Q001", "a": "Renew the license by March 31.", "b": "Renew the license until March 31."}
+{"id": "Q002", "a": "Archive the old tickets every month.", "b": "Delete the old tickets every month."}
+{"id": "Q003", "a": "Everyone must sign the form, apart from guests.", "b": "Everyone must sign the form, except guests who are minors."}
+{"id": "Q004", "a": "You need not copy legal on routine vendor emails.", "b": "You must not copy legal on routine vendor emails."}
+{"id": "Q005", "a": "Cada mañana, el equipo revisa los tickets abiertos.", "b": "El equipo revisa los tickets abiertos cada mañana."}
+{"id": "Q006", "a": "Envie o boletim mensal a todos os clientes, exceto os da região Sul.", "b": "Envie o boletim mensal a todos os clientes, inclusive os da região Sul."}
+{"id": "Q007", "a": "Envie 1.000 unidades por lote.", "b": "Envie 1,000 unidades por lote."}
+{"id": "Q008", "a": "O gerente assina todos os contratos.", "b": "Todos os contratos são assinados pelo gerente."}
+{"id": "Q009", "a": "Lock all user accounts except the admin accounts and the service accounts created this year.", "b": "Lock all user accounts except the admin accounts created this year and the service accounts."}
+{"id": "Q010", "a": "Todos los empleados deben fichar salvo los de turno remoto.", "b": "Todos los empleados deben fichar excepto los de turno remoto."}
+{"id": "Q011", "a": "Solo el gerente puede autorizar descuentos mayores al 20 %.", "b": "Nadie más que el gerente puede autorizar descuentos mayores al 20 %."}
+{"id": "Q012", "a": "The client must sign the form before the agent files it.", "b": "The agent must sign the form before the client files it."}
+{"id": "Q013", "a": "Archiva los tickets cerrados de la semana pasada.", "b": "Elimina los tickets cerrados de la semana pasada."}
+{"id": "Q014", "a": "Don't leave any spare keys in the office.", "b": "Leave some spare keys in the office."}
+{"id": "Q015", "a": "Ningún cliente recibió el aviso de mantenimiento.", "b": "No todos los clientes recibieron el aviso de mantenimiento."}
+{"id": "Q016", "a": "Não aceite devoluções de produtos sem a etiqueta original.", "b": "Aceite devoluções de produtos sem a etiqueta original."}
+{"id": "Q017", "a": "Back up every server nightly apart from the staging cluster.", "b": "Back up every server nightly except the staging cluster."}
+{"id": "Q018", "a": "Pague a fatura até o dia 10.", "b": "Pague a fatura, o mais tardar, no dia 10."}
+{"id": "Q019", "a": "All drivers must complete the safety course.", "b": "Some drivers must complete the safety course."}
+{"id": "Q020", "a": "Las facturas de más de 2.500 pesos requieren doble firma.", "b": "Las facturas de más de 2.050 pesos requieren doble firma."}
+{"id": "Q021", "a": "Nadie salvo los administradores puede cambiar las reglas del cortafuegos.", "b": "Todos salvo los administradores pueden cambiar las reglas del cortafuegos."}
+{"id": "Q022", "a": "Only the finance team can approve refunds.", "b": "The finance team can also approve refunds."}
+{"id": "Q023", "a": "Si el pedido supera los 500 dólares, pide la firma del gerente.", "b": "Pide la firma del gerente si el pedido supera los 500 dólares."}
+{"id": "Q024", "a": "Nenhum técnico pode fechar o chamado sem a aprovação do cliente.", "b": "Técnico nenhum pode fechar o chamado sem a aprovação do cliente."}
+{"id": "Q025", "a": "O coordenador deve revisar os planos de aula antes de segunda-feira.", "b": "Os planos de aula devem ser revisados pelo coordenador antes de segunda-feira."}
+{"id": "Q026", "a": "Deploy the new antivirus agent to the finance laptops.", "b": "Install the new antivirus agent on the finance laptops."}
+{"id": "Q027", "a": "The vendor must reimburse the client for damaged goods.", "b": "The client must reimburse the vendor for damaged goods."}
+{"id": "Q028", "a": "Qualquer pedido de reembolso precisa de nota fiscal.", "b": "Nenhum pedido de reembolso precisa de nota fiscal."}
+{"id": "Q029", "a": "Submit your timesheet by Friday at 5 pm.", "b": "Submit your timesheet no later than Friday at 5 pm."}
+{"id": "Q030", "a": "Somente o RH pode acessar os prontuários dos funcionários.", "b": "Apenas o RH pode acessar os prontuários dos funcionários."}
+{"id": "Q031", "a": "Keep the vaccine samples below 8 °C during transport.", "b": "Keep the vaccine samples below 8 °F during transport."}
+{"id": "Q032", "a": "Pallets loaded on the night truck must weigh no more than 800 kg.", "b": "Pallets loaded on the night truck must weigh no less than 800 kg."}
+{"id": "Q033", "a": "Do not share your password with anyone.", "b": "Never share your password with anyone."}
+{"id": "Q034", "a": "O pedido deve ter no máximo dez itens.", "b": "O pedido deve ter até dez itens."}
+{"id": "Q035", "a": "Só enviamos faturas por e-mail às segundas.", "b": "Enviamos faturas por e-mail só às segundas."}
+{"id": "Q036", "a": "Submit the report by Friday at the latest.", "b": "Submit the report no later than Friday."}
+{"id": "Q037", "a": "Refund the customer if the order did not ship.", "b": "Refund the customer unless the order shipped."}
+{"id": "Q038", "a": "Deliver the package to room 4B on the second floor.", "b": "Deliver the package to room 4D on the second floor."}
+{"id": "Q039", "a": "If the card is declined and the customer is present, ask for another card.", "b": "If the card is declined, ask for another card if the customer is present."}
+{"id": "Q040", "a": "O pagamento mínimo é de R$ 1.000 por mês.", "b": "O pagamento mínimo é de R$ 1000 por mês."}
+{"id": "Q041", "a": "Approve up to six hours of weekly overtime without manager review.", "b": "Approve at least six hours of weekly overtime without manager review."}
+{"id": "Q042", "a": "Cada solicitud de reembolso debe llevar al menos dos facturas adjuntas.", "b": "Cada solicitud de reembolso debe llevar como mínimo dos facturas adjuntas."}
+{"id": "Q043", "a": "Todos os funcionários podem sair cedo, exceto os estagiários.", "b": "Todos os funcionários podem sair cedo, inclusive os estagiários."}
+{"id": "Q044", "a": "Llama al cliente si el pedido llega tarde.", "b": "Llama al cliente a menos que el pedido llegue tarde."}
+{"id": "Q045", "a": "Entrega la factura antes del viernes.", "b": "Entrega la factura después del viernes."}
+{"id": "Q046", "a": "Envie o formulário até as 17h.", "b": "Envie o formulário o mais tardar às 17h."}
+{"id": "Q047", "a": "Faça backup de todos os servidores, exceto o de testes.", "b": "Faça backup de todos os servidores, inclusive o de testes."}
+{"id": "Q048", "a": "Avise o supervisor se o chamado for urgente.", "b": "Avise o supervisor a menos que o chamado seja urgente."}
+{"id": "Q049", "a": "El presupuesto máximo es de mil quinientos euros.", "b": "El presupuesto máximo es de 1.500 euros."}
+{"id": "Q050", "a": "Restart the router after the update.", "b": "Reboot the router after the update."}
+{"id": "Q051", "a": "Order twenty boxes of printer paper for the Lima office.", "b": "Order 20 boxes of printer paper for the Lima office."}
+{"id": "Q052", "a": "None of the drivers may skip the safety check.", "b": "No driver may skip the safety check."}
+{"id": "Q053", "a": "Não libere o pagamento, a menos que o contrato esteja assinado.", "b": "Não libere o pagamento se o contrato não estiver assinado."}
+{"id": "Q054", "a": "After each delivery, the driver must scan the parcel.", "b": "The driver must scan the parcel after each delivery."}
+{"id": "Q055", "a": "O gerente avaliará o analista no fim do ano.", "b": "O analista avaliará o gerente no fim do ano."}
+{"id": "Q056", "a": "Exclua os rascunhos de campanha com mais de seis meses.", "b": "Remova os rascunhos de campanha com mais de seis meses."}
+{"id": "Q057", "a": "Keep the promo banner live until March 31.", "b": "Keep the promo banner live through March 31."}
+{"id": "Q058", "a": "Each shift needs a minimum of two trained first-aiders on site.", "b": "Each shift needs at least two trained first-aiders on site."}
+{"id": "Q059", "a": "El comprador debe reunir al menos tres cotizaciones antes de aprobar el gasto.", "b": "El comprador debe reunir no menos de tres cotizaciones antes de aprobar el gasto."}
+{"id": "Q060", "a": "Renueva el certificado SSL antes del cierre de mes.", "b": "Renueva el certificado SSL después del cierre de mes."}
+{"id": "Q061", "a": "Allow twenty minutes between calls.", "b": "Allow 20 minutes between calls."}
+{"id": "Q062", "a": "Todos los empleados pueden usar el portal excepto los becarios.", "b": "Todos los empleados pueden usar el portal, salvo los becarios."}
+{"id": "Q063", "a": "Los reembolsos deben aprobarse con al menos dos firmas.", "b": "Los reembolsos deben aprobarse con no menos de dos firmas."}
+{"id": "Q064", "a": "Solo el equipo de tesorería puede aprobar pagos a proveedores nuevos.", "b": "Únicamente el equipo de tesorería puede aprobar pagos a proveedores nuevos."}
+{"id": "Q065", "a": "Se permiten menos de 30 estudiantes por aula.", "b": "Se permiten hasta 30 estudiantes por aula."}
+{"id": "Q066", "a": "Aprueba el permiso solo si el empleado avisó con una semana de antelación.", "b": "Aprueba el permiso si el empleado avisó con una semana de antelación."}
+{"id": "Q067", "a": "Al final de cada jornada, el cajero debe cuadrar la caja.", "b": "El cajero debe cuadrar la caja al final de cada jornada."}
+{"id": "Q068", "a": "Se o aluno faltar três dias seguidos, ligue para os responsáveis.", "b": "Ligue para os responsáveis se o aluno faltar três dias seguidos."}
+{"id": "Q069", "a": "Escalate the ticket unless the customer objects.", "b": "Escalate the ticket if the customer does not object."}
+{"id": "Q070", "a": "No envíes ningún documento sin firmar al cliente.", "b": "No envíes documentos sin firmar al cliente."}
+{"id": "Q071", "a": "Elimina los duplicados de la base de datos.", "b": "Borra los duplicados de la base de datos."}
+{"id": "Q072", "a": "Cada empleado debe completar la capacitación.", "b": "Todos los empleados deben completar la capacitación."}
+{"id": "Q073", "a": "Keep backups for at least thirty days.", "b": "Keep backups for at most thirty days."}
+{"id": "Q074", "a": "Don't reply to any customer complaints over the weekend.", "b": "Don't reply to all customer complaints over the weekend."}
+{"id": "Q075", "a": "Ship the order unless the payment is still pending.", "b": "Ship the order if the payment is still pending."}
+{"id": "Q076", "a": "Los pedidos deben llegar antes del viernes.", "b": "Los pedidos deben llegar después del viernes."}
+{"id": "Q077", "a": "Reserve veinte sillas para la reunión del lunes.", "b": "Reserve 20 sillas para la reunión del lunes."}
+{"id": "Q078", "a": "Solo el gerente puede aprobar cambios de precio.", "b": "Únicamente el gerente puede aprobar cambios de precio."}
+{"id": "Q079", "a": "Só o supervisor pode liberar o acesso ao cofre.", "b": "Somente o supervisor pode liberar o acesso ao cofre."}
+{"id": "Q080", "a": "Install the patch on the server tonight.", "b": "Deploy the patch on the server tonight."}
+{"id": "Q081", "a": "El proveedor debe ser notificado por el área de compras.", "b": "El área de compras debe ser notificada por el proveedor."}
+{"id": "Q082", "a": "Revisa todas las facturas del proveedor antes de pagarlas.", "b": "Revisa algunas de las facturas del proveedor antes de pagarlas."}
+{"id": "Q083", "a": "Não envie anexos a clientes externos.", "b": "Envie anexos a clientes externos."}
+{"id": "Q084", "a": "Si la factura supera los 1.000 euros, pide una segunda aprobación.", "b": "Pide una segunda aprobación si la factura supera los 1.000 euros."}
+{"id": "Q085", "a": "Não deixe a porta destrancada à noite.", "b": "Nunca deixe a porta destrancada à noite."}
+{"id": "Q086", "a": "Cancele a reserva até o dia 10.", "b": "Cancele a reserva antes do dia 10."}
+{"id": "Q087", "a": "El supervisor aprobará las horas extra.", "b": "Las horas extra serán aprobadas por el supervisor."}
+{"id": "Q088", "a": "Todos os clientes recebem frete grátis, exceto os de Manaus.", "b": "Todos os clientes recebem frete grátis, à exceção dos de Manaus."}
+{"id": "Q089", "a": "Do not share the password with anyone.", "b": "Share the password with no one."}
+{"id": "Q090", "a": "No cierres el ticket sin avisar al cliente.", "b": "Nunca cierres el ticket sin avisar al cliente."}
+{"id": "Q091", "a": "Keep the file for twenty-one days.", "b": "Keep the file for twenty days."}
+{"id": "Q092", "a": "O limite do cartão corporativo é de R$ 1.000 por mês.", "b": "O limite do cartão corporativo é de mil reais por mês."}
+{"id": "Q093", "a": "A menos que el cliente lo pida, no se envía factura en papel.", "b": "Si el cliente no lo pide, no se envía factura en papel."}
+{"id": "Q094", "a": "Os pais devem confirmar a inscrição até sexta-feira, o mais tardar.", "b": "Os pais devem confirmar a inscrição no máximo até sexta-feira."}
+{"id": "Q095", "a": "Nunca envíes el archivo sin revisarlo.", "b": "Envía el archivo sin revisarlo."}
+{"id": "Q096", "a": "Reclamações são respondidas em até cinco dias.", "b": "Reclamações devem ser respondidas em cinco dias."}
+{"id": "Q097", "a": "Elimine los archivos temporales cada semana.", "b": "Borre los archivos temporales cada semana."}
+{"id": "Q098", "a": "Before shipping, the warehouse checks each label.", "b": "After shipping, the warehouse checks each label."}
+{"id": "Q099", "a": "O cliente pode devolver até cinco itens por pedido.", "b": "O cliente pode devolver pelo menos cinco itens por pedido."}
+{"id": "Q100", "a": "Cobre una multa de 1.000 pesos por retraso.", "b": "Cobre una multa de 1,000 pesos por retraso."}
+{"id": "Q101", "a": "Somente o RH pode alterar os dados bancários dos funcionários.", "b": "O RH também pode alterar os dados bancários dos funcionários."}
+{"id": "Q102", "a": "Crie um backup antes de atualizar o sistema.", "b": "Apague um backup antes de atualizar o sistema."}
+{"id": "Q103", "a": "Restart the print server after applying the patch.", "b": "Reboot the print server after applying the patch."}
+{"id": "Q104", "a": "Envía como máximo unos 200 paquetes por semana.", "b": "Envía hasta 200 paquetes por semana."}
+{"id": "Q105", "a": "If the alarm sounds, staff must leave through the rear exit.", "b": "Staff must leave through the rear exit if the alarm sounds."}
+{"id": "Q106", "a": "Do not approve any expense claim that lacks a receipt.", "b": "Don't approve any expense claim that lacks a receipt."}
+{"id": "Q107", "a": "Archiva todos los contratos del trimestre excepto los que sigan en negociación.", "b": "Archiva todos los contratos del trimestre salvo los que sigan en negociación."}
+{"id": "Q108", "a": "Cada turma pode levar no máximo trinta alunos à excursão.", "b": "Cada turma pode levar até trinta alunos à excursão."}
+{"id": "Q109", "a": "No se aceptan pagos en efectivo.", "b": "No se acepta ningún pago en efectivo."}
+{"id": "Q110", "a": "Only the night team may restart the billing server.", "b": "The night team may restart the billing server."}
+{"id": "Q111", "a": "Cada fornecedor deve assinar o acordo.", "b": "Algum fornecedor deve assinar o acordo."}
+{"id": "Q112", "a": "Submit the timesheet no later than Friday noon.", "b": "Submit the timesheet by Friday noon at the latest."}
+{"id": "Q113", "a": "Only send the invoice reminder on Fridays.", "b": "Send only the invoice reminder on Fridays."}
+{"id": "Q114", "a": "All new hires must complete the security training in their first week.", "b": "Every new hire must complete the security training in their first week."}
+{"id": "Q115", "a": "Cada paquete debe llevar una etiqueta.", "b": "Todos los paquetes deben llevar una etiqueta."}
+{"id": "Q116", "a": "Send the invoice to the client by email.", "b": "Mail the invoice to the client by email."}
+{"id": "Q117", "a": "Cada aluno deve entregar o trabalho na secretaria.", "b": "Todo aluno deve entregar o trabalho na secretaria."}
+{"id": "Q118", "a": "All invoices must be approved by finance unless they are under 50 dollars.", "b": "All invoices must be approved by finance, except those under 50 dollars."}
+{"id": "Q119", "a": "Only the shift supervisor may unlock the loading dock after 10 pm.", "b": "Nobody but the shift supervisor may unlock the loading dock after 10 pm."}
+{"id": "Q120", "a": "Desative a conta do usuário após o desligamento.", "b": "Exclua a conta do usuário após o desligamento."}

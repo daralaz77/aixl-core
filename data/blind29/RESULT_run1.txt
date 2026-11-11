@@ -1,0 +1,53 @@
+blind29 single run, 2026-11-11, PAIRED: OLD comparator (git commit 933fb76, extracted unchanged) vs NEW comparator (frozen aixl-core working tree with the three changes made after blind28), same 120 fresh pairs, judges Opus and Sonnet (fresh agents). Output copied verbatim from stdout (python3 -I eval.py); the reading below it was added afterwards.
+
+SET: 120 pairs  labels {'EQUIVALENT': 60, 'NOT_EQUIVALENT': 42, 'UNDECIDABLE': 18}  authors {'P': 40, 'Q': 40, 'R': 40}
+OLD verdicts {'EQUIVALENT': 31, 'NOT_EQUIVALENT': 28, 'INCONCLUSIVE': 61}
+NEW verdicts {'EQUIVALENT': 32, 'NOT_EQUIVALENT': 28, 'INCONCLUSIVE': 60}
+judge verdicts: opus {'DIFFERENT': 52, 'SAME': 67, 'UNSURE': 1}  sonnet {'DIFFERENT': 53, 'SAME': 67}
+
+OLD comparator alone                       false accepts 2/60 (3.3%)    proven-EQUIVALENT 29/60 (48.3%)
+NEW comparator alone                       false accepts 1/60 (1.7%)    proven-EQUIVALENT 31/60 (51.7%)
+R1-new: NEW AND opus AND sonnet SAME       false accepts 1/60 (1.7%)    proven-EQUIVALENT 31/60 (51.7%)
+R1-old: OLD AND opus AND sonnet SAME       false accepts 2/60 (3.3%)    proven-EQUIVALENT 29/60 (48.3%)
+both judges SAME                           false accepts 7/60 (11.7%)   proven-EQUIVALENT 60/60 (100.0%)
+opus alone                                 false accepts 7/60 (11.7%)   proven-EQUIVALENT 60/60 (100.0%)
+sonnet alone                               false accepts 7/60 (11.7%)   proven-EQUIVALENT 60/60 (100.0%)
+wrong NOT_EQUIVALENT on EQUIVALENT-labelled: OLD 1  NEW 1
+
+[paired recall] newly proven by NEW 3, lost 1, net 2
+[paired safety] new false accepts (NEW only) 0 [], false accepts removed (OLD only) 1 ['Q016']
+[RULE recall] NEW proves >= 5 more equivalents with 0 new false accepts -> DOES NOT HOLD
+[RULE safety] NEW has fewer false accepts than OLD and none new -> HOLDS
+[G1 NEW] false accepts 1 of 60 (<= 1) -> PASS; R1-new false 1, proven 31 (floor 10: ok)
+
+NEW false accepts:
+  Q008 [UNDECIDABLE] Escalate the ticket unless the customer objects. || Escalate the ticket if the customer does not object. | author: unless versus if-not may differ when the customer says nothing | OLD said EQUIVALENT
+
+newly proven by NEW:
+  P025 Submit your timesheet by Friday at 5 pm. || Submit your timesheet no later than Friday at 5 pm.
+  Q026 Submit the timesheet no later than Friday noon. || Submit the timesheet by Friday noon at the latest.
+  R025 Submit the report by Friday at the latest. || Submit the report no later than Friday.
+
+lost by NEW:
+  R013 Do not share your password with anyone. || Never share your password with anyone. | NEW said INCONCLUSIVE
+
+[construct] eq proven OLD -> NEW | false OLD -> NEW
+  bounds_at_least_at_most        4/6 -> 4/6 | 0 -> 0
+  conditional_order_if_unless    3/6 -> 3/6 | 0 -> 0
+  deadline_direction             0/6 -> 3/6 | 0 -> 0
+  exception_except_unless        3/6 -> 3/6 | 1 -> 1
+  negation_forms                 3/6 -> 2/6 | 1 -> 0
+  number_forms                   3/6 -> 3/6 | 0 -> 0
+  only_exclusivity               4/6 -> 4/6 | 0 -> 0
+  quantifier_all_each_any        1/6 -> 1/6 | 0 -> 0
+  verb_synonyms                  5/6 -> 5/6 | 0 -> 0
+  word_order_voice               3/6 -> 3/6 | 0 -> 0
+
+## READING (added after the run)
+1. The recall rule I fixed beforehand DOES NOT HOLD: NEW proves 3 more equivalents and loses 1, net +2 of 60 (3.3 points), below the +5 I required. The change is real but small. My expectation was +3 to +8; it was +2 net (+3 gross).
+2. The safety rule HOLDS: NEW has 1 false accept against 2 for OLD, none new (Q016 removed). G1 for NEW passes non-vacuously (1/60 = 1.7%, 31 proven, floor 10), and so does R1-new (NEW AND both judges). The one remaining false accept is Q008 ('unless the customer objects' vs 'if the customer does not object', UNDECIDABLE-labelled; the same construction that blind19 A022 labelled EQUIVALENT and blind28 S007 labelled NOT_EQUIVALENT: labels about it are inconsistent). 0 of 60 has a 95% upper bound of about 5%, and 1 of 60 about 8%; one passing set after earlier failures is weak evidence.
+3. The effect is concentrated where the rule was written for: deadline_direction 0/6 -> 3/6. The fronted-adjunct rule did not fire on any fresh pair (word_order_voice stays 3/6 for both versions): the fresh authors wrote passives and other word orders, so that rule fits blind28's sentences and is not shown to help. It also did no harm.
+4. The one lost pair, R013 ('Do not share' vs 'Never share', labelled EQUIVALENT by its author), is the price of the 'never' ledger entry; the same pair is UNDECIDABLE in blind28 (S013) and EQUIVALENT in blind28 (H013): authors disagree.
+5. The strongest result is not the change itself but the baseline: on these fresh in-vocabulary pairs the OLD comparator already proved 48% of the equivalents with 2 false accepts, while the two Claude judges accepted 100% of the equivalents and 11.7% of the non-equivalent pairs (7 of 60, identical for both judges). So comparator AND judges (R1) had 1.7-3.3% false accepts against 11.7% for the judges alone, at about half the recall.
+6. My expectations: OLD and NEW both 2-5 false accepts (2 and 1: better than expected, so G1 passes where I predicted a probable FAIL); judges 3-10% false SAME (11.7%: slightly worse).
+Limits: tuned constructs, model authors and labels, 120 pairs, two Claude judges that agree on almost everything (both said SAME on the same 67 pairs), the rules were written after reading blind28's sentences. Not a generalisation claim.

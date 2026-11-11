@@ -6,6 +6,13 @@ Human-readable summary of what changes between releases. The detailed, per-chang
 ### Added
 - Strict hybrid: `aixl.semantic.hybrid_decide(..., require_semantic_equivalent=True)`, `hybrid_protocol.decide(..., strict=True)` and the MCP tool `aixl_hybrid_decide(..., strict=True)`. A unanimous judge SAME is accepted only if the rule-based comparator also proves EQUIVALENT; otherwise REVIEW. Default behaviour is unchanged. Measured evidence and its limits: `docs/HYBRID_MCP.md`.
 - Evidence sets `data/blind26` (80 model-written pairs, new families) and `data/blind27` (100 human-labelled pairs from PAWS-X and CondaQA; references only, no third-party text), each pre-registered and run once.
+- Evidence sets `data/blind28` (120 in-vocabulary pairs, three judges including a local non-Claude model) and `data/blind29` (120 fresh pairs, paired old-versus-new comparison).
+
+### Comparator
+- Fixed deadline phrasings are now proven equal: 'no later than X' = 'by X', 'by X at the latest' = 'by X', 'no máximo até' = 'até', 'no después del' = 'hasta el'. A bare 'at the latest' stays content. Applied after the strict-mode token identity, so strict mode still reads the words as written.
+- A fronted time or frequency adjunct is moved to the end ('After C, do A' = 'Do A after C', 'Mañana, X', 'Cada semana, X', 'Every Monday, X'); 'before' and 'after' stay distinct.
+- 'never / nunca / jamás' and 'qualquer / cualquier' on one side only now make EQUIVALENT impossible (INCONCLUSIVE).
+- Measured on 120 fresh pairs (blind29, same pairs through the old and the new comparator): false accepts 2 -> 1 of 60 (none new), proven equivalents 29 -> 31 of 60 (3 gained, 1 lost; the pre-registered rule asked for +5 and does NOT hold). The gain is in the deadline construct (0/6 -> 3/6); the fronted-adjunct rule did not fire on any fresh pair. In-distribution constructs, model authors, small sample: not a generalisation claim.
 
 ## 0.6.0 — 2026-11-06
 ### Security

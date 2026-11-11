@@ -1,0 +1,120 @@
+Q001	SAME	number word vs digit
+Q002	SAME	same deadline
+Q003	DIFFERENT	before vs after
+Q004	DIFFERENT	only vs also
+Q005	DIFFERENT	20 vs 21 MB
+Q006	SAME	unless equals if not
+Q007	DIFFERENT	maximum vs minimum
+Q008	DIFFERENT	adds if possible
+Q009	SAME	each vs every
+Q010	DIFFERENT	some vs none
+Q011	DIFFERENT	2 GB vs 2000 MB
+Q012	DIFFERENT	restart vs shut down
+Q013	DIFFERENT	number format changes value
+Q014	SAME	at most ten
+Q015	UNSURE	negation scope ambiguous
+Q016	SAME	active vs passive
+Q017	DIFFERENT	if vs unless
+Q018	SAME	logically equivalent condition
+Q019	SAME	at least three
+Q020	DIFFERENT	at most vs at least
+Q021	DIFFERENT	before vs after
+Q022	SAME	synonyms only
+Q023	SAME	reordered
+Q024	DIFFERENT	except vs including
+Q025	DIFFERENT	restart vs recreate
+Q026	DIFFERENT	condition changed
+Q027	DIFFERENT	maximum vs minimum
+Q028	SAME	each vs all
+Q029	DIFFERENT	except vs including
+Q030	SAME	contraction only
+Q031	SAME	same deadline
+Q032	SAME	passive vs active
+Q033	DIFFERENT	opposite polarity
+Q034	SAME	install vs deploy
+Q035	DIFFERENT	only vs also
+Q036	DIFFERENT	archive vs delete
+Q037	SAME	apart from vs except
+Q038	SAME	active vs passive
+Q039	SAME	synonyms only
+Q040	DIFFERENT	GB vs MB
+Q041	DIFFERENT	email channel added
+Q042	DIFFERENT	until vs before
+Q043	SAME	synonyms
+Q044	UNSURE	total vs per-file limit
+Q045	SAME	same deadline
+Q046	SAME	synonymous exception
+Q047	SAME	excepto vs salvo
+Q048	SAME	equivalent prohibition
+Q049	DIFFERENT	all vs some
+Q050	DIFFERENT	only adds exclusivity
+Q051	SAME	reordered
+Q052	DIFFERENT	any vs some
+Q053	DIFFERENT	only scope shifted
+Q054	DIFFERENT	unless vs if
+Q055	SAME	at most ten
+Q056	SAME	active vs passive
+Q057	SAME	number word vs digit
+Q058	SAME	synonyms
+Q059	SAME	at least three
+Q060	SAME	just vs solely
+Q061	DIFFERENT	unless vs if
+Q062	DIFFERENT	roles swapped
+Q063	DIFFERENT	15 vs 1.5 MB
+Q064	SAME	room label formatting
+Q065	DIFFERENT	opposite polarity
+Q066	SAME	excepto vs salvo
+Q067	DIFFERENT	opposite polarity
+Q068	SAME	apart from vs but
+Q069	SAME	equivalent negation
+Q070	DIFFERENT	20 vs 21
+Q071	SAME	equivalent prohibition
+Q072	DIFFERENT	none vs not every
+Q073	DIFFERENT	agent of action shifted
+Q074	DIFFERENT	by vs before
+Q075	DIFFERENT	except vs including
+Q076	SAME	only equals nobody but
+Q077	DIFFERENT	roles swapped
+Q078	SAME	every vs all
+Q079	DIFFERENT	maximum vs minimum
+Q080	SAME	reordered
+Q081	SAME	only vs just
+Q082	DIFFERENT	if vs unless
+Q083	DIFFERENT	install vs uninstall
+Q084	DIFFERENT	all vs some
+Q085	SAME	reordered
+Q086	SAME	except vs apart from
+Q087	DIFFERENT	before vs after
+Q088	SAME	gigabytes vs GB
+Q089	SAME	passive vs active
+Q090	SAME	digit vs word
+Q091	DIFFERENT	only vs also
+Q092	SAME	at least three
+Q093	DIFFERENT	until vs from
+Q094	SAME	contraction only
+Q095	SAME	synonyms only
+Q096	SAME	reboot vs restart
+Q097	SAME	equivalent prohibition
+Q098	DIFFERENT	at most vs at least
+Q099	DIFFERENT	before vs after
+Q100	SAME	same deadline
+Q101	SAME	every vs each
+Q102	SAME	create vs generate
+Q103	SAME	room label formatting
+Q104	SAME	only equals nobody but
+Q105	SAME	unless equals if not
+Q106	DIFFERENT	until vs through
+Q107	SAME	same deadline
+Q108	SAME	equivalent negation
+Q109	DIFFERENT	if vs unless
+Q110	DIFFERENT	condition reversed
+Q111	SAME	at least five
+Q112	SAME	none vs no
+Q113	SAME	synonyms
+Q114	SAME	digit vs word
+Q115	DIFFERENT	may vs do
+Q116	SAME	reordered
+Q117	DIFFERENT	mail channel specified
+Q118	SAME	reordered
+Q119	DIFFERENT	prohibition vs not required
+Q120	SAME	nunca vs jamais

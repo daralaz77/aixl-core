@@ -1,0 +1,120 @@
+{"id": "Q001", "a": "Arquive vinte relatórios por mês.", "b": "Arquive 20 relatórios por mês."}
+{"id": "Q002", "a": "Submit the report no later than Friday.", "b": "Submit the report by Friday at the latest."}
+{"id": "Q003", "a": "Before the server is restarted, the admin backs up the data.", "b": "After the server is restarted, the admin backs up the data."}
+{"id": "Q004", "a": "Only the finance team may approve invoices.", "b": "The finance team may also approve invoices."}
+{"id": "Q005", "a": "Limit each upload to 20 MB.", "b": "Limit each upload to 21 MB."}
+{"id": "Q006", "a": "Reinicie o servidor a menos que haja usuários conectados.", "b": "Reinicie o servidor se não houver usuários conectados."}
+{"id": "Q007", "a": "Cada usuario puede abrir como máximo cinco tickets al día.", "b": "Cada usuario puede abrir como mínimo cinco tickets al día."}
+{"id": "Q008", "a": "Os relatórios devem ser aprovados pelo gerente antes do envio.", "b": "O gerente deve aprovar os relatórios antes do envio, se possível."}
+{"id": "Q009", "a": "Cada usuário deve ter uma conta de e-mail.", "b": "Todo usuário deve ter uma conta de e-mail."}
+{"id": "Q010", "a": "Alguns servidores precisam de reinício.", "b": "Nenhum servidor precisa de reinício."}
+{"id": "Q011", "a": "Mantenha o arquivo com até 2 GB.", "b": "Mantenha o arquivo com até 2.000 MB."}
+{"id": "Q012", "a": "Reinicie o servidor depois da atualização.", "b": "Desligue o servidor depois da atualização."}
+{"id": "Q013", "a": "Cada factura debe pesar menos de 1.000 KB.", "b": "Cada factura debe pesar menos de 1,000 KB."}
+{"id": "Q014", "a": "Cada relatório pode ter no máximo dez páginas.", "b": "Cada relatório pode ter até dez páginas."}
+{"id": "Q015", "a": "All the reports must not be sent today.", "b": "None of the reports may be sent today."}
+{"id": "Q016", "a": "The auditor must approve every payment.", "b": "Every payment must be approved by the auditor."}
+{"id": "Q017", "a": "Envie o relatório ao cliente se ele for aprovado.", "b": "Envie o relatório ao cliente a menos que ele seja aprovado."}
+{"id": "Q018", "a": "Do not restart the server unless the ticket is marked urgent.", "b": "Do not restart the server if the ticket is not marked urgent."}
+{"id": "Q019", "a": "Keep at least three backup copies of the payroll database.", "b": "Keep no fewer than three backup copies of the payroll database."}
+{"id": "Q020", "a": "Each invoice attachment must be at most 5 MB.", "b": "Each invoice attachment must be at least 5 MB."}
+{"id": "Q021", "a": "Sube los backups antes del viernes a las 18:00.", "b": "Sube los backups después del viernes a las 18:00."}
+{"id": "Q022", "a": "Somente o administrador pode apagar contas de usuários.", "b": "Apenas o administrador pode apagar contas de usuários."}
+{"id": "Q023", "a": "Si el disco supera el 90 %, avisa al administrador.", "b": "Avisa al administrador si el disco supera el 90 %."}
+{"id": "Q024", "a": "Envie o relatório a todos os gerentes, exceto ao diretor financeiro.", "b": "Envie o relatório a todos os gerentes, inclusive ao diretor financeiro."}
+{"id": "Q025", "a": "Reinicie o servidor de produção.", "b": "Recrie o servidor de produção."}
+{"id": "Q026", "a": "Borra los registros antiguos, salvo que el auditor diga lo contrario.", "b": "Borra los registros antiguos si el auditor no dice nada."}
+{"id": "Q027", "a": "Envie no máximo 50 faturas por lote.", "b": "Envie no mínimo 50 faturas por lote."}
+{"id": "Q028", "a": "Cada empleado debe cambiar su contraseña.", "b": "Todos los empleados deben cambiar su contraseña."}
+{"id": "Q029", "a": "Reinicie todos os servidores, exceto o servidor de e-mail.", "b": "Reinicie todos os servidores, inclusive o servidor de e-mail."}
+{"id": "Q030", "a": "Do not install any software without approval.", "b": "Don't install any software without approval."}
+{"id": "Q031", "a": "Entrega el informe a más tardar el viernes.", "b": "Entrega el informe no después del viernes."}
+{"id": "Q032", "a": "O relatório é enviado pelo gerente toda sexta-feira.", "b": "Toda sexta-feira, o gerente envia o relatório."}
+{"id": "Q033", "a": "No copies los archivos al servidor de pruebas.", "b": "Copia los archivos al servidor de pruebas."}
+{"id": "Q034", "a": "Install the patch on all workstations.", "b": "Deploy the patch to all workstations."}
+{"id": "Q035", "a": "Only the finance team can open the invoice folder.", "b": "The finance team can also open the invoice folder."}
+{"id": "Q036", "a": "Archiva las facturas duplicadas.", "b": "Elimina las facturas duplicadas."}
+{"id": "Q037", "a": "Lock every user account apart from the admin account.", "b": "Lock every user account except the admin account."}
+{"id": "Q038", "a": "El administrador revisará los registros cada lunes.", "b": "Los registros serán revisados por el administrador cada lunes."}
+{"id": "Q039", "a": "Somente o administrador pode apagar backups antigos.", "b": "Apenas o administrador pode apagar backups antigos."}
+{"id": "Q040", "a": "Store the 500 GB backup on drive 2.", "b": "Store the 500 MB backup on drive 2."}
+{"id": "Q041", "a": "Send the monthly report to the finance team.", "b": "Email the monthly report to the finance team."}
+{"id": "Q042", "a": "Mantén el servidor apagado hasta las 8:00.", "b": "Mantén el servidor apagado antes de las 8:00."}
+{"id": "Q043", "a": "Elimina los archivos temporales cada noche.", "b": "Borra los archivos temporales cada noche."}
+{"id": "Q044", "a": "Limita los archivos adjuntos a 10 MB.", "b": "No adjuntes archivos de más de 10 MB."}
+{"id": "Q045", "a": "Submit the invoice by Monday at the latest.", "b": "Submit the invoice no later than Monday."}
+{"id": "Q046", "a": "Todos os servidores devem ser reiniciados, exceto o de banco de dados.", "b": "Todos os servidores devem ser reiniciados, com exceção do de banco de dados."}
+{"id": "Q047", "a": "Borra todos los archivos temporales excepto los del servidor de facturas.", "b": "Borra todos los archivos temporales salvo los del servidor de facturas."}
+{"id": "Q048", "a": "No borres ningún archivo sin aprobación.", "b": "Nunca borres archivos sin aprobación."}
+{"id": "Q049", "a": "Revisa todas las facturas del mes.", "b": "Revisa algunas facturas del mes."}
+{"id": "Q050", "a": "Si el usuario lo pide, restablece su contraseña.", "b": "Restablece la contraseña del usuario solo si lo pide."}
+{"id": "Q051", "a": "If the disk is full, notify the sysadmin.", "b": "Notify the sysadmin if the disk is full."}
+{"id": "Q052", "a": "Cualquier usuario puede pedir acceso.", "b": "Algún usuario puede pedir acceso."}
+{"id": "Q053", "a": "Only back up the server on Fridays.", "b": "Back up only the server on Fridays."}
+{"id": "Q054", "a": "Delete the temp files unless they are marked keep.", "b": "Delete the temp files if they are marked keep."}
+{"id": "Q055", "a": "O servidor deve ter no máximo dez usuários conectados ao mesmo tempo.", "b": "O servidor deve ter até dez usuários conectados ao mesmo tempo."}
+{"id": "Q056", "a": "O técnico deve atualizar o antivírus toda segunda-feira.", "b": "O antivírus deve ser atualizado pelo técnico toda segunda-feira."}
+{"id": "Q057", "a": "Keep twenty daily backups on the server.", "b": "Keep 20 daily backups on the server."}
+{"id": "Q058", "a": "Elimina las cuentas inactivas cada mes.", "b": "Borra las cuentas inactivas cada mes."}
+{"id": "Q059", "a": "Guarda al menos tres copias de cada backup en el servidor.", "b": "Guarda no menos de tres copias de cada backup en el servidor."}
+{"id": "Q060", "a": "Just export the file; do not edit it.", "b": "Solely export the file; do not edit it."}
+{"id": "Q061", "a": "Unless the file is encrypted, upload it to the shared drive.", "b": "If the file is encrypted, upload it to the shared drive."}
+{"id": "Q062", "a": "O gerente deve aprovar o relatório do analista.", "b": "O analista deve aprovar o relatório do gerente."}
+{"id": "Q063", "a": "Limite cada anexo a 15 MB.", "b": "Limite cada anexo a 1,5 MB."}
+{"id": "Q064", "a": "A reunião será na sala 4B às dez horas.", "b": "A reunião será na sala 4-B às dez horas."}
+{"id": "Q065", "a": "Não envie o arquivo ao cliente antes da revisão.", "b": "Envie o arquivo ao cliente antes da revisão."}
+{"id": "Q066", "a": "Archiva todas las facturas excepto las del proveedor Ramírez.", "b": "Archiva todas las facturas salvo las del proveedor Ramírez."}
+{"id": "Q067", "a": "Não envie dados de clientes por correio externo.", "b": "Envie dados de clientes por correio externo."}
+{"id": "Q068", "a": "Archive every folder apart from the one named Payroll.", "b": "Archive all folders but the one named Payroll."}
+{"id": "Q069", "a": "Não envie nenhum arquivo ao cliente.", "b": "Não envie qualquer arquivo ao cliente."}
+{"id": "Q070", "a": "Order twenty licenses for the design team.", "b": "Order 21 licenses for the design team."}
+{"id": "Q071", "a": "Do not share the admin password with anyone.", "b": "Never share the admin password with anyone."}
+{"id": "Q072", "a": "No user may access the payroll folder.", "b": "Not every user may access the payroll folder."}
+{"id": "Q073", "a": "O cliente deve ser informado pelo suporte após o reparo.", "b": "Após o reparo pelo suporte, o cliente deve ser informado."}
+{"id": "Q074", "a": "Pay the invoice by the 15th.", "b": "Pay the invoice before the 15th."}
+{"id": "Q075", "a": "Todos los usuarios pueden editar el informe, excepto los becarios.", "b": "Todos los usuarios pueden editar el informe, incluidos los becarios."}
+{"id": "Q076", "a": "Solo los administradores pueden instalar programas en los portátiles.", "b": "Nadie salvo los administradores puede instalar programas en los portátiles."}
+{"id": "Q077", "a": "The manager must approve the request from the intern.", "b": "The intern must approve the request from the manager."}
+{"id": "Q078", "a": "Every employee must change their password each quarter.", "b": "All employees must change their password each quarter."}
+{"id": "Q079", "a": "Cada ticket debe tener como máximo cinco archivos adjuntos.", "b": "Cada ticket debe tener como mínimo cinco archivos adjuntos."}
+{"id": "Q080", "a": "Se o servidor cair, avise a equipe de infraestrutura.", "b": "Avise a equipe de infraestrutura se o servidor cair."}
+{"id": "Q081", "a": "Only the IT team may restart the production server.", "b": "Just the IT team may restart the production server."}
+{"id": "Q082", "a": "Call the vendor if the backup fails.", "b": "Call the vendor unless the backup fails."}
+{"id": "Q083", "a": "Instale a atualização em todos os computadores.", "b": "Desinstale a atualização em todos os computadores."}
+{"id": "Q084", "a": "Revisa todos los tickets abiertos antes del viernes.", "b": "Revisa algunos tickets abiertos antes del viernes."}
+{"id": "Q085", "a": "Mañana, envía el acta de la reunión a todos los asistentes.", "b": "Envía el acta de la reunión a todos los asistentes mañana."}
+{"id": "Q086", "a": "Everyone except interns may access the payroll folder.", "b": "Everyone apart from interns may access the payroll folder."}
+{"id": "Q087", "a": "Faça o backup antes da reunião de segunda-feira.", "b": "Faça o backup depois da reunião de segunda-feira."}
+{"id": "Q088", "a": "Mueve los archivos a la carpeta de 500 gigabytes.", "b": "Mueve los archivos a la carpeta de 500 GB."}
+{"id": "Q089", "a": "Los backups son revisados por el administrador cada semana.", "b": "Cada semana, el administrador revisa los backups."}
+{"id": "Q090", "a": "Crea 1.000 usuarios de prueba.", "b": "Crea mil usuarios de prueba."}
+{"id": "Q091", "a": "Solo el equipo de finanzas puede aprobar las facturas.", "b": "El equipo de finanzas también puede aprobar las facturas."}
+{"id": "Q092", "a": "Keep at least three backup copies of every report.", "b": "Keep no fewer than three backup copies of every report."}
+{"id": "Q093", "a": "Archive the old tickets until Friday.", "b": "Archive the old tickets from Friday."}
+{"id": "Q094", "a": "Don't store customer data on USB drives.", "b": "Do not store customer data on USB drives."}
+{"id": "Q095", "a": "Somente o gerente pode aprovar reembolsos.", "b": "Apenas o gerente pode aprovar reembolsos."}
+{"id": "Q096", "a": "Reboot the print server after the patch.", "b": "Restart the print server after the patch."}
+{"id": "Q097", "a": "Do not share the admin password with anyone.", "b": "Never share the admin password with anyone."}
+{"id": "Q098", "a": "Invite no more than eight people to the budget meeting.", "b": "Invite no fewer than eight people to the budget meeting."}
+{"id": "Q099", "a": "Haz la copia de seguridad antes de actualizar el servidor.", "b": "Haz la copia de seguridad después de actualizar el servidor."}
+{"id": "Q100", "a": "Submit the expense report by Friday at the latest.", "b": "Submit the expense report no later than Friday."}
+{"id": "Q101", "a": "Every user must change the password this month.", "b": "Each user must change the password this month."}
+{"id": "Q102", "a": "Crea un ticket para cada incidencia.", "b": "Genera un ticket para cada incidencia."}
+{"id": "Q103", "a": "Arquive os contratos na sala 4B.", "b": "Arquive os contratos na sala 4-B."}
+{"id": "Q104", "a": "Solo el jefe de TI puede acceder al servidor de copias de seguridad.", "b": "Nadie más que el jefe de TI puede acceder al servidor de copias de seguridad."}
+{"id": "Q105", "a": "Unless the invoice is signed, do not pay it.", "b": "If the invoice is not signed, do not pay it."}
+{"id": "Q106", "a": "Keep the ticket open until Monday.", "b": "Keep the ticket open through Monday."}
+{"id": "Q107", "a": "Entregue as notas fiscais até o dia 5.", "b": "Entregue as notas fiscais no máximo até o dia 5."}
+{"id": "Q108", "a": "No dejes ninguna sesión abierta al terminar el turno.", "b": "No dejes sesiones abiertas al terminar el turno."}
+{"id": "Q109", "a": "Envía el informe si está firmado.", "b": "Envía el informe a menos que esté firmado."}
+{"id": "Q110", "a": "If the ticket is closed, the user must be notified.", "b": "If the user is notified, the ticket must be closed."}
+{"id": "Q111", "a": "Keep at least five days of logs on the server.", "b": "Keep no fewer than five days of logs on the server."}
+{"id": "Q112", "a": "None of the files may be deleted.", "b": "No file may be deleted."}
+{"id": "Q113", "a": "Elimina las cuentas inactivas del directorio.", "b": "Borra las cuentas inactivas del directorio."}
+{"id": "Q114", "a": "El límite de cada reembolso es de 1.000 euros.", "b": "El límite de cada reembolso es de mil euros."}
+{"id": "Q115", "a": "Solo los administradores pueden reiniciar servidores.", "b": "Solo los administradores reinician servidores."}
+{"id": "Q116", "a": "After the backup finishes, delete the old logs.", "b": "Delete the old logs after the backup finishes."}
+{"id": "Q117", "a": "Send the monthly report to the whole team.", "b": "Mail the monthly report to the whole team."}
+{"id": "Q118", "a": "Si el disco supera el 90 %, avisa al equipo de sistemas.", "b": "Avisa al equipo de sistemas si el disco supera el 90 %."}
+{"id": "Q119", "a": "Do not delete old backups without a ticket.", "b": "You need not delete old backups without a ticket."}
+{"id": "Q120", "a": "Nunca deixe o servidor sem senha.", "b": "Jamais deixe o servidor sem senha."}

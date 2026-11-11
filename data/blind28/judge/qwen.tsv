@@ -1,0 +1,120 @@
+Q001	SAME	numbers and units are the same
+Q002	SAME	same action, same recipient, same deadline
+Q003	DIFFERENT	time
+Q004	DIFFERENT	The second instruction adds the word also, implying additional permission not present in the first instruction.
+Q005	DIFFERENT	Margin difference
+Q006	SAME	opp. condition
+Q007	DIFFERENT	minimum vs maximum
+Q008	SAME	same action, same objects, same recipients, same timing
+Q009	SAME	identical instructions
+Q010	SAME	No difference in the action or objects mentioned.
+Q011	SAME	numeric format difference
+Q012	SAME	only different in the action to be performed after the update
+Q013	SAME	same number and unit
+Q014	SAME	synonyms used
+Q015	SAME	synonyms and different order
+Q016	SAME	same action, same objects, same recipients
+Q017	DIFFERENT	opposite conditions
+Q018	SAME	identical meaning
+Q019	SAME	identical meaning, different wording
+Q020	DIFFERENT	minimum vs. maximum size
+Q021	DIFFERENT	deadline direction
+Q022	SAME	synonyms used
+Q023	SAME	same action, same threshold, same recipient
+Q024	SAME	none
+Q025	DIFFERENT	recreate vs restart
+Q026	SAME	opp condition
+Q027	DIFFERENT	minimum vs maximum
+Q028	SAME	identical instructions
+Q029	SAME	different exclusion inclusion
+Q030	SAME	same action, same objects, same recipients, numbers, units, times, frequencies, channels, scope, conditions and polarity.
+Q031	DIFFERENT	detail changed
+Q032	SAME	same action, same recipient, same frequency, same time
+Q033	SAME	same action, different polarity
+Q034	SAME	translation between languages
+Q035	SAME	both sentences convey the same permission to the finance team
+Q036	SAME	synonyms used
+Q037	SAME	synonyms used
+Q038	SAME	same action, same recipient, same frequency, same time
+Q039	SAME	synonyms used
+Q040	DIFFERENT	size of backup
+Q041	SAME	same action, same objects, same recipients
+Q042	SAME	time detail is the same, just different wording for the same condition
+Q043	SAME	synonyms used
+Q044	SAME	identical meaning, different wording
+Q045	SAME	identical meaning
+Q046	SAME	synonyms used
+Q047	SAME	synonyms used
+Q048	SAME	identical meaning, different wording
+Q049	DIFFERENT	number of invoices to be reviewed
+Q050	SAME	same action, same objects, same recipients
+Q051	SAME	same condition and action
+Q052	SAME	different verb forms but same meaning
+Q053	SAME	same action, same objects, same recipients, same frequency, same day
+Q054	DIFFERENT	The condition is opposite.
+Q055	SAME	synonyms used
+Q056	SAME	same action, same objects, same recipients, same frequency, same day
+Q057	SAME	same number and frequency
+Q058	SAME	synonyms used
+Q059	SAME	synonyms used
+Q060	SAME	same action, same objects, same recipients, numbers, units, times, frequencies, channels, scope, conditions and polarity.
+Q061	DIFFERENT	file is encrypted vs Unless the file is encrypted
+Q062	SAME	same action, same objects, different recipients
+Q063	DIFFERENT	Different limits specified
+Q064	SAME	slight hyphen difference, but same location and time
+Q065	SAME	Different direction of action
+Q066	SAME	synonyms used
+Q067	SAME	different action
+Q068	SAME	none
+Q069	SAME	synonyms used
+Q070	DIFFERENT	number
+Q071	SAME	different words but same meaning
+Q072	SAME	both prohibit access to the payroll folder for users
+Q073	SAME	same action, same order, same recipients, same timing
+Q074	DIFFERENT	deadline direction
+Q075	SAME	except vs. included
+Q076	SAME	synonyms used
+Q077	DIFFERENT	Recipients are swapped
+Q078	SAME	identical instructions
+Q079	DIFFERENT	minimum vs maximum
+Q080	SAME	same action, same objects, same recipients
+Q081	SAME	synonyms used
+Q082	DIFFERENT	unless vs if
+Q083	SAME	opposite instructions
+Q084	SAME	none
+Q085	SAME	same action, same objects, same recipients, same time
+Q086	SAME	synonyms used
+Q087	DIFFERENT	time
+Q088	SAME	numeric format differs but same value
+Q089	SAME	same action, same objects, same recipient, same frequency
+Q090	SAME	numbers are the same
+Q091	SAME	synonyms used
+Q092	SAME	identical meaning, different wording
+Q093	DIFFERENT	dates are different
+Q094	SAME	same action, same objects, same recipients, numbers, units, times, frequencies, channels, scope, conditions and polarity.
+Q095	SAME	synonyms used
+Q096	SAME	synonyms used
+Q097	SAME	identical meaning
+Q098	DIFFERENT	number of people to invite
+Q099	DIFFERENT	time
+Q100	SAME	none
+Q101	SAME	synonyms used
+Q102	SAME	synonyms used
+Q103	SAME	identical instructions, different hyphenation
+Q104	SAME	same action, same objects, same recipients
+Q105	SAME	same action, same condition, same recipient
+Q106	SAME	identical meaning
+Q107	SAME	day specified
+Q108	SAME	identical instructions
+Q109	DIFFERENT	opp. condition
+Q110	DIFFERENT	times and conditions are reversed
+Q111	SAME	both instruct to keep at least five days of logs on the server
+Q112	SAME	synonyms used
+Q113	SAME	synonyms used
+Q114	SAME	synonyms used
+Q115	SAME	same action, same subjects, same objects
+Q116	SAME	same action, same objects, same recipients, same timing
+Q117	SAME	translation between languages
+Q118	SAME	same action, same threshold, same recipient
+Q119	SAME	synonyms used
+Q120	SAME	same action, same objects, same recipients, same wording in different languages
