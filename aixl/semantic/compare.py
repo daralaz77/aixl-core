@@ -20,6 +20,27 @@ SYMMETRIC_ACTIONS = {"COMPARE"}
 INDEFINITE_ARTICLES = {"es": {"un", "una", "unos", "unas"}, "pt": {"um", "uma", "uns", "umas"}, "en": {"a", "an"}}
 PAST_MARKERS = {"was", "were", "did", "fue", "fueron", "era", "eran", "foi", "foram", "hubo", "habia"}
 FUTURE_MARKERS = {"will", "shall", "sera", "seran", "serao"}
+UNIVERSAL_WORDS = {"each", "every", "all", "cada", "todo", "toda", "todos", "todas"}
+SINGULAR_UNIVERSAL = {"each", "every", "cada", "todo", "toda"}
+PLURAL_UNIVERSAL = {"all", "todos", "todas"}
+COLLECTIVE_WORDS = {"together", "total", "combined", "altogether", "jointly", "overall", "aggregate", "sum", "juntos", "juntas", "conjunto", "conjuntamente", "soma", "somados",
+                    "sumados", "combinados", "combinadas", "combinado", "entre", "between", "among", "whole", "entire", "entero", "inteiro", "completo", "except", "excepto", "exceto",
+                    # order and time markers: 'review each file before uploading it' (per file) is not 'review all files before uploading them' (as a batch)
+                    "before", "after", "antes", "despues", "depois", "until", "hasta", "ate", "when", "cuando", "quando", "then", "luego", "while", "mientras", "enquanto", "once", "tras"}
+
+
+def _universal_pair(A, B) -> bool:
+    """Both texts quantify universally with each/every/all (cada/todo/todos) and neither counts, sums or excepts: 'each' and 'all' then say the same.
+    A number, a collective word ('total', 'together') or an exception keeps the old behaviour (a difference is only suspected)."""
+    ua = {f for f in A.norm[:3] if f in UNIVERSAL_WORDS}                 # subject position only: 'review each file' / 'upload all files' are object quantifiers
+    ub = {f for f in B.norm[:3] if f in UNIVERSAL_WORDS}
+    if not ua or not ub:
+        return False
+    if any(s.get("QTY") for s in list(A.steps) + list(B.steps)):
+        return False
+    return not any(f in COLLECTIVE_WORDS or f.isdigit() for f in list(A.norm) + list(B.norm))
+
+
 NEVER_WORDS = {"never", "nunca", "jamas", "jamais"}
 ANY_FREE_CHOICE = {"qualquer", "quaisquer", "cualquier", "cualesquiera"}
 
@@ -440,8 +461,18 @@ def compare(A, B) -> Verdict:
         shared = {k for st in A.steps for t, k in st.items if t == "TOK" and k not in closed and not k.startswith(("N:", "Q:"))} & \
                  {k for st in B.steps for t, k in st.items if t == "TOK" and k not in closed and not k.startswith(("N:", "Q:"))}
         if shared: acc.un(f"cross-language: identical spelling is not verified to mean the same ({sorted(shared)})")
+    universal = _universal_pair(A, B)                                                 # 'every / each / cada / todo X must' = 'all Xs must' when nothing is counted or summed (blind30)
+    if universal:
+        acc.diffs = [d for d in acc.diffs if not (d.path.endswith(".quant") and {d.original, d.new} == {"each", "all"})]
     if not acc.diffs:                                                                 # dropped-feature ledger (blind23/24): what lemmatising throws away can still change the meaning
         la, lb = dropped_features(A), dropped_features(B)
+        if universal:                                                                 # 'every employee' vs 'all employees': exactly ONE plural, carried by the quantified subject, is not a difference
+            sa = {f for f in A.norm[:3] if f in UNIVERSAL_WORDS}
+            sb = {f for f in B.norm[:3] if f in UNIVERSAL_WORDS}
+            if sa <= SINGULAR_UNIVERSAL and sb <= PLURAL_UNIVERSAL:
+                lb["plural"] = max(0, lb["plural"] - 1)
+            elif sb <= SINGULAR_UNIVERSAL and sa <= PLURAL_UNIVERSAL:
+                la["plural"] = max(0, la["plural"] - 1)
         if la != lb:
             gone = sorted(k for k in set(la) | set(lb) if la[k] != lb[k])
             acc.un(f"the parser drops features that differ between the texts ({gone}): indefinite article, past/future marker, plural: a specific vs unspecified referent, event vs state, one vs many are not modelled")

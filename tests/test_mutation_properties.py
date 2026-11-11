@@ -172,7 +172,12 @@ MUTATORS = {"plural": m_plural_noun, "indefinite": m_indefinite, "tense": m_tens
 
 # (mutator, base sentence) pairs KNOWN to come out EQUIVALENT: each one is an open hole, listed so the suite stays green AND the hole stays visible.
 # Do not add a pair without a one-line reason.
-KNOWN_OPEN: dict = {}
+KNOWN_OPEN: dict = {
+    # 2026-11-11 (blind30): a DELIBERATE policy change, not a hole. 'each / every / cada' and 'all / todos' on the SUBJECT, with no number, no collective word
+    # ('together', 'total', 'entre'), no exception and no order marker ('before', 'antes'), are now proven equal: four authors in blind25, blind28 and blind29 labelled such pairs
+    # EQUIVALENT. The cases that really differ (an object quantifier, a count, a sequence) keep their guards in tests/test_semantic_recall_2026_11_11.py.
+    ("each_all", "Cada usuario puede editar la página."): "subject each/all with no count, collective word or order marker is proven equal on purpose (blind30)",
+}
 
 CASES = [(name, base, mut(base)) for (name, mut), base in itertools.product(MUTATORS.items(), BASE) if mut(base) is not None]
 
