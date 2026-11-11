@@ -1,0 +1,120 @@
+Q001	SAME	reordered clause
+Q002	SAME	restart/reboot synonyms
+Q003	SAME	contraction only
+Q004	SAME	contraction only
+Q005	SAME	passive/active voice
+Q006	SAME	both prohibit sharing credentials
+Q007	SAME	system/equipment synonyms
+Q008	DIFFERENT	only vs also
+Q009	DIFFERENT	sender and recipient swapped
+Q010	DIFFERENT	caller and callee swapped
+Q011	DIFFERENT	all vs some
+Q012	DIFFERENT	once vs before
+Q013	DIFFERENT	none vs not all
+Q014	SAME	passive/active voice
+Q015	SAME	each/every
+Q016	SAME	by equals no later than
+Q017	DIFFERENT	if vs unless
+Q018	DIFFERENT	not every vs none reading
+Q019	DIFFERENT	only scope moved
+Q020	SAME	only equals nobody but
+Q021	DIFFERENT	minimum vs maximum
+Q022	DIFFERENT	if vs unless
+Q023	DIFFERENT	polarity flipped
+Q024	DIFFERENT	kg vs g
+Q025	SAME	max equals not more than
+Q026	SAME	except equals apart from
+Q027	DIFFERENT	all vs some
+Q028	DIFFERENT	only vs also
+Q029	DIFFERENT	may vs none may
+Q030	DIFFERENT	before vs after
+Q031	SAME	salvo que equals excepto
+Q032	DIFFERENT	any vs a
+Q033	DIFFERENT	before vs after
+Q034	SAME	number word vs digits
+Q035	DIFFERENT	up to vs at least
+Q036	SAME	none equals no
+Q037	DIFFERENT	any vs none
+Q038	SAME	install/deploy synonyms
+Q039	SAME	unless equals if not
+Q040	DIFFERENT	giver and receiver swapped
+Q041	SAME	delete/remove synonyms
+Q042	DIFFERENT	roles swapped
+Q043	DIFFERENT	negation scope differs
+Q044	DIFFERENT	before vs after
+Q045	SAME	equivalent negation
+Q046	SAME	at most equals up to
+Q047	SAME	reordered condition
+Q048	DIFFERENT	at most vs at least
+Q049	SAME	reordered
+Q050	SAME	reordered
+Q051	SAME	reordered
+Q052	DIFFERENT	b drops default prohibition
+Q053	SAME	minimum equals at least
+Q054	SAME	reordered
+Q055	SAME	reordered condition
+Q056	SAME	no equals not a single
+Q057	DIFFERENT	condition scope differs
+Q058	DIFFERENT	except vs including
+Q059	DIFFERENT	only if added
+Q060	SAME	only equals nobody except
+Q061	DIFFERENT	roles swapped
+Q062	DIFFERENT	15 vs 1.5 percent
+Q063	DIFFERENT	none vs not every
+Q064	SAME	delete/remove synonyms
+Q065	SAME	each/all
+Q066	SAME	all/each
+Q067	DIFFERENT	each vs some
+Q068	SAME	passive/active voice
+Q069	SAME	passive/active voice
+Q070	DIFFERENT	1000 vs 1 decimal
+Q071	DIFFERENT	supervisor added
+Q072	SAME	apenas/somente synonyms
+Q073	SAME	if/when equivalent
+Q074	SAME	no later than equals by
+Q075	SAME	at least equals no fewer
+Q076	SAME	at least equals no fewer
+Q077	DIFFERENT	send vs forward
+Q078	DIFFERENT	only dropped
+Q079	DIFFERENT	until vs from
+Q080	SAME	cada/todo
+Q081	SAME	number word vs digits
+Q082	SAME	passive/active voice
+Q083	SAME	reordered
+Q084	SAME	paraphrased condition
+Q085	DIFFERENT	none vs not every
+Q086	DIFFERENT	until vs from
+Q087	DIFFERENT	1000 vs 1 decimal
+Q088	DIFFERENT	except vs including
+Q089	SAME	except equals apart from
+Q090	SAME	any vs all urgent
+Q091	SAME	all/each
+Q092	SAME	reordered condition
+Q093	SAME	reordered
+Q094	SAME	number word and unit
+Q095	DIFFERENT	each vs some
+Q096	SAME	never/don't
+Q097	DIFFERENT	until vs before
+Q098	DIFFERENT	except vs including
+Q099	DIFFERENT	each vs some
+Q100	SAME	by equals at latest by
+Q101	SAME	number word and unit
+Q102	DIFFERENT	never vs not always
+Q103	SAME	passive/active voice
+Q104	SAME	unless equals if not
+Q105	SAME	no equals none
+Q106	DIFFERENT	max vs min, may/must
+Q107	SAME	passive/active voice
+Q108	SAME	every/all
+Q109	SAME	reordered
+Q110	DIFFERENT	only scope moved
+Q111	SAME	R$ 1.000 equals mil reais
+Q112	SAME	nunca/jamais
+Q113	SAME	do not/never
+Q114	SAME	reordered
+Q115	SAME	generate/create synonyms
+Q116	DIFFERENT	roles swapped
+Q117	DIFFERENT	delete vs copy
+Q118	SAME	restart/reboot synonyms
+Q119	SAME	somente/apenas synonyms
+Q120	DIFFERENT	if vs unless

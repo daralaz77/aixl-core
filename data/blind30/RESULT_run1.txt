@@ -1,0 +1,60 @@
+blind30 single run, 2026-11-11, PAIRED: OLD comparator (git tag v0.7.0, extracted unchanged) vs NEW comparator (frozen aixl-core working tree: universal-quantifier rule + passive-with-modal rule), same 120 fresh pairs, judges Opus and Sonnet. Output copied verbatim from stdout (python3 -I eval.py); the reading below it was added afterwards.
+
+SET: 120 pairs  labels {'EQUIVALENT': 60, 'NOT_EQUIVALENT': 42, 'UNDECIDABLE': 18}  authors {'T': 40, 'U': 40, 'V': 40}  targeted 48
+OLD verdicts {'INCONCLUSIVE': 69, 'EQUIVALENT': 28, 'NOT_EQUIVALENT': 23}
+NEW verdicts {'INCONCLUSIVE': 67, 'EQUIVALENT': 30, 'NOT_EQUIVALENT': 23}
+judge verdicts: opus {'SAME': 67, 'DIFFERENT': 53}  sonnet {'SAME': 68, 'DIFFERENT': 52}
+
+=== ALL: 120 pairs, 60 EQUIVALENT-labelled, 60 non-EQUIVALENT-labelled
+  OLD comparator alone                     false accepts 0/60 (0.0%)    proven-EQUIVALENT 28/60 (46.7%)
+  NEW comparator alone                     false accepts 0/60 (0.0%)    proven-EQUIVALENT 30/60 (50.0%)
+  R1-new: NEW AND opus AND sonnet SAME     false accepts 0/60 (0.0%)    proven-EQUIVALENT 30/60 (50.0%)
+  both judges SAME                         false accepts 6/60 (10.0%)   proven-EQUIVALENT 60/60 (100.0%)
+  [paired] newly proven 2, lost 0, net 2; new false accepts 0 []; false accepts removed 0 []
+
+=== TARGETED constructs (word_order_voice + quantifier_all_each_any): 48 pairs, 26 EQUIVALENT-labelled, 22 non-EQUIVALENT-labelled
+  OLD comparator alone                     false accepts 0/22 (0.0%)    proven-EQUIVALENT 4/26 (15.4%)
+  NEW comparator alone                     false accepts 0/22 (0.0%)    proven-EQUIVALENT 6/26 (23.1%)
+  R1-new: NEW AND opus AND sonnet SAME     false accepts 0/22 (0.0%)    proven-EQUIVALENT 6/26 (23.1%)
+  both judges SAME                         false accepts 2/22 (9.1%)    proven-EQUIVALENT 26/26 (100.0%)
+  [paired] newly proven 2, lost 0, net 2; new false accepts 0 []; false accepts removed 0 []
+
+=== EIGHT OTHER constructs: 72 pairs, 34 EQUIVALENT-labelled, 38 non-EQUIVALENT-labelled
+  OLD comparator alone                     false accepts 0/38 (0.0%)    proven-EQUIVALENT 24/34 (70.6%)
+  NEW comparator alone                     false accepts 0/38 (0.0%)    proven-EQUIVALENT 24/34 (70.6%)
+  R1-new: NEW AND opus AND sonnet SAME     false accepts 0/38 (0.0%)    proven-EQUIVALENT 24/34 (70.6%)
+  both judges SAME                         false accepts 4/38 (10.5%)   proven-EQUIVALENT 34/34 (100.0%)
+  [paired] newly proven 0, lost 0, net 0; new false accepts 0 []; false accepts removed 0 []
+
+[R-recall] targeted net 2 (needs >= 5) and 0 new false accepts overall (0) -> DOES NOT HOLD
+[R-noharm] other constructs: new false accepts 0, lost proven 0 (needs 0 and <= 1) -> HOLDS
+[R-safety] NEW adds no false accept anywhere -> HOLDS
+[G1 NEW] false accepts 0 of 60 (3% = 1.8) -> PASS; R1-new false 0, proven 30 (floor 10)
+
+NEW false accepts:
+
+newly proven by NEW:
+  T015 quantifier_all_each_any | Cada pedido deve ter um número de rastreamento. || Todo pedido deve ter um número de rastreamento.
+  U009 quantifier_all_each_any | Every employee must complete the security course. || All employees must complete the security course.
+
+lost by NEW:
+
+[construct] EQUIVALENT proven OLD -> NEW | false accepts OLD -> NEW
+  bounds_at_least_at_most        5/5 -> 5/5 | 0 -> 0
+  conditional_order_if_unless    3/4 -> 3/4 | 0 -> 0
+  deadline_direction             3/3 -> 3/3 | 0 -> 0
+  exception_except_unless        2/3 -> 2/3 | 0 -> 0
+  negation_forms                 2/5 -> 2/5 | 0 -> 0
+  number_forms                   3/5 -> 3/5 | 0 -> 0
+  only_exclusivity               2/4 -> 2/4 | 0 -> 0
+  quantifier_all_each_any        1/12 -> 3/12 | 0 -> 0
+  verb_synonyms                  4/5 -> 4/5 | 0 -> 0
+  word_order_voice               3/14 -> 3/14 | 0 -> 0
+
+## READING (added after the run)
+1. R-recall DOES NOT HOLD: in the two targeted constructs NEW proves 2 more equivalent pairs (4 -> 6 of 26), below the +5 I required. Both gains are the universal-quantifier rule (T015 'Cada pedido' / 'Todo pedido', U009 'Every employee' / 'All employees'). The passive-with-modal rule fired on NO fresh pair (word_order_voice 3/14 -> 3/14). My expectation was +3 to +7; it was +2 net.
+2. R-noharm HOLDS (0 new false accepts, 0 lost on the other eight constructs) and R-safety HOLDS: neither version had a single false accept on these 60 non-equivalent pairs, so there was nothing for the change to remove or to add. G1 for NEW passes non-vacuously (0 of 60, 30 proven; R1-new the same). A first set with 0 false accepts for both versions; the upper 95% bound for 0 of 60 is about 5%, and it comes after earlier sets that failed, so it is weak evidence.
+3. The two judges alone accepted 6 of 60 non-equivalent pairs (10.0%) and 100% of the equivalent ones; neither version of the comparator accepted any of them.
+4. What still blocks the 20 unproven equivalent pairs in the targeted constructs (diagnosis after the run, development evidence): most are passives WITHOUT a modal ('Los anticipos son aprobados por...', 'O recibo é enviado ... pelo sistema', 'The newsletter is written by ... every Friday') or with an irregular or unrecognised participle ('logged') or a subject longer than five tokens; the quantifier ones are blocked by 'quantifier explicit on one side only' ('No invoice' vs 'None of the invoices', 'Nenhum' vs 'Não há ... que'), by 'Cada um dos' / 'Todos os', or by numbers.
+5. Per the pre-registration ('a failing rule is reverted or narrowed'): the passive-with-modal rule showed no effect on fresh pairs and is REVERTED; the universal-quantifier rule showed +2 fresh, +4 on the spent sets, and no false accept, and is KEPT.
+Limits: tuned constructs; rules written after reading the previous sets; model authors and labels; 120 pairs (48 targeted by design, so the overall gain is inflated by over-sampling, and the other-constructs line shows 0); two Claude judges that agree on almost everything.

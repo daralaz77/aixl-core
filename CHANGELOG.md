@@ -2,6 +2,12 @@
 
 Human-readable summary of what changes between releases. The detailed, per-change compatibility tables (backward compatibility, migration, test impact) are in [docs/SEMANTIC_CHANGELOG.md](docs/SEMANTIC_CHANGELOG.md); the project history is in [docs/HISTORY.md](docs/HISTORY.md). Version numbers follow [Semantic Versioning](https://semver.org/) (see `docs/VERSIONING_POLICY.md`); while the major version is 0, a MINOR bump may change the canonical form.
 
+## Unreleased
+### Comparator
+- 'each / every / cada / todo' and 'all / todos' on the SUBJECT are now proven equal when nothing is counted, summed, excepted or ordered (no number, no collective word such as 'together' or 'total', no 'except', no 'before / after / antes'); exactly one plural carried by the quantified subject is not a difference. An object quantifier, a number or an order marker keep the old behaviour (a difference is only suspected). The mutation property test records the one case it changes in `KNOWN_OPEN` as a deliberate policy change.
+- Measured on 120 fresh pairs (`data/blind30`, v0.7.0 against the new code on the same pairs): 2 more equivalent pairs proven in the targeted constructs (4 to 6 of 26), no false accept in either version, nothing lost elsewhere. The pre-registered rule asked for +5 and does NOT hold. A second rule written in the same round (a passive with a modal rewritten to the active sentence) fired on no fresh pair and was reverted.
+- Evidence set `data/blind30` (120 pairs, two over-sampled constructs, paired old-versus-new, pre-registered, one run).
+
 ## 0.7.0 — 2026-11-11
 Strict hybrid, three comparator changes, and the evidence behind them. The wire token stays `V:AIXL-0.3`. Comparator verdicts change in a few pairs (see Comparator below), so this is a MINOR bump (`docs/VERSIONING_POLICY.md`).
 ### Added

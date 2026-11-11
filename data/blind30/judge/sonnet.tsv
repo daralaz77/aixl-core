@@ -1,0 +1,120 @@
+Q001	SAME	reordered
+Q002	SAME	synonym
+Q003	SAME	contraction
+Q004	SAME	contraction
+Q005	SAME	passive/active
+Q006	SAME	prohibition same
+Q007	DIFFERENT	system vs equipment
+Q008	DIFFERENT	only vs also
+Q009	DIFFERENT	roles swapped
+Q010	DIFFERENT	roles swapped
+Q011	DIFFERENT	all vs some
+Q012	DIFFERENT	once vs before
+Q013	DIFFERENT	none vs not all
+Q014	SAME	passive/active
+Q015	SAME	each/every
+Q016	SAME	deadline same
+Q017	DIFFERENT	if vs unless
+Q018	DIFFERENT	ambiguous scope negation
+Q019	DIFFERENT	only scope moved
+Q020	SAME	only/nobody but
+Q021	DIFFERENT	min vs max
+Q022	DIFFERENT	if vs unless
+Q023	DIFFERENT	polarity opposite
+Q024	DIFFERENT	kg vs g
+Q025	SAME	max twelve
+Q026	SAME	except night shift
+Q027	DIFFERENT	all vs some
+Q028	DIFFERENT	only vs also
+Q029	DIFFERENT	each vs none
+Q030	DIFFERENT	before vs after
+Q031	SAME	salvo/excepto
+Q032	SAME	any/a generic
+Q033	DIFFERENT	before vs after
+Q034	SAME	twenty=20
+Q035	DIFFERENT	up to vs at least
+Q036	SAME	none/no
+Q037	DIFFERENT	any vs none
+Q038	SAME	install/deploy
+Q039	SAME	unless/if not
+Q040	DIFFERENT	roles swapped
+Q041	SAME	delete/remove
+Q042	DIFFERENT	roles swapped
+Q043	SAME	not all approved
+Q044	DIFFERENT	before vs after
+Q045	SAME	no visitor without badge
+Q046	SAME	max=up to
+Q047	SAME	reordered condition
+Q048	DIFFERENT	at most vs at least
+Q049	SAME	reordered
+Q050	SAME	reordered
+Q051	SAME	passive/active
+Q052	DIFFERENT	polarity differs
+Q053	SAME	minimum three
+Q054	SAME	reordered
+Q055	SAME	reordered
+Q056	SAME	no employee
+Q057	DIFFERENT	different exception scope
+Q058	DIFFERENT	except vs including
+Q059	DIFFERENT	if vs only if
+Q060	SAME	only admin
+Q061	DIFFERENT	roles swapped
+Q062	DIFFERENT	15% vs 1.5%
+Q063	DIFFERENT	none vs not all
+Q064	SAME	delete/remove
+Q065	SAME	each/all cashiers
+Q066	SAME	all/each
+Q067	DIFFERENT	each vs some
+Q068	SAME	passive/active
+Q069	SAME	passive/active
+Q070	DIFFERENT	1000 vs 1
+Q071	DIFFERENT	adds supervisor
+Q072	SAME	apenas/somente
+Q073	SAME	if/when delayed
+Q074	SAME	no later than=by
+Q075	SAME	at least/no fewer
+Q076	SAME	at least/no fewer
+Q077	DIFFERENT	send vs resend
+Q078	DIFFERENT	only dropped
+Q079	DIFFERENT	until vs from
+Q080	SAME	each/every
+Q081	SAME	twenty=20
+Q082	SAME	passive/active
+Q083	SAME	no contract
+Q084	SAME	on request
+Q085	DIFFERENT	none vs not all
+Q086	DIFFERENT	until vs from
+Q087	DIFFERENT	1.000 vs 1,000
+Q088	DIFFERENT	except vs including
+Q089	SAME	except/apart from
+Q090	SAME	urgent orders approved
+Q091	SAME	all/each
+Q092	SAME	reordered
+Q093	SAME	reordered
+Q094	SAME	two meters=2 m
+Q095	DIFFERENT	each vs some
+Q096	SAME	never/do not
+Q097	DIFFERENT	until vs before
+Q098	DIFFERENT	except vs including
+Q099	DIFFERENT	each vs some
+Q100	SAME	deadline same
+Q101	SAME	units equal
+Q102	DIFFERENT	never vs not always
+Q103	SAME	passive/active
+Q104	SAME	unless/if not
+Q105	SAME	no/none
+Q106	DIFFERENT	max vs min
+Q107	SAME	passive/active
+Q108	SAME	every/all
+Q109	SAME	no student before signal
+Q110	DIFFERENT	only scope differs
+Q111	SAME	1000 reais
+Q112	SAME	nunca/jamais
+Q113	SAME	do not/never
+Q114	SAME	reordered
+Q115	SAME	generate/create
+Q116	DIFFERENT	roles swapped
+Q117	DIFFERENT	delete vs copy
+Q118	SAME	restart/reboot
+Q119	SAME	somente/apenas
+Q120	DIFFERENT	if vs unless
