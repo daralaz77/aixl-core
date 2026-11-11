@@ -8,7 +8,7 @@
 | New compatible capability | **MINOR** | new action verb, noun, unit, constraint key, warning type, CLI command, API function |
 | Fix that makes behaviour match the documented/intended meaning, vocabulary additions that only reduce silent loss, docs | **PATCH** | new negation cue (`Avoid …`), PT lexicon entries, `sanitize_input` |
 
-Current: package **0.7.0**, wire token `AIXL-0.3` (unchanged). 0.7.0 adds a strict hybrid mode and three comparator changes (see CHANGELOG.md); 0.6.0 added a strict comparison mode and a closed list of difference types; scope of 0.5: [adr/ADR-018.md](adr/ADR-018.md).
+Current: package **0.7.1**, wire token `AIXL-0.3` (unchanged). 0.7.1 adds a universal-quantifier rule to the comparator (see CHANGELOG.md); 0.7.0 adds a strict hybrid mode and three comparator changes (see CHANGELOG.md); 0.6.0 added a strict comparison mode and a closed list of difference types; scope of 0.5: [adr/ADR-018.md](adr/ADR-018.md).
 
 ## What is stable
 * The wire format and atom meanings of a given `V:` version (PROTOCOL.md).

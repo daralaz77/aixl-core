@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aixl"
-version = "0.7.0"
+version = "0.7.1"
 description = "AIXL 0.3 - experimental semantic core: canonical semantic representation, equivalence, diff, drift, contradiction and ambiguity detection"
 requires-python = ">=3.11"
 dependencies = []

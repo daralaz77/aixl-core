@@ -28,9 +28,9 @@ Base: `R = https://github.com/daralaz77/aixl-core`, `B = R/blob/main`.
 | repo_track | Met | git history: who, what, when |
 | repo_interim | Met | every commit is public on `main`, not only releases |
 | repo_distributed | Met | git |
-| version_unique | Met | tags `v0.6.0` and `v0.7.0` (`R/releases/tag/v0.7.0`); version in `pyproject.toml` and `aixl.__version__` |
+| version_unique | Met | tags `v0.6.0`, `v0.7.0` and `v0.7.1` (`R/releases/tag/v0.7.1`); version in `pyproject.toml` and `aixl.__version__` |
 | version_semver | Met | `B/docs/VERSIONING_POLICY.md` (SemVer) |
-| version_tags | Met | git tags `v0.6.0`, `v0.7.0` and `v1.0.0-paper` |
+| version_tags | Met | git tags `v0.6.0`, `v0.7.0`, `v0.7.1` and `v1.0.0-paper` |
 | release_notes | Met | the notes of the GitHub release `v0.6.0`, `B/CHANGELOG.md` and `B/docs/SEMANTIC_CHANGELOG.md` |
 | release_notes_vulns | Met (N/A-like) | `B/CHANGELOG.md` states that no CVE has been assigned to any fixed issue in the version |
 

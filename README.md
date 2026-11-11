@@ -1,4 +1,4 @@
-# AIXL — experimental semantic layer (0.7.0) — read this first
+# AIXL — experimental semantic layer (0.7.1) — read this first
 
 ## What AIXL is, and what it is not (updated 2026-10-14)
 

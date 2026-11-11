@@ -16,6 +16,11 @@ Canonical form gains a dimension, so by VERSIONING_POLICY.md this is a loud MINO
 
 Regression tests added for property/invariant behaviour (`test_properties.py`, `test_golden.py`). Total at release: 435 passed.
 
+## 0.7.1 — 2026-11-11 — universal quantifier on the subject; wire token stays `V:AIXL-0.3`
+| Change | Backward compatibility | Migration | Test impact |
+|---|---|---|---|
+| 'each / every / cada / todo' and 'all / todos' on the subject are proven equal when nothing is counted, summed, excepted or ordered; exactly one plural carried by the quantified subject is not a difference | Some pairs that were INCONCLUSIVE now come out EQUIVALENT; strict mode unchanged; the mutation test records one case in `KNOWN_OPEN` as a deliberate policy change | none | `test_semantic_blind30.py`, `test_mutation_properties.py` |
+
 ## 0.7.0 — 2026-11-11 — strict hybrid and three comparator changes; wire token stays `V:AIXL-0.3`
 | Change | Backward compatibility | Migration | Test impact |
 |---|---|---|---|
