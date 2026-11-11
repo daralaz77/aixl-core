@@ -16,6 +16,16 @@ Canonical form gains a dimension, so by VERSIONING_POLICY.md this is a loud MINO
 
 Regression tests added for property/invariant behaviour (`test_properties.py`, `test_golden.py`). Total at release: 435 passed.
 
+## 0.7.0 — 2026-11-11 — strict hybrid and three comparator changes; wire token stays `V:AIXL-0.3`
+| Change | Backward compatibility | Migration | Test impact |
+|---|---|---|---|
+| `hybrid_decide(..., require_semantic_equivalent=True)`, `hybrid_protocol.decide(..., strict=True)`, MCP `aixl_hybrid_decide(..., strict=True)`: a unanimous judge SAME is accepted only if `compare_texts` also proves EQUIVALENT, otherwise REVIEW | New optional parameter; default behaviour unchanged | none | `test_hybrid_protocol.py`, `test_mcp_integration.py` |
+| Fixed deadline phrasings are proven equal ('no later than X' = 'by X', 'by X at the latest' = 'by X', 'no máximo até' = 'até', 'no después del' = 'hasta el'); a bare 'at the latest' stays content. Applied after the strict-mode token identity | Some pairs that were INCONCLUSIVE (or wrongly NOT_EQUIVALENT) now come out EQUIVALENT; strict mode unchanged | none | `test_semantic_recall_2026_11_11.py` |
+| A fronted time or frequency adjunct ('After C, do A', 'Mañana, X', 'Cada semana, X', 'Every Monday, X') is moved to the end before parsing; before/after stay distinct | Same as above | none | same file |
+| `never / nunca / jamás` and `qualquer / cualquier` on one side only enter the dropped-feature ledger | Some pairs that came out EQUIVALENT now come out INCONCLUSIVE (never the reverse) | none | same file |
+
+Measured on 120 fresh pairs (`data/blind29`, old and new comparator on the same pairs): false accepts 2 to 1 of 60 with none new; proven equivalents 29 to 31 of 60 (3 gained, 1 lost; the pre-registered rule of +5 does NOT hold). Strict hybrid there: 1 of 60 false accepts and 31 of 60 equivalents, against 7 of 60 and 60 of 60 for the two judges alone. Evidence sets `data/blind26` to `data/blind29`; limits in `docs/HYBRID_MCP.md`. Total at release: 1,943 passed in the sandbox; the 20 local-server tests and one benchmark-import test need local ports or the network (they pass in CI).
+
 ## 0.6.0 — 2026-11-06 — the comparator asserts less and says "equal" less often; wire token stays `V:AIXL-0.3`
 | Change | Backward compatibility | Migration | Test impact |
 |---|---|---|---|
