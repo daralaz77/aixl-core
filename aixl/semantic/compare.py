@@ -20,6 +20,8 @@ SYMMETRIC_ACTIONS = {"COMPARE"}
 INDEFINITE_ARTICLES = {"es": {"un", "una", "unos", "unas"}, "pt": {"um", "uma", "uns", "umas"}, "en": {"a", "an"}}
 PAST_MARKERS = {"was", "were", "did", "fue", "fueron", "era", "eran", "foi", "foram", "hubo", "habia"}
 FUTURE_MARKERS = {"will", "shall", "sera", "seran", "serao"}
+NEVER_WORDS = {"never", "nunca", "jamas", "jamais"}
+ANY_FREE_CHOICE = {"qualquer", "quaisquer", "cualquier", "cualesquiera"}
 
 
 def dropped_features(o) -> Counter:
@@ -33,6 +35,8 @@ def dropped_features(o) -> Counter:
         elif f in FUTURE_MARKERS: c["future"] += 1
         elif is_plural_form(f, o.lang) and norm_token(f, o.lang) in items: c["plural"] += 1
         elif re.fullmatch(r"\d+(?:[.,]\d+)+", f): c["numeral:" + f] += 1       # '2.1' and '2.10' parse to the same float, but as a version / identifier they are two things (blind25)
+        elif f in NEVER_WORDS: c["never"] += 1                                  # 'never share' vs 'do not share': 'never' may add a temporal strength (blind28 S013, UNDECIDABLE)
+        elif f in ANY_FREE_CHOICE: c["any_word"] += 1                           # 'qualquer / cualquier' under a negation: 'any whatsoever' or 'just any' (blind28 S040, UNDECIDABLE)
     return c
 # Closed list of difference types allowed to yield NOT_EQUIVALENT (step indexes removed). Chosen from the precision per type measured on
 # blind19-22 (development evidence): the types left out ('items' = loose tokens, 'cond' / 'cond.kind' = sufficient vs necessary and

@@ -54,6 +54,72 @@ def tokenize(text: str) -> list:
     return toks
 
 
+# Fixed deadline phrasings written several ways (2026-11-11, from blind28: 0 of 5 equivalent deadline pairs were proven). Folded-token patterns, applied after `norm`.
+_DEADLINE_PHRASES = [(("no", "later", "than"), ("by",)), (("not", "later", "than"), ("by",)),         # 'no later than Friday' = 'by Friday' (inclusive)
+                     (("no", "despues", "del"), ("hasta", "el")), (("no", "despues", "de"), ("hasta",)),   # 'no después del viernes' = 'hasta el viernes'
+                     (("no", "depois", "do"), ("ate", "o")), (("no", "depois", "de"), ("ate",)),            # 'não depois do dia 5' = 'até o dia 5'
+                     (("no", "maximo", "ate"), ("ate",)), (("no", "maximo", "hasta"), ("hasta",))]           # 'no máximo até o dia 5' = 'até o dia 5'
+
+
+def _canon_deadlines(toks):
+    out, i = [], 0
+    while i < len(toks):
+        for pat, rep in _DEADLINE_PHRASES:
+            if tuple(t.f for t in toks[i:i + len(pat)]) == pat:
+                out.extend(Tok(r, k == 0 and toks[i].initial) for k, r in enumerate(rep))
+                i += len(pat)
+                break
+        else:
+            out.append(toks[i])
+            i += 1
+    fs = [t.f for t in out]                              # 'by <deadline> at the latest' = 'by <deadline>' (only when a 'by' opens the same clause: a bare 'at the latest' stays content)
+    k = 0
+    while k + 2 < len(fs):
+        if fs[k:k + 3] == ["at", "the", "latest"]:
+            j = k - 1
+            while j >= 0 and fs[j] not in PUNCT and fs[j] != "by":
+                j -= 1
+            if j >= 0 and fs[j] == "by" and j < k - 1:
+                del out[k:k + 3]
+                del fs[k:k + 3]
+                continue
+        k += 1
+    return out
+
+
+# A time or frequency adjunct fronted before a comma ('After the backup finishes, delete the logs', 'Mañana, envía el acta', 'Toda sexta-feira, X') says the same as the
+# same adjunct at the end; the parser split the fronted form into two steps and could never prove the pair equal (blind28: 3 of 7 word-order pairs).
+_FREQ_LEAD = {"every", "each", "cada", "toda", "todo", "todos", "todas"}
+_DAY_ADVERBS = {"tomorrow", "today", "yesterday", "manana", "hoy", "ayer", "amanha", "hoje", "ontem"}
+_TIME_NOUNS = {"day", "week", "month", "year", "hour", "minute", "morning", "evening", "night", "quarter", "weekday", "monday", "tuesday", "wednesday", "thursday", "friday",
+               "saturday", "sunday", "dia", "semana", "mes", "ano", "hora", "minuto", "tarde", "noche", "noite", "trimestre", "lunes", "martes", "miercoles", "jueves", "viernes",
+               "sabado", "domingo", "segunda", "terca", "quarta", "quinta", "sexta", "segunda-feira", "terca-feira", "quarta-feira", "quinta-feira", "sexta-feira", "manha",
+               "dias", "semanas", "meses", "anos", "horas", "minutos", "mondays", "fridays"}
+_CLAUSE_START = {"the", "a", "an", "this", "that", "my", "your", "our", "their", "all", "it", "we", "you", "they", "i", "he", "she"}
+
+
+def _rotate_front_adjunct(toks):
+    fs = [t.f for t in toks]
+    commas = [i for i, f in enumerate(fs) if f == ","]
+    if len(commas) != 1 or any(f in (".", ";", "!", "?") for f in fs[:-1]):
+        return toks
+    c = commas[0]
+    if c < 1 or c > 8 or len(fs) - c - 1 < 2:
+        return toks
+    lead = fs[:c]
+    freq = lead[0] in _FREQ_LEAD and len(lead) <= 4 and any(f in _TIME_NOUNS for f in lead[1:])
+    day = len(lead) == 1 and lead[0] in _DAY_ADVERBS
+    clause = (lead[0] in ("after", "before", "once") and len(lead) >= 3 and (lead[1] in _CLAUSE_START or lead[1][:1].isdigit() or lead[1].startswith("t") and lead[1][1:].isdigit())
+              or tuple(lead[:3]) in (("despues", "de", "que"), ("antes", "de", "que"), ("depois", "que"), ("depois", "de"), ("apos", "o")) and len(lead) >= 4 and lead[1:3] != ("de", "que") or tuple(lead[:3]) in (("despues", "de", "que"), ("antes", "de", "que")) and len(lead) >= 4)
+    if not (freq or day or clause):
+        return toks
+    end = [toks[-1]] if fs[-1] in (".", "!", "?") else []
+    main = toks[c + 1:len(toks) - len(end)]
+    if len(main) < 2:
+        return toks
+    return main + toks[:c] + end
+
+
 def detect_lang(toks) -> str:
     fs = [t.f for t in toks]
     score = {k: sum(f in v for f in fs) for k, v in L.LANG_HINTS.items()}
@@ -217,6 +283,7 @@ def parse(text: str, today=None) -> SemanticObject:
     clean, findings = sanitize_input(text)
     toks = tokenize(clean)
     norm = tuple(t.f for k, t in enumerate(toks) if t.f not in PUNCT or (t.f == "," and k + 1 < len(toks) and toks[k + 1].f in L.REL_PRON))      # a comma before who/que is meaning, so it stays in the identity check
+    toks = _rotate_front_adjunct(_canon_deadlines(toks))     # after `norm`: the strict-mode identity check still sees the words as written
     toks, has_tag = _strip_tag_question(toks)
     lang = detect_lang(toks)
     ctx = Ctx(toks, lang)
