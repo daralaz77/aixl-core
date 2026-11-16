@@ -1,0 +1,65 @@
+blind31 single run, 2026-11-16, PAIRED: OLD comparator (git tag v0.7.1, extracted unchanged) vs NEW comparator (commit 4269a66: regular passive with 'by' proven equal to its active sentence, closed shape), same 120 fresh pairs, two blind Claude judges. Pre-registration PREREG.md (sha256 in PREREG.sha256, taken before the authors were launched).
+(the block below is the evaluator's stdout, unaltered; the READING after it is hand-written)
+
+SET: 120 pairs  labels {'EQUIVALENT': 57, 'NOT_EQUIVALENT': 43, 'UNDECIDABLE': 20}  authors {'W': 40, 'X': 40, 'Y': 40}  targeted 39
+OLD verdicts {'EQUIVALENT': 25, 'NOT_EQUIVALENT': 15, 'INCONCLUSIVE': 80}
+NEW verdicts {'EQUIVALENT': 26, 'NOT_EQUIVALENT': 15, 'INCONCLUSIVE': 79}
+judge verdicts: opus {'SAME': 64, 'DIFFERENT': 56}  sonnet {'SAME': 65, 'DIFFERENT': 54, 'UNSURE': 1}
+
+=== ALL: 120 pairs, 57 EQUIVALENT-labelled, 63 non-EQUIVALENT-labelled
+  OLD comparator alone                     false accepts 0/63 (0.0%)    proven-EQUIVALENT 25/57 (43.9%)
+  NEW comparator alone                     false accepts 0/63 (0.0%)    proven-EQUIVALENT 26/57 (45.6%)
+  R1-new: NEW AND opus AND sonnet SAME     false accepts 0/63 (0.0%)    proven-EQUIVALENT 26/57 (45.6%)
+  both judges SAME                         false accepts 6/63 (9.5%)    proven-EQUIVALENT 57/57 (100.0%)
+  [paired] newly proven 1, lost 0, net 1; new false accepts 0 []; false accepts removed 0 []
+
+=== TARGETED construct (word_order_voice): 39 pairs, 20 EQUIVALENT-labelled, 19 non-EQUIVALENT-labelled
+  OLD comparator alone                     false accepts 0/19 (0.0%)    proven-EQUIVALENT 5/20 (25.0%)
+  NEW comparator alone                     false accepts 0/19 (0.0%)    proven-EQUIVALENT 6/20 (30.0%)
+  R1-new: NEW AND opus AND sonnet SAME     false accepts 0/19 (0.0%)    proven-EQUIVALENT 6/20 (30.0%)
+  both judges SAME                         false accepts 3/19 (15.8%)   proven-EQUIVALENT 20/20 (100.0%)
+  [paired] newly proven 1, lost 0, net 1; new false accepts 0 []; false accepts removed 0 []
+
+=== NINE OTHER constructs: 81 pairs, 37 EQUIVALENT-labelled, 44 non-EQUIVALENT-labelled
+  OLD comparator alone                     false accepts 0/44 (0.0%)    proven-EQUIVALENT 20/37 (54.1%)
+  NEW comparator alone                     false accepts 0/44 (0.0%)    proven-EQUIVALENT 20/37 (54.1%)
+  R1-new: NEW AND opus AND sonnet SAME     false accepts 0/44 (0.0%)    proven-EQUIVALENT 20/37 (54.1%)
+  both judges SAME                         false accepts 3/44 (6.8%)    proven-EQUIVALENT 37/37 (100.0%)
+  [paired] newly proven 0, lost 0, net 0; new false accepts 0 []; false accepts removed 0 []
+
+[R-recall] targeted net 1 (needs >= 5) and 0 new false accepts overall (0) -> DOES NOT HOLD
+[R-noharm] other constructs: new false accepts 0, lost proven 0 (needs 0 and <= 1) -> HOLDS
+[R-safety] NEW adds no false accept anywhere -> HOLDS
+[G1 NEW] false accepts 0 of 63 (3% = 1.9) -> PASS; R1-new false 0, proven 26 (floor 10)
+
+NEW false accepts:
+
+newly proven by NEW:
+  Y002 word_order_voice | El equipo de TI reinicia el servidor de correo cada domingo. || El servidor de correo es reiniciado por el equipo de TI cada domingo.
+
+lost by NEW:
+
+[construct] EQUIVALENT proven OLD -> NEW | false accepts OLD -> NEW
+  bounds_at_least_at_most        2/3 -> 2/3 | 0 -> 0
+  conditional_order_if_unless    2/5 -> 2/5 | 0 -> 0
+  deadline_direction             3/4 -> 3/4 | 0 -> 0
+  exception_except_unless        3/5 -> 3/5 | 0 -> 0
+  negation_forms                 0/4 -> 0/4 | 0 -> 0
+  number_forms                   3/4 -> 3/4 | 0 -> 0
+  only_exclusivity               2/4 -> 2/4 | 0 -> 0
+  quantifier_all_each_any        1/4 -> 1/4 | 0 -> 0
+  verb_synonyms                  4/4 -> 4/4 | 0 -> 0
+  word_order_voice               5/20 -> 6/20 | 0 -> 0
+
+## READING (added after the run)
+1. R-recall DOES NOT HOLD: in word_order_voice NEW proves 1 more equivalent pair than OLD (5 -> 6 of 20; the pair is Y002, 'reinicia ... cada domingo' / 'es reiniciado por ... cada domingo'), against the +5 required. The pre-registered expectation was +1 to +4, so this is the bottom of what I expected and clearly short of the bar. The 'other constructs' line is 0, as it should be.
+2. R-noharm HOLDS (0 new false accepts, 0 lost) and R-safety HOLDS: neither version accepted any of the 63 non-EQUIVALENT-labelled pairs; G1 passes non-vacuously for both (0 of 63; R1-new proves 26, floor 10). The two judges alone accepted 6 of 63 non-equivalent pairs (9.5%), 3 of them in word_order_voice, and the comparator accepted none of them.
+3. What still blocks the 14 unproven EQUIVALENT voice pairs (diagnosis AFTER the run, development evidence; W028 and X028 were traced, the rest are classified by pattern from the texts):
+   - 5 are not active/passive pairs at all but fronting or clitic topicalisation ('Los informes de ventas, los firma ...', 'Na sexta-feira, a equipe envia ...', 'Ao final do dia, ...'): outside this rule.
+   - 3 are Portuguese passives with 'pelo/pela' or a future ('são gerados ... pela equipe', 'registradas pelo sistema', 'será instalado pelo'): the parser does not read 'pelo/pela' as 'by', so the rule is inert in Portuguese.
+   - 2 have a modal whose number differs ('debe aprobar' / 'deben ser aprobadas', 'deben revisar' / 'deben ser revisados'): the closed shape requires identical spelling; one of them also has 'action not recognized on one side'.
+   - 1 is a preterite / past passive (X029 'instaló' / 'fue instalado'): excluded by design (simple present only).
+   - 3 are English or Spanish present-tense pairs the rule DOES rewrite but that stay INCONCLUSIVE afterwards for reasons that were already in the comparator: W028 ('unresolved reference (do)' for the generic action 'update'), X028 (the dropped-feature ledger reports a plural mismatch because it counts the 3rd-person verb 'reviews' as a plural noun), Y001 ('every' in the subject).
+4. Per the pre-registration ('a failing rule is reverted or narrowed'): the rule is NOT included in the patch handed to the user. It stays as a separate, unmerged patch for reference. The cost (about 70 lines in the comparator's hot path, a closed shape with eight guards) is not justified by +1 of 20 fresh pairs, even though it did no harm.
+5. Two findings worth more than the rule itself. (a) An independent adversarial audit (259 pairs, a fresh agent with no stake in the rule) found 12 false accepts in the first version that neither the 14 guard cases I wrote nor the 360 spent pairs (0 new false accepts) had revealed; the closed-shape version had 0 of 259. An audit like this should be a standing step before freezing any new comparator rule. (b) `dropped_features` counts third-person verb forms ('approves', 'reviews') as plural nouns. This makes it blind to a real singular/plural noun difference in some active/passive pairs ('The manager approves the payment' vs 'The payments are approved by the manager' became EQUIVALENT with the first version of the rule) and, in other pairs, blocks a valid proof (X028). It is a reproducible lead independent of the voice rule.
+Limits: tuned construct; rule written after reading blind28-blind30 and hardened on an audit set that is now spent; model authors and labels (the authors were Claude models told not to use any tool except one Write, which was an instruction, not a technical isolation); 120 pairs (39 in the target by design, so the overall gain is inflated by over-sampling); two Claude judges that agree on almost everything; one run.

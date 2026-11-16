@@ -2,6 +2,13 @@
 
 Human-readable summary of what changes between releases. The detailed, per-change compatibility tables (backward compatibility, migration, test impact) are in [docs/SEMANTIC_CHANGELOG.md](docs/SEMANTIC_CHANGELOG.md); the project history is in [docs/HISTORY.md](docs/HISTORY.md). Version numbers follow [Semantic Versioning](https://semver.org/) (see `docs/VERSIONING_POLICY.md`); while the major version is 0, a MINOR bump may change the canonical form.
 
+## Unreleased
+Evidence only; no behaviour change. A comparator rule was tried and NOT merged (blind31).
+### Evidence
+- `data/blind31` (120 fresh pairs, 39 in the active/passive-heavy construct, pre-registered, one paired run v0.7.1 vs a closed-shape rule 'regular passive with by = its active sentence'): 0 false accepts for either version (0 of 63), no harm elsewhere, but the pre-registered recall rule (+5 proven equivalents in the target construct) does NOT hold: +1 (5 to 6 of 20). Rule not merged (the reference patch is kept outside the tree).
+- An independent adversarial audit (259 pairs) found 12 false accepts in the first version of the rule that the author's own guards and the 360 spent pairs had missed; they are now `tests/test_semantic_voice_guards.py` (23 guard pairs, all unproven on v0.7.1).
+- Lead for a future round: `dropped_features` counts third-person verb forms ('approves', 'reviews') as plural nouns; it can mask a real singular/plural difference and can block a valid proof.
+
 ## 0.7.1 — 2026-11-11
 One comparator rule and its evidence (blind30). Wire token stays `V:AIXL-0.3`. Some pairs that were INCONCLUSIVE now come out EQUIVALENT (never the reverse), so this is a PATCH-sized change by the rule that only adds proofs.
 ### Comparator

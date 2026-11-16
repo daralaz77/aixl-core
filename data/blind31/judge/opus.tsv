@@ -1,0 +1,120 @@
+Q001	SAME	do not / never, same prohibition
+Q002	SAME	reordered
+Q003	DIFFERENT	b only forbids author approval, drops requirement that it be approved
+Q004	DIFFERENT	sender and recipient swapped
+Q005	SAME	criar/gerar synonyms
+Q006	SAME	active/passive
+Q007	DIFFERENT	who informs whom reversed
+Q008	SAME	at least / no fewer than
+Q009	SAME	do not / never
+Q010	DIFFERENT	polarity reversed
+Q011	DIFFERENT	b drops exclusivity "only" and permission modality
+Q012	SAME	salvo / a não ser que
+Q013	SAME	active/passive
+Q014	SAME	same prohibition
+Q015	SAME	reordered
+Q016	DIFFERENT	not all vs none
+Q017	DIFFERENT	under 500 excludes 500; never exceed allows 500
+Q018	SAME	restart/reboot
+Q019	SAME	todos/cada
+Q020	SAME	reordered
+Q021	SAME	twenty/20
+Q022	SAME	same prohibition
+Q023	DIFFERENT	b adds "only if" exclusivity
+Q024	SAME	unless running = if not running
+Q025	DIFFERENT	some vs all
+Q026	SAME	excluir/remover synonyms
+Q027	SAME	agent unspecified in both
+Q028	SAME	topicalization
+Q029	DIFFERENT	before vs after
+Q030	SAME	at least / no fewer than
+Q031	SAME	reordered
+Q032	DIFFERENT	except vs including
+Q033	DIFFERENT	deadline vs start date
+Q034	DIFFERENT	forward vs send
+Q035	SAME	reordered
+Q036	DIFFERENT	who contacts whom reversed
+Q037	SAME	every/each
+Q038	SAME	no máximo até / o mais tardar
+Q039	SAME	active/passive
+Q040	DIFFERENT	before Monday vs up to Monday
+Q041	DIFFERENT	before vs from day 15
+Q042	DIFFERENT	if vs unless
+Q043	SAME	no later than / at the latest
+Q044	SAME	sent to board = board receives
+Q045	DIFFERENT	source and destination swapped
+Q046	DIFFERENT	only scopes time vs object
+Q047	DIFFERENT	none vs some
+Q048	SAME	active/passive
+Q049	SAME	5 MB / five megabytes
+Q050	DIFFERENT	monthly vs every two months
+Q051	DIFFERENT	notifier and notified reversed
+Q052	DIFFERENT	500 MB vs 5 GB
+Q053	DIFFERENT	delete vs deactivate
+Q054	SAME	restart/reboot
+Q055	SAME	reordered
+Q056	SAME	active/passive
+Q057	SAME	active/passive
+Q058	DIFFERENT	order of compress and send reversed
+Q059	DIFFERENT	support team vs data team
+Q060	DIFFERENT	each vs some
+Q061	SAME	if no connection = unless connection
+Q062	DIFFERENT	by Friday inclusive vs before Friday
+Q063	DIFFERENT	at most five vs fewer than five
+Q064	DIFFERENT	MB vs KB
+Q065	SAME	topicalization
+Q066	SAME	except / apart from
+Q067	SAME	apenas/somente
+Q068	SAME	same prohibition
+Q069	DIFFERENT	recipient and owner swapped
+Q070	DIFFERENT	b drops "only"
+Q071	SAME	unless approves = if not approve
+Q072	DIFFERENT	archive vs delete
+Q073	SAME	only / nobody but
+Q074	SAME	solo/únicamente
+Q075	DIFFERENT	notifier and notified reversed
+Q076	SAME	reordered
+Q077	DIFFERENT	condition and action swapped
+Q078	SAME	active/passive
+Q079	DIFFERENT	b adds exclusivity "só"
+Q080	DIFFERENT	sender and recipient reversed
+Q081	DIFFERENT	roles swapped
+Q082	SAME	solo / nadie salvo
+Q083	DIFFERENT	send vs forward
+Q084	DIFFERENT	up to 90 days vs exactly 90 days
+Q085	DIFFERENT	roles swapped
+Q086	DIFFERENT	each vs any
+Q087	SAME	except / apart from
+Q088	SAME	nunca / em nenhum momento
+Q089	DIFFERENT	up to 4 hours vs less than 4 hours
+Q090	SAME	4B/4-B and veinte/20
+Q091	DIFFERENT	a requires two signatures; b only forbids exactly one
+Q092	SAME	reordered
+Q093	DIFFERENT	any report vs the reports scope
+Q094	SAME	reordered
+Q095	SAME	active/passive
+Q096	DIFFERENT	in Portuguese 1,000 is one and 1.000 is a thousand
+Q097	SAME	at least / no fewer than
+Q098	SAME	1,000 / mil
+Q099	SAME	twenty/20
+Q100	SAME	reordered
+Q101	DIFFERENT	only scopes actor vs action
+Q102	DIFFERENT	supplier vs customer contracts
+Q103	DIFFERENT	except vs including
+Q104	DIFFERENT	maximum vs minimum
+Q105	SAME	reboot/restart
+Q106	SAME	by / no later than
+Q107	SAME	except / apart from
+Q108	SAME	reordered
+Q109	SAME	active/passive
+Q110	SAME	active/passive
+Q111	SAME	every/all
+Q112	DIFFERENT	in Portuguese 1.500 is fifteen hundred and 1,500 is one and a half
+Q113	SAME	except rephrased
+Q114	SAME	reordered
+Q115	SAME	by / no later than
+Q116	DIFFERENT	none vs not all
+Q117	DIFFERENT	except vs including
+Q118	DIFFERENT	if vs unless
+Q119	DIFFERENT	before vs after
+Q120	DIFFERENT	at most ten vs fewer than ten

@@ -1,0 +1,120 @@
+Q001	SAME	paraphrase
+Q002	SAME	order swap
+Q003	SAME	same constraint
+Q004	DIFFERENT	sender/recipient swapped
+Q005	SAME	synonyms
+Q006	SAME	active/passive
+Q007	DIFFERENT	roles reversed
+Q008	SAME	same minimum
+Q009	SAME	paraphrase
+Q010	DIFFERENT	opposite
+Q011	DIFFERENT	permission exclusivity vs statement
+Q012	SAME	same exception
+Q013	SAME	active/passive
+Q014	SAME	same prohibition
+Q015	SAME	order swap
+Q016	DIFFERENT	not all vs none
+Q017	DIFFERENT	under 500 vs not exceed 500
+Q018	SAME	synonyms
+Q019	SAME	all/each
+Q020	SAME	order swap
+Q021	SAME	number word
+Q022	SAME	same prohibition
+Q023	DIFFERENT	if vs only if
+Q024	SAME	unless = if not
+Q025	DIFFERENT	any vs all
+Q026	SAME	synonyms
+Q027	SAME	same obligation
+Q028	SAME	same
+Q029	DIFFERENT	order reversed
+Q030	SAME	same minimum
+Q031	SAME	order swap
+Q032	DIFFERENT	except vs including
+Q033	DIFFERENT	deadline vs start
+Q034	DIFFERENT	forward vs send
+Q035	SAME	order swap
+Q036	DIFFERENT	roles reversed
+Q037	SAME	every/each
+Q038	SAME	same deadline
+Q039	SAME	active/passive
+Q040	DIFFERENT	before vs until
+Q041	DIFFERENT	before vs from
+Q042	DIFFERENT	opposite condition
+Q043	SAME	same deadline
+Q044	SAME	same deadline
+Q045	DIFFERENT	direction reversed
+Q046	DIFFERENT	only scope differs
+Q047	DIFFERENT	none vs some
+Q048	SAME	active/passive
+Q049	SAME	same limit
+Q050	DIFFERENT	monthly vs bimonthly
+Q051	DIFFERENT	roles reversed
+Q052	DIFFERENT	500 MB vs 5 GB
+Q053	DIFFERENT	delete vs deactivate
+Q054	SAME	synonyms
+Q055	SAME	order swap
+Q056	SAME	active/passive
+Q057	SAME	active/passive
+Q058	DIFFERENT	order reversed
+Q059	DIFFERENT	support vs data team
+Q060	DIFFERENT	each vs some
+Q061	SAME	if not = unless
+Q062	DIFFERENT	until vs before
+Q063	DIFFERENT	at most vs fewer than
+Q064	DIFFERENT	MB vs KB
+Q065	SAME	same
+Q066	SAME	except/apart from
+Q067	SAME	only
+Q068	SAME	same prohibition
+Q069	DIFFERENT	swapped owner
+Q070	DIFFERENT	only dropped
+Q071	SAME	unless = if not
+Q072	DIFFERENT	archive vs delete
+Q073	SAME	only/nobody but
+Q074	SAME	only
+Q075	DIFFERENT	roles reversed
+Q076	SAME	order swap
+Q077	DIFFERENT	different actions/conditions
+Q078	SAME	active/passive
+Q079	DIFFERENT	only added
+Q080	DIFFERENT	roles reversed
+Q081	DIFFERENT	roles reversed
+Q082	SAME	only/nobody but
+Q083	DIFFERENT	send vs resend
+Q084	DIFFERENT	up to vs exactly
+Q085	DIFFERENT	roles reversed
+Q086	DIFFERENT	each vs any
+Q087	SAME	same exception
+Q088	SAME	never
+Q089	DIFFERENT	up to vs less than
+Q090	SAME	same
+Q091	SAME	two signatures required
+Q092	SAME	order swap
+Q093	DIFFERENT	some report vs reports
+Q094	SAME	order swap
+Q095	SAME	active/passive
+Q096	DIFFERENT	pt decimal vs thousand
+Q097	SAME	same minimum
+Q098	UNSURE	es comma ambiguous
+Q099	SAME	number
+Q100	SAME	order swap
+Q101	DIFFERENT	only scope shifted
+Q102	DIFFERENT	suppliers vs clients
+Q103	DIFFERENT	except vs including
+Q104	DIFFERENT	max vs min
+Q105	SAME	synonyms
+Q106	SAME	same deadline
+Q107	SAME	same exception
+Q108	SAME	order swap
+Q109	SAME	active/passive
+Q110	SAME	active/passive
+Q111	SAME	every/all
+Q112	DIFFERENT	1500 vs 1.5
+Q113	SAME	same exception
+Q114	SAME	order swap
+Q115	SAME	same deadline
+Q116	DIFFERENT	none vs not all
+Q117	DIFFERENT	except vs including
+Q118	DIFFERENT	condition inverted
+Q119	DIFFERENT	before vs after
+Q120	DIFFERENT	at most vs fewer than
