@@ -7,6 +7,8 @@ Evidence only; no behaviour change. A comparator rule was tried and NOT merged (
 ### Evidence
 - `data/blind31` (120 fresh pairs, 39 in the active/passive-heavy construct, pre-registered, one paired run v0.7.1 vs a closed-shape rule 'regular passive with by = its active sentence'): 0 false accepts for either version (0 of 63), no harm elsewhere, but the pre-registered recall rule (+5 proven equivalents in the target construct) does NOT hold: +1 (5 to 6 of 20). Rule not merged (the reference patch is kept outside the tree).
 - An independent adversarial audit (259 pairs) found 12 false accepts in the first version of the rule that the author's own guards and the 360 spent pairs had missed; they are now `tests/test_semantic_voice_guards.py` (23 guard pairs, all unproven on v0.7.1).
+- `data/blind32` (60 fresh bounds pairs, pre-registered, one paired run main vs one lexicon entry 'no fewer than' = 'at least'): no new false accept, but the pre-registered recall rule (+2) does NOT hold: +1 (16 to 17 of 30). Entry not merged. An independent audit of 440 pairs also removed two other candidate entries ('jamais'; 'com exceção de') before the test.
+- `tests/test_semantic_known_false_accepts.py`: seven pairs the PUBLISHED comparator wrongly calls EQUIVALENT (negation scope 'Never save, but delete' = 'Save, but never delete'; the number of an excepted set; a 'No,' answer glued to a bound), as strict xfail; `tests/test_semantic_lexicon_guards.py`: 18 guard pairs for future lexicon entries.
 - Lead for a future round: `dropped_features` counts third-person verb forms ('approves', 'reviews') as plural nouns; it can mask a real singular/plural difference and can block a valid proof.
 
 ## 0.7.1 — 2026-11-11

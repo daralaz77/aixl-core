@@ -1,0 +1,53 @@
+blind32 single run, 2026-11-17, PAIRED: OLD comparator (main commit 04e9574, extracted unchanged) vs NEW comparator (branch lexicon-bounded ead783d: the single entry 'no fewer than' = 'at least'), same 60 fresh bounds pairs, no judges. Pre-registration PREREG.md (sha256 in PREREG.sha256, taken before the authors were launched).
+(the block below is the evaluator's stdout, unaltered; the READING after it is hand-written)
+
+SET: 60 pairs  labels {'EQUIVALENT': 30, 'NOT_EQUIVALENT': 21, 'UNDECIDABLE': 9}  languages {'es': 21, 'en': 21, 'pt': 18}  authors {'K': 20, 'L': 20, 'M': 20}  with 'no fewer than': 2
+OLD verdicts {'EQUIVALENT': 17, 'INCONCLUSIVE': 31, 'NOT_EQUIVALENT': 12}
+NEW verdicts {'EQUIVALENT': 18, 'INCONCLUSIVE': 30, 'NOT_EQUIVALENT': 12}
+
+=== ALL: 60 pairs, 30 EQUIVALENT-labelled, 30 non-EQUIVALENT-labelled
+  OLD false accepts 1/30 (3.3%)    proven-EQUIVALENT 16/30 (53.3%)
+  NEW false accepts 1/30 (3.3%)    proven-EQUIVALENT 17/30 (56.7%)
+  [paired] newly proven 1, lost 0, net 1; new false accepts 0 []; false accepts removed 0 []
+
+=== language en: 21 pairs, 10 EQUIVALENT-labelled, 11 non-EQUIVALENT-labelled
+  OLD false accepts 0/11 (0.0%)    proven-EQUIVALENT 2/10 (20.0%)
+  NEW false accepts 0/11 (0.0%)    proven-EQUIVALENT 3/10 (30.0%)
+  [paired] newly proven 1, lost 0, net 1; new false accepts 0 []; false accepts removed 0 []
+
+=== language es: 21 pairs, 11 EQUIVALENT-labelled, 10 non-EQUIVALENT-labelled
+  OLD false accepts 0/10 (0.0%)    proven-EQUIVALENT 11/11 (100.0%)
+  NEW false accepts 0/10 (0.0%)    proven-EQUIVALENT 11/11 (100.0%)
+  [paired] newly proven 0, lost 0, net 0; new false accepts 0 []; false accepts removed 0 []
+
+=== language pt: 18 pairs, 9 EQUIVALENT-labelled, 9 non-EQUIVALENT-labelled
+  OLD false accepts 1/9 (11.1%)    proven-EQUIVALENT 3/9 (33.3%)
+  NEW false accepts 1/9 (11.1%)    proven-EQUIVALENT 3/9 (33.3%)
+  [paired] newly proven 0, lost 0, net 0; new false accepts 0 []; false accepts removed 0 []
+
+=== pairs containing 'no fewer than': 2 pairs, 1 EQUIVALENT-labelled, 1 non-EQUIVALENT-labelled
+  OLD false accepts 0/1 (0.0%)     proven-EQUIVALENT 0/1 (0.0%)
+  NEW false accepts 0/1 (0.0%)     proven-EQUIVALENT 1/1 (100.0%)
+  [paired] newly proven 1, lost 0, net 1; new false accepts 0 []; false accepts removed 0 []
+
+[R-recall] net 1 (needs >= 2) and 0 new false accepts (0) -> DOES NOT HOLD
+[R-safety] NEW adds no false accept -> HOLDS
+[G1 NEW] false accepts 1 of 30 (3% = 0.9, bound 1) -> PASS
+
+NEW false accepts:
+  L018 [UNDECIDABLE] pt | Reserve entre 2 e 4 salas para o treinamento. || Reserve no mínimo 2 e no máximo 4 salas para o treinamento. | author: 'entre' may be read as inclusive or exclusive of the endpoints | OLD said EQUIVALENT
+
+newly proven by NEW:
+  M013 en | Archive any file that is at least 2 years old. || Archive any file that is no fewer than 2 years old.
+
+lost by NEW:
+
+## READING (added after the run)
+1. R-recall DOES NOT HOLD: NEW proves 1 more equivalent pair than OLD (16 -> 17 of 30; the pair is M013, 'at least 2 years old' / 'no fewer than 2 years old'), against the +2 required. The pre-registered expectation was +1 to +3, so this is the bottom of the range and below the bar.
+2. Only 2 of the 60 fresh pairs contain 'no fewer than' (one EQUIVALENT-labelled, proven by NEW; one NOT_EQUIVALENT-labelled, not accepted). Three fresh authors, told the construct includes 'no fewer than', almost never wrote it: the entry's ceiling on fresh data is 1-2 pairs of 30. On the spent sets it looked bigger (3 of 237) because those sets were read to find it.
+3. R-safety HOLDS: NEW adds no false accept. G1 passes (1 of 30, bound 1), but that one false accept is NOT caused by the entry: L018 ('Reserve entre 2 e 4 salas' / 'Reserve no mínimo 2 e no máximo 4 salas') is accepted by OLD as well; its author labelled it UNDECIDABLE because 'entre' may or may not include the endpoints. It is a pre-existing, defensible-either-way accept.
+4. Per the pre-registration ('if R-recall fails the change is not merged'): the entry is NOT included in the patch handed to the user. A reference patch is kept outside the tree.
+5. What the round did produce that is worth more than the entry:
+   (a) the independent audit (440 pairs) showed that 2 of the 3 candidate entries ('jamais' as a negation word, 'com exceção de' as an exception phrase) would have introduced false accepts; they never reached this test.
+   (b) the same audit, run against the PUBLISHED code, found real false accepts that already exist in main: negation scope ('Never save, but delete.' = 'Save, but never delete.'), the number of an excepted set ('exceto o teste' = 'exceto os testes'), and a 'No,' answer glued to a bound ('Keep logs? No, fewer than five days.' = 'Keep logs? No fewer than five days.'). They are recorded as strict xfail in tests/test_semantic_known_false_accepts.py.
+Limits: tuned construct and entry written after reading the previous sets; model authors and labels (told to use no tool except one Write, an instruction not a technical isolation); 60 pairs; no judges; one run; one construct only.
