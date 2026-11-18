@@ -1,0 +1,360 @@
+K001	DIFFERENT	pedido singular vs pedidos plural; envio gratuito singular vs plural
+K002	SAME	same words; split vs single quoted phrase, same output
+K003	DIFFERENT	abrir vs cerrar (opposite)
+K004	DIFFERENT	opposite polarity on password and username sharing
+K005	SAME	at most 5 = no maximo 5
+K006	DIFFERENT	18 inclusive vs over 18 exclusive
+K007	SAME	fewer/less than 5, same bound
+K008	DIFFERENT	signed vs not signed; returned polarity reversed
+K009	SAME	only comma differences
+K010	DIFFERENT	if vs only if
+K011	DIFFERENT	restart/drain polarity swapped
+K012	SAME	comma vs e before negation, same meaning
+K013	DIFFERENT	el de teste (singular) vs os de teste (plural)
+K014	DIFFERENT	service account vs service accounts
+K015	SAME	at least 5 = 5 or more
+K016	DIFFERENT	delete and archive order/polarity differ
+K017	SAME	comma vs semicolon, same actions
+K018	DIFFERENT	viernes vs sabado end day
+K019	DIFFERENT	per minute vs per hour
+K020	DIFFERENT	scope of delete/touch on logs differs
+K021	DIFFERENT	el urgente vs los urgentes
+K022	SAME	same instruction, clause reordered
+K023	SAME	punctuation only
+K024	SAME	filler that; same meaning
+K025	DIFFERENT	format/mount actions swapped
+K026	SAME	enable = turn on
+K027	DIFFERENT	review vs deploy swapped with negation
+K028	DIFFERENT	sales team vs sales teams
+K029	SAME	punctuation only
+K030	DIFFERENT	da de teste (singular) vs das de teste (plural)
+K031	DIFFERENT	retry if fails vs retry if works
+K032	SAME	except = con excepcion de
+K033	SAME	com/sem responsavel, same scope
+K034	SAME	punctuation only
+K035	DIFFERENT	approve vs do not approve the invoice; reject polarity differs
+K036	SAME	debes = tienes que
+K037	DIFFERENT	send-while-reviewing vs send-while-not-reviewing
+K038	SAME	comma only
+K039	DIFFERENT	gift order vs gift orders
+K040	SAME	excluding = except
+K041	DIFFERENT	export/archive polarity swapped
+K042	DIFFERENT	the others (plural) vs the other (singular)
+K043	DIFFERENT	a gerente vs as gerentes
+K044	SAME	comma only
+K045	DIFFERENT	recommended vs required
+K046	SAME	comma only
+K047	DIFFERENT	o cabecalho vs os cabecalhos
+K048	SAME	other than = except
+K049	DIFFERENT	never-late gets bonus vs late never gets bonus
+K050	DIFFERENT	o relatorio vs os relatorios
+K051	SAME	punctuation only
+K052	SAME	same prohibition, different language
+K053	DIFFERENT	which does not delete vs which deletes; run order swapped
+K054	SAME	comma only
+K055	SAME	comma/semicolon only
+K056	DIFFERENT	admins may not delete vs non-admins may delete
+K057	DIFFERENT	No vs Yes
+K058	DIFFERENT	weekly backup vs weekly backups
+K059	SAME	word order only
+K060	DIFFERENT	before vs after Friday
+K061	SAME	no fewer than 5 = at least 5
+K062	DIFFERENT	nenhuma (none) vs todas (not-all scope trap)
+K063	SAME	comma only
+K064	SAME	comma only
+K065	DIFFERENT	largest one vs largest ones
+K066	DIFFERENT	never-late gets bonus vs late never gets bonus
+K067	SAME	mas vs semicolon, same actions
+K068	DIFFERENT	before Friday vs on Friday
+K069	SAME	contudo = mas
+K070	DIFFERENT	confirm did not fail vs do not confirm it failed
+K071	DIFFERENT	never save vs save; delete scope differs
+K072	DIFFERENT	different dates
+K073	DIFFERENT	add vs remove
+K074	DIFFERENT	o de teste (singular) vs os de teste (plural)
+K075	DIFFERENT	mute/throttle never-scope differs
+K076	DIFFERENT	test-server vs test-servers
+K077	DIFFERENT	large files vs small files
+K078	SAME	bullet only
+K079	DIFFERENT	must vs may
+K080	SAME	clauses reordered, same actions
+K081	SAME	at most three = three at most
+K082	DIFFERENT	within 30 days vs after 30 days
+K083	DIFFERENT	email/notify swapped with never
+K084	DIFFERENT	expose/rotate never-scope swapped
+K085	DIFFERENT	emita/registre negation swapped
+K086	SAME	menos = exceto
+K087	DIFFERENT	must not vs may
+K088	SAME	at least 5 = 5 or more
+K089	DIFFERENT	Ana and Luis vs only Ana
+K090	DIFFERENT	mine vs ours
+K091	SAME	punctuation only
+K092	DIFFERENT	the child vs the children
+K093	DIFFERENT	the test vs the tests; server/servers
+K094	DIFFERENT	el maestro vs los maestros
+K095	DIFFERENT	did not approve vs approved; knowing scope flipped
+K096	DIFFERENT	save/delete polarity differs
+K097	DIFFERENT	budget approval scope differs
+K098	SAME	format only
+K099	DIFFERENT	if vs only if
+K100	SAME	same set of exclusions reordered
+K101	DIFFERENT	never ping vs never quarantine swapped
+K102	SAME	como maximo = no mas de
+K103	DIFFERENT	scope of never/save differs
+K104	SAME	punctuation only
+K105	DIFFERENT	view dropped/table not stated in second
+K106	DIFFERENT	only scopes subject vs verb; not necessarily equal
+K107	SAME	comma only
+K108	DIFFERENT	restart/drain polarity swapped
+K109	SAME	must = have to
+K110	SAME	comma only
+K111	SAME	symbol only
+K112	DIFFERENT	that vs those
+K113	DIFFERENT	oldest vs most recent
+K114	SAME	punctuation only
+K115	DIFFERENT	last two vs last three
+K116	SAME	identical except nothing
+K117	DIFFERENT	only the manager vs not only the manager
+K118	DIFFERENT	share/rotate polarity swapped
+K119	DIFFERENT	exactly 8 vs at least 8
+K120	DIFFERENT	added No reverses the instruction
+K121	DIFFERENT	obligation to delete unopened vs prohibition on opened
+K122	SAME	pipe only
+K123	SAME	identical
+K124	SAME	other than = except
+K125	DIFFERENT	only if it hangs vs if it hangs
+K126	SAME	instead = but, same actions
+K127	DIFFERENT	both managers vs one manager
+K128	SAME	comma only
+K129	SAME	symbol only
+K130	SAME	symbol only
+K131	DIFFERENT	la directora vs las directoras
+K132	SAME	that/which, same meaning
+K133	SAME	at most = maximo
+K134	DIFFERENT	10% vs 20%
+K135	DIFFERENT	or-scope and negation differ
+K136	SAME	comma only
+K137	DIFFERENT	ping/quarantine polarity swapped
+K138	DIFFERENT	one row vs ones; mouse vs mice
+K139	DIFFERENT	shred the disk vs shred papers as well
+K140	DIFFERENT	el mes vs los meses
+K141	DIFFERENT	pay/don't pay and call polarity differ
+K142	DIFFERENT	never share vs rarely share
+K143	SAME	hyphen only
+K144	SAME	format only
+K145	DIFFERENT	raise vs lower
+K146	SAME	may = allowed to
+K147	DIFFERENT	added scope word all
+K148	DIFFERENT	nobody invited vs everybody invited
+K149	SAME	quotes only
+K150	SAME	dash only
+K151	DIFFERENT	not-delivered paid vs delivered not paid
+K152	DIFFERENT	no response vs response
+K153	DIFFERENT	none failed vs not all failed
+K154	DIFFERENT	added No reverses the instruction
+K155	DIFFERENT	debes vs puedes
+K156	DIFFERENT	manager's vs managers'
+K157	SAME	comma only
+K158	DIFFERENT	obligated vs permitted
+K159	SAME	colon vs semicolon
+K160	DIFFERENT	less than 5 vs at most 5
+K161	DIFFERENT	this server vs these servers
+K162	DIFFERENT	before vs after
+K163	DIFFERENT	do more/don't delete vs don't do more/delete
+K164	DIFFERENT	rooms and nights swapped
+K165	DIFFERENT	la vs las de prueba
+K166	DIFFERENT	and vs or
+K167	DIFFERENT	report/invoice sending swapped
+K168	DIFFERENT	unless-scope differs
+K169	SAME	although clause reordered
+K170	SAME	contraction only
+K171	SAME	comma only
+K172	DIFFERENT	puede vs debe
+K173	SAME	apart from = except
+K174	DIFFERENT	USD vs EUR
+K175	SAME	no mas de diez = como maximo diez
+K176	DIFFERENT	except-Ana scope differs
+K177	SAME	excepto = a excepcion de
+K178	SAME	comma only
+K179	DIFFERENT	la fatura vs as faturas
+K180	SAME	punctuation only
+K181	DIFFERENT	el informe vs los informes
+K182	SAME	comma only
+K183	DIFFERENT	fail vs pass
+K184	SAME	word order only
+K185	SAME	ellipsis only
+K186	DIFFERENT	tell vs do not tell; down vs not down
+K187	SAME	except = but
+K188	DIFFERENT	encrypt-then-compress vs compress-then-encrypt
+K189	SAME	excepto = con excepcion de
+K190	DIFFERENT	the report vs a report
+K191	DIFFERENT	este vs estos
+K192	SAME	however = though
+K193	DIFFERENT	save nothing vs save file; delete scope differs
+K194	SAME	que no incluyen una firma = sin firma
+K195	DIFFERENT	archive/delete polarity swapped
+K196	SAME	comma only
+K197	SAME	order swapped, same actions
+K198	DIFFERENT	do not delete vs delete unless sure
+K199	DIFFERENT	add vs remove
+K200	DIFFERENT	merge/close never-scope differs
+K201	DIFFERENT	must vs should
+K202	DIFFERENT	nobody saves vs nobody deletes scope differs
+K203	DIFFERENT	who says who approved swapped
+K204	SAME	comma only
+K205	DIFFERENT	el domingo vs los domingos
+K206	DIFFERENT	el novo cliente vs os novos clientes
+K207	SAME	borres = apague
+K208	DIFFERENT	less than 5 vs at most 5
+K209	DIFFERENT	account/admin accounts number swapped
+K210	DIFFERENT	unless-scope applies differently
+K211	DIFFERENT	test vs tests
+K212	SAME	at most 5 = no more than 5
+K213	DIFFERENT	one in Lima vs ones in Lima
+K214	SAME	comma only
+K215	SAME	no fewer than 5 = at least 5
+K216	DIFFERENT	which requests rejected/approved differ
+K217	SAME	separator only
+K218	SAME	bracket and dash only
+K219	SAME	arrow as separator
+K220	SAME	parentheses only
+K221	DIFFERENT	stopped/drained polarity swapped
+K222	UNSURE	indicativo no responden vs subjuntivo no respondan; mood shift
+K223	DIFFERENT	not encrypted vs encrypted
+K224	SAME	no fewer than five = at least five
+K225	SAME	excepto = salvo
+K226	SAME	comma only
+K227	DIFFERENT	443 only vs 443 and 80
+K228	DIFFERENT	2 hours vs 3 hours
+K229	SAME	order swapped, same actions
+K230	DIFFERENT	container/containers numbers swapped
+K231	SAME	comma only
+K232	DIFFERENT	validate/save order swapped
+K233	SAME	comma only
+K234	SAME	dash only
+K235	SAME	punctuation only
+K236	DIFFERENT	un de teste vs uns de teste
+K237	SAME	with the exception of = except
+K238	DIFFERENT	el domingo vs los domingos
+K239	DIFFERENT	must not delete vs may delete
+K240	SAME	all vs every
+K241	SAME	identical
+K242	SAME	more than ten = over ten
+K243	DIFFERENT	do not call vs call
+K244	DIFFERENT	tell me vs do not tell me
+K245	DIFFERENT	15 minutes vs 15 hours
+K246	DIFFERENT	log deletion permission differs
+K247	SAME	arrow as separator
+K248	DIFFERENT	ticket/tickets and escalated number swapped
+K249	SAME	quotes only
+K250	DIFFERENT	test vs tests
+K251	DIFFERENT	reboot and flush polarity swapped
+K252	SAME	at most 5 = up to 5
+K253	DIFFERENT	save/delete polarity differs
+K254	DIFFERENT	production ones vs production one
+K255	SAME	can't = cannot
+K256	DIFFERENT	past deleted vs future deleted
+K257	SAME	comma only
+K258	SAME	other than = except
+K259	SAME	not encrypted = unencrypted
+K260	SAME	excepto = salvo
+K261	SAME	comma only
+K262	SAME	every server = all servers
+K263	DIFFERENT	Sim vs No
+K264	DIFFERENT	old servers vs new servers
+K265	DIFFERENT	o resto (rest) vs os restos (remains); number differs
+K266	DIFFERENT	la vs las del administrador
+K267	DIFFERENT	and vs or
+K268	DIFFERENT	say vs do not say
+K269	DIFFERENT	5 MB vs 5 GB
+K270	DIFFERENT	opposite patch requirement
+K271	SAME	contraction only
+K272	SAME	contraction only
+K273	DIFFERENT	volume vs volumes
+K274	SAME	salvo = excepto
+K275	SAME	but vs semicolon
+K276	SAME	receive = get
+K277	SAME	at least two = two or more
+K278	SAME	symbol only
+K279	DIFFERENT	notify/do not notify polarity and user swapped
+K280	SAME	parentheses only
+K281	DIFFERENT	never-logged-in vs logged-in deletion
+K282	SAME	trailing whitespace only
+K283	SAME	ellipsis only
+K284	SAME	did not fail = has not failed in meaning
+K285	SAME	besides = salvo
+K286	SAME	porem = mas
+K287	DIFFERENT	report/invoice sending swapped
+K288	DIFFERENT	throttle/escalate polarity swapped
+K289	DIFFERENT	say paid vs do not say paid
+K290	SAME	symbol only
+K291	SAME	comma only
+K292	SAME	comma only
+K293	SAME	separator only
+K294	SAME	order swapped, same actions
+K295	SAME	symbol only
+K296	SAME	where = in which
+K297	SAME	punctuation only
+K298	SAME	except = excluding
+K299	UNSURE	indicativo nao incluem vs subjuntivo nao incluam; mood shift
+K300	DIFFERENT	every server vs at least one server
+K301	SAME	dash only
+K302	SAME	comma only
+K303	DIFFERENT	primary vs primaries
+K304	DIFFERENT	start vs stop
+K305	DIFFERENT	tablet vs tablets
+K306	DIFFERENT	Friday vs Saturday
+K307	DIFFERENT	patch image scope differs
+K308	SAME	ellipsis only
+K309	DIFFERENT	save/delete polarity swapped
+K310	DIFFERENT	nobody responded vs everybody responded
+K311	SAME	semicolon vs period
+K312	SAME	symbol only
+K313	DIFFERENT	volume/volumes and scratch number swapped
+K314	DIFFERENT	que nao incluem vs que incluem
+K315	DIFFERENT	pay/don't pay and send swapped
+K316	DIFFERENT	person vs people in charge
+K317	DIFFERENT	No vs Yes
+K318	SAME	added article only
+K319	SAME	may = tem permissao
+K320	DIFFERENT	it vs them
+K321	SAME	aquellos is demonstrative only
+K322	SAME	5 = five
+K323	DIFFERENT	if vs only if
+K324	SAME	comma only
+K325	DIFFERENT	page/ticket actions swapped
+K326	DIFFERENT	3 vs 4 retries
+K327	SAME	that/which
+K328	DIFFERENT	que tem vs que nao tem temp files
+K329	DIFFERENT	this one vs these ones
+K330	DIFFERENT	after vs before
+K331	DIFFERENT	el de C vs los de C
+K332	DIFFERENT	added scope word todos
+K333	DIFFERENT	do vs dos number swapped
+K334	UNSURE	indicativo han pagado vs subjuntivo hayan pagado; mood shift
+K335	DIFFERENT	tu servidor vs tus servidores
+K336	SAME	arrow as separator
+K337	SAME	that/who, same meaning
+K338	DIFFERENT	delete/save polarity differs
+K339	SAME	please is politeness only
+K340	DIFFERENT	manager vs managers
+K341	SAME	apart from = except
+K342	DIFFERENT	o de teste vs os de teste
+K343	SAME	comma only
+K344	DIFFERENT	factura vs facturas
+K345	SAME	comma only
+K346	SAME	reordered, same actions
+K347	SAME	comma only
+K348	DIFFERENT	informe vs informes
+K349	DIFFERENT	reboot/do not reboot polarity swapped
+K350	DIFFERENT	within vs after 30 days
+K351	SAME	reordered, same meaning
+K352	SAME	punctuation only
+K353	SAME	reordered, same meaning
+K354	SAME	comma vs semicolon
+K355	SAME	symbol only
+K356	DIFFERENT	delete/unplug vs power off/do not unplug
+K357	DIFFERENT	conditional direction swapped
+K358	DIFFERENT	el de prueba vs los de prueba
+K359	DIFFERENT	must vs should
+K360	SAME	must not = do not

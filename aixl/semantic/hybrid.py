@@ -38,10 +38,12 @@ class HybridDecision:
 
 
 def decide(a: str, b: str, judges: dict | None = None, memo=None, short_circuit: bool = False, retries: int = 1,
-           require_semantic_equivalent: bool = False) -> HybridDecision:
+           require_semantic_equivalent: bool = False, veto: str = "all") -> HybridDecision:
     """`require_semantic_equivalent=True` (strict hybrid, for irreversible actions): a unanimous SAME is accepted only when the rule-based comparator ALSO proves
     EQUIVALENT; when it cannot (INCONCLUSIVE) the result is REVIEW, a person decides. Measured 2026-11-06: 0 false accepts of 395 non-equivalent pairs (blind19-26)
     but only 11 of 245 equivalent pairs are proven, so almost everything goes to review. Default False keeps the behaviour above."""
+    if veto not in ("all", "definite"):
+        raise ValueError("veto must be 'all' (default: a definite difference, a suspected one or an AMBIGUOUS_* flag all send a unanimous SAME to REVIEW) or 'definite' (only a definite NOT_EQUIVALENT does)")
     sem = compare_texts(a, b)
     if sem.verdict == "NOT_EQUIVALENT" and (short_circuit or not judges):
         return HybridDecision("DIFFERENT", "semantic-suspect", sem, None,
@@ -54,11 +56,11 @@ def decide(a: str, b: str, judges: dict | None = None, memo=None, short_circuit:
         if sem.verdict == "EQUIVALENT": notes.append("the semantic model considered them equivalent but a judge dissented; dissent wins")
         return HybridDecision("DIFFERENT", "arbiter-dissent", sem, d, notes)
     if d.verdict == "SAME":
-        if sem.verdict == "NOT_EQUIVALENT" or sem.suspected:     # a suspected difference (type outside the closed list) is not asserted by the comparator, but it still vetoes a unanimous SAME
+        if sem.verdict == "NOT_EQUIVALENT" or (sem.suspected and veto == "all"):     # a suspected difference (type outside the closed list) is not asserted by the comparator, but it still vetoes a unanimous SAME
             return HybridDecision("REVIEW", "none", sem, d, ["both judges said SAME but the semantic model found a difference: " +
                                                               "; ".join(f"{x.path} {x.type}" for x in (sem.diffs + sem.suspected)[:3])])
         amb = [c for c in sem.flags if c.startswith("AMBIGUOUS")]
-        if sem.verdict == "INCONCLUSIVE" and amb:
+        if sem.verdict == "INCONCLUSIVE" and amb and veto == "all":
             return HybridDecision("REVIEW", "none", sem, d, ["both judges said SAME, but the semantic model flags the text as ambiguous (" + ", ".join(amb) +
                                                               "): sameness of an ambiguous instruction is a guess, not a proof"])
         if require_semantic_equivalent and sem.verdict != "EQUIVALENT":

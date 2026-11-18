@@ -1,0 +1,360 @@
+{"id": "K001", "a": "Cobra el pedido sin contar los envíos gratuitos.", "b": "Cobra los pedidos sin contar el envío gratuito."}
+{"id": "K002", "a": "Say \"No\" and then \"more than ten\".", "b": "Say \"No more than ten\"."}
+{"id": "K003", "a": "Abra a válvula.", "b": "Feche a válvula."}
+{"id": "K004", "a": "Staff should not share the password, may share the username.", "b": "Staff should share the password, may not share the username."}
+{"id": "K005", "a": "Keep at most 5 backups.", "b": "Guarde no máximo 5 cópias."}
+{"id": "K006", "a": "Accept ages 18 and over.", "b": "Accept ages over 18."}
+{"id": "K007", "a": "Keep fewer than 5 backups.", "b": "Keep less than 5 backups."}
+{"id": "K008", "a": "The report that is not signed must be returned.", "b": "The report that is signed must not be returned."}
+{"id": "K009", "a": "Nunca, bajo ninguna circunstancia, borres el log.", "b": "Nunca bajo ninguna circunstancia borres el log."}
+{"id": "K010", "a": "Permite el acceso si el usuario inició sesión.", "b": "Permite el acceso solo si el usuario inició sesión."}
+{"id": "K011", "a": "Never restart the node; drain the queue first.", "b": "Restart the node; never drain the queue first."}
+{"id": "K012", "a": "Use a chave de teste, não a de produção.", "b": "Use a chave de teste e não a de produção."}
+{"id": "K013", "a": "Reinicie todos os servidores, excetuando o de teste.", "b": "Reinicie todos os servidores, excetuando os de teste."}
+{"id": "K014", "a": "Disable every account barring the service account.", "b": "Disable every account barring the service accounts."}
+{"id": "K015", "a": "Guarde pelo menos 5 cópias.", "b": "Guarde 5 ou mais cópias."}
+{"id": "K016", "a": "Save, but delete, but never archive.", "b": "Save, but never delete, but archive."}
+{"id": "K017", "a": "Do not save the file, but send the copy.", "b": "Do not save the file; send the copy."}
+{"id": "K018", "a": "Abierto de lunes a viernes.", "b": "Abierto de lunes a sábado."}
+{"id": "K019", "a": "The limit is 100 requests per minute.", "b": "The limit is 100 requests per hour."}
+{"id": "K020", "a": "Don't delete anything but the logs.", "b": "Delete anything but don't touch the logs."}
+{"id": "K021", "a": "Cierra todos los tickets excepto el urgente.", "b": "Cierra todos los tickets excepto los urgentes."}
+{"id": "K022", "a": "Never delete the file, although it is old.", "b": "Although it is old, never delete the file."}
+{"id": "K023", "a": "Restart all servers except the test servers.", "b": "Restart all servers, except the test servers!"}
+{"id": "K024", "a": "Confirm that the backup did not fail.", "b": "Confirm the backup did not fail."}
+{"id": "K025", "a": "Step 2: Do not format the volume, mount the share.", "b": "Step 2: Format the volume, do not mount the share."}
+{"id": "K026", "a": "Enable the firewall.", "b": "Turn on the firewall."}
+{"id": "K027", "a": "Revise o código, não implante o serviço.", "b": "Não revise o código, implante o serviço."}
+{"id": "K028", "a": "Audit all departments except the sales team.", "b": "Audit all departments except the sales teams."}
+{"id": "K029", "a": "Keep logs? No,fewer than five days.", "b": "Keep logs? No fewer than five days."}
+{"id": "K030", "a": "Reinicie todas as maquinas, com excecao da de teste.", "b": "Reinicie todas as maquinas, com excecao das de teste."}
+{"id": "K031", "a": "Reintenta si falla.", "b": "Reintenta si funciona."}
+{"id": "K032", "a": "Reinicia todo excepto los servidores de prueba.", "b": "Reinicia todo con excepción de los servidores de prueba."}
+{"id": "K033", "a": "Feche os chamados que não têm responsável.", "b": "Feche os chamados sem responsável."}
+{"id": "K034", "a": "Do not pay the invoice, send the receipt.", "b": "Do not pay the invoice. Send the receipt."}
+{"id": "K035", "a": "Do not approve the invoice, reject the refund, and escalate.", "b": "Approve the invoice, do not reject the refund, and escalate."}
+{"id": "K036", "a": "Debes hacer la copia.", "b": "Tienes que hacer la copia."}
+{"id": "K037", "a": "Nao envie o relatorio enquanto revisa o contrato.", "b": "Envie o relatorio enquanto nao revisa o contrato."}
+{"id": "K038", "a": "Mantemos os logs? Em hipotese alguma, menos de cinco dias.", "b": "Mantemos os logs? Em hipotese alguma menos de cinco dias."}
+{"id": "K039", "a": "Ship every order minus the gift order.", "b": "Ship every order minus the gift orders."}
+{"id": "K040", "a": "Deploy to all regions excluding the east region.", "b": "Deploy to all regions except the east region."}
+{"id": "K041", "a": "Nao exporte a base, pois arquive o relatorio.", "b": "Exporte a base, pois nao arquive o relatorio."}
+{"id": "K042", "a": "Restart everything except the others.", "b": "Restart everything except the other."}
+{"id": "K043", "a": "Envie a todos exceto a gerente.", "b": "Envie a todos exceto as gerentes."}
+{"id": "K044", "a": "Envie a todos exceto a gerente.", "b": "Envie a todos, exceto a gerente."}
+{"id": "K045", "a": "It is recommended to restart.", "b": "It is required to restart."}
+{"id": "K046", "a": "No, menos de tres.", "b": "No menos de tres."}
+{"id": "K047", "a": "Apague o arquivo exceto o cabeçalho.", "b": "Apague o arquivo exceto os cabeçalhos."}
+{"id": "K048", "a": "Delete all files except the report.", "b": "Delete all files other than the report."}
+{"id": "K049", "a": "Employees who never arrive late get a bonus.", "b": "Employees who arrive late never get a bonus."}
+{"id": "K050", "a": "Apague todos os arquivos exceto o relatório.", "b": "Apague todos os arquivos exceto os relatórios."}
+{"id": "K051", "a": "Reply no, fewer than five days.", "b": "Reply no, fewer than five days!"}
+{"id": "K052", "a": "Do not delete the file.", "b": "Não apague o arquivo."}
+{"id": "K053", "a": "Ensure the script, which does not delete files, runs first.", "b": "Ensure the script, which deletes files, does not run first."}
+{"id": "K054", "a": "Costs under 100 USD? No, 100 USD or more.", "b": "Costs under 100 USD? No 100 USD or more."}
+{"id": "K055", "a": "Should I save? No, it is locked.", "b": "Should I save? No; it is locked."}
+{"id": "K056", "a": "O sistema não deve permitir que os usuários que são administradores apaguem.", "b": "O sistema deve permitir que os usuários que não são administradores apaguem."}
+{"id": "K057", "a": "Reply: **No**\nAt most three.", "b": "Reply: **Yes**\nAt most three."}
+{"id": "K058", "a": "Delete the backups excluding the weekly backup.", "b": "Delete the backups excluding the weekly backups."}
+{"id": "K059", "a": "Confirme que o backup não falhou.", "b": "Confirme que não falhou o backup."}
+{"id": "K060", "a": "Entregue antes de sexta.", "b": "Entregue depois de sexta."}
+{"id": "K061", "a": "Keep logs for no fewer than five days.", "b": "Keep logs for at least five days."}
+{"id": "K062", "a": "Não rejeite nenhuma das solicitações.", "b": "Não rejeite todas as solicitações."}
+{"id": "K063", "a": "No, por favor, desactives la alarma.", "b": "No por favor desactives la alarma."}
+{"id": "K064", "a": "Never, under any circumstances, delete the log.", "b": "Never under any circumstances delete the log."}
+{"id": "K065", "a": "Approve all requests except the largest one.", "b": "Approve all requests except the largest ones."}
+{"id": "K066", "a": "Los empleados que nunca llegan tarde reciben un bono.", "b": "Los empleados que llegan tarde nunca reciben un bono."}
+{"id": "K067", "a": "Não envie o relatório ao cliente, mas envie a fatura.", "b": "Não envie o relatório ao cliente; envie a fatura."}
+{"id": "K068", "a": "Submit before Friday.", "b": "Submit on Friday."}
+{"id": "K069", "a": "Salve o arquivo, mas nunca apague a cópia.", "b": "Salve o arquivo, contudo nunca apague a cópia."}
+{"id": "K070", "a": "Confirm that the backup did not fail.", "b": "Do not confirm that the backup failed."}
+{"id": "K071", "a": "Nunca salve, embora apague a cópia.", "b": "Salve, embora nunca apague a cópia."}
+{"id": "K072", "a": "La fecha límite es el 4 de marzo.", "b": "La fecha límite es el 3 de abril."}
+{"id": "K073", "a": "Agrega al usuario al grupo.", "b": "Quita al usuario del grupo."}
+{"id": "K074", "a": "Reinicie todos os servidores, ignorando o de teste.", "b": "Reinicie todos os servidores, ignorando os de teste."}
+{"id": "K075", "a": "Never mute the alert and throttle the API; escalate to oncall.", "b": "Mute the alert and never throttle the API; escalate to oncall."}
+{"id": "K076", "a": "Restart the servers except test-server.", "b": "Restart the servers except test-servers."}
+{"id": "K077", "a": "Processe primeiro os arquivos grandes.", "b": "Processe primeiro os arquivos pequenos."}
+{"id": "K078", "a": "Keep logs? No  • fewer than five days.", "b": "Keep logs? No fewer than five days."}
+{"id": "K079", "a": "You must back up.", "b": "Você pode fazer o backup."}
+{"id": "K080", "a": "Delete the old reports and keep the rest.", "b": "Keep the rest and delete the old reports."}
+{"id": "K081", "a": "No, at most three.", "b": "No, three at most."}
+{"id": "K082", "a": "Pague em até 30 dias.", "b": "Pague depois de 30 dias."}
+{"id": "K083", "a": "Never email the client, notify the manager.", "b": "Email the client, never notify the manager."}
+{"id": "K084", "a": "Ensure that we never expose the key and rotate the token.", "b": "Ensure that we expose the key and never rotate the token."}
+{"id": "K085", "a": "No emita la factura y registre el pago.", "b": "Emita la factura y no registre el pago."}
+{"id": "K086", "a": "Envie tudo menos o contrato.", "b": "Envie tudo exceto o contrato."}
+{"id": "K087", "a": "You must not submit the form.", "b": "You may submit the form."}
+{"id": "K088", "a": "Keep at least 5 backups.", "b": "Keep 5 or more backups."}
+{"id": "K089", "a": "Not only Ana but Luis must sign.", "b": "Only Ana must sign."}
+{"id": "K090", "a": "Delete every account except mine.", "b": "Delete every account except ours."}
+{"id": "K091", "a": "Não, menos de cinco dias.", "b": "Não: menos de cinco dias."}
+{"id": "K092", "a": "Invite all staff except the child.", "b": "Invite all staff except the children."}
+{"id": "K093", "a": "Restart two servers except the test.", "b": "Restart two server except the tests."}
+{"id": "K094", "a": "Reinicia todos los nodos salvo el maestro.", "b": "Reinicia todos los nodos salvo los maestros."}
+{"id": "K095", "a": "I know that Ana did not approve it.", "b": "I do not know that Ana approved it."}
+{"id": "K096", "a": "Never save the file, delete the copy, but archive it.", "b": "Save the file, never delete the copy, but archive it."}
+{"id": "K097", "a": "Nobody must approve the plan and the budget.", "b": "Nobody must approve the plan but everybody must approve the budget."}
+{"id": "K098", "a": "Resposta: **Não**\nMenos de cinco dias.", "b": "Resposta: Não menos de cinco dias."}
+{"id": "K099", "a": "Allow access if the user is logged in.", "b": "Allow access only if the user is logged in."}
+{"id": "K100", "a": "The report covers every region except the Americas and Asia.", "b": "The report covers every region except Asia and the Americas."}
+{"id": "K101", "a": "I never ping the client and I quarantine the host.", "b": "I ping the client and I never quarantine the host."}
+{"id": "K102", "a": "Guarda como máximo 5 copias.", "b": "Guarda no más de 5 copias."}
+{"id": "K103", "a": "Delete everything but the test, never save.", "b": "Delete everything, never but the test save."}
+{"id": "K104", "a": "No, fewer than five days.", "b": "No. Fewer than five days."}
+{"id": "K105", "a": "Should I drop the table? Do not, drop the view.", "b": "Should I drop the table? Do not drop the view."}
+{"id": "K106", "a": "Only the manager signs the invoice.", "b": "The manager only signs the invoice."}
+{"id": "K107", "a": "Nunca, en ningun caso, desactives la alarma.", "b": "Nunca en ningun caso desactives la alarma."}
+{"id": "K108", "a": "Do not ever restart; always drain first.", "b": "Always restart; do not ever drain first."}
+{"id": "K109", "a": "You must back up the data.", "b": "You have to back up the data."}
+{"id": "K110", "a": "Keep logs? Nay, fewer than five days.", "b": "Keep logs? Nay fewer than five days."}
+{"id": "K111", "a": "Keep logs? No > fewer than five days.", "b": "Keep logs? No fewer than five days."}
+{"id": "K112", "a": "Restart all servers but that.", "b": "Restart all servers but those."}
+{"id": "K113", "a": "Apague o backup mais antigo.", "b": "Apague o backup mais recente."}
+{"id": "K114", "a": "Sí, al menos dos.", "b": "Sí. Al menos dos."}
+{"id": "K115", "a": "Delete every log except the last two.", "b": "Delete every log except the last three."}
+{"id": "K116", "a": "Keep logs? Nay, fewer than five days.", "b": "Keep logs? Nay fewer than five days."}
+{"id": "K117", "a": "Não, apenas o gerente.", "b": "Não apenas o gerente."}
+{"id": "K118", "a": "Never share the password; rotate the key.", "b": "Share the password; never rotate the key."}
+{"id": "K119", "a": "The password must have exactly 8 characters.", "b": "The password must have at least 8 characters."}
+{"id": "K120", "a": "No, borra todo.", "b": "Borra todo."}
+{"id": "K121", "a": "Apaga los archivos que nunca se abrieron.", "b": "Nunca apagues los archivos que se abrieron."}
+{"id": "K122", "a": "Is the port open? No | at most two hosts.", "b": "Is the port open? No at most two hosts."}
+{"id": "K123", "a": "Never save, but delete.", "b": "Never save, but delete."}
+{"id": "K124", "a": "Restart all servers except the test server.", "b": "Restart all servers other than the test server."}
+{"id": "K125", "a": "Restart the server only if it hangs.", "b": "Restart the server if it hangs."}
+{"id": "K126", "a": "Do not delete the logs, but archive the reports.", "b": "Do not delete the logs; instead, archive the reports."}
+{"id": "K127", "a": "No apruebes a menos que firmen ambos gerentes.", "b": "No apruebes a menos que firme uno de los gerentes."}
+{"id": "K128", "a": "Save the file and do not delete the copy.", "b": "Save the file, and do not delete the copy."}
+{"id": "K129", "a": "Keep logs? No | fewer than five days.", "b": "Keep logs? No fewer than five days."}
+{"id": "K130", "a": "Keep logs? No, fewer than five days.", "b": "Keep logs? No/ fewer than five days."}
+{"id": "K131", "a": "Envía el informe a todos excepto a la directora.", "b": "Envía el informe a todos excepto a las directoras."}
+{"id": "K132", "a": "Restart the servers that are not responding.", "b": "Restart the servers which are not responding."}
+{"id": "K133", "a": "No, como máximo tres.", "b": "No, máximo tres."}
+{"id": "K134", "a": "Raise the price by 10%.", "b": "Raise the price by 20%."}
+{"id": "K135", "a": "Never save the file, or delete the copy.", "b": "Save the file, or never delete the copy."}
+{"id": "K136", "a": "Is it ready? No, not yet.", "b": "Is it ready? No not yet."}
+{"id": "K137", "a": "No ping the client y quarantine el host.", "b": "Ping the client y no quarantine el host."}
+{"id": "K138", "a": "Delete every row except the one with the mouse.", "b": "Delete every row except the ones with the mice."}
+{"id": "K139", "a": "Should I shred the papers? Don't, shred the disk.", "b": "Should I shred the papers? Don't shred the disk."}
+{"id": "K140", "a": "Reinicia todo, salvo el mes.", "b": "Reinicia todo, salvo los meses."}
+{"id": "K141", "a": "No pagues la factura, envía el recibo, llama al banco.", "b": "Paga la factura, envía el recibo, no llames al banco."}
+{"id": "K142", "a": "Nunca compartas la clave.", "b": "Rara vez compartas la clave."}
+{"id": "K143", "a": "Keep logs? No, fewer than five days.", "b": "Keep logs? No-fewer than five days."}
+{"id": "K144", "a": "Respuesta: **No**\nMenos de cinco días.", "b": "Respuesta: No menos de cinco días."}
+{"id": "K145", "a": "Raise the price by 10%.", "b": "Lower the price by 10%."}
+{"id": "K146", "a": "You may restart the server.", "b": "You are allowed to restart the server."}
+{"id": "K147", "a": "Reject the requests that do not include a signature.", "b": "Reject all requests that do not include a signature."}
+{"id": "K148", "a": "Ninguém foi convidado e todos vieram.", "b": "Todos foram convidados e ninguém veio."}
+{"id": "K149", "a": "Delete the file? \"No.\"", "b": "Delete the file? No."}
+{"id": "K150", "a": "Keep logs? No – fewer than five days.", "b": "Keep logs? No fewer than five days."}
+{"id": "K151", "a": "The vendor that did not deliver must be paid.", "b": "The vendor that delivered must not be paid."}
+{"id": "K152", "a": "Escalate the cases where no response arrived.", "b": "Escalate the cases where a response arrived."}
+{"id": "K153", "a": "None of the tests failed.", "b": "Not all of the tests failed."}
+{"id": "K154", "a": "No, delete everything.", "b": "Delete everything."}
+{"id": "K155", "a": "Debes hacer la copia.", "b": "Puedes hacer la copia."}
+{"id": "K156", "a": "Reset every account except the manager's.", "b": "Reset every account except the managers'."}
+{"id": "K157", "a": "Close every ticket except the blocked ticket.", "b": "Close every ticket, except the blocked ticket."}
+{"id": "K158", "a": "El usuario está obligado a iniciar sesión.", "b": "El usuario tiene permitido iniciar sesión."}
+{"id": "K159", "a": "Não apague o arquivo: salve a cópia.", "b": "Não apague o arquivo; salve a cópia."}
+{"id": "K160", "a": "Guarde menos de 5 cópias.", "b": "Guarde no máximo 5 cópias."}
+{"id": "K161", "a": "Restart all servers except this server.", "b": "Restart all servers except these servers."}
+{"id": "K162", "a": "Stop the service before updating it.", "b": "Stop the service after updating it."}
+{"id": "K163", "a": "No hagas más, pero borra la copia.", "b": "Haz más, pero no borres la copia."}
+{"id": "K164", "a": "Reserve two rooms for three nights.", "b": "Reserve three rooms for two nights."}
+{"id": "K165", "a": "Reinicia todo, fuera de la de prueba.", "b": "Reinicia todo, fuera de las de prueba."}
+{"id": "K166", "a": "Aprueba si A y B.", "b": "Aprueba si A o B."}
+{"id": "K167", "a": "Não envie o relatório ao cliente, mas envie a fatura.", "b": "Envie o relatório ao cliente, mas não envie a fatura."}
+{"id": "K168", "a": "A não ser que seja urgente, feche o chamado e avise o responsável.", "b": "Feche o chamado e, a não ser que seja urgente, avise o responsável."}
+{"id": "K169", "a": "Do not restart the server although the patch is ready.", "b": "Although the patch is ready, do not restart the server."}
+{"id": "K170", "a": "No, do not save the file.", "b": "No, don't save the file."}
+{"id": "K171", "a": "Open the ticket but never close it.", "b": "Open the ticket, but never close it."}
+{"id": "K172", "a": "El usuario puede borrar el archivo.", "b": "El usuario debe borrar el archivo."}
+{"id": "K173", "a": "Restart every server except the ones in staging.", "b": "Restart every server apart from the ones in staging."}
+{"id": "K174", "a": "Charge $100.", "b": "Charge €100."}
+{"id": "K175", "a": "No más de diez.", "b": "Como máximo diez."}
+{"id": "K176", "a": "Exceto Ana, avise a todos do atraso e do custo.", "b": "Avise a todos do atraso e, exceto a Ana, do custo."}
+{"id": "K177", "a": "Reinicia todo excepto los servidores de prueba.", "b": "Reinicia todo a excepción de los servidores de prueba."}
+{"id": "K178", "a": "Guardamos los logs? De ninguna manera, menos de cinco dias.", "b": "Guardamos los logs? De ninguna manera menos de cinco dias."}
+{"id": "K179", "a": "Envie tudo menos a fatura.", "b": "Envie tudo menos as faturas."}
+{"id": "K180", "a": "Keep logs? No! Fewer than five days.", "b": "Keep logs? No fewer than five days."}
+{"id": "K181", "a": "Borra todos los archivos salvo el informe.", "b": "Borra todos los archivos salvo los informes."}
+{"id": "K182", "a": "Nunca, bajo ninguna circunstancia, desactives la alarma.", "b": "Nunca bajo ninguna circunstancia desactives la alarma."}
+{"id": "K183", "a": "Deploy unless the tests fail.", "b": "Deploy unless the tests pass."}
+{"id": "K184", "a": "No quiero más logs.", "b": "Más logs no quiero."}
+{"id": "K185", "a": "Keep logs? No, fewer than five days.", "b": "Keep logs? No … fewer than five days."}
+{"id": "K186", "a": "Tell them that the server is not down.", "b": "Do not tell them that the server is down."}
+{"id": "K187", "a": "Restart everything except the test server.", "b": "Restart everything but the test server."}
+{"id": "K188", "a": "Cifra el archivo y luego comprímelo.", "b": "Comprime el archivo y luego cífralo."}
+{"id": "K189", "a": "Reinicia todos los servidores, excepto los de prueba.", "b": "Reinicia todos los servidores, con excepción de los de prueba."}
+{"id": "K190", "a": "Delete all files except the report.", "b": "Delete all files except a report."}
+{"id": "K191", "a": "Aplica el parche a todos los servidores excepto este.", "b": "Aplica el parche a todos los servidores excepto estos."}
+{"id": "K192", "a": "Do not, however, delete the file.", "b": "Do not, though, delete the file."}
+{"id": "K193", "a": "Salve nada, mas apague a cópia.", "b": "Salve o arquivo, mas não apague nada."}
+{"id": "K194", "a": "Rechaza las solicitudes que no incluyen una firma.", "b": "Rechaza las solicitudes sin firma."}
+{"id": "K195", "a": "Não apague os registros, arquive os relatórios.", "b": "Apague os registros, não arquive os relatórios."}
+{"id": "K196", "a": "No. Menos de cinco días.", "b": "No menos de cinco días."}
+{"id": "K197", "a": "Archive it, but do not delete it.", "b": "Do not delete it, but archive it."}
+{"id": "K198", "a": "Do not delete the file unless you are sure.", "b": "Delete the file unless you are sure."}
+{"id": "K199", "a": "Adicione o usuário ao grupo.", "b": "Remova o usuário do grupo."}
+{"id": "K200", "a": "Never merge the branch, close the ticket; notify QA.", "b": "Merge the branch, never close the ticket; notify QA."}
+{"id": "K201", "a": "The system must encrypt data.", "b": "The system should encrypt data."}
+{"id": "K202", "a": "Nobody saves the file, but delete the copy.", "b": "Save the file, but nobody deletes the copy."}
+{"id": "K203", "a": "Ana says Luis approved it.", "b": "Luis says Ana approved it."}
+{"id": "K204", "a": "Puede borrar? Nada, mas de cinco archivos.", "b": "Puede borrar? Nada mas de cinco archivos."}
+{"id": "K205", "a": "Haz copia diaria excepto el domingo.", "b": "Haz copia diaria excepto los domingos."}
+{"id": "K206", "a": "Todos recebem bônus a não ser o novo cliente.", "b": "Todos recebem bônus a não ser os novos clientes."}
+{"id": "K207", "a": "No borres el archivo.", "b": "Não apague o arquivo."}
+{"id": "K208", "a": "Guarda menos de 5 copias.", "b": "Guarda como máximo 5 copias."}
+{"id": "K209", "a": "Remove the account besides the admin accounts.", "b": "Remove the accounts besides the admin account."}
+{"id": "K210", "a": "Close the ticket, unless it is urgent, and notify the owner.", "b": "Close the ticket and notify the owner, unless it is urgent."}
+{"id": "K211", "a": "Restart everything but the test.", "b": "Restart everything but the tests."}
+{"id": "K212", "a": "Keep at most 5 backups.", "b": "Keep no more than 5 backups."}
+{"id": "K213", "a": "Update all clients except the one in Madrid and the one in Lima.", "b": "Update all clients except the one in Madrid and the ones in Lima."}
+{"id": "K214", "a": "Notify everyone except the interns and the contractors.", "b": "Notify everyone except the interns, and the contractors."}
+{"id": "K215", "a": "Keep no fewer than five servers.", "b": "Keep at least five servers."}
+{"id": "K216", "a": "Reject every request but the first; approve the last.", "b": "Reject the first request; approve every request but the last."}
+{"id": "K217", "a": "Should we keep the logs? Nope / fewer than five days.", "b": "Should we keep the logs? Nope fewer than five days."}
+{"id": "K218", "a": "Keep logs? [No] — fewer than five days.", "b": "Keep logs? [No] fewer than five days."}
+{"id": "K219", "a": "What do I owe? Nada → menos de cinco euros.", "b": "What do I owe? Nada menos de cinco euros."}
+{"id": "K220", "a": "Keep logs? No (fewer than five days).", "b": "Keep logs? No fewer than five days."}
+{"id": "K221", "a": "The batch job is not stopped, instead the queue is drained.", "b": "The batch job is stopped, instead the queue is not drained."}
+{"id": "K222", "a": "Reinicia los servidores que no responden.", "b": "Reinicia los servidores que no respondan."}
+{"id": "K223", "a": "Elimina los archivos que no están cifrados.", "b": "Elimina los archivos que están cifrados."}
+{"id": "K224", "a": "No fewer than five days.", "b": "At least five days."}
+{"id": "K225", "a": "Reinicia todo, excepto el servidor.", "b": "Reinicia todo, salvo el servidor."}
+{"id": "K226", "a": "Not, strictly speaking, the staging servers.", "b": "Not strictly speaking the staging servers."}
+{"id": "K227", "a": "Close the ports other than 443.", "b": "Close the ports other than 443 and 80."}
+{"id": "K228", "a": "Tente novamente a cada 2 horas.", "b": "Tente novamente a cada 3 horas."}
+{"id": "K229", "a": "Save the file, but nobody should delete the copy.", "b": "Nobody should delete the copy, but save the file."}
+{"id": "K230", "a": "Restart the container barring the sidecar containers.", "b": "Restart the containers barring the sidecar container."}
+{"id": "K231", "a": "Never delete the file and never rename it.", "b": "Never delete the file, and never rename it."}
+{"id": "K232", "a": "Step 1: validate. Step 2: save.", "b": "Step 1: save. Step 2: validate."}
+{"id": "K233", "a": "Is it ten users? It is not, at least twenty.", "b": "Is it ten users? It is not at least twenty."}
+{"id": "K234", "a": "Delete the file? No - never.", "b": "Delete the file? No – never."}
+{"id": "K235", "a": "Não, menos de cinco dias.", "b": "Não. Menos de cinco dias."}
+{"id": "K236", "a": "Reinicie todos os servidores, exceto um de teste.", "b": "Reinicie todos os servidores, exceto uns de teste."}
+{"id": "K237", "a": "Delete all files except the report.", "b": "Delete all files with the exception of the report."}
+{"id": "K238", "a": "Faça backup todo dia, exceto o domingo.", "b": "Faça backup todo dia, exceto os domingos."}
+{"id": "K239", "a": "Users must not delete or edit records.", "b": "Users may delete, but must not edit records."}
+{"id": "K240", "a": "Delete all files except the report.", "b": "Delete every file except the report."}
+{"id": "K241", "a": "Keep logs? N0, fewer than five days.", "b": "Keep logs? N0 fewer than five days."}
+{"id": "K242", "a": "No, more than ten.", "b": "No, over ten."}
+{"id": "K243", "a": "Não ligue a menos que haja uma emergência.", "b": "Ligue a menos que haja uma emergência."}
+{"id": "K244", "a": "Dime qué tareas no están terminadas.", "b": "No me digas qué tareas están terminadas."}
+{"id": "K245", "a": "Espera 15 minutos.", "b": "Espera 15 horas."}
+{"id": "K246", "a": "No borres nada excepto los registros; no toques las copias.", "b": "No borres nada; no toques las copias excepto los registros."}
+{"id": "K247", "a": "Posso guardar? Não → menos de cinco dias.", "b": "Posso guardar? Não menos de cinco dias."}
+{"id": "K248", "a": "Close the ticket short of the escalated tickets.", "b": "Close the tickets short of the escalated ticket."}
+{"id": "K249", "a": "Keep logs? \"No,\" fewer than five days.", "b": "Keep logs? \"No\", fewer than five days."}
+{"id": "K250", "a": "Restart everything, except for the test.", "b": "Restart everything, except for the tests."}
+{"id": "K251", "a": "The server must not be rebooted, because the cache must be flushed.", "b": "The server must be rebooted, because the cache must not be flushed."}
+{"id": "K252", "a": "Keep at most 5 backups.", "b": "Keep up to 5 backups."}
+{"id": "K253", "a": "Never save the file, although delete the copy, but archive it.", "b": "Save the file, although never delete the copy, but archive it."}
+{"id": "K254", "a": "Restart all servers except production ones.", "b": "Restart all servers except production one."}
+{"id": "K255", "a": "Can I reboot? You can't, more than five users.", "b": "Can I reboot? You cannot, more than five users."}
+{"id": "K256", "a": "The file was deleted.", "b": "The file will be deleted."}
+{"id": "K257", "a": "Is the cap ten users? Nobody, at least twenty.", "b": "Is the cap ten users? Nobody at least twenty."}
+{"id": "K258", "a": "Restart all servers except the ones in test.", "b": "Restart all servers other than the ones in test."}
+{"id": "K259", "a": "Delete the files that are not encrypted.", "b": "Delete the files that are unencrypted."}
+{"id": "K260", "a": "Reinicia todos los servidores excepto los servidores de prueba.", "b": "Reinicia todos los servidores salvo los servidores de prueba."}
+{"id": "K261", "a": "Never save the file, but delete the copy.", "b": "Never save the file but delete the copy."}
+{"id": "K262", "a": "Every server must restart.", "b": "All servers must restart."}
+{"id": "K263", "a": "Sí, como máximo tres.", "b": "No, como máximo tres."}
+{"id": "K264", "a": "Nenhum dos servidores antigos será reiniciado.", "b": "Nenhum dos servidores novos será reiniciado."}
+{"id": "K265", "a": "Reinicie tudo, exceto o resto.", "b": "Reinicie tudo, exceto os restos."}
+{"id": "K266", "a": "Cierra todas las sesiones excepto la del administrador.", "b": "Cierra todas las sesiones excepto las del administrador."}
+{"id": "K267", "a": "Notify the client and the manager.", "b": "Notify the client or the manager."}
+{"id": "K268", "a": "Diga que o servidor não caiu.", "b": "Não diga que o servidor caiu."}
+{"id": "K269", "a": "Limit the upload to 5 MB.", "b": "Limit the upload to 5 GB."}
+{"id": "K270", "a": "No hay que aplicar el parche, ya que el servicio se reinicia.", "b": "Hay que aplicar el parche, ya que el servicio no se reinicia."}
+{"id": "K271", "a": "Do not save the file but delete the copy.", "b": "Don't save the file but delete the copy."}
+{"id": "K272", "a": "If the disk is full, do not save the file.", "b": "If the disk is full, don't save the file."}
+{"id": "K273", "a": "Encrypt the finance volume, the rest stays open.", "b": "Encrypt the finance volumes, the rest stays open."}
+{"id": "K274", "a": "Notifica a todos excepto al gerente.", "b": "Notifica a todos salvo al gerente."}
+{"id": "K275", "a": "Back up the data, but do not restart the server.", "b": "Back up the data; do not restart the server."}
+{"id": "K276", "a": "Users who did not log in will not receive the email.", "b": "Users who did not log in will not get the email."}
+{"id": "K277", "a": "Sim, pelo menos dois.", "b": "Sim, dois ou mais."}
+{"id": "K278", "a": "Keep logs? No // fewer than five days.", "b": "Keep logs? No fewer than five days."}
+{"id": "K279", "a": "Notify the user who did not sign the form.", "b": "Do not notify the user who signed the form."}
+{"id": "K280", "a": "No (menos de cinco días).", "b": "No menos de cinco días."}
+{"id": "K281", "a": "Delete accounts that never logged in.", "b": "Never delete accounts that logged in."}
+{"id": "K282", "a": "No, do not delete anything.", "b": "No, do not delete anything.  "}
+{"id": "K283", "a": "Keep logs? No … fewer than five days.", "b": "Keep logs? No fewer than five days."}
+{"id": "K284", "a": "Confirm that the backup did not fail.", "b": "Confirm that the backup has not failed."}
+{"id": "K285", "a": "Envía todo menos el contrato.", "b": "Envía todo salvo el contrato."}
+{"id": "K286", "a": "Não salve, mas apague.", "b": "Não salve, porém apague."}
+{"id": "K287", "a": "No envíes el informe al cliente pero envía la factura.", "b": "Envía el informe al cliente pero no envíes la factura."}
+{"id": "K288", "a": "Never throttle the API and escalate to oncall unless approved.", "b": "Throttle the API and never escalate to oncall unless approved."}
+{"id": "K289", "a": "Diga que a fatura não foi paga.", "b": "Não diga que a fatura foi paga."}
+{"id": "K290", "a": "Keep logs? No • more than five days.", "b": "Keep logs? No more than five days."}
+{"id": "K291", "a": "¿Borro? No. Más de dos archivos.", "b": "¿Borro? No más de dos archivos."}
+{"id": "K292", "a": "Do not, please, delete the file.", "b": "Do not please delete the file."}
+{"id": "K293", "a": "No\n\nMás de diez.", "b": "No más de diez."}
+{"id": "K294", "a": "No borres la copia, sino guarda el archivo.", "b": "Guarda el archivo, pero no borres la copia."}
+{"id": "K295", "a": "Keep logs? No * fewer than five days.", "b": "Keep logs? No fewer than five days."}
+{"id": "K296", "a": "Report the service where no errors occurred.", "b": "Report the service in which no errors occurred."}
+{"id": "K297", "a": "Do not save the file, but delete the copy.", "b": "Do not save the file; but delete the copy."}
+{"id": "K298", "a": "Restart every server except the ones in staging.", "b": "Restart every server, excluding the ones in staging."}
+{"id": "K299", "a": "Rejeite as solicitações que não incluem assinatura.", "b": "Rejeite as solicitações que não incluam assinatura."}
+{"id": "K300", "a": "Every server must restart.", "b": "At least one server must restart."}
+{"id": "K301", "a": "Keep logs? __No__ - fewer than five days.", "b": "Keep logs? __No__ fewer than five days."}
+{"id": "K302", "a": "Nunca, jamas, desactives la alarma.", "b": "Nunca jamas desactives la alarma."}
+{"id": "K303", "a": "Reboot every node barring the primary.", "b": "Reboot every node barring the primaries."}
+{"id": "K304", "a": "Start the job.", "b": "Stop the job."}
+{"id": "K305", "a": "Remove all devices save the tablet.", "b": "Remove all devices save the tablets."}
+{"id": "K306", "a": "Open from Monday to Friday.", "b": "Open from Monday to Saturday."}
+{"id": "K307", "a": "Should I patch the host? Does not, patch the image.", "b": "Should I patch the host? Does not patch the image."}
+{"id": "K308", "a": "Keep logs? No…, fewer than five days.", "b": "Keep logs? No, fewer than five days."}
+{"id": "K309", "a": "Nunca salve o arquivo enquanto apaga a cópia.", "b": "Salve o arquivo enquanto nunca apaga a cópia."}
+{"id": "K310", "a": "Archiva los tickets que nadie ha respondido.", "b": "Archiva los tickets que todos han respondido."}
+{"id": "K311", "a": "Never save the file; delete the copy.", "b": "Never save the file. Delete the copy."}
+{"id": "K312", "a": "Keep logs? No + fewer than five days.", "b": "Keep logs? No fewer than five days."}
+{"id": "K313", "a": "Back up the volume not including the scratch volumes.", "b": "Back up the volumes not including the scratch volume."}
+{"id": "K314", "a": "Rejeite as solicitações que não incluem assinatura.", "b": "Rejeite as solicitações que incluem assinatura."}
+{"id": "K315", "a": "No pagues la factura, envía el recibo, llama al banco.", "b": "Paga la factura, no envíes el recibo, llama al banco."}
+{"id": "K316", "a": "Reset every profile except the person in charge.", "b": "Reset every profile except the people in charge."}
+{"id": "K317", "a": "No, at most 3.", "b": "Yes, at most 3."}
+{"id": "K318", "a": "Restart all servers except the test servers.", "b": "Restart all the servers except the test servers."}
+{"id": "K319", "a": "Você pode reiniciar o servidor.", "b": "Você tem permissão para reiniciar o servidor."}
+{"id": "K320", "a": "Restart all servers except it.", "b": "Restart all servers except them."}
+{"id": "K321", "a": "Llama a los clientes que no han pagado.", "b": "Llama a aquellos clientes que no han pagado."}
+{"id": "K322", "a": "Keep at least 5 backups.", "b": "Keep at least five backups."}
+{"id": "K323", "a": "Permita o acesso se o usuário fez login.", "b": "Permita o acesso somente se o usuário fez login."}
+{"id": "K324", "a": "Who may approve? No one, at most two managers.", "b": "Who may approve? No one at most two managers."}
+{"id": "K325", "a": "When the alert fires, don't page the team and open a ticket.", "b": "When the alert fires, page the team and don't open a ticket."}
+{"id": "K326", "a": "Retry up to 3 times.", "b": "Retry up to 4 times."}
+{"id": "K327", "a": "Close the tickets that have no owner.", "b": "Close the tickets which have no owner."}
+{"id": "K328", "a": "Faça backup de todas as pastas exceto as que têm arquivos temporários.", "b": "Faça backup de todas as pastas exceto as que não têm arquivos temporários."}
+{"id": "K329", "a": "Apply the patch to all servers except this one.", "b": "Apply the patch to all servers except these ones."}
+{"id": "K330", "a": "Do X after Y.", "b": "Do X before Y."}
+{"id": "K331", "a": "Reinicia todo excepto el de A, el de B y el de C.", "b": "Reinicia todo excepto el de A, el de B y los de C."}
+{"id": "K332", "a": "Apague os arquivos que não estão criptografados.", "b": "Apague todos os arquivos que não estão criptografados."}
+{"id": "K333", "a": "Revise todos os contratos, a excecao do do cliente.", "b": "Revise todos os contratos, a excecao dos do cliente."}
+{"id": "K334", "a": "Llama a los clientes que no han pagado.", "b": "Llama a los clientes que no hayan pagado."}
+{"id": "K335", "a": "Reinicia todos los servidores, salvo tu servidor.", "b": "Reinicia todos los servidores, salvo tus servidores."}
+{"id": "K336", "a": "Should we page oncall? No → more than three alerts.", "b": "Should we page oncall? No more than three alerts."}
+{"id": "K337", "a": "Contact the clients who have not paid.", "b": "Contact the clients that have not paid."}
+{"id": "K338", "a": "Do not save the file, but delete the copy.", "b": "Save the file but, do not delete the copy."}
+{"id": "K339", "a": "Please send the report to the client.", "b": "Send the report to the client."}
+{"id": "K340", "a": "Notify everyone except the manager.", "b": "Notify everyone except the managers."}
+{"id": "K341", "a": "Back up every table except the audit table.", "b": "Back up every table apart from the audit table."}
+{"id": "K342", "a": "Reinicie todos os servidores, tirando o de teste.", "b": "Reinicie todos os servidores, tirando os de teste."}
+{"id": "K343", "a": "Posso reiniciar? Nao, obrigado.", "b": "Posso reiniciar? Nao obrigado."}
+{"id": "K344", "a": "Envía todo menos la factura.", "b": "Envía todo menos las facturas."}
+{"id": "K345", "a": "No, bajo ninguna circunstancia, borres el log.", "b": "No bajo ninguna circunstancia borres el log."}
+{"id": "K346", "a": "Do not save the file, but delete the copy.", "b": "Delete the copy, but don't save the file."}
+{"id": "K347", "a": "Bob: Delete the backup?\nAmy: No, fewer than five copies.", "b": "Bob: Delete the backup?\nAmy: No fewer than five copies."}
+{"id": "K348", "a": "Borra el archivo excepto el informe.", "b": "Borra el archivo excepto los informes."}
+{"id": "K349", "a": "Reboot the nodes that are not in the cluster which is healthy.", "b": "Do not reboot the nodes that are in the cluster which is healthy."}
+{"id": "K350", "a": "Paga dentro de 30 días.", "b": "Paga después de 30 días."}
+{"id": "K351", "a": "Embora não seja urgente, envie.", "b": "Envie, embora não seja urgente."}
+{"id": "K352", "a": "No, menos de cinco días.", "b": "No: menos de cinco días."}
+{"id": "K353", "a": "Confirma que la copia no falló.", "b": "Confirma que no falló la copia."}
+{"id": "K354", "a": "Ana deve assinar, mas Luís não deve assinar.", "b": "Ana deve assinar; Luís não deve assinar."}
+{"id": "K355", "a": "Keep logs? No ~ fewer than five days.", "b": "Keep logs? No fewer than five days."}
+{"id": "K356", "a": "Importante: no apagues el equipo y desconecta el cable.", "b": "Importante: apaga el equipo y no desconectes el cable."}
+{"id": "K357", "a": "Se o disco estiver cheio, pare o trabalho.", "b": "Se o trabalho parar, o disco está cheio."}
+{"id": "K358", "a": "Reinicia todos los servidores, quitando el de prueba.", "b": "Reinicia todos los servidores, quitando los de prueba."}
+{"id": "K359", "a": "El sistema debe cifrar los datos.", "b": "El sistema debería cifrar los datos."}
+{"id": "K360", "a": "No debes desplegar el viernes.", "b": "No despliegues el viernes."}

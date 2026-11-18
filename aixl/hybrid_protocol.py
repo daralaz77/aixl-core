@@ -42,11 +42,12 @@ def prepare(a: str, b: str) -> dict:
             "semantic": {"verdict": sem.verdict, "flags": list(sem.flags)}, "obfuscation": obf, "protocol": PROTOCOL}
 
 
-def decide(a: str, b: str, verdicts: dict, strict: bool = False) -> dict:
+def decide(a: str, b: str, verdicts: dict, strict: bool = False, veto: str = "all") -> dict:
     """verdicts: {judge_name: 'SAME'|'DIFFERENT'|'UNSURE'} (anything else counts as an INVALID answer). Never raises on bad judge input.
+    `veto='definite'`: only a definite NOT_EQUIVALENT of the comparator sends a unanimous SAME to REVIEW (a suspected difference or an AMBIGUOUS_* flag no longer does); default 'all'.
     `strict=True`: SAME also needs the rule-based comparator to prove EQUIVALENT, otherwise REVIEW (use before an irreversible action)."""
     judges = {str(n): (lambda _a, _b, v=v: v) for n, v in (verdicts or {}).items()}
-    d = hybrid_decide(a, b, judges, retries=0, require_semantic_equivalent=bool(strict))
-    out = d.to_dict(); out["rules_id"] = arbiter.rules_id(); out["action"] = ACTION[d.verdict]; out["strict"] = bool(strict)
+    d = hybrid_decide(a, b, judges, retries=0, require_semantic_equivalent=bool(strict), veto=veto)
+    out = d.to_dict(); out["rules_id"] = arbiter.rules_id(); out["action"] = ACTION[d.verdict]; out["strict"] = bool(strict); out["veto"] = veto
     out["judges_received"] = len(judges)
     return out

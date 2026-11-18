@@ -1,0 +1,360 @@
+K001	DIFFERENT	singular/plural changed
+K002	DIFFERENT	different structure
+K003	DIFFERENT	open vs close
+K004	DIFFERENT	polarity swapped
+K005	SAME	at most 5 backups
+K006	DIFFERENT	18 and over vs over 18
+K007	SAME	fewer/less than
+K008	DIFFERENT	polarity swapped
+K009	SAME	commas only
+K010	DIFFERENT	only if added
+K011	DIFFERENT	polarity swapped
+K012	SAME	same
+K013	DIFFERENT	singular vs plural
+K014	DIFFERENT	singular vs plural
+K015	SAME	at least 5
+K016	DIFFERENT	polarity swapped
+K017	SAME	punctuation only
+K018	DIFFERENT	Friday vs Saturday
+K019	DIFFERENT	minute vs hour
+K020	DIFFERENT	opposite
+K021	DIFFERENT	singular vs plural
+K022	SAME	reordered
+K023	SAME	punctuation
+K024	SAME	that optional
+K025	DIFFERENT	swapped negation
+K026	SAME	synonyms
+K027	DIFFERENT	swapped negation
+K028	DIFFERENT	team vs teams
+K029	DIFFERENT	No, fewer vs No fewer
+K030	DIFFERENT	singular vs plural
+K031	DIFFERENT	fails vs works
+K032	SAME	synonyms
+K033	SAME	no owner
+K034	SAME	punctuation
+K035	DIFFERENT	polarity swapped
+K036	SAME	must
+K037	DIFFERENT	swapped negation
+K038	DIFFERENT	comma changes meaning
+K039	DIFFERENT	singular vs plural
+K040	SAME	excluding/except
+K041	DIFFERENT	swapped negation
+K042	DIFFERENT	others vs other
+K043	DIFFERENT	singular vs plural
+K044	SAME	comma
+K045	DIFFERENT	recommended vs required
+K046	DIFFERENT	No, fewer vs No fewer
+K047	DIFFERENT	singular vs plural
+K048	SAME	other than
+K049	DIFFERENT	meaning changed
+K050	DIFFERENT	singular vs plural
+K051	SAME	punctuation
+K052	SAME	translation
+K053	DIFFERENT	polarity changed
+K054	DIFFERENT	comma changes meaning
+K055	SAME	punctuation
+K056	DIFFERENT	polarity changed
+K057	DIFFERENT	No vs Yes
+K058	DIFFERENT	singular vs plural
+K059	SAME	word order
+K060	DIFFERENT	before vs after
+K061	SAME	at least five
+K062	DIFFERENT	none vs not all
+K063	SAME	negative imperative with parenthetical
+K064	SAME	commas
+K065	DIFFERENT	one vs ones
+K066	DIFFERENT	meaning changed
+K067	SAME	punctuation
+K068	DIFFERENT	before vs on Friday
+K069	SAME	mas/contudo
+K070	DIFFERENT	different
+K071	DIFFERENT	polarity swapped
+K072	DIFFERENT	different date
+K073	DIFFERENT	add vs remove
+K074	DIFFERENT	singular vs plural
+K075	DIFFERENT	polarity swapped
+K076	DIFFERENT	singular vs plural
+K077	DIFFERENT	large vs small
+K078	DIFFERENT	separator vs no separator
+K079	DIFFERENT	must vs may
+K080	SAME	reordered
+K081	SAME	at most three
+K082	DIFFERENT	within vs after
+K083	DIFFERENT	polarity swapped
+K084	DIFFERENT	polarity swapped
+K085	DIFFERENT	polarity swapped
+K086	SAME	menos/exceto
+K087	DIFFERENT	must not vs may
+K088	SAME	at least 5
+K089	DIFFERENT	different
+K090	DIFFERENT	mine vs ours
+K091	SAME	punctuation
+K092	DIFFERENT	singular vs plural
+K093	DIFFERENT	singular vs plural
+K094	DIFFERENT	singular vs plural
+K095	DIFFERENT	different
+K096	DIFFERENT	polarity swapped
+K097	DIFFERENT	different
+K098	DIFFERENT	No answer vs No menos
+K099	DIFFERENT	only if added
+K100	SAME	reordered
+K101	DIFFERENT	polarity swapped
+K102	SAME	at most 5
+K103	DIFFERENT	different
+K104	SAME	punctuation
+K105	DIFFERENT	instruction vs prohibition
+K106	DIFFERENT	only scope differs
+K107	SAME	commas
+K108	DIFFERENT	polarity swapped
+K109	SAME	must/have to
+K110	DIFFERENT	comma changes meaning
+K111	DIFFERENT	separator vs none
+K112	DIFFERENT	that vs those
+K113	DIFFERENT	oldest vs newest
+K114	SAME	punctuation
+K115	DIFFERENT	two vs three
+K116	DIFFERENT	comma changes meaning
+K117	DIFFERENT	only vs not only
+K118	DIFFERENT	polarity swapped
+K119	DIFFERENT	exactly vs at least
+K120	DIFFERENT	No added
+K121	DIFFERENT	different
+K122	DIFFERENT	separator vs none
+K123	SAME	identical
+K124	SAME	other than
+K125	DIFFERENT	only if added
+K126	SAME	instead/but
+K127	DIFFERENT	both vs one
+K128	SAME	comma
+K129	DIFFERENT	separator vs none
+K130	SAME	both separated
+K131	DIFFERENT	singular vs plural
+K132	SAME	that/which
+K133	SAME	max three
+K134	DIFFERENT	10 vs 20
+K135	DIFFERENT	polarity swapped
+K136	SAME	punctuation
+K137	DIFFERENT	polarity swapped
+K138	DIFFERENT	singular vs plural
+K139	DIFFERENT	instruction vs prohibition
+K140	DIFFERENT	singular vs plural
+K141	DIFFERENT	polarity swapped
+K142	DIFFERENT	never vs rarely
+K143	DIFFERENT	separator vs hyphen joined
+K144	DIFFERENT	No answer vs No menos
+K145	DIFFERENT	raise vs lower
+K146	SAME	allowed
+K147	SAME	all implicit
+K148	DIFFERENT	opposite
+K149	SAME	quotes
+K150	DIFFERENT	separator vs none
+K151	DIFFERENT	polarity swapped
+K152	DIFFERENT	opposite condition
+K153	DIFFERENT	none vs not all
+K154	DIFFERENT	No added
+K155	DIFFERENT	must vs may
+K156	DIFFERENT	manager vs managers
+K157	SAME	comma
+K158	DIFFERENT	obligation vs permission
+K159	SAME	punctuation
+K160	DIFFERENT	fewer than 5 vs at most 5
+K161	DIFFERENT	this vs these
+K162	DIFFERENT	before vs after
+K163	DIFFERENT	polarity swapped
+K164	DIFFERENT	swapped numbers
+K165	DIFFERENT	singular vs plural
+K166	DIFFERENT	and vs or
+K167	DIFFERENT	polarity swapped
+K168	DIFFERENT	unless scope differs
+K169	SAME	reordered
+K170	SAME	contraction
+K171	SAME	comma
+K172	DIFFERENT	may vs must
+K173	SAME	apart from
+K174	DIFFERENT	USD vs EUR
+K175	SAME	max ten
+K176	DIFFERENT	exception scope differs
+K177	SAME	synonyms
+K178	DIFFERENT	comma changes meaning
+K179	DIFFERENT	singular vs plural
+K180	DIFFERENT	separator vs none
+K181	DIFFERENT	singular vs plural
+K182	SAME	commas
+K183	DIFFERENT	fail vs pass
+K184	SAME	word order
+K185	DIFFERENT	separator vs none
+K186	DIFFERENT	different
+K187	SAME	but/except
+K188	DIFFERENT	order swapped
+K189	SAME	synonyms
+K190	DIFFERENT	the vs a report
+K191	DIFFERENT	singular vs plural
+K192	SAME	however/though
+K193	DIFFERENT	different
+K194	SAME	paraphrase
+K195	DIFFERENT	polarity swapped
+K196	DIFFERENT	separator vs none
+K197	SAME	reordered
+K198	DIFFERENT	polarity swapped
+K199	DIFFERENT	add vs remove
+K200	DIFFERENT	polarity swapped
+K201	DIFFERENT	must vs should
+K202	DIFFERENT	different
+K203	DIFFERENT	speakers swapped
+K204	DIFFERENT	comma changes meaning
+K205	DIFFERENT	singular vs plural
+K206	DIFFERENT	singular vs plural
+K207	SAME	translation
+K208	DIFFERENT	fewer than vs at most
+K209	DIFFERENT	number swapped
+K210	SAME	reordered
+K211	DIFFERENT	singular vs plural
+K212	SAME	no more than
+K213	DIFFERENT	one vs ones
+K214	SAME	comma
+K215	SAME	at least five
+K216	DIFFERENT	different
+K217	DIFFERENT	separator vs none
+K218	DIFFERENT	separator vs none
+K219	DIFFERENT	separator vs none
+K220	DIFFERENT	parenthetical vs none
+K221	DIFFERENT	polarity swapped
+K222	SAME	mood only
+K223	DIFFERENT	opposite
+K224	SAME	at least five
+K225	SAME	except/salvo
+K226	SAME	commas
+K227	DIFFERENT	80 added
+K228	DIFFERENT	2 vs 3 hours
+K229	SAME	reordered
+K230	DIFFERENT	singular vs plural
+K231	SAME	comma
+K232	DIFFERENT	order swapped
+K233	DIFFERENT	comma changes meaning
+K234	SAME	dash type
+K235	SAME	punctuation
+K236	DIFFERENT	um vs uns
+K237	SAME	exception
+K238	DIFFERENT	singular vs plural
+K239	DIFFERENT	different
+K240	SAME	all/every
+K241	DIFFERENT	comma changes meaning
+K242	SAME	over/more than
+K243	DIFFERENT	polarity swapped
+K244	DIFFERENT	different
+K245	DIFFERENT	minutes vs hours
+K246	DIFFERENT	different
+K247	DIFFERENT	separator vs none
+K248	DIFFERENT	singular vs plural
+K249	SAME	punctuation
+K250	DIFFERENT	singular vs plural
+K251	DIFFERENT	polarity swapped
+K252	SAME	up to 5
+K253	DIFFERENT	polarity swapped
+K254	DIFFERENT	ones vs one
+K255	SAME	cannot
+K256	DIFFERENT	tense differs
+K257	DIFFERENT	comma changes meaning
+K258	SAME	other than
+K259	SAME	unencrypted
+K260	SAME	synonyms
+K261	SAME	comma
+K262	SAME	every/all
+K263	DIFFERENT	Yes vs No
+K264	DIFFERENT	old vs new
+K265	DIFFERENT	singular vs plural
+K266	DIFFERENT	singular vs plural
+K267	DIFFERENT	and vs or
+K268	DIFFERENT	different
+K269	DIFFERENT	MB vs GB
+K270	DIFFERENT	polarity swapped
+K271	SAME	contraction
+K272	SAME	contraction
+K273	DIFFERENT	singular vs plural
+K274	SAME	salvo/excepto
+K275	SAME	punctuation
+K276	SAME	get/receive
+K277	SAME	at least two
+K278	DIFFERENT	separator vs none
+K279	DIFFERENT	different
+K280	DIFFERENT	parenthetical vs none
+K281	DIFFERENT	different
+K282	SAME	whitespace only
+K283	DIFFERENT	separator vs none
+K284	SAME	same
+K285	SAME	salvo/menos
+K286	SAME	mas/porem
+K287	DIFFERENT	polarity swapped
+K288	DIFFERENT	polarity swapped
+K289	DIFFERENT	different
+K290	DIFFERENT	separator vs none
+K291	DIFFERENT	separator vs none
+K292	SAME	commas
+K293	DIFFERENT	separator vs none
+K294	SAME	same meaning
+K295	DIFFERENT	separator vs none
+K296	SAME	where/in which
+K297	SAME	punctuation
+K298	SAME	excluding
+K299	SAME	mood only
+K300	DIFFERENT	every vs at least one
+K301	DIFFERENT	separator vs none
+K302	SAME	commas
+K303	DIFFERENT	singular vs plural
+K304	DIFFERENT	start vs stop
+K305	DIFFERENT	singular vs plural
+K306	DIFFERENT	Friday vs Saturday
+K307	DIFFERENT	instruction vs not
+K308	SAME	punctuation
+K309	DIFFERENT	polarity swapped
+K310	DIFFERENT	nobody vs everybody
+K311	SAME	punctuation
+K312	DIFFERENT	separator vs none
+K313	DIFFERENT	singular vs plural
+K314	DIFFERENT	opposite
+K315	DIFFERENT	polarity swapped
+K316	DIFFERENT	person vs people
+K317	DIFFERENT	No vs Yes
+K318	SAME	the added
+K319	SAME	permission
+K320	DIFFERENT	it vs them
+K321	SAME	paraphrase
+K322	SAME	number word
+K323	DIFFERENT	only if added
+K324	DIFFERENT	comma changes meaning
+K325	DIFFERENT	polarity swapped
+K326	DIFFERENT	3 vs 4
+K327	SAME	that/which
+K328	DIFFERENT	opposite
+K329	DIFFERENT	singular vs plural
+K330	DIFFERENT	after vs before
+K331	DIFFERENT	el vs los
+K332	SAME	all implicit
+K333	DIFFERENT	singular vs plural
+K334	SAME	mood only
+K335	DIFFERENT	singular vs plural
+K336	DIFFERENT	separator vs none
+K337	SAME	who/that
+K338	DIFFERENT	polarity swapped
+K339	SAME	please
+K340	DIFFERENT	singular vs plural
+K341	SAME	apart from
+K342	DIFFERENT	singular vs plural
+K343	SAME	punctuation
+K344	DIFFERENT	singular vs plural
+K345	SAME	negative imperative with parenthetical
+K346	SAME	reordered
+K347	DIFFERENT	comma changes meaning
+K348	DIFFERENT	singular vs plural
+K349	DIFFERENT	different
+K350	DIFFERENT	within vs after
+K351	SAME	reordered
+K352	SAME	punctuation
+K353	SAME	word order
+K354	SAME	punctuation
+K355	DIFFERENT	separator vs none
+K356	DIFFERENT	polarity swapped
+K357	DIFFERENT	different
+K358	DIFFERENT	singular vs plural
+K359	DIFFERENT	debe vs deberia
+K360	SAME	prohibition
