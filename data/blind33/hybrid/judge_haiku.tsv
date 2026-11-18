@@ -1,0 +1,270 @@
+J001	DIFFERENT	"only" (só) added in a, absent in b
+J002	SAME	max five in both
+J003	DIFFERENT	at least/at most swapped for engineers and interns
+J004	DIFFERENT	Tuesday deadline present in a, dropped in b
+J005	DIFFERENT	per month vs per ticket
+J006	DIFFERENT	a forbids approving over 500; b instructs approving up to 500
+J007	SAME	issue only if >=75% equals not issue if below 75%
+J008	SAME	cashiers excepted in both, same action
+J009	SAME	mask optional and hand sanitizing mandatory in both
+J010	DIFFERENT	must/can swapped between approve and sign
+J011	DIFFERENT	sender and approver roles swapped
+J012	DIFFERENT	payer and approver roles swapped
+J013	DIFFERENT	a charges above 5 kg; b never charges even above 5 kg
+J014	SAME	do not call, send email
+J015	SAME	passive vs active voice, same actors and actions
+J016	SAME	permitted with password in both
+J017	DIFFERENT	"only if" in a, plain "if" in b
+J018	SAME	outdoors unless raining in both
+J019	SAME	no shared admin password to external staff
+J020	DIFFERENT	at least 3 vs more than 3; 10,000 vs at least 10,000 swapped
+J021	DIFFERENT	and vs or between conditions
+J022	SAME	all employees except interns, after probation
+J023	SAME	last working day equals final business day at latest
+J024	DIFFERENT	a says open the window; b says do not open the window
+J025	DIFFERENT	"only" added in a
+J026	DIFFERENT	before/after thursday and friday swapped
+J027	DIFFERENT	a bans post-dated checks; b bans non-post-dated checks
+J028	DIFFERENT	payer of the fine swapped
+J029	SAME	same steps, thaw is day before, season one hour before cooking
+J030	DIFFERENT	more than 200 vs at least 200
+J031	SAME	merge only after all tests pass
+J032	SAME	no one may change prices without finance approval
+J033	DIFFERENT	after Monday vs before Monday exception
+J034	SAME	refund only when sealed
+J035	DIFFERENT	a: if customer asks, send; b: if customer asks, do not send
+J036	DIFFERENT	a excepts internal financial reports; b excepts all financial reports
+J037	DIFFERENT	b adds call security only if anyone missing
+J038	DIFFERENT	backup and restart times swapped
+J039	DIFFERENT	must/can swapped between review and replace
+J040	SAME	two or more eggs, sugar at most 100 g
+J041	DIFFERENT	backup server exception only in b
+J042	DIFFERENT	fewer than 3 vs up to 3
+J043	SAME	only shift manager may open the safe
+J044	SAME	HR sends letter, candidate signs
+J045	SAME	no sharing with anyone including manager
+J046	DIFFERENT	a excepts confidential drafts; b excepts drafts and confidential reports
+J047	DIFFERENT	must/can swapped between turn off and notify
+J048	DIFFERENT	must/can swapped between test and postpone
+J049	SAME	guardian consent for patients under sixteen
+J050	SAME	at least 3 engineers, 3 or more
+J051	SAME	open 8h, close 18h
+J052	DIFFERENT	a excepts basic fares bought with miles; b excepts basic fares or miles purchases
+J053	SAME	survey optional, safety quiz mandatory
+J054	DIFFERENT	permission on payment release and order registration reversed
+J055	DIFFERENT	manager and HR approval order swapped
+J056	DIFFERENT	payment and report days swapped
+J057	DIFFERENT	doctor and nurse roles swapped
+J058	DIFFERENT	a triggers on any failure; b only after two failures
+J059	DIFFERENT	no vs yes on skipping review
+J060	DIFFERENT	a exempts only contractors with a badge; b exempts all contractors
+J061	DIFFERENT	a requires medical proof; b says no proof
+J062	DIFFERENT	must/can swapped between approve and delegate
+J063	DIFFERENT	not overdue vs overdue
+J064	DIFFERENT	after archiving vs instead of archiving
+J065	SAME	same deadlines for timesheets and expenses
+J066	DIFFERENT	chef and waiter roles swapped
+J067	SAME	freezer door open no more than 30 seconds
+J068	DIFFERENT	a says call tomorrow; b says do not call tomorrow
+J069	SAME	add node above 80%, otherwise leave unchanged
+J070	DIFFERENT	at least vs at most swapped for backups and snapshots
+J071	DIFFERENT	a approves despite missing invoice; b does not approve if invoice missing
+J072	SAME	nobody without visitor pass past lobby
+J073	DIFFERENT	pay and archive windows swapped around day 5 and 10
+J074	DIFFERENT	b adds interns as an exception
+J075	SAME	rain to hall, otherwise patio
+J076	DIFFERENT	a excepts any emergency; b excepts only medical emergency
+J077	DIFFERENT	singular administradora vs plural administradores
+J078	SAME	cashier delivers receipt to customer, passive voice
+J079	SAME	voucher when delay exceeds two hours
+J080	DIFFERENT	order and inventory tasks swapped in time
+J081	SAME	pay before 5 May, confirm on the 6th
+J082	DIFFERENT	a reimburses expenses without receipts; b reimburses with receipts
+J083	DIFFERENT	b adds only; a notifies on failure and other cases
+J084	SAME	max 2 GB per user
+J085	DIFFERENT	patch and restart times swapped
+J086	DIFFERENT	guest and food limits swapped
+J087	DIFFERENT	min and max swapped for disks and RAM
+J088	DIFFERENT	must/may swapped between lock and log out
+J089	DIFFERENT	with receipt vs without receipt
+J090	DIFFERENT	b adds directors as an exception
+J091	SAME	approve only if score at least 700
+J092	SAME	no need to restart; turning off Wi-Fi suffices
+J093	DIFFERENT	notifier and recipient swapped
+J094	DIFFERENT	a says write today; b says do not write today
+J095	SAME	team lead assigns a mentor to each new hire
+J096	SAME	no weekend overtime unless manager signs
+J097	DIFFERENT	more/less swapped for users and devices
+J098	SAME	invoice sent Monday, supplier paid Friday
+J099	SAME	user must reset password on expiry
+J100	SAME	support assigns ticket to on-call engineer
+J101	SAME	accrue up to 30 days per year
+J102	DIFFERENT	must/should swapped between escalate and close
+J103	SAME	badge required everywhere except lobby
+J104	SAME	fewer than ten equals at most nine
+J105	SAME	gloves mandatory, glasses optional
+J106	SAME	alarm on smoke except during maintenance
+J107	SAME	at most two suitcases per passenger
+J108	DIFFERENT	must/may swapped between submit and use library
+J109	DIFFERENT	max and min swapped for people and shifts
+J110	SAME	nightly backup at 02:00 UTC
+J111	SAME	untrained staff may not operate the machine
+J112	DIFFERENT	a: confirm only if stock; b: if stock, confirm only the order; b lacks the "only if" condition
+J113	SAME	review before installing, obligation phrasing
+J114	SAME	door never left open, not even a minute
+J115	SAME	sign in at desk equals check in at front desk
+J116	SAME	supervisor signs every shift report
+J117	DIFFERENT	a says email; b says do not email
+J118	SAME	all staff except night shift get break
+J119	SAME	company card taxi, max 50 per ride
+J120	SAME	all temp files except backup folder deletable
+J121	SAME	visitors need escort into server room
+J122	DIFFERENT	a: restart, after notifying; b: do not restart
+J123	DIFFERENT	payer and reimburser roles swapped
+J124	DIFFERENT	must/must not swapped for test servers
+J125	SAME	dogs banned except guide dogs
+J126	DIFFERENT	production vs backup server exception
+J127	SAME	no entry without badge
+J128	DIFFERENT	over 1,000 vs 1,000 or more
+J129	SAME	at least 12 characters equals shorter than 12 not allowed
+J130	DIFFERENT	on Monday vs by Monday; on Friday vs by Friday swapped
+J131	DIFFERENT	notifier and notified roles swapped
+J132	SAME	shift closes 18:00, keys 18:30
+J133	DIFFERENT	a: do not restart and do notify; b: do not restart and do not notify
+J134	DIFFERENT	at least 60% vs more than 60%
+J135	SAME	shipping charged except orders above 50 euros
+J136	DIFFERENT	no more than vs no fewer than 500
+J137	DIFFERENT	deadlines for payment and invoice swapped
+J138	SAME	same two events, order irrelevant
+J139	SAME	support answers customer-opened tickets
+J140	SAME	file only with formal complaint
+J141	DIFFERENT	b adds home as allowed location
+J142	SAME	always clock out before 18:00
+J143	SAME	alerts before 9, tickets after lunch
+J144	SAME	notify, and block after three failures
+J145	DIFFERENT	b adds service elevator as exception
+J146	DIFFERENT	singular contractor vs plural contractors
+J147	SAME	use stairs, not elevator, in fire
+J148	DIFFERENT	a allows audio recording; b forbids it
+J149	SAME	no, only if client requests in writing
+J150	SAME	no shipping Friday, ship Monday
+J151	SAME	keep 2 m distance equals not closer than 2 m
+J152	SAME	office workers exempt from helmet, others must wear
+J153	SAME	backup 02:00, restart 03:00
+J154	SAME	all clock in except cleaning staff
+J155	SAME	at least two units per customer
+J156	SAME	no restart, call support first
+J157	DIFFERENT	must/may swapped for texting and hands-free
+J158	SAME	manager approves expenses submitted by employee
+J159	DIFFERENT	a: only technician may touch; b: others may touch when accompanied by technician
+J160	SAME	opened item with intact seal
+J161	SAME	all suppliers except Asia must send e-invoice
+J162	DIFFERENT	approver and requester roles swapped
+J163	DIFFERENT	before/after March 1 and March 15 swapped
+J164	DIFFERENT	24h and 72h swapped
+J165	SAME	fan above 30 degrees
+J166	DIFFERENT	a: notify HR instead of boss; b: do not notify HR
+J167	SAME	security reviews every request
+J168	DIFFERENT	must/may swapped for cancel and keep receipt
+J169	SAME	invoice not sent before customer confirmation
+J170	SAME	customer notified on approval day
+J171	SAME	agent alone unless escalated
+J172	DIFFERENT	a: do not send to client, archive internally; b: send to client, do not archive
+J173	SAME	invoice emailed to customer
+J174	SAME	do not turn off or log out before copy finishes
+J175	DIFFERENT	report and invoice days swapped
+J176	DIFFERENT	a: do not turn off, do unplug; b: turn off, do not unplug
+J177	SAME	home work Fridays unless in-person meeting
+J178	DIFFERENT	report and cash times swapped
+J179	SAME	analysts write, supervisor reviews
+J180	DIFFERENT	max 3 vs min 3
+J181	DIFFERENT	should/can swapped for logout and laptop
+J182	SAME	fewer than 5 equals at most 4
+J183	DIFFERENT	a allows unsigned staff; b restricts signed staff; not complementary statements
+J184	SAME	encrypt with AES-256
+J185	SAME	6 to 12 bottles per box
+J186	SAME	no approval needed, just notify manager
+J187	SAME	release access only when contract signed
+J188	DIFFERENT	a: close by 18h and count only at 19h; b: close at 18h and count until 19h
+J189	DIFFERENT	auditor and engineer roles swapped
+J190	SAME	helmet mandatory, goggles optional
+J191	SAME	available 10-16 mandatory, remote allowed
+J192	SAME	alarm triggers evacuation via north stairs
+J193	DIFFERENT	notifier and recipient swapped
+J194	DIFFERENT	customized vs damaged exception
+J195	SAME	manager approves leave, HR informed
+J196	DIFFERENT	a only forbids deleting archived logs; b instructs deleting non-archived logs
+J197	DIFFERENT	20:00 and 21:00 times swapped between tasks
+J198	DIFFERENT	at least 10 vs at most 10
+J199	SAME	all reports reviewed except monthly
+J200	SAME	payroll 15th, suppliers 30th
+J201	SAME	only admin may modify permissions
+J202	DIFFERENT	must/may swapped for lock and leave key
+J203	SAME	reset allowed, old password reuse forbidden
+J204	DIFFERENT	minimum vs maximum five candidates
+J205	DIFFERENT	must/may swapped for sign and copy
+J206	DIFFERENT	signer and deliverer roles swapped
+J207	SAME	cash refund possible, transfer recommended
+J208	DIFFERENT	a: do not use gloves and wash hands; b: do not use gloves and do not wash
+J209	DIFFERENT	up to 300 vs from 300 per night
+J210	SAME	procedure only when consent signed
+J211	SAME	guest Wi-Fi allowed, sign-in required
+J212	SAME	do not open attachments, report them
+J213	SAME	smoking prohibited in server room
+J214	DIFFERENT	more than two vs fewer than two spaces
+J215	DIFFERENT	kitchen and waiter roles swapped
+J216	DIFFERENT	"only if" in a, plain "if" in b
+J217	DIFFERENT	must/may swapped for report and request copy
+J218	DIFFERENT	a restricts restarting DB hosts; b orders restarting non-DB servers
+J219	SAME	password not shared with anyone, IT included
+J220	DIFFERENT	must/may swapped for cancel and notify
+J221	SAME	auditor reviews, CFO signs, passive equivalence
+J222	SAME	form by Thursday, receipt by Friday
+J223	SAME	at most five login attempts
+J224	SAME	badge required except escorted visitors
+J225	SAME	outdoors unless raining
+J226	SAME	client pays fee, bank issues receipt
+J227	SAME	manager signs, employee does not
+J228	DIFFERENT	a: approve below 500; b: do not approve, notify finance
+J229	SAME	smoking banned in depot, eating banned in loading office
+J230	DIFFERENT	a: disable inactive accounts except admins; b: disable all accounts except inactive admin accounts
+J231	SAME	back up before travel, IT loaner possible
+J232	DIFFERENT	must/may swapped for cancel and notify
+J233	DIFFERENT	auditor and accountant roles swapped
+J234	DIFFERENT	a forbids deletion before 30 days; b allows it
+J235	SAME	at most three devices connected
+J236	DIFFERENT	singular la del centro vs plural las del centro
+J237	DIFFERENT	report immediately vs report within 24 hours
+J238	DIFFERENT	not before 3 pm vs not after 3 pm
+J239	SAME	refund only above 50 equals 50 or less ineligible
+J240	SAME	send by email unless customer objects
+J241	SAME	all except night staff finish by Friday
+J242	SAME	helmet mandatory, vest optional
+J243	DIFFERENT	a: send and close only if asked; b: close ticket unconditionally
+J244	DIFFERENT	at least three vs at most three copies
+J245	SAME	HR interviews manager-selected candidates
+J246	DIFFERENT	before Friday 17:00 vs by Friday 17:00
+J247	DIFFERENT	one dog per team vs one per person
+J248	SAME	backup all folders except /tmp
+J249	DIFFERENT	all employees vs active employees
+J250	DIFFERENT	must not vs must sign without partner
+J251	SAME	9h to before 12h equals nine to before noon
+J252	SAME	at least 4 nurses, at most 2 interns
+J253	DIFFERENT	a forbids paying before goods arrive; b requires paying before arrival
+J254	SAME	all staff except medical leave attend
+J255	DIFFERENT	a: may use printer; b: must use printer
+J256	DIFFERENT	agent and bot roles swapped
+J257	DIFFERENT	auditor and administrator roles swapped
+J258	SAME	no company car for personal use without written authorization
+J259	SAME	more than 2 signatures equals 3 or more
+J260	SAME	water Mondays, recycling Wednesdays
+J261	SAME	photos allowed, filming requires authorization
+J262	SAME	must sign, may send copy by mail
+J263	SAME	at most two guests per booking
+J264	SAME	director approves manager-submitted orders
+J265	SAME	operators restart after patch
+J266	DIFFERENT	a: do not leave door open when leaving; b: leave door open when not leaving
+J267	DIFFERENT	more than 20 vs at least 20
+J268	SAME	cover letter optional, resume required
+J269	SAME	leave early if manager is notified
+J270	DIFFERENT	weekend exception in a, absent in b

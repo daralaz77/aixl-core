@@ -86,15 +86,48 @@ def test_control_equivalent_pair_is_still_proven(a, b):
     assert V(a, b) == "EQUIVALENT" and V(b, a) == "EQUIVALENT"
 
 
-KNOWN_GAPS = [("The host that is not patched must be quarantined.", "The host that is patched must not be quarantined."),
-              ["Reinicie todas as maquinas, com excecao da de teste.", "Reinicie todas as maquinas, com excecao das de teste."],
-              ["Delete every log but that of the auditor.", "Delete every log but those of the auditor."],
-              ["Email the clients who have not paid.", "Do not email the clients who have paid."],
-              ["The file is not saved, the copy must be deleted.", "The file is saved, the copy must not be deleted."],
-              ["Step 2: Do not format the volume, mount the share.", "Step 2: Format the volume, do not mount the share."]]                # negation inside a relative clause, no hard break
+GAPS_NOW_CLOSED = [
+    ("The host that is not patched must be quarantined.", "The host that is patched must not be quarantined."),
+    ["Reinicie todas as maquinas, com excecao da de teste.", "Reinicie todas as maquinas, com excecao das de teste."],
+    ["Delete every log but that of the auditor.", "Delete every log but those of the auditor."],
+    ["Email the clients who have not paid.", "Do not email the clients who have paid."],
+    ["The file is not saved, the copy must be deleted.", "The file is saved, the copy must not be deleted."],
+    ["Step 2: Do not format the volume, mount the share.", "Step 2: Format the volume, do not mount the share."],
+    ["Los equipos que no tienen cifrado deben apagarse.", "Los equipos que tienen cifrado no deben apagarse."],           # negation right before the modal, after a relative pronoun
+    ["Should I wipe the disk? Don't, wipe the cache.", "Should I wipe the disk? Don't wipe the cache."],                    # answer + comma + a verb the lexicon does not know
+    ["Reply with 'no, fewer than five days' if asked about logs.", "Reply with 'no fewer than five days' if asked about logs."],      # the quote before the answer word
+    ["Provisiona ningun servidor y decomisiona las bases.", "Provisiona servidores y decomisiona ninguna base."],           # negative quantifier moved to the other clause
+    ["Revoga as senhas, fora a do administrador e a do auditor.", "Revoga as senhas, fora a do administrador e as do auditor."],
+    ["Reinicia todo, excepcion hecha del de prueba.", "Reinicia todo, excepcion hecha de los de prueba."],
+    ["Can I reboot? Yes, fewer than five minutes.", "Can I reboot? Yes fewer than five minutes."],                          # an affirmative answer followed by a mark
+    ["Debo borrar? No, mas de diez.", "Debo borrar? No mas de diez."],                                                         # found by audit 5: 'mas' is a comparative here, not a connector
+    ["Check whether the user is not an admin.", "Do not check whether the user is an admin."],
+    ["Restart the server but the test servers.", "Restart the servers but the test server."],
+    ["Devo guardar? Tampouco, menos de cinco dias.", "Devo guardar? Tampouco menos de cinco dias."]]
 
 
-@pytest.mark.xfail(strict=True, reason="known false accept still open (found by the second independent audit); when fixed, delete the marker")
-@pytest.mark.parametrize("a,b", KNOWN_GAPS)
-def test_known_gap_is_still_accepted(a, b):
+@pytest.mark.parametrize("a,b", GAPS_NOW_CLOSED)
+def test_formerly_open_gap_is_closed(a, b):
     assert V(a, b) != "EQUIVALENT" and V(b, a) != "EQUIVALENT"
+
+
+GAP_CONTROLS = [("Can I reboot? Yes, but not now.", "Can I reboot? Yes but not now."),
+                ("Neither the admin nor the auditor may approve the refund.", "Neither the admin, nor the auditor may approve the refund."),
+                ("If the disk is full, do not write.", "Do not write if the disk is full."),
+                ("Please, never delete the file.", "Please never delete the file."),
+                ("Do not email the clients who have paid.", "Don't email the clients who have paid.")]
+
+
+@pytest.mark.parametrize("a,b", GAP_CONTROLS)
+def test_closing_the_gaps_keeps_these_proofs(a, b):
+    assert V(a, b) == "EQUIVALENT" and V(b, a) == "EQUIVALENT"
+
+
+# Design decision, not a hole: the KIND of the mark after an answer word is not meaning ('No, x' = 'No: x' = 'No/ x' = 'No ... x'): what is meaning is that there IS one ('No, x' / 'No x' stay apart).
+MARK_KIND_IS_NOT_MEANING = [("Keep logs? No, fewer than five days.", "Keep logs? No/ fewer than five days."),
+                            ("Keep logs? No, fewer than five days.", "Keep logs? No \u2026 fewer than five days.")]
+
+
+@pytest.mark.parametrize("a,b", MARK_KIND_IS_NOT_MEANING)
+def test_the_kind_of_mark_after_an_answer_is_not_meaning(a, b):
+    assert V(a, b) == "EQUIVALENT"

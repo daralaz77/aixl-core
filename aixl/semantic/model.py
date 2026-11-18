@@ -66,6 +66,7 @@ class SemanticObject:
     neg_clause: tuple = ()                          # clause index of each negation word (a hard break = : ; but while so or ...); compare() refuses pairs whose negation sits in another clause
     neg_punct: tuple = ()                           # (ordinal of the negation word, mark) when punctuation or a dash follows it: 'No, fewer than five' is an answer, 'No fewer than five' is a bound
     has_break: bool = False                         # the text has at least one hard clause break
+    bind: tuple = ()                                # per clause (content stems, slot words: day / time / number / bound / modal): which datum belongs to which action; compare() refuses a swap of slots between the same actions
 
     @property
     def unrepresentable(self) -> list:

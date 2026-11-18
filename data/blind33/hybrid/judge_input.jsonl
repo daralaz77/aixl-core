@@ -1,0 +1,270 @@
+{"id": "J001", "a": "Você só pode editar o documento se for o autor.", "b": "Você pode editar o documento, se for o autor."}
+{"id": "J002", "a": "Cada equipo debe tener como máximo cinco personas.", "b": "Ningún equipo puede superar las cinco personas."}
+{"id": "J003", "a": "Each team needs at least 3 engineers and at most 5 interns.", "b": "Each team needs at most 3 engineers and at least 5 interns."}
+{"id": "J004", "a": "Send the draft to legal on Tuesday and publish it on Thursday.", "b": "Send the draft to legal and publish it on Thursday."}
+{"id": "J005", "a": "Can I approve refunds myself? Yes, up to 50 dollars per month.", "b": "Can I approve refunds myself? Yes, up to 50 dollars per ticket."}
+{"id": "J006", "a": "Não aprove reembolsos que excedam 500 reais sem a assinatura do gerente.", "b": "Aprove reembolsos que não excedam 500 reais sem a assinatura do gerente."}
+{"id": "J007", "a": "Só emita o certificado se o aluno tiver frequência mínima de 75%.", "b": "Sem frequência de pelo menos 75%, o certificado não deve ser emitido."}
+{"id": "J008", "a": "Salvo los cajeros, el personal debe cerrar la caja antes de salir.", "b": "El personal debe cerrar la caja antes de salir, excepto los cajeros."}
+{"id": "J009", "a": "Não é obrigatório usar máscara, mas é proibido entrar sem higienizar as mãos.", "b": "Higienizar as mãos antes de entrar é obrigatório; a máscara é facultativa."}
+{"id": "J010", "a": "O gerente deve aprovar e pode assinar o contrato.", "b": "O gerente pode aprovar e deve assinar o contrato."}
+{"id": "J011", "a": "O sistema envia o alerta ao gerente, que aprova o pedido.", "b": "O gerente envia o alerta ao sistema, que aprova o pedido."}
+{"id": "J012", "a": "O financeiro aprova o pagamento ao fornecedor após a entrega.", "b": "O fornecedor aprova o pagamento ao financeiro após a entrega."}
+{"id": "J013", "a": "¿Cobro el envío? No, a menos que pese más de 5 kg.", "b": "¿Cobro el envío? No, ni siquiera si pesa más de 5 kg."}
+{"id": "J014", "a": "Devo ligar para o cliente? Não, envie um e-mail.", "b": "Devo ligar para o cliente? Não. Mande um e-mail."}
+{"id": "J015", "a": "A equipe de suporte resolve o chamado e registra a solução.", "b": "O chamado é resolvido pela equipe de suporte, que registra a solução."}
+{"id": "J016", "a": "Os visitantes podem usar o wi-fi, mas precisam de senha.", "b": "Para usar o wi-fi, os visitantes precisam de senha, e isso é permitido."}
+{"id": "J017", "a": "Restart the service only if the health check fails.", "b": "Restart the service if the health check fails."}
+{"id": "J018", "a": "Unless it is raining, the drill takes place outdoors.", "b": "The drill takes place outdoors, except when it is raining."}
+{"id": "J019", "a": "No se debe compartir la contraseña de administrador con personal externo.", "b": "El personal externo no debe recibir la contraseña de administrador compartida."}
+{"id": "J020", "a": "Se necesitan al menos 3 firmas para pagos de más de 10.000 dólares.", "b": "Se necesitan más de 3 firmas para pagos de al menos 10.000 dólares."}
+{"id": "J021", "a": "Escale el incidente si el cliente es premium y el fallo dura más de una hora.", "b": "Escale el incidente si el cliente es premium o el fallo dura más de una hora."}
+{"id": "J022", "a": "Every employee except interns may request remote work after the probation period.", "b": "Interns aside, all employees can ask to work remotely once their probation is over."}
+{"id": "J023", "a": "Submit the form no later than the last working day of the month.", "b": "The form must reach us by the final business day of each month at the latest."}
+{"id": "J024", "a": "Posso abrir o portão? Não, abra a janela.", "b": "Posso abrir o portão? Não abra a janela."}
+{"id": "J025", "a": "Refunds are issued only if the item was returned unused.", "b": "Refunds are issued if the item was returned unused."}
+{"id": "J026", "a": "Revise los permisos antes del jueves y archive los registros después del viernes.", "b": "Revise los permisos después del viernes y archive los registros antes del jueves."}
+{"id": "J027", "a": "The cashier must not accept cards that are expired, or checks that are post-dated.", "b": "The cashier must not accept cards that are expired, or checks that are not post-dated."}
+{"id": "J028", "a": "O fornecedor deve pagar a multa ao comprador.", "b": "O comprador deve pagar a multa ao fornecedor."}
+{"id": "J029", "a": "Descongele a carne na véspera e tempere-a uma hora antes de assar.", "b": "Tempere a carne uma hora antes de levá-la ao forno, depois de descongelá-la no dia anterior."}
+{"id": "J030", "a": "Aprueba los gastos de más de 200 euros.", "b": "Aprueba los gastos de al menos 200 euros."}
+{"id": "J031", "a": "Do not merge the branch until all tests pass.", "b": "The branch may be merged only after every test has passed."}
+{"id": "J032", "a": "Ninguém pode alterar a tabela de preços sem aprovação do financeiro.", "b": "A tabela de preços só pode ser alterada com aprovação do financeiro."}
+{"id": "J033", "a": "Refund every order except ones shipped after Monday.", "b": "Refund every order except ones shipped before Monday."}
+{"id": "J034", "a": "Só reembolse o pedido se o produto estiver lacrado.", "b": "O reembolso só é permitido quando o produto está lacrado."}
+{"id": "J035", "a": "A não ser que o cliente peça, não envie fatura impressa.", "b": "Se o cliente pedir, não envie fatura impressa."}
+{"id": "J036", "a": "Puede publicarse cualquier informe, salvo los financieros que sean internos.", "b": "Puede publicarse cualquier informe, salvo los financieros."}
+{"id": "J037", "a": "If the alarm sounds, evacuate and call security.", "b": "If the alarm sounds, evacuate; call security if anyone is missing."}
+{"id": "J038", "a": "Faça o backup às 22h e reinicie o servidor às 23h.", "b": "Faça o backup às 23h e reinicie o servidor às 22h."}
+{"id": "J039", "a": "El técnico debe revisar el equipo y puede reemplazar la batería.", "b": "El técnico puede revisar el equipo y debe reemplazar la batería."}
+{"id": "J040", "a": "Use a minimum of two eggs and no more than 100 g of sugar.", "b": "Sugar must not exceed 100 g, and you need two or more eggs."}
+{"id": "J041", "a": "Except for the reporting server, all servers must be patched on Mondays.", "b": "Except for the reporting server and the backup server, all servers must be patched on Mondays."}
+{"id": "J042", "a": "Pedidos com menos de 3 itens pagam frete.", "b": "Pedidos com até 3 itens pagam frete."}
+{"id": "J043", "a": "Salvo el gerente de turno, nadie puede abrir la caja fuerte.", "b": "Únicamente el gerente de turno puede abrir la caja fuerte."}
+{"id": "J044", "a": "HR sends the offer letter and the candidate signs it.", "b": "The candidate signs the offer letter that HR sends."}
+{"id": "J045", "a": "Do not share the password with anyone, including your manager.", "b": "Never share the password with anybody, your manager included."}
+{"id": "J046", "a": "Archive todos los reportes excepto los borradores confidenciales.", "b": "Archive todos los reportes excepto los borradores y los confidenciales."}
+{"id": "J047", "a": "El técnico debe apagar el equipo y puede avisar al supervisor.", "b": "El técnico puede apagar el equipo y debe avisar al supervisor."}
+{"id": "J048", "a": "A equipe deve testar o patch antes de aplicá-lo e pode adiar o reinício.", "b": "A equipe pode testar o patch antes de aplicá-lo e deve adiar o reinício."}
+{"id": "J049", "a": "If the patient is under sixteen, a guardian must consent.", "b": "A guardian must consent whenever the patient is under sixteen."}
+{"id": "J050", "a": "Cada equipo debe tener al menos 3 ingenieros.", "b": "Cada equipo debe contar con 3 ingenieros o más."}
+{"id": "J051", "a": "Às 8h abra o caixa e às 18h feche-o.", "b": "O caixa deve ser aberto às 8h e fechado às 18h."}
+{"id": "J052", "a": "Todos los vuelos se reembolsan excepto los de tarifa básica comprados con millas.", "b": "Todos los vuelos se reembolsan excepto los de tarifa básica y los comprados con millas."}
+{"id": "J053", "a": "You can skip the optional survey, but the safety quiz must be completed.", "b": "Completing the safety quiz is mandatory; the survey is optional and may be skipped."}
+{"id": "J054", "a": "Não é permitido liberar o pagamento antes da aprovação do gerente, mas o pedido pode ser cadastrado antes.", "b": "É permitido liberar o pagamento antes da aprovação do gerente, mas o pedido não pode ser cadastrado antes."}
+{"id": "J055", "a": "The manager must approve the request before HR processes it.", "b": "HR must approve the request before the manager processes it."}
+{"id": "J056", "a": "El pago se realiza el 5 de cada mes; el reporte, el 1 de cada mes.", "b": "El pago se realiza el 1 de cada mes; el reporte, el 5 de cada mes."}
+{"id": "J057", "a": "El médico notifica al paciente la cita; la enfermera la confirma.", "b": "El médico confirma la cita al paciente; la enfermera la notifica."}
+{"id": "J058", "a": "Cuando el servidor falle, reinícielo y avise.", "b": "Cuando el servidor falle dos veces, reinícielo y avise."}
+{"id": "J059", "a": "Can I skip the review? No, merge after two approvals.", "b": "Can I skip the review? Yes, merge after two approvals."}
+{"id": "J060", "a": "All visitors must sign in except the contractors who have a standing badge.", "b": "All visitors must sign in except the contractors, who have a standing badge."}
+{"id": "J061", "a": "Posso ausentar-me sem aviso? Não, exceto em caso médico com comprovante.", "b": "Posso ausentar-me sem aviso? Não, exceto em caso médico, sem comprovante."}
+{"id": "J062", "a": "O gerente deve aprovar o orçamento e pode delegar a revisão.", "b": "O gerente pode aprovar o orçamento e deve delegar a revisão."}
+{"id": "J063", "a": "Do not email customers whose invoices are not overdue.", "b": "Do not email customers whose invoices are overdue."}
+{"id": "J064", "a": "Posso apagar os logs antigos? Sim, depois de arquivá-los.", "b": "Posso apagar os logs antigos? Sim, em vez de arquivá-los."}
+{"id": "J065", "a": "Submit timesheets by Friday noon and expenses by Monday.", "b": "Expenses are due Monday; timesheets are due by noon on Friday."}
+{"id": "J066", "a": "Que el chef pruebe la salsa antes de que la sirva el camarero.", "b": "Que el camarero pruebe la salsa antes de que la sirva el chef."}
+{"id": "J067", "a": "Never leave the freezer door open for more than thirty seconds.", "b": "Do not keep the freezer door open longer than thirty seconds."}
+{"id": "J068", "a": "Should we update the client? Don't, call them tomorrow.", "b": "Should we update the client? Don't call them tomorrow."}
+{"id": "J069", "a": "If the load exceeds 80 percent, add a node; otherwise leave the cluster as is.", "b": "Add a node when the load is above 80 percent, and leave the cluster unchanged when it is not."}
+{"id": "J070", "a": "Keep at least 3 backups and at most 10 snapshots.", "b": "Keep at most 3 backups and at least 10 snapshots."}
+{"id": "J071", "a": "El gasto se aprueba siempre que haya presupuesto, aunque falte la factura.", "b": "El gasto se aprueba siempre que haya presupuesto, salvo que falte la factura."}
+{"id": "J072", "a": "Don't let anyone without a visitor pass past the lobby.", "b": "Nobody without a visitor pass may get past the lobby."}
+{"id": "J073", "a": "Paga la factura antes del día 5 y archívala después del día 10.", "b": "Paga la factura después del día 5 y archívala antes del día 10."}
+{"id": "J074", "a": "Approve all expense reports except those from contractors.", "b": "Approve all expense reports except those from contractors and interns."}
+{"id": "J075", "a": "Si llueve, el evento se traslada al salón; si no, se hace en el patio.", "b": "El evento será en el patio, a menos que llueva, en cuyo caso será en el salón."}
+{"id": "J076", "a": "Exceto em caso de emergência, ninguém deve sair do laboratório sem avisar.", "b": "Ninguém deve sair do laboratório sem avisar, exceto se for uma emergência médica."}
+{"id": "J077", "a": "Todos os acessos serão revogados, exceto o da administradora.", "b": "Todos os acessos serão revogados, exceto o dos administradores."}
+{"id": "J078", "a": "El cajero entrega el recibo al cliente.", "b": "El recibo es entregado por el cajero al cliente."}
+{"id": "J079", "a": "Caso o voo atrase mais de duas horas, ofereça um voucher de refeição.", "b": "Ofereça um voucher de refeição sempre que o atraso do voo passar de duas horas."}
+{"id": "J080", "a": "Haz el pedido antes de las 10:00 y revisa el inventario por la tarde.", "b": "Revisa el inventario antes de las 10:00 y haz el pedido por la tarde."}
+{"id": "J081", "a": "Pague la factura antes del 5 de mayo y confirme el pago el 6.", "b": "El 6 confirme el pago; la factura debe pagarse antes del 5 de mayo."}
+{"id": "J082", "a": "Reembolse todas as despesas, a não ser que não tenham recibo.", "b": "Reembolse todas as despesas, a não ser que tenham recibo."}
+{"id": "J083", "a": "Notify the client when the payment fails, unless the card is a test card.", "b": "Notify the client only when the payment fails, unless the card is a test card."}
+{"id": "J084", "a": "Não use mais de 2 GB por usuário.", "b": "Cada usuário pode usar no máximo 2 GB."}
+{"id": "J085", "a": "Aplique o patch na sexta à noite e reinicie os servidores no sábado.", "b": "Aplique o patch na sexta e reinicie os servidores no sábado à noite."}
+{"id": "J086", "a": "Invite no more than 20 guests and order food for at least 25.", "b": "Invite at least 20 guests and order food for no more than 25."}
+{"id": "J087", "a": "Cada servidor deve ter no mínimo 2 discos e no máximo 8 gigabytes de RAM.", "b": "Cada servidor deve ter no máximo 2 discos e no mínimo 8 gigabytes de RAM."}
+{"id": "J088", "a": "You must lock the screen and may log out when leaving your desk.", "b": "You may lock the screen and must log out when leaving your desk."}
+{"id": "J089", "a": "Posso reembolsar a despesa sem nota? Sim, mas só até 100 reais, com nota.", "b": "Posso reembolsar a despesa sem nota? Sim, mas só até 100 reais, sem nota."}
+{"id": "J090", "a": "Todos os funcionários devem registrar o ponto, exceto os gerentes.", "b": "Todos os funcionários devem registrar o ponto, exceto os gerentes e os diretores."}
+{"id": "J091", "a": "Don't approve the loan unless the applicant has a credit score of 700 or higher.", "b": "Approve the loan only if the applicant's credit score is at least 700."}
+{"id": "J092", "a": "Preciso reiniciar o roteador? Não, basta desligar o Wi-Fi.", "b": "Não é necessário reiniciar o roteador; desligar o Wi-Fi já é suficiente."}
+{"id": "J093", "a": "El cliente notificará al proveedor del retraso.", "b": "El proveedor notificará al cliente del retraso."}
+{"id": "J094", "a": "¿Llamo al proveedor? No, escríbele hoy.", "b": "¿Llamo al proveedor? No le escribas hoy."}
+{"id": "J095", "a": "New hires are assigned a mentor by their team lead.", "b": "The team lead assigns each new hire a mentor."}
+{"id": "J096", "a": "Is overtime allowed on weekends? No, unless a manager signs the request.", "b": "Is overtime allowed on weekends? No. Only a manager's signed request allows it."}
+{"id": "J097", "a": "Se permiten más de 10 usuarios por licencia y menos de 3 dispositivos.", "b": "Se permiten menos de 10 usuarios por licencia y más de 3 dispositivos."}
+{"id": "J098", "a": "Envie a fatura na segunda e pague o fornecedor na sexta.", "b": "O fornecedor deve ser pago na sexta; a fatura, enviada na segunda."}
+{"id": "J099", "a": "Se a senha expirar, o usuário deve redefini-la.", "b": "O usuário deve redefinir a senha quando ela expirar."}
+{"id": "J100", "a": "Soporte técnico asigna cada ticket al ingeniero de guardia.", "b": "El ingeniero de guardia recibe de soporte técnico la asignación de cada ticket."}
+{"id": "J101", "a": "Posso acumular férias? Sim, até 30 dias por ano.", "b": "Posso acumular férias? Sim, desde que não passe de 30 dias por ano."}
+{"id": "J102", "a": "Agents should escalate billing disputes and must close duplicate tickets.", "b": "Agents must escalate billing disputes and should close duplicate tickets."}
+{"id": "J103", "a": "Other than the lobby, every area requires a badge.", "b": "A badge is required everywhere except the lobby."}
+{"id": "J104", "a": "Fewer than ten people may join the session.", "b": "No more than nine people may join the session."}
+{"id": "J105", "a": "O operador deve usar luvas e pode usar óculos.", "b": "As luvas são obrigatórias para o operador; os óculos são opcionais."}
+{"id": "J106", "a": "Cuando el sensor detecte humo, la alarma suena, a menos que esté en mantenimiento.", "b": "La alarma suena cada vez que el sensor detecta humo, salvo durante el mantenimiento."}
+{"id": "J107", "a": "No se aceptan más de dos maletas por pasajero.", "b": "Cada pasajero puede llevar dos maletas como máximo."}
+{"id": "J108", "a": "Os alunos devem entregar o trabalho, podendo usar a biblioteca.", "b": "Os alunos podem entregar o trabalho, devendo usar a biblioteca."}
+{"id": "J109", "a": "No más de 3 personas por turno y al menos 2 turnos al día.", "b": "Al menos 3 personas por turno y no más de 2 turnos al día."}
+{"id": "J110", "a": "Backups run nightly at 02:00 UTC.", "b": "Every night, at two in the morning UTC, the backup starts."}
+{"id": "J111", "a": "Funcionários que não completaram o treinamento não podem operar a máquina.", "b": "A máquina não pode ser operada por funcionários que não completaram o treinamento."}
+{"id": "J112", "a": "Solo si hay stock, confirma el pedido.", "b": "Si hay stock, confirma solo el pedido."}
+{"id": "J113", "a": "El técnico debe revisar el equipo antes de instalarlo.", "b": "Antes de instalar el equipo, el técnico tiene la obligación de revisarlo."}
+{"id": "J114", "a": "Nunca dejes la puerta del laboratorio abierta, ni siquiera por un minuto.", "b": "La puerta del laboratorio debe permanecer cerrada en todo momento, incluso durante un minuto."}
+{"id": "J115", "a": "May I bring a guest to the event? Yes, as long as the guest signs in at the desk.", "b": "May I bring a guest to the event? Yes, provided the guest checks in at the front desk."}
+{"id": "J116", "a": "The supervisor signs off on every shift report.", "b": "Every shift report is signed off by the supervisor."}
+{"id": "J117", "a": "Should I call the customer? Don't, email them.", "b": "Should I call the customer? Don't email them."}
+{"id": "J118", "a": "Apart from the night shift, all employees get a 30-minute break.", "b": "All employees, other than those on the night shift, get a 30-minute break."}
+{"id": "J119", "a": "Can I use the company card for taxis? Yes, up to $50 per ride.", "b": "Taxi rides may be paid with the company card, as long as each ride costs no more than $50."}
+{"id": "J120", "a": "Puedes borrar todos los archivos temporales excepto los de la carpeta de respaldo.", "b": "Salvo los que están en la carpeta de respaldo, todos los archivos temporales se pueden borrar."}
+{"id": "J121", "a": "Ningún visitante debe entrar a la sala de servidores sin escolta.", "b": "Los visitantes no pueden entrar a la sala de servidores si no van acompañados."}
+{"id": "J122", "a": "Reinicie o servidor, mas não antes de avisar a equipe.", "b": "Não reinicie o servidor, mas antes avise a equipe."}
+{"id": "J123", "a": "Have the tenant pay the plumber and the landlord reimburse the tenant.", "b": "Have the landlord pay the plumber and the tenant reimburse the landlord."}
+{"id": "J124", "a": "Los técnicos no deben apagar los servidores de prueba, excepto los del equipo de QA.", "b": "Los técnicos deben apagar los servidores de prueba, excepto los del equipo de QA."}
+{"id": "J125", "a": "Posso trazer meu cachorro ao escritório? Não, exceto cães-guia.", "b": "Cães não são permitidos no escritório, a menos que sejam cães-guia."}
+{"id": "J126", "a": "Actualice todos los servidores excepto el de producción.", "b": "Actualice todos los servidores excepto el de respaldo."}
+{"id": "J127", "a": "Ninguém deve entrar na sala dos servidores sem crachá.", "b": "A entrada na sala dos servidores é proibida a quem não tiver crachá."}
+{"id": "J128", "a": "Withdrawals over 1,000 dollars need two signatures.", "b": "Withdrawals of 1,000 dollars or more need two signatures."}
+{"id": "J129", "a": "Passwords must contain at least 12 characters.", "b": "A password shorter than 12 characters is not allowed."}
+{"id": "J130", "a": "Submit the timesheet on Monday and the expense report by Friday.", "b": "Submit the timesheet by Monday and the expense report on Friday."}
+{"id": "J131", "a": "Finance must be notified by the team lead.", "b": "The team lead must be notified by finance."}
+{"id": "J132", "a": "Cierre el turno a las 18:00 y entregue las llaves a las 18:30.", "b": "A las 18:30 entregue las llaves; el turno se cierra a las 18:00."}
+{"id": "J133", "a": "No reinicie el servicio y avise al equipo de soporte.", "b": "No reinicie el servicio ni avise al equipo de soporte."}
+{"id": "J134", "a": "El alumno aprueba si obtiene al menos el 60 % en el examen final.", "b": "El alumno aprueba solo si obtiene más del 60 % en el examen final."}
+{"id": "J135", "a": "Se cobrará el envío a todos los pedidos salvo a los superiores a 50 euros.", "b": "Todos los pedidos tienen gastos de envío, excepto aquellos que superan los 50 euros."}
+{"id": "J136", "a": "Process no more than 500 records per batch.", "b": "Process no fewer than 500 records per batch."}
+{"id": "J137", "a": "Pague o fornecedor até dia 10 e envie a nota até dia 15.", "b": "Pague o fornecedor até dia 15 e envie a nota até dia 10."}
+{"id": "J138", "a": "Treinamento na terça às 14h; avaliação na quinta às 10h.", "b": "A avaliação será na quinta, às 10h, e o treinamento na terça, às 14h."}
+{"id": "J139", "a": "A equipe de suporte responde aos chamados abertos pelos clientes.", "b": "Os chamados que os clientes abrem são respondidos pela equipe de suporte."}
+{"id": "J140", "a": "Solo se abre el expediente si hay una denuncia formal.", "b": "No se abre el expediente salvo que exista una denuncia formal."}
+{"id": "J141", "a": "Can contractors access the VPN? Yes, but only from company devices.", "b": "Can contractors access the VPN? Yes, but only from company devices or from home."}
+{"id": "J142", "a": "¿Hay que fichar al salir? Sí, siempre antes de las 18:00.", "b": "¿Se debe fichar al salir? Siempre, y antes de las 18:00."}
+{"id": "J143", "a": "Before 9 a.m., check the alerts; after lunch, review the open tickets.", "b": "Review the open tickets after lunch, and check the alerts before 9 a.m."}
+{"id": "J144", "a": "Avise o usuário e, se houver três tentativas falhas, bloqueie a conta.", "b": "Se houver três tentativas falhas, avise o usuário e bloqueie a conta."}
+{"id": "J145", "a": "Se pueden usar los ascensores, excepto el de carga, en horas pico.", "b": "Se pueden usar los ascensores, excepto el de carga y el de servicio, en horas pico."}
+{"id": "J146", "a": "Everyone except the contractor must complete the form.", "b": "Everyone except the contractors must complete the form."}
+{"id": "J147", "a": "Não use o elevador em caso de incêndio; utilize as escadas.", "b": "Em caso de incêndio, utilize as escadas e não o elevador."}
+{"id": "J148", "a": "Staff must not photograph patients, but they may record the audio of consultations.", "b": "Staff must not photograph patients or record the audio of consultations."}
+{"id": "J149", "a": "¿Puedo cancelar el pedido después de enviarlo? No, salvo que el cliente lo pida por escrito.", "b": "¿Puedo cancelar el pedido después de enviarlo? No. Solo si el cliente lo solicita por escrito."}
+{"id": "J150", "a": "Can we ship on Friday? No, ship on Monday.", "b": "Can we ship on Friday? Not allowed. Ship on Monday instead."}
+{"id": "J151", "a": "Mantenha pelo menos 2 metros de distância da máquina.", "b": "Não fique a menos de 2 metros da máquina."}
+{"id": "J152", "a": "Todos los empleados deben usar casco, salvo quienes trabajen en oficinas.", "b": "Quienes trabajan en oficinas no tienen que usar casco; los demás empleados sí deben usarlo."}
+{"id": "J153", "a": "Back up the database at 2 a.m. and restart the server at 3 a.m.", "b": "Restart the server at 03:00, after backing up the database at 02:00."}
+{"id": "J154", "a": "Todos deben fichar, excepto el personal de limpieza.", "b": "Salvo el personal de limpieza, todos deben fichar."}
+{"id": "J155", "a": "Sell at least two units per customer.", "b": "Each customer must buy two units or more."}
+{"id": "J156", "a": "¿Puedo reiniciar el router? No, primero llame a soporte.", "b": "¿Puedo reiniciar el router? No; llame primero a soporte."}
+{"id": "J157", "a": "Drivers must not text, but they may use hands-free calls.", "b": "Drivers may not text, but they must use hands-free calls."}
+{"id": "J158", "a": "La jefa aprueba los viáticos que presenta el empleado.", "b": "Los viáticos que presenta el empleado son aprobados por la jefa."}
+{"id": "J159", "a": "Ninguém, exceto o técnico, pode mexer no quadro elétrico.", "b": "Ninguém pode mexer no quadro elétrico, exceto com o técnico."}
+{"id": "J160", "a": "Can I return an opened item? Yes, provided it still has the seal.", "b": "Can I return an opened item? Yes, as long as the seal is intact."}
+{"id": "J161", "a": "Todos los proveedores, menos los de Asia, deben entregar factura electrónica.", "b": "Los proveedores de Asia quedan fuera; los demás deben entregar factura electrónica."}
+{"id": "J162", "a": "The manager approves the request from the employee.", "b": "The employee approves the request from the manager."}
+{"id": "J163", "a": "Approve the budget before March 1 and publish it after March 15.", "b": "Approve the budget after March 1 and publish it before March 15."}
+{"id": "J164", "a": "Notify the client within 24 hours and resolve the ticket within 72 hours.", "b": "Notify the client within 72 hours and resolve the ticket within 24 hours."}
+{"id": "J165", "a": "If the temperature exceeds 30 °C, turn on the fan.", "b": "Turn on the fan whenever the temperature goes above 30 °C."}
+{"id": "J166", "a": "¿Debo avisar al jefe? No, avise a recursos humanos.", "b": "¿Debo avisar al jefe? No avise a recursos humanos."}
+{"id": "J167", "a": "The security team reviews every access request.", "b": "Every access request is reviewed by the security team."}
+{"id": "J168", "a": "Los clientes pueden cancelar el pedido y deben conservar el recibo.", "b": "Los clientes deben cancelar el pedido y pueden conservar el recibo."}
+{"id": "J169", "a": "No envíes la factura hasta que el cliente confirme el pedido.", "b": "La factura no se envía antes de que el cliente confirme el pedido."}
+{"id": "J170", "a": "Notifique al cliente el mismo día que se apruebe el cambio.", "b": "El cliente debe recibir la notificación el día en que se apruebe el cambio."}
+{"id": "J171", "a": "Unless the ticket is escalated, the agent handles it alone.", "b": "The agent handles the ticket alone, except when it is escalated."}
+{"id": "J172", "a": "Não envie o relatório ao cliente, mas arquive a cópia interna.", "b": "Envie o relatório ao cliente, mas não arquive a cópia interna."}
+{"id": "J173", "a": "El cliente recibe la factura por correo electrónico.", "b": "La factura le es enviada por correo electrónico al cliente."}
+{"id": "J174", "a": "No apague el equipo ni cierre sesión antes de terminar la copia.", "b": "Antes de terminar la copia, no apague el equipo y tampoco cierre sesión."}
+{"id": "J175", "a": "Submit the report by Friday and pay the invoice on Monday.", "b": "Submit the report on Monday and pay the invoice by Friday."}
+{"id": "J176", "a": "No apagues el equipo, pero desconecta el cable de red.", "b": "Apaga el equipo, pero no desconectes el cable de red."}
+{"id": "J177", "a": "Os funcionários podem trabalhar de casa às sextas, a não ser que haja reunião presencial.", "b": "Às sextas, salvo quando houver reunião presencial, é permitido aos funcionários trabalhar de casa."}
+{"id": "J178", "a": "Envíe el informe a las 9:00 y cierre la caja a las 17:00.", "b": "Envíe el informe a las 17:00 y cierre la caja a las 9:00."}
+{"id": "J179", "a": "El supervisor revisa los informes que redactan los analistas.", "b": "Los analistas redactan los informes, y es el supervisor quien los revisa."}
+{"id": "J180", "a": "¿Puedo imprimir los contratos? Sí, máximo 3 copias.", "b": "¿Puedo imprimir los contratos? Sí, mínimo 3 copias."}
+{"id": "J181", "a": "Staff should log out at night and can leave the laptop at the office.", "b": "Staff can log out at night and should leave the laptop at the office."}
+{"id": "J182", "a": "Fewer than 5 attempts are allowed per hour.", "b": "A maximum of 4 attempts per hour is allowed."}
+{"id": "J183", "a": "Los empleados que no han firmado el contrato pueden acceder al sistema.", "b": "Los empleados que han firmado el contrato no pueden acceder al sistema."}
+{"id": "J184", "a": "¿Hay que cifrar el disco? Sí, con AES-256.", "b": "¿Hay que cifrar el disco? Sí; use AES-256."}
+{"id": "J185", "a": "Pack no more than 12 bottles per box and at least 6.", "b": "Each box must hold between 6 and 12 bottles, inclusive."}
+{"id": "J186", "a": "Do I need approval? No, just notify your manager.", "b": "Do I need approval? Not required; simply let your manager know."}
+{"id": "J187", "a": "Só libere o acesso se o contrato estiver assinado.", "b": "Libere o acesso somente quando o contrato estiver assinado."}
+{"id": "J188", "a": "Feche o caixa até as 18h, mas conte o dinheiro só às 19h.", "b": "Feche o caixa às 18h, mas conte o dinheiro até as 19h."}
+{"id": "J189", "a": "The auditor must approve the change before the engineer deploys it.", "b": "The engineer must approve the change before the auditor deploys it."}
+{"id": "J190", "a": "Debes usar casco en la obra; las gafas son opcionales.", "b": "En la obra el casco es obligatorio, mientras que puedes elegir si usas gafas."}
+{"id": "J191", "a": "Você pode trabalhar remotamente, mas deve estar disponível das 10h às 16h.", "b": "É obrigatório estar disponível entre 10h e 16h; trabalhar remotamente é permitido."}
+{"id": "J192", "a": "Cuando la alarma suene, evacua el edificio por la escalera norte.", "b": "Si suena la alarma, evacua el edificio por la escalera norte."}
+{"id": "J193", "a": "El cliente debe notificar al proveedor cualquier retraso.", "b": "El proveedor debe notificar al cliente cualquier retraso."}
+{"id": "J194", "a": "Refunds are issued within 30 days unless the item was customized.", "b": "Refunds are issued within 30 days unless the item was damaged."}
+{"id": "J195", "a": "Managers may approve leave, provided HR is informed.", "b": "Leave can be approved by a manager as long as HR is told."}
+{"id": "J196", "a": "Do not delete logs that were archived last week.", "b": "Delete logs that were not archived last week."}
+{"id": "J197", "a": "Cierre la caja a las 20:00 y limpie el local después de las 21:00.", "b": "Cierre la caja después de las 20:00 y limpie el local a las 21:00."}
+{"id": "J198", "a": "Cada supervisor debe revisar al menos 10 pedidos por día.", "b": "Cada supervisor debe revisar a lo sumo 10 pedidos por día."}
+{"id": "J199", "a": "Todos os relatórios devem ser revisados, exceto os mensais.", "b": "Com exceção dos relatórios mensais, todos devem passar por revisão."}
+{"id": "J200", "a": "El 15 de cada mes se paga la nómina; el día 30, los proveedores.", "b": "A los proveedores se les paga el 30 de cada mes y la nómina se paga el día 15."}
+{"id": "J201", "a": "Solo el administrador puede modificar los permisos.", "b": "Los permisos únicamente pueden ser modificados por el administrador."}
+{"id": "J202", "a": "Staff must lock the cabinet, but they may leave the key with a supervisor.", "b": "Staff may lock the cabinet, but they must leave the key with a supervisor."}
+{"id": "J203", "a": "Users can reset their password but must not reuse the old one.", "b": "Users are allowed to reset their password; reusing the old one is forbidden."}
+{"id": "J204", "a": "Aceite no mínimo cinco candidatos por vaga.", "b": "Aceite no máximo cinco candidatos por vaga."}
+{"id": "J205", "a": "O cliente deve assinar o termo e pode levar uma cópia.", "b": "O cliente pode assinar o termo e deve levar uma cópia."}
+{"id": "J206", "a": "El supervisor firma el formulario que el técnico entrega.", "b": "El técnico firma el formulario que el supervisor entrega."}
+{"id": "J207", "a": "Puede retirar el reembolso en efectivo, aunque se recomienda la transferencia.", "b": "Es posible cobrar el reembolso en efectivo; no obstante, la transferencia es lo recomendado."}
+{"id": "J208", "a": "No uses guantes de látex y lávate las manos.", "b": "No uses guantes de látex ni te laves las manos."}
+{"id": "J209", "a": "Posso usar o cartão corporativo para hotel? Sim, até 300 reais por noite.", "b": "Posso usar o cartão corporativo para hotel? Sim, a partir de 300 reais por noite."}
+{"id": "J210", "a": "Solo si el paciente firma el consentimiento se realiza el procedimiento.", "b": "El procedimiento se realiza únicamente cuando el paciente firma el consentimiento."}
+{"id": "J211", "a": "Visitors must sign in at reception; they may use the guest Wi-Fi.", "b": "Visitors are allowed to use the guest Wi-Fi, but they are required to sign in at reception."}
+{"id": "J212", "a": "Do not open attachments from unknown senders, but report them to security.", "b": "Report attachments from unknown senders to security, and do not open them."}
+{"id": "J213", "a": "No se permite fumar en la sala de servidores.", "b": "Está prohibido fumar en la sala de servidores."}
+{"id": "J214", "a": "Reserve more than two parking spaces only with approval.", "b": "Reserve fewer than two parking spaces only with approval."}
+{"id": "J215", "a": "A cozinha separa os pedidos que o garçom anota.", "b": "O garçom separa os pedidos que a cozinha anota."}
+{"id": "J216", "a": "Restart the service only if the health check fails.", "b": "Restart the service if the health check fails."}
+{"id": "J217", "a": "Employees must report incidents and may request a copy of the report.", "b": "Employees may report incidents and must request a copy of the report."}
+{"id": "J218", "a": "Do not restart the servers that host the database during backups.", "b": "Restart the servers that do not host the database during backups."}
+{"id": "J219", "a": "Never share your password with anyone, including IT staff.", "b": "Your password must not be shared with anybody — IT staff included."}
+{"id": "J220", "a": "Você pode cancelar a reserva sem multa, mas deve avisar com 48 horas.", "b": "Você deve cancelar a reserva sem multa, mas pode avisar com 48 horas."}
+{"id": "J221", "a": "The auditor reviews the ledger, and the CFO signs it.", "b": "The ledger is reviewed by the auditor and signed by the CFO."}
+{"id": "J222", "a": "Preencha o formulário até quinta e envie o comprovante até sexta.", "b": "Até sexta, envie o comprovante; o formulário deve ser preenchido até quinta."}
+{"id": "J223", "a": "Se permiten como máximo cinco intentos de inicio de sesión.", "b": "No se admiten más de cinco intentos de inicio de sesión."}
+{"id": "J224", "a": "Todos devem usar crachá, a não ser os visitantes escoltados.", "b": "Os visitantes escoltados são os únicos que podem dispensar o crachá."}
+{"id": "J225", "a": "A menos que llueva, el evento será al aire libre.", "b": "El evento se hará al aire libre salvo que llueva."}
+{"id": "J226", "a": "O cliente paga a taxa e o banco emite o comprovante.", "b": "O comprovante é emitido pelo banco, depois que o cliente paga a taxa."}
+{"id": "J227", "a": "Do I sign the form? No; your manager signs it.", "b": "You don't sign the form — your manager does."}
+{"id": "J228", "a": "Approve invoices below 500 dollars; do not notify finance.", "b": "Do not approve invoices below 500 dollars; notify finance."}
+{"id": "J229", "a": "No se permite fumar en el depósito ni comer en la oficina de carga.", "b": "En el depósito está prohibido fumar, y en la oficina de carga está prohibido comer."}
+{"id": "J230", "a": "Desative todas as contas inativas, exceto as de administradores.", "b": "Desative todas as contas, exceto as inativas de administradores."}
+{"id": "J231", "a": "You should back up the laptop before travel, and you can ask IT for a loaner.", "b": "Before travelling, you are advised to back up your laptop, and IT may lend you one."}
+{"id": "J232", "a": "Puedes cancelar la reserva y debes avisar al hotel.", "b": "Debes cancelar la reserva y puedes avisar al hotel."}
+{"id": "J233", "a": "O contador deve ser informado pelo auditor sobre qualquer erro.", "b": "O contador deve informar o auditor sobre qualquer erro."}
+{"id": "J234", "a": "Os dados serão apagados se o cliente pedir, mas não antes de 30 dias.", "b": "Os dados serão apagados se o cliente pedir, mesmo antes de 30 dias."}
+{"id": "J235", "a": "No máximo 3 dispositivos podem estar conectados ao mesmo tempo.", "b": "Até três dispositivos podem estar conectados simultaneamente."}
+{"id": "J236", "a": "Cierra todas las tiendas el domingo, salvo la del centro.", "b": "Cierra todas las tiendas el domingo, salvo las del centro."}
+{"id": "J237", "a": "Rotate the keys within 24 hours of an incident, but report it immediately.", "b": "Rotate the keys within 24 hours of an incident, but report it within 24 hours."}
+{"id": "J238", "a": "May I leave early on Friday? Yes, but not before 3 p.m.", "b": "May I leave early on Friday? Yes, but not after 3 p.m."}
+{"id": "J239", "a": "O reembolso só é aceito para compras acima de 50 reais.", "b": "Compras de 50 reais ou menos não são elegíveis a reembolso."}
+{"id": "J240", "a": "Unless the customer objects, send the invoice by email.", "b": "Send the invoice by email, provided the customer does not object."}
+{"id": "J241", "a": "Everyone except the night staff must complete the safety course by Friday.", "b": "Apart from the night crew, all employees have to finish the safety course by Friday."}
+{"id": "J242", "a": "El personal debe usar casco y puede traer su propio chaleco.", "b": "Es obligatorio que el personal use casco; traer chaleco propio es opcional."}
+{"id": "J243", "a": "Si el cliente lo pide, envía la factura y cierra el ticket.", "b": "Envía la factura si el cliente lo pide, y cierra el ticket."}
+{"id": "J244", "a": "Keep at least three copies of each backup, on two media types.", "b": "Keep at most three copies of each backup, on two media types."}
+{"id": "J245", "a": "Recursos Humanos entrevista a los candidatos que selecciona el gerente.", "b": "Los candidatos seleccionados por el gerente son entrevistados por Recursos Humanos."}
+{"id": "J246", "a": "Entregue el informe antes del viernes a las 17:00.", "b": "El informe debe estar entregado a más tardar el viernes a las cinco de la tarde."}
+{"id": "J247", "a": "¿Puedo llevar mi perro a la oficina? Sí, pero solo uno por equipo.", "b": "¿Puedo llevar mi perro a la oficina? Sí, pero solo uno por persona."}
+{"id": "J248", "a": "Faça backup de todos os diretórios, exceto /tmp.", "b": "Faça backup de todas as pastas, menos a /tmp."}
+{"id": "J249", "a": "Se a meta for atingida, o bônus é pago a todos os funcionários.", "b": "Se a meta for atingida, o bônus é pago aos funcionários ativos."}
+{"id": "J250", "a": "O estagiário não deve assinar contratos sem a presença de um sócio.", "b": "O estagiário deve assinar contratos sem a presença de um sócio."}
+{"id": "J251", "a": "A reunião começa às 9h e termina antes das 12h.", "b": "Ela começa às nove da manhã e termina antes do meio-dia."}
+{"id": "J252", "a": "Cada turno precisa de pelo menos 4 enfermeiros e no máximo 2 estagiários.", "b": "Em cada turno, são necessários 4 enfermeiros ou mais e até 2 estagiários."}
+{"id": "J253", "a": "Do not submit the invoice until the purchase order is approved, and do not pay it before the goods arrive.", "b": "Do not submit the invoice until the purchase order is approved, and pay it before the goods arrive."}
+{"id": "J254", "a": "All staff must attend the drill, apart from employees on medical leave.", "b": "Except for employees on medical leave, every staff member must attend the drill."}
+{"id": "J255", "a": "Los nuevos empleados pueden usar la impresora, pero deben pedir el código.", "b": "Los nuevos empleados deben usar la impresora, pero pueden pedir el código."}
+{"id": "J256", "a": "Customers should be told by the agent, not the bot, about refunds.", "b": "Customers should be told by the bot, not the agent, about refunds."}
+{"id": "J257", "a": "O auditor revisa os registros que o administrador gerou.", "b": "O administrador revisa os registros que o auditor gerou."}
+{"id": "J258", "a": "¿Se puede usar el coche de la empresa para viajes personales? No, salvo con autorización escrita.", "b": "¿Se puede usar el coche de la empresa para viajes personales? No, a menos que haya autorización escrita."}
+{"id": "J259", "a": "Se requieren más de 2 firmas para montos superiores a 500 euros.", "b": "Los montos de más de 500 euros requieren 3 firmas o más."}
+{"id": "J260", "a": "On Mondays, water the plants; on Wednesdays, take out the recycling.", "b": "Take out the recycling every Wednesday and water the plants every Monday."}
+{"id": "J261", "a": "Os visitantes podem tirar fotos, mas devem pedir autorização para filmar.", "b": "Tirar fotos é permitido aos visitantes; para filmar, é obrigatório pedir autorização."}
+{"id": "J262", "a": "Usted debe firmar el acta y puede enviar una copia por correo.", "b": "Usted puede enviar una copia del acta por correo, pero debe firmarla."}
+{"id": "J263", "a": "Un máximo de dos invitados por reserva.", "b": "Cada reserva admite hasta dos invitados."}
+{"id": "J264", "a": "O diretor aprova os pedidos que os gerentes enviam.", "b": "Os pedidos enviados pelos gerentes são aprovados pelo diretor."}
+{"id": "J265", "a": "Operators restart the service after the patch is applied.", "b": "After the patch is applied, the service is restarted by operators."}
+{"id": "J266", "a": "Não deixe a porta aberta quando sair do laboratório.", "b": "Deixe a porta aberta quando não sair do laboratório."}
+{"id": "J267", "a": "Mais de 20 colaboradores devem fazer o treinamento.", "b": "Pelo menos 20 colaboradores devem fazer o treinamento."}
+{"id": "J268", "a": "Applicants may submit a cover letter and must attach a resume.", "b": "A resume must be attached by applicants, who may also submit a cover letter."}
+{"id": "J269", "a": "Posso sair mais cedo? Sim, desde que avise o gerente.", "b": "Posso sair mais cedo? Sim — contanto que avise o gerente."}
+{"id": "J270", "a": "Call the on-call engineer when the alert fires, unless it's a weekend.", "b": "Call the on-call engineer when the alert fires, even if it's a weekend."}

@@ -98,6 +98,54 @@ _TIME_NOUNS = {"day", "week", "month", "year", "hour", "minute", "morning", "eve
 _CLAUSE_START = {"the", "a", "an", "this", "that", "my", "your", "our", "their", "all", "it", "we", "you", "they", "i", "he", "she"}
 
 
+# ---- closed-shape rewrites (blind33): written after the audit-5 list of equivalent pairs the comparator could not prove, each one a fixed shape with a guard ----
+_REL_PRON_SWAP = {"which", "who", "whom"}
+_REL_PREV_DENY = {"ask", "tell", "know", "decide", "see", "check", "verify", "say", "show", "determine", "find", "learn", "explain", "list", "report", "note", "confirm", "wonder", "about", "of", "in", "on", "at", "to", "for", "with", "by", "from",
+                  "whether", "and", "or", "but", "then", "ni", "not", "no", "what", "how", "why", "when", "where", "that", "than", "as", "like", "per", "into", "onto", "over", "under", "through", "between", "among", "within", "without"}
+_HAVE_TO = {("have", "to"): "must", ("has", "to"): "must", ("tienes", "que"): "debes", ("tiene", "que"): "debe", ("tienen", "que"): "deben", ("tem", "que"): "deve", ("tens", "que"): "deves", ("tenho", "que"): "devo", ("temos", "que"): "devemos", ("hay", "que"): "debe"}
+_NEG_BEFORE = {"not", "no", "never", "nunca", "nao", "dont", "doesnt", "nor", "ni", "nem", "jamas", "will", "would", "shall", "had", "to", "might", "may", "could", "can", "should", "must", "se", "habra", "tendras", "tera", "tendra"}
+_POST_BOUND = {("or", "more"): "at_least", ("or", "higher"): "at_least", ("or", "above"): "at_least", ("or", "fewer"): "at_most", ("or", "less"): "at_most", ("or", "lower"): "at_most",
+               ("o", "mas"): "at_least", ("o", "menos"): "at_most", ("ou", "mais"): "at_least", ("ou", "menos"): "at_most", ("at", "most"): "at_most", ("at", "least"): "at_least",
+               ("como", "maximo"): "at_most", ("como", "minimo"): "at_least", ("no", "maximo"): "at_most", ("no", "minimo"): "at_least"}
+_PRE_BOUND = {"at_least": ("at", "least"), "at_most": ("at", "most")}
+_PRE_BOUND_LANG = {("o", "mas"): ("al", "menos"), ("o", "menos"): ("como", "maximo"), ("ou", "mais"): ("pelo", "menos"), ("ou", "menos"): ("no", "maximo"), ("como", "maximo"): ("como", "maximo"), ("como", "minimo"): ("como", "minimo"),
+                   ("no", "maximo"): ("no", "maximo"), ("no", "minimo"): ("no", "minimo")}
+
+
+def _is_number(f):
+    return f.isdigit() or f in L.NUM_WORDS
+
+
+def _canon_shapes(toks):
+    """'files which are not encrypted' = 'files that are not encrypted' (a relative word swapped, only when an auxiliary follows and a noun precedes); 'have to / tienes que / tem que' = must (never after a negation or another modal: 'do not have to' is not 'must not');
+    '5 or more / ten or fewer / three at most' = 'at least 5 / at most ten' (the number must stand right before); 'a minimum of' = 'at least'; ', but <clause>' = '; <clause>'."""
+    out, i, n = [], 0, len(toks)
+    fs = [t.f for t in toks]
+    while i < n:
+        f = fs[i]
+        prev = fs[i - 1] if i else ""
+        nxt = fs[i + 1] if i + 1 < n else ""
+        if f in _REL_PRON_SWAP and i > 0 and prev not in PUNCT and prev not in _REL_PREV_DENY and not L.verb_action(prev) and nxt in REL_AUX:
+            out.append(Tok("that", toks[i].initial)); i += 1; continue
+        if (f, nxt) in _HAVE_TO and not (set(fs[max(0, i - 3):i]) & _NEG_BEFORE):
+            out.append(Tok(_HAVE_TO[(f, nxt)], toks[i].initial)); i += 2; continue
+        if i > 0 and _is_number(prev) and (f, nxt) in _POST_BOUND and prev == fs[i - 1]:
+            kind = _POST_BOUND[(f, nxt)]
+            if fs[i - 2:i - 1] in (["at"], ["than"], ["of"], ["exactly"], ["least"], ["most"], ["to"], ["entre"], ["between"], ["and"], ["y"], ["e"]) or (fs[i - 2:i - 1] and fs[i - 2] in ("least", "most", "menos", "minimo", "maximo")):
+                out.append(toks[i]); i += 1; continue
+            num = out.pop()
+            pre = _PRE_BOUND_LANG.get((f, nxt)) or _PRE_BOUND[kind]
+            out.extend(Tok(w, False) for w in pre); out.append(num); i += 2; continue
+        if (f, nxt, fs[i + 2] if i + 2 < n else "") in (("a", "minimum", "of"), ("a", "maximum", "of")):
+            out.extend(Tok(w, k == 0 and toks[i].initial) for k, w in enumerate(("at", "least") if nxt == "minimum" else ("at", "most"))); i += 3; continue
+        if f == "except" and nxt in ("when", "if") and i > 0:
+            out.append(Tok("unless", False)); i += 2; continue                # 'X, except when Y' = 'X unless Y'
+        if f == "," and nxt == "but" and i + 2 < n and (fs[i + 2] in (REL_AUX | L.SUBJ_PRON | {"never", "also", "please", "always", "not", "no", "nunca", "tambien", "tambem", "nao"}) or L.verb_action(fs[i + 2])):
+            out.append(Tok(";", False)); i += 2; continue
+        out.append(toks[i]); i += 1
+    return out
+
+
 def _rotate_front_adjunct(toks):
     fs = [t.f for t in toks]
     commas = [i for i, f in enumerate(fs) if f == ","]
@@ -282,12 +330,19 @@ def _tag_end(toks, i):
 HARD_BREAK_PUNCT = {":", ";"}
 HARD_BREAK_WORDS = {"but", "however", "although", "whereas", "while", "so", "yet", "or", "thus", "therefore", "and", "pero", "sino", "aunque", "mientras", "mas", "porem", "embora", "contudo", "todavia", "enquanto", "ou", "portanto", "y", "e",
                     "otherwise", "because", "hence", "instead", "moreover", "pues", "porque", "pois", "senao", "alem", "entanto", "ademas", "ademais", "contrario", "asi"}
-ANSWER_NEG = L.NEG_TOKENS | {"nope", "none", "negative", "nenhum", "nenhuma", "ninguem", "ninguno", "ninguna", "ningun", "nah", "nay", "nein", "non", "jamais", "tampoco", "hardly", "nowhere", "cannot", "nobody", "nadie"}      # words that can be a bare answer: punctuation after them is meaning
+ANSWER_NEG = L.NEG_TOKENS | {"nope", "none", "negative", "nenhum", "nenhuma", "ninguem", "ninguno", "ninguna", "ningun", "nah", "nay", "nein", "non", "jamais", "tampoco", "hardly", "nowhere", "cannot", "nobody", "nadie", "tampouco", "negativo", "yes", "yeah", "yep", "yup", "sim"}      # words that can be a bare answer: punctuation after them is meaning
 ANSWER_PHRASES = ["no one", "no way", "not really", "not at all", "by no means", "not yet", "no longer", "not any longer", "de ninguna manera", "en absoluto", "para nada", "ni hablar", "em hipotese alguma", "nunca mais", "no-one"]
 PROHIBITION_WORDS = {"prohibido", "prohibida", "prohibe", "prohibidos", "proibido", "proibida", "proibe", "vedado", "vedada", "forbidden", "prohibited", "cannot"}      # a prohibition is a negation for the clause layout
+CLAUSE_OPENERS = {"whether", "who", "whom", "whose", "which", "that", "where", "quien", "quienes", "quem", "cuyo", "cuya", "cujo", "cuja", "donde", "onde", "que", "cual", "cuales", "qual", "quais"}     # words that open a relative clause: a negation after one is not the negation of the main clause
+LEAD_ADJUNCT = {"apart", "except", "excepto", "exceto", "besides", "barring", "minus", "aparte", "fora", "fuera", "unless", "if", "when", "whenever", "once", "after", "before", "until", "in", "on", "at", "by", "for", "from", "during", "per", "as", "with", "without", "under", "upon", "within", "to", "since", "of", "across", "over", "outside", "inside",
+                "si", "cuando", "en", "por", "para", "antes", "despues", "hasta", "desde", "durante", "al", "tras", "salvo", "a", "se", "quando", "em", "depois", "ate", "apos", "sob", "com", "sem", "ao", "conforme", "segundo", "sempre", "siempre", "segun", "ante"}      # a text that opens with one of these has a front adjunct closed by the first comma
+REL_AUX = {"is", "are", "was", "were", "be", "been", "being", "have", "has", "had", "do", "does", "did", "dont", "doesnt", "didnt", "will", "would", "can", "could", "may", "might", "shall", "should", "must", "es", "son", "esta", "estan", "fue", "ha", "han", "he", "hemos", "sao", "foi", "foram", "tem", "tinha", "tiene", "tienen", "estao", "estava", "ser", "sea", "sean", "seja", "sejam", "haya", "hayan", "puede", "pueden", "pode", "podem"}
+PAREN_ADVERBS = {"however", "therefore", "ever", "please", "again", "also", "honestly", "really", "obviously", "though", "anyway", "still", "nevertheless", "nonetheless", "indeed", "frankly", "naturally"}      # 'Do not, however, delete': a parenthetical, not an answer
+NEG_QUANTIFIERS = {"ningun", "ninguna", "ninguno", "ningunos", "ningunas", "nenhum", "nenhuma", "nenhuns", "nenhumas", "none"}      # negative quantifiers: a negation for the clause layout
+MODAL_WORDS = L.MODAL_MAY | L.MODAL_MUST | L.MODAL_ADVISE | {"will", "would", "might"}
 AUX_BEFORE_NOT = {"do", "does", "did"}
 _ANS_ALT = sorted(map(re.escape, ANSWER_PHRASES), key=len, reverse=True) + sorted(map(re.escape, ANSWER_NEG), key=len, reverse=True)
-_ANS_RX = re.compile(r"(?<![^\W_]|['\u2019])(?:" + "|".join(_ANS_ALT) + r"|\w*n['\u2019]t)(?![^\W_])")
+_ANS_RX = re.compile(r"(?<![^\W_])(?<![^\W_]['\u2019])(?:" + "|".join(_ANS_ALT) + r"|\w*n['\u2019]t)(?![^\W_])")
 _WORD_RX = re.compile(r"[\w']+")
 _QTY_WORDS = {"fewer", "less", "more", "least", "most", "than", "menos", "mas", "mais", "maximo", "minimo"}
 
@@ -303,10 +358,30 @@ def _negation_layout(toks, clean):
     A mark is the first non-alphanumeric character after the word (skipping closing quotes / brackets / asterisks) or a line break."""
     fs = [t.f for t in toks]
     clause, nc, breaks = 0, [], False
+    lead_comma = next((k for k, f in enumerate(fs) if f == ","), None)
+    lead_comma = lead_comma if lead_comma is not None and (fs[0] in LEAD_ADJUNCT or lead_comma <= 1) else None      # 'If the disk is full, do not write' / 'Please, never delete': the first comma closes an adjunct, it is not a clause break
+    in_rel, rel_at = False, -1                                        # inside a relative clause that no connector has closed yet
     for i, f in enumerate(fs):
-        if f in HARD_BREAK_PUNCT or (f in HARD_BREAK_WORDS and not (f == "mas" and fs[i + 1:i + 2] and fs[i + 1] in ("de", "que", "del"))):
-            clause += 1; breaks = True; continue
-        if f in L.NEG_TOKENS or f in PROHIBITION_WORDS:
+        nxt = fs[i + 1] if i + 1 < len(fs) else ""
+        if in_rel and f in MODAL_WORDS:
+            clause += 1; breaks = True; in_rel = False                  # 'the host that is patched MUST not ...': the modal is the main verb, the relative clause is over
+        is_word_break = f in HARD_BREAK_WORDS and not (f == "mas" and nxt in ("de", "que", "del"))
+        if f == ",":
+            if i == lead_comma or i == 0 or not nxt or nxt in HARD_BREAK_WORDS or nxt in CLAUSE_OPENERS or nxt in ("nor", "ni", "nem") or nxt in (",", ".", ";", ":"): continue      # a comma before a connector / relative word is counted once, by that word
+            clause += 1; breaks = True; continue                      # comma splice: 'The file is not saved, the copy must be deleted' / 'Do not format, mount the share'
+        if f in CLAUSE_OPENERS and not (f in ("que", "that") and i > 0 and fs[i - 1] in ("more", "less", "mas", "menos", "mais", "so", "such", "tal", "mesmo", "same")):
+            clause += 1; breaks = True; in_rel = True; rel_at = i; continue       # relative clause: 'the host that is not patched' / 'os clientes que nao pagaram'
+        if f in HARD_BREAK_PUNCT or is_word_break:
+            clause += 1; breaks = True; in_rel = False; continue
+        if f in L.NEG_TOKENS or f in PROHIBITION_WORDS or f in NEG_QUANTIFIERS:
+            if in_rel:
+                k = i - 1
+                if k > rel_at and fs[k] in REL_AUX: k -= 1
+                if k > rel_at and fs[k] in L.SUBJ_PRON: k -= 1
+                if nxt in MODAL_WORDS:
+                    clause += 1; in_rel = False                         # 'os equipos que tienen cifrado NO deben': a negation right before the modal belongs to the main verb
+                elif k != rel_at:
+                    nc.append(clause + 0.5); in_rel = False; continue   # 'students who cheat NEVER pass': only a negation right after the relative word (plus an auxiliary / a subject pronoun) is inside the relative clause; the other one is the main clause's
             nc.append(clause)
     folded = _fold(clean)
     marks = []
@@ -320,21 +395,62 @@ def _negation_layout(toks, clean):
             nxt = _WORD_RX.search(tail)
             aux = w.endswith("n't") and w[:-3] in ("do", "does", "did") or (w == "not" and (_WORD_RX.findall(folded[:m.start()]) or [""])[-1] in AUX_BEFORE_NOT)
             if nxt and not L.verb_action(nxt.group(0)):
-                if aux: continue                                               # 'Do not, however, delete' is parenthetical; 'Don\'t, delete the file' (a verb follows) is an answer
+                if aux and nxt.group(0) in PAREN_ADVERBS: continue                                              # 'Do not, however, delete' is parenthetical; 'Don\'t, delete the file' (a verb follows) is an answer
                 c2 = tail.find(",")
                 inter = _WORD_RX.findall(tail[:c2]) if 0 <= c2 <= 40 else None
                 if inter and len(inter) <= 5 and not any(x.isdigit() or x in _QTY_WORDS or L.verb_action(x) for x in inter): continue      # 'Never, under any circumstances, delete': an interjection closed by a second comma
+        if mark == "," and (_WORD_RX.search(folded[mark_end:]) or [None])[0] in (HARD_BREAK_WORDS - {"mas", "alem", "contrario", "asi"}): continue      # 'Yes, but not now' = 'Yes but not now': a comma before a connector is only convention
         if not re.search(r"\w", folded[mark_end:]): continue          # a closing mark at the very end ('No.' / 'No!' / 'No?') changes nothing
         marks.append((k, "mark"))                                          # that there IS a mark is meaning ('No, fewer than five' / 'No fewer than five'); which mark it is ('No: x' / 'No, x') is not
     return tuple(nc), tuple(marks), breaks
+
+
+SLOT_WORDS = (set(L.DAYS) | set(L.DAYS_PT_FEIRA) | set(L.NUM_WORDS) | set(L.UNITS) | set(L.RECUR_UNITS) | L.MODAL_MAY | L.MODAL_MUST | L.MODAL_ADVISE
+              | {"today", "tomorrow", "yesterday", "tonight", "hoy", "manana", "ayer", "hoje", "amanha", "ontem", "noon", "midnight", "mediodia", "medianoche", "meio-dia",
+                 "least", "most", "more", "fewer", "up", "over", "under", "below", "above", "between", "maximum", "minimum", "max", "min", "less", "than", "menos", "mais", "minimo", "maximo", "exactly", "exatamente", "exactamente", "al", "pelo", "ao",
+                 "before", "after", "within", "until", "till", "by", "antes", "despues", "hasta", "dentro", "depois", "ate", "apos", "every", "each", "cada", "daily", "weekly", "monthly", "hourly", "diario", "semanal", "mensal",
+                 "will", "would", "might", "shall", "should", "must", "may", "can", "could", "need", "debe", "deben", "deve", "devem", "puede", "pueden", "pode", "podem", "debera", "devera", "deberia", "deveria", "podria", "poderia"})
+FUNC_WORDS = ({w for v in L.ARTICLES.values() for w in v} | L.SUBJ_PRON | {"the", "a", "an", "of", "to", "in", "on", "at", "and", "or", "for", "with", "from", "into", "de", "del", "en", "por", "para", "con", "na", "em", "se", "su", "sus", "seu", "sua", "your", "tu", "voce", "usted", "ustedes", "vos", "that", "this", "these", "those", "its", "their", "his", "her", "my", "our",
+               "e", "y", "o", "u", "ou", "ni", "nem", "nor", "so", "do", "does", "did", "dont", "doesnt", "is", "are", "be", "was", "were", "been", "have", "has", "had", "it", "them", "him", "us", "me", "ya", "ja", "already", "also", "then", "pelos", "pelas", "pelo", "pela", "al"})
+_CLOCK_RX = re.compile(r"^t\d{4}$")
+
+
+def _binding_layout(toks):
+    """Per clause: (frozenset of content stems, frozenset of slot words). A clause that has content but no break words / commas / ';' ':' '.' of its own is one unit; a clause with no content (the 'and Tuesday' of 'on Monday and Tuesday') joins the previous one.
+    compare() uses it to refuse a swap: the SAME actions in both texts but a day, hour, number, bound or modal bound to a different one ('back up on Monday and migrate on Tuesday' / the swap)."""
+    fs = [t.f for t in toks]
+    segs, cur_c, cur_s = [], set(), set()
+
+    def close():
+        nonlocal cur_c, cur_s
+        if cur_c:
+            segs.append((frozenset(cur_c), frozenset(cur_s)))
+        elif cur_s and segs:
+            segs[-1] = (segs[-1][0], segs[-1][1] | frozenset(cur_s))
+        cur_c, cur_s = set(), set()
+    lead = next((k for k, f in enumerate(fs) if f == ","), None)
+    lead = lead if lead is not None and (fs[0] in LEAD_ADJUNCT or lead <= 1) else None
+    for i, f in enumerate(fs):
+        nxt = fs[i + 1] if i + 1 < len(fs) else ""
+        if f in (".", "!", "?", ";", ":") or (f == "," and i != lead and not (nxt in L.NEG_TOKENS and nxt in ("nor", "ni", "nem"))) or (f in HARD_BREAK_WORDS and not (f == "mas" and nxt in ("de", "que", "del"))):
+            close(); continue
+        if f in PUNCT or f in L.NEG_TOKENS or f in PROHIBITION_WORDS or f in FUNC_WORDS:
+            continue
+        if f in SLOT_WORDS or f.isdigit() or _CLOCK_RX.match(f) or f in L.DAYS_PT_FEIRA:
+            cur_s.add(f)
+        else:
+            cur_c.add(f[:5])
+    close()
+    return tuple(segs)
 
 
 def parse(text: str, today=None) -> SemanticObject:
     clean, findings = sanitize_input(text)
     toks = tokenize(clean)
     _toks0 = list(toks)
+    _toks_l = tokenize(re.sub(r"\s*\n\s*|\s[-\u2013\u2014]+\s", " ; ", clean))      # for the clause layouts a line break or a spaced dash is a break
     norm = tuple(t.f for k, t in enumerate(toks) if t.f not in PUNCT or (t.f == "," and k + 1 < len(toks) and toks[k + 1].f in L.REL_PRON))      # a comma before who/que is meaning, so it stays in the identity check
-    toks = _rotate_front_adjunct(_canon_deadlines(toks))     # after `norm`: the strict-mode identity check still sees the words as written
+    toks = _rotate_front_adjunct(_canon_shapes(_canon_deadlines(toks)))     # after `norm`: the strict-mode identity check still sees the words as written
     toks, has_tag = _strip_tag_question(toks)
     lang = detect_lang(toks)
     ctx = Ctx(toks, lang)
@@ -379,7 +495,7 @@ def parse(text: str, today=None) -> SemanticObject:
         s.atoms = [Atom(a.type, a.value, a.span, a.provenance, k, a.confidence, a.candidates) for a in s.atoms]
     if not steps:
         flags.append(("UNREPRESENTABLE_EMPTY", "no content"))
-    return SemanticObject(text, lang, steps, flags, norm, *_negation_layout(_toks0, clean))
+    return SemanticObject(text, lang, steps, flags, norm, *_negation_layout(_toks0, clean), _binding_layout(_toks_l))
 
 
 # ------------------------------------------------------------------------------------------------------------------ conditions

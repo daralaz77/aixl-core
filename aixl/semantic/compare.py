@@ -57,7 +57,7 @@ def _atom_words(v):
 
 EXTRA_EXCEPT = [("minus",), ("save",), ("besides",), ("barring",), ("not", "counting"), ("not", "including"), ("leaving", "out"), ("short", "of"), ("sin",), ("sin", "incluir"), ("fuera", "de"), ("fuera", "del"),
                 ("aparte", "de"), ("aparte", "del"), ("descontando",), ("excluindo",), ("nao", "incluindo"), ("fora", "de"), ("fora", "do"), ("fora", "da"), ("excetuando",), ("sem", "contar"), ("tirando",), ("ressalvado",), ("exclusive",), ("omitindo",), ("ignorando",), ("sem", "incluir"),
-                ("omitiendo",), ("dejando", "fuera"), ("quitando",), ("no", "incluyendo"), ("con", "la", "salvedad", "de"), ("with", "the", "exception", "of"), ("with", "exception", "of"), ("bar",)]      # exception words the parser does not model: used only to compare the number of the excepted nouns and articles
+                ("omitiendo",), ("dejando", "fuera"), ("quitando",), ("no", "incluyendo"), ("con", "la", "salvedad", "de"), ("with", "the", "exception", "of"), ("with", "exception", "of"), ("bar",), ("com", "excecao"), ("com", "excepcao"), ("con", "excepcion"), ("a", "excepcao"), ("a", "excecao"), ("a", "excepcion"), ("excepcion", "hecha"), ("exceptuando",), ("a", "nao", "ser"), ("a", "menos", "que"), ("fora",)]      # exception words the parser does not model: used only to compare the number of the excepted nouns and articles
 
 
 def _except_at(n):
@@ -78,6 +78,32 @@ def _except_articles(o):
     e = _except_at(o.norm)
     if e is None: return ()
     return tuple(ARTICLE_NUMBER[f] for f in o.norm[e[0] + e[1]:] if f in ARTICLE_NUMBER)
+
+
+BUT_DEMONSTRATIVES = {"that", "those", "this", "these"}
+
+
+def _but_demonstratives(o):
+    """Number of a demonstrative right after 'but' ('Delete every log but that of the auditor' / '... but those of ...'): 'but' is a conjunction too, so it is not an exception phrase for the parser, but when a demonstrative follows it the set that is left out differs in number."""
+    return tuple(ARTICLE_NUMBER[o.norm[i + 1]] for i in range(len(o.norm) - 1) if o.norm[i] == "but" and o.norm[i + 1] in BUT_DEMONSTRATIVES)
+
+
+def _swapped_slots(A, B):
+    """True when both texts have two or more clauses with the SAME actions (content stems) and the SAME slot words overall, but the slots hang on different actions."""
+    a, b = A.bind, B.bind
+    if len(a) < 2 or len(b) < 2: return False
+    if Counter(c for c, _ in a) != Counter(c for c, _ in b): return False
+    if set().union(*[s for _, s in a]) != set().union(*[s for _, s in b]): return False
+    return Counter(a) != Counter(b)
+
+
+def _but_noun_numbers(o):
+    """Grammatical number of the three words after 'but the / but a / but those': 'Restart the servers but the test server' / '... but the test servers'. 'but' is a conjunction as much as an exception word, so this is compared only when BOTH texts have it."""
+    out = []
+    for i in range(len(o.norm) - 2):
+        if o.norm[i] == "but" and (o.norm[i + 1] in ("the", "a", "an") or o.norm[i + 1] in BUT_DEMONSTRATIVES):
+            out.append(tuple(is_plural_form(f, o.lang) for f in o.norm[i + 2:i + 5]))
+    return out
 
 
 def dropped_features(o) -> Counter:
@@ -455,6 +481,17 @@ def compare(A, B) -> Verdict:
                 acc.un(f"{who}: {code} ({detail})")
     if _except_articles(A) != _except_articles(B):
         acc.un("the articles after the exception word differ in number ('exceto os de teste' / 'exceto o de teste'): the excepted set may differ")
+    if _swapped_slots(A, B):
+        acc.un("the same actions appear in both texts but a day, hour, number, bound or modal is bound to a different action in each ('back up on Monday and migrate on Tuesday' / the swap)")
+    ea, eb = _except_at(A.norm), _except_at(B.norm)
+    _conj_before = lambda o, e: sum(f in ("and", "y", "e", "or", "o", "ou", "then", "luego", "depois", "entao") for f in o.norm[:e[0]])      # noqa: E731
+    if ea is not None and eb is not None and (ea[0] == 0) != (eb[0] == 0) and _conj_before(A if ea[0] else B, ea if ea[0] else eb) >= 1 and max(len(A.bind), len(B.bind)) >= 2:
+        acc.un("an exception phrase opens one text and closes the other, and there are several actions: it may cover all of them or only the last")
+    na, nb = _but_noun_numbers(A), _but_noun_numbers(B)
+    if na and nb and na != nb:
+        acc.un("the words after 'but the' differ in number ('but the test servers' / 'but the test server'): the set that is left out may differ")
+    if _but_demonstratives(A) != _but_demonstratives(B):
+        acc.un("a demonstrative after 'but' differs in number ('but that of the auditor' / 'but those of the auditor'): the set left out may differ")
     if A.neg_punct != B.neg_punct:
         acc.un("punctuation or a dash right after a negation word differs between the texts ('No, fewer than five' is an answer, 'No fewer than five' is a bound)")
     if (A.has_break or B.has_break) and A.neg_clause != B.neg_clause:

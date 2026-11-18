@@ -1,0 +1,283 @@
+SET 270 pairs: 135 EQUIVALENT-labelled, 135 NOT_EQUIVALENT-labelled; languages {'en': 99, 'es': 91, 'pt': 80}
+
+== ALL: 135 EQ / 135 NE
+  v071   false accepts  11/135   proven   3/135
+  p0005  false accepts   8/135   proven   2/135
+  new    false accepts   0/135   proven   1/135
+
+== language en: 49 EQ / 50 NE
+  v071   false accepts   5/50   proven   1/49
+  p0005  false accepts   3/50   proven   0/49
+  new    false accepts   0/50   proven   0/49
+
+== language es: 48 EQ / 43 NE
+  v071   false accepts   3/43   proven   1/48
+  p0005  false accepts   2/43   proven   1/48
+  new    false accepts   0/43   proven   0/48
+
+== language pt: 38 EQ / 42 NE
+  v071   false accepts   3/42   proven   1/38
+  p0005  false accepts   3/42   proven   1/38
+  new    false accepts   0/42   proven   1/38
+
+== family agent_roles: 5 EQ / 6 NE
+  v071   false accepts   0/6   proven   0/5
+  p0005  false accepts   0/6   proven   0/5
+  new    false accepts   0/6   proven   0/5
+
+== family condition_scope: 12 EQ / 11 NE
+  v071   false accepts   0/11   proven   1/12
+  p0005  false accepts   0/11   proven   0/12
+  new    false accepts   0/11   proven   0/12
+
+== family conditional_scope: 5 EQ / 6 NE
+  v071   false accepts   0/6   proven   0/5
+  p0005  false accepts   0/6   proven   0/5
+  new    false accepts   0/6   proven   0/5
+
+== family exception_scope: 6 EQ / 6 NE
+  v071   false accepts   0/6   proven   0/6
+  p0005  false accepts   0/6   proven   0/6
+  new    false accepts   0/6   proven   0/6
+
+== family exception_set: 11 EQ / 12 NE
+  v071   false accepts   0/12   proven   1/11
+  p0005  false accepts   0/12   proven   1/11
+  new    false accepts   0/12   proven   0/11
+
+== family modal_attachment: 5 EQ / 6 NE
+  v071   false accepts   1/6   proven   0/5
+  p0005  false accepts   1/6   proven   0/5
+  new    false accepts   0/6   proven   0/5
+
+== family modal_binding: 5 EQ / 6 NE
+  v071   false accepts   2/6   proven   0/5
+  p0005  false accepts   2/6   proven   0/5
+  new    false accepts   0/6   proven   0/5
+
+== family modal_scope: 6 EQ / 5 NE
+  v071   false accepts   3/5   proven   0/6
+  p0005  false accepts   3/5   proven   0/6
+  new    false accepts   0/5   proven   0/6
+
+== family negation_scope: 17 EQ / 18 NE
+  v071   false accepts   2/18   proven   0/17
+  p0005  false accepts   0/18   proven   0/17
+  new    false accepts   0/18   proven   0/17
+
+== family numeric_bound: 11 EQ / 11 NE
+  v071   false accepts   0/11   proven   0/11
+  p0005  false accepts   0/11   proven   0/11
+  new    false accepts   0/11   proven   0/11
+
+== family quantity_bound: 6 EQ / 5 NE
+  v071   false accepts   0/5   proven   0/6
+  p0005  false accepts   0/5   proven   0/6
+  new    false accepts   0/5   proven   0/6
+
+== family role_voice: 6 EQ / 5 NE
+  v071   false accepts   0/5   proven   0/6
+  p0005  false accepts   0/5   proven   0/6
+  new    false accepts   0/5   proven   0/6
+
+== family roles_voice: 6 EQ / 6 NE
+  v071   false accepts   0/6   proven   0/6
+  p0005  false accepts   0/6   proven   0/6
+  new    false accepts   0/6   proven   0/6
+
+== family short_answer: 11 EQ / 11 NE
+  v071   false accepts   1/11   proven   1/11
+  p0005  false accepts   0/11   proven   1/11
+  new    false accepts   0/11   proven   1/11
+
+== family short_answer_bound: 6 EQ / 5 NE
+  v071   false accepts   0/5   proven   0/6
+  p0005  false accepts   0/5   proven   0/6
+  new    false accepts   0/5   proven   0/6
+
+== family time_attachment: 6 EQ / 5 NE
+  v071   false accepts   1/5   proven   0/6
+  p0005  false accepts   1/5   proven   0/6
+  new    false accepts   0/5   proven   0/6
+
+== family time_binding: 6 EQ / 5 NE
+  v071   false accepts   1/5   proven   0/6
+  p0005  false accepts   1/5   proven   0/6
+  new    false accepts   0/5   proven   0/6
+
+== family time_deadline: 5 EQ / 6 NE
+  v071   false accepts   0/6   proven   0/5
+  p0005  false accepts   0/6   proven   0/5
+  new    false accepts   0/6   proven   0/5
+
+[R-safety]  NEW false accepts not already in P0005/V071: 0 [] -> HOLDS
+[R-binding] NEW 0 <= P0005 8 -> HOLDS
+[R-recall]  NEW proven 1 - P0005 2 = -1 (needs >= +3) -> DOES NOT HOLD
+[R-loss]    NEW loses 1 (allowed <= 2) -> HOLDS
+[V071 -> NEW] proven 3 -> 1; false accepts 11 -> 0
+
+NEW false accepts:
+
+P0005 false accepts:
+  N042 en time_attachment | Notify the client within 24 hours and resolve the ticket within 72 hours. || Notify the client within 72 hours and resolve the ticket within 24 hours. | author: The 24-hour and 72-hour deadlines are swapped between notifying and resolving.
+  N047 en modal_attachment | You must lock the screen and may log out when leaving your desk. || You may lock the screen and must log out when leaving your desk. | author: The obligation moves from locking the screen to logging out.
+  P035 es time_binding | Envíe el informe a las 9:00 y cierre la caja a las 17:00. || Envíe el informe a las 17:00 y cierre la caja a las 9:00. | author: The clock times of the two actions are swapped.
+  P047 pt modal_binding | O gerente deve aprovar o orçamento e pode delegar a revisão. || O gerente pode aprovar o orçamento e deve delegar a revisão. | author: Obligatory and optional status are swapped between approving the budget and delegating the review.
+  P048 en modal_binding | Staff should log out at night and can leave the laptop at the office. || Staff can log out at night and should leave the laptop at the office. | author: Should and can are swapped between logging out and leaving the laptop.
+  Q049 pt modal_scope | O cliente deve assinar o termo e pode levar uma cópia. || O cliente pode assinar o termo e deve levar uma cópia. | author: The obligation and the permission swap actions, so signing becomes optional and taking a copy becomes compulsory.
+  Q051 es modal_scope | Los nuevos empleados pueden usar la impresora, pero deben pedir el código. || Los nuevos empleados deben usar la impresora, pero pueden pedir el código. | author: The debe and puede swap their actions, so using the printer becomes required and requesting the code becomes optional.
+  Q055 pt modal_scope | Você pode cancelar a reserva sem multa, mas deve avisar com 48 horas. || Você deve cancelar a reserva sem multa, mas pode avisar com 48 horas. | author: The modal verbs swap their actions, so cancelling becomes mandatory and giving 48 hours notice becomes optional.
+
+V071 false accepts:
+  N001 en negation_scope | Do not delete logs that were archived last week. || Delete logs that were not archived last week. | author: A prohibits deleting archived logs, while B orders deleting the unarchived ones.
+  N025 en short_answer | Should I call the customer? Don't, email them. || Should I call the customer? Don't email them. | author: A forbids calling and orders an email; B forbids emailing.
+  N042 en time_attachment | Notify the client within 24 hours and resolve the ticket within 72 hours. || Notify the client within 72 hours and resolve the ticket within 24 hours. | author: The 24-hour and 72-hour deadlines are swapped between notifying and resolving.
+  N047 en modal_attachment | You must lock the screen and may log out when leaving your desk. || You may lock the screen and must log out when leaving your desk. | author: The obligation moves from locking the screen to logging out.
+  P002 es negation_scope | Los empleados que no han firmado el contrato pueden acceder al sistema. || Los empleados que han firmado el contrato no pueden acceder al sistema. | author: The negation moves between the relative clause and the main verb, reversing who may access the system.
+  P035 es time_binding | Envíe el informe a las 9:00 y cierre la caja a las 17:00. || Envíe el informe a las 17:00 y cierre la caja a las 9:00. | author: The clock times of the two actions are swapped.
+  P047 pt modal_binding | O gerente deve aprovar o orçamento e pode delegar a revisão. || O gerente pode aprovar o orçamento e deve delegar a revisão. | author: Obligatory and optional status are swapped between approving the budget and delegating the review.
+  P048 en modal_binding | Staff should log out at night and can leave the laptop at the office. || Staff can log out at night and should leave the laptop at the office. | author: Should and can are swapped between logging out and leaving the laptop.
+  Q049 pt modal_scope | O cliente deve assinar o termo e pode levar uma cópia. || O cliente pode assinar o termo e deve levar uma cópia. | author: The obligation and the permission swap actions, so signing becomes optional and taking a copy becomes compulsory.
+  Q051 es modal_scope | Los nuevos empleados pueden usar la impresora, pero deben pedir el código. || Los nuevos empleados deben usar la impresora, pero pueden pedir el código. | author: The debe and puede swap their actions, so using the printer becomes required and requesting the code becomes optional.
+  Q055 pt modal_scope | Você pode cancelar a reserva sem multa, mas deve avisar com 48 horas. || Você deve cancelar a reserva sem multa, mas pode avisar com 48 horas. | author: The modal verbs swap their actions, so cancelling becomes mandatory and giving 48 hours notice becomes optional.
+
+newly proven by NEW (vs P0005):
+
+lost by NEW (vs P0005):
+  P019 es | Todos deben fichar, excepto el personal de limpieza. || Salvo el personal de limpieza, todos deben fichar. | NEW said ['INCONCLUSIVE', 'INCONCLUSIVE']
+
+unproven by NEW (EQ-labelled):
+  N002 en negation_scope | Never share your password with anyone, including IT staff. || Your password must not be shared with anybody — IT staff included. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N004 es negation_scope | No envíes la factura hasta que el cliente confirme el pedido. || La factura no se envía antes de que el cliente confirme el pedido. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N006 pt negation_scope | Não use o elevador em caso de incêndio; utilize as escadas. || Em caso de incêndio, utilize as escadas e não o elevador. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N008 en negation_scope | Do not merge the branch until all tests pass. || The branch may be merged only after every test has passed. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N010 es negation_scope | Nunca dejes la puerta del laboratorio abierta, ni siquiera por un minuto. || La puerta del laboratorio debe permanecer cerrada en todo momento, incluso durante un minuto. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N012 pt negation_scope | Ninguém deve entrar na sala dos servidores sem crachá. || A entrada na sala dos servidores é proibida a quem não tiver crachá. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N014 en exception_scope | All staff must attend the drill, apart from employees on medical leave. || Except for employees on medical leave, every staff member must attend the drill. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N016 es exception_scope | Puedes borrar todos los archivos temporales excepto los de la carpeta de respaldo. || Salvo los que están en la carpeta de respaldo, todos los archivos temporales se pueden borrar. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N018 pt exception_scope | Os funcionários podem trabalhar de casa às sextas, a não ser que haja reunião presencial. || Às sextas, salvo quando houver reunião presencial, é permitido aos funcionários trabalhar de casa. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N020 en exception_scope | Other than the lobby, every area requires a badge. || A badge is required everywhere except the lobby. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N022 es exception_scope | Salvo el gerente de turno, nadie puede abrir la caja fuerte. || Únicamente el gerente de turno puede abrir la caja fuerte. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N024 pt exception_scope | Todos os relatórios devem ser revisados, exceto os mensais. || Com exceção dos relatórios mensais, todos devem passar por revisão. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N026 en short_answer | Can I use the company card for taxis? Yes, up to $50 per ride. || Taxi rides may be paid with the company card, as long as each ride costs no more than $50. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N028 es short_answer | ¿Hay que fichar al salir? Sí, siempre antes de las 18:00. || ¿Se debe fichar al salir? Siempre, y antes de las 18:00. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N030 pt short_answer | Preciso reiniciar o roteador? Não, basta desligar o Wi-Fi. || Não é necessário reiniciar o roteador; desligar o Wi-Fi já é suficiente. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N032 en short_answer | Do I sign the form? No; your manager signs it. || You don't sign the form — your manager does. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N035 pt short_answer | Posso trazer meu cachorro ao escritório? Não, exceto cães-guia. || Cães não são permitidos no escritório, a menos que sejam cães-guia. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N037 en time_attachment | On Mondays, water the plants; on Wednesdays, take out the recycling. || Take out the recycling every Wednesday and water the plants every Monday. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N039 es time_attachment | El 15 de cada mes se paga la nómina; el día 30, los proveedores. || A los proveedores se les paga el 30 de cada mes y la nómina se paga el día 15. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N041 pt time_attachment | Às 8h abra o caixa e às 18h feche-o. || O caixa deve ser aberto às 8h e fechado às 18h. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N043 en time_attachment | Before 9 a.m., check the alerts; after lunch, review the open tickets. || Review the open tickets after lunch, and check the alerts before 9 a.m. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N045 pt time_attachment | Treinamento na terça às 14h; avaliação na quinta às 10h. || A avaliação será na quinta, às 10h, e o treinamento na terça, às 14h. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N046 pt time_attachment | Descongele a carne na véspera e tempere-a uma hora antes de assar. || Tempere a carne uma hora antes de levá-la ao forno, depois de descongelá-la no dia anterior. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N048 en modal_attachment | Visitors must sign in at reception; they may use the guest Wi-Fi. || Visitors are allowed to use the guest Wi-Fi, but they are required to sign in at reception. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N050 es modal_attachment | Debes usar casco en la obra; las gafas son opcionales. || En la obra el casco es obligatorio, mientras que puedes elegir si usas gafas. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N052 pt modal_attachment | Você pode trabalhar remotamente, mas deve estar disponível das 10h às 16h. || É obrigatório estar disponível entre 10h e 16h; trabalhar remotamente é permitido. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N054 en modal_attachment | You can skip the optional survey, but the safety quiz must be completed. || Completing the safety quiz is mandatory; the survey is optional and may be skipped. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N057 pt modal_attachment | Não é obrigatório usar máscara, mas é proibido entrar sem higienizar as mãos. || Higienizar as mãos antes de entrar é obrigatório; a máscara é facultativa. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N059 en numeric_bound | Passwords must contain at least 12 characters. || A password shorter than 12 characters is not allowed. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N061 es numeric_bound | Cada equipo debe tener como máximo cinco personas. || Ningún equipo puede superar las cinco personas. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N063 pt numeric_bound | O reembolso só é aceito para compras acima de 50 reais. || Compras de 50 reais ou menos não são elegíveis a reembolso. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N065 en numeric_bound | Use a minimum of two eggs and no more than 100 g of sugar. || Sugar must not exceed 100 g, and you need two or more eggs. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N067 pt numeric_bound | Mantenha pelo menos 2 metros de distância da máquina. || Não fique a menos de 2 metros da máquina. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N068 es numeric_bound | No se aceptan más de dos maletas por pasajero. || Cada pasajero puede llevar dos maletas como máximo. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N070 en agent_roles | The auditor reviews the ledger, and the CFO signs it. || The ledger is reviewed by the auditor and signed by the CFO. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N072 es agent_roles | Recursos Humanos entrevista a los candidatos que selecciona el gerente. || Los candidatos seleccionados por el gerente son entrevistados por Recursos Humanos. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N074 pt agent_roles | A equipe de suporte responde aos chamados abertos pelos clientes. || Os chamados que os clientes abrem são respondidos pela equipe de suporte. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N076 en agent_roles | New hires are assigned a mentor by their team lead. || The team lead assigns each new hire a mentor. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N079 es agent_roles | El supervisor revisa los informes que redactan los analistas. || Los analistas redactan los informes, y es el supervisor quien los revisa. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N081 en condition_scope | If the temperature exceeds 30 °C, turn on the fan. || Turn on the fan whenever the temperature goes above 30 °C. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N083 es condition_scope | A menos que llueva, el evento será al aire libre. || El evento se hará al aire libre salvo que llueva. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N085 pt condition_scope | Só emita o certificado se o aluno tiver frequência mínima de 75%. || Sem frequência de pelo menos 75%, o certificado não deve ser emitido. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N087 en condition_scope | Don't approve the loan unless the applicant has a credit score of 700 or higher. || Approve the loan only if the applicant's credit score is at least 700. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N089 pt condition_scope | Caso o voo atrase mais de duas horas, ofereça um voucher de refeição. || Ofereça um voucher de refeição sempre que o atraso do voo passar de duas horas. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  N090 es condition_scope | Cuando la alarma suene, evacua el edificio por la escalera norte. || Si suena la alarma, evacua el edificio por la escalera norte. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P007 en negation_scope | Do not share the password with anyone, including your manager. || Never share the password with anybody, your manager included. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P008 es negation_scope | No apague el equipo ni cierre sesión antes de terminar la copia. || Antes de terminar la copia, no apague el equipo y tampoco cierre sesión. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P009 pt negation_scope | Funcionários que não completaram o treinamento não podem operar a máquina. || A máquina não pode ser operada por funcionários que não completaram o treinamento. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P010 en negation_scope | Do not open attachments from unknown senders, but report them to security. || Report attachments from unknown senders to security, and do not open them. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P011 es negation_scope | No se permite fumar en la sala de servidores. || Está prohibido fumar en la sala de servidores. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P018 en exception_set | Unless it is raining, the drill takes place outdoors. || The drill takes place outdoors, except when it is raining. | ['NOT_EQUIVALENT', 'NOT_EQUIVALENT']
+  P019 es exception_set | Todos deben fichar, excepto el personal de limpieza. || Salvo el personal de limpieza, todos deben fichar. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P020 pt exception_set | Faça backup de todos os diretórios, exceto /tmp. || Faça backup de todas as pastas, menos a /tmp. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P021 en exception_set | Apart from the night shift, all employees get a 30-minute break. || All employees, other than those on the night shift, get a 30-minute break. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P022 es exception_set | Se cobrará el envío a todos los pedidos salvo a los superiores a 50 euros. || Todos los pedidos tienen gastos de envío, excepto aquellos que superan los 50 euros. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P028 en short_answer | Do I need approval? No, just notify your manager. || Do I need approval? Not required; simply let your manager know. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P029 es short_answer | ¿Puedo reiniciar el router? No, primero llame a soporte. || ¿Puedo reiniciar el router? No; llame primero a soporte. | ['NOT_EQUIVALENT', 'NOT_EQUIVALENT']
+  P030 pt short_answer | Posso sair mais cedo? Sim, desde que avise o gerente. || Posso sair mais cedo? Sim — contanto que avise o gerente. | ['NOT_EQUIVALENT', 'NOT_EQUIVALENT']
+  P031 en short_answer | Can we ship on Friday? No, ship on Monday. || Can we ship on Friday? Not allowed. Ship on Monday instead. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P032 es short_answer | ¿Hay que cifrar el disco? Sí, con AES-256. || ¿Hay que cifrar el disco? Sí; use AES-256. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P039 pt time_binding | Envie a fatura na segunda e pague o fornecedor na sexta. || O fornecedor deve ser pago na sexta; a fatura, enviada na segunda. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P040 en time_binding | Back up the database at 2 a.m. and restart the server at 3 a.m. || Restart the server at 03:00, after backing up the database at 02:00. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P041 es time_binding | Cierre el turno a las 18:00 y entregue las llaves a las 18:30. || A las 18:30 entregue las llaves; el turno se cierra a las 18:00. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P042 pt time_binding | Preencha o formulário até quinta e envie o comprovante até sexta. || Até sexta, envie o comprovante; o formulário deve ser preenchido até quinta. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P043 en time_binding | Submit timesheets by Friday noon and expenses by Monday. || Expenses are due Monday; timesheets are due by noon on Friday. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P044 es time_binding | Pague la factura antes del 5 de mayo y confirme el pago el 6. || El 6 confirme el pago; la factura debe pagarse antes del 5 de mayo. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P051 pt modal_binding | O operador deve usar luvas e pode usar óculos. || As luvas são obrigatórias para o operador; os óculos são opcionais. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P052 en modal_binding | Applicants may submit a cover letter and must attach a resume. || A resume must be attached by applicants, who may also submit a cover letter. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P053 es modal_binding | El personal debe usar casco y puede traer su propio chaleco. || Es obligatorio que el personal use casco; traer chaleco propio es opcional. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P054 en modal_binding | Users can reset their password but must not reuse the old one. || Users are allowed to reset their password; reusing the old one is forbidden. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P055 pt modal_binding | Os visitantes podem tirar fotos, mas devem pedir autorização para filmar. || Tirar fotos é permitido aos visitantes; para filmar, é obrigatório pedir autorização. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P061 en quantity_bound | Fewer than 5 attempts are allowed per hour. || A maximum of 4 attempts per hour is allowed. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P062 es quantity_bound | Cada equipo debe tener al menos 3 ingenieros. || Cada equipo debe contar con 3 ingenieros o más. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P063 pt quantity_bound | Não use mais de 2 GB por usuário. || Cada usuário pode usar no máximo 2 GB. | ['NOT_EQUIVALENT', 'NOT_EQUIVALENT']
+  P064 en quantity_bound | Pack no more than 12 bottles per box and at least 6. || Each box must hold between 6 and 12 bottles, inclusive. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P065 es quantity_bound | Se requieren más de 2 firmas para montos superiores a 500 euros. || Los montos de más de 500 euros requieren 3 firmas o más. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P066 pt quantity_bound | Cada turno precisa de pelo menos 4 enfermeiros e no máximo 2 estagiários. || Em cada turno, são necessários 4 enfermeiros ou mais e até 2 estagiários. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P073 en roles_voice | The security team reviews every access request. || Every access request is reviewed by the security team. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P074 es roles_voice | El cajero entrega el recibo al cliente. || El recibo es entregado por el cajero al cliente. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P075 pt roles_voice | O diretor aprova os pedidos que os gerentes enviam. || Os pedidos enviados pelos gerentes são aprovados pelo diretor. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P076 en roles_voice | HR sends the offer letter and the candidate signs it. || The candidate signs the offer letter that HR sends. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P077 es roles_voice | Soporte técnico asigna cada ticket al ingeniero de guardia. || El ingeniero de guardia recibe de soporte técnico la asignación de cada ticket. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P078 pt roles_voice | O cliente paga a taxa e o banco emite o comprovante. || O comprovante é emitido pelo banco, depois que o cliente paga a taxa. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P085 en condition_scope | Unless the customer objects, send the invoice by email. || Send the invoice by email, provided the customer does not object. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P086 es condition_scope | Solo si el paciente firma el consentimiento se realiza el procedimiento. || El procedimiento se realiza únicamente cuando el paciente firma el consentimiento. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P087 pt condition_scope | Se a senha expirar, o usuário deve redefini-la. || O usuário deve redefinir a senha quando ela expirar. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P088 en condition_scope | If the load exceeds 80 percent, add a node; otherwise leave the cluster as is. || Add a node when the load is above 80 percent, and leave the cluster unchanged when it is not. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P089 es condition_scope | Si llueve, el evento se traslada al salón; si no, se hace en el patio. || El evento será en el patio, a menos que llueva, en cuyo caso será en el salón. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  P090 pt condition_scope | Só reembolse o pedido se o produto estiver lacrado. || O reembolso só é permitido quando o produto está lacrado. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q002 es negation_scope | No se debe compartir la contraseña de administrador con personal externo. || El personal externo no debe recibir la contraseña de administrador compartida. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q004 en negation_scope | Never leave the freezer door open for more than thirty seconds. || Do not keep the freezer door open longer than thirty seconds. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q006 pt negation_scope | Ninguém pode alterar a tabela de preços sem aprovação do financeiro. || A tabela de preços só pode ser alterada com aprovação do financeiro. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q008 es negation_scope | Ningún visitante debe entrar a la sala de servidores sin escolta. || Los visitantes no pueden entrar a la sala de servidores si no van acompañados. | ['NOT_EQUIVALENT', 'NOT_EQUIVALENT']
+  Q010 en negation_scope | Don't let anyone without a visitor pass past the lobby. || Nobody without a visitor pass may get past the lobby. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q012 es negation_scope | No se permite fumar en el depósito ni comer en la oficina de carga. || En el depósito está prohibido fumar, y en la oficina de carga está prohibido comer. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q014 es exception_set | Todos los empleados deben usar casco, salvo quienes trabajen en oficinas. || Quienes trabajan en oficinas no tienen que usar casco; los demás empleados sí deben usarlo. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q016 en exception_set | Everyone except the night staff must complete the safety course by Friday. || Apart from the night crew, all employees have to finish the safety course by Friday. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q018 pt exception_set | Todos devem usar crachá, a não ser os visitantes escoltados. || Os visitantes escoltados são os únicos que podem dispensar o crachá. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q020 es exception_set | Salvo los cajeros, el personal debe cerrar la caja antes de salir. || El personal debe cerrar la caja antes de salir, excepto los cajeros. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q023 en exception_set | Every employee except interns may request remote work after the probation period. || Interns aside, all employees can ask to work remotely once their probation is over. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q024 es exception_set | Todos los proveedores, menos los de Asia, deben entregar factura electrónica. || Los proveedores de Asia quedan fuera; los demás deben entregar factura electrónica. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q026 es short_answer_bound | ¿Puedo cancelar el pedido después de enviarlo? No, salvo que el cliente lo pida por escrito. || ¿Puedo cancelar el pedido después de enviarlo? No. Solo si el cliente lo solicita por escrito. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q028 en short_answer_bound | Can I return an opened item? Yes, provided it still has the seal. || Can I return an opened item? Yes, as long as the seal is intact. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q030 pt short_answer_bound | Posso acumular férias? Sim, até 30 dias por ano. || Posso acumular férias? Sim, desde que não passe de 30 dias por ano. | ['NOT_EQUIVALENT', 'NOT_EQUIVALENT']
+  Q032 es short_answer_bound | ¿Se puede usar el coche de la empresa para viajes personales? No, salvo con autorización escrita. || ¿Se puede usar el coche de la empresa para viajes personales? No, a menos que haya autorización escrita. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q033 en short_answer_bound | Is overtime allowed on weekends? No, unless a manager signs the request. || Is overtime allowed on weekends? No. Only a manager's signed request allows it. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q035 en short_answer_bound | May I bring a guest to the event? Yes, as long as the guest signs in at the desk. || May I bring a guest to the event? Yes, provided the guest checks in at the front desk. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q037 es time_deadline | Entregue el informe antes del viernes a las 17:00. || El informe debe estar entregado a más tardar el viernes a las cinco de la tarde. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q039 en time_deadline | Backups run nightly at 02:00 UTC. || Every night, at two in the morning UTC, the backup starts. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q041 pt time_deadline | A reunião começa às 9h e termina antes das 12h. || Ela começa às nove da manhã e termina antes do meio-dia. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q043 es time_deadline | Notifique al cliente el mismo día que se apruebe el cambio. || El cliente debe recibir la notificación el día en que se apruebe el cambio. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q045 en time_deadline | Submit the form no later than the last working day of the month. || The form must reach us by the final business day of each month at the latest. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q048 es modal_scope | Usted debe firmar el acta y puede enviar una copia por correo. || Usted puede enviar una copia del acta por correo, pero debe firmarla. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q050 en modal_scope | You should back up the laptop before travel, and you can ask IT for a loaner. || Before travelling, you are advised to back up your laptop, and IT may lend you one. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q052 pt modal_scope | Os visitantes podem usar o wi-fi, mas precisam de senha. || Para usar o wi-fi, os visitantes precisam de senha, e isso é permitido. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q054 es modal_scope | Puede retirar el reembolso en efectivo, aunque se recomienda la transferencia. || Es posible cobrar el reembolso en efectivo; no obstante, la transferencia es lo recomendado. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q056 en modal_scope | Managers may approve leave, provided HR is informed. || Leave can be approved by a manager as long as HR is told. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q057 es modal_scope | El técnico debe revisar el equipo antes de instalarlo. || Antes de instalar el equipo, el técnico tiene la obligación de revisarlo. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q059 es numeric_bound | Se permiten como máximo cinco intentos de inicio de sesión. || No se admiten más de cinco intentos de inicio de sesión. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q061 en numeric_bound | Fewer than ten people may join the session. || No more than nine people may join the session. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q063 pt numeric_bound | No máximo 3 dispositivos podem estar conectados ao mesmo tempo. || Até três dispositivos podem estar conectados simultaneamente. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q065 en numeric_bound | Sell at least two units per customer. || Each customer must buy two units or more. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q067 es numeric_bound | Un máximo de dos invitados por reserva. || Cada reserva admite hasta dos invitados. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q070 es role_voice | El cliente recibe la factura por correo electrónico. || La factura le es enviada por correo electrónico al cliente. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q072 en role_voice | The supervisor signs off on every shift report. || Every shift report is signed off by the supervisor. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q074 pt role_voice | A equipe de suporte resolve o chamado e registra a solução. || O chamado é resolvido pela equipe de suporte, que registra a solução. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q076 es role_voice | Solo el administrador puede modificar los permisos. || Los permisos únicamente pueden ser modificados por el administrador. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q078 en role_voice | Operators restart the service after the patch is applied. || After the patch is applied, the service is restarted by operators. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q079 es role_voice | La jefa aprueba los viáticos que presenta el empleado. || Los viáticos que presenta el empleado son aprobados por la jefa. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q081 es conditional_scope | Solo se abre el expediente si hay una denuncia formal. || No se abre el expediente salvo que exista una denuncia formal. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q083 en conditional_scope | Unless the ticket is escalated, the agent handles it alone. || The agent handles the ticket alone, except when it is escalated. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q085 pt conditional_scope | Só libere o acesso se o contrato estiver assinado. || Libere o acesso somente quando o contrato estiver assinado. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q087 es conditional_scope | Cuando el sensor detecte humo, la alarma suena, a menos que esté en mantenimiento. || La alarma suena cada vez que el sensor detecta humo, salvo durante el mantenimiento. | ['INCONCLUSIVE', 'INCONCLUSIVE']
+  Q089 en conditional_scope | If the patient is under sixteen, a guardian must consent. || A guardian must consent whenever the patient is under sixteen. | ['INCONCLUSIVE', 'INCONCLUSIVE']

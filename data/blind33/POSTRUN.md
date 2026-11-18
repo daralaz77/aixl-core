@@ -1,0 +1,3 @@
+# blind33 - what changed AFTER the single run (so the result is read correctly)
+The run in RESULT_run1.txt used the code frozen in CODE_FREEZE.json. Afterwards, two edits were made because the run exposed them: (1) `except when / except if` = `unless` in `_canon_shapes` (a false REJECT, pair P018), and (2) the front-exception guard in `compare()` now needs a conjunction before the exception phrase (it cost one proof, pair P019).
+Both were checked only on spent sets and unit tests: they are NOT a blind result, and CODE_FREEZE.json no longer matches the tree on purpose (eval.py refuses to run again anyway: the set is spent).

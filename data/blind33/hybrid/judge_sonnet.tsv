@@ -1,0 +1,270 @@
+J001	DIFFERENT	only-if vs if
+J002	SAME	max five equals none exceed five
+J003	DIFFERENT	min/max swapped
+J004	DIFFERENT	Tuesday dropped
+J005	DIFFERENT	per month vs per ticket
+J006	DIFFERENT	opposite instruction
+J007	SAME	only with 75% attendance
+J008	SAME	except cashiers
+J009	SAME	hands mandatory, mask optional
+J010	DIFFERENT	must/may swapped
+J011	DIFFERENT	roles swapped
+J012	DIFFERENT	roles swapped
+J013	DIFFERENT	unless vs not even if
+J014	SAME	no, send email
+J015	SAME	passive paraphrase
+J016	SAME	allowed with password
+J017	DIFFERENT	only if dropped
+J018	SAME	unless raining outdoors
+J019	SAME	no admin password to externals
+J020	DIFFERENT	thresholds changed
+J021	DIFFERENT	and vs or
+J022	SAME	paraphrase
+J023	SAME	same deadline
+J024	DIFFERENT	different instruction
+J025	DIFFERENT	only dropped
+J026	DIFFERENT	before/after swapped
+J027	DIFFERENT	post-dated negated
+J028	DIFFERENT	payer swapped
+J029	SAME	same sequence and timing
+J030	DIFFERENT	more than vs at least
+J031	SAME	merge only after tests pass
+J032	SAME	only with finance approval
+J033	DIFFERENT	after vs before Monday
+J034	SAME	only if sealed
+J035	DIFFERENT	unless vs if
+J036	DIFFERENT	internal scope dropped
+J037	DIFFERENT	call security condition added
+J038	DIFFERENT	times swapped
+J039	DIFFERENT	must/may swapped
+J040	SAME	same limits
+J041	DIFFERENT	extra exception
+J042	DIFFERENT	fewer than 3 vs up to 3
+J043	SAME	only shift manager
+J044	SAME	same roles
+J045	SAME	same prohibition
+J046	DIFFERENT	scope of exception differs
+J047	DIFFERENT	must/may swapped
+J048	DIFFERENT	must/may swapped
+J049	SAME	same condition
+J050	SAME	at least 3
+J051	SAME	same times
+J052	DIFFERENT	exception scope differs
+J053	SAME	same obligations
+J054	DIFFERENT	permissions inverted
+J055	DIFFERENT	roles swapped
+J056	DIFFERENT	dates swapped
+J057	DIFFERENT	roles swapped
+J058	DIFFERENT	two failures added
+J059	DIFFERENT	no vs yes
+J060	DIFFERENT	restrictive vs non-restrictive
+J061	DIFFERENT	with vs without receipt
+J062	DIFFERENT	must/may swapped
+J063	DIFFERENT	overdue negation
+J064	DIFFERENT	after vs instead of archiving
+J065	SAME	same deadlines
+J066	DIFFERENT	roles swapped
+J067	SAME	same limit
+J068	DIFFERENT	comma changes meaning
+J069	SAME	same condition and else
+J070	DIFFERENT	min/max swapped
+J071	DIFFERENT	although vs unless
+J072	SAME	same restriction
+J073	DIFFERENT	before/after swapped
+J074	DIFFERENT	interns added
+J075	SAME	same conditional venues
+J076	DIFFERENT	medical emergency narrower
+J077	DIFFERENT	singular vs plural
+J078	SAME	passive paraphrase
+J079	SAME	same condition
+J080	DIFFERENT	tasks timing swapped
+J081	SAME	same actions and dates
+J082	DIFFERENT	receipt condition inverted
+J083	DIFFERENT	only added
+J084	SAME	max 2 GB per user
+J085	DIFFERENT	night attaches differently
+J086	DIFFERENT	limits swapped
+J087	DIFFERENT	min/max swapped
+J088	DIFFERENT	must/may swapped
+J089	DIFFERENT	with vs without receipt
+J090	DIFFERENT	directors added
+J091	SAME	min score 700
+J092	SAME	no need to restart
+J093	DIFFERENT	roles swapped
+J094	DIFFERENT	write vs don't write
+J095	SAME	team lead assigns mentor
+J096	SAME	only manager-signed
+J097	DIFFERENT	more/less swapped
+J098	SAME	same actions and days
+J099	SAME	same
+J100	SAME	same assignment
+J101	SAME	max 30 days
+J102	DIFFERENT	should/must swapped
+J103	SAME	except lobby
+J104	SAME	fewer than ten = max nine
+J105	SAME	gloves required glasses optional
+J106	SAME	same unless maintenance
+J107	SAME	max two bags
+J108	DIFFERENT	must/may swapped
+J109	DIFFERENT	limits swapped
+J110	SAME	same schedule
+J111	SAME	same
+J112	DIFFERENT	only moves
+J113	SAME	same
+J114	SAME	never open
+J115	SAME	same condition
+J116	SAME	passive
+J117	DIFFERENT	don't call email vs don't email
+J118	SAME	same exception
+J119	SAME	50 per ride
+J120	SAME	same exception
+J121	SAME	no entry unescorted
+J122	DIFFERENT	different instruction
+J123	DIFFERENT	payers swapped
+J124	DIFFERENT	polarity opposite
+J125	SAME	only guide dogs
+J126	DIFFERENT	different exception
+J127	SAME	no badge no entry
+J128	DIFFERENT	over vs or more
+J129	SAME	min 12 chars
+J130	DIFFERENT	on/by swapped
+J131	DIFFERENT	roles swapped
+J132	SAME	same times
+J133	DIFFERENT	notify polarity
+J134	DIFFERENT	at least vs more than only if
+J135	SAME	same exception
+J136	DIFFERENT	max vs min
+J137	DIFFERENT	dates swapped
+J138	SAME	same
+J139	SAME	same
+J140	SAME	only with complaint
+J141	DIFFERENT	home added
+J142	SAME	always before 18:00
+J143	SAME	same
+J144	DIFFERENT	notify conditionality
+J145	DIFFERENT	extra exception
+J146	DIFFERENT	singular vs plural
+J147	SAME	stairs not elevator
+J148	DIFFERENT	audio allowed vs forbidden
+J149	SAME	only if written request
+J150	SAME	ship Monday
+J151	SAME	min 2 m
+J152	SAME	office exempt
+J153	SAME	same times
+J154	SAME	same
+J155	SAME	min two units
+J156	SAME	call support first
+J157	DIFFERENT	may/must swapped
+J158	SAME	passive
+J159	DIFFERENT	exception differs
+J160	SAME	seal intact
+J161	SAME	Asia excluded
+J162	DIFFERENT	roles swapped
+J163	DIFFERENT	before/after swapped
+J164	DIFFERENT	deadlines swapped
+J165	SAME	same
+J166	DIFFERENT	comma changes meaning
+J167	SAME	passive
+J168	DIFFERENT	can/must swapped
+J169	SAME	same
+J170	SAME	same day
+J171	SAME	same exception
+J172	DIFFERENT	polarity swapped
+J173	SAME	same
+J174	SAME	same
+J175	DIFFERENT	by/on swapped
+J176	DIFFERENT	polarity swapped
+J177	SAME	same
+J178	DIFFERENT	times swapped
+J179	SAME	same
+J180	DIFFERENT	max vs min
+J181	DIFFERENT	should/can swapped
+J182	SAME	fewer than 5 = max 4
+J183	DIFFERENT	signed vs not signed
+J184	SAME	AES-256
+J185	SAME	6 to 12
+J186	SAME	only notify
+J187	SAME	only if signed
+J188	DIFFERENT	deadline vs time swapped
+J189	DIFFERENT	roles swapped
+J190	SAME	same
+J191	SAME	same
+J192	SAME	same
+J193	DIFFERENT	roles swapped
+J194	DIFFERENT	customized vs damaged
+J195	SAME	same
+J196	DIFFERENT	polarity swapped
+J197	DIFFERENT	at/after swapped
+J198	DIFFERENT	at least vs at most
+J199	SAME	same
+J200	SAME	same dates
+J201	SAME	only admin
+J202	DIFFERENT	must/may swapped
+J203	SAME	same
+J204	DIFFERENT	min vs max
+J205	DIFFERENT	must/may swapped
+J206	DIFFERENT	roles swapped
+J207	SAME	same
+J208	DIFFERENT	handwashing polarity
+J209	DIFFERENT	up to vs from
+J210	SAME	only with consent
+J211	SAME	same
+J212	SAME	same
+J213	SAME	same
+J214	DIFFERENT	more vs fewer
+J215	DIFFERENT	roles swapped
+J216	DIFFERENT	only if dropped
+J217	DIFFERENT	must/may swapped
+J218	DIFFERENT	scope inverted
+J219	SAME	same
+J220	DIFFERENT	must/may swapped
+J221	SAME	same
+J222	SAME	same deadlines
+J223	SAME	max five
+J224	SAME	only escorted visitors exempt
+J225	SAME	same
+J226	SAME	same actors and sequence
+J227	SAME	manager signs
+J228	DIFFERENT	approve/notify inverted
+J229	SAME	same
+J230	DIFFERENT	scope differs
+J231	SAME	same
+J232	DIFFERENT	can/must swapped
+J233	DIFFERENT	direction swapped
+J234	DIFFERENT	30-day restriction reversed
+J235	SAME	max 3 devices
+J236	DIFFERENT	one store vs several
+J237	DIFFERENT	report timing differs
+J238	DIFFERENT	before vs after 3pm
+J239	SAME	above 50 only
+J240	SAME	same
+J241	SAME	same
+J242	SAME	same
+J243	DIFFERENT	ticket closing conditionality
+J244	DIFFERENT	at least vs at most
+J245	SAME	same
+J246	SAME	deadline Friday 17:00
+J247	DIFFERENT	per team vs per person
+J248	SAME	exclude /tmp
+J249	DIFFERENT	all vs active only
+J250	DIFFERENT	polarity opposite
+J251	SAME	same
+J252	SAME	same
+J253	DIFFERENT	pay polarity changed
+J254	SAME	same
+J255	DIFFERENT	must/may swapped
+J256	DIFFERENT	agent/bot swapped
+J257	DIFFERENT	roles swapped
+J258	SAME	unless written authorization
+J259	SAME	3 or more signatures
+J260	SAME	same
+J261	SAME	same
+J262	SAME	same
+J263	SAME	max two guests
+J264	SAME	passive
+J265	SAME	passive
+J266	DIFFERENT	opposite
+J267	DIFFERENT	more than vs at least
+J268	SAME	same
+J269	SAME	same
+J270	DIFFERENT	unless vs even if
