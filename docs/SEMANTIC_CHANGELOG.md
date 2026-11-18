@@ -16,6 +16,13 @@ Canonical form gains a dimension, so by VERSIONING_POLICY.md this is a loud MINO
 
 Regression tests added for property/invariant behaviour (`test_properties.py`, `test_golden.py`). Total at release: 435 passed.
 
+## 0.8.0 — 2026-11-18 — safety fixes, slot binding, closed-shape rewrites; wire token stays `V:AIXL-0.3`
+| Change | Backward compatibility | Migration | Test impact |
+|---|---|---|---|
+| Negation scope (relative clauses, comma splices, ':' and connectors), excepted-set number, short answers and their marks, and a weekday / clock time / number / bound / modal hanging on the wrong action are no longer EQUIVALENT | verdicts only move EQUIVALENT -> INCONCLUSIVE (never the reverse); on 540 spent pairs no proof is lost | none; callers that treated INCONCLUSIVE as 'ask a judge' keep working | `test_semantic_false_accepts_fixed.py`, `test_semantic_binding_and_shapes.py` |
+| Closed-shape rewrites: which / who = that, have to = must, 'N or more' / 'a minimum of' bounds, ', but <clause>' = '; <clause>', 'except when' = 'unless' | ADD proofs (INCONCLUSIVE -> EQUIVALENT), each guarded | none | `test_semantic_binding_and_shapes.py` |
+| `hybrid.decide(veto='all'|'definite')`, `aixl_hybrid_decide(veto=...)`, `short_circuit` in `aixl_hybrid_prepare` | default unchanged; new optional parameter and a new key | none | `test_hybrid_veto.py` |
+
 ## 0.7.1 — 2026-11-11 — universal quantifier on the subject; wire token stays `V:AIXL-0.3`
 | Change | Backward compatibility | Migration | Test impact |
 |---|---|---|---|

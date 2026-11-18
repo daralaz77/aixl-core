@@ -28,3 +28,16 @@ def test_one_dissenting_judge_still_wins_under_definite():
 def test_an_unknown_veto_value_is_refused():
     with pytest.raises(ValueError):
         hybrid_decide(*AMBIGUOUS, {"j1": lambda a, b: "SAME"}, veto="none")
+
+
+def test_prepare_offers_a_short_circuit_only_for_a_definite_difference():
+    from aixl.hybrid_protocol import prepare
+    assert prepare(*DEFINITE)["short_circuit"]["available"] is True
+    assert prepare("Keep at least 5 backups.", "Keep 5 or more backups.")["short_circuit"]["available"] is False
+
+
+def test_the_mcp_tool_accepts_the_veto_argument():
+    import inspect
+
+    from aixl import mcp_server
+    assert "veto" in inspect.signature(mcp_server.aixl_hybrid_decide).parameters

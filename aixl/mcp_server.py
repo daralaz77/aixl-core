@@ -105,9 +105,11 @@ def aixl_hybrid_prepare(a: str, b: str) -> dict:
                           "judge says SAME and the semantic track does not veto; DIFFERENT on any dissent; REVIEW on judge/semantic conflict; else UNSURE. "
                           "Use `strict: true` before an IRREVERSIBLE action: SAME then also needs the rule-based comparator to prove EQUIVALENT, otherwise REVIEW (a person decides). "
                           "Measured: with strict, 0 false SAME on 395 non-equivalent pairs (blind19-26; the comparator was tuned on blind19-25 and accepted nothing on blind26, so this is not a generalisation claim), "
-                          "but only 11 of 245 equivalent pairs are proven, so most pairs go to review. Without strict, the measured false-SAME rate is about 5-6%.")
-def aixl_hybrid_decide(a: str, b: str, judge_verdicts: dict[str, str], strict: bool = False) -> dict:
-    return hybrid_protocol.decide(a, b, judge_verdicts, strict=strict)
+                          "but only 11 of 245 equivalent pairs are proven, so most pairs go to review. Without strict, the measured false-SAME rate is about 5-6%. "
+                          "`veto` (default 'all'): with 'definite' only a definite NOT_EQUIVALENT of the comparator sends a unanimous SAME to REVIEW (a suspected difference or an AMBIGUOUS_* flag no longer does): "
+                          "more SAME on equivalents (117 -> 129 of 135 on blind33 with two fresh judges), same false SAME there; use it for reversible actions, never together with a single judge.")
+def aixl_hybrid_decide(a: str, b: str, judge_verdicts: dict[str, str], strict: bool = False, veto: str = "all") -> dict:
+    return hybrid_protocol.decide(a, b, judge_verdicts, strict=strict, veto=veto)
 
 
 def main():

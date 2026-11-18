@@ -1,6 +1,6 @@
 # Hybrid decision as an MCP mode (2026-10-08)
 
-Tools: `aixl_hybrid_prepare(a, b)` and `aixl_hybrid_decide(a, b, judge_verdicts, strict=False)`; logic in `aixl/hybrid_protocol.py`, thin wrappers in `aixl/mcp_server.py`.
+Tools: `aixl_hybrid_prepare(a, b)` and `aixl_hybrid_decide(a, b, judge_verdicts, strict=False, veto="all")`; logic in `aixl/hybrid_protocol.py`, thin wrappers in `aixl/mcp_server.py`.
 
 ## What it does
 The semantic track (cheap, rule-based) is a loss detector and a **veto**; the only thing that can *prove* that two instructions mean the same is a strict 2-of-2 LLM arbiter (`aixl/arbiter.py`, rules `data/arbiter/rules_v1.txt`). `aixl_hybrid_decide` returns:
@@ -30,6 +30,12 @@ A second, out-of-family check used **human-labelled** pairs from two public corp
 A third check wrote pairs **inside the comparator's own constructs** (bounds, exceptions, exclusivity, negation, number forms, deadlines, verb synonyms, word order, quantifiers), so the strict rule can finally accept something. On `data/blind28` (120 pairs, pre-registered, one run) the comparator proved 24 of 60 equivalent pairs and accepted 4 of 60 non-equivalent ones (3 UNDECIDABLE-labelled and arguable); both Claude judges accepted every one of those 4 as well, so requiring them removed nothing, and the two judges again erred together (6 of 6 in common, 1.1 expected). A local non-Claude judge (Qwen2.5-7B Q4) said SAME to 94 of 120 pairs and accepted 35 of 60 non-equivalent ones: not a useful third judge. On `data/blind29` (120 fresh pairs, old versus new comparator on the same pairs) strict mode (comparator AND both judges) accepted 1 of 60 non-equivalent pairs and 31 of 60 equivalent ones, against 7 of 60 and 60 of 60 for the judges alone. That is the shape of the trade-off: about half the recall for roughly a seventh of the false accepts. Neither is a generalisation claim: the constructs are the ones the comparator was tuned on, authors and judges are Claude models, and one passing set after earlier failing ones is weak evidence.
 
 On `data/blind30` (120 fresh pairs, paired against v0.7.0, with the two targeted constructs over-sampled) neither version of the comparator accepted a single one of the 60 non-equivalent pairs and both proved about half of the equivalent ones (28 and 30 of 60), so comparator AND both judges had 0 false accepts and 30 of 60 proven equivalents, against 6 of 60 and 60 of 60 for the judges alone. The change under test added only +2 proven pairs in the targeted constructs; the pre-registered +5 was not reached.
+
+## Veto level (`veto`, 0.8.0) and the short-circuit hint
+- `veto="all"` (default): a unanimous `SAME` goes to `REVIEW` when the comparator found a definite difference, a suspected one, or flags the text with an `AMBIGUOUS_*` code.
+- `veto="definite"`: only a definite `NOT_EQUIVALENT` does. Measured with two fresh judges (Sonnet + Haiku, blind, `data/blind33/hybrid/RESULT_veto.md`, spent sets): `SAME` on equivalents 117 -> 129 of 135 (blind33) and 110 -> 112 of 120 (adversarial); false `SAME` unchanged (0 of 135; 3 of 240, the same three in both settings, labels arguable). The veto caught no judge error in 630 pairs; a single judge is NOT safe (Haiku alone said `SAME` on 18% of the not-equivalent adversarial pairs, 2-of-2 on 1.3%). Judge families beyond Claude (Qwen 32B, Mistral 24B on Colab, `data/blind33/colab/RESULT_colab.md`) did not change the picture: the 3 remaining false `SAME` are accepted by every family (arguable labels).
+- Recommended: `strict: true` before an irreversible action; `veto: "definite"` for reversible ones; the default otherwise.
+- `aixl_hybrid_prepare` also returns `short_circuit`: when `available` is true the comparator found a definite difference (precision 95% on 810 spent pairs); the caller may skip the two judges and treat the pair as `DIFFERENT` (suspected, not proven).
 
 ## Why two steps (the server calls no model)
 The core never calls a model, and MCP server-initiated sampling is deprecated in the pinned SDK (SEP-2577). So the **caller's agent is the judge**:

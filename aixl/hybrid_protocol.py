@@ -39,7 +39,10 @@ def prepare(a: str, b: str) -> dict:
     return {"rules_id": arbiter.rules_id(), "judge_system_prompt": arbiter.rules_text(),
             "judge_input": json.dumps({"id": "pair", "a": a, "b": b}, ensure_ascii=False),
             "expected_judge_output": "pair\t<SAME|DIFFERENT|UNSURE>\t<short reason>",
-            "semantic": {"verdict": sem.verdict, "flags": list(sem.flags)}, "obfuscation": obf, "protocol": PROTOCOL}
+            "semantic": {"verdict": sem.verdict, "flags": list(sem.flags)}, "obfuscation": obf, "protocol": PROTOCOL,
+            "short_circuit": {"available": sem.verdict == "NOT_EQUIVALENT",
+                              "note": ("the rule-based comparator found a definite difference (precision 95% on 810 spent pairs): the caller MAY skip the two judges and treat the pair as DIFFERENT "
+                                       "(suspected, not proven); run the judges when a proven verdict is needed") if sem.verdict == "NOT_EQUIVALENT" else "no definite difference found: run the two judges"}}
 
 
 def decide(a: str, b: str, verdicts: dict, strict: bool = False, veto: str = "all") -> dict:
