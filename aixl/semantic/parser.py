@@ -289,7 +289,7 @@ AUX_BEFORE_NOT = {"do", "does", "did"}
 _ANS_ALT = sorted(map(re.escape, ANSWER_PHRASES), key=len, reverse=True) + sorted(map(re.escape, ANSWER_NEG), key=len, reverse=True)
 _ANS_RX = re.compile(r"(?<![^\W_]|['\u2019])(?:" + "|".join(_ANS_ALT) + r"|\w*n['\u2019]t)(?![^\W_])")
 _WORD_RX = re.compile(r"[\w']+")
-_QTY_WORDS = {"fewer", "less", "more", "least", "most", "than", "menos", "mas", "mais", "maximo", "minimo", "least"}
+_QTY_WORDS = {"fewer", "less", "more", "least", "most", "than", "menos", "mas", "mais", "maximo", "minimo"}
 
 
 def _fold(s: str) -> str:
@@ -314,9 +314,9 @@ def _negation_layout(toks, clean):
         rest = folded[m.end():].lstrip("\"'*_])\u201d\u2019`>").lstrip(" \t")          # closing quotes / brackets / emphasis marks belong to the answer word, not to the mark
         if not rest or not (rest[0] == "\n" or not (rest[0].isalnum() or rest[0].isspace())): continue
         mark, w = rest[0], m.group(0)
-        mm = type("M", (), {"end": lambda self, _e=len(folded) - len(rest) + 1: _e})()
+        mark_end = len(folded) - len(rest) + 1                                 # index just after the mark
         if mark == ",":
-            tail = folded[mm.end():]
+            tail = folded[mark_end:]
             nxt = _WORD_RX.search(tail)
             aux = w.endswith("n't") and w[:-3] in ("do", "does", "did") or (w == "not" and (_WORD_RX.findall(folded[:m.start()]) or [""])[-1] in AUX_BEFORE_NOT)
             if nxt and not L.verb_action(nxt.group(0)):
@@ -324,7 +324,7 @@ def _negation_layout(toks, clean):
                 c2 = tail.find(",")
                 inter = _WORD_RX.findall(tail[:c2]) if 0 <= c2 <= 40 else None
                 if inter and len(inter) <= 5 and not any(x.isdigit() or x in _QTY_WORDS or L.verb_action(x) for x in inter): continue      # 'Never, under any circumstances, delete': an interjection closed by a second comma
-        if not re.search(r"\w", folded[mm.end():]): continue          # a closing mark at the very end ('No.' / 'No!' / 'No?') changes nothing
+        if not re.search(r"\w", folded[mark_end:]): continue          # a closing mark at the very end ('No.' / 'No!' / 'No?') changes nothing
         marks.append((k, "mark"))                                          # that there IS a mark is meaning ('No, fewer than five' / 'No fewer than five'); which mark it is ('No: x' / 'No, x') is not
     return tuple(nc), tuple(marks), breaks
 
