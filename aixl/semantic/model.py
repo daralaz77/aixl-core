@@ -63,6 +63,9 @@ class SemanticObject:
     steps: list
     flags: list = field(default_factory=list)       # (code, detail): UNREPRESENTABLE_* / AMBIGUOUS_* / SANITIZER findings
     norm: tuple = ()                                # normalized token tuple (identity check)
+    neg_clause: tuple = ()                          # clause index of each negation word (a hard break = : ; but while so or ...); compare() refuses pairs whose negation sits in another clause
+    neg_punct: tuple = ()                           # (ordinal of the negation word, mark) when punctuation or a dash follows it: 'No, fewer than five' is an answer, 'No fewer than five' is a bound
+    has_break: bool = False                         # the text has at least one hard clause break
 
     @property
     def unrepresentable(self) -> list:

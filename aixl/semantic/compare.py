@@ -45,12 +45,57 @@ NEVER_WORDS = {"never", "nunca", "jamas", "jamais"}
 ANY_FREE_CHOICE = {"qualquer", "quaisquer", "cualquier", "cualesquiera"}
 
 
+ARTICLE_NUMBER = {**dict.fromkeys(("o", "a", "el", "la", "do", "da", "del", "this", "that", "este", "esta", "esse", "essa", "aquele", "aquela", "ese", "esa"), "sg"),
+                  **dict.fromkeys(("os", "as", "los", "las", "dos", "das", "these", "those", "estes", "estas", "esses", "essas", "aqueles", "aquelas", "estos", "estas", "esos", "esas"), "pl")}
+
+
+def _atom_words(v):
+    if isinstance(v, str): yield v
+    elif isinstance(v, (tuple, list, frozenset, set)):
+        for x in v: yield from _atom_words(x)
+
+
+EXTRA_EXCEPT = [("minus",), ("save",), ("besides",), ("barring",), ("not", "counting"), ("not", "including"), ("leaving", "out"), ("short", "of"), ("sin",), ("sin", "incluir"), ("fuera", "de"), ("fuera", "del"),
+                ("aparte", "de"), ("aparte", "del"), ("descontando",), ("excluindo",), ("nao", "incluindo"), ("fora", "de"), ("fora", "do"), ("fora", "da"), ("excetuando",), ("sem", "contar"), ("tirando",), ("ressalvado",), ("exclusive",), ("omitindo",), ("ignorando",), ("sem", "incluir"),
+                ("omitiendo",), ("dejando", "fuera"), ("quitando",), ("no", "incluyendo"), ("con", "la", "salvedad", "de"), ("with", "the", "exception", "of"), ("with", "exception", "of"), ("bar",)]      # exception words the parser does not model: used only to compare the number of the excepted nouns and articles
+
+
+def _except_at(n):
+    """(index, length, modelled) of the first exception phrase in the token tuple `n`, or None. 'menos' is Spanish 'salvo' only when it is not 'al menos / lo menos / pelo menos / menos de / menos que' (the parser makes the same distinction);
+    'save' and 'sin' only count in a non-initial position."""
+    for i in range(len(n)):
+        for mod, words in ((True, L.EXCEPT_WORDS), (False, EXTRA_EXCEPT)):
+            for ph in words:
+                if tuple(n[i:i + len(ph)]) == ph:
+                    if ph == ("menos",) and ((i > 0 and n[i - 1] in ("al", "lo", "o", "ao", "pelo", "mas", "mais", "por", "como", "no")) or (i + 1 < len(n) and n[i + 1] in ("de", "que", "del"))): continue
+                    if ph in (("save",), ("sin",)) and i == 0: continue
+                    return i, len(ph), mod
+    return None
+
+
+def _except_articles(o):
+    """Grammatical number of EVERY article that follows the exception word, in order ('exceto os de teste' = plural, 'exceto o de teste' = singular): all of them, not only the first."""
+    e = _except_at(o.norm)
+    if e is None: return ()
+    return tuple(ARTICLE_NUMBER[f] for f in o.norm[e[0] + e[1]:] if f in ARTICLE_NUMBER)
+
+
 def dropped_features(o) -> Counter:
     """Ledger of features the parser folds away when it lemmatises: indefinite articles, past/future markers, plural inflection of content words.
     EQUIVALENT is allowed only if the two ledgers are equal (a count that differs means a feature exists on one side only)."""
     items = {v for s in o.steps for t, v in s.items if t in ("TOK", "NAME")}
+    exc_words = {w for s in o.steps for a in s.atoms if a.type in ("EXCEPT", "WITHOUT") for w in _atom_words(a.value)}
+    items |= exc_words                                                                                         # the excepted / excluded words live in the atom, not in the items: 'exceto o teste' vs 'exceto os testes'
     c = Counter()
-    for f in o.norm:
+    e_ = _except_at(o.norm)
+    exc_start = e_[0] + e_[1] - 1 if e_ else None        # last token of the exception phrase: the region starts after the whole phrase
+    exc_modelled = bool(e_ and e_[2])                    # the parser built an EXCEPT atom: only its words are the excepted set; otherwise every noun after the phrase is
+    exc_k = 0
+    for i, f in enumerate(o.norm):
+        if exc_start is not None and i > exc_start and (norm_token(f, o.lang) in (exc_words if exc_modelled else items)) and f not in INDEFINITE_ARTICLES[o.lang] | PAST_MARKERS | FUTURE_MARKERS:
+            exc_k += 1                                   # the excepted set: its nouns are compared one by one and in order, never pooled with the main noun
+            c[f"except{exc_k}:{'pl' if is_plural_form(f, o.lang) else 'sg'}"] += 1
+            continue
         if f in INDEFINITE_ARTICLES[o.lang]: c["indefinite"] += 1
         elif f in PAST_MARKERS: c["past"] += 1
         elif f in FUTURE_MARKERS: c["future"] += 1
@@ -369,7 +414,7 @@ def _step_cmp_inner(x, y, acc, k, a_act, b_act):
 
 def compare(A, B) -> Verdict:
     acc = _Acc()
-    if A.norm == B.norm and A.norm:
+    if A.norm == B.norm and A.norm and A.neg_punct == B.neg_punct and A.neg_clause == B.neg_clause:
         return Verdict("EQUIVALENT", warnings=["identical message: any ambiguity is shared, not resolved"])
     sa, sb = A.steps, B.steps
     for obj in (A, B):
@@ -408,6 +453,12 @@ def compare(A, B) -> Verdict:
         for code, detail in o.flags:
             if code.startswith("UNREPRESENTABLE") or code.startswith("AMBIGUOUS") or code == "SANITIZER":
                 acc.un(f"{who}: {code} ({detail})")
+    if _except_articles(A) != _except_articles(B):
+        acc.un("the articles after the exception word differ in number ('exceto os de teste' / 'exceto o de teste'): the excepted set may differ")
+    if A.neg_punct != B.neg_punct:
+        acc.un("punctuation or a dash right after a negation word differs between the texts ('No, fewer than five' is an answer, 'No fewer than five' is a bound)")
+    if (A.has_break or B.has_break) and A.neg_clause != B.neg_clause:
+        acc.un("a negation word sits in a different clause (after ':', ';', 'but', 'while', 'so', 'or' ...) in each text: its scope may cover a different clause")
     td = [d for d in acc.diffs if d.path.startswith("step[") and d.path.endswith(".time")]
     moved = [d for d in td for e in td if d is not e and d.path != e.path and d.original == e.new and d.new == e.original and (not d.original or not d.new)]
     if moved:                                                    # the same time modifier hangs on step i in one text and on step j in the other

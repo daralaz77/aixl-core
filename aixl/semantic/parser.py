@@ -279,9 +279,60 @@ def _tag_end(toks, i):
     return None
 
 
+HARD_BREAK_PUNCT = {":", ";"}
+HARD_BREAK_WORDS = {"but", "however", "although", "whereas", "while", "so", "yet", "or", "thus", "therefore", "and", "pero", "sino", "aunque", "mientras", "mas", "porem", "embora", "contudo", "todavia", "enquanto", "ou", "portanto", "y", "e",
+                    "otherwise", "because", "hence", "instead", "moreover", "pues", "porque", "pois", "senao", "alem", "entanto", "ademas", "ademais", "contrario", "asi"}
+ANSWER_NEG = L.NEG_TOKENS | {"nope", "none", "negative", "nenhum", "nenhuma", "ninguem", "ninguno", "ninguna", "ningun", "nah", "nay", "nein", "non", "jamais", "tampoco", "hardly", "nowhere", "cannot", "nobody", "nadie"}      # words that can be a bare answer: punctuation after them is meaning
+ANSWER_PHRASES = ["no one", "no way", "not really", "not at all", "by no means", "not yet", "no longer", "not any longer", "de ninguna manera", "en absoluto", "para nada", "ni hablar", "em hipotese alguma", "nunca mais", "no-one"]
+PROHIBITION_WORDS = {"prohibido", "prohibida", "prohibe", "prohibidos", "proibido", "proibida", "proibe", "vedado", "vedada", "forbidden", "prohibited", "cannot"}      # a prohibition is a negation for the clause layout
+AUX_BEFORE_NOT = {"do", "does", "did"}
+_ANS_ALT = sorted(map(re.escape, ANSWER_PHRASES), key=len, reverse=True) + sorted(map(re.escape, ANSWER_NEG), key=len, reverse=True)
+_ANS_RX = re.compile(r"(?<![^\W_]|['\u2019])(?:" + "|".join(_ANS_ALT) + r"|\w*n['\u2019]t)(?![^\W_])")
+_WORD_RX = re.compile(r"[\w']+")
+_QTY_WORDS = {"fewer", "less", "more", "least", "most", "than", "menos", "mas", "mais", "maximo", "minimo", "least"}
+
+
+def _fold(s: str) -> str:
+    return "".join(c for c in unicodedata.normalize("NFD", s.lower()) if unicodedata.category(c) != "Mn")
+
+
+def _negation_layout(toks, clean):
+    """(clause index of every negation word, (ordinal, mark) for every negation / answer word followed by a mark, has a hard break).
+    The parser gives a whole step ONE polarity wherever 'never' stands and drops punctuation, dashes and symbols from the token identity; compare() uses this to refuse pairs such as
+    'Never save, but delete' / 'Save, but never delete', 'Never email the client and notify the manager' / 'Email the client and never notify the manager' and 'Keep logs? No, fewer than five' / 'No fewer than five'.
+    A mark is the first non-alphanumeric character after the word (skipping closing quotes / brackets / asterisks) or a line break."""
+    fs = [t.f for t in toks]
+    clause, nc, breaks = 0, [], False
+    for i, f in enumerate(fs):
+        if f in HARD_BREAK_PUNCT or (f in HARD_BREAK_WORDS and not (f == "mas" and fs[i + 1:i + 2] and fs[i + 1] in ("de", "que", "del"))):
+            clause += 1; breaks = True; continue
+        if f in L.NEG_TOKENS or f in PROHIBITION_WORDS:
+            nc.append(clause)
+    folded = _fold(clean)
+    marks = []
+    for k, m in enumerate(_ANS_RX.finditer(folded)):
+        rest = folded[m.end():].lstrip("\"'*_])\u201d\u2019`>").lstrip(" \t")          # closing quotes / brackets / emphasis marks belong to the answer word, not to the mark
+        if not rest or not (rest[0] == "\n" or not (rest[0].isalnum() or rest[0].isspace())): continue
+        mark, w = rest[0], m.group(0)
+        mm = type("M", (), {"end": lambda self, _e=len(folded) - len(rest) + 1: _e})()
+        if mark == ",":
+            tail = folded[mm.end():]
+            nxt = _WORD_RX.search(tail)
+            aux = w.endswith("n't") and w[:-3] in ("do", "does", "did") or (w == "not" and (_WORD_RX.findall(folded[:m.start()]) or [""])[-1] in AUX_BEFORE_NOT)
+            if nxt and not L.verb_action(nxt.group(0)):
+                if aux: continue                                               # 'Do not, however, delete' is parenthetical; 'Don\'t, delete the file' (a verb follows) is an answer
+                c2 = tail.find(",")
+                inter = _WORD_RX.findall(tail[:c2]) if 0 <= c2 <= 40 else None
+                if inter and len(inter) <= 5 and not any(x.isdigit() or x in _QTY_WORDS or L.verb_action(x) for x in inter): continue      # 'Never, under any circumstances, delete': an interjection closed by a second comma
+        if not re.search(r"\w", folded[mm.end():]): continue          # a closing mark at the very end ('No.' / 'No!' / 'No?') changes nothing
+        marks.append((k, "mark"))                                          # that there IS a mark is meaning ('No, fewer than five' / 'No fewer than five'); which mark it is ('No: x' / 'No, x') is not
+    return tuple(nc), tuple(marks), breaks
+
+
 def parse(text: str, today=None) -> SemanticObject:
     clean, findings = sanitize_input(text)
     toks = tokenize(clean)
+    _toks0 = list(toks)
     norm = tuple(t.f for k, t in enumerate(toks) if t.f not in PUNCT or (t.f == "," and k + 1 < len(toks) and toks[k + 1].f in L.REL_PRON))      # a comma before who/que is meaning, so it stays in the identity check
     toks = _rotate_front_adjunct(_canon_deadlines(toks))     # after `norm`: the strict-mode identity check still sees the words as written
     toks, has_tag = _strip_tag_question(toks)
@@ -328,7 +379,7 @@ def parse(text: str, today=None) -> SemanticObject:
         s.atoms = [Atom(a.type, a.value, a.span, a.provenance, k, a.confidence, a.candidates) for a in s.atoms]
     if not steps:
         flags.append(("UNREPRESENTABLE_EMPTY", "no content"))
-    return SemanticObject(text, lang, steps, flags, norm)
+    return SemanticObject(text, lang, steps, flags, norm, *_negation_layout(_toks0, clean))
 
 
 # ------------------------------------------------------------------------------------------------------------------ conditions
