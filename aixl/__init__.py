@@ -24,4 +24,4 @@ from aixl.api.service import (  # noqa: F401
                               validate,
 )
 
-__version__ = "0.8.0"
+__version__ = "0.8.1"

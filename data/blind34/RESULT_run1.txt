@@ -1,0 +1,209 @@
+SET 954 pairs: 480 EQ-labelled, 474 NE-labelled; languages {'en': 319, 'es': 318, 'pt': 317}; authors {'Qwen2.5-32B-Instruct-bnb-4bit': 480, 'Mistral-Small-24B-Instruct-2501-bnb-4bit': 474}
+
+== ALL: 480 EQ / 474 NE
+  comparator v071   false accepts  42/474   proven  10/480
+  comparator p0005  false accepts  40/474   proven  10/480
+  comparator v080   false accepts  29/474   proven  10/480
+
+== language en: 160 EQ / 159 NE
+  comparator v071   false accepts  21/159   proven   7/160
+  comparator p0005  false accepts  20/159   proven   7/160
+  comparator v080   false accepts  16/159   proven   7/160
+
+== language es: 160 EQ / 158 NE
+  comparator v071   false accepts   5/158   proven   0/160
+  comparator p0005  false accepts   4/158   proven   0/160
+  comparator v080   false accepts   2/158   proven   0/160
+
+== language pt: 160 EQ / 157 NE
+  comparator v071   false accepts  16/157   proven   3/160
+  comparator p0005  false accepts  16/157   proven   3/160
+  comparator v080   false accepts  11/157   proven   3/160
+
+== family bound_number: 60 EQ / 60 NE
+  comparator v071   false accepts   0/60   proven   0/60
+  comparator p0005  false accepts   0/60   proven   0/60
+  comparator v080   false accepts   0/60   proven   0/60
+
+== family condition_scope: 60 EQ / 60 NE
+  comparator v071   false accepts   7/60   proven   7/60
+  comparator p0005  false accepts   7/60   proven   7/60
+  comparator v080   false accepts   7/60   proven   7/60
+
+== family excepted_set: 60 EQ / 59 NE
+  comparator v071   false accepts  11/59   proven   2/60
+  comparator p0005  false accepts  10/59   proven   2/60
+  comparator v080   false accepts  10/59   proven   2/60
+
+== family modal_binding: 60 EQ / 60 NE
+  comparator v071   false accepts  14/60   proven   0/60
+  comparator p0005  false accepts  14/60   proven   0/60
+  comparator v080   false accepts   5/60   proven   0/60
+
+== family negation_scope: 60 EQ / 56 NE
+  comparator v071   false accepts   2/56   proven   1/60
+  comparator p0005  false accepts   2/56   proven   1/60
+  comparator v080   false accepts   2/56   proven   1/60
+
+== family roles_voice: 60 EQ / 60 NE
+  comparator v071   false accepts   4/60   proven   0/60
+  comparator p0005  false accepts   4/60   proven   0/60
+  comparator v080   false accepts   4/60   proven   0/60
+
+== family short_answer: 60 EQ / 59 NE
+  comparator v071   false accepts   2/59   proven   0/60
+  comparator p0005  false accepts   1/59   proven   0/60
+  comparator v080   false accepts   1/59   proven   0/60
+
+== family time_binding: 60 EQ / 60 NE
+  comparator v071   false accepts   2/60   proven   0/60
+  comparator p0005  false accepts   2/60   proven   0/60
+  comparator v080   false accepts   0/60   proven   0/60
+
+[R-safety]     V080 false accepts not already in P0005/V071: 0 [] -> HOLDS
+[R-no-regress] V080 29 <= P0005 40 -> HOLDS
+
+== judges (SAME on EQ-labelled / false SAME on NE-labelled / agreement with the author label)
+  sonnet    SAME 416/480  false SAME 138/474  agrees 752/954  invalid 0
+  haiku     SAME 413/480  false SAME 137/474  agrees 750/954  invalid 0
+  gemma27   SAME 441/480  false SAME 202/474  agrees 713/954  invalid 0
+
+== hybrid with the Claude pair as judges (V080 comparator)
+  veto=all       SAME on EQ 358/480   false SAME on NE 101/474   REVIEW on EQ 46
+  veto=definite  SAME on EQ 390/480   false SAME on NE 125/474   REVIEW on EQ 14
+
+== shared blind spots: false SAME of the Claude pair, and what the open judges say
+  N0020 en excepted_set | All payments will be processed except those past the due date. || All payments will be processed unless they are past the due date. | open judges: gemma27=SAME | author: 
+  N0022 en excepted_set | Apart from the monthly fees, additional charges apply. || Apart from monthly fees, additional charges apply. | open judges: gemma27=SAME | author: singular vs plural 'monthly fees'
+  N0023 en excepted_set | This invoice includes all services except the maintenance contract. || This invoice includes all services other than the maintenance contract. | open judges: gemma27=SAME | author: 
+  N0024 en excepted_set | The discount applies to all transactions except those made online. || The discount applies to all transactions, except those made online. | open judges: gemma27=SAME | author: 
+  N0025 en excepted_set | All boxes except the blue ones should be moved to the loading dock. || All boxes other than the blue ones should be moved to the loading dock. | open judges: gemma27=SAME | author: 
+  N0026 en excepted_set | Pack all items except small widgets into crates. || Pack all items other than small widget into crates. | open judges: gemma27=SAME | author: Singular versus plural 'widget'.
+  N0027 en excepted_set | Place the pallets on the left side unless they are marked red. || Place the pallets on the left side other than those marked red. | open judges: gemma27=SAME | author: Use of 'unless' versus 'other than'.
+  N0028 en excepted_set | Inspect all shipments except for the ones arriving after midnight. || Inspect all shipments other than those arriving after midnight. | open judges: gemma27=SAME | author: 
+  N0029 en excepted_set | Move these containers apart from those labeled fragile. || Move these containers except those labeled fragile. | open judges: gemma27=DIFFERENT | author: Use of 'apart from' versus 'except'.
+  N0040 en short_answer | No, do not sign any contract until all clauses are reviewed by a lawyer. || No, do not sign any contract unless all clauses are reviewed by a lawyer. | open judges: gemma27=SAME | author: The condition for signing differs.
+  N0120 en roles_voice | The company will send the invoice to the customer next week. || The customer will receive the invoice from the company next week. | open judges: gemma27=SAME | author: Active vs passive voice
+  N0125 en roles_voice | The chef adds salt to the soup. || Salt is added to the soup by the chef. | open judges: gemma27=SAME | author: Sentence structure (active vs. passive)
+  N0126 en roles_voice | She finely chops the garlic before adding it. || She adds the garlic after finely chopping it. | open judges: gemma27=SAME | author: Order of actions
+  N0127 en roles_voice | Peel the potatoes and boil them for ten minutes. || Boil the peeled potatoes for ten minutes. | open judges: gemma27=SAME | author: Explicit mention of peeling action
+  N0128 en roles_voice | Mix the ingredients together thoroughly. || Thoroughly mix the ingredients together. | open judges: gemma27=SAME | author: Adverb placement
+  N0129 en roles_voice | Stir the batter until it becomes smooth. || Stir the batter until it is smooth. | open judges: gemma27=SAME | author: Verb form (becomes/is)
+  N0142 en condition_scope | Backup the database when the disk space is less than 1GB. || Backup the database when the remaining disk space is less than 1GB. | open judges: gemma27=SAME | author: Clarification of 'disk space'
+  N0143 en condition_scope | Activate the firewall if external threats are detected. || Activate the firewall if any external threat is detected. | open judges: gemma27=SAME | author: Singular vs plural emphasis on threats
+  N0144 en condition_scope | Perform a check-up every day when the server starts up. || Perform a check-up every day when the server is started up. | open judges: gemma27=SAME | author: Active vs passive voice
+  N0149 en condition_scope | The policy applies to employees when they handle customer data. || The policy applies to employees if they handle customer data. | open judges: gemma27=SAME | author: The certainty of the condition under which the policy applies.
+  N0165 es negation_scope | No se permitirá ninguna actividad ilegal, y no se realizará ninguna acción que viole los acuerdos de privacidad. || No se permitirá ninguna actividad ilegal, pero no se realizará ninguna acción que viole los acuerdos de privacidad. | open judges: gemma27=SAME | author: change from 'and' to 'but'
+  N0166 es negation_scope | No está permitido realizar operaciones financieras sin el consentimiento de la contraparte, ni se puede compartir información personal. || No está permitido realizar operaciones financieras sin el consentimiento de la contraparte, pero no se puede compartir información personal. | open judges: gemma27=DIFFERENT | author: change from 'ni' to 'pero'
+  N0167 es negation_scope | Se prohíbe firmar contratos que no cumplan con las normativas locales, y no se permitirán acuerdos que no estén en conformidad con las leyes internacionales. || Se prohíbe firmar contratos que no cumplan con las normativas locales, pero no se permitirán acuerdos que no estén en conformidad con las leyes internacionales. | open judges: gemma27=DIFFERENT | author: change from 'y' to 'pero'
+  N0168 es negation_scope | No se debe utilizar información confidencial para beneficio personal, y ningún documento confidencial debe ser divulgado públicamente. || No se debe utilizar información confidencial para beneficio personal, pero ningún documento confidencial debe ser divulgado públicamente. | open judges: gemma27=SAME | author: change from 'y' to 'pero'
+  N0169 es negation_scope | Es obligatorio cumplir con todas las regulaciones ambientales, y no se permitirá la emisión de contaminantes superiores al límite legal. || Es obligatorio cumplir con todas las regulaciones ambientales, pero no se permitirá la emisión de contaminantes superiores al límite legal. | open judges: gemma27=SAME | author: change from 'y' to 'pero'
+  N0180 es excepted_set | No se permite el uso de cámaras, excepto para las demostraciones de productos. || No se permite el uso de cámaras, excepto durante las demostraciones de productos. | open judges: gemma27=SAME | author: Timing of camera use
+  N0182 es excepted_set | Se permiten descuentos en mercancía vencida, con excepción de los productos lácteos. || Se permiten descuentos en mercancía vencida, con excepción de los productos lácteo. | open judges: gemma27=SAME | author: Grammatical agreement of 'lacteo'
+  N0184 es excepted_set | El uniforme es obligatorio, salvo el gerente y el encargado. || El uniforme es obligatorio, salvo para el gerente y el encargado. | open judges: gemma27=SAME | author: Preposition indicating exemption
+  N0185 es excepted_set | Excepto el servidor principal, debes reiniciar todos los servidores en la red. || A excepción del servidor principal, debes reiniciar todos los servidores de la red. | open judges: gemma27=SAME | author: 
+  N0186 es excepted_set | Debes realizar un backup diario, excepto los fines de semana. || Debes realizar un backup diario, a menos que sean los fines de semana. | open judges: gemma27=SAME | author: Conditional structure changes the exclusivity.
+  N0187 es excepted_set | Todas las aplicaciones deben ser actualizadas, excepto Word y Excel. || Todas las aplicaciones deben ser actualizadas, salvo Word y Excel. | open judges: gemma27=SAME | author: 
+  N0188 es excepted_set | Todos los archivos anteriores al año 2000 deberán eliminarse, excepto aquellos relacionados con la auditoría interna. || Todos los archivos anteriores al año 2000 deberán eliminarse, salvo aquellos relacionados con la auditoría interna. | open judges: gemma27=SAME | author: 
+  N0189 es excepted_set | Las actualizaciones serán instaladas en todas las computadoras, salvo en las de la planta de producción. || Las actualizaciones serán instaladas en todas las computadoras, excepto en la planta de producción. | open judges: gemma27=SAME | author: Specificity of exclusion.
+  N0282 es roles_voice | Las autoridades deben inspeccionar el establecimiento. || El establecimiento debe ser inspeccionado por las autoridades. | open judges: gemma27=SAME | author: Active vs passive voice
+  N0283 es roles_voice | Los empleados deben recibir capacitación anualmente. || Los empleados deben recibir formación anualmente. | open judges: gemma27=SAME | author: Training vs formation (different terms but similar concept)
+  N0284 es roles_voice | El contrato se firmará por escrito por ambas partes. || Ambas partes deben firmar el contrato por escrito. | open judges: gemma27=SAME | author: Order and emphasis in verb action
+  N0285 es roles_voice | El personal debe revisar los productos antes de colocarlos en las estanterías. || Los productos deben ser revisados por el personal antes de ser colocados en las estanterías. | open judges: gemma27=SAME | author: Active vs. passive voice
+  N0287 es roles_voice | Todos los empleados deben usar uniforme durante su turno. || Todos los empleados deben usar el uniforme durante su turno. | open judges: gemma27=SAME | author: Indefinite vs. definite article
+  N0289 es roles_voice | Ningún artículo puede ser devuelto después de las dos semanas desde la compra. || Ningún artículo se podrá devolver después de las dos semanas desde la compra. | open judges: gemma27=SAME | author: Active vs. passive voice
+  N0303 es condition_scope | Se permite la entrada a menores de edad siempre y cuando estén acompañados por un adulto. || Se permite la entrada a menores de edad solo si están acompañados por un adulto. | open judges: gemma27=SAME | author: Uso de 'siempre y cuando' vs 'solo si'.
+  N0322 pt negation_scope | O paciente não pode ser transferido para outro quarto sem a permissão do chefe da enfermaria, exceto em casos de emergência. || O paciente não pode ser transferido para outro quarto sem a permissão do chefe da enfermaria, mas em casos de emergência a transferência pode ocorrer. | open judges: gemma27=SAME | author: condição de transferência em emergências
+  N0324 pt negation_scope | Não se deve usar o telefone da unidade para chamadas pessoais, exceto em caso de emergência. || Não se deve usar o telefone da unidade para chamadas pessoais, mas chamadas de emergência são permitidas. | open judges: gemma27=SAME | author: permitir chamadas de emergência
+  N0340 pt excepted_set | Exceto para problemas com cartão, entre em contato com nosso suporte. || A parte de problemas com cartões, entre em contato com nosso suporte. | open judges: gemma27=DIFFERENT | author: Singular vs Plural
+  N0341 pt excepted_set | Não devolveremos o dinheiro se você já usou o produto. || Não devolveremos o dinheiro se você tiver usado os produtos. | open judges: gemma27=DIFFERENT | author: Singular vs Plural
+  N0342 pt excepted_set | Você não receberá reembolso, exceto por produtos danificados. || Você não receberá reembolso, a menos que os produtos estejam danificados. | open judges: gemma27=SAME | author: Different exceptions
+  N0343 pt excepted_set | Todos os pedidos são livres de taxas, salvo alguns casos específicos. || Todos os pedidos são livres de taxas, a não ser que se trate de alguns casos específicos. | open judges: gemma27=SAME | author: Different exceptions
+  N0344 pt excepted_set | Não podemos processar sua solicitação a não ser que tenha feito o pagamento. || Não podemos processar sua solicitação a menos que você tenha feito o pagamento. | open judges: gemma27=SAME | author: Different exceptions
+  N0345 pt excepted_set | Use o capacete em todas as áreas da fábrica, exceto no escritório. || Use o capacete em todas as áreas da fábrica, a menos que esteja no escritório. | open judges: gemma27=SAME | author: O uso do escritório como exceção.
+  N0346 pt excepted_set | Nenhum trabalhador pode operar a máquina sem treinamento adequado, exceto João. || Nenhum trabalhador pode operar a máquina sem treinamento adequado, a não ser João. | open judges: gemma27=SAME | author: A frase 'a não ser' é usada em vez de 'exceto'.
+  N0347 pt excepted_set | Todas as máscaras devem ser descartadas, com exceção das verdes. || Todas as máscaras devem ser descartadas, com exceção de máscaras verdes. | open judges: gemma27=SAME | author: A especificação 'das verdes' vs 'de máscaras verdes'.
+  N0348 pt excepted_set | Todos os funcionários devem usar botas de proteção, exceto aqueles que trabalham na administração. || Todos os funcionários devem usar botas de proteção, a não ser que trabalhem na administração. | open judges: gemma27=SAME | author: Usando 'a não ser que' em vez de 'exceto'.
+  N0349 pt excepted_set | Evite usar óculos escuros, a menos que a luz seja intensa demais. || Evite usar óculos escuros, exceto quando a luz seja intensa demais. | open judges: gemma27=SAME | author: Alteração entre 'a menos que' e 'exceto quando'.
+  N0440 pt roles_voice | Os funcionários devem verificar os produtos antes de serem colocados nas prateleiras. || Os produtos devem ser verificados pelos funcionários antes de serem colocados nas prateleiras. | open judges: gemma27=SAME | author: Ativo vs passivo
+  N0442 pt roles_voice | As mercadorias devem ser descarregadas pelos trabalhadores do depósito. || Os trabalhadores do depósito devem descarregar as mercadorias. | open judges: gemma27=SAME | author: Ativo vs passivo
+  N0443 pt roles_voice | Cada cliente deve ser acompanhado por um assistente de vendas. || Um assistente de vendas deve acompanhar cada cliente. | open judges: gemma27=SAME | author: Sujeito do comando
+  N0444 pt roles_voice | Os estoques devem ser contabilizados pelos fiscais mensalmente. || Os fiscais devem contar os estoques mensalmente. | open judges: gemma27=SAME | author: Ativo vs passivo
+  N0445 pt roles_voice | Misture o açúcar com as gemas. || As gemas devem ser misturadas com o açúcar. | open judges: gemma27=SAME | author: Active vs. Passive voice.
+  N0447 pt roles_voice | Coloque o queijo ralado sobre a lasanha. || A lasanha deve ser coberta com o queijo ralado. | open judges: gemma27=SAME | author: Active vs. Passive voice.
+  N0448 pt roles_voice | Peneire a farinha sobre a massa. || Sobre a massa, peneire a farinha. | open judges: gemma27=SAME | author: Sentence structure.
+  N0460 pt condition_scope | A empresa só pode processar dados pessoais quando houver consentimento do titular. || A empresa só pode processar dados pessoais se houver consentimento do titular. | open judges: gemma27=SAME | author: use of 'when' vs 'if'
+  N0462 pt condition_scope | A licença para exportação só é concedida quando se cumpre com todos os requisitos da lei. || A licença para exportação só é concedida se se cumpre com todos os requisitos da lei. | open judges: gemma27=SAME | author: use of 'when' vs 'if'
+  N0464 pt condition_scope | Os empregados podem receber bônus caso atinjam as metas estabelecidas pelo conselho. || Os empregados podem receber bônus se atingirem as metas estabelecidas pelo conselho. | open judges: gemma27=SAME | author: probability of achieving goals
+  N0485 en negation_scope | Pay the invoice by 29th October, but do not pay it earlier. || Pay the invoice by 29th October and do not pay it earlier. | open judges: gemma27=SAME | author: The difference is between 'but' and 'and', the latter means you must wait and pay only on or before 29th October.
+  N0488 en negation_scope | Do not pay the invoice if it contains an error. || Do not pay the invoice, if it contains an error. | open judges: gemma27=SAME | author: The comma after 'invoice' changes the meaning to the entire statement.
+  N0489 en negation_scope | You must pay the invoice: ignore any reminders before the due date. || You must pay the invoice, ignore any reminders before the due date. | open judges: gemma27=SAME | author: The colon or comma changes the coverage to the whole sentence.
+  N0501 en excepted_set | Each new hire will receive a laptop, unless they have already obtained one. || Each new hire will receive a laptop, except they have already obtained one. | open judges: gemma27=SAME | author: The use of 'unless' versus 'except'.
+  N0502 en excepted_set | All team members, apart from John, need to submit their timesheets by Friday. || All team members, apart from the John, need to submit their timesheets by Friday. | open judges: gemma27=SAME | author: The second instruction refers to a single specific person with 'the'.
+  N0503 en excepted_set | The orientation session will be held for all new employees, except the ones who have already attended a previous session. || The orientation session will be held for all new employees, unless the ones who have already attended a previous session. | open judges: gemma27=SAME | author: The second instruction implies that a different session might apply to those who have already attended.
+  N0505 en excepted_set | All items in the store are on sale, except the electronics section. || All items in the store are on sale, except for the electronics section. | open judges: gemma27=SAME | author: The phrasing 'except for' versus 'except'
+  N0506 en excepted_set | All sales are final unless there is a defect in the product. || All sales are final unless there are defects in the product. | open judges: gemma27=SAME | author: The use of singular ('a defect') versus plural ('defects')
+  N0507 en excepted_set | All items on the clearance rack are 50% off, apart from the clothing section. || All items on the clearance rack are 50% off, other than the clothing section. | open judges: gemma27=SAME | author: The phrasing 'apart from' versus 'other than'
+  N0508 en excepted_set | All items are returnable within 30 days except for electronics. || All items are returnable within 30 days except electronics. | open judges: gemma27=SAME | author: The word 'for' is missing in the second text
+  N0528 en short_answer | Submit the form before 5 PM, if you don't have the form? || Submit the form before 5 PM. If you don't have the form? | open judges: gemma27=SAME | author: 
+  N0599 en roles_voice | The nurse will administer medication to the patient. || The medication will be administered to the patient by the nurse. | open judges: gemma27=SAME | author: 
+  N0600 en roles_voice | The doctor will prescribe antibiotics for the patient. || Antibiotics will be prescribed for the patient by the doctor. | open judges: gemma27=SAME | author: 
+  N0601 en roles_voice | The hospital administrator will schedule the surgery for tomorrow. || The surgery will be scheduled for tomorrow by the hospital administrator. | open judges: gemma27=SAME | author: 
+  N0602 en roles_voice | The lab technician will perform tests on the patient's blood sample. || The tests will be performed on the patient's blood sample by the lab technician. | open judges: gemma27=SAME | author: 
+  N0603 en roles_voice | The physical therapist will assist the patient with exercises. || The patient will be assisted with exercises by the physical therapist. | open judges: gemma27=SAME | author: This pair has a different subject (The patient) versus the original pair.
+  N0607 en roles_voice | All workers should wear safety gloves when handling hazardous materials. || All workers should wear safety gloves when handling hazardous material. | open judges: gemma27=SAME | author: B indicates a singular object.
+  N0627 en condition_scope | Move the goods to the loading dock if the truck is available. || Move the goods to the loading dock when the truck is available. | open judges: gemma27=SAME | author: The urgency implied by the condition.
+  N0658 es excepted_set | Todos los empleados deberán completar el formulario de onboarding, excepto los contratados por la agencia de empleo. || Todos los empleados deberán completar el formulario de onboarding, a menos que sean contratados por la agencia de empleo. | open judges: gemma27=SAME | author: a uses 'excepto' and 'los contratados' (plural) while b uses 'a menos que sean' (singular)
+  N0659 es excepted_set | La orientación de bienvenida es obligatoria para todos los nuevos empleados, aparte de aquellos que ya trabajan en la empresa. || La orientación de bienvenida es obligatoria para todos los nuevos empleados, excepto de aquellos que ya trabajan en la empresa. | open judges: gemma27=SAME | author: a uses 'apartado' while b uses 'excepto'
+  N0661 es excepted_set | Todos los nuevos empleados deben firmar el contrato, aparte del gerente de la oficina. || Todos los nuevos empleados deben firmar el contrato, a menos que sea el gerente de la oficina. | open judges: gemma27=SAME | author: a uses 'apartado' while b uses 'a menos que sea' (singular)
+  N0662 es excepted_set | Los empleados deben seguir el proceso de onboarding, a menos que ya trabajen en la empresa. || Los empleados deben seguir el proceso de onboarding, excepto aquellos que ya trabajan en la empresa. | open judges: gemma27=SAME | author: a uses 'a menos que' while b uses 'excepto'
+  N0663 es excepted_set | Todos los empleados recibirán una formación sobre el nuevo sistema, excepto los gerentes que ya están familiarizados. || Todos los empleados recibirán una formación sobre el nuevo sistema, aparte de los gerentes que ya están familiarizados. | open judges: gemma27=SAME | author: The meaning of the word in front of 'los gerentes' changes the scope of the instruction (excluding gerentes vs gerentes being apart from the rest).
+  N0664 es excepted_set | Todos los productos están disponibles para la venta, aparte del modelo que está en oferta. || Todos los productos están disponibles para la venta, excepto del modelo que está en oferta. | open judges: gemma27=SAME | author: The presence of the word 'del' changes the meaning of the exception from an item being apart to an item being excluded.
+  N0665 es excepted_set | Los beneficios aplican a todos los empleados, menos a los contratados temporalmente. || Los beneficios aplican a todos los empleados, menos a los contratados temporal. | open judges: gemma27=DIFFERENT | author: The plural versus singular usage of temporal changes the meaning of the exception.
+  N0666 es excepted_set | Todos los clientes recibirán un descuento, a excepción de aquellos que ya tienen una membresía de oro. || Todos los clientes recibirán un descuento, a excepción de los que ya tienen una membresía de oro. | open judges: gemma27=SAME | author: The word 'aquellos' is different but doesn't change meaning
+  N0667 es excepted_set | Se aplicará la promoción a todos los artículos, exceptuando los que están en liquidación. || Se aplicará la promoción a todos los artículos, exceptuando a los que están en liquidación. | open judges: gemma27=SAME | author: The word 'a' is different but doesn't change meaning.
+  N0680 es short_answer | No llame al departamento de recursos humanos. || Don't call the human resources department. | open judges: gemma27=SAME | author: 
+  N0682 es short_answer | ¿Puedo añadir la sal ahora? No, espera a que hierva la agua. || ¿Puedo añadir la sal ahora? No, espere a que hierva la agua. | open judges: gemma27=SAME | author: 
+  N0757 es roles_voice | El director llama a la reunión de padres y profesores. || La reunión de padres y profesores es llamada por el director. | open judges: gemma27=SAME | author: The subjects are switched.
+  N0758 es roles_voice | El coordinador informa a los estudiantes sobre el cambio de horario. || El coordinador informa sobre el cambio de horario a los estudiantes. | open judges: gemma27=SAME | author: The prepositional phrase order.
+  N0759 es roles_voice | Los profesores deben aprobar las solicitudes de becas. || Las solicitudes de becas deben ser aprobadas por los profesores. | open judges: gemma27=SAME | author: The passive form.
+  N0760 es roles_voice | La secretaria registra la asistencia de los alumnos. || La asistencia de los alumnos es registrada por la secretaria. | open judges: gemma27=SAME | author: The subjects are switched.
+  N0761 es roles_voice | El consejo escolar discute las políticas educativas. || Las políticas educativas son discutidas por el consejo escolar. | open judges: gemma27=SAME | author: The passive form.
+  N0762 es roles_voice | La receta de la sopa se cocina en la estufa. || La receta de la sopa es cocinada en la estufa. | open judges: gemma27=SAME | author: Voice: active versus passive.
+  N0764 es roles_voice | El pastel se hornea en el horno. || El pastel es horneado en el horno. | open judges: gemma27=SAME | author: Voice: active versus passive.
+  N0765 es roles_voice | La carne es asada por el chef. || La carne asa el chef. | open judges: gemma27=SAME | author: Object: who is doing the action.
+  N0766 es roles_voice | El arroz se cocina en una olla. || El arroz cocina en una olla. | open judges: gemma27=SAME | author: Voice: active versus passive.
+  N0777 es condition_scope | Los nuevos empleados solo recibirán su equipo informático cuando presenten su documentación completa. || Los nuevos empleados solo recibirán su equipo informático si presentan su documentación completa. | open judges: gemma27=SAME | author: The first is only about the action that must be performed (presentar), the second includes the possibility of the action not being performed.
+  N0778 es condition_scope | El acceso a la oficina se concederá a los empleados solo si han completado el entrenamiento de seguridad. || El acceso a la oficina se concederá a los empleados solo cuando hayan completado el entrenamiento de seguridad. | open judges: gemma27=SAME | author: The first states the possibility of the action not being performed, the second states the action has taken place.
+  N0779 es condition_scope | Los empleados recibirán su tarjeta de identificación si han leído y firmado el manual de políticas. || Los empleados recibirán su tarjeta de identificación a menos que no hayan leído y firmado el manual de políticas. | open judges: gemma27=DIFFERENT | author: The first is about the performance of the action, the second is about the non-performance of the action.
+  N0780 es condition_scope | El entrenamiento de bienvenida se llevará a cabo solo si todos los empleados nuevos asisten a la reunión. || El entrenamiento de bienvenida se llevará a cabo solo cuando todos los empleados nuevos asistan a la reunión. | open judges: gemma27=SAME | author: The first states the possibility of the action not being performed, the second states the action has taken place.
+  N0799 pt negation_scope | O carregamento deve ser verificado, mas os itens não devem ser movidos. || O carregamento deve ser verificado, e os itens não devem ser movidos. | open judges: gemma27=SAME | author: replacement of 'but' with 'and'
+  N0800 pt negation_scope | Transporte a mercadoria para o armazém, mas não para a área de carga. || Transporte a mercadoria para o armazém, e não para a área de carga. | open judges: gemma27=SAME | author: replacement of 'but' with 'and'
+  N0801 pt negation_scope | A equipe deve seguir as instruções, mas não desempacotar os itens. || A equipe deve seguir as instruções, e não desempacotar os itens. | open judges: gemma27=SAME | author: replacement of 'but' with 'and'
+  N0814 pt excepted_set | Carregue todas as caixas, exceto as vermelhas. || Carregue todas as caixas, exceto as caixa vermelha. | open judges: gemma27=SAME | author: Plural versus singular in 'exceptions'
+  N0815 pt excepted_set | Todos os itens devem ser empilhados, exceto os frágeis. || Todos os itens devem ser empilhados, a não ser os frágeis. | open judges: gemma27=SAME | author: Different conjunction used ('exceto' versus 'a não ser')
+  N0816 pt excepted_set | Entregue todos os pacotes, menos o último. || Entregue todos os pacotes, exceto o último. | open judges: gemma27=SAME | author: Different conjunction used ('menos' versus 'exceto')
+  N0817 pt excepted_set | Os itens devem ser movidos, exceto os que estão no setor A. || Os itens devem ser movidos, menos os que estão no setor A. | open judges: gemma27=SAME | author: Different conjunction used ('exceto' versus 'menos')
+  N0818 pt excepted_set | Todo o material deve ser contabilizado, exceto os documentos. || Todo o material deve ser contabilizado, a não ser os documentos. | open judges: gemma27=SAME | author: Different conjunction used ('exceto' versus 'a não ser')
+  N0819 pt excepted_set | Todos os funcionários devem usar equipamentos de proteção individual, exceto os supervisores. || Todos os funcionários devem usar equipamentos de proteção individual, a menos que sejam supervisores. | open judges: gemma27=SAME | author: A primeira frase exclui explicitamente os supervisores, enquanto a segunda permite uma condição que os supervisores possam não usar.
+  N0820 pt excepted_set | Os procedimentos de segurança devem ser seguidos por todos, exceto pelos estagiários. || Os procedimentos de segurança devem ser seguidos por todos, a menos que sejam estagiários. | open judges: gemma27=SAME | author: A primeira frase exclui explicitamente os estagiários, enquanto a segunda permite uma condição que os estagiários possam não seguir.
+  N0822 pt excepted_set | Os funcionários devem seguir as normas de segurança, exceto durante os intervalos. || Os funcionários devem seguir as normas de segurança, a menos durante os intervalos. | open judges: gemma27=SAME | author: A primeira frase exclui explicitamente os intervalos, enquanto a segunda permite uma condição que os intervalos não precisam seguir.
+  N0823 pt excepted_set | Os protocolos de segurança devem ser obedecidos por todos, exceto pelos visitantes. || Os protocolos de segurança devem ser obedecidos por todos, a menos que sejam visitantes. | open judges: gemma27=SAME | author: A primeira frase exclui explicitamente os visitantes, enquanto a segunda permite uma condição que os visitantes possam não obedecer.
+  N0840 pt short_answer | Sim, coloque o ingrediente na panela, agora. || Sim, coloque o ingrediente, agora na panela. | open judges: gemma27=SAME | author: the sequence of the placement of 'ingrediente' and 'na panela'
+  N0842 pt short_answer | Sim, mexa a massa com cuidado, sem parar. || Sim, mexa a massa, sem parar com cuidado. | open judges: gemma27=SAME | author: the sequence of 'sem parar' and 'com cuidado'
+  N0900 pt bound_number | Nós temos menos do que dez agentes disponíveis para atendimento. || Nós temos menos de dez agentes disponíveis para atendimento. | open judges: gemma27=SAME | author: Número exato de agentes disponíveis (menos do que dez = 9 ou menos, menos de dez = 9 ou menos).
+  N0901 pt bound_number | A fila de espera tem mais de 50 clientes. || A fila de espera tem mais de 50 clientes no momento. | open judges: gemma27=DIFFERENT | author: O número de clientes na fila pode ser maior do que 50, ou podem ser 50, ou menos.
+  N0914 pt roles_voice | O gerente de recursos humanos entrevistará o novo funcionário. || O novo funcionário será entrevistado pelo gerente de recursos humanos. | open judges: gemma27=SAME | author: 
+  N0920 pt roles_voice | A diretora enviou o boletim para os pais. || A diretora enviou o boletim aos pais. | open judges: gemma27=SAME | author: A preposição.
+  N0921 pt roles_voice | A professora distribuiu os livros aos alunos. || Os livros foram distribuídos pela professora aos alunos. | open judges: gemma27=SAME | author: Um é ativo, o outro é passivo.
+  N0923 pt roles_voice | A secretária enviou a mensagem aos professores. || A secretária enviou a mensagem para os professores. | open judges: gemma27=SAME | author: A preposição.
+  N0936 pt condition_scope | As portas de emergência devem ser mantidas desbloqueadas quando não estiverem em uso. || As portas de emergência devem ser mantidas desbloqueadas a menos que estejam em uso. | open judges: gemma27=SAME | author: A condição para manter as portas desbloqueadas é diferente.
+  N0937 pt condition_scope | Os funcionários devem seguir o protocolo de emergência se houver um incêndio. || Os funcionários devem seguir o protocolo de emergência caso houver um incêndio. | open judges: gemma27=SAME | author: A condição para seguir o protocolo de emergência é mais específica.
+  N0938 pt condition_scope | A área deve ser desocupada se houver um alerta de terremoto. || A área deve ser desocupada quando houver um alerta de terremoto. | open judges: gemma27=SAME | author: A condição para desocupar a área é diferente.
+  N0939 pt condition_scope | A porta deve ser fechada se o sensor de movimento não detectar ninguém. || A porta deve ser fechada quando o sensor de movimento não detectar ninguém. | open judges: gemma27=SAME | author: O uso da conjunção "se" implica condição necessária, mas "quando" implica condição de tempo.
+  N0942 pt condition_scope | O alarme deve ser desligado quando o sistema de segurança estiver desativado. || O alarme deve ser desligado se o sistema de segurança estiver desativado. | open judges: gemma27=SAME | author: O uso da conjunção "quando" implica ação no tempo, mas "se" implica condição.
+  N0943 pt condition_scope | As máquinas devem ser desligadas se houver risco de curto-circuito. || As máquinas devem ser desligadas quando houver risco de curto-circuito. | open judges: gemma27=SAME | author: O uso da conjunção "se" implica condição necessária, mas "quando" implica condição de tempo.
+  total 130; open judges that ALSO say SAME: gemma27=122
+
+== probable label noise: a majority of all judges contradicts the author label
+  138 of 954 pairs (Counter({'NOT_EQUIVALENT': 122, 'EQUIVALENT': 16})); listed in noisy_ids.json, NOT removed from the tables above

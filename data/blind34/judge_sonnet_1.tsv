@@ -1,0 +1,477 @@
+C0001	DIFFERENT	opposite
+C0002	DIFFERENT	not necessarily
+C0003	SAME	active/passive
+C0004	DIFFERENT	interns vs intern
+C0005	SAME	paraphrase
+C0006	DIFFERENT	complete vs start
+C0007	DIFFERENT	at least vs more than
+C0008	SAME	equivalent condition
+C0009	DIFFERENT	exceptions
+C0010	DIFFERENT	at least vs more than
+C0011	DIFFERENT	Tuesday vs Wednesday
+C0012	DIFFERENT	polarity
+C0013	DIFFERENT	end vs start
+C0014	SAME	same exception
+C0015	DIFFERENT	close vs open
+C0016	SAME	paraphrase
+C0017	SAME	paraphrase
+C0018	SAME	passive
+C0019	SAME	passive
+C0020	DIFFERENT	must vs can
+C0021	SAME	except/apart from
+C0022	SAME	same exception
+C0023	SAME	2PM=14:00
+C0024	SAME	except
+C0025	DIFFERENT	tense have/had
+C0026	SAME	>50 = >=51
+C0027	SAME	equivalent condition
+C0028	DIFFERENT	windows added
+C0029	SAME	same order
+C0030	DIFFERENT	exception differs
+C0031	DIFFERENT	use vs remove
+C0032	SAME	except
+C0033	SAME	paraphrase
+C0034	SAME	except/salvo
+C0035	SAME	translation
+C0036	SAME	paraphrase
+C0037	SAME	passive
+C0038	DIFFERENT	heavy vs light
+C0039	DIFFERENT	less than vs at most
+C0040	DIFFERENT	timing of summary differs
+C0041	DIFFERENT	the vs a salad
+C0042	DIFFERENT	must vs may
+C0043	DIFFERENT	or vs and
+C0044	SAME	paraphrase
+C0045	SAME	paraphrase
+C0046	DIFFERENT	tolerance added
+C0047	SAME	passive
+C0048	DIFFERENT	polarity
+C0049	SAME	passive
+C0050	SAME	paraphrase
+C0051	DIFFERENT	only added
+C0052	SAME	except
+C0053	DIFFERENT	may vs must
+C0054	DIFFERENT	time vs deadline
+C0055	SAME	conjunction only
+C0056	SAME	passive
+C0057	SAME	paraphrase
+C0058	DIFFERENT	form vs it
+C0059	DIFFERENT	permission dropped
+C0060	SAME	paraphrase
+C0061	SAME	except
+C0062	SAME	order
+C0063	SAME	conjunction only
+C0064	SAME	except/unless
+C0065	DIFFERENT	boundary at 90
+C0066	SAME	except manager
+C0067	DIFFERENT	polarity
+C0068	SAME	if/when
+C0069	SAME	except/unless
+C0070	SAME	paraphrase
+C0071	DIFFERENT	order reversed
+C0072	DIFFERENT	should vs must
+C0073	SAME	paraphrase
+C0074	DIFFERENT	opposite
+C0075	DIFFERENT	com vs aos
+C0076	SAME	same date
+C0077	SAME	same time
+C0078	DIFFERENT	exception added
+C0079	SAME	paraphrase
+C0080	SAME	same date
+C0081	SAME	at most 1 cup
+C0082	SAME	passive
+C0083	SAME	passive
+C0084	DIFFERENT	only added
+C0085	DIFFERENT	modality swapped
+C0086	DIFFERENT	at least vs at most
+C0087	DIFFERENT	recipient added
+C0088	SAME	paraphrase
+C0089	SAME	order
+C0090	SAME	plural/singular generic
+C0091	SAME	if/when
+C0092	DIFFERENT	18h30 vs 18h40
+C0093	SAME	paraphrase
+C0094	SAME	same
+C0095	DIFFERENT	may vs must
+C0096	SAME	order
+C0097	SAME	same
+C0098	SAME	paraphrase
+C0099	DIFFERENT	fast vs slow
+C0100	SAME	paraphrase
+C0101	DIFFERENT	while in vs out
+C0102	SAME	same deadline
+C0103	SAME	paraphrase
+C0104	SAME	same
+C0105	SAME	same
+C0106	DIFFERENT	may vs must
+C0107	SAME	same
+C0108	DIFFERENT	fewer than vs at most
+C0109	SAME	same
+C0110	SAME	same
+C0111	SAME	passive
+C0112	SAME	same
+C0113	SAME	same
+C0114	SAME	same
+C0115	SAME	same
+C0116	DIFFERENT	must vs may
+C0117	SAME	same
+C0118	DIFFERENT	deposit instruction dropped
+C0119	DIFFERENT	polarity
+C0120	SAME	same
+C0121	SAME	same
+C0122	SAME	same
+C0123	DIFFERENT	visible added
+C0124	SAME	same
+C0125	DIFFERENT	complete vs update
+C0126	SAME	same
+C0127	SAME	same
+C0128	SAME	passive
+C0129	DIFFERENT	15 vs 16
+C0130	DIFFERENT	polarity
+C0131	DIFFERENT	reversed objects
+C0132	SAME	same
+C0133	SAME	same
+C0134	SAME	same
+C0135	SAME	same
+C0136	SAME	order
+C0137	DIFFERENT	at least vs at most
+C0138	DIFFERENT	at most vs fewer than
+C0139	SAME	passive
+C0140	DIFFERENT	may vs must
+C0141	DIFFERENT	30 min added
+C0142	DIFFERENT	must/should swapped
+C0143	DIFFERENT	doctors vs nurses
+C0144	SAME	same
+C0145	DIFFERENT	fewer than vs at most
+C0146	DIFFERENT	different commitment
+C0147	SAME	passive
+C0148	DIFFERENT	spoon swapped
+C0149	SAME	same
+C0150	SAME	same
+C0151	DIFFERENT	Wed vs Thu
+C0152	SAME	punctuation
+C0153	DIFFERENT	delete vs insert
+C0154	DIFFERENT	daily vs monthly, polarity
+C0155	SAME	same
+C0156	SAME	same
+C0157	SAME	same
+C0158	DIFFERENT	confirm action added
+C0159	SAME	tense only
+C0160	SAME	same
+C0161	DIFFERENT	must vs may
+C0162	DIFFERENT	after vs before
+C0163	DIFFERENT	noon vs 1pm
+C0164	DIFFERENT	10 vs 9
+C0165	SAME	same
+C0166	SAME	same
+C0167	DIFFERENT	must vs may
+C0168	SAME	same
+C0169	SAME	same
+C0170	SAME	same
+C0171	DIFFERENT	only if vs when
+C0172	DIFFERENT	end of day added
+C0173	SAME	same
+C0174	SAME	same
+C0175	DIFFERENT	destroyed vs not
+C0176	DIFFERENT	can vs must
+C0177	SAME	order
+C0178	DIFFERENT	may vs must
+C0179	DIFFERENT	at least vs at most
+C0180	DIFFERENT	Thu vs Fri
+C0181	SAME	same
+C0182	SAME	same
+C0183	SAME	same
+C0184	DIFFERENT	5 PM added
+C0185	SAME	same
+C0186	SAME	same
+C0187	SAME	same
+C0188	SAME	same
+C0189	DIFFERENT	swapped verbs
+C0190	SAME	same
+C0191	SAME	same
+C0192	SAME	typo only
+C0193	DIFFERENT	only vs whenever possible
+C0194	SAME	same
+C0195	SAME	same
+C0196	SAME	same
+C0197	SAME	same
+C0198	DIFFERENT	should vs could
+C0199	DIFFERENT	roles reversed
+C0200	DIFFERENT	before vs until
+C0201	SAME	same
+C0202	SAME	same
+C0203	SAME	same
+C0204	DIFFERENT	condition differs
+C0205	SAME	same
+C0206	DIFFERENT	more vs fewer
+C0207	SAME	same
+C0208	DIFFERENT	condition opposite
+C0209	DIFFERENT	on vs by
+C0210	SAME	same
+C0211	DIFFERENT	AM vs PM
+C0212	SAME	same
+C0213	DIFFERENT	only if added
+C0214	DIFFERENT	at least vs at most
+C0215	DIFFERENT	today vs tomorrow
+C0216	SAME	same
+C0217	DIFFERENT	roles reversed
+C0218	SAME	same
+C0219	SAME	same
+C0220	DIFFERENT	min vs max
+C0221	DIFFERENT	min vs max
+C0222	DIFFERENT	5 vs 6 Jan
+C0223	SAME	same
+C0224	SAME	same
+C0225	DIFFERENT	at least vs at most
+C0226	DIFFERENT	more vs less
+C0227	SAME	same
+C0228	SAME	same
+C0229	SAME	order
+C0230	SAME	same
+C0231	DIFFERENT	cannot vs can ignore
+C0232	SAME	same
+C0233	SAME	same
+C0234	DIFFERENT	peak vs off-peak
+C0235	DIFFERENT	incoming vs outgoing
+C0236	SAME	same
+C0237	SAME	same
+C0238	SAME	same
+C0239	DIFFERENT	notice polarity
+C0240	DIFFERENT	modality swapped
+C0241	DIFFERENT	sender reversed
+C0242	DIFFERENT	exception added
+C0243	DIFFERENT	registration polarity
+C0244	SAME	same
+C0245	SAME	same
+C0246	SAME	same
+C0247	DIFFERENT	20 vs 19
+C0248	SAME	same
+C0249	DIFFERENT	min vs max
+C0250	DIFFERENT	patient vs patients
+C0251	SAME	same
+C0252	DIFFERENT	times swapped
+C0253	SAME	same
+C0254	SAME	same
+C0255	DIFFERENT	June vs this month
+C0256	DIFFERENT	except vs start from
+C0257	SAME	same
+C0258	SAME	same
+C0259	DIFFERENT	condition differs
+C0260	DIFFERENT	condition reversed
+C0261	SAME	same
+C0262	DIFFERENT	immediately vs 24h
+C0263	DIFFERENT	if vs unless
+C0264	SAME	passive
+C0265	SAME	same
+C0266	DIFFERENT	at least vs at most
+C0267	DIFFERENT	must vs may, before vs during
+C0268	SAME	passive
+C0269	SAME	same
+C0270	SAME	same
+C0271	DIFFERENT	must vs may
+C0272	DIFFERENT	fewer than vs at most
+C0273	SAME	order
+C0274	SAME	same
+C0275	SAME	same
+C0276	SAME	same
+C0277	SAME	same
+C0278	DIFFERENT	10 vs 11
+C0279	SAME	same
+C0280	DIFFERENT	at most vs at least
+C0281	DIFFERENT	should vs can
+C0282	SAME	same
+C0283	DIFFERENT	must/may swapped
+C0284	SAME	same
+C0285	SAME	conjunction only
+C0286	SAME	same
+C0287	SAME	same
+C0288	DIFFERENT	must vs should
+C0289	SAME	same
+C0290	SAME	same
+C0291	SAME	same
+C0292	DIFFERENT	before vs after
+C0293	SAME	same
+C0294	SAME	same
+C0295	SAME	passive
+C0296	SAME	same
+C0297	SAME	same
+C0298	SAME	same
+C0299	SAME	same
+C0300	DIFFERENT	must vs should
+C0301	DIFFERENT	may vs must
+C0302	DIFFERENT	experience polarity
+C0303	SAME	passive
+C0304	SAME	same
+C0305	SAME	same
+C0306	DIFFERENT	order swapped
+C0307	SAME	same
+C0308	DIFFERENT	at most vs fewer than
+C0309	SAME	same
+C0310	SAME	same
+C0311	DIFFERENT	fewer than vs at most
+C0312	SAME	same
+C0313	SAME	same
+C0314	SAME	passive
+C0315	SAME	same
+C0316	SAME	same
+C0317	SAME	same
+C0318	SAME	same
+C0319	SAME	same
+C0320	DIFFERENT	agree vs disagree
+C0321	DIFFERENT	confirmed vs ready
+C0322	DIFFERENT	doctors vs nurses
+C0323	SAME	same
+C0324	SAME	same
+C0325	SAME	same
+C0326	SAME	same
+C0327	SAME	same
+C0328	DIFFERENT	4 vs 5 PM
+C0329	SAME	passive
+C0330	SAME	same
+C0331	DIFFERENT	at least vs at most
+C0332	SAME	same
+C0333	DIFFERENT	may vs must
+C0334	SAME	same
+C0335	SAME	same
+C0336	SAME	same
+C0337	SAME	same
+C0338	DIFFERENT	more than vs at least
+C0339	SAME	same
+C0340	SAME	same
+C0341	DIFFERENT	green vs blue
+C0342	DIFFERENT	to vs from
+C0343	SAME	same
+C0344	SAME	same
+C0345	DIFFERENT	before vs after
+C0346	DIFFERENT	must/should swapped
+C0347	SAME	same
+C0348	SAME	same
+C0349	DIFFERENT	Tue vs Wed
+C0350	DIFFERENT	valid polarity
+C0351	SAME	same
+C0352	DIFFERENT	only dropped
+C0353	DIFFERENT	must/may swapped
+C0354	SAME	same
+C0355	SAME	same
+C0356	SAME	translation
+C0357	DIFFERENT	patients and today added
+C0358	SAME	punctuation only
+C0359	DIFFERENT	condition added
+C0360	DIFFERENT	roles reversed
+C0361	SAME	translation
+C0362	SAME	same
+C0363	SAME	passive
+C0364	SAME	same
+C0365	SAME	same
+C0366	SAME	same
+C0367	SAME	same
+C0368	SAME	same
+C0369	DIFFERENT	at most 5 vs less than 5
+C0370	SAME	same
+C0371	DIFFERENT	14:15 vs 14:30
+C0372	DIFFERENT	may vs must
+C0373	SAME	same
+C0374	SAME	same
+C0375	SAME	same
+C0376	SAME	same
+C0377	SAME	same
+C0378	SAME	same
+C0379	SAME	same
+C0380	SAME	same
+C0381	DIFFERENT	condition differs
+C0382	DIFFERENT	ensure vs do it
+C0383	SAME	same
+C0384	SAME	same
+C0385	SAME	same
+C0386	DIFFERENT	unless vs only if
+C0387	SAME	same
+C0388	SAME	same
+C0389	SAME	passive
+C0390	SAME	same
+C0391	SAME	same
+C0392	SAME	same
+C0393	DIFFERENT	different action
+C0394	SAME	same
+C0395	DIFFERENT	unless vs only if
+C0396	DIFFERENT	can vs cannot request
+C0397	SAME	same
+C0398	SAME	same
+C0399	SAME	same
+C0400	SAME	same
+C0401	DIFFERENT	no appointment vs symptoms
+C0402	SAME	same
+C0403	SAME	same
+C0404	SAME	same
+C0405	SAME	same
+C0406	DIFFERENT	hot vs cold
+C0407	DIFFERENT	9h vs 10h
+C0408	DIFFERENT	before vs by
+C0409	DIFFERENT	up to vs only
+C0410	SAME	same
+C0411	SAME	same
+C0412	DIFFERENT	dates swapped
+C0413	SAME	same
+C0414	SAME	passive
+C0415	SAME	same
+C0416	SAME	same
+C0417	SAME	same
+C0418	DIFFERENT	at least vs more than
+C0419	DIFFERENT	except vs from
+C0420	SAME	same
+C0421	DIFFERENT	before vs at
+C0422	SAME	same
+C0423	DIFFERENT	CEO vs CEOs
+C0424	SAME	same
+C0425	DIFFERENT	capacitated added
+C0426	SAME	same
+C0427	SAME	passive
+C0428	DIFFERENT	Lima vs La Paz
+C0429	SAME	same
+C0430	SAME	passive
+C0431	SAME	same
+C0432	DIFFERENT	who grades
+C0433	DIFFERENT	patients vs employees
+C0434	SAME	same
+C0435	SAME	same
+C0436	DIFFERENT	14h vs 15h
+C0437	SAME	same
+C0438	SAME	same
+C0439	SAME	same
+C0440	SAME	same
+C0441	SAME	same
+C0442	SAME	same
+C0443	SAME	same
+C0444	SAME	same
+C0445	SAME	same
+C0446	SAME	same
+C0447	SAME	synonyms
+C0448	SAME	same
+C0449	DIFFERENT	agent differs
+C0450	SAME	same
+C0451	SAME	same
+C0452	SAME	same
+C0453	DIFFERENT	must vs can
+C0454	DIFFERENT	polarity
+C0455	DIFFERENT	opposite
+C0456	SAME	same
+C0457	DIFFERENT	must vs may
+C0458	SAME	same
+C0459	SAME	passive
+C0460	SAME	same
+C0461	SAME	same
+C0462	SAME	same
+C0463	DIFFERENT	internal vs invited
+C0464	DIFFERENT	polarity lost
+C0465	DIFFERENT	only added
+C0466	DIFFERENT	must vs may
+C0467	SAME	if/when
+C0468	SAME	same
+C0469	DIFFERENT	more than vs at least
+C0470	DIFFERENT	may vs must
+C0471	SAME	same
+C0472	DIFFERENT	dispatch vs store
+C0473	DIFFERENT	may/must swapped
+C0474	DIFFERENT	max vs at least
+C0475	DIFFERENT	tomorrow vs today
+C0476	SAME	same
+C0477	SAME	same

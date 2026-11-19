@@ -1,0 +1,477 @@
+C0001	DIFFERENT	opposite instructions (move pallet vs keep it in place)
+C0002	DIFFERENT	"not shared" vs "not necessarily shared"
+C0003	SAME	active vs passive voice, same actor, object and timing
+C0004	DIFFERENT	all interns excepted vs only the intern excepted (group changed)
+C0005	SAME	same no-refund rule for returns after 30 days
+C0006	DIFFERENT	complete by July 10 vs start on July 10
+C0007	DIFFERENT	at least 100 mg vs more than 100 mg
+C0008	SAME	stir unless boiling vs keep stirring if not boiling
+C0009	DIFFERENT	no exceptions vs exceptions may apply
+C0010	DIFFERENT	at least 2 tsp vs more than 2 tsp
+C0011	DIFFERENT	Tuesday 2 PM vs Wednesday 2 PM
+C0012	DIFFERENT	must not cancel vs must cancel
+C0013	DIFFERENT	before end of month vs before start of month
+C0014	SAME	all in stock except A vs only A out of stock
+C0015	DIFFERENT	close the door vs open the door
+C0016	SAME	check amount vs verify amount on invoice, same request
+C0017	SAME	HR reviews at least ten evaluations, same content in Spanish
+C0018	SAME	employees clean sales area before closing, active vs passive
+C0019	SAME	bank issued statement to client, passive restatement
+C0020	DIFFERENT	must review medical history vs may review it
+C0021	SAME	except main entrance vs apart from main entrance
+C0022	SAME	all problems solved except slow connection, same scope
+C0023	SAME	set up room by 2 PM vs ensure room ready by 14:00, same deadline
+C0024	SAME	all sign except office manager, same exception
+C0025	DIFFERENT	present perfect "have paid" vs past perfect "had paid"
+C0026	SAME	more than 50 equals at least 51 for integers
+C0027	SAME	no invoice below 50 vs invoice only at 50 or more
+C0028	DIFFERENT	B adds windows to the locking task
+C0029	SAME	arrive 9, open 10 vs open 10 after 9 arrival
+C0030	DIFFERENT	exception only with supervisor approval vs sharing with supervisors allowed
+C0031	DIFFERENT	use gloves vs remove gloves
+C0032	SAME	except managers vs apart from managers, same exception
+C0033	SAME	verify authenticity before sale, same instruction
+C0034	SAME	except audit-related files vs salvo audit-related files
+C0035	SAME	do not call HR, same prohibition in Spanish and English
+C0036	SAME	employee must use PPE, same obligation
+C0037	SAME	administrator schedules surgery, passive restatement
+C0038	DIFFERENT	heavy vs light machinery
+C0039	DIFFERENT	fewer than 2 hours vs at most 2 hours
+C0040	DIFFERENT	summary sent the next day at 5 PM vs same day at 5 PM
+C0041	DIFFERENT	"la ensalada" (the salad) vs "una ensalada" (a salad)
+C0042	DIFFERENT	driver must follow vs driver may follow after loading
+C0043	DIFFERENT	card or cash vs card and cash
+C0044	SAME	no unloading before opening, same prohibition
+C0045	SAME	software installed automatically overnight, passive restatement
+C0046	DIFFERENT	3 PM sharp vs 3 PM but no later than 3:15
+C0047	SAME	must complete form and may send copy, same content
+C0048	DIFFERENT	do not book 10 AM but may book another time vs book 10 AM and cannot book another time
+C0049	SAME	each client accompanied by an assistant, same requirement
+C0050	SAME	review requested before signing, same requirement
+C0051	DIFFERENT	"solo cuando" (only when) vs "cuando" (when) drops the restriction
+C0052	SAME	all shut down except backup, same scope
+C0053	DIFFERENT	may be released vs must be released
+C0054	DIFFERENT	mix before deadline vs deadline is 10 AM
+C0055	SAME	same prohibition and same allowance; only connector differs
+C0056	SAME	HR manager interviews new hire, active vs passive
+C0057	SAME	wait until next business day, do not act now
+C0058	SAME	"form" vs "it" refers to the same object
+C0059	DIFFERENT	A grants permission to move boxes; B only requires care
+C0060	SAME	pay now without waiting for reminder, same instruction
+C0061	SAME	except visitors vs unless they are visitors, same scope
+C0062	SAME	labeled clearly and upright, order of clauses changed only
+C0063	SAME	same two prohibitions; only connector differs
+C0064	SAME	refund except damaged products vs unless damaged, same condition
+C0065	DIFFERENT	restart if above 90% vs unless below 90% (boundary at exactly 90 differs)
+C0066	SAME	everyone except manager vs all personnel except manager
+C0067	DIFFERENT	discard without authorization vs do not discard
+C0068	SAME	"if" vs "when" same condition for moving goods
+C0069	SAME	processed except past due vs unless past due
+C0070	DIFFERENT	"solo si" (only if) vs "cuando" (when) drops the restriction
+C0071	DIFFERENT	close valve before opening panel vs may open panel before closing valve
+C0072	DIFFERENT	report should be submitted vs must be submitted
+C0073	SAME	preheat before 6 PM vs ensure preheated by 6 PM
+C0074	DIFFERENT	must not attend vs must attend
+C0075	DIFFERENT	meeting with parents vs meeting for/to parents (relation changed)
+C0076	SAME	before Tuesday March 14 equals before March 14, which is Tuesday
+C0077	DIFFERENT	this Friday 14h vs next Friday 2 PM
+C0078	DIFFERENT	no changes after one hour vs same, unless defective
+C0079	SAME	all except red boxes to north area, same content
+C0080	SAME	3rd of October equals October 3rd
+C0081	SAME	at most 1 cup equals 1 cup or less
+C0082	SAME	inventory counted by inspectors monthly, passive restatement
+C0083	SAME	supervisor inspects all PPE vs PPE reviewed by supervisor
+C0084	DIFFERENT	"só será" (only if) vs no restriction, drops the condition
+C0085	DIFFERENT	must prepare and may send vs may prepare and must send
+C0086	DIFFERENT	at least 30 vs at most 30
+C0087	DIFFERENT	B adds "ao médico" recipient
+C0088	SAME	upgrade possible, check settings page, same content
+C0089	SAME	mix thoroughly together, word order only
+C0090	SAME	generic "materials" vs "material", same meaning
+C0091	SAME	"se" vs "quando" for evacuation condition, same condition
+C0092	DIFFERENT	remove pot at 18h30 vs 18h40
+C0093	SAME	"remaining disk space" is the same quantity
+C0094	SAME	all items except restricted, passive restatement
+C0095	DIFFERENT	may offer discounts vs must offer discounts
+C0096	SAME	do not sign without reviewing all clauses, reordered
+C0097	SAME	put the ingredient in the pot now, only word order changes
+C0098	SAME	follow instructions, do not omit any, reordered
+C0099	DIFFERENT	too fast vs too slow
+C0100	SAME	announced one week before start, passive restatement
+C0101	DIFFERENT	wear hard hats in vs out of construction zone
+C0102	SAME	registration closes Oct 15 equals deadline Oct 15
+C0103	SAME	"fiscal quarter" vs "quarter", same deadline
+C0104	SAME	no support for clients without account, reordered
+C0105	SAME	appointments scheduled today, same count
+C0106	DIFFERENT	may discuss vs must discuss (imperative)
+C0107	SAME	medication at 8, not before 7, same content
+C0108	DIFFERENT	fewer than 3 vs at most 3
+C0109	SAME	mask use required inside store, same obligation
+C0110	SAME	trial begins only when all consent, same condition
+C0111	SAME	verification before shelving, passive restatement
+C0112	SAME	no personal calls except emergency, same scope
+C0113	SAME	fewer than 3 leaves equals less than 3 leaves
+C0114	SAME	mail or in person, order changed
+C0115	SAME	visits in all rooms except isolation, same scope
+C0116	DIFFERENT	must attend vs may attend the review meeting
+C0117	SAME	30 days equals thirty days, same allowance
+C0118	SAME	deposit and confirmation required, reordered
+C0119	DIFFERENT	must not leave vs must leave without authorization
+C0120	SAME	valid except those with active discount, same exception
+C0121	SAME	receives badge after completing training, reordered
+C0122	SAME	schedule only when team available, reordered
+C0123	SAME	accessible/visible and not blocked, same requirement
+C0124	SAME	except patients with allergies, same exception
+C0125	DIFFERENT	complete LinkedIn profile vs update LinkedIn profile
+C0126	SAME	all emails except confirmation, same scope
+C0127	SAME	all except blue ones vs other than blue ones
+C0128	SAME	bakes in oven vs is baked in oven
+C0129	DIFFERENT	March 15 vs March 16
+C0130	DIFFERENT	grading not allowed vs grading allowed (opposite)
+C0131	DIFFERENT	add salt to hot water vs put hot water on salt
+C0132	SAME	discount except gold members, same exception
+C0133	SAME	all comply except CEO, same scope
+C0134	SAME	do not sign before consulting lawyer, "Não" prefix only
+C0135	SAME	do not use after expiry, same reason and rule
+C0136	SAME	sift flour over dough, reordered
+C0137	DIFFERENT	at least 15 vs at most 15
+C0138	DIFFERENT	at most every 4 hours vs fewer than every 4 hours (boundary)
+C0139	SAME	passive restatement of same action and actor
+C0140	DIFFERENT	may lend vs must lend
+C0141	DIFFERENT	faster than normal vs faster than normal by up to 30 minutes
+C0142	DIFFERENT	meeting must end vs should end; review must vs should
+C0143	DIFFERENT	every doctor vs all nurses do rounds
+C0144	SAME	must inform director of staff changes, yes, same content
+C0145	DIFFERENT	fewer than 5 vs at most 5
+C0146	DIFFERENT	resolve problem today vs attend immediately (different action and time)
+C0147	SAME	analyst updates rules, passive restatement
+C0148	DIFFERENT	use spoon vs use wooden spoon (swapped objects)
+C0149	SAME	no class may use auditorium this week, same
+C0150	DIFFERENT	until received vs unless confirmed (different condition)
+C0151	DIFFERENT	Wednesday vs Thursday
+C0152	SAME	punctuation colon vs comma only
+C0153	DIFFERENT	cannot delete vs cannot insert records
+C0154	DIFFERENT	daily report vs monthly report, and no vs yes polarity
+C0155	SAME	maximum 10 equals up to 10
+C0156	SAME	all except legal dept, reordered
+C0157	SAME	do not send before verifying equals sending prohibited before verifying
+C0158	SAME	reschedule once confirmed equals confirm then reschedule
+C0159	DIFFERENT	"está dañado" (present) vs "estaba dañado" (past)
+C0160	SAME	delete temp except logs equals keep logs while deleting temp
+C0161	DIFFERENT	must prescribe vs may prescribe
+C0162	DIFFERENT	after vs before shipment arrives
+C0163	DIFFERENT	before noon vs before 1 PM
+C0164	DIFFERENT	10:00 AM vs 9:00 AM
+C0165	SAME	apart from monthly fees, same content
+C0166	SAME	admit unless ER full equals admit right away unless at maximum
+C0167	DIFFERENT	must seal before shipping vs may seal before it must be shipped
+C0168	SAME	9h da manhã equals 9 horas, same time
+C0169	SAME	do not admit until beds ready equals reject until beds available
+C0170	SAME	dispense only after prescription confirmed, same rule
+C0171	DIFFERENT	"only if" vs "when" drops the restriction
+C0172	DIFFERENT	until Monday vs until end of Monday
+C0173	SAME	must complete questionnaire, passive restatement
+C0174	SAME	machines turned off at end of shift, reordered
+C0175	DIFFERENT	must be destroyed vs must not be destroyed (opposite)
+C0176	DIFFERENT	can attend only with approval vs must attend only with approval
+C0177	SAME	approve discounts and may override prices, reordered
+C0178	DIFFERENT	may accept clauses vs must accept clauses
+C0179	DIFFERENT	at least 20 vs at most 20
+C0180	DIFFERENT	Thursday vs Friday midnight
+C0181	SAME	waiting room for all except direct admissions, same scope
+C0182	SAME	planning may start, yes, same content
+C0183	SAME	staff must warn any customer breaking rules, same
+C0184	DIFFERENT	end of day vs 5 PM on Friday
+C0185	SAME	Nov 30 2026 at 5 PM, reordered
+C0186	SAME	no signing without lawyer review equals lawyer must review each document
+C0187	SAME	review docs and may discuss doubts, passive restatement
+C0188	SAME	all except defective, same scope
+C0189	DIFFERENT	cut finely but not dice vs dice finely but not cut (opposite)
+C0190	SAME	helmet in all areas except canteen, same scope
+C0191	SAME	consult all patients except isolation, same scope
+C0192	SAME	"lácteos" vs "lácteo" is a typo, same exception
+C0193	DIFFERENT	encrypted only vs encrypted whenever possible
+C0194	SAME	no mobile phones while operating machinery, same prohibition
+C0195	SAME	technician made the update, passive restatement
+C0196	SAME	soup served hot in plates, same content
+C0197	SAME	max 10 per shelf, same limit
+C0198	DIFFERENT	should clean vs could clean
+C0199	DIFFERENT	trainer leads new employees vs new employees lead trainer (reversed)
+C0200	DIFFERENT	before due date vs by due date
+C0201	SAME	stop button reachable and unobstructed, same requirement
+C0202	SAME	no access unless supervised equals only with supervision
+C0203	DIFFERENT	A requires peeling and cutting; B only cuts already-peeled potatoes
+C0204	DIFFERENT	no need if sure to attend vs no need if already have confirmation
+C0205	SAME	except card problems equals apart from card problems
+C0206	DIFFERENT	more than ten vs fewer than ten
+C0207	SAME	"the John" vs "John" is a typo, same scope
+C0208	DIFFERENT	refrigerate when well kneaded vs when not kneaded correctly (opposite)
+C0209	DIFFERENT	due "on" the 10th vs due "by" the 10th
+C0210	SAME	"aos" vs "para os" both mean to the teachers
+C0211	DIFFERENT	8:00 AM vs 8:00 PM
+C0212	SAME	no one leaves before 5 PM, reordered
+C0213	DIFFERENT	"when" vs "only if" adds restriction
+C0214	DIFFERENT	at least three vs at most three
+C0215	DIFFERENT	today vs tomorrow
+C0216	SAME	IT team reboots server, passive restatement
+C0217	DIFFERENT	coordinator assists employee vs employee assists coordinator (reversed)
+C0218	SAME	review on 15th and payment next day, same dates
+C0219	SAME	follow rules except breaks, same scope
+C0220	DIFFERENT	minimum four vs maximum four
+C0221	DIFFERENT	at least five vs at most five
+C0222	DIFFERENT	January 5 vs January 6
+C0223	SAME	no entry after 22h nor before 8h, same rule
+C0224	SAME	season when cooked equals season if cooked
+C0225	DIFFERENT	at least three feet vs at most three feet
+C0226	DIFFERENT	more than ten minutes vs less than ten minutes
+C0227	SAME	no entry unless briefed equals forbidden if not informed
+C0228	SAME	daily backup except weekends, same scope
+C0229	SAME	name tag and dress code, reordered
+C0230	DIFFERENT	B adds nightly maintenance restriction; A only says maintenance
+C0231	DIFFERENT	cannot ignore symptoms vs may ignore symptoms
+C0232	SAME	restart if crash equals if crash restart
+C0233	SAME	follow instructions and do not unpack, connector only differs
+C0234	DIFFERENT	peak hours vs off-peak hours
+C0235	DIFFERENT	incoming vs outgoing traffic
+C0236	SAME	not exceed five equals cannot send more than five
+C0237	SAME	except on ground floor, same scope
+C0238	SAME	Monday 3 PM equals 15:00, same call
+C0239	DIFFERENT	should notify in advance vs should not notify in advance
+C0240	DIFFERENT	should start vs must start; may adjust vs should adjust
+C0241	DIFFERENT	HR sends to new hire vs new hire sends to HR
+C0242	DIFFERENT	B adds emergency exception
+C0243	DIFFERENT	must register vs no need to register
+C0244	SAME	extension beyond six months, same content
+C0245	SAME	at most 10 equals no more than 10
+C0246	SAME	any available location equals where there is space
+C0247	DIFFERENT	November 20 vs November 19
+C0248	SAME	background check done by Nov 15 deadline, same
+C0249	DIFFERENT	at least 20 vs at most 20
+C0250	DIFFERENT	patient's (singular) vs patients' (plural) blood pressure
+C0251	SAME	do not turn off while in use, same
+C0252	DIFFERENT	prepare 12 PM serve 1 PM vs prepare 1 PM serve 12 PM
+C0253	SAME	no discussion without authorization, same
+C0254	SAME	no violation even under pressure, same
+C0255	DIFFERENT	June 15 vs "15 of this month" (month not stated in B)
+C0256	UNSURE	"excepto el driver de red" vs "a partir del driver de red" is ambiguous (typo of "aparte")
+C0257	SAME	deadline Dec 1 equals no later than Dec 1
+C0258	SAME	use more than 2 tablespoons to season, same
+C0259	DIFFERENT	use extinguishers only if really needed vs when able
+C0260	SAME	prohibited except if signed equals permitted except if not signed
+C0261	SAME	singular "produto" vs plural "produtos", same meaning
+C0262	DIFFERENT	no reboot immediately vs no reboot within 24 hours
+C0263	DIFFERENT	required if vs required unless
+C0264	SAME	teacher distributed books, passive restatement
+C0265	SAME	bake 30 min unless ready earlier equals if not ready earlier
+C0266	DIFFERENT	at least 80 vs at most 80
+C0267	DIFFERENT	must turn off before maintenance vs may turn off during maintenance
+C0268	SAME	investors approved, passive restatement
+C0269	DIFFERENT	all people except Portuguese teachers vs all teachers except Portuguese
+C0270	SAME	helmet except office, same scope
+C0271	DIFFERENT	must restart vs may restart
+C0272	DIFFERENT	fewer than 50 vs at most 50
+C0273	SAME	review docs and arrive on time, reordered
+C0274	SAME	surgery not today because doctor busy, same
+C0275	SAME	more than 20 equals over 20, same truck requirement
+C0276	SAME	cannot initiate with balance equals not permitted with balance
+C0277	SAME	to warehouse but not loading area, connector only differs
+C0278	DIFFERENT	10:00 AM vs 11:00 AM
+C0279	SAME	attach if incomplete, reordered
+C0280	DIFFERENT	no more than 10 vs at least 10
+C0281	DIFFERENT	should report vs can report
+C0282	SAME	should not eat equals cannot consume food before consult
+C0283	DIFFERENT	may be filed vs must be filed; must be reviewed vs may be reviewed
+C0284	SAME	schedule meeting tomorrow 10 AM, synonym verbs
+C0285	SAME	same prohibitions, only connector differs
+C0286	SAME	paperwork complete by 5 PM on first day, reordered
+C0287	SAME	all except confidential, same scope
+C0288	DIFFERENT	must inform vs should inform
+C0289	SAME	cannot register without consent, only "No," prefix differs
+C0290	SAME	press alarm immediately in emergency, same
+C0291	SAME	no stacking above four layers unless authorized equals only if permitted
+C0292	DIFFERENT	verify before delivery vs after delivery
+C0293	SAME	place cheese on lasagna equals lasagna covered with cheese
+C0294	SAME	postpone if necessary and confirm new time, reordered
+C0295	SAME	bank blocked accounts, passive restatement
+C0296	SAME	only if vs only when, both restrictive
+C0297	SAME	supervisor ensures protocols followed, same
+C0298	SAME	postpone unless all present equals postpone if not all present
+C0299	SAME	check inventory before shift, reordered
+C0300	DIFFERENT	must be backed up vs should be backed up
+C0301	DIFFERENT	may implement vs must implement additional measures
+C0302	DIFFERENT	considers experience vs does not consider experience
+C0303	SAME	installed patch on all servers, passive restatement
+C0304	SAME	no more than 5 equals do not exceed five
+C0305	SAME	emergency training for employees, synonymous wording
+C0306	DIFFERENT	verify then transfer vs transfer then verify (order reversed)
+C0307	SAME	should complete by Friday, can submit Monday, same content
+C0308	DIFFERENT	at most 5 vs fewer than 5
+C0309	SAME	only if vs only when, both restrictive, same conditions
+C0310	SAME	boleto sent for payment, same content
+C0311	DIFFERENT	fewer than 10 vs at most 10
+C0312	SAME	close register if no customers equals keep open only when customers present
+C0313	SAME	comply with labor laws, no ignoring, same
+C0314	SAME	employee loads pallets, passive restatement
+C0315	SAME	move items except sector A, same scope
+C0316	SAME	deliver all except last, same scope
+C0317	SAME	at least four locations verified regularly, same
+C0318	SAME	wash vegetables on Oct 15 for Saturday dinner, same
+C0319	SAME	special promotion valid until 23:59 equals offer ends 23:59
+C0320	DIFFERENT	will not approve unless all agree vs will approve unless all disagree
+C0321	DIFFERENT	order already confirmed vs purchase ready (different status)
+C0322	DIFFERENT	doctors vs nurses
+C0323	SAME	all available except offer model, same scope
+C0324	SAME	at least 20 beds at hospital, reordered
+C0325	SAME	cannot receive training until paperwork complete, same
+C0326	SAME	all verified except X-ray in maintenance, same
+C0327	SAME	cannot sign without manager approval equals signing allowed with approval
+C0328	DIFFERENT	4 PM vs 5 PM
+C0329	SAME	technician monitors network, passive restatement
+C0330	SAME	nightly backup, same
+C0331	DIFFERENT	at least once a week vs at most once a week
+C0332	SAME	Friday Nov 10 before 17:00, same
+C0333	DIFFERENT	may send invitation vs must send invitation
+C0334	SAME	left side unless red equals left side other than red
+C0335	SAME	Dec 31 deadline, Jan 1 board meeting, board next day, same
+C0336	SAME	review every Tuesday, same
+C0337	SAME	submit report via email instead, same
+C0338	DIFFERENT	more than 5 pages vs at least 5 pages
+C0339	SAME	daily except weekends equals daily unless weekend
+C0340	SAME	discount when on promotion equals discount provided on promotion
+C0341	DIFFERENT	green boxes vs blue boxes
+C0342	DIFFERENT	move boxes to packing area vs move boxes from packing area
+C0343	SAME	discount on next receipt, same
+C0344	SAME	delivery 10:00 Wednesday, same
+C0345	DIFFERENT	before deadline vs after deadline
+C0346	DIFFERENT	must submit/should file vs should submit/must file
+C0347	SAME	warehouse checked before leaving, same
+C0348	SAME	"no momento" restates present status, same count
+C0349	DIFFERENT	Tuesday vs Wednesday
+C0350	DIFFERENT	not valid vs valid
+C0351	SAME	must receive fewer than two reminders, same
+C0352	DIFFERENT	"solo se permite" (only) vs "si... entonces se pueden utilizar" (no exclusivity)
+C0353	DIFFERENT	must unload first vs may unload first; may inventory vs must inventory
+C0354	SAME	reschedule, may cancel if needed, same
+C0355	SAME	all except small widgets, same
+C0356	SAME	start as of next Monday, same
+C0357	DIFFERENT	B adds "today" and changes patient to patients
+C0358	SAME	same content, only punctuation differs
+C0359	DIFFERENT	asked to leave vs asked to leave only if interrupting service
+C0360	DIFFERENT	training team informs new employees vs new employees inform training team (reversed)
+C0361	SAME	submit application before end of day, same
+C0362	SAME	may place products on left shelf, must be safe, same
+C0363	SAME	manager organizes stock, passive restatement
+C0364	SAME	meeting at 10 AM, no late entry, same
+C0365	SAME	except attended vs unless attended, same group
+C0366	SAME	inspect all shipments except green crates, same
+C0367	SAME	receipt only if requested, reordered
+C0368	SAME	install then review, same obligations (should)
+C0369	DIFFERENT	no more than five vs fewer than five
+C0370	SAME	check connectivity when issues, reordered
+C0371	DIFFERENT	serve 14h15 vs 14h30
+C0372	DIFFERENT	may review checklist vs must review checklist
+C0373	SAME	retry in a few minutes, same
+C0374	SAME	approval before processing, same prohibition
+C0375	SAME	fewer than ten, same
+C0376	DIFFERENT	more than five vs up to six or more
+C0377	SAME	mandatory orientation except current employees, same
+C0378	SAME	review by security department, passive restatement
+C0379	SAME	no more than four equals only up to four
+C0380	SAME	all except urgent, same
+C0381	SAME	night visits only if stable equals unless unstable
+C0382	DIFFERENT	manager ensures clients attended vs manager must attend all clients
+C0383	SAME	fewer than ten documents, same
+C0384	SAME	at least 5 equals at least five
+C0385	SAME	staff meeting Jan 5 14:00, same
+C0386	DIFFERENT	reschedule unless emergency vs only if emergency
+C0387	SAME	up to 10 equals at most 10
+C0388	SAME	all except fragile, same
+C0389	SAME	engineer migrates data, passive restatement
+C0390	SAME	gloves except non-hazardous, same
+C0391	SAME	onboarding except agency hires, same
+C0392	SAME	smoking prohibited inside hospital, same
+C0393	DIFFERENT	do not distribute vs keep the sheets (prohibition vs instruction)
+C0394	SAME	same restriction on sharing, authorized supervisors informed
+C0395	DIFFERENT	at 10 unless rain vs only if rain
+C0396	DIFFERENT	can request company laptop vs cannot request
+C0397	SAME	do not stir until submerged, same
+C0398	SAME	cannot start until all arrive, discuss after arrival, same
+C0399	SAME	staff may restock, must not leave, same
+C0400	SAME	complete by end of Friday, same deadline
+C0401	DIFFERENT	without appointment vs with symptoms
+C0402	SAME	no operation before supervisor approval, same
+C0403	SAME	search requires consent, same
+C0404	SAME	no late arrival, same
+C0405	SAME	May 17 at 12h equals noon on May 17
+C0406	DIFFERENT	hot vs cold
+C0407	DIFFERENT	9h vs 10h
+C0408	DIFFERENT	before April 15 vs by April 15
+C0409	DIFFERENT	up to five vs only five
+C0410	SAME	except main server, same scope
+C0411	SAME	defect vs defects, same exception
+C0412	DIFFERENT	backup Nov 15 and notify Nov 16 vs backup Nov 16 and notify Nov 15
+C0413	SAME	do not sign before consulting equals do not sign until consulted
+C0414	SAME	administrator installs updates, passive restatement
+C0415	SAME	all material counted except documents, same
+C0416	SAME	complete before deadline, due tomorrow, same
+C0417	SAME	only chat not working, rest working, same
+C0418	DIFFERENT	at least 2 vs more than 2
+C0419	UNSURE	"apartir" typo: "aparte" intended but literal "a partir" differs
+C0420	SAME	no access without authorization except authorized staff, same
+C0421	DIFFERENT	before 5 PM vs at 5 PM
+C0422	SAME	received and stored, same sequence
+C0423	DIFFERENT	apart from CEO vs apart from CEOs (group changed)
+C0424	SAME	Nov 20 equals on Nov 20
+C0425	DIFFERENT	B adds "capacitado" (trained) qualifier
+C0426	SAME	helmet before entering equals use helmet before access
+C0427	SAME	developer deploys, passive restatement
+C0428	DIFFERENT	Lima vs La Paz
+C0429	SAME	cashiers close at 22h, same
+C0430	SAME	configures server, passive restatement
+C0431	SAME	employee signs, may photograph ID, same content
+C0432	DIFFERENT	professor corrected students vs students corrected (reversed)
+C0433	DIFFERENT	patients' documents vs employees' documents
+C0434	SAME	track online with order number, same
+C0435	SAME	except Word and Excel vs salvo Word and Excel
+C0436	DIFFERENT	14h vs 15h
+C0437	SAME	visits of infected patients prohibited, same
+C0438	SAME	more than 20 equals at least 21
+C0439	DIFFERENT	"is stable" vs "stability is confirmed" (added verification)
+C0440	SAME	no release without medical authorization, same
+C0441	SAME	restart then check connection, same order
+C0442	SAME	do not restart unless needed, same
+C0443	SAME	boots for all except administration, same
+C0444	SAME	return only with proof of purchase, reordered
+C0445	SAME	no release until processed, same
+C0446	SAME	no need to worry unless call, same
+C0447	SAME	capacitación equals formación, same
+C0448	SAME	only third-year students today, same
+C0449	SAME	cash register recorded sale, passive restatement
+C0450	SAME	company pays corporate tax, passive restatement
+C0451	SAME	packaging in packaging section, reordered
+C0452	SAME	may extend deadline, may postpone meeting, same
+C0453	DIFFERENT	must verify vs can verify before account creation
+C0454	DIFFERENT	move only if authorized vs only if not authorized (opposite)
+C0455	DIFFERENT	send product vs do not send product (opposite)
+C0456	SAME	must attend induction on first day, same
+C0457	DIFFERENT	lab test must be done vs may be done
+C0458	SAME	label before storing, same
+C0459	SAME	supervisor reviews inventory, passive restatement
+C0460	SAME	all moved except hazardous, same
+C0461	SAME	unless supervisor, keep doors open, same
+C0462	SAME	hired only if test passed, same
+C0463	DIFFERENT	internal members vs invited members
+C0464	DIFFERENT	no confirmation vs confirm none (opposite)
+C0465	DIFFERENT	reminder on meeting day vs only on meeting day
+C0466	DIFFERENT	must clean floor vs may clean floor
+C0467	SAME	if vs when risk of short circuit, same condition
+C0468	SAME	more than 10 on waiting list, reordered
+C0469	DIFFERENT	more than 3 vs at least 3
+C0470	DIFFERENT	may be transferred vs must be transferred
+C0471	SAME	until smooth, same
+C0472	DIFFERENT	verify before dispatch vs before storage
+C0473	DIFFERENT	may schedule, must confirm vs must schedule, may confirm
+C0474	DIFFERENT	maximum 20% vs at least 20%
+C0475	DIFFERENT	deadline tomorrow vs deadline today
+C0476	SAME	disable firewall then may run diagnostic, same order and obligations
+C0477	SAME	all masks discarded except green, same

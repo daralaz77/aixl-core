@@ -62,3 +62,17 @@ def test_these_pairs_are_never_proven_equivalent(a, b):
 @pytest.mark.parametrize("a,b", CONTROLS)
 def test_these_controls_are_proven_equivalent(a, b):
     assert V(a, b) == "EQUIVALENT" and V(b, a) == "EQUIVALENT"
+
+
+MODAL_SUBSTITUTIONS = [("The project plan should be updated daily and you must attend the weekly review.", "The project plan should be updated daily and you may attend the weekly review."),
+                       ("The meeting should start at 10 AM and you may adjust the agenda.", "The meeting must start at 10 AM and you should adjust the agenda."),
+                       ("Os funcionários podem atender os clientes e devem limpar o chão.", "Os funcionários podem atender os clientes e podem limpar o chão.")]       # found by blind34 (post-hoc)
+
+
+@pytest.mark.parametrize("a,b", MODAL_SUBSTITUTIONS)
+def test_a_modal_changed_in_one_clause_is_never_proven_equivalent(a, b):
+    assert V(a, b) != "EQUIVALENT" and V(b, a) != "EQUIVALENT"
+
+
+def test_may_and_can_are_the_same_modal_class():
+    assert V("You may back up the data and you must restart the server.", "You can back up the data and you must restart the server.") == "EQUIVALENT"

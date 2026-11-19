@@ -1,0 +1,40 @@
+import re, time, gc, json, torch
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+RULES = "You are an arbiter. Each input line is {\"id\",\"a\",\"b\"}: two instructions (Spanish, English or Portuguese) that will be given to an AI system. Decide whether they ask for EXACTLY the same thing.\n- SAME: same action, same objects, same recipients, numbers, units, times, frequencies, channels, scope, conditions and polarity. Different words, synonyms (delete/remove, install/deploy), different order, translation between languages and number words vs digits are all fine.\n- DIFFERENT: any detail added, dropped or changed (even one: a recipient, a number, a day, a channel, a scope word like all/only/except, a condition, a deadline direction), or opposite instructions.\n- UNSURE: only if you truly cannot tell from the two texts.\nBe strict: when one text contains a detail the other does not state, answer DIFFERENT.\nOutput exactly one line per input, `id<TAB>verdict<TAB>short reason`, same ids, nothing else.\n"
+PAIRS = [{"id": "N%04d" % i, "a": o["a"], "b": o["b"]} for i, o in enumerate(AUTHORED)]
+SYSTEM = RULES + "\nIMPORTANT FORMAT OVERRIDE: write ONE short sentence of reasoning, then a final line exactly `VERDICT: SAME`, `VERDICT: DIFFERENT` or `VERDICT: UNSURE`."
+JMODELS = [("unsloth/gemma-3-27b-it-bnb-4bit", 8), ("unsloth/phi-4-bnb-4bit", 12), ("unsloth/Qwen3-32B-bnb-4bit", 8)]
+JRES = {}
+def jrun(name, bs):
+    tok = AutoTokenizer.from_pretrained(name); tok.padding_side = "left"
+    if tok.pad_token is None: tok.pad_token = tok.eos_token
+    try:
+        model = AutoModelForCausalLM.from_pretrained(name, device_map="cuda:0", low_cpu_mem_usage=True, dtype=torch.bfloat16)
+    except Exception as e:
+        print("causal-lm load failed, trying image-text:", repr(e)[:120])
+        from transformers import AutoModelForImageTextToText
+        model = AutoModelForImageTextToText.from_pretrained(name, device_map="cuda:0", low_cpu_mem_usage=True, dtype=torch.bfloat16)
+    model.eval()
+    prompts = []
+    for p in PAIRS:
+        msgs = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": json.dumps({"id": p["id"], "a": p["a"], "b": p["b"]}, ensure_ascii=False)}]
+        prompts.append(tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, enable_thinking=False))
+    order = sorted(range(len(PAIRS)), key=lambda i: len(prompts[i])); out = {}; t0 = time.time()
+    for s in range(0, len(order), bs):
+        idx = order[s:s+bs]
+        enc = tok([prompts[i] for i in idx], return_tensors="pt", padding=True, add_special_tokens=False).to("cuda:0")
+        with torch.no_grad():
+            gen = model.generate(**enc, max_new_tokens=64, do_sample=False, pad_token_id=tok.pad_token_id)
+        for i, g in zip(idx, gen):
+            txt = tok.decode(g[enc["input_ids"].shape[1]:], skip_special_tokens=True).upper()
+            m = re.findall(r"VERDICT:\s*(SAME|DIFFERENT|UNSURE)", txt)
+            out[PAIRS[i]["id"]] = m[-1] if m else "INVALID"
+        if (s // bs) % 15 == 0: print(name, s + len(idx), "/", len(order), round(time.time() - t0), "s")
+    print(name, len(out), "pairs in", round(time.time() - t0), "s")
+    del model; gc.collect(); torch.cuda.empty_cache()
+    return out
+for name, bs in JMODELS:
+    try: JRES[name] = jrun(name, bs)
+    except Exception as e:
+        JRES[name] = {"ERROR": repr(e)[:300]}; print("FAILED", name, repr(e)[:300])
+print("JDONE")

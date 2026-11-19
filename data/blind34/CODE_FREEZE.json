@@ -1,0 +1,27 @@
+{
+ "v071": {
+  "aixl/semantic/__init__.py": "49ca3e5026e51e993e1306d827bc5c990085cefd52ff5bcaa9e8718de3640a8e",
+  "aixl/semantic/compare.py": "ccfb62f5edde93a87f9588aeaf1e13dff2ada279f362b5f1838fc32fcb35a94b",
+  "aixl/semantic/hybrid.py": "e2f09de29de0181d015240f9ebabbaca8bbeb4c0131fd6bf42958cdee4342989",
+  "aixl/semantic/lexicon.py": "f83ca841b89ec1eefaad3a82ffe31e9b4c3ee122ebf30ee5e629940f49155768",
+  "aixl/semantic/model.py": "280f2bfd1c333f83efda4a0db09301c184a50c4bb5444819466454c593ca0b14",
+  "aixl/semantic/parser.py": "501adb075512745fd6bf6be47e5a4e48572a05386eeb35d5c531810984ff64f5"
+ },
+ "p0005": {
+  "aixl/semantic/__init__.py": "49ca3e5026e51e993e1306d827bc5c990085cefd52ff5bcaa9e8718de3640a8e",
+  "aixl/semantic/compare.py": "cb68162f83ad17059e9fcb788cb3dcc9af955918e9adeeef84d31c9a09a5e068",
+  "aixl/semantic/hybrid.py": "e2f09de29de0181d015240f9ebabbaca8bbeb4c0131fd6bf42958cdee4342989",
+  "aixl/semantic/lexicon.py": "f83ca841b89ec1eefaad3a82ffe31e9b4c3ee122ebf30ee5e629940f49155768",
+  "aixl/semantic/model.py": "280f2bfd1c333f83efda4a0db09301c184a50c4bb5444819466454c593ca0b14",
+  "aixl/semantic/parser.py": "d17b3a518ef9c14ffcb05928bdd0efc9aa28d813c95f154d26622075758ac317"
+ },
+ "v080": {
+  "aixl/semantic/__init__.py": "49ca3e5026e51e993e1306d827bc5c990085cefd52ff5bcaa9e8718de3640a8e",
+  "aixl/semantic/compare.py": "14c3442c250c16b00b7d9538b42ea2ba4300d88bfdafecb141a780263e7c83be",
+  "aixl/semantic/hybrid.py": "14ec14a83f5208bfd4403e0ea7765249fe52aa5da8624a899dcb64e0a0298dde",
+  "aixl/semantic/lexicon.py": "f83ca841b89ec1eefaad3a82ffe31e9b4c3ee122ebf30ee5e629940f49155768",
+  "aixl/semantic/model.py": "394a3174206c4fa68a620a8704acd7b98527b3a808e71d7a2117c267fc8b60b9",
+  "aixl/semantic/parser.py": "8cf96a3504a48704091c34b4666f1c41678d918cd5923ada238967ea4b3df08a"
+ },
+ "_v080_commit": "34654f7"
+}

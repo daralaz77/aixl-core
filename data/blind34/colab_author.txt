@@ -1,0 +1,50 @@
+!pip -q install -U transformers accelerate bitsandbytes
+import torch, json, re, random, time, gc
+from transformers import AutoTokenizer, AutoModelForCausalLM
+print(torch.cuda.get_device_name(0))
+FAMILIES = {
+ "negation_scope": "where a negation or prohibition applies (which clause or verb it covers; inside a relative or subordinate clause; after a comma, colon, 'but' or 'and')",
+ "excepted_set": "the set left out by an exception (except / unless / other than / apart from; singular versus plural; which items are excluded)",
+ "short_answer": "short answers to a question ('No, ...', 'Yes, ...', \"Don't, ...\") followed by a bound or an action, with different punctuation",
+ "time_binding": "which day / date / clock time / deadline belongs to which of two coordinated actions",
+ "modal_binding": "which modal (must / may / should / can, or the Spanish and Portuguese equivalents) belongs to which of two coordinated actions",
+ "bound_number": "at least / at most / more than / fewer than, and which thing the number is attached to",
+ "roles_voice": "who does what: subject and object roles, active versus passive",
+ "condition_scope": "conditions (if / unless / only if / when) and exactly what they cover"}
+LANGS = {"en": "English", "es": "Spanish", "pt": "Brazilian Portuguese"}
+DOMAINS = ["IT operations", "finance and invoices", "HR and onboarding", "customer support", "workplace safety", "cooking and recipes", "scheduling and meetings", "warehouse logistics", "hospital administration", "school administration", "legal compliance", "retail store rules"]
+def prompt(lang, fam, label, dom, k):
+    kind = ("DIFFERENT in meaning: the two texts must differ in exactly one subtle detail that a careful reader could miss, while the wording stays nearly identical" if label == "NOT_EQUIVALENT"
+            else "the SAME in meaning: genuine paraphrases with visibly different wording, order or punctuation (not trivial copies)")
+    return (f"You write test data for a checker that decides whether two operational instructions mean the same.\nWrite {k} pairs of short instructions (one or two sentences each) in {LANGS[lang]}, domain: {dom}.\n"
+            f"Construct to exercise: {FAMILIES[fam]}.\nIn every pair the two texts must be {kind}.\n"
+            'Answer ONLY with a JSON array of objects, each {"a": "...", "b": "...", "what_differs": "one short sentence (empty for same-meaning pairs)"}. No commentary.')
+def authoring(model_name, bs=16, reps=2, k=5, seed=1):
+    rng = random.Random(seed)
+    tok = AutoTokenizer.from_pretrained(model_name); tok.padding_side = "left"
+    if tok.pad_token is None: tok.pad_token = tok.eos_token
+    model = AutoModelForCausalLM.from_pretrained(model_name, device_map="cuda:0", low_cpu_mem_usage=True, dtype=torch.bfloat16); model.eval()
+    jobs = [(l, f, lab, rng.choice(DOMAINS)) for l in LANGS for f in FAMILIES for lab in ("NOT_EQUIVALENT", "EQUIVALENT") for _ in range(reps)]
+    out, t0 = [], time.time()
+    for s in range(0, len(jobs), bs):
+        chunk = jobs[s:s+bs]
+        texts = [tok.apply_chat_template([{"role": "user", "content": prompt(l, f, lab, d, k)}], tokenize=False, add_generation_prompt=True) for l, f, lab, d in chunk]
+        enc = tok(texts, return_tensors="pt", padding=True, add_special_tokens=False).to("cuda:0")
+        with torch.no_grad():
+            gen = model.generate(**enc, max_new_tokens=900, do_sample=True, temperature=0.9, top_p=0.95, pad_token_id=tok.pad_token_id)
+        for (l, f, lab, d), g in zip(chunk, gen):
+            txt = tok.decode(g[enc["input_ids"].shape[1]:], skip_special_tokens=True)
+            m = re.search(r"\[.*\]", txt, re.S)
+            try: arr = json.loads(m.group(0)) if m else []
+            except Exception: arr = []
+            for o in arr:
+                if isinstance(o, dict) and isinstance(o.get("a"), str) and isinstance(o.get("b"), str) and o["a"].strip() and o["b"].strip() and o["a"].strip() != o["b"].strip():
+                    out.append({"lang": l, "family": f, "label": lab, "a": o["a"].strip(), "b": o["b"].strip(), "what": str(o.get("what_differs", ""))[:200], "author": model_name.split("/")[1]})
+        print(model_name, s + len(chunk), "/", len(jobs), len(out), "pairs", round(time.time() - t0), "s")
+    del model; gc.collect(); torch.cuda.empty_cache()
+    return out
+AUTHORED = []
+for mn, sd in (("unsloth/Qwen2.5-32B-Instruct-bnb-4bit", 1), ("unsloth/Mistral-Small-24B-Instruct-2501-bnb-4bit", 2)):
+    try: AUTHORED += authoring(mn, seed=sd)
+    except Exception as e: print("FAILED", mn, repr(e)[:300])
+print("DONE", len(AUTHORED))

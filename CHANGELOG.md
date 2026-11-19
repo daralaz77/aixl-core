@@ -2,6 +2,11 @@
 
 Human-readable summary of what changes between releases. The detailed, per-change compatibility tables (backward compatibility, migration, test impact) are in [docs/SEMANTIC_CHANGELOG.md](docs/SEMANTIC_CHANGELOG.md); the project history is in [docs/HISTORY.md](docs/HISTORY.md). Version numbers follow [Semantic Versioning](https://semver.org/) (see `docs/VERSIONING_POLICY.md`); while the major version is 0, a MINOR bump may change the canonical form.
 
+## 0.8.1 — 2026-11-18
+Patch: a safety fix found by blind34 (texts written by open 24-32B models on Google Colab, one pre-registered run). Verdicts only move from EQUIVALENT to INCONCLUSIVE.
+- A pair with the SAME actions but a different MODAL class (may / must / advise) in one clause is no longer EQUIVALENT ('should update daily and you must attend' / '... and you may attend'; 'podem atender e devem limpar' / '... e podem limpar'); 'may' and 'can' stay one class. Checked on spent sets only: audit 5 (112 proven before and after), earlier audits (194 and 194), 540 spent pairs (no proof lost).
+- blind34 (`data/blind34/`, 954 pairs, pre-registered, three comparators + Sonnet, Haiku and Gemma-3-27B): R-safety and R-no-regress HOLD for 0.8.0 (false accepts on author-labelled NOT_EQUIVALENT pairs 42 -> 40 -> 29 of 474; proven equivalents 10 of 480 in all three). The authors' labels are too noisy to read those counts directly (a majority of judges contradicts 138 labels); against the judges instead, accepted pairs that both Claude judges call DIFFERENT: 17 (0.7.1), 17 (patch 0005), 6 (0.8.0), and 1 after the modal guard (post-hoc, not blind). See `data/blind34/POSTHOC.md`.
+
 ## 0.8.0 — 2026-11-18
 Comparator safety fixes (verdicts of the rule-based comparator only move from EQUIVALENT to INCONCLUSIVE, except the closed-shape rewrites that ADD proofs), an opt-in `veto` level for the hybrid, and the evidence behind them (blind31-33, adversarial audits, judges on Colab). Wire token stays `V:AIXL-0.3`. MINOR bump: a new compatible parameter (`veto`) and a new `short_circuit` key in `aixl_hybrid_prepare`.
 ### Hybrid / MCP

@@ -106,6 +106,18 @@ def _but_noun_numbers(o):
     return out
 
 
+_MODAL_CLASS = {**dict.fromkeys(L.MODAL_MAY, "may"), **dict.fromkeys(L.MODAL_MUST, "must"), **dict.fromkeys(L.MODAL_ADVISE, "advise"), **dict.fromkeys(("will", "would", "might", "shall"), "will")}
+
+
+def _modal_substituted(A, B):
+    """True when both texts have two or more clauses with the SAME actions but the modal CLASS (may / must / advise) of a clause differs ('should update daily and you must attend' / '... and you may attend'; 'podem atender e devem limpar' / '... e podem limpar'). Modals are compared by class, so 'may' and 'can' stay equal."""
+    a, b = A.bind, B.bind
+    if len(a) < 2 or len(b) < 2: return False
+    if Counter(c for c, _ in a) != Counter(c for c, _ in b): return False
+    cls = lambda slots: frozenset(_MODAL_CLASS[w] for w in slots if w in _MODAL_CLASS)      # noqa: E731
+    return Counter((c, cls(s)) for c, s in a) != Counter((c, cls(s)) for c, s in b)
+
+
 def dropped_features(o) -> Counter:
     """Ledger of features the parser folds away when it lemmatises: indefinite articles, past/future markers, plural inflection of content words.
     EQUIVALENT is allowed only if the two ledgers are equal (a count that differs means a feature exists on one side only)."""
@@ -481,6 +493,8 @@ def compare(A, B) -> Verdict:
                 acc.un(f"{who}: {code} ({detail})")
     if _except_articles(A) != _except_articles(B):
         acc.un("the articles after the exception word differ in number ('exceto os de teste' / 'exceto o de teste'): the excepted set may differ")
+    if _modal_substituted(A, B):
+        acc.un("the same actions appear in both texts but the modal (may / must / should) of one of them differs: a change of obligation, not a paraphrase")
     if _swapped_slots(A, B):
         acc.un("the same actions appear in both texts but a day, hour, number, bound or modal is bound to a different action in each ('back up on Monday and migrate on Tuesday' / the swap)")
     ea, eb = _except_at(A.norm), _except_at(B.norm)

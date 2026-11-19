@@ -1,0 +1,477 @@
+C0478	SAME	ni vs pero: ambas prohiben compartir
+C0479	SAME	exceto = a não ser
+C0480	SAME	pasiva refleja, mismo sujeto y acción
+C0481	DIFFERENT	b añade "poder"
+C0482	DIFFERENT	al menos tres vs más de tres
+C0483	DIFFERENT	b añade "hoy" y cambia el alcance
+C0484	SAME	misma instrucción
+C0485	DIFFERENT	pasillo B vs pasillo C
+C0486	DIFFERENT	más de vs menos de cuatro
+C0487	DIFFERENT	antes vs después de la reunión
+C0488	DIFFERENT	polaridad opuesta en salir antes de las 11
+C0489	DIFFERENT	b añade condición "si necesario"
+C0490	DIFFERENT	parameters vs values, objetos distintos
+C0491	DIFFERENT	emergencia vs evacuación
+C0492	DIFFERENT	b añade "too"
+C0493	DIFFERENT	b niega la condición de conclusión
+C0494	SAME	solo coma
+C0495	DIFFERENT	b no exige procesar siempre; condicional distinto
+C0496	DIFFERENT	opuestos: no/sí, andar superior/inferior
+C0497	DIFFERENT	at most 1 vs fewer than 1
+C0498	DIFFERENT	más de 50 vs menos de 50
+C0499	DIFFERENT	más de 20 vs no máximo 20
+C0500	DIFFERENT	día 20 vs día 21
+C0501	DIFFERENT	modales invertidos (deben/pueden)
+C0502	DIFFERENT	refused to pay vs refused not to pay
+C0503	DIFFERENT	b añade "on the next day"
+C0504	SAME	salvo = excepto
+C0505	SAME	after seven days = past the seventh day
+C0506	DIFFERENT	opuestos sobre cocer la cebolla
+C0507	DIFFERENT	b añade "solo"
+C0508	SAME	al menos cuatro = cuatro o más; expectativa = necesidad
+C0509	UNSURE	"report their supervisor" literal vs "report to their supervisor"; redaccion rota
+C0510	DIFFERENT	10 vs 11 de noviembre
+C0511	SAME	al menos dos = dois ou mais
+C0512	SAME	menos de 50 = no más de 49 en enteros
+C0513	SAME	until vs unless con la misma lectura
+C0514	DIFFERENT	before vs by (estricto vs inclusivo)
+C0515	UNSURE	ancla de "después" ambigua en a
+C0516	SAME	misma condición
+C0517	SAME	solo si = únicamente cuando, misma condición
+C0518	DIFFERENT	más de 5 vs al menos 5
+C0519	SAME	misma prohibición/requisito
+C0520	DIFFERENT	a obliga ambas acciones; b condiciona el pago
+C0521	SAME	mismo día y hora
+C0522	DIFFERENT	adiante (adelantar) vs atrasa: sentido opuesto
+C0523	DIFFERENT	no more than vs no fewer than
+C0524	SAME	activa/pasiva
+C0525	SAME	at least 50 = more than 49 en enteros
+C0526	SAME	activa/pasiva
+C0527	SAME	exceto = a não ser
+C0528	SAME	except for = except
+C0529	SAME	deve-se verificar = devem ser verificadas
+C0530	DIFFERENT	a prohibe tocar sin guantes; b lo permite
+C0531	SAME	when vs if, misma condición en la práctica
+C0532	SAME	misma información reordenada
+C0533	SAME	activa/pasiva
+C0534	SAME	within 2 hours = within the next 2 hours
+C0535	SAME	antes del mediodía y luego envío inmediato
+C0536	DIFFERENT	b añade "only if"
+C0537	DIFFERENT	retira vs coloca (opuestos)
+C0538	DIFFERENT	a obliga reparar si necesario; b lo hace opcional
+C0539	DIFFERENT	hoy vs mañana
+C0540	SAME	activa/pasiva
+C0541	SAME	tú vs usted, misma instrucción
+C0542	SAME	apart from = unless
+C0543	SAME	ao menos três = três ou mais
+C0544	SAME	al menos dos = más de uno
+C0545	DIFFERENT	a cambia salvo acuerdo; b cambia solo con acuerdo (opuestos)
+C0546	DIFFERENT	30 días vs un mes
+C0547	DIFFERENT	but vs and; b niega la cultura
+C0548	SAME	misma instrucción reordenada
+C0549	DIFFERENT	30 de abril vs 1 de mayo
+C0550	SAME	misma condición e instrucción
+C0551	SAME	apart from = other than
+C0552	DIFFERENT	must vs should
+C0553	SAME	misma fecha límite
+C0554	SAME	at most two = no more than two
+C0555	DIFFERENT	sal y pimienta intercambiados
+C0556	SAME	só quando = se
+C0557	SAME	mismo mínimo y condición
+C0558	DIFFERENT	other than vs including overdue
+C0559	SAME	misma exigencia, redaccion confusa
+C0560	DIFFERENT	at least 5 vs more than 5
+C0561	SAME	misma restricción
+C0562	SAME	misma obligación
+C0563	DIFFERENT	roles de llegar y estar listo invertidos
+C0564	SAME	misma obligación
+C0565	DIFFERENT	consulta vs exame
+C0566	SAME	large machinery vs large equipment, mismo sentido
+C0567	SAME	aprobar solo si dentro de presupuesto = prohibido si excede
+C0568	SAME	unless = except aquí
+C0569	DIFFERENT	martes vs lunes
+C0570	DIFFERENT	b fija especias durante el mezclado
+C0571	DIFFERENT	a no dice que la inspección sea necesaria
+C0572	DIFFERENT	opuestos en el valor por defecto
+C0573	SAME	activa/pasiva
+C0574	DIFFERENT	podem vs devem
+C0575	DIFFERENT	more than 10 vs at least 10
+C0576	SAME	misma fecha y plazo
+C0577	DIFFERENT	trigo duro vs trigo suave
+C0578	DIFFERENT	deve/pode invertidos
+C0579	SAME	misma tarea y fecha
+C0580	SAME	misma prohibición en forma descriptiva
+C0581	SAME	misma petición
+C0582	DIFFERENT	antes vs até o meio-dia
+C0583	DIFFERENT	opuestos
+C0584	SAME	misma exigencia
+C0585	DIFFERENT	pode vs deve atualizar
+C0586	DIFFERENT	b omite "only"
+C0587	DIFFERENT	rango menos de 10 vs 9 minutos exactos
+C0588	SAME	solo si = solo cuando
+C0589	SAME	faltan menos de 15 = menos de 15 requieren cirugia
+C0590	DIFFERENT	8:00 vs 9:00
+C0591	DIFFERENT	antes de las 10 vs a las 10
+C0592	SAME	salvo = excepto
+C0593	SAME	sin excepciones, misma idea
+C0594	DIFFERENT	registra entrada vs registra salida
+C0595	DIFFERENT	on vs by Monday morning
+C0596	DIFFERENT	when vs unless (opuesto)
+C0597	SAME	activa/pasiva
+C0598	DIFFERENT	con cuidado vs con la carne
+C0599	SAME	mismo sentido
+C0600	SAME	excluding = all but
+C0601	SAME	mismo sentido
+C0602	DIFFERENT	a no especifica despues; b exige despues de comer
+C0603	SAME	el chef asa la carne
+C0604	SAME	3 PM = 15:00
+C0605	SAME	more than five = at least six
+C0606	SAME	for vs during en demostraciones
+C0607	SAME	misma exigencia
+C0608	DIFFERENT	b añade orden "despues de inspeccion"
+C0609	DIFFERENT	orden de acciones invertido
+C0610	DIFFERENT	pode/deve invertidos
+C0611	SAME	peeled implicito, mismo resultado
+C0612	SAME	misma secuencia
+C0613	DIFFERENT	enroll vs have enrolled (tiempo verbal)
+C0614	SAME	activa/pasiva
+C0615	DIFFERENT	deve vs pode repor
+C0616	DIFFERENT	if vs unless
+C0617	DIFFERENT	a dice iff; b omite la suficiencia
+C0618	SAME	mismo orden logico
+C0619	SAME	18h = 6 da tarde
+C0620	SAME	error gramatical, misma intencion
+C0621	SAME	starts up = is started up
+C0622	SAME	exceptuando = excepto
+C0623	SAME	mismo sentido
+C0624	SAME	activa/pasiva
+C0625	SAME	mas de cuatro = superior a cuatro
+C0626	DIFFERENT	b niega cambiar el lugar; a lo permite
+C0627	SAME	misma prohibicion con postre dulce
+C0628	DIFFERENT	friday morning vs friday evening
+C0629	SAME	misma accion y momento
+C0630	SAME	solo si = cuando
+C0631	SAME	misma prohibicion
+C0632	SAME	14h = 2 da tarde
+C0633	DIFFERENT	must vs should
+C0634	SAME	verificar identidad antes de permitir acceso
+C0635	SAME	mismas acciones, orden irrelevante
+C0636	SAME	apenas se = somente quando
+C0637	SAME	coma no cambia el sentido
+C0638	DIFFERENT	b pide posponer; a solo no realizar
+C0639	SAME	a menos que = excepto
+C0640	SAME	4 PM = 16:00
+C0641	SAME	activa/pasiva
+C0642	SAME	twice = more than once
+C0643	DIFFERENT	must vs may
+C0644	DIFFERENT	orden y modal invertidos
+C0645	DIFFERENT	opuesto: cerrada a menos que vs solo cuando
+C0646	SAME	misma fecha limite
+C0647	SAME	misma excepcion
+C0648	DIFFERENT	b omite "solo"
+C0649	DIFFERENT	2:00 PM vs 3:00 PM
+C0650	DIFFERENT	b añade lugar externo
+C0651	DIFFERENT	no more than vs more than
+C0652	DIFFERENT	solo cuando solicite vs cuando esté disponible
+C0653	SAME	fewer than 3 = at most 2
+C0654	SAME	falla en caja vs problema en punto de venta, misma condicion
+C0655	SAME	mismas condiciones reordenadas
+C0656	SAME	traduccion
+C0657	SAME	misma informacion
+C0658	SAME	no altere = preserve
+C0659	SAME	mismo sentido
+C0660	SAME	when not in use = unless in use
+C0661	DIFFERENT	opuestos
+C0662	DIFFERENT	inicio del turno de tarde vs meio-dia
+C0663	DIFFERENT	refrigeradores vs armarios
+C0664	DIFFERENT	al menos una vs menos de una
+C0665	SAME	if vs when, misma condicion
+C0666	SAME	misma instruccion
+C0667	DIFFERENT	dia 20 vs dia 22
+C0668	SAME	should = recommended, mismo sentido
+C0669	SAME	mismo almuerzo y hora
+C0670	DIFFERENT	debe vs puede
+C0671	DIFFERENT	11 AM vs 1 PM
+C0672	SAME	misma regla
+C0673	DIFFERENT	meio-dia vs 13h
+C0674	SAME	misma condicion de descuento
+C0675	SAME	activa/pasiva
+C0676	SAME	misma instruccion
+C0677	DIFFERENT	mañana vs hoy
+C0678	SAME	activa/pasiva
+C0679	SAME	activa/pasiva
+C0680	DIFFERENT	dias distintos
+C0681	DIFFERENT	deben vs pueden
+C0682	DIFFERENT	mañana vs hoy
+C0683	UNSURE	"apenas" ambiguo (solo/recien); el resto coincide
+C0684	DIFFERENT	debe vs puede informar
+C0685	SAME	misma prohibicion
+C0686	SAME	solo cuando = solo si
+C0687	SAME	evite = nao use
+C0688	SAME	misma instruccion
+C0689	SAME	misma informacion
+C0690	SAME	activa/pasiva
+C0691	SAME	misma regla
+C0692	SAME	misma secuencia
+C0693	DIFFERENT	b añade "only"
+C0694	SAME	misma instruccion
+C0695	DIFFERENT	al menos cinco vs más de cinco
+C0696	SAME	misma receta, agente implicito
+C0697	SAME	activa/pasiva
+C0698	DIFFERENT	pode/deve invertidos
+C0699	SAME	activa/pasiva
+C0700	SAME	activa/pasiva
+C0701	SAME	fewer than three = at most two
+C0702	DIFFERENT	more vs fewer than five
+C0703	DIFFERENT	on vs by July 1st
+C0704	DIFFERENT	opuestos
+C0705	SAME	fragile = breakable, yellow bin = container
+C0706	DIFFERENT	devem vs podem
+C0707	SAME	other than = except
+C0708	SAME	9h = 9 da manha
+C0709	SAME	despues de / pasadas las 6 PM
+C0710	SAME	visible = obvio
+C0711	DIFFERENT	opuestos local/horario
+C0712	DIFFERENT	containers vs tanks, alcance distinto
+C0713	DIFFERENT	no máximo vs pelo menos
+C0714	DIFFERENT	horas invertidas
+C0715	DIFFERENT	A-2 vs B-2
+C0716	SAME	misma instruccion
+C0717	SAME	salvo = excepto
+C0718	SAME	se = quando
+C0719	DIFFERENT	gerente singular vs gerentes plural
+C0720	SAME	at least 3 = minimum of three
+C0721	DIFFERENT	entrada vs saida
+C0722	DIFFERENT	más de 3 vs 4 cucharadas
+C0723	DIFFERENT	podem vs devem
+C0724	SAME	mismo orden de pasos
+C0725	DIFFERENT	al dente vs blanda; solo hasta
+C0726	SAME	mediodía = 12 PM
+C0727	SAME	apart from = except
+C0728	SAME	misma secuencia
+C0729	UNSURE	relatar vs chegar ao gerente
+C0730	DIFFERENT	dirección del préstamo opuesta
+C0731	DIFFERENT	opuestos en la obligación
+C0732	DIFFERENT	podem vs devem
+C0733	SAME	fewer than 10 = less than ten
+C0734	SAME	misma obligación
+C0735	SAME	misma regla
+C0736	SAME	misma regla
+C0737	DIFFERENT	off vs on
+C0738	SAME	misma condicion
+C0739	DIFFERENT	debe vs puede
+C0740	DIFFERENT	poco a poco vs de una vez
+C0741	SAME	activa/pasiva
+C0742	DIFFERENT	b añade "only"
+C0743	DIFFERENT	modales invertidos
+C0744	SAME	a menos que no = si
+C0745	DIFFERENT	grandes vs pequeñas
+C0746	DIFFERENT	20 vs 25 de noviembre
+C0747	DIFFERENT	opuestos
+C0748	SAME	misma prohibicion de cambiar fecha
+C0749	SAME	more than four = at least five
+C0750	DIFFERENT	al menos vs no máximo
+C0751	DIFFERENT	final vs principio
+C0752	SAME	ultrapassar = superior a
+C0753	SAME	caso = se
+C0754	DIFFERENT	opuestos
+C0755	SAME	y vs pero, misma prohibicion
+C0756	DIFFERENT	b añade condición de riesgo
+C0757	SAME	misma fecha limite
+C0758	DIFFERENT	obligación de enviar cambia; b condiciona
+C0759	DIFFERENT	deve/pode invertidos
+C0760	SAME	misma obligación
+C0761	DIFFERENT	when vs unless
+C0762	SAME	misma informacion
+C0763	DIFFERENT	más de 5 vs mínimo 5
+C0764	DIFFERENT	opuestos
+C0765	SAME	misma excepcion
+C0766	SAME	misma condicion
+C0767	SAME	misma condicion
+C0768	SAME	misma prohibicion
+C0769	SAME	other than = except
+C0770	DIFFERENT	19h10 vs 19h20
+C0771	SAME	mais do que 2 = pelo menos 3
+C0772	DIFFERENT	more than vs at least 30
+C0773	SAME	activa/pasiva
+C0774	DIFFERENT	b añade secuencia "antes de"
+C0775	DIFFERENT	modales invertidos
+C0776	DIFFERENT	pueden vs deben cancelar
+C0777	SAME	só é concedida quando = se
+C0778	SAME	mismo orden reordenado
+C0779	SAME	activa/pasiva
+C0780	SAME	misma exigencia
+C0781	SAME	misma informacion
+C0782	SAME	deben = se espera, mismo sentido
+C0783	SAME	agente implicito añadido
+C0784	SAME	misma condicion
+C0785	SAME	misma condicion
+C0786	SAME	traduccion
+C0787	SAME	misma regla
+C0788	DIFFERENT	hasta las 10h vs a las 10h
+C0789	DIFFERENT	rango menos de 10 vs 9 minutos exactos
+C0790	SAME	misma accion
+C0791	SAME	temporal vs temporalmente, error gramatical
+C0792	SAME	misma excepcion
+C0793	SAME	apenas quando = somente se
+C0794	SAME	mismo orden logico
+C0795	SAME	misma info reordenada
+C0796	UNSURE	concordancia distinta: estén vs esté
+C0797	SAME	mismas obligaciones, orden distinto
+C0798	DIFFERENT	b añade "if and only if"
+C0799	DIFFERENT	opuestos
+C0800	DIFFERENT	b añade condición de sala
+C0801	DIFFERENT	should vs must
+C0802	DIFFERENT	con foto vs sin foto
+C0803	DIFFERENT	should vs can
+C0804	DIFFERENT	al menos vs menos de
+C0805	SAME	misma regla
+C0806	SAME	mismo envío y plazo
+C0807	SAME	al menos = no menos de
+C0808	DIFFERENT	b cambia la regla del teléfono
+C0809	SAME	misma información, may hedge
+C0810	SAME	misma prohibicion
+C0811	DIFFERENT	1 de junio vs 5 de junio
+C0812	DIFFERENT	before vs on Friday
+C0813	DIFFERENT	al menos vs menos de
+C0814	SAME	misma prohibicion
+C0815	DIFFERENT	b omite "only"
+C0816	SAME	misma info
+C0817	DIFFERENT	acceso a recursos en línea: sí vs no
+C0818	SAME	activa/pasiva
+C0819	DIFFERENT	postal vs electrónico
+C0820	SAME	dia 25 = dia vinte e cinco
+C0821	DIFFERENT	b afirma que no hay errores
+C0822	SAME	mismo plazo
+C0823	DIFFERENT	mínimo vs máximo
+C0824	SAME	activa/pasiva
+C0825	DIFFERENT	b añade recepción
+C0826	SAME	salvo = a menos que
+C0827	DIFFERENT	antes de la reunión vs hasta que finalice
+C0828	DIFFERENT	opuestos
+C0829	SAME	misma secuencia y obligación
+C0830	SAME	a não ser que = a menos que
+C0831	DIFFERENT	call vs contact (canal específico)
+C0832	SAME	misma info
+C0833	SAME	martes mediodía = midday on Tuesday
+C0834	SAME	misma regla
+C0835	DIFFERENT	b omite "solo"
+C0836	DIFFERENT	only if vs when
+C0837	SAME	activa/pasiva
+C0838	DIFFERENT	mañana vs después de mañana
+C0839	SAME	activa/pasiva
+C0840	DIFFERENT	menos de 10 vs a lo más 10
+C0841	DIFFERENT	12 PM vs 10 PM
+C0842	SAME	solo si = solo cuando
+C0843	SAME	misma regla
+C0844	SAME	misma obligación
+C0845	SAME	misma condicion
+C0846	SAME	misma secuencia
+C0847	DIFFERENT	b añade excepción
+C0848	SAME	misma instruccion
+C0849	SAME	se = caso
+C0850	DIFFERENT	at least 5 vs fewer than 5
+C0851	SAME	no reprogramar hoy
+C0852	DIFFERENT	cuando vs si no
+C0853	SAME	mismo día y hora
+C0854	SAME	misma regla
+C0855	SAME	siempre y cuando = solo si
+C0856	DIFFERENT	b añade no asistir a la cena
+C0857	SAME	misma fecha limite
+C0858	SAME	any = misma regla
+C0859	DIFFERENT	cliente vs proveedor
+C0860	SAME	misma info
+C0861	DIFFERENT	menos de 5 vs 5 o menos
+C0862	SAME	posponer a próxima semana = remover y agendar para la siguiente
+C0863	SAME	misma condicion
+C0864	SAME	mismo máximo
+C0865	SAME	but = and, misma regla
+C0866	UNSURE	"Don't, não" ambiguo
+C0867	SAME	mismo orden libre
+C0868	SAME	misma info
+C0869	SAME	should = recommended
+C0870	SAME	somente se = caso
+C0871	SAME	misma regla
+C0872	SAME	misma obligacion
+C0873	SAME	misma regla, mas-y/e sin cambio
+C0874	SAME	misma secuencia
+C0875	SAME	misma regla
+C0876	SAME	misma condicion
+C0877	DIFFERENT	estantería 3 vs 4
+C0878	SAME	misma regla
+C0879	SAME	more than 5 = at least 6
+C0880	SAME	misma info
+C0881	DIFFERENT	at least vs at most
+C0882	SAME	misma regla
+C0883	SAME	activa/pasiva
+C0884	SAME	misma excepcion
+C0885	DIFFERENT	by vs at 10 AM
+C0886	SAME	misma info
+C0887	SAME	misma regla
+C0888	SAME	at least 10 = 10 or more
+C0889	SAME	misma idea
+C0890	DIFFERENT	hoy vs amanha
+C0891	DIFFERENT	19 vs 20 de diciembre
+C0892	SAME	misma secuencia
+C0893	DIFFERENT	deben invertidos
+C0894	DIFFERENT	b añade excepción
+C0895	DIFFERENT	by vs at, must vs should
+C0896	DIFFERENT	deber/poder invertidos
+C0897	DIFFERENT	debe vs puede
+C0898	DIFFERENT	more than vs at least
+C0899	SAME	misma info
+C0900	DIFFERENT	until vs if
+C0901	DIFFERENT	la línea vs alguna línea
+C0902	DIFFERENT	13 vs 14 de febrero
+C0903	DIFFERENT	apenas se vs sempre que
+C0904	SAME	autorizacion = consentimiento
+C0905	SAME	misma idea
+C0906	DIFFERENT	b cambia el sentido de la justificacion
+C0907	DIFFERENT	contacto vs llamada; misma hora
+C0908	SAME	activa/pasiva
+C0909	SAME	misma condicion
+C0910	SAME	misma regla
+C0911	DIFFERENT	menos de 10 vs 10 o menos
+C0912	SAME	activa/pasiva
+C0913	SAME	misma instruccion
+C0914	SAME	misma info
+C0915	SAME	exceto = a menos que
+C0916	DIFFERENT	by vs at 3 PM
+C0917	DIFFERENT	até a quinta vs na quinta
+C0918	DIFFERENT	puede vs debe revisar
+C0919	DIFFERENT	should vs may
+C0920	SAME	activa/pasiva
+C0921	DIFFERENT	más de vs menos de 30
+C0922	SAME	misma instruccion
+C0923	DIFFERENT	on vs before June 5
+C0924	SAME	misma excepcion
+C0925	DIFFERENT	may vs should
+C0926	SAME	misma info
+C0927	SAME	activa/pasiva
+C0928	DIFFERENT	when vs only if
+C0929	SAME	solo si = solo en el caso
+C0930	DIFFERENT	can't vs can take breaks
+C0931	DIFFERENT	unless vs if
+C0932	SAME	misma restriccion
+C0933	DIFFERENT	empresa vs gobierno
+C0934	SAME	misma idea
+C0935	SAME	misma regla
+C0936	SAME	misma instruccion
+C0937	DIFFERENT	off vs on
+C0938	SAME	at most = no more than
+C0939	SAME	misma idea
+C0940	SAME	misma condicion
+C0941	SAME	misma info
+C0942	SAME	menos de tres = dois ou menos
+C0943	DIFFERENT	before vs after go-live
+C0944	SAME	misma accion
+C0945	SAME	misma info
+C0946	DIFFERENT	at least vs more than 1 hora
+C0947	SAME	warehouse = storage facility
+C0948	SAME	para = a
+C0949	SAME	a más tardar 5 = antes del 6
+C0950	DIFFERENT	19h vs 20h
+C0951	SAME	misma exclusion
+C0952	SAME	activa/pasiva
+C0953	DIFFERENT	desinfetados vs conectados
+C0954	DIFFERENT	Friday vs Thursday

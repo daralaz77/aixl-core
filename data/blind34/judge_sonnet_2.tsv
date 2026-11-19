@@ -1,0 +1,477 @@
+C0478	SAME	both prohibit both
+C0479	SAME	synonym exception
+C0480	SAME	passive reflexive
+C0481	DIFFERENT	"poder ser" added
+C0482	DIFFERENT	at least vs more than
+C0483	DIFFERENT	"hoy" added
+C0484	SAME	paraphrase
+C0485	DIFFERENT	aisle B vs C
+C0486	DIFFERENT	more vs less
+C0487	DIFFERENT	before vs after
+C0488	DIFFERENT	polarity of leaving
+C0489	DIFFERENT	condition added
+C0490	DIFFERENT	parameters vs values
+C0491	DIFFERENT	emergency vs evacuation
+C0492	DIFFERENT	too late added
+C0493	DIFFERENT	polarity inverted
+C0494	SAME	punctuation only
+C0495	DIFFERENT	process vs issue
+C0496	DIFFERENT	upper vs lower floor
+C0497	DIFFERENT	at most vs fewer than
+C0498	DIFFERENT	more vs less
+C0499	DIFFERENT	more than vs at most
+C0500	DIFFERENT	day 20 vs 21
+C0501	DIFFERENT	modals swapped
+C0502	DIFFERENT	refused not to pay
+C0503	DIFFERENT	next day added
+C0504	SAME	salvo/excepto
+C0505	SAME	no refund after 7 days
+C0506	DIFFERENT	raw vs cooked
+C0507	DIFFERENT	if vs only if
+C0508	SAME	at least four
+C0509	SAME	same obligation
+C0510	DIFFERENT	date 10 vs 11
+C0511	SAME	at least two
+C0512	SAME	under 50 = max 49
+C0513	SAME	until/unless equivalent
+C0514	DIFFERENT	before vs by
+C0515	SAME	same obligations
+C0516	SAME	only if address correct
+C0517	SAME	only in sales area
+C0518	DIFFERENT	more than vs at least
+C0519	SAME	legal approval before
+C0520	DIFFERENT	conditional vs both required
+C0521	SAME	Wed 3 PM
+C0522	DIFFERENT	advance vs delay
+C0523	DIFFERENT	no more vs no fewer
+C0524	SAME	passive
+C0525	SAME	50+ units
+C0526	SAME	passive
+C0527	SAME	except Joao
+C0528	SAME	same
+C0529	SAME	passive
+C0530	DIFFERENT	gloves polarity
+C0531	SAME	when/if
+C0532	SAME	same exception
+C0533	SAME	same meaning
+C0534	DIFFERENT	"next" added
+C0535	SAME	same sequence
+C0536	DIFFERENT	when vs only if
+C0537	DIFFERENT	remove vs place
+C0538	DIFFERENT	repair obligation vs may
+C0539	DIFFERENT	today vs tomorrow
+C0540	SAME	passive
+C0541	SAME	espera/espere
+C0542	SAME	apart from/unless
+C0543	SAME	at least three
+C0544	SAME	at least two
+C0545	DIFFERENT	unless vs only if
+C0546	DIFFERENT	30 days vs one month
+C0547	DIFFERENT	includes vs not include
+C0548	SAME	reply before July 10
+C0549	DIFFERENT	April 30 vs May 1
+C0550	SAME	notify if cancelled
+C0551	SAME	same
+C0552	DIFFERENT	must vs should
+C0553	SAME	same deadline
+C0554	SAME	max two
+C0555	DIFFERENT	salt vs pepper swapped
+C0556	SAME	only when/if
+C0557	SAME	min R$50
+C0558	DIFFERENT	excluding vs including overdue
+C0559	SAME	bring ID
+C0560	DIFFERENT	at least vs more than
+C0561	SAME	same
+C0562	SAME	same
+C0563	DIFFERENT	modals swapped
+C0564	SAME	both sign in writing
+C0565	DIFFERENT	appointment vs exam
+C0566	SAME	same exception
+C0567	SAME	budget condition
+C0568	SAME	unless/except
+C0569	DIFFERENT	Tuesday vs Monday
+C0570	SAME	same
+C0571	DIFFERENT	permissive vs only after
+C0572	DIFFERENT	add vs do not add
+C0573	SAME	passive
+C0574	DIFFERENT	may vs must return
+C0575	DIFFERENT	more than vs at least
+C0576	DIFFERENT	review by vs submit by
+C0577	DIFFERENT	hard vs soft wheat, only
+C0578	DIFFERENT	modals swapped
+C0579	SAME	same
+C0580	SAME	no procedures unsupervised
+C0581	SAME	don't hang up, wait
+C0582	DIFFERENT	before vs until noon
+C0583	DIFFERENT	opposite
+C0584	SAME	at least one
+C0585	DIFFERENT	may vs must
+C0586	DIFFERENT	only if vs if
+C0587	DIFFERENT	under 10 vs exactly 9
+C0588	SAME	only if/when
+C0589	SAME	under 15
+C0590	DIFFERENT	8 vs 9 AM
+C0591	DIFFERENT	before vs at
+C0592	SAME	same exception
+C0593	SAME	no exceptions
+C0594	DIFFERENT	entry vs exit
+C0595	DIFFERENT	on vs by
+C0596	DIFFERENT	when vs unless
+C0597	SAME	passive
+C0598	DIFFERENT	different method
+C0599	SAME	unless vaccinated
+C0600	SAME	except fragile
+C0601	SAME	same
+C0602	DIFFERENT	after meal added
+C0603	SAME	same
+C0604	SAME	Wed 3 PM
+C0605	SAME	6+ beds
+C0606	SAME	same
+C0607	SAME	at least three
+C0608	DIFFERENT	inspected+labeled vs label after inspection
+C0609	SAME	same tasks and time
+C0610	DIFFERENT	modals swapped
+C0611	SAME	same
+C0612	SAME	same
+C0613	DIFFERENT	may enroll vs have enrolled
+C0614	SAME	passive
+C0615	DIFFERENT	must vs may restock
+C0616	DIFFERENT	if vs unless
+C0617	DIFFERENT	iff vs only if
+C0618	SAME	same
+C0619	SAME	18h deadline
+C0620	SAME	except red
+C0621	SAME	same
+C0622	SAME	same
+C0623	SAME	same
+C0624	SAME	passive
+C0625	SAME	more than four
+C0626	DIFFERENT	place allowed vs not
+C0627	SAME	no salt
+C0628	DIFFERENT	morning vs evening
+C0629	SAME	passive
+C0630	SAME	only if paid
+C0631	SAME	same
+C0632	SAME	Monday 2 PM
+C0633	DIFFERENT	must vs should
+C0634	SAME	verify ID first
+C0635	SAME	same
+C0636	SAME	only if fasting
+C0637	SAME	same
+C0638	DIFFERENT	not now vs postpone
+C0639	SAME	same
+C0640	SAME	Wed 4 PM
+C0641	SAME	passive
+C0642	SAME	not twice
+C0643	DIFFERENT	must vs may
+C0644	DIFFERENT	modals swapped
+C0645	DIFFERENT	opposite condition
+C0646	SAME	same
+C0647	SAME	emergency exception
+C0648	DIFFERENT	only if vs if
+C0649	DIFFERENT	2 vs 3 PM
+C0650	DIFFERENT	location added
+C0651	DIFFERENT	opposite
+C0652	DIFFERENT	only on request vs when available
+C0653	SAME	max 2
+C0654	SAME	only on POS failure
+C0655	SAME	same conditions
+C0656	SAME	translation
+C0657	SAME	same
+C0658	SAME	keep schedule
+C0659	SAME	same
+C0660	SAME	same
+C0661	DIFFERENT	opposite
+C0662	DIFFERENT	afternoon shift vs noon
+C0663	DIFFERENT	refrigerators vs cabinets
+C0664	DIFFERENT	at least vs less than one
+C0665	SAME	same
+C0666	SAME	same
+C0667	DIFFERENT	20 vs 22
+C0668	SAME	should/recommended
+C0669	SAME	same
+C0670	DIFFERENT	must vs may
+C0671	DIFFERENT	11 AM vs 1 PM
+C0672	SAME	same
+C0673	DIFFERENT	noon vs 1 PM
+C0674	SAME	same
+C0675	SAME	passive
+C0676	SAME	same
+C0677	DIFFERENT	tomorrow vs today
+C0678	SAME	passive
+C0679	SAME	passive
+C0680	DIFFERENT	days changed
+C0681	DIFFERENT	must vs may
+C0682	DIFFERENT	tomorrow vs today
+C0683	DIFFERENT	"only" added
+C0684	DIFFERENT	must vs may inform
+C0685	SAME	same
+C0686	SAME	same
+C0687	DIFFERENT	avoid vs do not use
+C0688	SAME	same
+C0689	SAME	same
+C0690	SAME	passive
+C0691	SAME	same
+C0692	SAME	same
+C0693	DIFFERENT	only added
+C0694	SAME	same
+C0695	DIFFERENT	at least vs more than
+C0696	SAME	same
+C0697	SAME	passive
+C0698	DIFFERENT	modals swapped
+C0699	SAME	passive
+C0700	SAME	passive
+C0701	SAME	fewer than 3 = at most 2
+C0702	DIFFERENT	more vs fewer
+C0703	DIFFERENT	on vs by
+C0704	DIFFERENT	swapped permissions
+C0705	SAME	same
+C0706	DIFFERENT	must vs may wait
+C0707	SAME	same
+C0708	SAME	same
+C0709	SAME	same
+C0710	SAME	same
+C0711	DIFFERENT	different permissions
+C0712	SAME	same
+C0713	DIFFERENT	max vs min
+C0714	DIFFERENT	times swapped
+C0715	DIFFERENT	A-2 vs B-2
+C0716	SAME	same
+C0717	SAME	same
+C0718	SAME	same
+C0719	DIFFERENT	singular vs plural managers
+C0720	SAME	at least 3
+C0721	DIFFERENT	entry vs exit
+C0722	DIFFERENT	more than 3 vs 4
+C0723	DIFFERENT	may vs must
+C0724	DIFFERENT	modals changed
+C0725	DIFFERENT	al dente vs soft
+C0726	SAME	same
+C0727	SAME	same
+C0728	SAME	same
+C0729	DIFFERENT	report vs arrive
+C0730	DIFFERENT	different action
+C0731	DIFFERENT	different meaning
+C0732	DIFFERENT	may vs must
+C0733	SAME	under 10
+C0734	SAME	same
+C0735	SAME	same
+C0736	SAME	same
+C0737	DIFFERENT	off vs on
+C0738	SAME	same
+C0739	DIFFERENT	must vs may
+C0740	DIFFERENT	gradual vs all at once
+C0741	DIFFERENT	received added
+C0742	SAME	same
+C0743	DIFFERENT	modals swapped
+C0744	SAME	equivalent condition
+C0745	DIFFERENT	large vs small
+C0746	DIFFERENT	Nov 20 vs 25
+C0747	DIFFERENT	opposite
+C0748	SAME	same
+C0749	SAME	5+
+C0750	DIFFERENT	at least vs at most
+C0751	DIFFERENT	end vs start
+C0752	DIFFERENT	only added
+C0753	SAME	same
+C0754	DIFFERENT	load vs unload
+C0755	SAME	same
+C0756	DIFFERENT	extra condition
+C0757	SAME	same
+C0758	DIFFERENT	obligations differ
+C0759	DIFFERENT	modals swapped
+C0760	SAME	same
+C0761	DIFFERENT	when vs unless
+C0762	SAME	same
+C0763	DIFFERENT	more than vs at least
+C0764	DIFFERENT	opposite
+C0765	SAME	same
+C0766	SAME	same
+C0767	SAME	same
+C0768	SAME	same
+C0769	SAME	same
+C0770	DIFFERENT	10 vs 20 min
+C0771	SAME	>2 = at least 3
+C0772	DIFFERENT	more than vs at least
+C0773	SAME	passive
+C0774	DIFFERENT	importance vs ordering
+C0775	DIFFERENT	modals swapped
+C0776	DIFFERENT	may vs must
+C0777	SAME	same
+C0778	SAME	same
+C0779	SAME	passive
+C0780	SAME	same
+C0781	SAME	same
+C0782	SAME	same
+C0783	DIFFERENT	"by someone" added
+C0784	SAME	same
+C0785	SAME	same
+C0786	SAME	more than 2
+C0787	SAME	same
+C0788	DIFFERENT	until vs at
+C0789	DIFFERENT	under 10 vs 9 exactly
+C0790	SAME	same
+C0791	SAME	same
+C0792	SAME	same
+C0793	SAME	same
+C0794	SAME	order only
+C0795	SAME	same
+C0796	SAME	same
+C0797	SAME	same
+C0798	DIFFERENT	if vs iff
+C0799	DIFFERENT	polarity
+C0800	DIFFERENT	extra condition
+C0801	DIFFERENT	should vs must
+C0802	DIFFERENT	with vs without photo
+C0803	DIFFERENT	should vs can
+C0804	DIFFERENT	at least vs fewer
+C0805	SAME	same
+C0806	SAME	same
+C0807	SAME	at least three
+C0808	DIFFERENT	phone condition differs
+C0809	SAME	same
+C0810	SAME	same
+C0811	DIFFERENT	due date changed
+C0812	DIFFERENT	before vs on Friday
+C0813	DIFFERENT	at least vs fewer
+C0814	SAME	same
+C0815	DIFFERENT	only if vs when
+C0816	SAME	same
+C0817	DIFFERENT	access polarity
+C0818	SAME	passive
+C0819	DIFFERENT	postal vs email
+C0820	SAME	day 25
+C0821	DIFFERENT	opposite
+C0822	SAME	same
+C0823	DIFFERENT	at least vs at most
+C0824	SAME	passive
+C0825	DIFFERENT	reception added
+C0826	SAME	same
+C0827	DIFFERENT	timing differs
+C0828	DIFFERENT	swapped permissions
+C0829	SAME	same
+C0830	SAME	same
+C0831	SAME	same
+C0832	SAME	over 30
+C0833	SAME	same
+C0834	SAME	same
+C0835	DIFFERENT	only added
+C0836	DIFFERENT	only if vs when
+C0837	SAME	passive
+C0838	DIFFERENT	tomorrow vs day after
+C0839	SAME	passive
+C0840	DIFFERENT	fewer than vs at most
+C0841	DIFFERENT	12 PM vs 10 PM
+C0842	SAME	same
+C0843	SAME	same
+C0844	SAME	same
+C0845	SAME	same
+C0846	SAME	same
+C0847	DIFFERENT	exception added
+C0848	SAME	same
+C0849	SAME	same
+C0850	DIFFERENT	at least vs fewer
+C0851	SAME	same
+C0852	DIFFERENT	hot vs not hot
+C0853	SAME	same
+C0854	SAME	same
+C0855	SAME	same
+C0856	DIFFERENT	dinner polarity
+C0857	SAME	same
+C0858	SAME	same
+C0859	DIFFERENT	client vs provider
+C0860	SAME	passive
+C0861	DIFFERENT	fewer than 5 vs 5 or less
+C0862	SAME	postpone to next week
+C0863	SAME	same
+C0864	SAME	max two
+C0865	SAME	same
+C0866	SAME	same
+C0867	SAME	same
+C0868	SAME	same
+C0869	SAME	same
+C0870	DIFFERENT	only added
+C0871	SAME	same
+C0872	SAME	same
+C0873	SAME	same
+C0874	SAME	same
+C0875	SAME	same
+C0876	SAME	same
+C0877	DIFFERENT	shelf 3 vs 4
+C0878	SAME	same
+C0879	SAME	6+
+C0880	SAME	same
+C0881	DIFFERENT	at least vs at most
+C0882	SAME	same
+C0883	SAME	same
+C0884	SAME	same
+C0885	DIFFERENT	by vs at 10 AM
+C0886	SAME	same
+C0887	SAME	same
+C0888	SAME	at least 10
+C0889	SAME	at most once
+C0890	DIFFERENT	today vs tomorrow
+C0891	DIFFERENT	19 vs 20 Dec
+C0892	DIFFERENT	modals changed
+C0893	DIFFERENT	modals swapped
+C0894	DIFFERENT	extra exception
+C0895	DIFFERENT	at vs by 10 AM
+C0896	DIFFERENT	modals swapped
+C0897	SAME	same
+C0898	DIFFERENT	more than vs at least
+C0899	SAME	same
+C0900	DIFFERENT	until vs if
+C0901	DIFFERENT	the line vs any line
+C0902	DIFFERENT	deadline date changed
+C0903	DIFFERENT	only vs whenever
+C0904	SAME	same
+C0905	SAME	same
+C0906	DIFFERENT	justification semantics differ
+C0907	DIFFERENT	contact vs call
+C0908	SAME	same
+C0909	SAME	same
+C0910	SAME	same
+C0911	SAME	under 10 vs 10 or less... equivalent
+C0912	SAME	passive
+C0913	SAME	same
+C0914	SAME	same
+C0915	SAME	same
+C0916	DIFFERENT	by vs at
+C0917	DIFFERENT	until vs on
+C0918	DIFFERENT	may vs must
+C0919	DIFFERENT	may vs should
+C0920	SAME	passive
+C0921	DIFFERENT	more vs fewer
+C0922	SAME	same
+C0923	DIFFERENT	on vs before
+C0924	SAME	same
+C0925	DIFFERENT	may vs should
+C0926	SAME	same
+C0927	SAME	same
+C0928	DIFFERENT	only if added
+C0929	SAME	same
+C0930	DIFFERENT	breaks polarity
+C0931	DIFFERENT	unless vs if
+C0932	SAME	same
+C0933	DIFFERENT	company vs government
+C0934	SAME	same
+C0935	SAME	same
+C0936	SAME	garbled but same
+C0937	DIFFERENT	goes off vs on
+C0938	SAME	same
+C0939	SAME	same
+C0940	SAME	same
+C0941	SAME	same
+C0942	SAME	max 2
+C0943	DIFFERENT	before vs after
+C0944	SAME	same
+C0945	SAME	same
+C0946	DIFFERENT	at least vs more than
+C0947	SAME	same
+C0948	SAME	same
+C0949	SAME	deadline same
+C0950	DIFFERENT	19h vs 20h
+C0951	SAME	same
+C0952	SAME	passive
+C0953	DIFFERENT	disinfected vs connected
+C0954	DIFFERENT	Friday vs Thursday
