@@ -54,7 +54,7 @@ Stdlib HTTP server for demos only: `GET /` (UI) and `POST /api/compare` with `{"
 * `aixl.core.completeness.check_completeness(text, graph)` → `{complete, unaccounted, unreflected_markers, markers}`; `annotate(graph, text)` stores it in `graph.meta["completeness"]` so `compare_graphs(..., {"inconclusive": True})` can use it; `extract_markers(text)`, `marker_conflicts(a, b)`.
 * `aixl.core.lexicon_gaps.unaccounted_content(text, graph)` and `residue_key(clauses)`.
 * **`aixl.arbiter` (0.5.0, ADR-018)** — the audit layer around a full-text arbiter; it imports no provider and never calls a model:
-  * `rules_text()` / `rules_id()` — the versioned arbiter rules (`data/arbiter/rules_v1.txt`); the id is the sha256 of the bytes.
+  * `rules_text()` / `rules_id()` — the versioned arbiter rules (`aixl/resources/arbiter_rules_v1.txt`); the id is the sha256 of the bytes.
   * `consensus({judge: verdict})` → `{verdict, ok, invalid}`: SAME needs ≥ 2 valid judges, all SAME; any DIFFERENT blocks "same"; anything else is UNSURE.
   * `parse_judge_lines(text, expected_ids)` → `{verdicts, missing, invalid, unexpected}` (a dropped line in 410 judgments was observed).
   * `DecisionMemo(path, store_texts=False)` with `get(key)` / `put(record)`: append-only JSONL; texts stored as sha256 unless asked.

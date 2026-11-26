@@ -1,16 +1,16 @@
 # AIXL — experimental semantic layer (0.8.1) — read this first
 
-## What AIXL is, and what it is not (updated 2026-10-14)
+## What AIXL is, and what it is not (updated 2026-11-26)
 
 **One sentence.** AIXL is a deterministic, offline checker that **refuses to say two instructions mean the same unless it can prove it**, plus an
 audit-friendly wrapper around a full-text LLM arbiter for everything it cannot prove. It is **not** a paraphrase prover, not compression, not a standard.
 
 | It **is** | It **is not** |
 |---|---|
-| A *loss/distortion detector*: a lost negation, a changed number, a swapped weekday, `must`→`may`, `and`→`or`, a dropped clause are caught and never reported as "equal". | A way to *prove* that two free-text paraphrases mean the same. On other authors' text the deterministic layers prove ~0–2 % of true paraphrases (0.2 % decided on realistic long instructions). |
+| A *loss/distortion detector*: a lost negation, a changed number, a swapped weekday, `must`→`may`, `and`→`or`, a dropped clause: it is built to catch these instead of reporting "equal". This is **not guaranteed**: fresh sets have found wrong "equal" verdicts of the rule comparator ([EVIDENCE §4e](docs/EVIDENCE.md)). | A way to *prove* that two free-text paraphrases mean the same. On other authors' text the deterministic layers prove ~0–2 % of true paraphrases (0.2 % decided on realistic long instructions). |
 | Exact, offline, free (0.85 ms/pair) **inside a controlled vocabulary** (ES/EN/PT instructions with known verbs/nouns). | A general semantic model. The vocabulary is closed on purpose: a word it does not know is *reported*, never silently equated. |
 | A layered decision: deterministic proof first, then a 2-of-2 LLM arbiter (`aixl.arbiter.layered_decide`), with stored decisions and an audit trail. | A better judge than the arbiter. Measured on 115 pairs, layering gives the **same** accuracy as the arbiter alone (52/54 proven, 58/61 differences) — it adds a free deterministic answer where the vocabulary is controlled, and audit, not correctness. |
-| A format other agents can call: MCP server, A2A agent (Bearer auth, rate limit, body cap), 1255 tests, wheel packaging. | Validated with real agent-to-agent traffic or any real organisation (not tested). Nothing in it executes an action. |
+| A format other agents can call: MCP server, A2A agent (Bearer auth, rate limit, body cap), 2,100+ tests, wheel packaging. | Validated with real agent-to-agent traffic or any real organisation (not tested). Nothing in it executes an action. |
 
 ### How to read a verdict (this is the part people get wrong)
 
@@ -31,12 +31,14 @@ to the arbiter or to a human.
 | "Did anything get lost or changed on this hop?" (negation, quantity, date, time, modality, conjunction) | `aixl.compare_verified` / MCP `aixl_compare` | 0 false EQUIVALENT on 318 labelled DIFF pairs of other authors (blind13–18) and on 6 569 + 1 676 meaning-changing mutants |
 | "Can I let this irreversible action (delete, send, pay) go ahead because the two texts are the same?" | `compare_texts(a, b, strict=True)` / MCP `aixl_compare_semantic` / `python cli.py semantic A B --strict` | EQUIVALENT only for the same token sequence: 0 false EQUIVALENT on 342 non-equivalent pairs by other authors (blind19-25); proves almost no paraphrase |
 | "Did a critical slot change on this hop?" — negation, number, date/weekday/time, modality, and/or, condition, `only`, names, action verb, who-is-first, pronoun — on a **near-verbatim relay**, any vocabulary | `aixl.relay_check` / MCP `aixl_relay_check` | arena mutants (other authors' seeds): **94.6 %** of 2 659 corruptions flagged, **0.0 %** of 1 141 benign edits. On relays written by real models (preregistered, 120 sources): corrupted **75.8 %** flagged, near-verbatim faithful 8.3 % flagged, but **reworded faithful relays 90.8 % flagged** → NOT a gate for agents that paraphrase. Swapped roles on 90 fresh model-written cases (preregistered): **72 %** flagged (an actor delegated or the addressee turned into `you`: 95–100 %; two roles trading places with no names: **29 %**). Weak: noun-level antonyms. `ok:true` ≠ equivalent |
-| "Are these two open-text instructions the same?" (incl. a relay that REWORDS) | Arbiter 2-of-2 behind `layered_decide` (you supply two judge callables) | blind17/18: 52/54 proven, 58/61 differences. **On relays written by real models (360 pairs, preregistered): 237/240 faithful relays proven, 119/120 corruptions caught (1 false SAME, 0.8 %)**; ≈ $0.28 / 1 000 pairs; verdict flips 1.2 % → store decisions. Adding `relay_check` as a veto was tested and rejected (removed 18 correct SAMEs, added nothing) |
+| "Are these two open-text instructions the same?" (incl. a relay that REWORDS) | Arbiter 2-of-2 behind `layered_decide` (you supply two judge callables) | blind17/18: 52/54 proven, 58/61 differences. **On relays written by real models (360 pairs, preregistered): 237/240 faithful relays proven, 119/120 corruptions caught (1 false SAME, 0.8 %)**; ≈ $0.28 / 1 000 pairs; verdict flips 1.2 % → store decisions. **Sets built to be subtle are worse: two judges had 2–11.7 % false SAME (blind19-31); 0/135 on the spent set blind33.** Adding `relay_check` as a veto was tested and rejected (removed 18 correct SAMEs, added nothing) |
 | Exact duplicate / canonical key inside a controlled vocabulary | `aixl.to_aixl`, fingerprint | exact; not a candidate-pair prefilter (recall 15.8 % vs 60.3 % lexical) |
 | A tamper-evident wrapper around a message | `aixl.envelope.seal` / `verify` (`AIXL-ENV-2`) | MATCH only when the working string is accounted for; AND↔OR flip and added negations caught |
 | Input hygiene | `sanitize_input` (automatic) | invisible and look-alike characters |
 
-### Honest numbers (2026-10-14)
+### Honest numbers (2026-10-14; later ones in [EVIDENCE §4e](docs/EVIDENCE.md))
+* **Rule comparator on fresh sets (2026-11):** new construction families (blind19-25) 16/342 wrong EQUIVALENT and 14/218 equivalents proven; blind33
+  (0.8.0) 0/135 wrong EQUIVALENT but 1/135 proven. No pre-registered recall rule passed in blind29-33.
 * **Deterministic coverage** on realistic instructions written by other authors: **0.2 %** decided (15 of 6 569 mutants); 23–30 % on the project's own seeds.
   A hand-extended lexicon cannot close this: even knowing all 2 399 unaccounted words of the selection corpus gives 22 % of held-out seeds
   (`benchmarks/lexicon_coverage_curve.py`).
@@ -58,7 +60,7 @@ How to report a vulnerability, what is in scope and the known limits: [SECURITY.
 ### Status
 Not a standard; no production use. Everything measured is in [`docs/EVIDENCE.md`](docs/EVIDENCE.md) and [`LIMITATIONS.md`](LIMITATIONS.md); the earlier headline numbers
 (99.4 %, 95 %+) are history: they come from sets that share the translator's own vocabulary.
-**1,900+ tests** pass (`.venv/bin/python -m pytest -q`). **AIXL 0.4 atom layer** (concept-id atoms, wire format, firewall, fidelity): [docs/ATOMS.md](docs/ATOMS.md) — evidence in [docs/ATOMS_EVIDENCE.md](docs/ATOMS_EVIDENCE.md).
+**2,100+ tests** pass (`.venv/bin/python -m pytest -q`). **AIXL 0.4 atom layer** (concept-id atoms, wire format, firewall, fidelity): [docs/ATOMS.md](docs/ATOMS.md) — evidence in [docs/ATOMS_EVIDENCE.md](docs/ATOMS_EVIDENCE.md).
 
 [![tests](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml/badge.svg)](https://github.com/daralaz77/aixl-core/actions/workflows/tests.yml)
 [![Paper DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23227169.svg)](https://doi.org/10.5281/zenodo.23227169)

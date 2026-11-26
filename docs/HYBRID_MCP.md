@@ -3,7 +3,7 @@
 Tools: `aixl_hybrid_prepare(a, b)` and `aixl_hybrid_decide(a, b, judge_verdicts, strict=False, veto="all")`; logic in `aixl/hybrid_protocol.py`, thin wrappers in `aixl/mcp_server.py`.
 
 ## What it does
-The semantic track (cheap, rule-based) is a loss detector and a **veto**; the only thing that can *prove* that two instructions mean the same is a strict 2-of-2 LLM arbiter (`aixl/arbiter.py`, rules `data/arbiter/rules_v1.txt`). `aixl_hybrid_decide` returns:
+The semantic track (cheap, rule-based) is a loss detector and a **veto**; the only thing that can *prove* that two instructions mean the same is a strict 2-of-2 LLM arbiter (`aixl/arbiter.py`, rules `aixl/resources/arbiter_rules_v1.txt`). `aixl_hybrid_decide` returns:
 
 | result | when |
 |---|---|
@@ -33,7 +33,7 @@ On `data/blind30` (120 fresh pairs, paired against v0.7.0, with the two targeted
 
 ## Veto level (`veto`, 0.8.0) and the short-circuit hint
 - `veto="all"` (default): a unanimous `SAME` goes to `REVIEW` when the comparator found a definite difference, a suspected one, or flags the text with an `AMBIGUOUS_*` code.
-- `veto="definite"`: only a definite `NOT_EQUIVALENT` does. Measured with two fresh judges (Sonnet + Haiku, blind, `data/blind33/hybrid/RESULT_veto.md`, spent sets): `SAME` on equivalents 117 -> 129 of 135 (blind33) and 110 -> 112 of 120 (adversarial); false `SAME` unchanged (0 of 135; 3 of 240, the same three in both settings, labels arguable). The veto caught no judge error in 630 pairs; a single judge is NOT safe (Haiku alone said `SAME` on 18% of the not-equivalent adversarial pairs, 2-of-2 on 1.3%). Judge families beyond Claude (Qwen 32B, Mistral 24B on Colab, `data/blind33/colab/RESULT_colab.md`) did not change the picture: the 3 remaining false `SAME` are accepted by every family (arguable labels).
+- `veto="definite"`: only a definite `NOT_EQUIVALENT` does. Measured with two fresh judges (Sonnet + Haiku, blind, `data/blind33/hybrid/RESULT_veto.md`, spent sets): `SAME` on equivalents 117 -> 129 of 135 (blind33) and 110 -> 112 of 120 (adversarial); false `SAME` unchanged (0 of 135; 3 of 240, the same three in both settings, labels arguable). The veto caught no judge error in 630 pairs (but on blind19-25 the default veto did remove 5 false `SAME`, and blind34's noisy labels leave the question open: `EVIDENCE.md` §4e); a single judge is NOT safe (Haiku alone said `SAME` on 18% of the not-equivalent adversarial pairs, 2-of-2 on 1.3%). Judge families beyond Claude (Qwen 32B, Mistral 24B on Colab, `data/blind33/colab/RESULT_colab.md`) did not change the picture: the 3 remaining false `SAME` are accepted by every family (arguable labels).
 - Recommended: `strict: true` before an irreversible action; `veto: "definite"` for reversible ones; the default otherwise.
 - `aixl_hybrid_prepare` also returns `short_circuit`: when `available` is true the comparator found a definite difference (precision 95% on 810 spent pairs); the caller may skip the two judges and treat the pair as `DIFFERENT` (suspected, not proven).
 
